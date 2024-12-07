@@ -1,0 +1,7 @@
+echo "🔍 Running lint check..."
+pnpm lint || exit 1
+
+echo "📝 Running type check..."
+pnpm tsc || exit 1
+
+echo "✅ All checks passed!"

@@ -1,0 +1,63 @@
+{
+  "name": "ux-patterns-for-developers",
+  "private": true,
+  "license": "MIT",
+  "author": "David Dias",
+  "type": "module",
+  "scripts": {
+    "analyze": "ANALYZE=true pnpm build",
+    "build": "next build",
+    "clean": "git clean -xdf node_modules out .next",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
+    "release": "auto shipit",
+    "start": "next start",
+    "tsc": "tsc --noEmit"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "browserslist": [
+    ">= .25%",
+    "not dead"
+  ],
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "@sentry/nextjs": "^8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "markdown-to-jsx": "^7.7.1",
+    "next": "^15.0.4",
+    "next-plausible": "^3.12.4",
+    "nextra": "4.0.0-app-router.33",
+    "nextra-theme-docs": "4.0.0-app-router.33",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-intersection-observer": "^9.13.1",
+    "require-in-the-middle": "^7.4.0",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@auto-it/all-contributors": "^11.3.0",
+    "@auto-it/conventional-commits": "^11.3.0",
+    "@auto-it/first-time-contributor": "^11.3.0",
+    "@auto-it/git-tag": "^11.3.0",
+    "@auto-it/released": "^11.3.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@next/bundle-analyzer": "^15.0.4",
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "4.0.0-beta.6",
+    "@types/node": "22.10.1",
+    "@types/react": "18.3.13",
+    "auto": "^11.3.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.0.4",
+    "pagefind": "^1.2.0",
+    "tailwindcss": "4.0.0-beta.6",
+    "typescript": "^5.7.2"
+  }
+}

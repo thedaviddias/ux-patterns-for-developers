@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+@import 'nextra-theme-docs/style.css';
+
+@theme {
+  --nextra-bg-color: #000;
+  --nextra-bg-color-dark: #000;
+}
+
+body {
+}
+
+.nextra-mobile-nav {
+  background-color: white;
+
+  .dark & {
+    background-color: black;
+  }
+}

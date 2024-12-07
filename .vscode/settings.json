@@ -1,0 +1,34 @@
+{
+  "search.exclude": {
+    ".git": true,
+    "node_modules": true,
+    "package.lock": true,
+    "pnpm-lock.yaml": true,
+    ".next": true,
+    "coverage": true,
+    "public": true,
+    "CHANGELOG": true,
+    "CODE_OF_CONDUCT": true,
+    "CONTRIBUTING": true,
+    "LICENCE": true
+  },
+  "javascript.format.enable": true,
+  "javascript.validate.enable": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".jsx",
+      ".md",
+      ".mdx",
+      ".ts",
+      ".tsx"
+    ]
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+}

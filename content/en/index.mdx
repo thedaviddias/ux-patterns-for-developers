@@ -1,0 +1,19 @@
+---
+title: "Build Better User Experiences"
+description: "UX Patterns for Developers is a collection of UX patterns for everyone but specially towards developers who want to understand how to build effective UI components accessible and usable."
+searchable: false
+---
+
+import { Hero } from '@app/_components/sections/hero'
+import { SubscribeForm } from '@app/_components/subscribe'
+import { OverviewGrid } from '@app/_components/sections/overview-grid'
+import { Callout, Tabs } from 'nextra/components'
+
+# UX Patterns for Devs
+
+<Hero lang={props.params.lang} title={metadata.title} description={metadata.description} />
+
+<OverviewGrid lang={props.params.lang} />
+
+<SubscribeForm />
+
