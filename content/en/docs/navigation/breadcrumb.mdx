@@ -81,26 +81,16 @@ end
   <Tabs.Tab>
     ### Best Practices
 
-    #### Layout & Positioning
+    #### Content
     ##### Do's ✅
-    - Place the breadcrumb at the top of the page, below the global navigation and above the page title
-    - Keep the breadcrumb left-aligned
-    - Consider showing both icon and text on larger screens
-    - Consider showing a house icon instead of text "Home" on smaller screens
+    - Use clear, concise labels that match page titles
+    - Maintain consistent naming conventions
+    - Show the full hierarchy path
 
     ##### Don'ts ❌
-    - Do not show a breadcrumb if the navigation's hierarchy contains only one level (home page or landing pages for example)
-    - Do not use an HTML element for separators but prefer using CSS
+    - Don't use inconsistent terminology between breadcrumb items and page titles
+    - Don't truncate breadcrumb items without indicating there's more content
 
-    #### Visual Design
-    ##### Do's ✅
-    - Make it obvious that the last item is not clickable (through color, cursor type, etc.)
-    - Use consistent visual styling across all pages
-    - Ensure sufficient contrast between text and background
-
-    ##### Don'ts ❌
-    - Don't use distracting animations or transitions
-    - Don't make separators too prominent
 
     #### Accessibility & UX
     ##### Do's ✅
@@ -112,15 +102,26 @@ end
     - Don't make the current page title clickable
     - Don't use a breadcrumb if the user is already at the top level of the hierarchy
 
-    #### Content
+    #### Visual Design
     ##### Do's ✅
-    - Use clear, concise labels that match page titles
-    - Maintain consistent naming conventions
-    - Show the full hierarchy path
+    - Make it obvious that the last item is not clickable (through color, cursor type, etc.)
+    - Use consistent visual styling across all pages
+    - Ensure sufficient contrast between text and background
 
     ##### Don'ts ❌
-    - Don't use inconsistent terminology between breadcrumb items and page titles
-    - Don't truncate breadcrumb items without indicating there's more content
+    - Don't use distracting animations or transitions
+    - Don't make separators too prominent
+
+    #### Layout & Positioning
+    ##### Do's ✅
+    - Place the breadcrumb at the top of the page, below the global navigation and above the page title
+    - Keep the breadcrumb left-aligned
+    - Consider showing both icon and text on larger screens
+    - Consider showing a house icon instead of text "Home" on smaller screens
+
+    ##### Don'ts ❌
+    - Do not show a breadcrumb if the navigation's hierarchy contains only one level (home page or landing pages for example)
+    - Do not use an HTML element for separators but prefer using CSS
 
   </Tabs.Tab>
   <Tabs.Tab>
@@ -184,6 +185,7 @@ end
   </Tabs.Tab>
   <Tabs.Tab>
     ### SEO
+
     #### Structured Data
     - Implement breadcrumb structured data using [Schema.org markup](https://schema.org/BreadcrumbList) to help search engines understand your site's hierarchy
     - This improves the way your site appears in search results and helps search engines better understand your content structure
@@ -274,13 +276,13 @@ end
   <Tabs.Tab>
     ### Resources
 
-    ### Articles
+    #### Articles
     - [Breadcrumbs: 11 Design Guidelines for Desktop and Mobile](https://www.nngroup.com/articles/breadcrumbs/) by Nielsen Norman Group
     - [Designing Effective Breadcrumbs Navigation — Smashing Magazine](https://www.smashingmagazine.com/2022/04/breadcrumbs-ux-design/)
     - [Breadcrumb Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/) by W3C
     - [Breadcrumbs](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-breadcrumbs) - By A11y Style guide
 
-    ### Libraries
+    #### Libraries
     - [Breadcrumb: shadcn/ui](https://ui.shadcn.com/docs/components/breadcrumb)
 
   </Tabs.Tab>
