@@ -10,13 +10,15 @@ UX Patterns for Developers is a free collection of UX patterns towards developer
 To start the project locally, run:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ### Generate new pattern
 
+This command will generate a new pattern template. Simply specify the language, the category and the name of the pattern starting with a capital letter.
+
 ```bash
-npm run generate
+pnpm run generate
 ```
 
 ## 🧩 Patterns
@@ -31,7 +33,7 @@ This is an non-exhaustive list of available and incoming patterns.
 
 ### Input & Forms
 
-- Button (coming soon)
+- [Button](https://uxpatterns.dev/en/docs/forms/button)
 - Checkbox (coming soon)
 - Code Confirmation (coming soon)
 - Color Picker (coming soon)
@@ -69,7 +71,7 @@ This is an non-exhaustive list of available and incoming patterns.
 
 ## ✨ Contributors
 
-You are welcome to contribute to this project! Please read the [CONTRIBUTING.md](./.github/CONTRIBUTING.md).
+You are welcome to contribute to this project! Please read the [CONTRIBUTING.md](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->

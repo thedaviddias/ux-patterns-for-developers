@@ -10,7 +10,9 @@
     "CHANGELOG": true,
     "CODE_OF_CONDUCT": true,
     "CONTRIBUTING": true,
-    "LICENCE": true
+    "LICENCE": true,
+    ".lycheecache": true,
+    "lychee-out.md": true
   },
   "javascript.format.enable": true,
   "javascript.validate.enable": false,
