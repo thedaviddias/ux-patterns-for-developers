@@ -1,0 +1,282 @@
+import { Tabs } from "nextra/components";
+
+# Button
+
+## Overview
+
+**Buttons** are interactive elements that trigger actions or events when clicked or interacted with.
+
+## Use Cases
+
+### When to use buttons:
+
+- To trigger an immediate action or event (e.g., "Save", "Delete", "Send")
+- To submit a form
+- To open or close interactive elements (modals, dialogs, menus)
+- To toggle between states (e.g., play/pause, show/hide)
+- To download files or content
+- To navigate between steps in a multi-step process
+
+### When not to use buttons:
+
+- For navigation between pages (use links instead)
+- When the action isn't immediately clear to users
+- For text-only content that doesn't trigger an action
+- When the interaction would be better served by a different component (e.g., checkbox, toggle switch)
+- When multiple conflicting actions are grouped together
+- When the action requires additional context that isn't immediately available
+
+### Common scenarios and examples
+
+- Primary actions: "Submit", "Save", "Continue"
+- Secondary actions: "Cancel", "Back", "Reset"
+- Destructive actions: "Delete", "Remove", "Clear All"
+- Toggle actions: "Show More", "Expand/Collapse", "Play/Pause"
+- Process actions: "Upload", "Download", "Export"
+- Social actions: "Share", "Follow", "Like"
+
+## Benefits
+
+- Provides clear, actionable interactions for users to accomplish tasks
+- Maintains consistency in user interface interactions across the application
+- Offers visual feedback and states (hover, focus, active, disabled) to enhance usability
+- Supports accessibility through keyboard navigation and screen reader compatibility
+- Reduces cognitive load by making actions immediately recognizable
+
+## Anatomy
+
+```mermaid
+flowchart TB
+subgraph Button[Button Component]
+Container[Container Element] -->|contains| Content[Content Area]
+Content --> Icon[Icon <optional>]
+Content --> Label[Label Text]
+Content --> LoadingSpinner[Loading Spinner <optional>]
+style Container fill:#f0f0f0,stroke:#666,stroke-width:1px
+style Content fill:#f0f0f0,stroke:#666,stroke-width:1px
+style Icon fill:#f0f0f0,stroke:#666,stroke-width:1px
+style Label fill:#f0f0f0,stroke:#666,stroke-width:1px
+style LoadingSpinner fill:#f0f0f0,stroke:#666,stroke-width:1px
+classDef container fill:#ffffe0,stroke:#666,stroke-width:2px
+class Button container
+end
+```
+
+### Component Structure
+
+1. **Container**
+
+- The root button element that wraps all other components
+- Handles click events and keyboard interactions
+- Manages focus states and accessibility attributes
+- Contains variants for different button styles (default, destructive, outline, etc.)
+
+2. **Label Text**
+
+- The button label communicates the action that will occur
+- Should be clear, concise, and action-oriented
+- Must maintain proper contrast ratio with the background
+
+3. **Icon (Optional)**
+
+- Icons can be added to clarify an action
+- Should be the same color as the text
+- Placed on the left side of the label by default
+- Size should be proportional to text (default 16x16px)
+- Should include proper ARIA labels when used alone
+
+4. **Loading State (Optional)**
+
+- Visual indicator for async operations
+- Replaces or overlays the button content
+- Should maintain the button's original width
+- Prevents multiple clicks during loading
+- Typically uses a spinner or progress indicator
+
+5. **Visual States**
+
+- Default: Normal state
+- Hover: Visual feedback on mouse over
+- Focus: Keyboard navigation indicator
+- Active: Pressed state
+- Disabled: Indicates non-interactive state
+- Loading: Shows processing state
+
+## Guidelines and Examples
+
+<Tabs items={['Best Practices', 'Code Examples', 'Testing', 'Resources']}>
+  <Tabs.Tab>
+    ### Best Practices
+
+    #### Layout & Positioning
+    ##### Do's ✅
+    - Place primary action buttons in prominent, easily accessible locations
+    - Align buttons consistently within forms and dialogs
+    - Group related buttons together
+    - Consider mobile touch targets (minimum 44x44px)
+
+    ##### Don'ts ❌
+    - Don't position buttons where they might be accidentally clicked
+    - Don't hide important actions behind dropdown menus
+    - Don't place buttons in unexpected locations (e.g., footer)
+
+    #### Accessibility & UX
+    ##### Do's ✅
+    - Use descriptive labels that clearly communicate the action
+    - Provide visual feedback for all interactive states
+    - Ensure keyboard navigation works properly
+    - Include loading states for asynchronous actions
+    - Maintain ARIA labels and roles
+
+    ##### Don'ts ❌
+    - Don't rely solely on color to communicate button states
+    - Don't disable browser focus indicators without providing alternatives
+    - Don't use button elements for navigation (use links instead)
+    - Don't auto-focus destructive actions
+    - Don't remove focus styles
+
+    #### Content
+    ##### Do's ✅
+    - Use action verbs that describe what the button does (eg: "Save" instead of "Submit")
+    - Keep button labels concise and clear
+    - Be consistent with button labeling across the application
+    - Include loading text when appropriate ("Saving..." vs "Save")
+    - Use sentence case for button labels (e.g., "Save Changes")
+
+    ##### Don'ts ❌
+    - Don't use vague labels like "Click Here" or "Submit"
+    - Don't use inconsistent terminology
+    - Don't write overly long button labels
+    - Don't use technical jargon in button labels
+    - Don't mix different cases in button labels
+
+    #### Visual Design
+
+    ##### Do's ✅
+    - Use the same button style for the same action throughout the application
+    - Make buttons finger-friendly for mobile users (minimum 44x44px touch target)
+    - Use appropriate visual hierarchy (primary, secondary, tertiary buttons)
+    - Maintain consistent spacing between button groups
+    - Use appropriate color contrast ratios (WCAG 2.1 AA compliance)
+    - Include hover and focus states for interactive feedback
+    - Keep icon and text alignment consistent
+    - Maintain consistent padding and height across similar buttons
+    - Scale button size appropriately for different viewport sizes
+
+    ##### Don'ts ❌
+    - Don't have more than one primary action button on the screen at a time
+    - Don't use a [dark pattern](https://www.deceptive.design/) when you don't want users to take a certain action
+    - Don't mix different button styles for the same action type
+    - Don't use colors that conflict with your application's color scheme
+    - Don't make disabled buttons look interactive
+    - Don't use inconsistent corner radius within button groups
+    - Avoid having buttons looking like links or vice versa
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ### Code Examples
+
+    #### Basic Implementation
+    ```html
+    <!-- Small Button -->
+    <button type="button" class="button-sm">Small</button>
+
+    <!-- Default Size Button -->
+    <button type="button">Default</button>
+
+    <!-- Large Button -->
+    <button type="button" class="button-lg">Large</button>
+
+    <!-- Icon-only Button -->
+    <button type="button" class="button-icon" aria-label="Settings">
+      <svg class="icon" aria-hidden="true">
+        <use href="#icon-settings" />
+      </svg>
+    </button>
+    ```
+
+    #### Form Submit Button
+    ```html
+    <form>
+      <!-- Form fields here -->
+      <button type="submit" class="button button-primary" data-loading="false">
+        <span class="button-text">Submit Form</span>
+        <svg class="icon spinner hidden" aria-hidden="true">
+          <use href="#icon-loading"/>
+        </svg>
+      </button>
+    </form>
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ### Testing Guidelines
+
+    #### Functional Testing
+    ##### Should ✓
+    - Show a loader when the button is submitting a form
+    - Disable the button during form submission to prevent double submissions
+    - Handle click events and trigger the appropriate action
+    - Maintain proper visual states (hover, focus, active, disabled)
+    - Support keyboard interaction (Enter and Space keys)
+    - Preserve button width when switching between normal and loading states
+    - Reset to initial state after operation completion
+
+    #### Accessibility Testing
+    ##### Should ✓
+    - Be focusable and have visible focus indicators
+    - Have proper ARIA labels, especially for icon-only buttons
+    - Maintain sufficient color contrast ratios (WCAG 2.1 AA)
+    - Support screen reader announcements of button state changes
+    - Be operable with keyboard navigation
+    - Communicate loading states to assistive technologies
+    - Have appropriate touch target sizes (minimum 44x44px)
+
+    #### Visual Testing
+    ##### Should ✓
+    - Maintain consistent styling across different variants (primary, secondary, destructive)
+    - Display icons with correct alignment and spacing
+    - Show proper visual feedback for all interactive states
+    - Render correctly across different viewport sizes
+    - Handle text overflow appropriately
+    - Display loading spinners centered within the button
+    - Maintain proper padding and margins in all states
+
+    #### Performance Testing
+    ##### Should ✓
+    - Render without layout shifts
+    - Handle rapid click events appropriately
+    - Maintain smooth transitions between states
+    - Load icons and spinners efficiently
+    - Function without JavaScript (progressive enhancement)
+
+    ### Testing Tools
+    - Accessibility: [WAVE](https://wave.webaim.org/), [aXe](https://www.deque.com/axe/browser-extensions/), or [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview)
+    - SEO: [Google's Rich Results Test](https://developers.google.com/search/docs/appearance/structured-data)
+    - Performance: [Chrome DevTools Performance panel](https://developer.chrome.com/docs/devtools/performance/overview)
+    - Visual Regression: [Percy](https://percy.io/) or [Chromatic](https://www.chromatic.com/)
+    - Cross-browser: [BrowserStack](https://www.browserstack.com/) or [Sauce Labs](https://saucelabs.com/)
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ### Resources
+
+    - [button: The Button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
+    - [Buttons should look like buttons](https://www.nngroup.com/articles/buttons-should-look-like-buttons/) by Jakob Nielsen
+    - [I’ve been doing buttons wrong! Have you?](https://uxplanet.org/ive-been-doing-buttons-wrong-have-you-2117c0066613) by Adham Dannaway
+    - [Buttons vs links](https://www.nngroup.com/articles/buttons-vs-links/) by Jakob Nielsen
+    - [Buttons](https://www.nngroup.com/articles/buttons/) by Jakob Nielsen
+    - [Buttons: A Primer](https://alistapart.com/article/buttons-a-primer/) by Eric Meyer
+    - [A comprehensive guide to buttons](https://uxplanet.org/a-comprehensive-guide-to-buttons-8f3b8a1c6f0d) by UX Planet
+    - [A comprehensive guide to designing UX buttons](https://www.invisionapp.com/inside-design/comprehensive-guide-designing-ux-buttons/?ref=checklist.design) by InVision
+
+    - [Building Accessible Buttons with ARIA: A11y Support Series](https://www.deque.com/blog/accessible-aria-buttons/) by Deque
+    - [Buttons A11y Styleguide](https://a11y-style-guide.com/style-guide/section-general.html#kssref-general-buttons)
+
+    ### Design systems
+
+    - [Button (Carbon Design System)](https://carbondesignsystem.com/components/button/usage/)
+    - [Button (Material Design)](https://m3.material.io/components/all-buttons)
+
+  </Tabs.Tab>
+</Tabs>

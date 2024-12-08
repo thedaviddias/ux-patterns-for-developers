@@ -77,6 +77,7 @@ export const PATTERNS = {
     {
       title: 'Button',
       description: 'Trigger actions and submit forms',
+      href: '/docs/forms/button'
     },
     {
       title: 'Checkbox',
