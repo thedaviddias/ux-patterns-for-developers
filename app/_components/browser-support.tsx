@@ -67,7 +67,7 @@ export const BrowserSupport = ({ features }: BrowserSupportProps) => {
 
         return (
           <div key={feature} className="mb-6 mt-4">
-            <h4 className="text-sm font-medium mb-2">{feature}</h4>
+            <h3 className="text-sm font-medium mb-2">{feature}</h3>
             <div className="grid grid-cols-3 gap-4">
               {['chrome', 'firefox', 'safari'].map(browser => (
                 <div

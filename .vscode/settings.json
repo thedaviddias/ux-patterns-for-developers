@@ -31,4 +31,7 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
+  "[handlebars]": {
+    "editor.defaultFormatter": "eamodio.html-formatter"
+  }
 }
