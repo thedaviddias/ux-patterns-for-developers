@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@mdn/browser-compat-data':
+        specifier: ^5.6.22
+        version: 5.6.22
       '@radix-ui/react-slot':
         specifier: ^1.1.0
         version: 1.1.0(@types/react@18.3.13)(react@18.3.1)
@@ -50,6 +53,9 @@ importers:
       require-in-the-middle:
         specifier: ^7.4.0
         version: 7.4.0
+      simple-icons:
+        specifier: ^13.18.0
+        version: 13.18.0
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5
@@ -1195,6 +1201,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@mdn/browser-compat-data@5.6.22':
+    resolution: {integrity: sha512-tssmUJmywWtEEhCoY9GMPCm9chGWwCytYrlbBaIFgePs6Ui5IBsTPiOyYocRApvC+wFoCjnxhPMYdz51if8Nlg==}
 
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
@@ -5826,6 +5835,10 @@ packages:
     resolution: {integrity: sha512-iuh+gPf28RkltuJC7W5MRi6XAjTDCAPC/prJUpQoG4vIP3MJZ+GTydVnodXA7pwvTKb2cA0m9OFZW/cdWy/I/w==}
     engines: {node: '>=6'}
 
+  simple-icons@13.18.0:
+    resolution: {integrity: sha512-nxG6XOUKWgt0K7eochrIn46tLBvOcUhcSpVUwWpo8WRkS4RHxreRIRosScDm4KmmTeDuNbW114GjviHlOSWyTg==}
+    engines: {node: '>=0.12.18'}
+
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
@@ -7958,6 +7971,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@mdn/browser-compat-data@5.6.22': {}
 
   '@mdx-js/mdx@3.1.0(acorn@8.14.0)':
     dependencies:
@@ -13717,6 +13732,8 @@ snapshots:
       chalk: 2.4.2
       figures: 2.0.0
       pkg-conf: 2.1.0
+
+  simple-icons@13.18.0: {}
 
   simple-swizzle@0.2.2:
     dependencies:

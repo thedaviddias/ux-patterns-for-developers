@@ -1,3 +1,4 @@
+import { BrowserSupport } from "@app/_components/browser-support";
 import { Tabs } from "nextra/components";
 
 # Button
@@ -104,7 +105,7 @@ end
 
 ## Guidelines and Examples
 
-<Tabs items={['Best Practices', 'Code Examples', 'Testing', 'Design Tokens', 'Resources']}>
+<Tabs items={['Best Practices', 'Code Examples', 'Browser Support', 'Testing', 'Design Tokens', 'Resources']}>
   <Tabs.Tab>
     ### Best Practices
 
@@ -207,6 +208,12 @@ end
       </button>
     </form>
     ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ### Browser Support
+
+    <BrowserSupport features={['html.elements.button', 'api.HTMLButtonElement']} />
 
   </Tabs.Tab>
   <Tabs.Tab>

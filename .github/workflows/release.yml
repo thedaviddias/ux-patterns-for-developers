@@ -9,8 +9,10 @@ jobs:
   release:
     name: Release
     if: |
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment.environment == 'Production'
+      github.event_name == 'repository_dispatch' ||
+      (github.event_name == 'deployment_status' &&
+       github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
