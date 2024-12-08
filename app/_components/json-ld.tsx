@@ -1,7 +1,7 @@
 import { BASE_URL } from '@app/_constants/project'
 
 interface JsonLdProps {
-  data: Record<string, any>
+  data: Record<string, unknown>
 }
 
 export function JsonLd({ data }: JsonLdProps) {

@@ -92,6 +92,7 @@ end
 - Should maintain the button's original width
 - Prevents multiple clicks during loading
 - Typically uses a spinner or progress indicator
+- Add loading text alongside spinners (e.g., "Saving..." vs just a spinner)
 
 5. **Visual States**
 
@@ -130,6 +131,7 @@ end
 - Provide visual feedback for all interactive states
 - Ensure keyboard navigation works properly
 - Include loading states for asynchronous actions
+- Use descriptive loading states with both text and visual indicators
 - Maintain ARIA labels and roles
 
 **Don'ts ❌**
@@ -163,6 +165,23 @@ end
 - Don't make disabled buttons look interactive
 - Don't use inconsistent corner radius within button groups
 - Avoid having buttons looking like links or vice versa
+- Don't use spinners without descriptive text
+
+### Mobile & Touch Considerations
+
+**Do's ✅**
+
+- Place primary actions within thumb-friendly zones
+- Use full-width buttons for important actions on mobile
+- Implement haptic feedback for touch interactions
+- Maintain sufficient spacing between touch targets (minimum 8px)
+
+**Don'ts ❌**
+
+- Don't place critical actions in hard-to-reach corners
+- Don't rely solely on hover states for mobile feedback
+- Don't make touch targets smaller than 44x44px
+- Don't crowd multiple buttons together on mobile views
 
 ### Layout & Positioning
 

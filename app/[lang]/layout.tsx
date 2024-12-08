@@ -1,7 +1,6 @@
 /* eslint-env node */
 import { JetBrains_Mono as FontMono, Inter as FontSans } from "next/font/google";
 import {
-  Footer,
   LastUpdated,
   Layout,
   LocaleSwitch,
@@ -14,6 +13,7 @@ import { getDictionary } from '../_dictionaries/get-dictionary';
 import PlausibleProvider from 'next-plausible';
 import { DiscordIcon, GitHubIcon } from "nextra/icons";
 import '../../styles/globals.css';
+import { Footer } from "../_components/footer";
 import { GITHUB_REPO_URL, PROJECT_URL } from "../_constants/project";
 import { metadataSEO } from "../metadata";
 
@@ -59,16 +59,7 @@ export default async function RootLayout({ children, params }) {
   )
 
   const footer = (
-    <Footer>
-      <div className="flex flex-col items-start justify-start">
-        <p className="text-gray-500">
-          &copy; {new Date().getFullYear()} UX Patterns for Devs
-        </p>
-        <p className="text-gray-500">
-          Made with ❤️ by <a href="https://thedaviddias.com" target="_blank" rel="noopener noreferrer" className="font-bold underline">David Dias</a> for the Open-Source Community.
-        </p>
-      </div>
-    </Footer>
+    <Footer lang={lang} />
   )
   return (
     <html lang={lang} suppressHydrationWarning>
