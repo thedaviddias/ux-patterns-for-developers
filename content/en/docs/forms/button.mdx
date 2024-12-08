@@ -127,12 +127,12 @@ end
 
 **Do's ✅**
 
-- Use descriptive labels that clearly communicate the action
+- Use descriptive labels that clearly communicate the action [^describe-buttons]
 - Provide visual feedback for all interactive states
 - Ensure keyboard navigation works properly
 - Include loading states for asynchronous actions
+- Don't pass the `disabled` attribute to buttons, instead use `aria-disabled`. You would risk disrupting the keyboard navigation flow as this would reset focus on the button.
 - Use descriptive loading states with both text and visual indicators
-- Maintain ARIA labels and roles
 
 **Don'ts ❌**
 
@@ -423,3 +423,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 - [Style Dictionary](https://styledictionary.com/)
 - [Button (Carbon Design System)](https://carbondesignsystem.com/components/button/usage/)
 - [Button (Material Design)](https://m3.material.io/components/all-buttons)
+
+### Footnotes
+
+[^describe-buttons]: [Descriptive buttons](https://primer.style/guides/accessibility/descriptive-buttons)
