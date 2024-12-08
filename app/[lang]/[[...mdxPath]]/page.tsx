@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks -- false positive, useMDXComponents are not react hooks */
 
+import { JsonLd, generateArticleSchema } from '@app/_components/json-ld'
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents } from '../../../mdx-components'
 
@@ -26,9 +27,18 @@ export default async function Page(props: PageProps) {
   const result = await importPage(params.mdxPath, params.lang)
   const { default: MDXContent, toc, metadata } = result
 
+  const schemaData = generateArticleSchema(
+    metadata.title || '',
+    metadata.description || '',
+    `/${params.lang}/${params.mdxPath?.join('/') || ''}`
+  )
+
   return (
-    <Wrapper toc={toc} metadata={metadata}>
-      <MDXContent {...props} params={params} />
-    </Wrapper>
+    <>
+      <JsonLd data={schemaData} />
+      <Wrapper toc={toc} metadata={metadata}>
+        <MDXContent {...props} params={params} />
+      </Wrapper>
+    </>
   )
 }
