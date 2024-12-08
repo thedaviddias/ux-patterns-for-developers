@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  repository_dispatch:
+    types: [deploy-success]
+  deployment_status:
+
+jobs:
+  release:
+    name: Release
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup project dependencies
+        uses: ./.github/actions/install
+
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm release
