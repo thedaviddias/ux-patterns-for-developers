@@ -14,4 +14,6 @@ export default {
     type: 'separator'
   },
   'getting-started': '',
+  "navigation": "Layout & Navigation",
+  "forms": "Inputs & Forms",
 }

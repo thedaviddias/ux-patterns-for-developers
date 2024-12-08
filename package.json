@@ -12,6 +12,7 @@
     "dev": "next",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "generate": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "release": "auto shipit",
     "start": "next start",
@@ -54,10 +55,13 @@
     "@types/node": "22.10.1",
     "@types/react": "18.3.13",
     "auto": "^11.3.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.0.4",
     "pagefind": "^1.2.0",
+    "plop": "^4.0.1",
     "tailwindcss": "4.0.0-beta.6",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   }
 }

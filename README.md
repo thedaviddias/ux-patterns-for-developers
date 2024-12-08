@@ -5,6 +5,20 @@ UX Patterns for Developers is a free collection of UX patterns towards developer
 > [!NOTE]
 > This project is a work in progress. New content and updates should be expected regularly.
 
+## Getting Started
+
+To start the project locally, run:
+
+```bash
+npm run dev
+```
+
+### Generate new pattern
+
+```bash
+npm run generate
+```
+
 ## 🧩 Patterns
 
 This is an non-exhaustive list of available and incoming patterns.
