@@ -1,12 +1,13 @@
 {
   "name": "ux-patterns-for-developers",
-  "private": true,
   "license": "MIT",
   "author": "David Dias",
   "type": "module",
+  "version": "0.1.0",
   "scripts": {
     "analyze": "ANALYZE=true pnpm build",
     "build": "next build",
+    "check:links": "lychee --config ./lychee.toml --verbose .",
     "clean": "git clean -xdf node_modules out .next",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "dev": "next",
@@ -15,6 +16,9 @@
     "generate": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "release": "auto shipit",
+    "release:first": "auto shipit --prerelease",
+    "release:verbose": "auto shipit -v",
+    "release:version": "auto version -v",
     "start": "next start",
     "tsc": "tsc --noEmit"
   },
@@ -44,11 +48,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^11.3.0",
-    "@auto-it/conventional-commits": "^11.3.0",
-    "@auto-it/first-time-contributor": "^11.3.0",
-    "@auto-it/git-tag": "^11.3.0",
-    "@auto-it/released": "^11.3.0",
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@next/bundle-analyzer": "^15.0.4",
@@ -56,7 +55,6 @@
     "@tailwindcss/postcss": "4.0.0-beta.6",
     "@types/node": "22.10.1",
     "@types/react": "18.3.13",
-    "auto": "^11.3.0",
     "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.0.4",
