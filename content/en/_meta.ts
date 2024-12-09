@@ -11,13 +11,11 @@ export default {
     title: 'Documentation'
   },
   about: {
-    type: 'menu',
+    type: 'page',
     title: 'About',
-    items: {
-      about: 'Project',
-      contributors: {
-        href: 'https://github.com/thedaviddias/ux-patterns-for-developers/graphs/contributors'
-      }
+    theme: {
+      sidebar: false,
+      typesetting: 'article',
     }
   },
 }

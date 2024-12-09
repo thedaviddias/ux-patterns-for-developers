@@ -1,6 +1,6 @@
 # UX Patterns for Devs
 
-UX Patterns for Developers is a free collection of UX patterns towards developers who want to understand how to build effective UI components accessible and usable.
+UX Patterns for Developers was created by [David Dias](https://thedaviddias.com). It is a free collection of UX patterns towards developers who want to understand how to build effective UI components accessible and usable.
 
 ![Screenshot of the homepage ofUX Patterns for Devs](./public/img/ux-patterns-developers.webp)
 

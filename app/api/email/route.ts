@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const response = await fetch(
+    await fetch(
       "https://connect.mailerlite.com/api/subscribers",
       {
         method: "POST",
@@ -26,10 +26,6 @@ export async function POST(req: NextRequest) {
         },
       }
     );
-
-    const json = await response.json();
-
-    console.info("mailerlite response:", json);
 
     return NextResponse.json(
       { success: true, message: "signed up" },

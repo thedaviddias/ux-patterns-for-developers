@@ -29,6 +29,11 @@ const nextConfig = withBundleAnalyzer(
         destination: '/docs/getting-started',
         statusCode: 302
       },
+      {
+        source: '/about',
+        destination: '/about/index',
+        statusCode: 302
+      },
     ]
   })
 )

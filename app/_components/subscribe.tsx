@@ -67,11 +67,11 @@ export const SubscribeForm = () => {
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <div className="inline-flex gap-2">
+          <div className="flex gap-2">
             <Input
-              id="subscribe-form"
-              placeholder="Your email"
+              placeholder="mail@example.com"
               type="email"
+              className="md:w-2/5"
               value={formState.email}
               onChange={(e) => setFormState((prev) => ({ ...prev, email: e.target.value }))}
               disabled={isLoading}
@@ -79,7 +79,6 @@ export const SubscribeForm = () => {
             />
             <Button
               type="submit"
-              // className="group relative"
               disabled={isLoading}
               data-loading={isLoading}
               variant="outline"
@@ -102,7 +101,7 @@ export const SubscribeForm = () => {
           {formState.message && (
             <p
               className={cn(
-                "mt-2 text-xs",
+                "mt-2 text-sm",
                 formState.status === "error" ? "text-destructive" : "text-muted-foreground",
               )}
               role="alert"
