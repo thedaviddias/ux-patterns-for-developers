@@ -26,7 +26,8 @@ export const metadataSEO: Metadata = {
     locale: "en_US"
   },
   twitter: {
-    site: '@thedaviddias'
+    card: 'summary_large_image',
+    creator: '@thedaviddias'
   },
   appleWebApp: {
     title: 'UX Patterns for Devs'
