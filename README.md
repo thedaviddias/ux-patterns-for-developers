@@ -2,24 +2,10 @@
 
 UX Patterns for Developers is a free collection of UX patterns towards developers who want to understand how to build effective UI components accessible and usable.
 
+![Screenshot of the homepage ofUX Patterns for Devs](./public/img/ux-patterns-developers.webp)
+
 > [!NOTE]
 > This project is a work in progress. New content and updates should be expected regularly.
-
-## Getting Started
-
-To start the project locally, run:
-
-```bash
-pnpm run dev
-```
-
-### Generate new pattern
-
-This command will generate a new pattern template. Simply specify the language, the category and the name of the pattern starting with a capital letter.
-
-```bash
-pnpm run generate
-```
 
 ## 🧩 Patterns
 
@@ -68,6 +54,22 @@ This is an non-exhaustive list of available and incoming patterns.
 - Loading Indicator (coming soon)
 - Notifications (coming soon)
 - Progress Indicator (coming soon)
+
+## Getting Started
+
+To start the project locally, run:
+
+```bash
+pnpm run dev
+```
+
+### Generate new pattern
+
+This command will generate a new pattern template. Simply specify the language, the category and the name of the pattern starting with a capital letter.
+
+```bash
+pnpm run generate
+```
 
 ## ✨ Contributors
 
