@@ -213,8 +213,8 @@ end
 <button type="button" class="button-lg">Large</button>
 
 <!-- Icon-only Button -->
-<button type="button" class="button-icon" aria-label="Settings">
-  <svg class="icon" aria-hidden="true">
+<button type="button" aria-label="Settings">
+  <svg aria-hidden="true">
     <use href="#icon-settings" />
   </svg>
 </button>
@@ -234,9 +234,48 @@ end
 </form>
 ```
 
-## Browser Support
+## Accessibility
 
-<BrowserSupport features={["html.elements.button", "api.HTMLButtonElement"]} />
+### ARIA Attributes
+
+**Required ARIA attributes:**
+
+- Use `aria-label` for icon-only buttons
+- Use `aria-pressed` for toggle buttons
+- Use `aria-expanded` for buttons that control expandable content
+- Use `aria-disabled="true"` instead of the `disabled` attribute
+- Use `aria-describedby` to associate additional descriptive text
+
+### Screen Reader Support
+
+**Implementation example:**
+
+```html
+<!-- Icon-only button with proper ARIA -->
+<button type="button" aria-label="Close dialog">
+  <svg aria-hidden="true">
+    <use href="#icon-close" />
+  </svg>
+</button>
+
+<!-- Toggle button with ARIA pressed state -->
+<button type="button" aria-pressed="false"">
+  <span>Dark mode</span>
+</button>
+
+<!-- Expandable content button -->
+<button type="button" aria-expanded="false" aria-controls="content-1">
+  <span>Show more</span>
+</button>
+```
+
+### Keyboard Navigation
+
+- Buttons must be focusable and activated with both Enter and Space keys
+- Focus order should follow a logical sequence
+- Focus states must be clearly visible
+- Avoid removing focus outlines without providing alternatives
+- Maintain focus after interactions (e.g., after closing a modal)
 
 ## Testing Guidelines
 
@@ -244,47 +283,47 @@ end
 
 **Should ✓**
 
-- Show a loader when the button is submitting a form
-- Disable the button during form submission to prevent double submissions
-- Handle click events and trigger the appropriate action
-- Maintain proper visual states (hover, focus, active, disabled)
-- Support keyboard interaction (Enter and Space keys)
-- Preserve button width when switching between normal and loading states
-- Reset to initial state after operation completion
+- [ ] Show a loader when the button is submitting a form
+- [ ] Disable the button during form submission to prevent double submissions
+- [ ] Handle click events and trigger the appropriate action
+- [ ] Maintain proper visual states (hover, focus, active, disabled)
+- [ ] Support keyboard interaction (Enter and Space keys)
+- [ ] Preserve button width when switching between normal and loading states
+- [ ] Reset to initial state after operation completion
 
 ### Accessibility Testing
 
 **Should ✓**
 
-- Be focusable and have visible focus indicators
-- Have proper ARIA labels, especially for icon-only buttons
-- Maintain sufficient color contrast ratios (WCAG 2.1 AA)
-- Support screen reader announcements of button state changes
-- Be operable with keyboard navigation
-- Communicate loading states to assistive technologies
-- Have appropriate touch target sizes (minimum 44x44px)
+- [ ] Be focusable and have visible focus indicators
+- [ ] Have proper ARIA labels, especially for icon-only buttons
+- [ ] Maintain sufficient color contrast ratios (WCAG 2.1 AA)
+- [ ] Support screen reader announcements of button state changes
+- [ ] Be operable with keyboard navigation
+- [ ] Communicate loading states to assistive technologies
+- [ ] Have appropriate touch target sizes (minimum 44x44px)
 
 ### Visual Testing
 
 **Should ✓**
 
-- Maintain consistent styling across different variants (primary, secondary, destructive)
-- Display icons with correct alignment and spacing
-- Show proper visual feedback for all interactive states
-- Render correctly across different viewport sizes
-- Handle text overflow appropriately
-- Display loading spinners centered within the button
-- Maintain proper padding and margins in all states
+- [ ] Maintain consistent styling across different variants (primary, secondary, destructive)
+- [ ] Display icons with correct alignment and spacing
+- [ ] Show proper visual feedback for all interactive states
+- [ ] Render correctly across different viewport sizes
+- [ ] Handle text overflow appropriately
+- [ ] Display loading spinners centered within the button
+- [ ] Maintain proper padding and margins in all states
 
 ### Performance Testing
 
 **Should ✓**
 
-- Render without layout shifts
-- Handle rapid click events appropriately
-- Maintain smooth transitions between states
-- Load icons and spinners efficiently
-- Function without JavaScript (progressive enhancement)
+- [ ] Render without layout shifts
+- [ ] Handle rapid click events appropriately
+- [ ] Maintain smooth transitions between states
+- [ ] Load icons and spinners efficiently
+- [ ] Function without JavaScript (progressive enhancement)
 
 ### Testing Tools
 
@@ -293,6 +332,10 @@ end
 - Performance: [Chrome DevTools Performance panel](https://developer.chrome.com/docs/devtools/performance/overview)
 - Visual Regression: [Percy](https://percy.io/) or [Chromatic](https://www.chromatic.com/)
 - Cross-browser: [BrowserStack](https://www.browserstack.com/) or [Sauce Labs](https://saucelabs.com/)
+
+## Browser Support
+
+<BrowserSupport features={["html.elements.button", "api.HTMLButtonElement"]} />
 
 ## Design Tokens
 
@@ -411,7 +454,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 ### Articles
 
 - [button: The Button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
-- [I’ve been doing buttons wrong! Have you?](https://uxplanet.org/ive-been-doing-buttons-wrong-have-you-2117c0066613) by Adham Dannaway
+- [I've been doing buttons wrong! Have you?](https://uxplanet.org/ive-been-doing-buttons-wrong-have-you-2117c0066613) by Adham Dannaway
 - [A comprehensive guide to buttons](https://uxplanet.org/a-comprehensive-guide-to-buttons-8f3b8a1c6f0d) by UX Planet
 - [A comprehensive guide to designing UX buttons](https://www.invisionapp.com/inside-design/comprehensive-guide-designing-ux-buttons/?ref=checklist.design) by InVision
 
