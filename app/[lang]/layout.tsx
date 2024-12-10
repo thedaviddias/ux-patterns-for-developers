@@ -1,5 +1,5 @@
 /* eslint-env node */
-import { JetBrains_Mono as FontMono, Inter as FontSans } from "next/font/google";
+import { JetBrains_Mono as FontMono, Poppins as FontSans } from "next/font/google";
 import {
   LastUpdated,
   Layout,
@@ -22,6 +22,7 @@ export const { viewport } = Head
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
 });
 
 const fontMono = FontMono({
