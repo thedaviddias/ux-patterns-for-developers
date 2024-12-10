@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks -- false positive, useMDXComponents are not react hooks */
 
+import { SuggestPattern } from '@/app/_components/suggest-pattern'
 import { JsonLd, generateArticleSchema } from '@app/_components/json-ld'
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents } from '../../../mdx-components'
@@ -38,6 +39,7 @@ export default async function Page(props: PageProps) {
       <JsonLd data={schemaData} />
       <Wrapper toc={toc} metadata={metadata}>
         <MDXContent {...props} params={params} />
+        <SuggestPattern />
       </Wrapper>
     </>
   )

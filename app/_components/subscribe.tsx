@@ -61,17 +61,17 @@ export const SubscribeForm = () => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-zinc-700/65 px-4 py-10 sm:px-8 mt-10">
+    <div className="flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-200 dark:border-neutral-800 rounded-xl">
       <h2 className="text-2xl font-bold mb-5 text-foreground">
-        Get notified when new patterns are added.
+        Get notified when new patterns are added!
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <div className="flex gap-2">
+          <div className="flex flex-col md:flex-row gap-2">
             <Input
               placeholder="mail@example.com"
               type="email"
-              className="md:w-2/5"
+              className="w-full md:w-[300px]"
               value={formState.email}
               onChange={(e) => setFormState((prev) => ({ ...prev, email: e.target.value }))}
               disabled={isLoading}
