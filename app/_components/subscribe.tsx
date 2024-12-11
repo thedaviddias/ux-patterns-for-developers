@@ -41,7 +41,7 @@ export const SubscribeForm = () => {
         setFormState({
           email: "",
           status: "success",
-          message: "Thanks for subscribing!"
+          message: "Thanks for subscribing! Please check your inbox for a confirmation email (it may be in your spam folder)."
         });
       } else {
         setFormState((prev) => ({
