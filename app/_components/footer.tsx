@@ -45,7 +45,7 @@ const FooterMenuLinks = ({ lang }: { lang: string }) => (
 
 const FooterSocialLinks = () => (
   <FooterLinks
-    title="Social"
+    title="Support"
     links={SOCIAL_LINKS}
   />
 )

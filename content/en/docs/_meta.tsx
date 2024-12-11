@@ -9,11 +9,11 @@ export const Separator: FC<{ children: ReactNode }> = ({ children }) => {
 }
 
 export default {
+  'getting-started': '',
   _: {
-    title: <Separator>Docs</Separator>,
+    title: <Separator>Categories</Separator>,
     type: 'separator'
   },
-  'getting-started': '',
   "navigation": "Layout & Navigation",
   "forms": "Inputs & Forms",
 }

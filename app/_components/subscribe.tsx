@@ -84,7 +84,7 @@ export const SubscribeForm = () => {
               variant="outline"
             >
               <span className="group-data-[loading=true]:text-transparent">
-                Subscribe
+                Notify me
               </span>
               {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center">
