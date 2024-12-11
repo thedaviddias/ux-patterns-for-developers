@@ -8,7 +8,11 @@ export const FOOTER_MENU_LINKS = (lang: string) => [
     label: 'Documentation'
   },
   {
-    path: `/${lang}/about/about`,
+    path: '/blog',
+    label: 'Blog'
+  },
+  {
+    path: `/about`,
     label: 'About'
-  }
+  },
 ]

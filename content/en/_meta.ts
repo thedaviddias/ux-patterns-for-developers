@@ -10,6 +10,14 @@ export default {
     type: 'page',
     title: 'Documentation'
   },
+  blog: {
+    type: 'page',
+    title: 'Blog',
+    theme: {
+      sidebar: false,
+      typesetting: 'article'
+    }
+  },
   about: {
     type: 'page',
     title: 'About',
