@@ -66,7 +66,7 @@ const PatternContent = ({ pattern }: { pattern: Pattern }) => (
       {pattern.icon && <pattern.icon className="h-8 w-8 text-primary" />}
       {pattern.comingSoon && (
         <Badge variant="outline">
-          Coming soon
+          <span className="text-[10px]">Coming soon</span>
         </Badge>
       )}
     </div>

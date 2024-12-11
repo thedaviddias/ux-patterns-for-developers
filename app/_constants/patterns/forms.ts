@@ -27,6 +27,12 @@ import {
 
 export const formPatterns = [
   {
+    title: 'Autocomplete',
+    description: 'Suggest options as users type',
+    href: '/docs/forms/autocomplete',
+    icon: Search
+  },
+  {
     title: 'Button',
     description: 'Trigger actions and submit forms',
     href: '/docs/forms/button',
