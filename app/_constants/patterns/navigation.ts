@@ -1,4 +1,4 @@
-import { ArrowUp, Grid3X3, Layout, LayoutDashboard, Menu, Navigation2, SidebarIcon } from "lucide-react";
+import { ArrowUp, Grid3X3, Layout, LayoutDashboard, Menu, Navigation2, Route, SidebarIcon } from "lucide-react";
 
 export const navigationPatterns = [
   {
@@ -30,7 +30,7 @@ export const navigationPatterns = [
   {
     title: 'Pagination',
     description: 'Navigate through multiple pages of content',
-    icon: Navigation2,
+    icon: Route,
   },
   {
     title: 'Sidebar',

@@ -1,4 +1,4 @@
-import { AlertCircle, Bell, Cookie, Loader, LoaderCircle, Loader as ProgressLoader } from "lucide-react";
+import { AlertCircle, Bell, Cookie, Gauge, Loader, LoaderCircle } from "lucide-react";
 
 export const userFeedbackPatterns = [
   {
@@ -19,7 +19,7 @@ export const userFeedbackPatterns = [
   {
     title: 'Progress Indicator',
     description: 'Show completion status of an operation',
-    icon: ProgressLoader
+    icon: Gauge
   },
   {
     title: 'Skeleton',

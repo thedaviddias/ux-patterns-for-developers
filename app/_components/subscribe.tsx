@@ -61,7 +61,7 @@ export const SubscribeForm = () => {
   };
 
   return (
-    <div className="flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-800 rounded-xl">
+    <div className="flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600 rounded-xl">
       <h2 className="text-2xl font-bold mb-5 text-foreground">
         Get notified when new patterns are added!
       </h2>

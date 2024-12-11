@@ -12,8 +12,18 @@ export default {
   'getting-started': '',
   _: {
     title: <Separator>Categories</Separator>,
-    type: 'separator'
+    type: 'separator',
   },
-  "navigation": "Layout & Navigation",
-  "forms": "Inputs & Forms",
+  'navigation': {
+    title: 'Layout & Navigation',
+    theme: {
+      collapsed: false
+    }
+  },
+  'forms': {
+    title: 'Inputs & Forms',
+    theme: {
+      collapsed: false
+    }
+  }
 }
