@@ -11,9 +11,10 @@ import { getPageMap } from 'nextra/page-map';
 import { getDictionary } from '../_dictionaries/get-dictionary';
 
 import PlausibleProvider from 'next-plausible';
-import { DiscordIcon, GitHubIcon } from "nextra/icons";
+import { DiscordIcon } from "nextra/icons";
 import '../../styles/globals.css';
 import { Footer } from "../_components/footer";
+import { Stars } from "../_components/stars";
 import { GITHUB_REPO_URL, PROJECT_URL } from "../_constants/project";
 import { metadataSEO } from "../metadata";
 
@@ -51,7 +52,9 @@ export default async function RootLayout({ children, params }) {
         </>
       }
       projectLink={PROJECT_URL}
-      projectIcon={<GitHubIcon className="w-6 h-6" aria-label="Github" />}
+      projectIcon={
+        <Stars variant="small" />
+      }
       chatLink="https://ddias.link/discord"
       chatIcon={<DiscordIcon className="w-6 h-6" aria-label="Discord" />}
     >
