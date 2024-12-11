@@ -1,5 +1,7 @@
-@import 'tailwindcss';
-@import 'nextra-theme-docs/style.css';
+@import "tailwindcss";
+@import "nextra-theme-docs/style.css";
+
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
   --nextra-bg-color: #000;

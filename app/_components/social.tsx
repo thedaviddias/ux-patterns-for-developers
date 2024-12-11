@@ -47,19 +47,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     ),
   },
   {
-    label: 'Github',
-    link: 'https://github.com/thedaviddias',
-    shortlink: 'https://ddias.link/github',
-    rel: 'me',
-    icon: (
-      <SimpleIconComponent
-        icon={siGithub}
-        className="w-10 h-10 p-1.5 border rounded-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-200 dark:border-gray-700"
-      />
-    ),
-  },
-  {
-    label: 'Join my Discord',
+    label: 'Discord',
     link: 'https://discord.gg/EG6tmxsESP',
     shortlink: 'https://ddias.link/discord',
     icon: (
@@ -70,9 +58,15 @@ export const SOCIAL_LINKS: SocialLink[] = [
     ),
   },
   {
-    label: 'Newsletter',
-    link: 'https://thedaviddias.substack.com',
-    shortlink: 'https://ddias.link/newsletter',
+    label: 'Github',
+    link: 'https://github.com/thedaviddias',
+    shortlink: 'https://ddias.link/github',
     rel: 'me',
+    icon: (
+      <SimpleIconComponent
+        icon={siGithub}
+        className="w-10 h-10 p-1.5 border rounded-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-200 dark:border-gray-700"
+      />
+    ),
   },
 ]
