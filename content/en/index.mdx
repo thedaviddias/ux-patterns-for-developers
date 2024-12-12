@@ -4,11 +4,11 @@ description: "UX Patterns for Developers is a collection of UX patterns for ever
 searchable: false
 ---
 
+import { FeaturedPattern } from "@app/_components/featured";
 import { Hero } from "@app/_components/sections/hero";
+import { HomeCTA } from "@app/_components/sections/home-cta";
 import { OverviewGrid } from "@app/_components/sections/overview-grid";
-import { Stars } from "@app/_components/stars";
 import { SubscribeForm } from "@app/_components/subscribe";
-import { SuggestPattern } from "@app/_components/suggest-pattern";
 import { Callout, Tabs } from "nextra/components";
 
 # UX Patterns for Devs
@@ -19,8 +19,10 @@ import { Callout, Tabs } from "nextra/components";
   description={metadata.description}
 />
 
-<Stars />
+<HomeCTA />
 
-<SubscribeForm />
+<FeaturedPattern />
 
 <OverviewGrid lang={props.params.lang} />
+
+<SubscribeForm />

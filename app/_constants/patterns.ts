@@ -43,3 +43,21 @@ export type Category = {
   name: string
   patterns: Pattern[]
 }
+
+
+export const getRandomPattern = (): Pattern | null => {
+  const allPatterns = Object.values(PATTERNS).flatMap(category => [...category] as Pattern[]);
+  const availablePatterns = allPatterns.filter(pattern => pattern.href);
+
+  if (availablePatterns.length === 0) return null;
+
+  const randomIndex = Math.floor(Math.random() * availablePatterns.length);
+  const pattern = availablePatterns[randomIndex];
+  if (!pattern) return null;
+
+  return {
+    title: pattern.title,
+    description: pattern.description,
+    href: pattern.href!
+  };
+};

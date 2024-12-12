@@ -18,3 +18,7 @@ body {
     background-color: black;
   }
 }
+
+.featured-pattern {
+  @apply relative overflow-hidden rounded-lg border bg-gradient-to-br dark:from-neutral-900/50 dark:to-neutral-900 from-neutral-100/50 to-neutral-100 p-8;
+}

@@ -34,12 +34,14 @@ export default async function Page(props: PageProps) {
     `/${params.lang}/${params.mdxPath?.join('/') || ''}`
   )
 
+  const isHomepage = !params.mdxPath || params.mdxPath.length === 0
+
   return (
     <>
       <JsonLd data={schemaData} />
       <Wrapper toc={toc} metadata={metadata}>
         <MDXContent {...props} params={params} />
-        <SuggestPattern />
+        {!isHomepage && <SuggestPattern />}
       </Wrapper>
     </>
   )

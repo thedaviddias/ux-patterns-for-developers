@@ -4,15 +4,15 @@ export const FOOTER_MENU_LINKS = (lang: string) => [
     label: 'Home'
   },
   {
-    path: '/patterns',
+    path: `/${lang}/patterns`,
     label: 'Patterns'
   },
   {
-    path: '/blog',
+    path: `/${lang}/blog`,
     label: 'Blog'
   },
   {
-    path: `/about`,
+    path: `/${lang}/about`,
     label: 'About'
   },
 ]

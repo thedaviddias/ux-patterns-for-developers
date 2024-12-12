@@ -4,12 +4,14 @@ import { Button } from "@/app/_components/ui/button";
 import { Input } from "@/app/_components/ui/input";
 import { cn } from "@/app/_utils/cn";
 import { LoaderCircle } from "lucide-react";
+import { usePlausible } from "next-plausible";
 import { useState } from "react";
 import { ROUTES } from "../_constants/routes";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 export const SubscribeForm = () => {
+  const plausible = usePlausible()
   const [formState, setFormState] = useState({
     email: "",
     status: "idle" as FormStatus,
@@ -82,6 +84,7 @@ export const SubscribeForm = () => {
               disabled={isLoading}
               data-loading={isLoading}
               variant="outline"
+              onClick={() => plausible('subscribe')}
             >
               <span className="group-data-[loading=true]:text-transparent">
                 Notify me
