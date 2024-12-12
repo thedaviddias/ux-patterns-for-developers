@@ -4,8 +4,8 @@ export const FOOTER_MENU_LINKS = (lang: string) => [
     label: 'Home'
   },
   {
-    path: '/docs',
-    label: 'Documentation'
+    path: '/patterns',
+    label: 'Patterns'
   },
   {
     path: '/blog',

@@ -4,7 +4,7 @@ export const navigationPatterns = [
   {
     title: 'Breadcrumb',
     description: 'Help users understand their current location',
-    href: '/docs/navigation/breadcrumb',
+    href: '/patterns/navigation/breadcrumb',
     icon: Navigation2,
   },
   {

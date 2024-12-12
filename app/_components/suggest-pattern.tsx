@@ -1,10 +1,11 @@
 import { PROJECT_URL } from '@/app/_constants/project'
+import { LinkCustom } from './link-custom'
 import { Button } from './ui/button'
 
-export function SuggestPattern() {
+export const SuggestPattern = () => {
   return (
-    <div className="flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600 rounded-xl">
-      <h2 className="text-2xl font-bold mb-5 text-foreground">Got a pattern request?</h2>
+    <section className="flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600 rounded-xl" aria-labelledby="suggest-pattern-title">
+      <h2 id="suggest-pattern-title" className="text-2xl font-bold mb-5 text-foreground">Got a pattern request?</h2>
       <p className="text-lg text-muted-foreground mb-6">
         Let us know, and we&apos;ll add it!
       </p>
@@ -13,15 +14,13 @@ export function SuggestPattern() {
         className="font-medium"
         asChild
       >
-        <a
+        <LinkCustom
           href={`${PROJECT_URL}/discussions/new?category=suggestions`}
-          target="_blank"
-          rel="noopener noreferrer"
           className="plausible-event-name=Suggest+Pattern"
         >
           Send Suggestion
-        </a>
+        </LinkCustom>
       </Button>
-    </div>
+    </section>
   )
 }

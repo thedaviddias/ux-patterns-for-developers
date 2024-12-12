@@ -6,9 +6,9 @@ export default {
       typesetting: 'article'
     }
   },
-  docs: {
+  patterns: {
     type: 'page',
-    title: 'Documentation'
+    title: 'Patterns'
   },
   blog: {
     type: 'page',

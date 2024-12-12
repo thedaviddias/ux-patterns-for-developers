@@ -13,13 +13,13 @@ This is an non-exhaustive list of available and incoming patterns.
 
 ### Navigation
 
-- [Breadcrumbs](https://uxpatterns.dev/en/docs/navigation/breadcrumb)
+- [Breadcrumbs](https://uxpatterns.dev/en/patterns/navigation/breadcrumb)
 - Navigation Menu (coming soon)
 - Pagination (coming soon)
 
 ### Input & Forms
 
-- [Button](https://uxpatterns.dev/en/docs/forms/button)
+- [Button](https://uxpatterns.dev/en/patterns/forms/button)
 - Checkbox (coming soon)
 - Code Confirmation (coming soon)
 - Color Picker (coming soon)

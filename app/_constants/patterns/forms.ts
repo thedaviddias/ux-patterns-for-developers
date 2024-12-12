@@ -29,13 +29,13 @@ export const formPatterns = [
   {
     title: 'Autocomplete',
     description: 'Suggest options as users type',
-    href: '/docs/forms/autocomplete',
+    href: '/patterns/forms/autocomplete',
     icon: Search
   },
   {
     title: 'Button',
     description: 'Trigger actions and submit forms',
-    href: '/docs/forms/button',
+    href: '/patterns/forms/button',
     icon: MousePointerClick
   },
   {

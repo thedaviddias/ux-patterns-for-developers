@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       routes.push({
         url: `${BASE_URL}/${locale}${page ? `/${page}` : ''}`,
         lastModified: new Date(),
-        changeFrequency: page.includes('docs') ?
+        changeFrequency: page.includes('patterns') ?
           "weekly" :
           "monthly",
         priority: getPriority(page),
@@ -68,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 function getPriority(path: string): number {
   if (!path) return 1; // Homepage
-  if (path === 'docs/getting-started') return 0.9;
-  if (path.startsWith('docs/')) return 0.8;
+  if (path === 'patterns/getting-started') return 0.9;
+  if (path.startsWith('patterns/')) return 0.8;
   return 0.5; // Other pages
 }

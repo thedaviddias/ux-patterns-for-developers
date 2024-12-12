@@ -33,8 +33,8 @@ export default function (plop: NodePlopAPI) {
     actions: [
       {
         type: "add",
-        path: "content/{{lang}}/docs/{{section}}/{{kebabCase name}}.mdx",
-        templateFile: "templates/docs/component.mdx.hbs",
+        path: "content/{{lang}}/patterns/{{section}}/{{kebabCase name}}.mdx",
+        templateFile: "templates/patterns/component.mdx.hbs",
       },
     ],
   });

@@ -25,8 +25,8 @@ const nextConfig = withBundleAnalyzer(
     },
     redirects: async () => [
       {
-        source: '/docs',
-        destination: '/docs/getting-started',
+        source: '/patterns',
+        destination: '/patterns/getting-started',
         statusCode: 302
       }
     ]
