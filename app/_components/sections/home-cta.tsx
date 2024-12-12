@@ -18,7 +18,7 @@ export const HomeCTA = () => {
         <ArrowRight className="ml-2 h-4 w-4" />
       </LinkCustom>
       <LinkCustom
-        href="https://github.com/thedaviddias/ux-patterns-for-developers"
+        href="https://git.new/uxpatterns"
         onClick={() => plausible('view-github')}
         variant="outline"
       >
