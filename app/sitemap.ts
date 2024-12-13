@@ -48,8 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${BASE_URL}/${locale}${page ? `/${page}` : ''}`,
         lastModified: new Date(),
         changeFrequency: page.includes('patterns') ?
-          "weekly" :
-          "monthly",
+          "daily" :
+          "weekly",
         priority: getPriority(page),
       });
     });

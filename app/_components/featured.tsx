@@ -1,15 +1,29 @@
 'use client'
 
-import { Star } from "lucide-react";
-import { usePlausible } from 'next-plausible';
-import { getRandomPattern, Pattern } from "../_constants/patterns";
-import { LinkCustom } from "./link-custom";
+import { Star } from "lucide-react"
+import { usePlausible } from 'next-plausible'
+import { useEffect, useState } from 'react'
+import { Pattern } from "../_actions/patterns"
+import { LinkCustom } from "./link-custom"
 
-type FeaturedPatternProps = {
-  pattern: Pattern;
-};
+async function getRandomPattern(locale: string = 'en') {
+  // Try to get from sessionStorage first
+  const cached = sessionStorage.getItem(`featured-pattern-${locale}`)
+  if (cached) {
+    return JSON.parse(cached)
+  }
 
-const FeaturedPatternSection = ({ pattern }: FeaturedPatternProps) => {
+  const response = await fetch(`/api/patterns/random?locale=${locale}`)
+  if (!response.ok) return null
+
+  const pattern = await response.json()
+
+  // Cache in sessionStorage
+  sessionStorage.setItem(`featured-pattern-${locale}`, JSON.stringify(pattern))
+  return pattern
+}
+
+const FeaturedPatternSection = ({ pattern }: { pattern: Pattern }) => {
   const plausible = usePlausible()
 
   return (
@@ -40,8 +54,12 @@ const FeaturedPatternSection = ({ pattern }: FeaturedPatternProps) => {
   );
 };
 
-const pattern = getRandomPattern();
-
 export const FeaturedPattern = () => {
+  const [pattern, setPattern] = useState<Pattern | null>(null)
+
+  useEffect(() => {
+    getRandomPattern().then(setPattern)
+  }, [])
+
   return pattern ? <FeaturedPatternSection pattern={pattern} /> : null;
 };

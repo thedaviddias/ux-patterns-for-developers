@@ -43,7 +43,7 @@ async function getAllMdxContent(locale: string) {
           const pageMap = await getPageMap(`/${locale}/patterns/${category}`);
           return (pageMap || []).filter(page => 'name' in page);
         } catch (error) {
-          console.log(`No content found for category: ${category}`);
+          console.log(`No content found for category: ${category}`, error);
           return [];
         }
       })

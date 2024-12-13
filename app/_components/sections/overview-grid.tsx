@@ -1,15 +1,13 @@
 import { cn } from '@/app/_utils/cn'
+import { Pattern } from '@/app/_utils/get-pattern-categories'
 import { getPatterns } from '@app/_utils/get-patterns'
-import { type LucideIcon } from 'lucide-react'
+
 import { LinkCustom } from '../link-custom'
 import { Badge } from '../ui/badge'
 
-type Pattern = {
-  title: string
-  description: string
-  icon?: LucideIcon;
-  href?: string
-  comingSoon?: boolean
+
+type PatternWrapperProps = {
+  pattern: Pattern
 }
 
 export const OverviewGrid = async ({ lang }: { lang: string }) => {
@@ -33,20 +31,20 @@ export const OverviewGrid = async ({ lang }: { lang: string }) => {
   )
 }
 
-const PatternWrapper = ({ pattern }: { pattern: Pattern }) => {
+const PatternWrapper = ({ pattern }: PatternWrapperProps) => {
   const wrapperClasses = cn(
     "relative rounded-xl border border-neutral-200 dark:border-neutral-800",
-    !pattern.comingSoon && "border-neutral-400 dark:border-neutral-600 hover:bg-neutral-100 hover:border-neutral-200 dark:hover:bg-neutral-900 dark:hover:border-neutral-400 hover:scale-105 transition-all duration-100 ease-in-out"
+    pattern.status !== 'coming-soon' && "border-neutral-400 dark:border-neutral-600 hover:bg-neutral-100 hover:border-neutral-200 dark:hover:bg-neutral-900 dark:hover:border-neutral-400 hover:scale-105 transition-all duration-100 ease-in-out"
   )
 
   const content = <PatternContent pattern={pattern} />
 
   return (
     <div className={wrapperClasses}>
-      {pattern.href ? (
+      {pattern.status !== 'coming-soon' ? (
         <LinkCustom
           href={pattern.href}
-          className="!no-underline"
+          className="!no-underline w-full"
           icon={false}
         >
           {content}
@@ -56,17 +54,22 @@ const PatternWrapper = ({ pattern }: { pattern: Pattern }) => {
   )
 }
 
-const PatternContent = ({ pattern }: { pattern: Pattern }) => (
+const PatternContent = ({ pattern }: PatternWrapperProps) => (
   <div className={cn(
     "relative flex flex-col gap-4 overflow-hidden rounded-xl p-5 transition-all duration-300",
-    !pattern.comingSoon ? "hover:animate-card-hover cursor-pointer" : "opacity-60 cursor-not-allowed"
+    pattern.status !== 'coming-soon' ? "hover:animate-card-hover cursor-pointer" : "opacity-60 cursor-not-allowed"
   )}>
 
     <div className="flex items-center justify-between">
       {pattern.icon && <pattern.icon className="h-8 w-8 text-primary" />}
-      {pattern.comingSoon && (
+      {pattern.status === 'coming-soon' && (
         <Badge variant="outline">
           <span className="text-[10px]">Coming soon</span>
+        </Badge>
+      )}
+      {pattern.status === 'draft' && (
+        <Badge variant="outline">
+          <span className="text-[10px]">Draft</span>
         </Badge>
       )}
     </div>
