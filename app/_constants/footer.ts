@@ -16,7 +16,7 @@ export const FOOTER_MENU_LINKS = (lang: string) => [
     label: 'About'
   },
   {
-    path: `/${lang}/privacy`,
+    path: `/${lang}/privacy-policy`,
     label: 'Privacy Policy'
   },
 ]

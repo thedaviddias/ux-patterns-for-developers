@@ -25,5 +25,14 @@ export default {
       sidebar: false,
       typesetting: 'article',
     }
+  },
+  'privacy-policy': {
+    type: 'page',
+    title: 'Privacy Policy',
+    display: 'hidden',
+    theme: {
+      sidebar: false,
+      typesetting: 'article',
+    }
   }
 }
