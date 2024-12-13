@@ -6,7 +6,7 @@ import {
   LocaleSwitch,
   Navbar
 } from 'nextra-theme-docs';
-import { Head } from 'nextra/components';
+import { Banner, Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import { getDictionary } from '../_dictionaries/get-dictionary';
 
@@ -14,6 +14,7 @@ import PlausibleProvider from 'next-plausible';
 import { DiscordIcon } from "nextra/icons";
 import '../../styles/globals.css';
 import { Footer } from "../_components/footer";
+import { LinkCustom } from "../_components/link-custom";
 import { Stars } from "../_components/stars";
 import { GITHUB_REPO_URL, PROJECT_URL } from "../_constants/project";
 import { metadataSEO } from "../metadata";
@@ -38,6 +39,12 @@ export default async function RootLayout({ children, params }) {
   const dictionary = await getDictionary(lang)
 
   const pageMap = await getPageMap(`/${lang}`)
+
+  const banner = (
+    <Banner storageKey="swr-2">
+      UX Patterns for Devs GPT is now available! <LinkCustom href="/blog/ux-patterns-gpt" variant="primary" className="text-sm">Read more →</LinkCustom>
+    </Banner>
+  )
 
   const navbar = (
     <Navbar
@@ -75,6 +82,7 @@ export default async function RootLayout({ children, params }) {
           navbar={navbar}
           footer={footer}
           docsRepositoryBase={GITHUB_REPO_URL}
+          banner={banner}
           sidebar={{
             defaultMenuCollapseLevel: 1,
             autoCollapse: true
