@@ -23,7 +23,15 @@ export const metadataSEO: Metadata = {
   openGraph: {
     siteName: "UX Patterns for Devs",
     type: "website",
-    locale: "en_US"
+    locale: "en_US",
+    title: "UX Patterns for Devs",
+    description: "UX Patterns for Devs is a collection of UX Patterns for Devs to use in their projects.",
+    images: [{
+      url: '/og/opengraph-image.png',
+      width: 1200,
+      height: 630,
+      type: 'image/png',
+    }]
   },
   twitter: {
     card: 'summary_large_image',

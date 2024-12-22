@@ -23,13 +23,29 @@ const nextConfig = withBundleAnalyzer(
       locales: ['en'],
       defaultLocale: 'en'
     },
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '**',
+        },
+      ],
+    },
     redirects: async () => [
       {
         source: '/patterns',
         destination: '/patterns/getting-started',
         statusCode: 302
       }
-    ]
+    ],
+    async rewrites() {
+      return [
+        {
+          source: '/og/:slug',
+          destination: '/api/og?title=:slug',
+        },
+      ]
+    },
   })
 )
 
