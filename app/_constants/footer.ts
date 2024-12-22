@@ -4,7 +4,7 @@ export const FOOTER_MENU_LINKS = (lang: string) => [
     label: 'Home'
   },
   {
-    path: `/${lang}/patterns`,
+    path: `/${lang}/patterns/getting-started`,
     label: 'Patterns'
   },
   {
