@@ -61,7 +61,7 @@ importers:
         version: 2.5.5
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@4.0.0-beta.6)
+        version: 1.0.7(tailwindcss@4.0.0-beta.8)
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.6.1
@@ -100,8 +100,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1
       tailwindcss:
-        specifier: 4.0.0-beta.6
-        version: 4.0.0-beta.6
+        specifier: 4.0.0-beta.8
+        version: 4.0.0-beta.8
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
@@ -5261,6 +5261,9 @@ packages:
 
   tailwindcss@4.0.0-beta.6:
     resolution: {integrity: sha512-eCCuMk3H65w4J/QWkjxfeWoBSKbCD3E6Uj2LA6Xkkl4eMa1MXuwVpIU1RXcLIp+BVsXGEZMP7i7uJig7KxfAXQ==}
+
+  tailwindcss@4.0.0-beta.8:
+    resolution: {integrity: sha512-21HmdRq9tHDLJZavb2cRBGJxBvRODpwb0/t3tRbMOl65hJE6zG6K6lD6lLS3IOC35u4SOjKjdZiJJi9AuWCf+Q==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -12020,11 +12023,13 @@ snapshots:
 
   tailwind-merge@2.5.5: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@4.0.0-beta.6):
+  tailwindcss-animate@1.0.7(tailwindcss@4.0.0-beta.8):
     dependencies:
-      tailwindcss: 4.0.0-beta.6
+      tailwindcss: 4.0.0-beta.8
 
   tailwindcss@4.0.0-beta.6: {}
+
+  tailwindcss@4.0.0-beta.8: {}
 
   tapable@2.2.1: {}
 
