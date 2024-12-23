@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -25,10 +26,21 @@ jobs:
       - name: Update README
         run: node scripts/update-patterns-list.js
 
-      - name: Commit changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "docs: update patterns list [skip ci]"
-          git push
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: update patterns list [skip ci]"
+          title: "docs: update patterns list"
+          body: |
+            This PR updates the patterns list in README.md based on the current state of patterns in the repository.
+
+            - Updates completion status of patterns
+            - Adds new patterns
+            - Updates links to completed patterns
+          branch: update-patterns-list
+          base: main
+          delete-branch: true
+          labels: |
+            documentation
+            automated pr
