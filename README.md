@@ -9,17 +9,22 @@ UX Patterns for Developers is a free collection of UX patterns towards developer
 
 ## 🧩 Patterns
 
-This is an non-exhaustive list of available and incoming patterns.
+<!-- PATTERNS-LIST:START - Do not remove or modify this section -->
 
-### Navigation
+This is an updated list of available and incoming patterns.
 
-- [Breadcrumbs](https://uxpatterns.dev/en/patterns/navigation/breadcrumb)
-- Navigation Menu (coming soon)
-- Pagination (coming soon)
+### Content Management
 
-### Input & Forms
+- Accordion (coming soon)
+- Carousel (coming soon)
+- Drag And Drop (coming soon)
+- Modal (coming soon)
+- Tooltip (coming soon)
 
-- [Button](https://uxpatterns.dev/en/patterns/forms/button)
+### Forms
+
+- [Autocomplete](https://uxpatterns.dev/patterns/forms/autocomplete)
+- [Button](https://uxpatterns.dev/patterns/forms/button)
 - Checkbox (coming soon)
 - Code Confirmation (coming soon)
 - Color Picker (coming soon)
@@ -27,33 +32,44 @@ This is an non-exhaustive list of available and incoming patterns.
 - Date Input (coming soon)
 - Date Picker (coming soon)
 - Date Range (coming soon)
+- [Dropdown](https://uxpatterns.dev/patterns/forms/dropdown)
 - File Input (coming soon)
 - Form Validation (coming soon)
-- Multi-select Input (coming soon)
+- Multi Select Input (coming soon)
 - Password (coming soon)
 - Phone Number (coming soon)
 - Radio (coming soon)
-- Search Input (coming soon)
+- Rating Input (coming soon)
+- Rich Text Editor (coming soon)
+- Search Field (coming soon)
 - Selection Input (coming soon)
+- Signature Pad (coming soon)
 - Slider (coming soon)
+- Tag Input (coming soon)
 - Text Field (coming soon)
 - Time Input (coming soon)
 - Toggle (coming soon)
 
-### Content Management
+### Navigation
 
-- Accordion (coming soon)
-- Carousel (coming soon)
-- Drag and Drop (coming soon)
-- Modal (coming soon)
-- Tooltip (coming soon)
+- [Back To Top](https://uxpatterns.dev/patterns/navigation/back-to-top)
+- [Breadcrumb](https://uxpatterns.dev/patterns/navigation/breadcrumb)
+- Hambuger Menu (coming soon)
+- Megamenu (coming soon)
+- Navigation Menu (coming soon)
+- Pagination (coming soon)
+- Sidebar (coming soon)
+- Tabs (coming soon)
 
 ### User Feedback
 
+- Cookie Consent (coming soon)
 - Empty States (coming soon)
 - Loading Indicator (coming soon)
-- Notifications (coming soon)
+- Notification (coming soon)
 - Progress Indicator (coming soon)
+- Skeleton (coming soon)
+<!-- PATTERNS-LIST:END -->
 
 ## Getting Started
 

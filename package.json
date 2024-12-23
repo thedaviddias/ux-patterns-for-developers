@@ -20,7 +20,8 @@
     "release:verbose": "auto shipit -v",
     "release:version": "auto version -v",
     "start": "next start",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "update-patterns": "node scripts/update-patterns-list.js"
   },
   "packageManager": "pnpm@9.15.1",
   "browserslist": [
