@@ -10,7 +10,6 @@ UX Patterns for Developers is a free collection of UX patterns towards developer
 ## 🧩 Patterns
 
 <!-- PATTERNS-LIST:START - Do not remove or modify this section -->
-
 This is an updated list of available and incoming patterns.
 
 ### Content Management
@@ -32,7 +31,6 @@ This is an updated list of available and incoming patterns.
 - Date Input (coming soon)
 - Date Picker (coming soon)
 - Date Range (coming soon)
-- [Dropdown](https://uxpatterns.dev/patterns/forms/dropdown)
 - File Input (coming soon)
 - Form Validation (coming soon)
 - Multi Select Input (coming soon)
@@ -55,6 +53,7 @@ This is an updated list of available and incoming patterns.
 - [Back To Top](https://uxpatterns.dev/patterns/navigation/back-to-top)
 - [Breadcrumb](https://uxpatterns.dev/patterns/navigation/breadcrumb)
 - Hambuger Menu (coming soon)
+- [Infinite Scroll](https://uxpatterns.dev/patterns/navigation/infinite-scroll)
 - Megamenu (coming soon)
 - Navigation Menu (coming soon)
 - Pagination (coming soon)
