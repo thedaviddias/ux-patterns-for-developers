@@ -2,7 +2,7 @@
 
 UX Patterns for Developers is a free collection of UX patterns towards developers who want to understand how to build effective UI components accessible and usable.
 
-![Screenshot of the homepage ofUX Patterns for Devs](./public/img/ux-patterns-developers.webp)
+![Screenshot of the homepage ofUX Patterns for Devs](https://raw.githubusercontent.com/thedaviddias/ux-patterns-for-developers/refs/heads/main/public/img/ux-patterns-developers.webp)
 
 > [!NOTE]
 > This project is a work in progress. New content and updates should be expected regularly.
@@ -73,7 +73,7 @@ pnpm run generate
 
 ## ✨ Contributors
 
-You are welcome to contribute to this project! Please read the [CONTRIBUTING.md](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md).
+You are welcome to contribute to this project! Please read the [CONTRIBUTING](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->

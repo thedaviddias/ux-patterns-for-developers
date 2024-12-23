@@ -17,4 +17,10 @@ scheme = ["https"]
 
 #############################  Exclusions  ##########################
 base = "https://github.com/thedaviddias/ux-patterns-for-developers/"
-exclude = ["https://caniuse.com"]
+exclude = [
+    "https://caniuse.com",
+    "../../../public/*",
+    "/patterns/*",
+    "https://github.com/public/*",
+    " https://github.com/patterns/*"
+]
