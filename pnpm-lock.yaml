@@ -54,8 +54,8 @@ importers:
         specifier: ^7.4.0
         version: 7.4.0
       simple-icons:
-        specifier: ^13.20.0
-        version: 13.20.0
+        specifier: ^14.0.0
+        version: 14.0.0
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5
@@ -5096,8 +5096,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@13.20.0:
-    resolution: {integrity: sha512-8IQSSOaXhgG9fH0dJsUmlMlo0Jt0Xd1MwxsK75TlRZO0FR7P5UQ8TEaIPOwlRMHd/FzZJ0R3vFHW0kOH7PbdMw==}
+  simple-icons@14.0.0:
+    resolution: {integrity: sha512-29qvtBEvo+xuGxMooUWHEgp7ZvaRrkgPwLdg/B909T1/uoYiUrekOqBRZywAvV2JRlxLUjB6e1gWgtWup7R18Q==}
     engines: {node: '>=0.12.18'}
 
   simple-swizzle@0.2.2:
@@ -11873,7 +11873,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-icons@13.20.0: {}
+  simple-icons@14.0.0: {}
 
   simple-swizzle@0.2.2:
     dependencies:
