@@ -13,9 +13,15 @@ export async function generateMetadata() {
 export const Blog: FC<{ lang: string }> = async ({ lang }) => {
   const pageMap = (await getPageMap(`/${lang}/blog`)) as unknown as MdxFile[]
 
-  return pageMap.map(page => {
-    if (page.name === 'index') return
+  const sortedPages = pageMap
+    .filter(page => page.name !== 'index')
+    .sort((a, b) => {
+      const dateA = new Date(a.frontMatter?.date).getTime()
+      const dateB = new Date(b.frontMatter?.date).getTime()
+      return dateB - dateA
+    })
 
+  return sortedPages.map(page => {
     const { title, description, date } = page.frontMatter!
 
     return (

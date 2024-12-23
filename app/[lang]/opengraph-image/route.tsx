@@ -10,9 +10,6 @@ export const size = {
 
 export async function GET(req: NextRequest) {
   try {
-    // Get the language from the URL
-    const lang = req.nextUrl.pathname.split('/')[1] || 'en'
-
     // Get the base URL from the request
     const protocol = req.headers.get('x-forwarded-proto') || 'http'
     const host = req.headers.get('host') || 'localhost:3000'
@@ -45,6 +42,7 @@ export async function GET(req: NextRequest) {
             backgroundColor: '#000',
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={dataUrl}
             alt=""

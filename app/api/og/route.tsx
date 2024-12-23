@@ -49,6 +49,7 @@ export async function GET(req: NextRequest) {
             backgroundColor: '#000',
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={dataUrl}
             alt=""
