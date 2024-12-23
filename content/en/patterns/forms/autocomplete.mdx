@@ -1,25 +1,18 @@
 ---
 description: "Suggest options as users type"
 icon: Search
-status: draft
+status: complete
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
-import { Callout } from "nextra/components";
 
 # Autocomplete
 
-**_(Also called )_**
-
-- Autosuggest
-
-<Callout type="warning">
-  This page is a work in progress. Don't consider it complete yet.
-</Callout>
+**_(Also called Autosuggest)_**
 
 ## Overview
 
-The **Autocomplete** is an interactive input component that help users quickly find and select values from a predefined list of options as they type.
+The **autocomplete** is an interactive input component that helps users quickly find and select values from a predefined list of options as they type.
 
 They combine the flexibility of text input with dropdown-style selection, providing suggestions that match the user's input in real-time. This pattern reduces errors, speeds up data entry, and improves the overall form completion experience.
 
@@ -43,15 +36,15 @@ They combine the flexibility of text input with dropdown-style selection, provid
 
 ### Common scenarios and examples
 
-- [Example 1]
-- [Example 2]
-- [Example 3]
+- **Searching for products** in an e-commerce catalog
+- **Entering city names** for travel or weather applications
+- **Looking up user or contact names** in a messaging or collaboration tool
 
 ## Benefits
 
-- [Benefit 1]
-- [Benefit 2]
-- [Benefit 3]
+- **Speeds up data entry** by narrowing down possible options in real-time
+- **Reduces user frustration** and guesswork by guiding them to valid options
+- **Minimizes mistakes** and typos, as suggestions can be confirmed or chosen from a list
 
 ## Anatomy
 
@@ -59,11 +52,23 @@ They combine the flexibility of text input with dropdown-style selection, provid
 
 1. **Container**
 
+- Wraps the entire autocomplete area, including the input and dropdown
+- Handles positioning, sizing, and possible floating layers for the suggestions
+
 2. **Input**
+
+- The text field where users type their query
+- Provides real-time updates and triggers suggestion fetching
 
 3. **Label**
 
+- Optional text label describing the input’s purpose
+- Provides clarity for screen readers and visible context for users
+
 4. **Clear Button**
+
+- Allows users to quickly clear the input field
+- Often represented by an “X” or “✕” icon
 
 ## Best Practices
 
@@ -71,71 +76,74 @@ They combine the flexibility of text input with dropdown-style selection, provid
 
 **Do's ✅**
 
-- [Best practice 1]
-- [Best practice 2]
+- Provide a descriptive label that indicates the purpose of the Autocomplete field
+- Use placeholder text to show example input (e.g., "Start typing a country...")
 
 **Don'ts ❌**
 
-- [Anti-pattern 1]
-- [Anti-pattern 2]
+- Don’t rely on placeholder text as a replacement for a label
+- Don’t make your suggestions so vague that it’s unclear what the user is selecting
 
 ### Accessibility & UX
 
 **Do's ✅**
 
-- [Best practice 1]
-- [Best practice 2]
+- Use `aria-controls`, `aria-autocomplete`, and other relevant ARIA attributes to help screen readers
+- Include a visually hidden label or descriptive text if you rely on an icon-only clear button
+- Add a debounce delay to the input field to avoid triggering a fetch request too often
 
 **Don'ts ❌**
 
-- [Anti-pattern 1]
-- [Anti-pattern 2]
+- Don’t remove focus outlines without providing alternative focus indicators
+- Don’t assume all users can use a mouse; ensure keyboard navigation works properly
 
 ### Visual Design
 
 **Do's ✅**
 
-- [Best practice 1]
-- [Best practice 2]
+- Keep the suggestion list clearly delineated, with sufficient contrast and spacing
+- Highlight hovered or focused suggestion items with a distinct visual state
 
 **Don'ts ❌**
 
-- [Anti-pattern 1]
-- [Anti-pattern 2]
+- Don’t display an overly large list of suggestions (limit it to a reasonable number), use a scroll bar to allow users to scroll through the list.
+- Don’t create a cluttered or confusing interface by mixing too many design elements
 
 ### Layout & Positioning
 
 **Do's ✅**
 
-- [Best practice 1]
-- [Best practice 2]
+- Position the dropdown list immediately below the input field
+- Ensure suggestions list appears in front of other page elements when open
 
 **Don'ts ❌**
 
-- [Anti-pattern 1]
-- [Anti-pattern 2]
+- Don’t hide the list behind overlays or modals
+- Don’t move the dropdown to a completely different area away from the input
 
 ## Code Examples
 
 ### Basic Implementation
 
 ```html
-<!-- Basic implementation example -->
+<!-- Basic Autocomplete Markup -->
+<div>
+  <label for="autocompleteInput">Search for an option</label>
+  <input
+    type="text"
+    id="autocompleteInput"
+    name="autocompleteInput"
+    aria-autocomplete="list"
+    aria-controls="suggestions-list"
+    autocomplete="off"
+    placeholder="Type to search..."
+  />
+  <button type="button" aria-label="Clear input">✕</button>
+  <ul id="suggestions-list" role="listbox">
+    <!-- Dynamically generated suggestions go here -->
+  </ul>
+</div>
 ```
-
-## SEO
-
-- [SEO consideration 1]
-- [SEO consideration 2]
-
-## Testing Guidelines
-
-### Functional Testing
-
-**Should ✓**
-
-- [Test case 1]
-- [Test case 2]
 
 ## Design Tokens
 
@@ -143,10 +151,45 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ### Autocomplete Tokens in DTF Format
 
-```json:.json
+```json
 {
   "$schema": "https://design-tokens.org/schema.json",
-  "Autocomplete": {}
+  "Autocomplete": {
+    "container": {
+      "borderRadius": {
+        "value": "0.25rem",
+        "type": "dimension"
+      },
+      "background": {
+        "value": "{color.white}",
+        "type": "color"
+      }
+    },
+    "input": {
+      "fontSize": {
+        "value": "1rem",
+        "type": "dimension"
+      },
+      "padding": {
+        "value": "0.5rem",
+        "type": "dimension"
+      }
+    },
+    "suggestionsList": {
+      "maxHeight": {
+        "value": "200px",
+        "type": "dimension"
+      },
+      "background": {
+        "value": "{color.gray.50}",
+        "type": "color"
+      },
+      "itemHoverBg": {
+        "value": "{color.gray.100}",
+        "type": "color"
+      }
+    }
+  }
 }
 ```
 
@@ -160,8 +203,3 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 ## Documentation
 
 - [WAI-ARIA: Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
-
-### Libraries
-
-- [Library 1]
-- [Library 2]
