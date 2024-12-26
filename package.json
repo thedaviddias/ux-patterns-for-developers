@@ -34,7 +34,7 @@
     "@sentry/nextjs": "^8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.468.0",
+    "lucide-react": "^0.469.0",
     "markdown-to-jsx": "^7.7.2",
     "next": "^15.1.2",
     "next-plausible": "^3.12.4",
