@@ -54,8 +54,8 @@ importers:
         specifier: ^7.4.0
         version: 7.4.0
       simple-icons:
-        specifier: ^13.20.0
-        version: 13.20.0
+        specifier: ^14.0.1
+        version: 14.0.1
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5
@@ -5083,8 +5083,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@13.20.0:
-    resolution: {integrity: sha512-8IQSSOaXhgG9fH0dJsUmlMlo0Jt0Xd1MwxsK75TlRZO0FR7P5UQ8TEaIPOwlRMHd/FzZJ0R3vFHW0kOH7PbdMw==}
+  simple-icons@14.0.1:
+    resolution: {integrity: sha512-Pyd2vedjjYTGZCi8Y4a+BeG6ks2qoEwhtJL7t4l6C5DKFxQXRjpLzg7JLBCC44tsk96bXU1XDVEEp+sz58nYlw==}
     engines: {node: '>=0.12.18'}
 
   simple-swizzle@0.2.2:
@@ -5258,9 +5258,6 @@ packages:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
-
-  tailwindcss@4.0.0-beta.6:
-    resolution: {integrity: sha512-eCCuMk3H65w4J/QWkjxfeWoBSKbCD3E6Uj2LA6Xkkl4eMa1MXuwVpIU1RXcLIp+BVsXGEZMP7i7uJig7KxfAXQ==}
 
   tailwindcss@4.0.0-beta.8:
     resolution: {integrity: sha512-21HmdRq9tHDLJZavb2cRBGJxBvRODpwb0/t3tRbMOl65hJE6zG6K6lD6lLS3IOC35u4SOjKjdZiJJi9AuWCf+Q==}
@@ -11845,7 +11842,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-icons@13.20.0: {}
+  simple-icons@14.0.1: {}
 
   simple-swizzle@0.2.2:
     dependencies:
@@ -12026,8 +12023,6 @@ snapshots:
   tailwindcss-animate@1.0.7(tailwindcss@4.0.0-beta.8):
     dependencies:
       tailwindcss: 4.0.0-beta.8
-
-  tailwindcss@4.0.0-beta.6: {}
 
   tailwindcss@4.0.0-beta.8: {}
 
