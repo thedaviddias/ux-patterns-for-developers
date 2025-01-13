@@ -70,8 +70,8 @@ importers:
         specifier: ^19.6.0
         version: 19.6.0
       '@next/bundle-analyzer':
-        specifier: ^15.1.2
-        version: 15.1.2
+        specifier: ^15.1.4
+        version: 15.1.4
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
@@ -1226,8 +1226,8 @@ packages:
     resolution: {integrity: sha512-jMxvwzkKzd3cXo2EB9GM2ic0eYo2rP/BS6gJt6HnWbsDO1O8GSD4k7o2Cpr2YERtMpGF/MGcDfsfj2EbQPtrXw==}
     engines: {node: '>= 10'}
 
-  '@next/bundle-analyzer@15.1.2':
-    resolution: {integrity: sha512-LuQkM4HSipn+kP8ChckPYL+w0qzx331QfSYY3lU5cutf7Gvk069sK+wH4GfVRdFq+DXSaCiy5IPzAcuXq6G+7g==}
+  '@next/bundle-analyzer@15.1.4':
+    resolution: {integrity: sha512-W8X96jOW0U5VjLVAkFr1P37kH2f/Ma9zzwgX2o3Omft92pI0XHpFG8Xa9YUT3NlhRJCe4ZKznr1VxhSrFNA+BA==}
 
   '@next/env@15.1.2':
     resolution: {integrity: sha512-Hm3jIGsoUl6RLB1vzY+dZeqb+/kWPZ+h34yiWxW0dV87l8Im/eMOwpOA+a0L78U0HM04syEjXuRlCozqpwuojQ==}
@@ -5259,9 +5259,6 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
-  tailwindcss@4.0.0-beta.6:
-    resolution: {integrity: sha512-eCCuMk3H65w4J/QWkjxfeWoBSKbCD3E6Uj2LA6Xkkl4eMa1MXuwVpIU1RXcLIp+BVsXGEZMP7i7uJig7KxfAXQ==}
-
   tailwindcss@4.0.0-beta.8:
     resolution: {integrity: sha512-21HmdRq9tHDLJZavb2cRBGJxBvRODpwb0/t3tRbMOl65hJE6zG6K6lD6lLS3IOC35u4SOjKjdZiJJi9AuWCf+Q==}
 
@@ -6938,7 +6935,7 @@ snapshots:
       '@napi-rs/simple-git-win32-arm64-msvc': 0.1.19
       '@napi-rs/simple-git-win32-x64-msvc': 0.1.19
 
-  '@next/bundle-analyzer@15.1.2':
+  '@next/bundle-analyzer@15.1.4':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
@@ -12026,8 +12023,6 @@ snapshots:
   tailwindcss-animate@1.0.7(tailwindcss@4.0.0-beta.8):
     dependencies:
       tailwindcss: 4.0.0-beta.8
-
-  tailwindcss@4.0.0-beta.6: {}
 
   tailwindcss@4.0.0-beta.8: {}
 
