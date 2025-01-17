@@ -22,3 +22,16 @@ body {
 .featured-pattern {
   @apply relative overflow-hidden rounded-lg border bg-gradient-to-br dark:from-neutral-900/50 dark:to-neutral-900 from-neutral-100/50 to-neutral-100 p-8;
 }
+
+.nextra-content img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Add a caption to the image */
+.nextra-content img + em {
+  text-align: center;
+  display: block;
+  margin-top: 0.5em;
+}

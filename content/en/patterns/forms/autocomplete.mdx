@@ -14,7 +14,7 @@ import { BrowserSupport } from "@app/_components/browser-support";
 
 The **autocomplete** is an interactive input component that helps users quickly find and select values from a predefined list of options as they type.
 
-They combine the flexibility of text input with dropdown-style selection, providing suggestions that match the user's input in real-time. This pattern reduces errors, speeds up data entry, and improves the overall form completion experience.
+They combine the flexibility of [text input](/patterns/forms/text-field) with dropdown-style selection, providing suggestions that match the user's input in real-time. This pattern reduces errors, speeds up data entry, and improves the overall form completion experience.
 
 ## Use Cases
 
@@ -49,6 +49,28 @@ They combine the flexibility of text input with dropdown-style selection, provid
 ## Anatomy
 
 ### Component Structure
+
+```mermaid
+graph TD
+    A[Autocomplete] --> B[Container]
+    B --> C[Input Field]
+    B --> D[Suggestions List]
+    B --> E[Clear Button]
+
+    C --> F[Label]
+    C --> G[Text Input]
+    C --> H[Loading Indicator]
+
+    D --> I[Suggestion Items]
+    I --> J[Item 1]
+    I --> K[Item 2]
+    I --> L[Item n...]
+
+    J --> M[Text Match]
+    J --> N[Additional Info]
+
+    E --> O[Clear Icon]
+```
 
 1. **Container**
 

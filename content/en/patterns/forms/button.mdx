@@ -53,17 +53,13 @@ import { BrowserSupport } from "@app/_components/browser-support";
 
 ```mermaid
 flowchart TB
-subgraph Button[Button Component]
+subgraph Button
 Container[Container Element] -->|contains| Content[Content Area]
 Content --> Icon[Icon <optional>]
 Content --> Label[Label Text]
 Content --> LoadingSpinner[Loading Spinner <optional>]
-style Container fill:#f0f0f0,stroke:#666,stroke-width:1px
-style Content fill:#f0f0f0,stroke:#666,stroke-width:1px
-style Icon fill:#f0f0f0,stroke:#666,stroke-width:1px
-style Label fill:#f0f0f0,stroke:#666,stroke-width:1px
-style LoadingSpinner fill:#f0f0f0,stroke:#666,stroke-width:1px
-classDef container fill:#ffffe0,stroke:#666,stroke-width:2px
+
+classDef container stroke:#666,stroke-width:2px
 class Button container
 end
 ```

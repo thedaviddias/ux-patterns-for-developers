@@ -62,12 +62,12 @@ export default async function Page(props: PageProps) {
   const pageKey = `${params.lang}-${params.mdxPath?.join('-') || 'home'}`
 
   return (
-    <>
+    <div className="nextra-content">
       <JsonLd data={schemaData} />
       <Wrapper key={pageKey} toc={toc} metadata={metadata}>
         <MDXContent {...props} params={params} />
         {!isHomepage && <SuggestPattern />}
       </Wrapper>
-    </>
+    </div>
   )
 }
