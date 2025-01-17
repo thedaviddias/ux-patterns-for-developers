@@ -15,9 +15,9 @@ This is an updated list of available and incoming patterns.
 ### Content Management
 
 - Accordion (coming soon)
-- Carousel (coming soon)
+- [Carousel](https://uxpatterns.dev/patterns/content-management/carousel)
 - Drag And Drop (coming soon)
-- Modal (coming soon)
+- [Modal](https://uxpatterns.dev/patterns/content-management/modal)
 - Tooltip (coming soon)
 
 ### Forms
@@ -40,7 +40,7 @@ This is an updated list of available and incoming patterns.
 - Rating Input (coming soon)
 - Rich Text Editor (coming soon)
 - Search Field (coming soon)
-- Selection Input (coming soon)
+- [Selection Input](https://uxpatterns.dev/patterns/forms/selection-input)
 - Signature Pad (coming soon)
 - Slider (coming soon)
 - Tag Input (coming soon)
