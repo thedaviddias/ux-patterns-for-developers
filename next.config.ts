@@ -29,6 +29,10 @@ const nextConfig = withBundleAnalyzer(
           protocol: 'https',
           hostname: '**',
         },
+        {
+          protocol: 'https',
+          hostname: 'covers.openlibrary.org',
+        },
       ],
     },
     redirects: async () => [

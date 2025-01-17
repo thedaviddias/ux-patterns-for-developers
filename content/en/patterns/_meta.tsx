@@ -11,6 +11,7 @@ export const Separator: FC<{ children: ReactNode }> = ({ children }) => {
 export default {
   'getting-started': '',
   'when-to-use-what': '',
+  'books': '',
   _: {
     title: <Separator>Categories</Separator>,
     type: 'separator',
