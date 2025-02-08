@@ -1,20 +1,322 @@
 ---
 description: "Navigate through multiple pages of content"
 icon: Route
+status: complete
 ---
 
-import { Callout } from "nextra/components";
+import { BrowserSupport } from "@app/_components/browser-support";
 
 # Pagination
 
-<Callout type="warning">
-  This page is empty for now. Please help us by
-  [contributing](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
-  to add content.
-</Callout>
+## Overview
+
+**Pagination** is a navigation pattern used to divide large collections of content into manageable chunks or pages.
+This helps users to navigate through data sets, search results, or product listings without overwhelming the page with too much information at once.
+
+While pagination is a common and effective pattern, it's important to consider alternatives like infinite scroll or "Load More" buttons for certain types of content. The choice between pagination and infinite scroll depends on factors such as the nature of the content, user behavior, and the goals of the interface.
+
+## Use Cases
+
+### When to use:
+
+**Common scenarios include:**
+
+- **Browsing content lists** – e.g., search results, blog archives, or product listings.
+- **Improving page performance** – by loading content in smaller, more manageable segments.
+- **Enhancing user clarity** – making large data sets easier to understand and navigate.
+- **Navigating sequential content** – e.g., multi-page tutorials or articles.
+
+### When not to use:
+
+- When all content is better presented on a single page (e.g., short lists or summaries).
+- If infinite scroll or a “load more” pattern better suits the user experience.
+- In scenarios where users need continuous comparison between items on different pages.
+
+## Benefits
+
+- Improves page load times by limiting the amount of content loaded at once
+- Enhances user orientation within large datasets
+- Provides clear navigation cues for moving through content
+- Supports better performance and reduced server load
+- Allows for easier bookmarking and sharing of specific pages
+- Gives users a sense of the content's scope (total number of pages/items)
+- Better suited for goal-oriented tasks compared to infinite scroll
+
+## Anatomy
+
+```mermaid
+flowchart TB
+  subgraph Pagination[Pagination Component]
+    A[Pagination Container] --> B[Previous Button]
+    A --> C[Pagination Items]
+    A --> D[Next Button]
+  end
+  classDef container stroke:#666,stroke-width:2px
+  class Pagination container
+```
+
+### Component Structure
+
+1. **Container**
+
+- The wrapper element that encompasses all pagination controls.
+- Manages layout and spacing.
+- Ensures proper ARIA labeling and keyboard navigation.
+
+2. **Previous Button**
+
+- Allows users to navigate to the preceding page.
+- Typically disabled on the first page to indicate there is no previous content.
+
+3. **Pagination Items**
+
+- Numbered buttons or links for each page.
+- Clearly indicate the current page (using visual cues and ARIA attributes).
+- May include an ellipsis (“…”) for large ranges of pages.
+
+4. **Next Button**
+
+- Allows users to navigate to the next page.
+- Disabled on the last page to prevent further navigation.
+
+5. **Visual States**
+
+- **Default:** Normal state with clear labels and clickable elements.
+- **Hover and Focus:** Provide visual cues (underline, background change, or border) for interactive elements.
+- **Active:** Indicates the currently selected page.
+- **Disabled:** Indicates non-interactive controls (e.g., previous on page 1, next on last page).
 
 ## Best Practices
 
-### Design
+### Content
 
-- [ ] Design for the possibility of having a digit bigger than 1000 (maybe use 1k, 2k, 3k, etc.)
+**Do's ✅**
+
+- Use clear, concise labels for navigation controls
+- Provide context (e.g., "Page 5 of 20")
+- Consider using ellipsis (...) for large page ranges
+- Evaluate whether pagination or infinite scroll is more appropriate for your specific use case and content type
+- Show a loading indicator when fetching new content
+- Update the URL to reflect the current page number
+
+**Don'ts ❌**
+
+- Don't clutter the interface with too many pagination controls
+- Avoid using pagination for very short lists that can be displayed on a single page
+- Don't use ambiguous labels that could confuse the user
+- Avoid loading unnecessary data or assets that aren't relevant to the current page
+
+### Accessibility & UX
+
+**Do's ✅**
+
+- Use the semantic `<nav>` element to wrap pagination controls
+- Label the `<nav>` element with `aria-label="Pagination"` or similar for screen readers
+- Ensure each page link is a focusable element and includes clear labels
+- Provide a logical keyboard navigation order (e.g., Tab, Enter, Arrow keys)
+- Use `aria-current="page"` to indicate the current page
+- Automatically scroll to the top of the content area when loading a new page
+- Set focus to the main content area or the first item in the new page after loading
+- Use ARIA live regions to announce loading status to screen reader users
+- Provide a "Skip to content" link that becomes visible on focus for keyboard users
+
+**Don'ts ❌**
+
+- Don't rely solely on color to indicate the current page; also include text or icons
+- Avoid complex pagination structures that could confuse keyboard and assistive technology users
+- Don't leave the user's scroll position unchanged when loading an entirely new page of content
+- Avoid setting focus to the pagination controls after page load, as this can be disorienting
+
+### Visual Design
+
+**Do's ✅**
+
+- Use consistent spacing, typography, and colors to maintain clarity
+- Provide clear visual separation between individual pagination items
+- Ensure the active state stands out visually
+- Consider using subtle hover animations to signal interactivity
+- Design for scalability with large numbers of pages (e.g., use abbreviated formats like 1k, 2k for 1000, 2000)
+- Implement efficient server-side pagination to minimize load times
+- Use smooth scrolling when automatically moving to the top of new content
+
+**Don'ts ❌**
+
+- Don't make interactive elements too small or difficult to tap on mobile devices
+- Avoid overly decorative styles that detract from content readability
+- Don't block user interaction with the entire page during loading unless absolutely necessary
+
+### Layout & Positioning
+
+**Do's ✅**
+
+- Position the pagination control in a logical location (typically at the bottom of content listings)
+- Ensure sufficient contrast between pagination controls and the background
+- Use responsive design techniques to maintain usability on various devices
+- Consider using progressive loading techniques for images and other media
+- Maintain scroll position if only part of the page is being updated (e.g., in a single-page application)
+
+**Don'ts ❌**
+
+- Don't position pagination too far from the actual content, which may force excessive scrolling
+- Avoid fixed positioning that could interfere with content readability on small screens
+- Don't break the browser's history functionality with custom pagination implementations
+
+## Code Examples
+
+### Basic Implementation
+
+```html
+<!-- Pagination Container -->
+<nav class="pagination" aria-label="Pagination Navigation">
+  <!-- Previous Button -->
+  <button
+    type="button"
+    class="pagination-prev"
+    aria-label="Previous page"
+    disabled
+  >
+    Previous
+  </button>
+
+  <!-- Pagination Items -->
+  <ul class="pagination-list">
+    <li>
+      <button
+        type="button"
+        class="pagination-item"
+        aria-label="Page 1"
+        aria-current="true"
+      >
+        1
+      </button>
+    </li>
+    <li>
+      <button type="button" class="pagination-item" aria-label="Page 2">
+        2
+      </button>
+    </li>
+    <li>
+      <button type="button" class="pagination-item" aria-label="Page 3">
+        3
+      </button>
+    </li>
+    <!-- Ellipsis for additional pages, if needed -->
+    <li><span class="pagination-ellipsis">…</span></li>
+    <li>
+      <button type="button" class="pagination-item" aria-label="Page 10">
+        10
+      </button>
+    </li>
+  </ul>
+
+  <!-- Next Button -->
+  <button type="button" class="pagination-next" aria-label="Next page">
+    Next
+  </button>
+</nav>
+```
+
+## Accessibility
+
+### ARIA Attributes
+
+**Required ARIA attributes:**
+
+- The container should use role="navigation" with an appropriate aria-label (e.g., "Pagination Navigation").
+- Each pagination item should include aria-labels indicating the respective page number.
+- Indicate the current page using aria-current="true".
+
+### Keyboard Interaction Pattern
+
+The following table outlines the standard keyboard interactions for pagination components:
+
+| Key         | Action                                                   |
+| ----------- | -------------------------------------------------------- |
+| Tab         | Navigate among pagination controls and page buttons      |
+| Enter/Space | Activate the focused pagination button                   |
+| Arrow Keys  | Optionally, navigate between page items (if implemented) |
+
+## SEO
+
+- Use semantic HTML (e.g., `<nav>` and lists) to help search engines understand your site structure.
+- Ensure that pagination links are crawlable, improving site indexing.
+
+## Testing Guidelines
+
+### Functional Testing
+
+**Should ✓**
+
+- [ ] Verify that the pagination controls render correctly.
+- [ ] Ensure clicking the Previous and Next buttons navigates to the correct pages.
+- [ ] Test that the active state updates when navigating through pages.
+- [ ] Confirm that disabled states (on the first or last page) are correctly implemented.
+
+### Accessibility Testing
+
+**Should ✓**
+
+- [ ] Validate that the pagination container has role="navigation" and an appropriate aria-label.
+- [ ] Confirm each pagination item is focusable and properly labeled.
+- [ ] Ensure keyboard navigation works seamlessly with the pagination controls.
+- [ ] Test that screen readers correctly announce the current page.
+
+### Visual Testing
+
+**Should ✓**
+
+- [ ] Confirm that pagination controls adapt gracefully to different screen sizes.
+- [ ] Verify that active and hover states are visually distinct.
+- [ ] Check that pagination does not overlap or interfere with other page elements.
+
+### Performance Testing
+
+**Should ✓**
+
+- [ ] Ensure that pagination does not cause significant loading delays.
+- [ ] Validate that new page content loads efficiently when navigating.
+
+## Browser Support
+
+<BrowserSupport
+  features={["CSS Grid/Flexbox for layout", "ARIA roles and attributes"]}
+/>
+
+## Design Tokens
+
+These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+
+### Pagination Tokens in DTF Format
+
+```json:pagination.json
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "pagination": {
+    "container": {
+      "padding": { "value": "1rem", "type": "dimension" },
+      "background": { "value": "{color.white}", "type": "color" }
+    },
+    "item": {
+      "size": { "value": "2rem", "type": "dimension" },
+      "fontSize": { "value": "1rem", "type": "fontSize" },
+      "color": { "value": "{color.text}", "type": "color" },
+      "activeColor": { "value": "{color.primary}", "type": "color" }
+    },
+    "button": {
+      "padding": { "value": "0.5rem 1rem", "type": "dimension" },
+      "borderRadius": { "value": "0.25rem", "type": "dimension" }
+    }
+  }
+}
+```
+
+## Related Patterns
+
+- [Infinite Scroll](/patterns/navigation/infinite-scroll) - An alternative to pagination for certain types of content, particularly suited for content streams or social media feeds
+
+## Resources
+
+### Libraries
+
+- [Pagination - shadcn/ui](https://ui.shadcn.com/docs/components/pagination)
+- [Pagination - Origin UI](https://originui.com/pagination)
