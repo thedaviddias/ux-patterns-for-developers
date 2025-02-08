@@ -1,22 +1,22 @@
 import { Pattern } from "../_utils/get-pattern-categories"
 
 export const PATTERNS_MAP = {
+  'content-management': {
+    name: 'Content Management',
+    path: 'content-management'
+  },
   navigation: {
     name: 'Layout & Navigation',
     path: 'navigation'
+  },
+  'user-feedback': {
+    name: 'User Feedback',
+    path: 'user-feedback'
   },
   forms: {
     name: 'Input & Forms',
     path: 'forms'
   },
-  'content-management': {
-    name: 'Content Management',
-    path: 'content-management'
-  },
-  'user-feedback': {
-    name: 'User Feedback',
-    path: 'user-feedback'
-  }
 } as const
 
 export type Category = {

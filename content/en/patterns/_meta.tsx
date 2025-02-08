@@ -16,26 +16,26 @@ export default {
     title: <Separator>Categories</Separator>,
     type: 'separator',
   },
-  'navigation': {
-    title: 'Layout & Navigation',
-    theme: {
-      collapsed: false
-    }
-  },
-  'forms': {
-    title: 'Inputs & Forms',
-    theme: {
-      collapsed: false
-    }
-  },
   'content-management': {
     title: 'Content Management',
     theme: {
       collapsed: false
     }
   },
+  'navigation': {
+    title: 'Layout & Navigation',
+    theme: {
+      collapsed: false
+    }
+  },
   'user-feedback': {
     title: 'User Feedback',
+    theme: {
+      collapsed: false
+    }
+  },
+  'forms': {
+    title: 'Inputs & Forms',
     theme: {
       collapsed: false
     }
