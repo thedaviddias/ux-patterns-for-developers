@@ -14,10 +14,12 @@ This is an updated list of available and incoming patterns.
 
 ### Content Management
 
-- Accordion (coming soon)
+- [Accordion](https://uxpatterns.dev/patterns/content-management/accordion)
 - [Carousel](https://uxpatterns.dev/patterns/content-management/carousel)
 - Drag And Drop (coming soon)
+- [Expandable Text](https://uxpatterns.dev/patterns/content-management/expandable-text)
 - [Modal](https://uxpatterns.dev/patterns/content-management/modal)
+- [Popover](https://uxpatterns.dev/patterns/content-management/popover)
 - [Tooltip](https://uxpatterns.dev/patterns/content-management/tooltip)
 
 ### Forms
@@ -53,10 +55,11 @@ This is an updated list of available and incoming patterns.
 - [Back To Top](https://uxpatterns.dev/patterns/navigation/back-to-top)
 - [Breadcrumb](https://uxpatterns.dev/patterns/navigation/breadcrumb)
 - Hambuger Menu (coming soon)
-- [Infinite Scroll](https://uxpatterns.dev/patterns/navigation/infinite-scroll)
+- Infinite Scroll (coming soon)
+- Load More (coming soon)
 - Megamenu (coming soon)
 - Navigation Menu (coming soon)
-- Pagination (coming soon)
+- [Pagination](https://uxpatterns.dev/patterns/navigation/pagination)
 - Sidebar (coming soon)
 - Tabs (coming soon)
 
