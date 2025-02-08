@@ -83,7 +83,7 @@ export const Footer = async ({ lang }: { lang: string }) => {
               &copy; {new Date().getFullYear()} UX Patterns for Devs
             </p>
             <p className="text-gray-500">
-              Made with ❤️ by <a href="https://ddias.link/blog" target="_blank" rel="noopener noreferrer" className="font-bold underline">David Dias</a> for the Open-Source Community.
+              Made with ❤️ by <a href="https://ddias.link/blog" target="_blank" rel="noopener noreferrer" className="font-bold underline dark:text-gray-300">David Dias</a> for the Open-Source Community.
             </p>
           </div>
         </div>
