@@ -21,10 +21,16 @@ Modals are used to display important information, request user input, or confirm
 
 ### When to use:
 
-- When you need to grab the user's attention for important information or actions
-- For critical confirmation messages (e.g., "Are you sure you want to delete?")
-- To gather necessary information before proceeding (e.g., login forms, payment details)
-- When the user needs to perform a separate, focused task without losing the context of the main page
+Use a modal when you need to **interrupt the user flow** to display important information or require user input before proceeding.
+
+**Common scenarios include:**
+
+- **Confirmation dialogs** – e.g., "Are you sure you want to delete this item?"
+- **Critical system messages** – e.g., session expiration warnings, important alerts.
+- **Forms requiring user input** – e.g., login, payment, or signup flows.
+- **Media previews** – e.g., displaying images or videos in a lightbox overlay.
+- **Multi-step processes** – e.g., checkout steps or onboarding flows.
+- **Displaying terms and conditions** – e.g., requiring user agreement before proceeding.
 
 ### When not to use:
 
@@ -33,14 +39,6 @@ Modals are used to display important information, request user input, or confirm
 - If the same information needs to be accessed frequently
 - For large amounts of content that require significant scrolling - use a dedicated page for better user experience and accessibility
 - When users need to interact with the main page while the modal is open
-
-### Common scenarios and examples
-
-- Displaying terms and conditions before allowing a user to sign up
-- Confirming deletion of an important resource
-- Gathering payment details during a checkout process
-- Showing a login form when accessing protected content
-- Displaying images or videos in a lightbox overlay
 
 ## Benefits
 
@@ -152,7 +150,7 @@ graph TD
 
 **Do's ✅**
 
-- Use consistent design patterns for modals throughout your webiste or web application
+- Use consistent design patterns for modals throughout your website or web application
 - Ensure the modal content contrasts well with the overlay background
 - Provide sufficient whitespace and padding within the modal container
 - Use a responsive design that adapts well to different screen sizes
@@ -182,10 +180,10 @@ graph TD
 
 ## Code Examples
 
-### Basic Implementation
+### Method 1: Basic Implementation
 
 ```html
-<!-- Trigger -->
+<!-- Trigger Button -->
 <button type="button" data-modal-target="basicModal">Open Modal</button>
 
 <!-- Modal -->
@@ -208,6 +206,153 @@ graph TD
   </div>
 </div>
 ```
+
+**Pros ✅**
+
+- **Full styling control**—can be completely customized with CSS.
+- **Supports advanced animations and transitions**.
+- **Can include additional behaviors** (e.g., stacking multiple modals, custom scroll locking).
+- **Compatible with all browsers**, including older versions.
+
+**Cons ❌**
+
+- **Requires JavaScript**—needs scripting for open/close behavior.
+- **Manual focus management needed**—must ensure focus stays within the modal.
+- **Must handle accessibility manually**—requires ARIA attributes (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`).
+- **Backdrop needs to be implemented separately**.
+
+### Method 2: Native Modal
+
+```html
+<!-- Trigger Button -->
+<button
+  type="button"
+  onclick="document.getElementById('nativeModal').showModal()"
+>
+  Open Modal
+</button>
+
+<!-- Native HTML Modal -->
+<dialog id="nativeModal">
+  <h2>Modal Title</h2>
+  <p>Modal content goes here...</p>
+
+  <div class="modal-actions">
+    <button
+      type="button"
+      class="button-secondary"
+      onclick="document.getElementById('nativeModal').close()"
+    >
+      Cancel
+    </button>
+    <button type="button" class="button-primary">Confirm</button>
+  </div>
+</dialog>
+```
+
+**Pros ✅**
+
+- **Built-in modal behavior**—prevents interaction with background content.
+- **Automatic focus management**—traps focus within the modal when open.
+- **Native backdrop support**—automatically applies an overlay.
+- **Keyboard accessible by default**—supports `Escape` key to close.
+- **Simpler implementation**—requires less JavaScript for basic use.
+
+**Cons ❌**
+
+- **Limited styling control**—some browsers restrict modifications to the native backdrop.
+- **Less flexible animations**—difficult to create smooth transitions.
+- **Browser inconsistencies**—not fully supported in older browsers.
+- **Difficult to integrate with custom UI frameworks**.
+
+### When to use a Native Modal (`<dialog>`) and a Custom Modal?
+
+```mermaid
+graph TD
+  A[Do you need full control over styling and behavior?] -->|Yes| B[Use Custom Modal with ARIA]
+  A -->|No| C[Do you want a native solution with minimal code?]
+  C -->|Yes| D[Use Native <dialog> Element]
+  C -->|No| B[Use Custom Modal with ARIA]
+```
+
+For a detailed breakdown of feature differences, refer to the table below:
+
+| Feature                           | `<dialog>` (Native Modal)                    | Custom Modal with ARIA                                   |
+| --------------------------------- | -------------------------------------------- | -------------------------------------------------------- |
+| **Requires JavaScript?**          | ❌ No (for basic behavior)                   | ✅ Yes (to manage accessibility and interactions)        |
+| **Supports full styling?**        | ❌ Limited (some browser restrictions)       | ✅ Yes (complete control over appearance and animations) |
+| **Built-in focus management?**    | ✅ Yes (automatically traps focus)           | ❌ No (must be implemented manually)                     |
+| **Screen reader support?**        | ✅ Yes (automatically announces modal state) | ✅ Yes (if correctly implemented with ARIA roles)        |
+| **Backdrop and overlay support?** | ✅ Yes (native `<dialog>` styling)           | ✅ Yes (requires manual implementation)                  |
+| **Closing behavior?**             | ✅ Supports ESC key, `.close()` method       | ✅ Requires explicit event handling                      |
+| **Best for**                      | Simple, native modals with default behavior  | Fully custom modals with advanced interactions           |
+
+## Accessibility
+
+### Keyboard Interaction Pattern
+
+The following table outlines the standard keyboard interactions for modal components. These interactions ensure that users can navigate and operate modals effectively using only a keyboard.
+
+| Key         | Action                                                                                               |
+| ----------- | ---------------------------------------------------------------------------------------------------- |
+| Escape      | Closes the modal                                                                                     |
+| Tab         | Moves focus to the next focusable element within the modal. Focus should be trapped within the modal |
+| Shift + Tab | Moves focus to the previous focusable element within the modal                                       |
+| Enter/Space | Activates the focused button or control                                                              |
+
+> **Note**: When the modal opens, focus should automatically move to the first focusable element within the modal (usually the close button or the first form field). When the modal closes, focus should return to the element that triggered the modal.
+
+## Testing Guidelines
+
+### Functional Testing
+
+**Should ✓**
+
+- [ ] Ensure the modal **opens and closes correctly** when triggered.
+- [ ] Verify that **clicking the close button** dismisses the modal.
+- [ ] Check that clicking **outside the modal (on the overlay)** closes it, if applicable.
+- [ ] Ensure the modal **does not close** when interacting with form fields or selecting text inside.
+- [ ] Test modal behavior **when resizing the viewport**—it should remain correctly positioned.
+- [ ] Validate that **nested modals** (if supported) do not break functionality.
+
+### Accessibility Testing
+
+**Should ✓**
+
+- [ ] Ensure the modal has **`role="dialog"`** and **`aria-modal="true"`**.
+- [ ] Verify that the modal title is **announced by screen readers** using `aria-labelledby` or `aria-label`.
+- [ ] Ensure **keyboard navigation is functional**—users can tab through elements inside the modal.
+- [ ] Test that focus is **trapped inside the modal** while it is open.
+- [ ] Ensure that pressing the **Escape key closes the modal**.
+- [ ] Confirm that **focus returns to the triggering element** when the modal closes.
+- [ ] Verify that **modals do not interfere with screen reader navigation**.
+
+### Icon & Close Button Testing
+
+**Should ✓**
+
+- [ ] Ensure the **close button is visible and accessible**.
+- [ ] Verify that the **icon changes state** if an interactive toggle icon is used.
+- [ ] Confirm that **keyboard users can activate the close button**.
+
+### Visual Testing
+
+**Should ✓**
+
+- [ ] Validate that the **modal is positioned correctly** (centered or anchored as intended).
+- [ ] Ensure the modal has **sufficient contrast** against the overlay.
+- [ ] Check that **action buttons are clearly visible and styled appropriately**.
+- [ ] Verify that modal **animations/transitions** (if any) are smooth and non-jarring.
+- [ ] Test modal layout across **various screen sizes** to ensure responsiveness.
+
+### Performance Testing
+
+**Should ✓**
+
+- [ ] Verify that modal animations **do not cause lag**.
+- [ ] Ensure modals **load efficiently** and do not block page rendering.
+- [ ] Test modal performance when **multiple modals are triggered in succession**.
+- [ ] Confirm that **closing the modal correctly removes it from the DOM** (if dynamically inserted).
 
 ## Browser Support
 

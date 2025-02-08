@@ -370,9 +370,7 @@ This approach leverages **native browser behavior** without requiring JavaScript
 - No aria-expanded state by default—some screen readers may not properly announce expansion.
 - All items can be expanded at once—doesn’t support “only one section open” behavior.
 
-## Accessibility
-
-## When to use a tabbed carousel vs grouped carousel?
+### When to use a tabbed carousel vs grouped carousel?
 
 Use the **decision tree** below to determine the right method:
 
@@ -394,6 +392,24 @@ For a detailed breakdown of feature differences, refer to the table below:
 | **Supports keeping only one section open?** | ❌ No                                          | ✅ Yes (requires JavaScript)                                 |
 | **Keyboard accessibility?**                 | ✅ Built-in (natively accessible)              | ✅ Requires explicit keyboard handling                       |
 | **Best for**                                | Simple FAQs or basic collapsible sections      | Custom-designed accordions with more control over behavior   |
+
+## Accessibility
+
+### Keyboard Interaction Pattern
+
+The following table outlines the standard keyboard interactions for accordion components. These interactions ensure that users can navigate and operate accordions effectively using only a keyboard.
+
+| Key                   | Action                                                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------------- |
+| Enter or Space        | • Expand a collapsed panel; collapse all others<br/>• Collapse an expanded panel                        |
+| Tab                   | Move focus to the next focusable item in the tab sequence. Focus will progress into an accordion panel. |
+| Shift + Tab           | Move focus to the previous focusable item in the tab sequence                                           |
+| Down Arrow (Optional) | Move focus to the next accordion header                                                                 |
+| Up Arrow (Optional)   | Move focus to the previous accordion header                                                             |
+| Home (Optional)       | Move focus to the first accordion header                                                                |
+| End (Optional)        | Move focus to the last accordion header                                                                 |
+
+> **Note**: Keys marked as optional may be omitted in some accordion implementations. The example in this documentation implements all optional keys for enhanced accessibility.
 
 ## Testing Guidelines
 

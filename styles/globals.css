@@ -35,3 +35,7 @@ body {
   display: block;
   margin-top: 0.5em;
 }
+
+.nextra-content .contains-task-list li {
+  @apply my-2;
+}

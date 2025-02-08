@@ -12,6 +12,11 @@ status: complete
 
 A **tooltip** is a small popup that provides additional contextual information when a user hovers over, focuses on, or interacts with an element. It helps clarify elements with **icons, buttons, or text snippets** that may not be self-explanatory.
 
+There are **two types of tooltips**:
+
+- **Simple Tooltips** – Short text descriptions that appear on hover or focus, providing a brief explanation.
+- **Rich Tooltips** – Enhanced tooltips that may contain **formatted text, icons, images, or interactive elements**.
+
 Tooltips should be used to enhance understanding without overwhelming the user interface.
 
 ## Use Cases
@@ -22,11 +27,20 @@ Use a tooltip when you need to provide **additional context or explanations** wi
 
 Common use cases include:
 
-- **Clarifying icons or abbreviations** (e.g., a settings cog or currency symbols).
+**Simple Tooltips**
+
+- **Clarifying icons or abbreviations** (e.g., a settings cog, currency symbols).
 - **Providing additional information** about form fields or table headers.
 - **Showing helper text** for complex actions (e.g., "This action is permanent").
 - **Explaining disabled elements** when a user cannot interact with them.
 - **Providing keyboard shortcuts** when hovering over action buttons.
+
+**Rich Tooltips**
+
+- **Providing in-depth explanations** beyond a brief description.
+- **Displaying small images, formatted text, or interactive content**.
+- **Presenting additional details about data points in charts**.
+- **Showing user profile previews in social apps**.
 
 ### When not to use:
 
@@ -45,11 +59,14 @@ Common use cases include:
 
 ## Anatomy
 
+## Anatomy
+
 ```mermaid
 graph TD
     A[Tooltip] --> B[Trigger Element]
     B -->|Hover/Focus| C[Tooltip Box]
     C --> D[Tooltip Content]
+    C --> E[Optional Interactive Elements]
 ```
 
 ### Component Structure
@@ -72,34 +89,46 @@ graph TD
 - Should be short and to the point.
 - Should not contain interactive elements (no links or buttons).
 
+4. **Optional Interactive Elements (For Rich Tooltips)**
+
+- Some tooltips allow links, buttons, or interactive elements.
+- These require aria-haspopup="true" and aria-expanded="true|false" for accessibility.
+
 ## Best Practices
 
 ### Content
 
-**Do's ✅**
+**Do's for Simple Tooltips ✅**
 
-- **Keep standard tooltips concise**—aim for **one or two sentences** to provide quick, useful context.
-- **Use rich tooltips for additional details**—if the tooltip is replacing an extra click (e.g., profile previews, definitions), a longer format may be appropriate.
-- **Ensure the tooltip enhances usability** rather than being redundant.
-- **Provide useful context** without duplicating label text.
-- **Test tooltip placement** to prevent obstruction of key UI elements.
+- **Keep concise**—**1-2 sentences max** to provide quick context.
+- **Trigger on hover and focus** for accessibility.
+- **Position strategically** to **avoid covering nearby elements**.
+
+**Do's for Rich Tooltips ✅**
+
+- **Use when additional context is needed** (e.g., explanations, formatted text).
+- **Ensure it remains visible until dismissed**, if interactive.
+- **Allow keyboard navigation** if containing buttons or links.
 
 **Don'ts ❌**
 
 - **Avoid tooltips for critical information**—users might miss them.
-- **Don’t overuse long tooltips**—if the information is too complex, consider using a popover or [modal](/patterns/content-management/modal) instead.
+- **Don’t overuse long tooltips**—consider using a popover or [modal](/patterns/content-management/modal).
 - **Avoid adding interactive elements** (buttons, links) inside tooltips unless using an accessible popover.
-- **Don't rely on tooltips as the only way** to understand an element.
 
 ### Accessibility
 
-**Do's ✅**
+**Do's for Simple Tooltips ✅**
 
-- **Ensure keyboard accessibility**—tooltips should appear on `focus`.
+- **Ensure they appear on `focus` as well as hover**.
 - **Use `aria-describedby`** on the trigger element to associate it with the tooltip.
 - **Provide `role="tooltip"`** for proper screen reader support.
-- **Ensure proper contrast** for tooltip text and background.
-- **Allow tooltips to remain visible** if users hover over them.
+
+**Do's for Rich Tooltips ✅**
+
+- **If interactive, use `aria-haspopup="true"`** and **`aria-expanded="true|false"`**.
+- **Allow users to dismiss using Escape key**.
+- **Ensure users can tab into and out of the tooltip seamlessly**.
 
 **Don'ts ❌**
 
@@ -148,6 +177,21 @@ graph TD
   This is additional information about the element.
 </div>
 ```
+
+## Accessibility
+
+### Keyboard Interaction Pattern
+
+The following table outlines the standard keyboard interactions for tooltip components. These interactions ensure that users can access and dismiss tooltips effectively using only a keyboard.
+
+| Key         | Action                                                                                           |
+| ----------- | ------------------------------------------------------------------------------------------------ |
+| Tab         | Moves focus to the element that triggers the tooltip. The tooltip should appear on focus.        |
+| Shift + Tab | Moves focus to the previous interactive element. The tooltip should close when focus moves away. |
+| Escape      | Dismisses the tooltip manually (if dismissible).                                                 |
+| Enter/Space | Activates the tooltip (for tooltips that require explicit activation).                           |
+
+> **Note**: Tooltips should appear when an element **receives focus** (for keyboard users) and **disappear when focus moves away**. If a tooltip is **interactive** (contains links or buttons), it must be dismissible via the `Escape` key.
 
 ## Testing Guidelines
 
