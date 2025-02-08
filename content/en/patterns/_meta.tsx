@@ -27,5 +27,17 @@ export default {
     theme: {
       collapsed: false
     }
+  },
+  'content-management': {
+    title: 'Content Management',
+    theme: {
+      collapsed: false
+    }
+  },
+  'user-feedback': {
+    title: 'User Feedback',
+    theme: {
+      collapsed: false
+    }
   }
 }
