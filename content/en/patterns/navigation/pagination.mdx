@@ -13,7 +13,7 @@ import { BrowserSupport } from "@app/_components/browser-support";
 **Pagination** is a navigation pattern used to divide large collections of content into manageable chunks or pages.
 This helps users to navigate through data sets, search results, or product listings without overwhelming the page with too much information at once.
 
-While pagination is a common and effective pattern, it's important to consider alternatives like infinite scroll or "Load More" buttons for certain types of content. The choice between pagination and infinite scroll depends on factors such as the nature of the content, user behavior, and the goals of the interface.
+While pagination is a common and effective pattern, it's important to consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain types of content. The choice between pagination and infinite scroll depends on factors such as the nature of the content, user behavior, and the goals of the interface.
 
 ## Use Cases
 
@@ -29,7 +29,7 @@ While pagination is a common and effective pattern, it's important to consider a
 ### When not to use:
 
 - When all content is better presented on a single page (e.g., short lists or summaries).
-- If infinite scroll or a “load more” pattern better suits the user experience.
+- If [infinite scroll](/patterns/navigation/infinite-scroll) or a ["load more"](/patterns/navigation/load-more) pattern better suits the user experience.
 - In scenarios where users need continuous comparison between items on different pages.
 
 ## Benefits
@@ -51,8 +51,6 @@ flowchart TB
     A --> C[Pagination Items]
     A --> D[Next Button]
   end
-  classDef container stroke:#666,stroke-width:2px
-  class Pagination container
 ```
 
 ### Component Structure
@@ -72,7 +70,7 @@ flowchart TB
 
 - Numbered buttons or links for each page.
 - Clearly indicate the current page (using visual cues and ARIA attributes).
-- May include an ellipsis (“…”) for large ranges of pages.
+- May include an ellipsis ("…") for large ranges of pages.
 
 4. **Next Button**
 
@@ -106,7 +104,7 @@ flowchart TB
 - Don't use ambiguous labels that could confuse the user
 - Avoid loading unnecessary data or assets that aren't relevant to the current page
 
-### Accessibility & UX
+### Accessibility
 
 **Do's ✅**
 
@@ -276,12 +274,6 @@ The following table outlines the standard keyboard interactions for pagination c
 - [ ] Ensure that pagination does not cause significant loading delays.
 - [ ] Validate that new page content loads efficiently when navigating.
 
-## Browser Support
-
-<BrowserSupport
-  features={["CSS Grid/Flexbox for layout", "ARIA roles and attributes"]}
-/>
-
 ## Design Tokens
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -313,6 +305,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 ## Related Patterns
 
 - [Infinite Scroll](/patterns/navigation/infinite-scroll) - An alternative to pagination for certain types of content, particularly suited for content streams or social media feeds
+- [Load More](/patterns/navigation/load-more) - A simpler alternative to pagination that gives users manual control over loading additional content
 
 ## Resources
 
