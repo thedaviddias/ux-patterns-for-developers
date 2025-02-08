@@ -18,7 +18,7 @@ This is an updated list of available and incoming patterns.
 - [Carousel](https://uxpatterns.dev/patterns/content-management/carousel)
 - Drag And Drop (coming soon)
 - [Modal](https://uxpatterns.dev/patterns/content-management/modal)
-- Tooltip (coming soon)
+- [Tooltip](https://uxpatterns.dev/patterns/content-management/tooltip)
 
 ### Forms
 
