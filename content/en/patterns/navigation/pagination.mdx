@@ -5,6 +5,7 @@ status: complete
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
+import { BuildEffort } from "@app/_components/build-effort";
 
 # Pagination
 
@@ -14,6 +15,11 @@ import { BrowserSupport } from "@app/_components/browser-support";
 This helps users to navigate through data sets, search results, or product listings without overwhelming the page with too much information at once.
 
 While pagination is a common and effective pattern, it's important to consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain types of content. The choice between pagination and infinite scroll depends on factors such as the nature of the content, user behavior, and the goals of the interface.
+
+<BuildEffort
+  level="medium"
+  description="Requires page navigation logic, active state management, keyboard accessibility, and ARIA attributes (`aria-current`, `aria-label`)."
+/>
 
 ## Use Cases
 
@@ -45,6 +51,14 @@ It helps users navigate large sets of information without overwhelming them.
 - Allows for easier bookmarking and sharing of specific pages
 - Gives users a sense of the content's scope (total number of pages/items)
 - Better suited for goal-oriented tasks compared to infinite scroll
+
+## Drawbacks
+
+- **Can interrupt user flow** – Users must manually click to navigate instead of continuous scrolling.
+- **Navigation complexity** – Requires handling of "Previous," "Next," first, and last page navigation.
+- **Harder for mobile users** – Small pagination buttons can be difficult to tap on touchscreens.
+- **SEO considerations** – Improper implementation can lead to duplicate content issues
+- **Page reload delays** – If not dynamically updated, full-page reloads can slow down user experience.
 
 ## Anatomy
 

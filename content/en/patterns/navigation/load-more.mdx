@@ -4,11 +4,18 @@ icon: Plus
 status: complete
 ---
 
+import { BuildEffort } from "@app/_components/build-effort";
+
 # Load More
 
 ## Overview
 
 The **Load More** pattern allows users to request additional content dynamically rather than loading everything upfront. It enhances performance and user experience by reducing initial page load times while providing seamless access to more content when needed.
+
+<BuildEffort
+  level="medium"
+  description="Requires dynamic content loading, state management, accessibility considerations (keyboard navigation, `aria-live` updates), and performance optimizations. The button should be removed when all content is loaded."
+/>
 
 ## Use Cases
 

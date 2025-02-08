@@ -4,7 +4,7 @@ icon: Navigation2
 status: complete
 ---
 
-import { Tabs } from "nextra/components";
+import { BuildEffort } from "@app/_components/build-effort";
 
 # Breadcrumb
 
@@ -15,6 +15,11 @@ import { Tabs } from "nextra/components";
 They are secondary navigation aids that help users understand their current location within a website's hierarchy and provide an easy way to navigate back through parent pages.
 
 They are particularly useful for websites with deep hierarchical structures or complex navigation paths.
+
+<BuildEffort
+  level="medium"
+  description="Requires structured navigation, ARIA attributes (`aria-label`, `aria-current`), and responsive handling for long paths."
+/>
 
 ## Use Cases
 
@@ -46,6 +51,14 @@ They are particularly useful for websites with deep hierarchical structures or c
 - Improves SEO by exposing site structure
 - Reduces bounce rates for deep-linked pages
 - Provides contextual information about current location
+
+## Drawbacks
+
+- **Limited usefulness** – Not always needed if users primarily land on deeper pages from external links.
+- **Takes up space** – Can be redundant on small screens or when users don’t need hierarchical navigation.
+- **Responsive design complexity** – Long breadcrumb trails require truncation or horizontal scrolling.
+- **Requires structured data** – Must be correctly implemented for SEO benefits (e.g., schema markup).
+- **Misuse in flat hierarchies** – Not beneficial if the site structure doesn’t follow a clear depth-based navigation.
 
 ## Anatomy
 
@@ -288,14 +301,6 @@ function generateBreadcrumbSchema(breadcrumbs) {
 - Handle large numbers of items efficiently
 - Work with dynamic content updates
 - Function without JavaScript (progressive enhancement)
-
-### Testing Tools
-
-- Accessibility: [WAVE](https://wave.webaim.org/), [aXe](https://www.deque.com/axe/browser-extensions/), or [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview)
-- SEO: [Google's Rich Results Test](https://developers.google.com/search/docs/appearance/structured-data)
-- Performance: [Chrome DevTools Performance panel](https://developer.chrome.com/docs/devtools/performance/overview)
-- Visual Regression: [Percy](https://percy.io/) or [Chromatic](https://www.chromatic.com/)
-- Cross-browser: [BrowserStack](https://www.browserstack.com/) or [Sauce Labs](https://saucelabs.com/)
 
 ## Resources
 

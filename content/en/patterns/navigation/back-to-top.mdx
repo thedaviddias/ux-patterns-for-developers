@@ -5,6 +5,7 @@ status: complete
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
+import { BuildEffort } from "@app/_components/build-effort";
 
 # Back to Top
 
@@ -13,6 +14,11 @@ import { BrowserSupport } from "@app/_components/browser-support";
 **Back to Top** provides users a quick way to return to the top of the page, especially when they have scrolled through lengthy or [infinite content](/patterns/navigation/infinite-scroll).
 
 Commonly seen as a floating button or link at the bottom-right corner, it improves navigation and overall user experience.
+
+<BuildEffort
+  level="low"
+  description="Uses a simple anchor link or JavaScript scroll function. Requires smooth scrolling and proper visibility toggling."
+/>
 
 ## Use Cases
 
@@ -42,6 +48,14 @@ Commonly seen as a floating button or link at the bottom-right corner, it improv
 - Improves overall site accessibility by giving a direct route to main navigation
 - Reduces scrolling fatigue for mobile users
 - Helps maintain a clean UI by hiding controls when not needed, then showing them once the user scrolls down
+
+## Drawbacks
+
+- **Not always necessary** – If pages are short, the button may be redundant.
+- **Can be disruptive** – Sudden jumps to the top may disorient users.
+- **Visibility control** – Requires logic to appear only after a certain scroll depth.
+- **Potential for hidden functionality** – Users may not notice it or understand its purpose.
+- **Inconsistent placement** – Can interfere with floating UI elements if not positioned carefully.
 
 ## Anatomy
 

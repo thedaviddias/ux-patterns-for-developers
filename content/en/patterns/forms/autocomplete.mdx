@@ -5,6 +5,7 @@ status: complete
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
+import { BuildEffort } from "@app/_components/build-effort";
 
 # Autocomplete
 
@@ -15,6 +16,11 @@ import { BrowserSupport } from "@app/_components/browser-support";
 The **autocomplete** is an interactive input component that helps users quickly find and select values from a predefined list of options as they type.
 
 They combine the flexibility of [text input](/patterns/forms/text-field) with dropdown-style selection, providing suggestions that match the user's input in real-time. This pattern reduces errors, speeds up data entry, and improves the overall form completion experience.
+
+<BuildEffort
+  level="medium"
+  description="Requires live filtering, real-time suggestion updates, keyboard navigation, and screen reader compatibility using ARIA attributes."
+/>
 
 ## Use Cases
 
@@ -45,6 +51,14 @@ They combine the flexibility of [text input](/patterns/forms/text-field) with dr
 - **Speeds up data entry** by narrowing down possible options in real-time
 - **Reduces user frustration** and guesswork by guiding them to valid options
 - **Minimizes mistakes** and typos, as suggestions can be confirmed or chosen from a list
+
+## Drawbacks
+
+- **Accessibility challenges** – Requires proper ARIA attributes (`aria-expanded`, `aria-controls`, `aria-activedescendant`) for screen readers.
+- **Keyboard navigation complexity** – Users must be able to navigate the suggestions using arrow keys and select options with Enter.
+- **Performance issues** – Fetching suggestions dynamically can introduce lag if not optimized with debouncing and caching.
+- **Overwhelming for users** – Too many suggestions or unclear results can create cognitive overload.
+- **Implementation effort** – Requires handling both filtering logic and managing suggestion visibility correctly.
 
 ## Anatomy
 

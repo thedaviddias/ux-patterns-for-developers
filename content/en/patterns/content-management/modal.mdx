@@ -5,6 +5,7 @@ status: complete
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
+import { BuildEffort } from "@app/_components/build-effort";
 import { Callout } from "nextra/components";
 
 # Modal
@@ -16,6 +17,11 @@ import { Callout } from "nextra/components";
 A **modal** is an interface element that appears on top of the main application screen, blocking interaction with the rest of the page until the modal is closed.
 
 Modals are used to display important information, request user input, or confirm actions in a focused way.
+
+<BuildEffort
+  level="medium"
+  description="Requires focus trapping, keyboard accessibility (`Escape` key to close), and handling of background page interactions. Proper ARIA roles are needed to ensure accessibility."
+/>
 
 ## Use Cases
 

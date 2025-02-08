@@ -5,6 +5,7 @@ status: complete
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
+import { BuildEffort } from "@app/_components/build-effort";
 
 # Popover
 
@@ -15,6 +16,11 @@ import { BrowserSupport } from "@app/_components/browser-support";
 They are used to display contextual content while keeping the surrounding page visible.
 
 Unlike modals that block interaction with the rest of the page, popovers provide contextual help or shortcuts while keeping the main interface visible and interactive.
+
+<BuildEffort
+  level="medium"
+  description="Requires positioning logic, dismissal handling, focus management, and ARIA attributes (`aria-haspopup`, `aria-expanded`)."
+/>
 
 ## Use Cases
 

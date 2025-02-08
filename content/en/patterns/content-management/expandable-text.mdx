@@ -4,6 +4,8 @@ icon: PlusSquare
 status: complete
 ---
 
+import { BuildEffort } from "@app/_components/build-effort";
+
 # Expandable Text
 
 **_(Also called collapsible text, Read More/Read Less)_**
@@ -13,6 +15,11 @@ status: complete
 **Expandable Text** is a content management pattern that allows users to expand and collapse sections of text. This pattern improves readability by initially hiding non-essential content while keeping it accessible on demand.
 
 Expandable Text is commonly used to manage lengthy descriptions, article summaries, or additional details that are helpful but not immediately necessary. It helps users scan content efficiently while maintaining a clean and minimal interface.
+
+<BuildEffort
+  level="low"
+  description="Toggles visibility of extra text. Requires `aria-expanded` but minimal JavaScript and no major accessibility challenges."
+/>
 
 ## Use Cases
 

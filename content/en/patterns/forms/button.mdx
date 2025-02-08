@@ -5,12 +5,18 @@ status: complete
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
+import { BuildEffort } from "@app/_components/build-effort";
 
 # Button
 
 ## Overview
 
 **Buttons** are interactive elements that trigger actions or events when clicked or interacted with.
+
+<BuildEffort
+  level="low"
+  description="A native HTML button with optional styling enhancements. No JavaScript required unless adding advanced behaviors."
+/>
 
 ## Use Cases
 
@@ -48,6 +54,14 @@ import { BrowserSupport } from "@app/_components/browser-support";
 - Offers visual feedback and states (hover, focus, active, disabled) to enhance usability
 - Supports accessibility through keyboard navigation and screen reader compatibility
 - Reduces cognitive load by making actions immediately recognizable
+
+## Drawbacks
+
+- **Overuse can lead to UI clutter** – Too many buttons in an interface can confuse users.
+- **Styling inconsistencies** – Needs proper theming and responsive considerations for different screen sizes.
+- **Click area issues** – If not sized properly, buttons may be difficult to tap on mobile.
+- **Lack of clear labels** – Buttons without descriptive text (e.g., just an icon) can cause usability problems.
+- **Focus management** – Requires proper `:focus` states for accessibility and keyboard users.
 
 ## Anatomy
 

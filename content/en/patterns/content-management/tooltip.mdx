@@ -4,6 +4,8 @@ icon: MessageCircle
 status: complete
 ---
 
+import { BuildEffort } from "@app/_components/build-effort";
+
 # Tooltip
 
 **_(Also called hover hint, info bubble)_**
@@ -18,6 +20,11 @@ There are **two types of tooltips**:
 - **Rich Tooltips** – Enhanced tooltips that may contain **formatted text, icons, images, or interactive elements**.
 
 Tooltips should be used to enhance understanding without overwhelming the user interface.
+
+<BuildEffort
+  level="low"
+  description="Simple hover/focus effect. Requires ARIA attributes (`aria-describedby`) for accessibility but no complex state management."
+/>
 
 ## Use Cases
 
