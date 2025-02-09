@@ -13,13 +13,17 @@ export function JsonLd({ data }: JsonLdProps) {
   )
 }
 
-export function generateArticleSchema(title: string, description: string, path: string) {
+export function generateArticleSchema(title: string, description: string, path: string, image?: string) {
+  // Ensure image URL is absolute if provided
+  const imageUrl = image && !image.startsWith('http') ? `${BASE_URL}${image}` : image
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
     "description": description,
     "url": `${BASE_URL}${path}`,
+    ...(imageUrl && { "image": imageUrl }),
     "author": {
       "@type": "Person",
       "name": "David Dias",

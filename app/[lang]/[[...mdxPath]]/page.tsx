@@ -52,13 +52,19 @@ export default async function Page(props: PageProps) {
   const result = await importPage(params.mdxPath, params.lang)
   const { default: MDXContent, toc, metadata } = result
 
+  // Get the OG image URL from metadata
+  const isHomepage = !params.mdxPath || params.mdxPath.length === 0
+  const ogImageUrl = isHomepage
+    ? '/og/opengraph-image.png'
+    : `/api/og?title=${encodeURIComponent(metadata.title || '')}`
+
   const schemaData = generateArticleSchema(
     metadata.title || '',
     metadata.description || '',
-    `/${params.lang}/${params.mdxPath?.join('/') || ''}`
+    `/${params.lang}/${params.mdxPath?.join('/') || ''}`,
+    ogImageUrl
   )
 
-  const isHomepage = !params.mdxPath || params.mdxPath.length === 0
   const pageKey = `${params.lang}-${params.mdxPath?.join('-') || 'home'}`
 
   return (
