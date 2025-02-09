@@ -28,7 +28,7 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
 
   return (
     <>
-      <div className="space-y-8 py-8">
+      <div className="space-y-8 pt-8">
         <dl className="space-y-6">
           {items.map((item, index) => (
             <div
