@@ -1,6 +1,5 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 interface PatternOption {
@@ -17,7 +16,7 @@ export function ComparisonGrid({ patterns }: ComparisonGridProps) {
   return (
     <div className="mb-16">
       <h2 className="text-2xl font-bold mb-6">Quick Comparison</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {patterns.map((pattern) => (
           <div
             key={pattern.title}
@@ -25,14 +24,13 @@ export function ComparisonGrid({ patterns }: ComparisonGridProps) {
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-medium text-indigo-600 dark:text-indigo-400">
-                {pattern.title}
+                <Link
+                  href={pattern.href.startsWith('/') ? pattern.href : `/${pattern.href}`}
+                  className="relative z-10 text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 group-hover:underline"
+                >
+                  {pattern.title}
+                </Link>
               </h3>
-              <Link
-                href={pattern.href.startsWith('/') ? pattern.href : `/${pattern.href}`}
-                className="relative z-10 text-sm text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 group-hover:underline"
-              >
-                View Pattern <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
             <div className="space-y-4">
               <div>

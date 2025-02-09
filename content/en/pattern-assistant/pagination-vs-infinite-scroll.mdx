@@ -14,7 +14,7 @@ import { ComparisonHero } from "@app/_components/pattern-comparison/comparison-h
 import { DecisionFlowSection } from "@app/_components/pattern-comparison/decision-flow-section";
 import { ExamplesGrid } from "@app/_components/pattern-comparison/examples-grid";
 import { PatternNextSteps } from "@app/_components/pattern-comparison/pattern-next-steps";
-import { PerformanceMetrics } from "@app/_components/pattern-comparison/performance-metrics";
+import { PerformanceComparison } from "@app/_components/pattern-comparison/performance-comparison";
 
 <div>
   <ComparisonHero
@@ -36,7 +36,7 @@ import { PerformanceMetrics } from "@app/_components/pattern-comparison/performa
 
   <DecisionFlowSection nodes={nodes} edges={edges} />
   <ComparisonGrid patterns={comparisonData.patterns} />
-  <PerformanceMetrics patterns={performanceData.patterns} />
+  <PerformanceComparison patterns={performanceData.patterns} />
   <ExamplesGrid examples={examplesData.examples} />
   <PatternNextSteps patterns={nextStepsData.patterns} />
 </div>

@@ -42,17 +42,26 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
   const dagreGraph = new dagre.graphlib.Graph()
   dagreGraph.setDefaultEdgeLabel(() => ({}))
 
-  // Increase spacing between nodes
+  // Detect if this is the pagination vs infinite scroll flow
+  const isPaginationFlow = nodes.some(node =>
+    node.data?.label?.toLowerCase().includes('pagination') ||
+    node.data?.label?.toLowerCase().includes('infinite scroll')
+  )
+
+  // Set spacing based on flow type
   dagreGraph.setGraph({
     rankdir: 'TB',
-    ranksep: 150, // Increased vertical spacing
-    nodesep: 200, // Increased horizontal spacing
-    edgesep: 100, // Increased edge spacing
+    ranksep: isPaginationFlow ? 150 : 75,  // More space for pagination flow
+    nodesep: isPaginationFlow ? 200 : 100, // More horizontal space for pagination
+    edgesep: isPaginationFlow ? 100 : 50   // More edge space for pagination
   })
 
-  // Increase node size estimates for better spacing
+  // Adjust node size based on flow type
   nodes.forEach((node) => {
-    dagreGraph.setNode(node.id, { width: 300, height: 120 })
+    dagreGraph.setNode(node.id, {
+      width: isPaginationFlow ? 300 : 250,
+      height: isPaginationFlow ? 120 : 100
+    })
   })
 
   edges.forEach((edge) => {

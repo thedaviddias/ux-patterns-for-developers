@@ -16,7 +16,7 @@ interface PatternMetrics {
   memoryUsage: MetricData
 }
 
-interface PerformanceMetricsProps {
+interface PerformanceComparisonProps {
   patterns: PatternMetrics[]
 }
 
@@ -33,7 +33,7 @@ const metricInfo = {
   },
 }
 
-export function PerformanceMetrics({ patterns }: PerformanceMetricsProps) {
+export function PerformanceComparison({ patterns }: PerformanceComparisonProps) {
   const getStatusColor = (status: MetricData['status']) => {
     switch (status) {
       case 'green':
