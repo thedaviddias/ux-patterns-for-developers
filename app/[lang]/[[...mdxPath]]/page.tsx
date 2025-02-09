@@ -2,6 +2,7 @@
 
 import { SuggestPattern } from '@/app/_components/suggest-pattern'
 import { JsonLd, generateArticleSchema } from '@app/_components/json-ld'
+import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema'
 import { Metadata } from 'next'
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents } from '../../../mdx-components'
@@ -65,11 +66,29 @@ export default async function Page(props: PageProps) {
     ogImageUrl
   )
 
+  // Generate breadcrumb items
+  const breadcrumbs = [
+    { title: 'Home', url: `/${params.lang}` }
+  ]
+
+  if (params.mdxPath) {
+    let currentPath = ''
+    for (const segment of params.mdxPath) {
+      currentPath += `/${segment}`
+      breadcrumbs.push({
+        title: segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
+        url: `/${params.lang}${currentPath}`
+      })
+    }
+  }
+
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
   const pageKey = `${params.lang}-${params.mdxPath?.join('-') || 'home'}`
 
   return (
     <div className="nextra-content">
       <JsonLd data={schemaData} />
+      <JsonLd data={breadcrumbSchema} />
       <Wrapper key={pageKey} toc={toc} metadata={metadata}>
         <MDXContent {...props} params={params} />
         {!isHomepage && <SuggestPattern />}
