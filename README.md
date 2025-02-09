@@ -11,7 +11,7 @@
 
 [View Documentation](https://uxpatterns.dev) · [Report Bug](https://github.com/thedaviddias/ux-patterns-for-developers/issues) · [Request Pattern](https://github.com/thedaviddias/ux-patterns-for-developers/issues/new)
 
-![Screenshot of the homepage of UX Patterns for Devs](https://raw.githubusercontent.com/thedaviddias/ux-patterns-for-developers/refs/heads/main/public/img/ux-patterns-developers.jpeg)
+![Screenshot of the homepage of UX Patterns for Devs](https://raw.githubusercontent.com/thedaviddias/ux-patterns-for-developers/refs/heads/main/public/img/ux-patterns-developers-2.jpeg)
 
 </div>
 
