@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Carousel
 
@@ -775,6 +776,50 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is a carousel in web design?",
+      answer:
+        "A carousel is a UI component that displays multiple pieces of content in a rotating or sliding manner. It is commonly used for showcasing featured content, promotions, or image galleries in a limited space.",
+    },
+    {
+      question: "Are carousels effective for user engagement?",
+      answer:
+        "Carousels can be effective when designed thoughtfully, particularly when users actively interact with them. However, studies indicate that users often ignore them, especially if they auto-rotate or resemble advertisements. Ensuring proper controls and content prioritization can improve engagement.",
+    },
+    {
+      question:
+        "What are common usability and accessibility issues with carousels?",
+      answer:
+        "Common issues include auto-rotation that moves too quickly, making content hard to read, lack of clear navigation controls, and poor accessibility for keyboard and screen reader users. Additionally, carousels can impact performance if not optimized with lazy loading and efficient animations.",
+    },
+    {
+      question: "How can I improve the accessibility of a carousel?",
+      answer:
+        "Ensure that all slide content and controls are keyboard accessible. Provide ARIA labels for navigation, allow users to pause or stop auto-rotation, and ensure focus is properly managed when navigating through slides. Additionally, support 'prefers-reduced-motion' for users with motion sensitivity.",
+    },
+    {
+      question: "Should carousels auto-rotate?",
+      answer:
+        "Auto-rotation can be distracting and may cause users to miss content. If used, provide controls to pause and navigate slides, set a delay of at least 5–7 seconds between transitions, and pause auto-play when a user interacts with the content.",
+    },
+    {
+      question: "What are the best alternatives to using carousels?",
+      answer:
+        "If your goal is to display structured content more effectively, consider alternatives such as a static hero section, a content grid, or prioritized sections with clear call-to-actions. Other navigation patterns like [Tabs](/patterns/navigation/tabs), [Expandable Text](/patterns/content-management/expandable-text), or [Load More](/patterns/navigation/load-more) may also be more user-friendly depending on your content needs.",
+    },
+    {
+      question:
+        "How does a carousel compare to other navigation patterns like pagination or infinite scroll?",
+      answer:
+        "Carousels work well for highlighting a few key pieces of content but are not ideal for browsing large datasets. If users need to navigate through many items, consider using [Pagination](/patterns/navigation/pagination) for structured navigation or [Infinite Scroll](/patterns/navigation/infinite-scroll) for continuous content discovery.",
+    },
+  ]}
+/>
 
 ## Resources
 

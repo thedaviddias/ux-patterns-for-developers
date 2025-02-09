@@ -6,6 +6,7 @@ status: complete
 ---
 
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Tooltip
 
@@ -304,6 +305,38 @@ Consider these related patterns when implementing tooltips:
 - [Modal](/patterns/content-management/modal) - Used for critical interactions requiring full focus.
 - [Popover](/patterns/content-management/popover) - Used when the additional content that requires user interaction, such as buttons or form elements, rather than just providing passive information.
 - [Selection Input / Dropdown](/patterns/forms/selection-input) - Best for more complex navigation menus.
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is a tooltip in web design?",
+      answer:
+        "A tooltip is a small, interactive element that displays additional information when a user hovers over or focuses on a specific UI component, such as an icon or button.",
+    },
+    {
+      question: "When should tooltips be used?",
+      answer:
+        "Tooltips should be used to provide supplementary information or clarification for UI elements that may not be immediately clear to users. They should not contain essential information required for task completion.",
+    },
+    {
+      question: "How can I make tooltips accessible?",
+      answer:
+        "Ensure tooltips are accessible by supporting both mouse and keyboard interactions, providing clear and concise content, and avoiding reliance on hover alone for displaying important information.",
+    },
+    {
+      question: "What are common mistakes to avoid with tooltips?",
+      answer:
+        "Common mistakes include using tooltips for essential information, providing redundant or unhelpful content, and failing to support keyboard navigation.",
+    },
+    {
+      question: "How should tooltip content be written?",
+      answer:
+        "Tooltip content should be brief, relevant, and helpful, providing users with additional context or clarification without overwhelming them with excessive information.",
+    },
+  ]}
+/>
 
 ## Resources
 
