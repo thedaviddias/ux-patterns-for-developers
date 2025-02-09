@@ -246,6 +246,60 @@ graph TD
 - Avoid **large DOM structures**—if the carousel contains many slides, use virtualized rendering.
 - Don't use **excessive animations** that could impact performance on lower-powered devices.
 
+## Tracking
+
+Tracking carousel interactions helps measure engagement, detect usability issues, and optimize content placement. By capturing key user actions, we can analyze how effectively the carousel is driving interaction and whether users engage with slides beyond the first one.
+
+### Key Tracking Points
+
+Each carousel interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**               | **Description**                                    | **Why Track It?**                                                |
+| ---------------------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
+| `carousel.view`              | When the carousel first enters the viewport.       | Helps determine if users even see the carousel.                  |
+| `carousel.slide_change`      | When a user navigates to a different slide.        | Measures engagement and content interest.                        |
+| `carousel.auto_rotate_pause` | When a user **pauses auto-rotation** (if enabled). | Indicates if auto-rotation is frustrating users.                 |
+| `carousel.click`             | When a user clicks on a slide.                     | Helps measure which slides attract the most attention.           |
+| `carousel.swipe`             | When a user swipes on mobile.                      | Tracks touch engagement separately from clicks.                  |
+| `carousel.see_all_click`     | When users click the **"See All"** link.           | Indicates if users want more content than the carousel provides. |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "carousel.slide_change",
+  "properties": {
+    "carousel_id": "homepage_featured",
+    "slide_index": 3,
+    "total_slides": 5,
+    "interaction_type": "click" // or "swipe"
+  }
+}
+```
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize the carousel experience:
+
+- 📉 **High Drop-off Rate?**
+  → Users might not be interested in later slides. Consider making the first slides more engaging, reducing the number of slides, or testing a different pattern (e.g., a grid or tabbed interface).
+
+- 🔄 **Frequent Auto-Play Pauses?**
+  → Users may find auto-rotation too fast or distracting. Slow down transitions, increase delay times, or disable autoplay by default.
+
+- 📊 **Low Click-Through Rate (CTR)?**
+  → The slides might not be engaging enough. Test different visuals, headlines, and CTAs to improve interaction.
+
+- 📱 **More Swipes than Clicks?**
+  → Mobile users may interact differently than desktop users. Optimize for touch gestures and ensure swipe responsiveness.
+
+- 🚀 **High "See All" Click Rate?**
+  → The carousel might not be displaying enough relevant content upfront. Consider making more items visible at once or leading users to a dedicated content hub.
+
+By continuously monitoring these metrics, we can refine the carousel’s effectiveness and improve overall user engagement.
+
 ## Code Examples
 
 ### Basic Implementation
