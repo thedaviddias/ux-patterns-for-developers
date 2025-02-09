@@ -295,6 +295,35 @@ When users click a pagination link, especially if the new page loads asynchronou
 **How to Fix It?**
 Use an **ARIA live region** or a brief status announcement (e.g., “Page 2 loaded”) so screen reader users (and everyone else) know new content has appeared.
 
+## Micro-Interactions & Animations
+
+When building pagination, consider these specific, purpose-driven animations:
+
+- **Button Hover Animation:**
+
+  - **Effect:** On hover, scale the button up to 1.05× its original size and smoothly transition the background color.
+  - **Timing:** Use a 200ms ease transition to ensure responsiveness without delay.
+
+- **Focus State Animation:**
+
+  - **Effect:** When a button receives focus (via keyboard or pointer), animate a clear visual indicator—such as a crisp outline or subtle drop-shadow—to emphasize its active state.
+  - **Timing:** Apply the effect over 200ms to create a smooth visual cue.
+
+- **Active (Click) Animation:**
+
+  - **Effect:** Upon clicking a pagination button, trigger a brief confirmation animation (for example, a quick pulse or a slight scale up to 1.1×) to signal the selection.
+  - **Timing:** The animation should complete within 150–200ms to provide immediate feedback without interrupting the user flow.
+
+- **Content Transition (When Applicable):**
+
+  - **Effect:** If the pagination action triggers a content update (common in SPAs), apply a fade transition where the outgoing content fades out and the incoming content fades in.
+  - **Timing:** Transition the content opacity over approximately 250ms to ensure a smooth change without distracting from the overall experience.
+
+- **Reduced Motion Consideration:**
+  - **Implementation:** Always check for the user’s motion preferences (e.g., via the `prefers-reduced-motion` media query) and disable or minimize animations accordingly to ensure accessibility.
+
+These precise animations provide just enough feedback to guide user interactions and enhance the overall feel of your pagination component without overwhelming the interface.
+
 ## Tracking
 
 Tracking pagination interactions helps measure how users navigate through paginated content, whether they prefer clicking through pages sequentially or skipping ahead, and if they reach deeper pages. By analyzing pagination behavior, we can optimize the user experience and improve content discoverability.
