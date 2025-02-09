@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { Callout } from "nextra/components";
 
 # Infinite scroll
@@ -68,7 +69,7 @@ flowchart TB
         A[Content Container] --> B[Trigger Point]
         B --> C[Loading Indicator]
         C --> D[Newly Loaded Content]
-        D --> E[Next Trigger Point (Optional)]
+        D --> E[Next Trigger Point - Optional]
     end
 ```
 
@@ -207,6 +208,44 @@ flowchart TB
 
 - [Pagination](/patterns/navigation/pagination) – A structured alternative to infinite scrolling.
 - [Back to Top](/patterns/navigation/back-to-top) – Helps users quickly return to the top of the page.
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is infinite scroll in web design?",
+      answer:
+        "Infinite scroll is a web design pattern that automatically loads new content as the user scrolls down a page, eliminating the need for manual pagination and providing a seamless browsing experience.",
+    },
+    {
+      question: "When should I use infinite scroll?",
+      answer:
+        "Infinite scroll is ideal for content-rich platforms like social media feeds, news websites, or image galleries, where users expect continuous content exploration without specific goals.",
+    },
+    {
+      question: "What are the benefits of using infinite scroll?",
+      answer:
+        "Infinite scroll enhances user engagement by providing a continuous stream of content, reduces interaction costs by eliminating the need for pagination clicks, and is well-suited for mobile devices due to its intuitive gesture-based navigation.",
+    },
+    {
+      question: "What are the drawbacks of infinite scroll?",
+      answer:
+        "Challenges include difficulty in accessing footer content, reduced performance due to continuous content loading, challenges in navigating back to specific content, and potential accessibility issues for users relying on assistive technologies.",
+    },
+    {
+      question: "How can I make infinite scroll accessible?",
+      answer:
+        "Ensure that new content is announced to screen readers, provide clear focus indicators, maintain keyboard navigability, and consider offering alternative navigation options like a 'Load More' button to accommodate diverse user needs.",
+    },
+    {
+      question:
+        "What are common mistakes to avoid when implementing infinite scroll?",
+      answer:
+        "Avoid hiding essential information in the footer, neglecting performance optimization, failing to provide visual feedback during content loading, and not offering a mechanism for users to save or share their position within the content stream.",
+    },
+  ]}
+/>
 
 ## Resources
 

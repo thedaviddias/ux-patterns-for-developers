@@ -6,6 +6,7 @@ status: complete
 ---
 
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Breadcrumb
 
@@ -319,6 +320,51 @@ function generateBreadcrumbSchema(breadcrumbs) {
 - Handle large numbers of items efficiently
 - Work with dynamic content updates
 - Function without JavaScript (progressive enhancement)
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is breadcrumb navigation?",
+      answer:
+        "Breadcrumb navigation is a secondary navigation aid that helps users understand their location within a website's hierarchy. It provides a trail of links, typically starting from the homepage, that shows the path to the current page.",
+    },
+    {
+      question: "When should I use breadcrumb navigation?",
+      answer:
+        "Breadcrumbs are beneficial for websites with complex structures or multiple levels of content. They are particularly useful when users may enter the site from search engines or deep links, as they provide context and easy access to higher-level pages.",
+    },
+    {
+      question: "How can I design effective breadcrumbs?",
+      answer:
+        "Effective breadcrumbs should:\n\n" +
+        "1. Start with the homepage and progress to the current page\n" +
+        "2. Use clear separators between links, such as '>' or '/'\n" +
+        "3. Ensure all items, except the current page, are clickable links\n" +
+        "4. Be concise and not occupy excessive space\n" +
+        "5. Be placed near the top of the page, below the main navigation",
+    },
+    {
+      question: "What are the benefits of using breadcrumbs?",
+      answer:
+        "Breadcrumbs enhance user experience by:\n\n" +
+        "1. Providing a clear path back to higher-level pages\n" +
+        "2. Reducing the number of actions needed to navigate to previous pages\n" +
+        "3. Offering context about the site's structure\n" +
+        "4. Potentially improving SEO by providing internal links with relevant anchor text",
+    },
+    {
+      question: "What are common mistakes to avoid with breadcrumb navigation?",
+      answer:
+        "Avoid these common mistakes:\n\n" +
+        "1. Making the breadcrumb trail too prominent, overshadowing primary navigation\n" +
+        "2. Omitting the current page from the breadcrumb trail\n" +
+        "3. Using inconsistent or unclear separators\n" +
+        "4. Not providing enough space between links, making them hard to click, especially on mobile devices",
+    },
+  ]}
+/>
 
 ## Resources
 

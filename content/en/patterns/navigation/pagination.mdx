@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Pagination
 
@@ -354,6 +355,43 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 - [Infinite Scroll](/patterns/navigation/infinite-scroll) - An alternative to pagination for certain types of content, particularly suited for content streams or social media feeds
 - [Load More](/patterns/navigation/load-more) - A simpler alternative to pagination that gives users manual control over loading additional content
 
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is pagination in web design?",
+      answer:
+        "Pagination is a UI design pattern that divides content into discrete pages, allowing users to navigate through large datasets efficiently. It prevents information overload and improves performance. Compared to [Infinite Scroll](/patterns/navigation/infinite-scroll), pagination gives users more control over navigation and reduces performance issues.",
+    },
+    {
+      question: "When should I use pagination?",
+      answer:
+        "Use pagination when dealing with large content collections, such as search results, product listings, or blog archives. It is particularly useful when users need to revisit specific pages, unlike [Infinite Scroll](/patterns/navigation/infinite-scroll), which makes it harder to return to previous items.",
+    },
+    {
+      question: "How can I make pagination accessible?",
+      answer:
+        "Ensure pagination controls are keyboard-navigable and screen reader-friendly. Use semantic HTML elements like `<nav>` to denote navigation regions and provide ARIA attributes such as `aria-current` for the active page. Additionally, consider using a 'Load More' button as an alternative in certain cases—see the [Load More](/patterns/navigation/load-more) pattern for best practices.",
+    },
+    {
+      question: "What are the benefits of using pagination?",
+      answer:
+        "Pagination improves usability by organizing content into structured pages, making it easier to navigate. Unlike [Infinite Scroll](/patterns/navigation/infinite-scroll), it ensures users can access the footer and navigate efficiently without performance concerns. Additionally, pagination creates unique URLs, benefiting SEO by allowing search engines to index content properly.",
+    },
+    {
+      question:
+        "What are common mistakes to avoid when implementing pagination?",
+      answer:
+        "Avoid using vague labels like 'Previous' and 'Next' without clear context—use explicit page numbers where possible. Ensure pagination controls are not too small or closely spaced, as they must be easily tappable, especially on mobile. If the dataset is large, consider implementing both pagination and a [Back to Top](/patterns/navigation/back-to-top) button to improve usability.",
+    },
+    {
+      question: "How does pagination compare to infinite scroll and load more?",
+      answer:
+        "Pagination allows structured navigation and works well for large datasets, whereas [Infinite Scroll](/patterns/navigation/infinite-scroll) offers a seamless browsing experience but can make revisiting content difficult. [Load More](/patterns/navigation/load-more) provides a middle ground, allowing users to request additional content manually while still keeping the page uncluttered.",
+    },
+  ]}
+/>
 ## Resources
 
 ### Libraries

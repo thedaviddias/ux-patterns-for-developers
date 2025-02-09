@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Back to Top
 
@@ -339,6 +340,39 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is a 'Back to Top' button?",
+      answer:
+        "A 'Back to Top' button is a user interface element that allows users to quickly return to the top of a webpage without manually scrolling, enhancing navigation on long pages.",
+    },
+    {
+      question: "When should I use a 'Back to Top' button?",
+      answer:
+        "Implement a 'Back to Top' button on pages that require significant scrolling, typically more than two screens of content. This feature is especially beneficial for mobile users and those with accessibility needs.",
+    },
+    {
+      question: "Where should the 'Back to Top' button be placed?",
+      answer:
+        "The button is typically positioned in the bottom right corner of the page, where users expect to find it. This placement keeps it accessible yet unobtrusive.",
+    },
+    {
+      question: "How can I make a 'Back to Top' button accessible?",
+      answer:
+        "Ensure the button is keyboard navigable by using a standard `<button>` element, provide a descriptive label like 'Back to Top', and implement visible focus indicators for users navigating via keyboard.",
+    },
+    {
+      question:
+        "What are the best practices for designing a 'Back to Top' button?",
+      answer:
+        "Use clear labeling, maintain a consistent position, ensure the button is appropriately sized for both desktop and mobile devices, and avoid covering important content. The button should appear after users have scrolled down a significant portion of the page.",
+    },
+  ]}
+/>
 
 ## Resources
 

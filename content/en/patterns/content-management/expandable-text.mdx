@@ -6,6 +6,7 @@ status: complete
 ---
 
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Expandable Text
 
@@ -291,6 +292,39 @@ flowchart TB
 - [Accordion](/patterns/content-management/accordion) – Best for **multi-section collapsible content**, where multiple expandable panels are grouped together (e.g., FAQs or settings menus).
 - [Tooltip](/patterns/content-management/tooltip) – Useful for **brief inline explanations**, where additional information is needed on hover or focus, rather than expanding a large content section.
 - [Modal](/patterns/content-management/modal) – Ideal when **expanded content requires full attention**, such as confirmations, forms, or important details that should block interaction with the rest of the page.
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is expandable text in web design?",
+      answer:
+        "Expandable text is a UI pattern that allows users to reveal or hide additional content on demand, enhancing readability and reducing visual clutter by initially displaying only essential information.",
+    },
+    {
+      question: "When should I use expandable text?",
+      answer:
+        "Use expandable text when you have supplementary information that enhances the user experience but isn't critical for the initial understanding, such as detailed explanations, extended descriptions, or optional content.",
+    },
+    {
+      question: "How can I make expandable text accessible?",
+      answer:
+        "Ensure that the trigger for expanding text is a focusable element, like a button, and manage ARIA attributes such as 'aria-expanded' to indicate the state. Support keyboard navigation and provide clear visual indicators for focus and state changes.",
+    },
+    {
+      question: "What are the benefits of using expandable text?",
+      answer:
+        "Expandable text improves readability by reducing visual clutter, allows users to control the amount of information they see, and enhances the overall user experience by organizing content efficiently.",
+    },
+    {
+      question:
+        "What are common mistakes to avoid when implementing expandable text?",
+      answer:
+        "Avoid hiding essential information by default, requiring excessive user actions to access important content, and neglecting accessibility considerations like proper ARIA roles and keyboard support.",
+    },
+  ]}
+/>
 
 ## Resources
 

@@ -7,7 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
-import { Callout } from "nextra/components";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Modal
 
@@ -437,6 +437,39 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is a modal dialog in web design?",
+      answer:
+        "A modal dialog is a user interface element that appears on top of the main content, requiring users to interact with it before returning to the underlying page. It is commonly used to capture user input, display critical information, or prompt for decisions.",
+    },
+    {
+      question: "When should I use a modal dialog?",
+      answer:
+        "Modal dialogs are appropriate when you need to direct the user's attention to important information or require an immediate response. Common scenarios include confirming actions, displaying forms, or presenting critical alerts.",
+    },
+    {
+      question: "How can I make a modal dialog accessible?",
+      answer:
+        "To ensure accessibility, use semantic HTML elements like `<dialog>` or `<div>` with appropriate ARIA roles. Manage focus by moving it to the modal when it opens and returning it to the triggering element upon closure. Provide keyboard support for navigation and actions within the modal.",
+    },
+    {
+      question: "What are the benefits of using modal dialogs?",
+      answer:
+        "Modal dialogs effectively capture user attention, facilitate focused interactions, and can streamline workflows by prompting users to complete specific tasks without navigating away from the current page.",
+    },
+    {
+      question:
+        "What are common mistakes to avoid when implementing modal dialogs?",
+      answer:
+        "Avoid overusing modal dialogs, as they can become intrusive. Ensure they are not used for non-critical information. Always implement proper focus management and keyboard accessibility to prevent trapping users within the modal.",
+    },
+  ]}
+/>
 
 ## Resources
 

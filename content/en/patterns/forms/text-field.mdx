@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Text Field
 
@@ -528,6 +529,38 @@ Text fields should support **standard keyboard navigation and interactions** to 
 - [ ] Verify that auto-suggestions do not interfere with manual input.
 - [ ] Test behavior when **users press the "back" button on mobile browsers**—does the input persist?
 - [ ] Ensure users **can undo accidental deletions** (via `Ctrl+Z` or long press on mobile).
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is a text field in web design?",
+      answer:
+        "A text field is an input element that allows users to enter and edit text in forms or interfaces, commonly used for data entry such as names, emails, or search queries.",
+    },
+    {
+      question: "What are best practices for designing text fields?",
+      answer:
+        "Best practices include using clear and visible labels, providing appropriate input types, ensuring sufficient contrast, supporting keyboard navigation, and offering helpful placeholder text when necessary.",
+    },
+    {
+      question: "How can I make text fields accessible?",
+      answer:
+        "Ensure that each text field has a visible label, supports keyboard navigation, provides sufficient color contrast, and includes clear instructions or error messages to assist users with disabilities.",
+    },
+    {
+      question: "What is the difference between a text field and a text area?",
+      answer:
+        "A text field is typically a single-line input for short text, while a text area is a multi-line input designed for longer text entries, such as comments or messages.",
+    },
+    {
+      question: "Should I use placeholder text as a label?",
+      answer:
+        "No, placeholder text should not replace labels. Placeholders can provide examples or hints but should not be used as the primary label, as they disappear when users start typing, potentially causing confusion.",
+    },
+  ]}
+/>
 
 ## Related Patterns
 

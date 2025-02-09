@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Button
 
@@ -475,6 +476,38 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is a button in web design?",
+      answer:
+        "A button is a UI element that allows users to perform actions or trigger events, such as submitting a form or opening a dialog.",
+    },
+    {
+      question: "When should I use a button?",
+      answer:
+        "Use a button when you want to initiate an action, like submitting data, opening a modal, or performing interactive tasks within your application.",
+    },
+    {
+      question: "How can I make a button accessible?",
+      answer:
+        "Ensure buttons are focusable, provide descriptive labels, support keyboard interactions, and have sufficient color contrast. Use semantic HTML elements like `<button>` and manage ARIA attributes appropriately.",
+    },
+    {
+      question: "What are the different types of buttons?",
+      answer:
+        "Common types include primary buttons for main actions, secondary buttons for less important actions, and tertiary buttons for minimal emphasis. Variants like text, contained, and outlined buttons offer different visual styles.",
+    },
+    {
+      question: "What are common mistakes to avoid when implementing buttons?",
+      answer:
+        "Avoid using non-semantic elements for buttons, neglecting accessibility features, overloading buttons with too many styles, and failing to provide clear visual feedback for different states.",
+    },
+  ]}
+/>
 
 ## Resources
 

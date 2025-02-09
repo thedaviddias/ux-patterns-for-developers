@@ -6,6 +6,7 @@ status: complete
 ---
 
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Load More
 
@@ -294,3 +295,47 @@ Consider these related patterns when implementing **Load More**:
 - [Infinite Scroll](/patterns/navigation/infinite-scroll) - Automatically loads content as users scroll.
 - [Pagination](/patterns/navigation/pagination) - A structured way to navigate large sets of content.
 - [Loading Indicator](/patterns/user-feedback/loading-indicator) - Displays feedback when content is loading.
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is the 'Load More' pattern in web design?",
+      answer:
+        "The 'Load More' pattern is a UI component that allows users to load additional content on demand, reducing initial page load times and improving content discoverability. It is often compared with [Infinite Scroll](/patterns/navigation/infinite-scroll), where content loads automatically, and [Pagination](/patterns/navigation/pagination), where users navigate between predefined pages.",
+    },
+    {
+      question: "When should I use the 'Load More' pattern?",
+      answer:
+        "Use the 'Load More' pattern when users need control over content loading without being overwhelmed by an excessive amount of data at once. It is ideal for media galleries, search results, and feeds where users prefer manual control rather than automatic loading like in [Infinite Scroll](/patterns/navigation/infinite-scroll).",
+    },
+    {
+      question:
+        "How does 'Load More' compare to infinite scrolling and pagination?",
+      answer:
+        "'Load More' provides a middle ground between [Infinite Scroll](/patterns/navigation/infinite-scroll), which continuously loads content as users scroll, and [Pagination](/patterns/navigation/pagination), which separates content into discrete pages. 'Load More' allows users to explore additional content without navigating away from their current view.",
+    },
+    {
+      question: "What are the benefits of using the 'Load More' pattern?",
+      answer:
+        "Benefits include improved user control, better accessibility, and reduced initial page load times. Unlike [Infinite Scroll](/patterns/navigation/infinite-scroll), it allows users to reach the footer and navigate more easily.",
+    },
+    {
+      question: "What are the drawbacks of the 'Load More' pattern?",
+      answer:
+        "One downside is that search engines may struggle to index content hidden behind a 'Load More' button. A hybrid approach that combines 'Load More' with [Pagination](/patterns/navigation/pagination) can sometimes be a better alternative for SEO purposes.",
+    },
+    {
+      question: "How can I implement the 'Load More' pattern accessibly?",
+      answer:
+        "Ensure the button is keyboard accessible and labeled correctly. Similar to [Accordion](/patterns/content-management/accordion), you should use ARIA attributes such as `aria-expanded` to indicate state changes when content loads.",
+    },
+    {
+      question:
+        "What are some best practices for designing a 'Load More' button?",
+      answer:
+        "Use a clear, descriptive label such as 'Load More' or 'Show More'. Ensure the button provides immediate feedback when clicked, similar to [Button](/patterns/forms/button) components.",
+    },
+  ]}
+/>

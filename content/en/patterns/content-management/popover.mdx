@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Popover
 
@@ -394,6 +395,38 @@ Consider these related patterns when implementing popovers:
 - [Modal](/patterns/content-management/modal) - Used for critical interactions requiring full focus.
 - [Tooltip](/patterns/content-management/tooltip) - Similar in providing contextual information but less interactive.
 - [Selection Input / Dropdown](/patterns/forms/selection-input) - Best for more complex navigation menus.
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is a popover in web design?",
+      answer:
+        "A popover is a small overlay that provides additional information or options related to a specific element on a webpage. It appears upon user interaction, such as a click or hover, and can contain text, images, or interactive elements.",
+    },
+    {
+      question: "When should I use a popover?",
+      answer:
+        "Popovers are ideal for displaying non-critical, contextual information or controls without navigating away from the current page. Common use cases include providing explanations for form fields, offering additional details for UI elements, or presenting settings and options.",
+    },
+    {
+      question: "How can I make a popover accessible?",
+      answer:
+        "To ensure accessibility, use focusable trigger elements like buttons, manage ARIA attributes such as `aria-haspopup` and `aria-expanded`, and support keyboard interactions. Ensure the popover content is accessible to screen readers and that focus management is handled appropriately.",
+    },
+    {
+      question: "What are the benefits of using popovers?",
+      answer:
+        "Popovers enhance user experience by providing relevant information or controls in context, reducing the need for page navigation. They help keep interfaces clean and intuitive by revealing additional content only when needed.",
+    },
+    {
+      question: "What are common mistakes to avoid when implementing popovers?",
+      answer:
+        "Avoid overloading popovers with essential information or complex interactions, as they are meant for supplementary content. Ensure that popovers do not obscure important UI elements and that they are properly dismissed to prevent clutter. Additionally, always consider accessibility to ensure all users can interact with popovers effectively.",
+    },
+  ]}
+/>
 
 ## Resources
 

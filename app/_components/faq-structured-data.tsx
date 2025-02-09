@@ -49,6 +49,12 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
                         className="text-neutral-900 dark:text-neutral-100 underline hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
                       />
                     ),
+                    ol: ({ node, ...props }) => (
+                      <ol
+                        {...props}
+                        className="list-decimal pl-5 space-y-1"
+                      />
+                    ),
                   }}
                 >
                   {item.answer}

@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Autocomplete
 
@@ -229,6 +230,39 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is autocomplete in web design?",
+      answer:
+        "Autocomplete is a user interface feature that predicts and displays suggestions as a user types into an input field, helping them complete their input more efficiently.",
+    },
+    {
+      question: "When should I use autocomplete?",
+      answer:
+        "Autocomplete is beneficial when users need to input data that can be predicted or matched from a known set of options, such as search queries, addresses, or product names.",
+    },
+    {
+      question: "How can I make an autocomplete feature accessible?",
+      answer:
+        "Ensure the input field is focusable and supports keyboard navigation. Use ARIA roles and properties like `aria-autocomplete` and `aria-expanded` to convey the state to assistive technologies.",
+    },
+    {
+      question: "What are the benefits of using autocomplete?",
+      answer:
+        "Autocomplete enhances user experience by reducing typing effort, minimizing errors, and providing faster access to relevant information.",
+    },
+    {
+      question:
+        "What are common mistakes to avoid when implementing autocomplete?",
+      answer:
+        "Avoid overwhelming users with too many suggestions, neglecting accessibility considerations, and providing irrelevant or poorly ranked suggestions.",
+    },
+  ]}
+/>
 
 ## Resources
 
