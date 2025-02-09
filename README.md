@@ -1,15 +1,39 @@
+<div align="center">
+
 # UX Patterns for Devs
 
-UX Patterns for Developers is a free collection of UX patterns towards developers who want to understand how to build effective UI components accessible and usable.
+🎨 A comprehensive collection of UX patterns for developers who want to build effective, accessible, and usable UI components.
 
-![Screenshot of the homepage ofUX Patterns for Devs](https://raw.githubusercontent.com/thedaviddias/ux-patterns-for-developers/refs/heads/main/public/img/ux-patterns-developers.webp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
+[![GitHub Stars](https://img.shields.io/github/stars/thedaviddias/ux-patterns-for-developers?style=social)](https://github.com/thedaviddias/ux-patterns-for-developers)
+[![Twitter Follow](https://img.shields.io/twitter/follow/thedaviddias?style=social)](https://twitter.com/thedaviddias)
+
+[View Documentation](https://uxpatterns.dev) · [Report Bug](https://github.com/thedaviddias/ux-patterns-for-developers/issues) · [Request Pattern](https://github.com/thedaviddias/ux-patterns-for-developers/issues/new)
+
+![Screenshot of the homepage of UX Patterns for Devs](https://raw.githubusercontent.com/thedaviddias/ux-patterns-for-developers/refs/heads/main/public/img/ux-patterns-developers.webp)
+
+</div>
+
+## ✨ Features
+
+- 📚 **Comprehensive Documentation**: Detailed guides for each pattern with best practices
+- ♿️ **Accessibility-First**: Every pattern follows WCAG guidelines and includes ARIA best practices
+- 🎯 **Real-World Examples**: Interactive examples and code snippets you can copy and use
+- 🔍 **SEO Optimized**: Guidelines for making each pattern search-engine friendly
+- 📱 **Responsive Patterns**: Mobile-first approach with cross-device compatibility
+- 🎨 **Design Tokens**: Customizable design system integration
+- 📊 **Analytics Ready**: Built-in tracking recommendations for each pattern
+- 🌍 **Internationalization**: i18n considerations and best practices
+- ⚡️ **Performance Focused**: Optimization guidelines for each component
+
+## 🎯 Available Patterns
 
 > [!NOTE]
 > This project is a work in progress. New content and updates should be expected regularly.
 
-## 🧩 Patterns
-
 <!-- PATTERNS-LIST:START - Do not remove or modify this section -->
+
 This is an updated list of available and incoming patterns.
 
 ### Content Management
@@ -92,7 +116,14 @@ pnpm run generate
 
 ## ✨ Contributors
 
-You are welcome to contribute to this project! Please read the [CONTRIBUTING](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md).
+You are welcome to contribute to this project!
+
+- 🐛 [Report bugs](https://github.com/thedaviddias/ux-patterns-for-developers/issues)
+- 💡 [Suggest new patterns](https://github.com/thedaviddias/ux-patterns-for-developers/issues/new)
+- 📝 [Improve documentation](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
+- 🔧 [Submit pull requests](https://github.com/thedaviddias/ux-patterns-for-developers/pulls)
+
+Please read our [Contributing Guide](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md) before submitting a pull request.
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -103,6 +134,29 @@ You are welcome to contribute to this project! Please read the [CONTRIBUTING](ht
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## License
+## 📄 Dual License
 
-MIT © [David Dias](https://github.com/thedaviddias)
+This project is available under a dual license:
+
+### 1. MIT License (Non-Commercial)
+
+- ✅ Free for personal use and non-commercial projects
+- ✅ Attribution required
+- ✅ Modifications and distributions allowed
+- ❌ Commercial use not permitted
+- [View MIT License Details](./LICENCE.md)
+
+### 2. Commercial License
+
+- 💼 Required for commercial use
+- 🏢 Suitable for businesses and commercial projects
+- 🔒 Includes additional rights and support
+- [View Commercial License Details](.github/COMMERCIAL-LICENSE.md)
+
+---
+
+<div align="center">
+
+If you find this project useful, please consider giving it a ⭐️
+
+</div>
