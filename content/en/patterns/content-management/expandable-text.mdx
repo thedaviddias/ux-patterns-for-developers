@@ -7,6 +7,7 @@ status: complete
 
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
+import { Playground } from "@app/_components/playground";
 
 # Expandable Text
 
@@ -107,13 +108,13 @@ flowchart TB
 
 ### **Summary of Components**
 
-| Component                | Required? | Purpose                                           |
-| ------------------------ | --------- | ------------------------------------------------- |
-| **Trigger Button**       | ✅ Yes    | Expands or collapses the text.                    |
-| **Content Section**      | ✅ Yes    | Contains the expandable/collapsible text.         |
-| **Hidden Content**       | ✅ Yes    | Represents the initially collapsed text.          |
-| **Expand/Collapse Icon** | ❌ No     | Provides a visual cue for expand/collapse states. |
-| **Hover & Focus States** | ✅ Yes    | Ensures proper accessibility and interaction.     |
+| Component            | Required? | Purpose                                           |
+| -------------------- | --------- | ------------------------------------------------- |
+| Trigger Button       | ✅ Yes    | Expands or collapses the text.                    |
+| Content Section      | ✅ Yes    | Contains the expandable/collapsible text.         |
+| Hidden Content       | ✅ Yes    | Represents the initially collapsed text.          |
+| Expand/Collapse Icon | ❌ No     | Provides a visual cue for expand/collapse states. |
+| Hover & Focus States | ✅ Yes    | Ensures proper accessibility and interaction.     |
 
 ## Best Practices
 
@@ -250,36 +251,11 @@ By continuously monitoring these metrics, we can refine expandable text usabilit
 
 ### Basic Implementation
 
-```html
-<div>
-  <p id="expandable-text">
-    This is the visible content...
-    <span id="hidden-text" hidden>
-      This is the additional content that is initially hidden.
-    </span>
-  </p>
-  <button id="expand-button" aria-expanded="false" aria-controls="hidden-text">
-    Read More <span aria-hidden="true">▾</span>
-  </button>
-</div>
-
-<script>
-  const button = document.getElementById("expand-button");
-  const text = document.getElementById("hidden-text");
-  const icon = button.querySelector("span");
-
-  button.addEventListener("click", () => {
-    const isExpanded = button.getAttribute("aria-expanded") === "true";
-
-    button.setAttribute("aria-expanded", !isExpanded);
-    text.hidden = isExpanded;
-
-    button.textContent = isExpanded ? "Read More" : "Read Less";
-    button.appendChild(icon);
-    icon.textContent = isExpanded ? "▾" : "▴";
-  });
-</script>
-```
+<Playground
+  patternType="content-management"
+  pattern="expandable-text"
+  example="basic"
+/>
 
 ## Accessibility
 

@@ -8,6 +8,7 @@ status: complete
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
+import { Playground } from "@app/_components/playground";
 
 # Modal
 
@@ -121,14 +122,14 @@ graph TD
 
 #### **Summary of Components**
 
-| Component        | Required? | Purpose                                     |
-| ---------------- | --------- | ------------------------------------------- |
-| **Overlay**      | ✅ Yes    | Blocks background interactions.             |
-| **Container**    | ✅ Yes    | The main content container of the modal.    |
-| **Header**       | ✅ Yes    | Provides the modal heading.                 |
-| **Content**      | ✅ Yes    | Holds the primary information of the modal. |
-| **Footer**       | ❌ No     | Contains actions (e.g., "Save", "Cancel").  |
-| **Close Button** | ✅ Yes    | Allows users to dismiss the modal.          |
+| Component    | Required? | Purpose                                     |
+| ------------ | --------- | ------------------------------------------- |
+| Overlay      | ✅ Yes    | Blocks background interactions.             |
+| Container    | ✅ Yes    | The main content container of the modal.    |
+| Header       | ✅ Yes    | Provides the modal heading.                 |
+| Content      | ✅ Yes    | Holds the primary information of the modal. |
+| Footer       | ❌ No     | Contains actions (e.g., "Save", "Cancel").  |
+| Close Button | ✅ Yes    | Allows users to dismiss the modal.          |
 
 ## Best Practices
 
@@ -340,6 +341,10 @@ By continuously monitoring these metrics, we can refine the modal’s effectiven
 
 ## Localization
 
+Modals require careful localization of both visible text and accessibility labels. This includes button labels for actions like close, confirm, and cancel, as well as their corresponding ARIA labels for screen readers.
+
+The following JSON structure provides the essential strings that should be translated to ensure your modal is fully accessible across different languages and cultures.
+
 ```json
 {
   "modal": {
@@ -355,9 +360,18 @@ By continuously monitoring these metrics, we can refine the modal’s effectiven
       "label": "Cancel",
       "aria_label": "Cancel and close the modal"
     },
+    "title": "Title of the modal",
+    "content": "",
+    "status": {
+      "loading": "Loading...",
+      "saving": "Saving...",
+      "success": "Changes saved successfully",
+      "error": "An error occurred. Please try again."
+    },
     "aria_modal": {
       "aria_labelledby": "modal_title",
-      "aria_describedby": "modal_description"
+      "aria_describedby": "modal_description",
+      "loading_state": "Please wait while content is loading"
     }
   }
 }
@@ -367,30 +381,7 @@ By continuously monitoring these metrics, we can refine the modal’s effectiven
 
 ### Method 1: Basic Implementation
 
-```html
-<!-- Trigger Button -->
-<button type="button" data-modal-target="basicModal">Open Modal</button>
-
-<!-- Modal -->
-<div id="basicModal" class="modal" role="dialog" aria-modal="true">
-  <div class="modal-overlay"></div>
-  <div class="modal-content">
-    <button type="button" class="modal-close" aria-label="Close modal">
-      &times;
-    </button>
-
-    <h2>Modal Title</h2>
-    <p>Modal content goes here...</p>
-
-    <div class="modal-actions">
-      <button type="button" class="button-secondary modal-cancel">
-        Cancel
-      </button>
-      <button type="button" class="button-primary modal-submit">Confirm</button>
-    </div>
-  </div>
-</div>
-```
+<Playground patternType="content-management" pattern="modal" example="basic" />
 
 **Pros ✅**
 
@@ -408,32 +399,7 @@ By continuously monitoring these metrics, we can refine the modal’s effectiven
 
 ### Method 2: Native Modal
 
-```html
-<!-- Trigger Button -->
-<button
-  type="button"
-  onclick="document.getElementById('nativeModal').showModal()"
->
-  Open Modal
-</button>
-
-<!-- Native HTML Modal -->
-<dialog id="nativeModal">
-  <h2>Modal Title</h2>
-  <p>Modal content goes here...</p>
-
-  <div class="modal-actions">
-    <button
-      type="button"
-      class="button-secondary"
-      onclick="document.getElementById('nativeModal').close()"
-    >
-      Cancel
-    </button>
-    <button type="button" class="button-primary">Confirm</button>
-  </div>
-</dialog>
-```
+<Playground patternType="content-management" pattern="modal" example="native" />
 
 **Pros ✅**
 
