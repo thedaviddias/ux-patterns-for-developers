@@ -89,25 +89,48 @@ graph TD
 1. **Trigger Element**
 
 - The interactive element (e.g., button, icon, text) that activates the tooltip.
-- Should have aria-describedby linking to the tooltip content.
-- Can be activated on hover (mouse), focus (keyboard), or tap (touch devices).
+- Should have **`aria-describedby`** linking to the tooltip content for accessibility.
+- Can be activated by **hover (mouse), focus (keyboard), or tap (touch devices)**.
+- Should have a **clear focus indicator** when navigated via keyboard.
 
 2. **Tooltip Box**
 
 - The container that appears when the tooltip is activated.
-- Should be positioned near the trigger element using CSS.
-- Should have role="tooltip" for proper accessibility.
+- Should be **positioned near the trigger element** for contextual relevance.
+- Should have **`role="tooltip"`** for proper screen reader support.
 
 3. **Tooltip Content**
 
-- Contains the explanatory text or information.
-- Should be short and to the point.
-- Should not contain interactive elements (no links or buttons).
+- Contains the **explanatory text or information**.
+- Should be **short and concise** to avoid overwhelming users.
+- Should **not contain interactive elements** like links or buttons in simple tooltips.
 
-4. **Optional Interactive Elements (For Rich Tooltips)**
+4. **Arrow (Optional)**
 
-- Some tooltips allow links, buttons, or interactive elements.
-- These require aria-haspopup="true" and aria-expanded="true|false" for accessibility.
+- A **visual pointer** indicating the tooltip's source.
+- Adjusts dynamically **based on the tooltip’s position** (e.g., top, bottom, left, right).
+
+5. **Optional Interactive Elements (For Rich Tooltips)**
+
+- Some tooltips allow **links, buttons, or other interactive elements**.
+- Requires **`aria-haspopup="true"` and `aria-expanded="true|false"`** for accessibility.
+- Should **remain open while interacting** and dismiss only when clicking outside or pressing `Esc`.
+
+6. **Dismiss Behavior**
+
+- Simple tooltips **should disappear on mouse-out, focus loss, or tap elsewhere**.
+- Rich tooltips **should remain open until dismissed manually**.
+
+#### **📌 Summary of Components**
+
+| Component                | Required? | Purpose                                        |
+| ------------------------ | --------- | ---------------------------------------------- |
+| **Trigger Element**      | ✅ Yes    | The element that triggers the tooltip.         |
+| **Tooltip Box**          | ✅ Yes    | Contains the tooltip message.                  |
+| **Tooltip Content**      | ✅ Yes    | Displays a short explanatory message.          |
+| **Arrow**                | ❌ No     | Visually connects the tooltip to the trigger.  |
+| **Interactive Elements** | ❌ No     | Enables links or buttons inside rich tooltips. |
+| **Dismiss Behavior**     | ✅ Yes    | Defines how and when the tooltip should close. |
 
 ## Best Practices
 

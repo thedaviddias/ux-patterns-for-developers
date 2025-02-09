@@ -65,9 +65,12 @@ It helps users navigate large sets of information without overwhelming them.
 ```mermaid
 flowchart TB
   subgraph Pagination[Pagination Component]
-    A[Pagination Container] --> B[Previous Button]
-    A --> C[Pagination Items]
-    A --> D[Next Button]
+    A[Pagination Container] --> B[First Page Button - Optional]
+    A --> C[Previous Button]
+    A --> D[Pagination Items]
+    A --> E[Ellipsis - Optional]
+    A --> F[Next Button]
+    A --> G[Last Page Button - Optional]
   end
 ```
 
@@ -95,12 +98,37 @@ flowchart TB
 - Allows users to navigate to the next page.
 - Disabled on the last page to prevent further navigation.
 
-5. **Visual States**
+5. **First & Last Page Buttons (Optional)**
+
+- Provide quick navigation to the **first** and **last** pages.
+- Useful when dealing with **long pagination ranges**.
+
+6. **Ellipsis (Optional)**
+
+- Indicates missing page numbers in large paginations.
+- Reduces clutter while maintaining navigation clarity.
+
+7. **Visual States**
 
 - **Default:** Normal state with clear labels and clickable elements.
-- **Hover and Focus:** Provide visual cues (underline, background change, or border) for interactive elements.
+- **Hover and Focus:** Provides visual cues (underline, background change, or border) for interactive elements.
 - **Active:** Indicates the currently selected page.
-- **Disabled:** Indicates non-interactive controls (e.g., previous on page 1, next on last page).
+- **Disabled:** Non-interactive controls (e.g., previous on page 1, next on last page).
+- **Keyboard Focus:** Ensures proper highlight states for accessibility.
+- **ARIA Live Updates:** Announces page changes for screen readers.
+- **Loading Indicators (Optional):** Shows progress when paginated content is being fetched asynchronously.
+
+#### **📌 Summary of Components**
+
+| Component                   | Required? | Purpose                                          |
+| --------------------------- | --------- | ------------------------------------------------ |
+| **Container**               | ✅ Yes    | Wraps the pagination controls.                   |
+| **Next/Previous Buttons**   | ✅ Yes    | Allows users to navigate between pages.          |
+| **Page List**               | ✅ Yes    | Contains the list of page numbers.               |
+| **Page Item**               | ✅ Yes    | Represents each individual page link.            |
+| **First/Last Page Buttons** | ❌ No     | Enables quick navigation to the first/last page. |
+| **Ellipsis**                | ❌ No     | Represents omitted pages in large paginations.   |
+| **Loading Indicator**       | ❌ No     | Displays when fetching new paginated content.    |
 
 ## Best Practices
 

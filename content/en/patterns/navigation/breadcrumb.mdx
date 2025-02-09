@@ -81,20 +81,33 @@ end
 
 1. **Container (`nav`)**
 
-- Wraps the entire breadcrumb navigation
-- Uses semantic HTML for accessibility
+- Wraps the entire breadcrumb navigation.
+- Uses **semantic navigation elements** for accessibility.
+- Should be properly labeled for **screen readers**.
 
 2. **List (`ol`)**
 
-- Contains the breadcrumb items in order
-- Represents the hierarchical structure
+- Contains the **breadcrumb items** in sequential order.
+- Represents the **hierarchical structure** of the page.
+- Typically implemented as an **ordered list** to convey structure.
 
-3. **Items**
+3. **Items (`li`)**
 
-- Home Icon: Optional starting point
-- Parent Pages: Clickable links to higher levels
-- Current Page: Non-interactive current location
-- Separators: Visual dividers between items.
+- **Home Link (Optional):** A starting point linking to the homepage.
+- **Parent Pages:** Clickable links that represent higher levels of navigation.
+- **Current Page:** The final item, which **should not be a link** since it represents the current view.
+- **Separators:** Visual dividers (e.g., `/`, `>`), providing clear navigation hierarchy.
+
+#### **📌 Summary of Components**
+
+| Component        | Required? | Purpose                                               |
+| ---------------- | --------- | ----------------------------------------------------- |
+| **Container**    | ✅ Yes    | Wraps the entire breadcrumb navigation.               |
+| **List**         | ✅ Yes    | Contains the breadcrumb items in order.               |
+| **Items**        | ✅ Yes    | Represents individual breadcrumb links.               |
+| **Separators**   | ✅ Yes    | Visually separates breadcrumb links.                  |
+| **Home Link**    | ❌ No     | Provides an optional shortcut to the homepage.        |
+| **Current Page** | ✅ Yes    | Represents the active page (should not be clickable). |
 
 ## Best Practices
 

@@ -59,6 +59,59 @@ Use Infinite Scroll when you need to dynamically load more content as users scro
 - **Accessibility concerns** – Keyboard and screen reader users may find it harder to navigate.
 - **Disrupts footer visibility** – Users may never reach the footer if content loads indefinitely.
 
+## Anatomy
+
+```mermaid
+flowchart TB
+    subgraph InfiniteScroll[Infinite Scroll Component]
+        A[Content Container] --> B[Trigger Point]
+        B --> C[Loading Indicator]
+        C --> D[Newly Loaded Content]
+        D --> E[Next Trigger Point (Optional)]
+    end
+```
+
+### Component Structure
+
+1. **Content Container**
+
+- Holds the dynamically loaded items.
+- Ensures content is structured and visually organized.
+- Can be a **list, grid, or other layout structure**.
+
+2. **Trigger Point**
+
+- The detection mechanism that determines **when to load more content**.
+- Typically appears when the **user scrolls near the end** of the container.
+- Can be based on **viewport visibility, scroll depth, or other triggers**.
+
+3. **Loading Indicator**
+
+- Provides **visual feedback** while content is being retrieved.
+- Can be a **spinner, progress bar, or skeleton loader**.
+- Should **only be displayed when new content is actively loading**.
+
+4. **Newly Loaded Content**
+
+- The additional items dynamically inserted once new data is fetched.
+- Should **seamlessly integrate** with previously loaded content.
+- May **fade in or animate** to indicate new content.
+
+5. **Next Trigger Point (Optional)**
+
+- If more content is available, a new **Trigger Point** is added for the next batch.
+- Helps manage continuous loading in **long content feeds**.
+
+#### **📌 Summary of Components**
+
+| Component                | Required? | Purpose                                                      |
+| ------------------------ | --------- | ------------------------------------------------------------ |
+| **Content Container**    | ✅ Yes    | Holds the items being dynamically loaded.                    |
+| **Trigger Point**        | ✅ Yes    | Detects when the user reaches the threshold for new content. |
+| **Loading Indicator**    | ✅ Yes    | Shows that content is being fetched.                         |
+| **Newly Loaded Content** | ✅ Yes    | Represents the new batch of dynamically inserted content.    |
+| **Next Trigger Point**   | ❌ No     | Appears if additional content is available for loading.      |
+
 ## Best Practices
 
 ### Content & Usability

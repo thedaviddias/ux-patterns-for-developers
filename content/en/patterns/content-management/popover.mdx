@@ -75,34 +75,62 @@ end
 
 1. **Trigger Element**
 
-- The interactive element (e.g., button, icon, text) that activates the popover
-- Manages accessibility attributes like `aria-haspopup` and `aria-expanded`
+- The interactive element (e.g., button, icon, text) that activates the popover.
+- Manages **accessibility attributes** like `aria-haspopup` and `aria-expanded`.
+- Should be **focusable** and work with keyboard navigation.
 
 2. **Popover Container**
 
-- The root element that wraps the popover content
-- Manages positioning relative to the trigger element
-- Handles show/hide behavior
+- The root element that wraps the popover content.
+- Manages **positioning relative to the trigger element**.
+- Handles **visibility and accessibility considerations**.
 
 3. **Arrow (Optional)**
 
-- Visual indicator pointing to the trigger element
-- Helps users understand the relationship between popover and trigger
+- A **visual indicator** pointing to the trigger element.
+- Helps users understand the relationship between **popover and trigger**.
+- Should adjust **based on positioning** (e.g., top, bottom, left, right).
 
 4. **Content Area**
 
-- Contains all the popover content
-- Typically includes a title and body content
+- Contains all the **popover content**.
+- Typically includes a **title, body content, and interactive elements**.
 
 5. **Title (Optional)**
 
-- A brief heading or label for the popover content
-- Often styled differently from the body content for emphasis
+- A **brief heading or label** for the popover content.
+- Helps users understand **context at a glance**.
 
 6. **Body Content**
 
-- The main content of the popover
-- Can include text, links, or other simple interactive elements
+- The **main content** of the popover.
+- Can include **text, links, or simple interactive elements**.
+
+7. **Close Button (Optional)**
+
+- Allows users to **dismiss the popover manually**.
+- Should be **keyboard accessible** and labeled appropriately.
+- Helps users who **prefer to close the popover without clicking outside**.
+
+8. **Dismiss Behavior**
+
+- The popover should close when the user:
+  - Clicks **outside** of the popover.
+  - Presses **Esc** on the keyboard.
+  - Navigates away using the **Tab key** (if focus moves outside the popover).
+- Ensures **smooth UX and proper accessibility handling**.
+
+#### **📌 Summary of Components**
+
+| Component             | Required? | Purpose                                                    |
+| --------------------- | --------- | ---------------------------------------------------------- |
+| **Trigger Element**   | ✅ Yes    | The element that activates the popover.                    |
+| **Popover Container** | ✅ Yes    | Contains the content of the popover.                       |
+| **Arrow**             | ❌ No     | Visually connects the popover to the trigger.              |
+| **Title**             | ❌ No     | Provides a heading for the popover content.                |
+| **Body Content**      | ✅ Yes    | The main content of the popover.                           |
+| **Close Button**      | ❌ No     | Allows users to manually dismiss the popover.              |
+| **Dismiss Behavior**  | ✅ Yes    | Defines how the popover closes (Esc, click outside, etc.). |
 
 ## Best Practices
 

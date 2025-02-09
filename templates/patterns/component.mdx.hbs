@@ -1,10 +1,11 @@
 ---
 description: ""
 icon:
-status: Draft
+status: draft
 ---
 
 import { BrowserSupport } from "@app/_components/browser-support";
+import { BuildEffort } from "@app/_components/build-effort";
 
 # {{name}}
 
@@ -12,11 +13,16 @@ import { BrowserSupport } from "@app/_components/browser-support";
 
 **{{name}}s** are [brief description of the component].
 
+<BuildEffort
+  level="low"
+  description="Requires [brief description of the component]"
+/>
+
 ## Use Cases
 
 ### When to use:
 
-A sentence or two about when to use the component.
+Use {{name}} when you need to [brief description of the component].
 
 **Common scenarios include:**
 

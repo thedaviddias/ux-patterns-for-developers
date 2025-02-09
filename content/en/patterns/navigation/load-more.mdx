@@ -68,20 +68,58 @@ To improve usability, ensure that the "Load More" button is **removed when all c
 ## Anatomy
 
 ```mermaid
-graph TD
-    A[Initial Content] --> B[Load More Button]
-    B --> C[Additional Content]
-    C --> D[Another Load More Button <optional>]
+flowchart TB
+    subgraph LoadMore[Load More Component]
+        A[Container] --> B[Initial Content List]
+        B --> C[Load More Button]
+        C --> D[Loading Indicator - Optional]
+        C --> E[Additional Content]
+        E --> F[Another Load More Button - Optional]
+    end
 ```
 
 ### Component Structure
 
-A standard **Load More** implementation typically includes:
+1. **Container**
 
-1. **Initial Content List** – Displays a limited set of items to avoid overwhelming users.
-2. **Load More Button or Trigger** – A visible action element that allows users to request additional content.
-3. **Dynamic Loading Indicator** – A feedback mechanism (e.g., spinner or progress bar) to indicate content retrieval.
-4. **New Content Section** – The additional items loaded dynamically when triggered.
+   - Wraps the entire load more component.
+   - Ensures content is properly structured and styled.
+
+2. **Initial Content List**
+
+   - Displays a **limited number of items** to prevent overwhelming users.
+   - Defines the default **starting state** before additional content is loaded.
+
+3. **Load More Button**
+
+   - The primary trigger for **loading additional content**.
+   - Should provide **clear affordance** that more content is available.
+   - May include **ARIA attributes** to indicate loading state.
+
+4. **Loading Indicator (Optional)**
+
+   - Provides **visual feedback** that new content is being fetched.
+   - Can be a **spinner, progress bar, or skeleton loader**.
+
+5. **Additional Content**
+
+   - The **newly loaded items** that appear after clicking "Load More".
+   - Should integrate **seamlessly** with the initial content list.
+
+6. **Another Load More Button (Optional)**
+   - Appears **if more content is available after the first load**.
+   - Helps users **incrementally explore content** without scrolling endlessly.
+
+### **📌 Summary of Components**
+
+| Component                    | Required? | Purpose                                                      |
+| ---------------------------- | --------- | ------------------------------------------------------------ |
+| **Container**                | ✅ Yes    | Wraps the content that will load more items.                 |
+| **Initial Content List**     | ✅ Yes    | Displays a limited set of items to avoid overwhelming users. |
+| **Load More Button**         | ✅ Yes    | Allows users to manually fetch more content.                 |
+| **Loading Indicator**        | ❌ No     | Shows progress while loading more items.                     |
+| **Additional Content**       | ✅ Yes    | The dynamically inserted content after clicking "Load More." |
+| **Another Load More Button** | ❌ No     | Appears if further content can still be loaded.              |
 
 ## Best Practices
 
@@ -219,7 +257,6 @@ A standard **Load More** implementation typically includes:
 - Confirm that dynamically loaded content is **indexable by search engines** (e.g., using server-side rendering or progressive enhancement).
 - Check that search engines can **crawl and discover** all content, even if JavaScript is disabled.
 - Ensure that **important content is not hidden behind JavaScript-only interactions**.
-- Verify that `rel="next"` and `rel="prev"` attributes are used properly if a paginated alternative exists.
 - Run Lighthouse or Google's Mobile-Friendly Test to ensure SEO best practices are met.
 - Test the page with JavaScript disabled to confirm that at least some content remains visible.
 

@@ -112,11 +112,22 @@ graph TD
 - Provides confirmation and dismissal options
 - Can be omitted for simple, informational modals
 
-6. **Close Button**
+6. **Close Button (`button`)**
 
 - Allows users to dismiss the modal without taking an action
 - Often an "X" icon in the corner of the modal
 - Should be included unless the modal requires a specific action to proceed
+
+#### **📌 Summary of Components**
+
+| Component        | Required? | Purpose                                     |
+| ---------------- | --------- | ------------------------------------------- |
+| **Overlay**      | ✅ Yes    | Blocks background interactions.             |
+| **Container**    | ✅ Yes    | The main content container of the modal.    |
+| **Header**       | ✅ Yes    | Provides the modal heading.                 |
+| **Content**      | ✅ Yes    | Holds the primary information of the modal. |
+| **Footer**       | ❌ No     | Contains actions (e.g., "Save", "Cancel").  |
+| **Close Button** | ✅ Yes    | Allows users to dismiss the modal.          |
 
 ## Best Practices
 
