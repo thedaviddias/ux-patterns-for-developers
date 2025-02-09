@@ -1,5 +1,6 @@
 ---
-description: "Loads additional content automatically as users scroll down."
+summary: "Loads additional content automatically as users scroll down."
+description: "Implement infinite scroll for seamless content loading in your web applications. Learn best practices for performance, accessibility, and user experience with practical code examples."
 icon: Infinity
 status: complete
 ---
@@ -119,14 +120,14 @@ flowchart TB
 **Do's ✅**
 
 - **Provide clear loading indicators** to inform users that content is being fetched.
-- **Use a ‘Load More’ button as a fallback** in case auto-loading fails.
-- **Allow users to jump back to the top** with a ‘Back to Top’ button.
-- **Save scroll position** so users don’t lose their place when navigating back.
+- **Use a 'Load More' button as a fallback** in case auto-loading fails.
+- **Allow users to jump back to the top** with a 'Back to Top' button.
+- **Save scroll position** so users don't lose their place when navigating back.
 
 **Don'ts ❌**
 
 - **Avoid infinite loops** – Ensure loading stops when all content is fetched.
-- **Don’t break browser back navigation** – Users should be able to return to previous content states.
+- **Don't break browser back navigation** – Users should be able to return to previous content states.
 - **Avoid excessive memory usage** – Remove off-screen items if necessary to optimize performance.
 
 ### Accessibility
@@ -141,7 +142,7 @@ flowchart TB
 **Don'ts ❌**
 
 - **Avoid relying solely on scrolling** – Users with assistive technologies may need alternative navigation.
-- **Don’t change content order unexpectedly** – Screen readers should process content sequentially.
+- **Don't change content order unexpectedly** – Screen readers should process content sequentially.
 
 ### Visual Design
 
@@ -153,7 +154,7 @@ flowchart TB
 
 **Don'ts ❌**
 
-- **Don’t push content down unexpectedly** – New items should append seamlessly without disrupting user flow.
+- **Don't push content down unexpectedly** – New items should append seamlessly without disrupting user flow.
 - **Avoid excessive whitespace** – Content should remain readable and well-structured.
 
 ### Performance Optimization
@@ -167,7 +168,7 @@ flowchart TB
 **Don'ts ❌**
 
 - **Avoid fetching too much data at once** – This can slow down rendering and increase memory usage.
-- **Don’t re-render the entire list on new data arrival** – Only update necessary elements.
+- **Don't re-render the entire list on new data arrival** – Only update necessary elements.
 
 ## SEO Considerations
 
@@ -192,7 +193,7 @@ flowchart TB
 
 - [ ] Verify that screen readers announce new content properly.
 - [ ] Ensure that keyboard users can navigate through dynamically loaded items.
-- [ ] Test with reduced motion settings to ensure animations don’t cause issues.
+- [ ] Test with reduced motion settings to ensure animations don't cause issues.
 
 ### Performance Testing
 

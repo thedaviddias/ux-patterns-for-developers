@@ -1,5 +1,6 @@
 ---
-description: "Quickly navigate back to the top of the page"
+summary: "Quickly navigate back to the top of the page"
+description: "Learn how to implement a Back to Top button pattern to enhance user navigation on long pages. Discover best practices for placement, accessibility, and user experience with code examples and implementation guidelines."
 icon: ArrowUp
 status: complete
 ---
@@ -88,7 +89,7 @@ end
 
 3. **Label Text (Optional)**
 
-- Helps clarify the action for screen readers or when the icon alone isn’t sufficient
+- Helps clarify the action for screen readers or when the icon alone isn't sufficient
 - Typically hidden for visually oriented users, but available to assistive technology
 - Could be visible if design requires additional clarity
 
@@ -122,10 +123,10 @@ end
 
 **Don'ts ❌**
 
-- Don’t make it permanently visible for short pages—it can be distracting
-- Don’t use vague icons or labels (e.g., a random symbol without context)
-- Don’t crowd the button with other floating elements
-- Don’t rely solely on color for states—use shape or text changes if possible
+- Don't make it permanently visible for short pages—it can be distracting
+- Don't use vague icons or labels (e.g., a random symbol without context)
+- Don't crowd the button with other floating elements
+- Don't rely solely on color for states—use shape or text changes if possible
 
 ### Accessibility
 
@@ -138,9 +139,9 @@ end
 
 **Don'ts ❌**
 
-- Don’t hide it behind complex interactions or animations
-- Don’t place it in a position that overlaps other important UI elements
-- Don’t disable focus outlines without providing an alternative focus style
+- Don't hide it behind complex interactions or animations
+- Don't place it in a position that overlaps other important UI elements
+- Don't disable focus outlines without providing an alternative focus style
 
 ### Visual Design
 
@@ -153,9 +154,9 @@ end
 
 **Don'ts ❌**
 
-- Don’t block important content with a floating button
-- Don’t make the button so small that it’s hard to tap on mobile
-- Don’t use misleading icons (ensure the arrow is pointing up)
+- Don't block important content with a floating button
+- Don't make the button so small that it's hard to tap on mobile
+- Don't use misleading icons (ensure the arrow is pointing up)
 
 ### Mobile & Touch Considerations
 
@@ -163,14 +164,14 @@ end
 
 - Use a minimum touch target of 44×44px
 - Keep it within thumb-friendly zones at the bottom of the screen
-- Make sure it doesn’t overlap interactive elements (navigation drawers, chat bubbles)
+- Make sure it doesn't overlap interactive elements (navigation drawers, chat bubbles)
 - Add any necessary spacing from device edges to avoid accidental swipes
 
 **Don'ts ❌**
 
-- Don’t place it in corners difficult to reach on large screens
-- Don’t rely on hover states for mobile users—visual changes should appear on tap/press
-- Don’t crowd the bottom area with too many floating icons
+- Don't place it in corners difficult to reach on large screens
+- Don't rely on hover states for mobile users—visual changes should appear on tap/press
+- Don't crowd the bottom area with too many floating icons
 
 ### Layout & Positioning
 
@@ -182,8 +183,8 @@ end
 
 **Don'ts ❌**
 
-- Don’t move it around the page as the user scrolls
-- Don’t tie it to an element that scrolls out of view
+- Don't move it around the page as the user scrolls
+- Don't tie it to an element that scrolls out of view
 
 ## Code Examples
 
@@ -240,7 +241,7 @@ end
 ### Keyboard Navigation
 
 - Must be focusable and activated with both Enter and Space keys
-- The user should be able to tab to it if it’s visible
+- The user should be able to tab to it if it's visible
 - Focus outlines should remain intact for accessibility
 - Maintaining focus after click is optional; the scroll event is generally the key feedback
 

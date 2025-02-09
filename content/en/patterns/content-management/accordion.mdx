@@ -1,5 +1,6 @@
 ---
-description: "Expand and collapse content sections"
+summary: "Expand and collapse content sections"
+description: "Create effective accordion components for your web applications. Learn best practices for implementing expandable content sections with proper accessibility and keyboard support."
 icon: ChevronDown
 status: complete
 ---
@@ -162,7 +163,7 @@ graph TD
 **Don'ts ❌**
 
 - **Avoid placing the icon too far from the trigger text**—users may not associate them.
-- **Don’t rely solely on the icon** to indicate expansion—ensure there is a visual or textual cue as well.
+- **Don't rely solely on the icon** to indicate expansion—ensure there is a visual or textual cue as well.
 - **Avoid animations that make the icon movement too subtle**—it should clearly show state changes.
 
 #### **Behavior**
@@ -327,7 +328,7 @@ graph TD
 
 - Full styling flexibility—no browser-imposed limitations.
 - Explicit aria-expanded handling—better screen reader support.
-- More customization options—e.g., “only one section open at a time” behavior.
+- More customization options—e.g., "only one section open at a time" behavior.
 
 **Cons ❌**
 
@@ -392,7 +393,7 @@ This approach leverages **native browser behavior** without requiring JavaScript
 
 - Limited styling control—some browsers restrict `<summary>` styling.
 - No aria-expanded state by default—some screen readers may not properly announce expansion.
-- All items can be expanded at once—doesn’t support “only one section open” behavior.
+- All items can be expanded at once—doesn't support "only one section open" behavior.
 
 ### When to use a tabbed carousel vs grouped carousel?
 

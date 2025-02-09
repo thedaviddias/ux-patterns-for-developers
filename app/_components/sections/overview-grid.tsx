@@ -80,7 +80,7 @@ const PatternContent = ({ pattern }: PatternWrapperProps) => (
         </h3>
       </div>
       <p className="mb-3 text-sm text-foreground leading-6!">
-        {pattern.description}
+        {pattern.summary}
       </p>
     </div>
   </div>

@@ -1,5 +1,6 @@
 ---
-description: "Enter and edit text content"
+summary: "Enter and edit text content"
+description: "Learn how to implement accessible text input fields in your web applications. Discover best practices for validation, error handling, and user experience with practical examples."
 icon: Text
 status: complete
 ---
@@ -123,7 +124,7 @@ graph TD
 
 | Component                    | Required? | Purpose                                      |
 | ---------------------------- | --------- | -------------------------------------------- |
-| **Label**                    | ✅ Yes    | Describes the input field’s purpose.         |
+| **Label**                    | ✅ Yes    | Describes the input field's purpose.         |
 | **Input Field**              | ✅ Yes    | The main interactive element for user input. |
 | **Placeholder**              | ❌ No     | Provides a hint but disappears on input.     |
 | **Helper Text**              | ❌ No     | Offers guidance or additional instructions.  |
@@ -227,7 +228,7 @@ graph TD
 **Cons ❌**
 
 - **Requires CSS for styling** (ensuring asterisks are not the only indicator).
-- Users **might not see tooltip hints** if they don’t hover over the icon.
+- Users **might not see tooltip hints** if they don't hover over the icon.
 
 ### **5️⃣ Alternative: Required Field with `required` Attribute Only**
 
@@ -267,10 +268,10 @@ graph TD
 
 **Don'ts ❌**
 
-- Don’t use placeholder text instead of a visible label.
+- Don't use placeholder text instead of a visible label.
 - Avoid long character limits without a counter.
-- Don’t require unnecessary or sensitive information without justification.
-- Don’t enforce **case sensitivity** unless absolutely necessary.
+- Don't require unnecessary or sensitive information without justification.
+- Don't enforce **case sensitivity** unless absolutely necessary.
 - Avoid disabling **copy-paste** for passwords or sensitive fields, as this can harm usability.
 
 ---
@@ -289,10 +290,10 @@ graph TD
 
 **Don'ts ❌**
 
-- Don’t remove focus outlines—they are essential for keyboard users.
-- Don’t rely solely on color to indicate errors.
+- Don't remove focus outlines—they are essential for keyboard users.
+- Don't rely solely on color to indicate errors.
 - Avoid using `title` attributes for tooltips—use visible descriptions.
-- Don’t use `placeholder` as the only accessible text—it disappears when users start typing.
+- Don't use `placeholder` as the only accessible text—it disappears when users start typing.
 - Avoid **dynamic placeholder text changes** that may confuse assistive technologies.
 
 ---
@@ -310,9 +311,9 @@ graph TD
 **Don'ts ❌**
 
 - Avoid excessive borders or decorative elements.
-- Don’t make the input field too small, especially on mobile.
+- Don't make the input field too small, especially on mobile.
 - Avoid low contrast text and background combinations.
-- Don’t rely solely on placeholder text for field instructions.
+- Don't rely solely on placeholder text for field instructions.
 
 ---
 
@@ -327,9 +328,9 @@ graph TD
 
 **Don'ts ❌**
 
-- Don’t position labels too far from the input.
+- Don't position labels too far from the input.
 - Avoid overly narrow text fields that cut off content.
-- Don’t place validation messages too far from the field.
+- Don't place validation messages too far from the field.
 - Avoid placing multiple fields **on the same line on mobile**, as this reduces readability.
 
 ### **Input Description Placement: Above or Below the Text Field?**
@@ -469,7 +470,7 @@ Text fields should support **standard keyboard navigation and interactions** to 
 - [ ] Validate large text input handling (e.g., pasting 1000+ characters into a field).
 - [ ] Check **browser compatibility across different devices** (Chrome, Firefox, Safari, Edge, mobile browsers).
 - [ ] Test mobile usability, including **touch input, autocorrect behavior, and focus handling**.
-- [ ] Ensure input fields **don’t trigger layout shifts** (Cumulative Layout Shift - CLS).
+- [ ] Ensure input fields **don't trigger layout shifts** (Cumulative Layout Shift - CLS).
 - [ ] Validate **lazy loading and deferred scripts** do not delay field interactions.
 - [ ] Check memory usage when dynamically adding or removing fields.
 
@@ -481,7 +482,7 @@ Text fields should support **standard keyboard navigation and interactions** to 
 
 - [ ] Ensure fields do not store sensitive data in autocomplete history unless necessary (`autocomplete="off"` for sensitive inputs).
 - [ ] Validate against **Cross-Site Scripting (XSS) attacks**—inputs should sanitize user-entered data.
-- [ ] Verify that error messages do not reveal sensitive details (e.g., don’t display "Incorrect email or password" separately).
+- [ ] Verify that error messages do not reveal sensitive details (e.g., don't display "Incorrect email or password" separately).
 - [ ] Check that invalid inputs do not break the layout or cause unexpected behavior.
 
 ---

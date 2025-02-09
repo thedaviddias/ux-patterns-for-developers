@@ -1,5 +1,6 @@
 ---
-description: "Load additional content on user demand"
+summary: "Load additional content on user demand"
+description: "Learn how to implement a Load More pattern for efficient content pagination. Discover best practices for user experience, accessibility, and performance when loading content incrementally."
 icon: Plus
 status: complete
 ---
@@ -49,7 +50,7 @@ To improve usability, ensure that the "Load More" button is **removed when all c
 
 - **Improves page performance** by reducing initial data load
 - **Gives users control** over content consumption, reducing cognitive overload
-- **Enhances accessibility** compared to infinite scrolling, ensuring users don’t lose track of their position
+- **Enhances accessibility** compared to infinite scrolling, ensuring users don't lose track of their position
 - **Works well with various devices** by enabling controlled data retrieval
 - **Enables footer access** by allowing users to reach the page's footer and access secondary links like return policies, shipping information, and contact details
 - **Prevents unnecessary interactions** by **removing the "Load More" button once all content has been loaded** or replacing it with a message like **"No More Results"**.
@@ -58,7 +59,7 @@ To improve usability, ensure that the "Load More" button is **removed when all c
 ## Drawbacks
 
 - **User Effort** – Requires users to take action to reveal more content instead of a seamless experience.
-- **Potentially Hidden Content** – Users may not realize more content is available if the button isn’t clearly visible.
+- **Potentially Hidden Content** – Users may not realize more content is available if the button isn't clearly visible.
 - **Disrupted Flow** – Clicking **Load More** can break user immersion compared to continuous scrolling.
 - **Inconsistent Navigation** – Can make it harder for users to return to previously loaded sections if not implemented correctly.
 - **SEO Challenges** – Search engines may not always index dynamically loaded content unless handled properly.
@@ -134,8 +135,8 @@ flowchart TB
 **Don'ts ❌**
 
 - Avoid vague labels like **"Click Here"**.
-- Don’t load excessive content at once; keep it manageable.
-- Don’t disrupt the existing layout when inserting new content.
+- Don't load excessive content at once; keep it manageable.
+- Don't disrupt the existing layout when inserting new content.
 
 ### Accessibility & UX
 
@@ -149,9 +150,9 @@ flowchart TB
 
 **Don'ts ❌**
 
-- Don’t remove focus from the **Load More** button after clicking it (don't use `disabled`)
+- Don't remove focus from the **Load More** button after clicking it (don't use `disabled`)
 - Avoid infinite scrolling without a **Load More** option as a fallback.
-- Don’t rely solely on color for action buttons (ensure contrast and readable text).
+- Don't rely solely on color for action buttons (ensure contrast and readable text).
 
 ### Visual Design
 
@@ -163,7 +164,7 @@ flowchart TB
 
 **Don'ts ❌**
 
-- Don’t make the button too small or difficult to tap on mobile devices.
+- Don't make the button too small or difficult to tap on mobile devices.
 - Avoid sudden layout shifts when loading new content.
 
 ### Layout & Positioning
@@ -176,7 +177,7 @@ flowchart TB
 
 **Don'ts ❌**
 
-- Don’t insert new content above the user’s current view unless explicitly requested.
+- Don't insert new content above the user's current view unless explicitly requested.
 - Avoid loading content off-screen without visual confirmation.
 
 ## Accessibility

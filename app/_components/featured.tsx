@@ -80,5 +80,7 @@ export const FeaturedPattern = () => {
     getRandomPattern().then(setPattern)
   }, [])
 
+  console.log(pattern)
+
   return pattern ? <FeaturedPatternSection pattern={pattern} /> : <FeaturedPatternSkeleton />;
 };

@@ -1,5 +1,6 @@
 ---
-description: "Provide additional context on hover or focus"
+summary: "Provide additional context on hover or focus"
+description: "Implement effective tooltip components in your web applications. Learn best practices for contextual help, positioning strategies, and accessibility considerations."
 icon: MessageCircle
 status: complete
 ---
@@ -55,14 +56,14 @@ Use a tooltip when you need to provide **additional context or explanations** wi
 - **For content that should remain visible**, like persistent hints or descriptions.
 - **When users need to interact** with the tooltip itself.
 - **If the tooltip is the only means** of conveying information (accessibility issue).
-- **For mobile-first interactions** where hover-based behavior isn’t intuitive.
+- **For mobile-first interactions** where hover-based behavior isn't intuitive.
 
 ## Benefits
 
 - **Reduces clutter** by providing contextual information without crowding the UI.
 - **Improves user understanding** of complex actions or terminology.
 - **Enhances accessibility** when used correctly with keyboard and screen reader support.
-- **Provides instant feedback** without disrupting the user’s flow.
+- **Provides instant feedback** without disrupting the user's flow.
 
 ## Drawbacks
 
@@ -108,7 +109,7 @@ graph TD
 4. **Arrow (Optional)**
 
 - A **visual pointer** indicating the tooltip's source.
-- Adjusts dynamically **based on the tooltip’s position** (e.g., top, bottom, left, right).
+- Adjusts dynamically **based on the tooltip's position** (e.g., top, bottom, left, right).
 
 5. **Optional Interactive Elements (For Rich Tooltips)**
 
@@ -151,7 +152,7 @@ graph TD
 **Don'ts ❌**
 
 - **Avoid tooltips for critical information**—users might miss them.
-- **Don’t overuse long tooltips**—consider using a popover or [modal](/patterns/content-management/modal).
+- **Don't overuse long tooltips**—consider using a popover or [modal](/patterns/content-management/modal).
 - **Avoid adding interactive elements** (buttons, links) inside tooltips unless using an accessible popover.
 
 ### Accessibility

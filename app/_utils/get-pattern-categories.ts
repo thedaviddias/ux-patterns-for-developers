@@ -18,6 +18,7 @@ export type PatternCategory = {
 
 export type Pattern = {
   title: string
+  summary: string
   description: string
   href: string
   icon?: LucideIcon
@@ -53,6 +54,7 @@ export async function getPatternCategories(locale: string): Promise<PatternCateg
 
           return {
             title: page.frontMatter?.title || page.name,
+            summary: page.frontMatter?.summary || '',
             description: page.frontMatter?.description || '',
             href: `/${locale}/patterns/${category.path}/${page.name}`,
             icon: iconName ? Icons[iconName] : undefined,
