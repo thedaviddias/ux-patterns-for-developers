@@ -49,7 +49,7 @@
     "remark-gfm": "^4.0.0",
     "remove-markdown": "^0.6.0",
     "require-in-the-middle": "^7.5.1",
-    "simple-icons": "^13.21.0",
+    "simple-icons": "^14.6.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
   },
