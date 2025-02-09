@@ -6,7 +6,7 @@ import { LinkCustom } from '../link-custom'
 import { Badge } from '../ui/badge'
 
 
-type PatternWrapperProps = {
+export type PatternWrapperProps = {
   pattern: Pattern
 }
 
@@ -20,7 +20,7 @@ export const OverviewGrid = async ({ lang }: { lang: string }) => {
           <h2 className="text-2xl font-bold mb-5 text-foreground">
             {category.name}
           </h2>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {category.patterns.map((pattern) => (
               <PatternWrapper key={pattern.title} pattern={pattern} />
             ))}
@@ -31,7 +31,7 @@ export const OverviewGrid = async ({ lang }: { lang: string }) => {
   )
 }
 
-const PatternWrapper = ({ pattern }: PatternWrapperProps) => {
+export const PatternWrapper = ({ pattern }: PatternWrapperProps) => {
   const wrapperClasses = cn(
     "relative rounded-xl border border-neutral-200 dark:border-neutral-800",
     pattern.status !== 'coming-soon' && "border-neutral-400 dark:border-neutral-600 hover:bg-neutral-100 hover:border-neutral-200 dark:hover:bg-neutral-900 dark:hover:border-neutral-400 hover:scale-105 transition-all duration-100 ease-in-out"

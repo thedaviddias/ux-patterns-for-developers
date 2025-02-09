@@ -3,12 +3,22 @@ export default {
     type: 'page',
     display: 'hidden',
     theme: {
-      typesetting: 'article'
+      typesetting: 'article',
+      layout: 'full'
     }
   },
   patterns: {
     type: 'page',
     title: 'Patterns'
+  },
+  'pattern-assistant': {
+    type: 'page',
+    title: 'Pattern Assistant',
+    theme: {
+      sidebar: false,
+      typesetting: 'article',
+      layout: 'full'
+    }
   },
   blog: {
     type: 'page',
@@ -36,3 +46,5 @@ export default {
     }
   }
 }
+
+

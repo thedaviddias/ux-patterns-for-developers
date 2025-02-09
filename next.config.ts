@@ -34,6 +34,7 @@ const nextConfig = withBundleAnalyzer(
           hostname: 'covers.openlibrary.org',
         },
       ],
+      formats: ['image/webp', 'image/avif'],
     },
     redirects: async () => [
       {

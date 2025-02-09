@@ -1,0 +1,172 @@
+---
+summary: "Choose the right content loading pattern based on your user needs and content type"
+description: "An in-depth comparison and decision guide to help you choose between pagination and infinite scroll patterns based on factors like content type, user behavior, and technical requirements."
+icon: Split
+---
+
+import { DecisionFlow } from "@app/_components/decision-flow";
+import {
+  edges,
+  nodes,
+} from "@app/_components/decision-flow/data/navigation-patterns";
+import { ComparisonGrid } from "@app/_components/pattern-comparison/comparison-grid";
+import { ComparisonHero } from "@app/_components/pattern-comparison/comparison-hero";
+import { DecisionFlowSection } from "@app/_components/pattern-comparison/decision-flow-section";
+import { ExamplesGrid } from "@app/_components/pattern-comparison/examples-grid";
+import { PatternNextSteps } from "@app/_components/pattern-comparison/pattern-next-steps";
+import { PerformanceMetrics } from "@app/_components/pattern-comparison/performance-metrics";
+
+<div>
+  <ComparisonHero
+    title="Pagination vs Infinite Scroll"
+    description="Choose the right content loading pattern based on your user needs and content type"
+  />
+
+  <div className="prose dark:prose-invert mb-10 space-y-4">
+    Choosing between pagination and infinite scroll is a crucial decision that
+    impacts your users' experience. Each pattern has its strengths and
+    trade-offs, making the choice highly dependent on your specific use case.
+
+    Use our interactive decision flow below to guide your choice based on
+    factors like content type, user behavior, and technical requirements. Follow
+    the path that best matches your needs to find the recommended pattern for
+    your application.
+
+  </div>
+
+  <DecisionFlowSection nodes={nodes} edges={edges} />
+  <ComparisonGrid patterns={comparisonData.patterns} />
+  <PerformanceMetrics patterns={performanceData.patterns} />
+  <ExamplesGrid examples={examplesData.examples} />
+  <PatternNextSteps patterns={nextStepsData.patterns} />
+</div>
+
+export const comparisonData = {
+  patterns: [
+    {
+      title: "Pagination",
+      href: "/patterns/navigation/pagination",
+      criteria: [
+        "SEO is critical",
+        "Users need to bookmark specific pages",
+        "Content is structured and searchable",
+        "Memory usage is a concern",
+      ],
+    },
+    {
+      title: "Infinite Scroll",
+      href: "/patterns/navigation/infinite-scroll",
+      criteria: [
+        "Content is discovery-focused",
+        "Mobile is the primary platform",
+        "User engagement is key",
+        "Content flow should be seamless",
+      ],
+    },
+  ],
+};
+
+export const performanceData = {
+  patterns: [
+    {
+      pattern: "Pagination",
+      initialLoad: {
+        label: "Initial Load",
+        value: 80,
+        status: "green",
+        description: "Faster",
+      },
+      memoryUsage: {
+        label: "Memory Usage",
+        value: 90,
+        status: "green",
+        description: "Efficient",
+      },
+    },
+    {
+      pattern: "Infinite Scroll",
+      initialLoad: {
+        label: "Initial Load",
+        value: 60,
+        status: "yellow",
+        description: "Moderate",
+      },
+      memoryUsage: {
+        label: "Memory Usage",
+        value: 40,
+        status: "red",
+        description: "Heavy",
+      },
+    },
+  ],
+};
+
+export const examplesData = {
+  examples: [
+    {
+      pattern: "Pagination",
+      examples: [
+        {
+          title: "Google Search Results",
+          description: "Classic pagination for search results",
+          imageUrl: "/examples/google-search-pagination.webp",
+        },
+        {
+          title: "Amazon Product Listings",
+          description: "E-commerce product navigation",
+          imageUrl: "/examples/amazon-pagination.webp",
+        },
+        {
+          title: "Documentation Sites",
+          description: "Technical documentation navigation",
+          imageUrl: "/examples/docs-pagination.webp",
+        },
+        {
+          title: "Admin Dashboards",
+          description: "Data table navigation",
+          imageUrl: "/examples/admin-pagination.webp",
+        },
+      ],
+    },
+    {
+      pattern: "Infinite Scroll",
+      examples: [
+        {
+          title: "Instagram Feed",
+          description: "Social media content stream",
+          imageUrl: "/examples/instagram-infinite.webp",
+        },
+        {
+          title: "Twitter Timeline",
+          description: "Real-time content updates",
+          imageUrl: "/examples/twitter-infinite.webp",
+        },
+        {
+          title: "Pinterest Board",
+          description: "Visual content discovery",
+          imageUrl: "/examples/pinterest-infinite.webp",
+        },
+        {
+          title: "Facebook News Feed",
+          description: "Social content stream",
+          imageUrl: "/examples/facebook-infinite.webp",
+        },
+      ],
+    },
+  ],
+};
+
+export const nextStepsData = {
+  patterns: [
+    {
+      title: "Pagination Pattern",
+      description: "Implementation details and best practices",
+      href: "/patterns/navigation/pagination",
+    },
+    {
+      title: "Infinite Scroll Pattern",
+      description: "Implementation details and best practices",
+      href: "/patterns/navigation/infinite-scroll",
+    },
+  ],
+};

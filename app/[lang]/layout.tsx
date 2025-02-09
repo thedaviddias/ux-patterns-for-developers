@@ -34,7 +34,10 @@ const fontMono = FontMono({
 
 export const metadata = metadataSEO
 
-export default async function RootLayout({ children, params }) {
+export default async function RootLayout({ children, params }: {
+  children: React.ReactNode
+  params: Promise<{ lang: string }>
+}) {
   const { lang } = await params
   const dictionary = await getDictionary(lang)
 
