@@ -7,6 +7,7 @@ status: complete
 
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
+import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 # Accordion
 
@@ -529,6 +530,38 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is an accordion in UI design?",
+      answer:
+        "An accordion is a graphical control element comprising a vertically stacked list of items, such as labels or thumbnails. Each item can be expanded or collapsed to reveal the content associated with that item.",
+    },
+    {
+      question: "When should I use an accordion?",
+      answer:
+        "Accordions are useful when you need to present information in a limited space and allow users to choose which sections to expand for more details. They are commonly used for FAQs, menus, and content-heavy pages.",
+    },
+    {
+      question: "How can I make an accordion accessible?",
+      answer:
+        "To ensure accessibility, use semantic HTML elements like <button> for the accordion headers, manage focus states, and implement ARIA attributes such as aria-expanded to indicate the state of each section.",
+    },
+    {
+      question: "What are the best practices for designing an accordion?",
+      answer:
+        "Best practices include keeping headers clear and concise, ensuring only one section is expanded at a time if appropriate, providing visual indicators for expandable sections, and maintaining consistent styling throughout the accordion.",
+    },
+    {
+      question: "Can accordions improve page performance?",
+      answer:
+        "Yes, by collapsing sections of content, accordions can reduce the amount of information displayed at once, leading to faster initial page load times and a cleaner user experience.",
+    },
+  ]}
+/>
 
 ## Resources
 
