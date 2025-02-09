@@ -61,35 +61,57 @@ Use **Expandable Text** when you need to **manage lengthy content while keeping 
 
 ```mermaid
 flowchart TB
-    A[Expandable Text] --> B[Trigger Button]
-    A --> C[Content Section]
-    B -->|Collapsed| D[Label + Icon ▾]
-    B -->|Expanded| E[Label + Icon ▴]
-    C -->|Collapsed by Default| F[Hidden Content]
-    C -->|Expanded| G[Visible Content]
+    subgraph ExpandableText[Expandable Text Component]
+        A[Trigger Button] -->|Collapsed| B[Label + Icon ▾]
+        A -->|Expanded| C[Label + Icon ▴]
+        A -.->|Toggles State| D[Updates aria-expanded]
+
+        subgraph ContentSection[Content Section]
+            E[Hidden Content] -->|Expands| F[Visible Content]
+        end
+    end
 ```
 
-### Component Structure
+### **Component Structure**
 
 1. **Trigger Button**
 
-- Used to expand or collapse the text.
-- Should be clearly labeled (e.g., "Read More" / "Read Less").
-- Includes an icon (▾ for collapsed, ▴ for expanded) to reinforce expand/collapse state.
-- Should indicate the expanded state using `aria-expanded`.
+- Used to **expand or collapse** the text.
+- Should be **clearly labeled** (e.g., "Read More" / "Read Less").
+- Includes an **icon** (▾ for collapsed, ▴ for expanded) to reinforce expand/collapse state.
+- Should indicate the expanded state using **`aria-expanded="true|false"`** for accessibility.
+- Must be **keyboard navigable** (activated via `Enter` or `Space` key).
 
 2. **Content Section**
 
-- Contains the expandable/collapsible text.
-- Hidden by default but fully visible when expanded.
+- Contains the **expandable/collapsible** text.
+- Remains in the **DOM at all times** to maintain accessibility.
+- Should be **visually styled** to clearly indicate expandable behavior.
 
 3. **Hidden Content**
 
-- The part of the text that is initially collapsed.
-- Should remain in the DOM to ensure accessibility.
-- Use `hidden` or `aria-hidden="true"` to prevent screen readers from announcing it prematurely.
-- When expanded, remove `hidden` and update `aria-expanded="true"` on the trigger button.
-- Consider using `max-height` with `overflow: hidden` instead of `display: none` to allow screen readers to detect changes.
+- The part of the text that is **initially collapsed**.
+- Should remain in the DOM but hidden using **`aria-hidden="true"`**.
+- When expanded:
+  - Remove `aria-hidden`.
+  - Set `aria-expanded="true"` on the **Trigger Button**.
+- Consider using **`max-height` with `overflow: hidden`** instead of `display: none` to ensure screen readers detect changes.
+
+4. **Visual States**
+
+- **Collapsed:** Only a preview of the text is visible, with a "Read More" button.
+- **Expanded:** The full content is shown, and the button updates to "Read Less".
+- **Hover & Focus:** The button should have a **clear focus indicator** for accessibility.
+
+### **📌 Summary of Components**
+
+| Component                | Required? | Purpose                                           |
+| ------------------------ | --------- | ------------------------------------------------- |
+| **Trigger Button**       | ✅ Yes    | Expands or collapses the text.                    |
+| **Content Section**      | ✅ Yes    | Contains the expandable/collapsible text.         |
+| **Hidden Content**       | ✅ Yes    | Represents the initially collapsed text.          |
+| **Expand/Collapse Icon** | ❌ No     | Provides a visual cue for expand/collapse states. |
+| **Hover & Focus States** | ✅ Yes    | Ensures proper accessibility and interaction.     |
 
 ## Best Practices
 
