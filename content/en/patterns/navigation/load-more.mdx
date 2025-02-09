@@ -181,6 +181,100 @@ flowchart TB
 - Don't insert new content above the user's current view unless explicitly requested.
 - Avoid loading content off-screen without visual confirmation.
 
+### Common Mistakes & Anti-Patterns
+
+#### ❌ **No Visual Feedback After Clicking "Load More"**
+
+**What’s Wrong?** Users may think the button is broken if loading isn’t obvious.
+
+**How to Fix It?** Show a **spinner or loading animation**.
+
+#### ❌ **Loading Too Many Items at Once**
+
+**What’s Wrong?** Fetching a large batch of content slows down performance.
+
+**How to Fix It?** Load **smaller chunks (e.g., 10–20 items per click)**.
+
+#### ❌ **Forcing Users to Click "Load More" Too Often**
+
+**What’s Wrong?** Users get frustrated if they have to click repeatedly.
+
+**How to Fix It?** Consider **auto-loading on scroll** after a few manual loads.
+
+#### ❌ **No Clear End of Content Indicator**
+
+**What’s Wrong?** Users don’t know when they’ve reached the last available items.
+
+**How to Fix It?** Display **"You’ve reached the end"** after the final load.
+
+## Tracking
+
+Tracking "Load More" interactions helps measure how users navigate through content, whether they prefer incremental loading over pagination, and how deep they engage with the content. By analyzing user behavior, we can optimize when and how "Load More" is implemented.
+
+### Key Tracking Points
+
+Each "Load More" interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**           | **Description**                                                                           | **Why Track It?**                                                            |
+| ------------------------ | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `load_more.view`         | When the "Load More" button enters the viewport.                                          | Determines visibility and whether users see the option to load more content. |
+| `load_more.click`        | When a user clicks the "Load More" button.                                                | Measures engagement and intent to see additional content.                    |
+| `load_more.auto_trigger` | When more content loads automatically without user action (e.g., lazy loading on scroll). | Helps compare manual clicks vs. auto-triggered loads.                        |
+| `load_more.depth`        | The number of times a user loads more content in one session.                             | Indicates how deep users are willing to explore.                             |
+| `load_more.scroll_usage` | If infinite scrolling is enabled, tracks when users reach the "Load More" trigger area.   | Helps compare scrolling behavior vs. button clicks.                          |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "load_more.click",
+  "properties": {
+    "load_more_id": "search_results",
+    "current_page": 1,
+    "next_page": 2,
+    "total_pages": 5
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- **Load More Click Rate** → Percentage of users who click the "Load More" button.
+- **Auto-Trigger Rate** → Percentage of users who load more content automatically via scrolling (if enabled).
+- **Average Load More Depth** → Number of times users load more content in a session.
+- **Completion Rate** → Percentage of users who reach the final batch of content.
+- **Scroll vs. Click Engagement** → If both options exist, measures user preference for scrolling vs. manually clicking "Load More."
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize the "Load More" experience:
+
+- 🚨 **Low Load More Click Rate?**
+  → Users may not notice or find the "Load More" button unnecessary.
+  **Optimization:** Improve visibility, adjust styling, or test auto-loading on scroll.
+
+- ⏳ **High Auto-Trigger Rate?**
+  → Users rely more on automatic loading rather than clicking.
+  **Optimization:** Consider fully replacing "Load More" with infinite scrolling or adding a "Show More" summary before triggering more content.
+
+- 🔄 **Low Average Load More Depth?**
+  → Users stop after one or two loads.
+  **Optimization:** Ensure the first few results are engaging enough to encourage further exploration.
+
+- 🔁 **Low Completion Rate?**
+  → Users rarely reach the final batch of content.
+  **Optimization:** Test reducing content chunk sizes per load or adding preview indicators (e.g., "Showing 20 of 100 results").
+
+- ⚙️ **High Scroll vs. Click Engagement?**
+  → Users prefer scrolling over clicking the button.
+  **Optimization:** Consider transitioning to infinite scrolling but ensure good performance and usability.
+
+By continuously monitoring these metrics, we can refine the "Load More" pattern, ensuring users efficiently navigate through content without unnecessary friction.
+
 ## Accessibility
 
 ### ARIA Attributes

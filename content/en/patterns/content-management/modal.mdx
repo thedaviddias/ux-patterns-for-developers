@@ -204,6 +204,32 @@ graph TD
 - Avoid modal heights that extend beyond the viewport if possible
 - Don't make modals so narrow that the content becomes unnecessarily constrained
 
+### Common Mistakes & Anti-Patterns
+
+#### ❌ **Forcing Users Into a Modal (No Close Option)**
+
+**What’s Wrong?** Users feel trapped if they can’t exit a modal easily.
+
+**How to Fix It?** Always provide a clear **close button (X)** and support `Esc` key dismissal.
+
+#### ❌ **Triggering Modals on Page Load**
+
+**What’s Wrong?** Unexpected modals on page load feel like pop-ups and disrupt the user experience.
+
+**How to Fix It?** Only show modals when a user **takes an intentional action**.
+
+#### ❌ **Disrupting Background Page Focus**
+
+**What’s Wrong?** Some modals allow users to interact with background content while open, causing confusion.
+
+**How to Fix It?** Add a **focus trap** inside the modal and prevent background interactions.
+
+#### ❌ **Modal Closes on Accidental Click**
+
+**What’s Wrong?** Clicking outside the modal shouldn’t always close it—users may do this by mistake.
+
+**How to Fix It?** Allow closing on background click **only if the modal contains non-critical content**.
+
 ## Tracking
 
 Tracking modal interactions helps measure engagement, detect usability issues, and optimize how modals contribute to user workflows. By capturing key actions, we can determine whether modals improve the user experience or create friction.

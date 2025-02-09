@@ -179,6 +179,73 @@ flowchart TB
 - Don't place the trigger button far from the expandable content.
 - Don't create an inconsistent layout by having some sections expand and others not.
 
+## Tracking
+
+Tracking expandable text interactions helps measure content engagement, assess whether users need additional details, and determine if content should be visible by default. By analyzing user behavior, we can optimize when and how expandable text is used.
+
+### Key Tracking Points
+
+Each expandable text interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**                | **Description**                                                    | **Why Track It?**                                          |
+| ----------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------- |
+| `expandable_text.view`        | When the expandable text component appears in the viewport.        | Determines visibility and content discovery.               |
+| `expandable_text.expand`      | When a user expands the content.                                   | Measures engagement and demand for additional information. |
+| `expandable_text.collapse`    | When a user collapses the content.                                 | Helps analyze whether users return to a condensed view.    |
+| `expandable_text.auto_expand` | When content expands automatically (e.g., based on user behavior). | Determines if automatic expansion improves engagement.     |
+| `expandable_text.read_time`   | The time a user spends with the expanded content visible.          | Helps measure content consumption.                         |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "expandable_text.expand",
+  "properties": {
+    "expandable_text_id": "faq_section",
+    "interaction_type": "click", // or "keyboard"
+    "read_time": 6.4 // in seconds (only tracked on collapse)
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- **Expand Rate** → Percentage of users who expand the content.
+- **Collapse Rate** → Percentage of users who collapse the content after expanding it.
+- **Average Read Time** → How long users keep the expanded content visible.
+- **Auto-Expand vs. Manual Expand Rate** → Helps assess whether users prefer content pre-expanded or if manual interaction is better.
+- **Re-Expand Rate** → Percentage of users who collapse and then re-expand the content.
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize the expandable text experience:
+
+- 🚨 **Low Expand Rate?**
+  → Users may not notice or feel the need to expand content.
+  **Optimization:** Adjust design cues (e.g., larger icons, clearer labels like “Read More”), or test making the content visible by default.
+
+- ⏳ **Short Read Time After Expand?**
+  → Users might not be engaging with the expanded content.
+  **Optimization:** Ensure content is concise and well-structured, and test whether breaking it into sections improves readability.
+
+- 🔄 **High Collapse Rate?**
+  → Users may find expanded content overwhelming or unnecessary.
+  **Optimization:** Test progressive disclosure (expanding only parts of the content) or improve the summary text.
+
+- 🔁 **High Re-Expand Rate?**
+  → Users may be struggling to retain information after collapsing the text.
+  **Optimization:** Consider keeping key details visible at all times or providing a “sticky” summary.
+
+- ⚙️ **Auto-Expand Not Leading to Higher Engagement?**
+  → Automatically expanded content may be ignored.
+  **Optimization:** A/B test auto-expanded vs. manually triggered content to determine user preference.
+
+By continuously monitoring these metrics, we can refine expandable text usability, ensuring users access necessary information without unnecessary friction.
+
 ## Code Examples
 
 ### Basic Implementation

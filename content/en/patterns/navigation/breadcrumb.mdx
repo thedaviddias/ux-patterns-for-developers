@@ -166,6 +166,74 @@ end
 - Do not show a breadcrumb if the navigation's hierarchy contains only one level (home page or landing pages for example)
 - Do not use an HTML element for separators but prefer using CSS
 
+## Tracking
+
+Tracking breadcrumb interactions helps measure how users navigate through a site, whether they rely on breadcrumbs for backtracking, and if they help reduce friction in multi-level navigation. By analyzing usage patterns, we can optimize the breadcrumb structure and placement.
+
+### Key Tracking Points
+
+Each breadcrumb interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**           | **Description**                                                    | **Why Track It?**                                                     |
+| ------------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| `breadcrumb.view`        | When the breadcrumb component enters the viewport.                 | Determines visibility and whether breadcrumbs are available to users. |
+| `breadcrumb.click`       | When a user clicks on any breadcrumb link.                         | Measures engagement and breadcrumb-driven navigation.                 |
+| `breadcrumb.home_click`  | When a user clicks on the **home** link in the breadcrumb.         | Tracks how often users return to the homepage via breadcrumbs.        |
+| `breadcrumb.level_click` | When a user clicks on an intermediate breadcrumb level.            | Helps assess whether users navigate back up the hierarchy.            |
+| `breadcrumb.usage`       | Captures breadcrumb interaction data relative to total page views. | Helps measure how often breadcrumbs are used when available.          |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "breadcrumb.click",
+  "properties": {
+    "breadcrumb_id": "product_category",
+    "clicked_level": "Electronics",
+    "breadcrumb_position": 2,
+    "total_levels": 4
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- **Breadcrumb Usage Rate** → Percentage of page visits where breadcrumbs were interacted with.
+- **Breadcrumb Click-Through Rate (CTR)** → Percentage of users who interact with breadcrumbs after seeing them.
+- **Navigation Recovery Rate** → How often users navigate up using breadcrumbs instead of the browser back button.
+- **Home Click Rate** → Measures how often users return to the homepage via breadcrumbs.
+- **Intermediate Level Click Rate** → Tracks how often users use breadcrumbs to navigate back to higher levels.
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize breadcrumb usability:
+
+- 🚨 **Low Breadcrumb Usage Rate?**
+  → Users may not notice breadcrumbs or find them unnecessary.
+  **Optimization:** Improve visibility, adjust styling for better contrast, or test a more prominent placement.
+
+- ⏳ **Low Breadcrumb Click-Through Rate?**
+  → Users see breadcrumbs but don’t interact with them.
+  **Optimization:** Consider whether breadcrumbs are necessary in the current navigation structure. They may be redundant if other navigation methods are more intuitive.
+
+- 🔄 **Frequent Home Clicks?**
+  → Users might be struggling to find their way back.
+  **Optimization:** Review site structure and ensure proper linking between categories.
+
+- 🔁 **More Back Button Usage Than Breadcrumb Clicks?**
+  → Users might prefer using browser navigation instead of breadcrumbs.
+  **Optimization:** Make breadcrumbs more interactive and clearly indicate their functionality.
+
+- 📉 **Low Intermediate Level Click Rate?**
+  → Users are not navigating up through breadcrumbs.
+  **Optimization:** Ensure breadcrumbs are relevant for deep hierarchies and not just duplicating the main navigation.
+
+By continuously monitoring these metrics, we can refine breadcrumb effectiveness, ensuring they support seamless navigation and reduce friction in user journeys.
+
 ## Code Examples
 
 ### Basic Implementation

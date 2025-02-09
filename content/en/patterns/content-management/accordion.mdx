@@ -211,6 +211,76 @@ graph TD
 - **Avoid inconsistent alignment**—headers, icons, and content should be visually aligned.
 - **Don't place icons too far from the header text**, making it difficult to associate them with the toggle action.
 
+## Tracking
+
+Tracking accordion interactions helps measure user engagement, assess whether users find the hidden content valuable, and determine if sections should be expanded by default. By analyzing user behavior, we can optimize when and how accordions are used.
+
+### Key Tracking Points
+
+Each accordion interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**           | **Description**                                                       | **Why Track It?**                                          |
+| ------------------------ | --------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `accordion.view`         | When the accordion component enters the viewport.                     | Determines visibility and content discovery.               |
+| `accordion.expand`       | When a user expands an accordion section.                             | Measures engagement and demand for additional information. |
+| `accordion.collapse`     | When a user collapses an accordion section.                           | Helps analyze whether users return to a condensed view.    |
+| `accordion.auto_expand`  | When a section expands automatically (e.g., pre-expanded by default). | Determines if auto-expansion leads to better engagement.   |
+| `accordion.read_time`    | The time a user spends with the expanded content visible.             | Helps measure content consumption.                         |
+| `accordion.all_expand`   | When a user expands **all** sections at once (if supported).          | Indicates if users prefer all content visible upfront.     |
+| `accordion.all_collapse` | When a user collapses **all** sections at once.                       | Tracks behavior when content is condensed back.            |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "accordion.expand",
+  "properties": {
+    "accordion_id": "faq_section",
+    "section_label": "Shipping Policies",
+    "interaction_type": "click", // or "keyboard"
+    "read_time": 5.7 // in seconds (only tracked on collapse)
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- **Expand Rate** → Percentage of users who expand at least one section.
+- **Collapse Rate** → Percentage of users who collapse a section after expanding it.
+- **Average Read Time** → How long users keep an expanded section open.
+- **Auto-Expand vs. Manual Expand Rate** → Helps assess whether users prefer content pre-expanded or manually triggered.
+- **Multi-Expand Rate** → Percentage of users expanding multiple sections in a session.
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize the accordion experience:
+
+- 🚨 **Low Expand Rate?**
+  → Users may not notice the accordion sections or find them unnecessary.
+  **Optimization:** Improve section titles for clarity, make expansion triggers more prominent, or test making key sections pre-expanded.
+
+- ⏳ **Short Read Time After Expand?**
+  → Users may not be engaging with the expanded content.
+  **Optimization:** Ensure content is concise, scannable, and well-structured. Test alternative formats such as inline content or tabs.
+
+- 🔄 **High Collapse Rate?**
+  → Users might be overwhelmed by too much content or prefer a more condensed view.
+  **Optimization:** Reduce section length, highlight key takeaways in the collapsed state, or introduce progressive disclosure.
+
+- 🔁 **High Multi-Expand Rate?**
+  → Users frequently expand multiple sections, which may indicate that all content is relevant.
+  **Optimization:** Consider whether an **accordion** is the right UI choice, or if a fully expanded layout would improve readability.
+
+- ⚙️ **Auto-Expand Not Leading to Higher Engagement?**
+  → Automatically expanded sections may be ignored.
+  **Optimization:** A/B test auto-expanded vs. manually triggered content to determine user preference.
+
+By continuously monitoring these metrics, we can refine accordion usability, ensuring users efficiently access necessary information while avoiding unnecessary interactions.
+
 ## Code Example
 
 ### **Method 1: Using `<button>` and aria-expanded (ARIA Approach and Recommended)**

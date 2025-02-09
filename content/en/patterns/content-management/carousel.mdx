@@ -246,6 +246,32 @@ graph TD
 - Avoid **large DOM structures**—if the carousel contains many slides, use virtualized rendering.
 - Don't use **excessive animations** that could impact performance on lower-powered devices.
 
+### Common Mistakes & Anti-Patterns
+
+#### ❌ **Auto-Play Without Controls**
+
+**What’s Wrong?** Users might not have enough time to read or interact with content. Auto-rotating carousels can frustrate users and harm accessibility.
+
+**How to Fix It?** Always provide **pause/play controls** and respect `prefers-reduced-motion` settings.
+
+#### ❌ **No Keyboard or Touch Support**
+
+**What’s Wrong?** Carousels often lack keyboard navigation or proper swipe gestures, making them hard to use.
+
+**How to Fix It?** Ensure keyboard navigation (`Tab`, `Arrow keys`) and swipe support for mobile users.
+
+#### ❌ **Hiding Important Content in Later Slides**
+
+**What’s Wrong?** Many users never interact with carousels, meaning they miss key content.
+
+**How to Fix It?** Place the most critical information **in the first slide** or use a different layout if visibility is crucial.
+
+#### ❌ **Lack of Visible Pagination**
+
+**What’s Wrong?** Without clear indicators, users don’t know how many slides exist.
+
+**How to Fix It?** Add **pagination dots or numbers** to show progress in the carousel.
+
 ## Tracking
 
 Tracking carousel interactions helps measure engagement, detect usability issues, and optimize content placement. By capturing key user actions, we can analyze how effectively the carousel is driving interaction and whether users engage with slides beyond the first one.

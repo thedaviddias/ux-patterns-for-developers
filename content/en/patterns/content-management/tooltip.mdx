@@ -204,6 +204,32 @@ graph TD
 - **Avoid excessive event listeners** that degrade performance.
 - **Don't trigger tooltips on every mouse movement**—use `mouseenter` instead of `mousemove`.
 
+### Common Mistakes & Anti-Patterns
+
+#### ❌ **Tooltips That Disappear Too Fast**
+
+**What’s Wrong?** Users might not have enough time to read the tooltip before it disappears.
+
+**How to Fix It?** Ensure tooltips remain visible **for at least 3–5 seconds** or stay open on hover.
+
+#### ❌ **Not Accessible via Keyboard**
+
+**What’s Wrong?** Many tooltips rely only on hover, making them inaccessible to keyboard users.
+
+**How to Fix It?** Ensure tooltips can be triggered **via focus (`Tab` key)**.
+
+#### ❌ **Blocking Important Content**
+
+**What’s Wrong?** Tooltips that cover input fields or buttons create frustration.
+
+**How to Fix It?** Position tooltips **away from interactive elements** and use arrow indicators.
+
+#### ❌ **Overloading with Too Much Text**
+
+**What’s Wrong?** Long tooltips become unreadable and overwhelming.
+
+**How to Fix It?** Keep tooltips **brief (max 2 lines)** and link to a help page if needed.
+
 ## Tracking
 
 Tracking tooltip interactions helps measure their effectiveness, determine whether users find them useful, and identify potential usability issues. By analyzing tooltip engagement, we can assess whether tooltips enhance comprehension or if users ignore them.
