@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks -- false positive, useMDXComponents are not react hooks */
 
 import { SuggestPattern } from '@/app/_components/suggest-pattern'
+import { BASE_URL } from '@/app/_constants/project'
 import { JsonLd, generateArticleSchema } from '@app/_components/json-ld'
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema'
 import { Metadata } from 'next'
@@ -13,9 +14,10 @@ export async function generateMetadata(props: PageProps): Promise<Metadata | nul
   try {
     const params = await props.params
     const { metadata } = await importPage(params.mdxPath || [], params.lang)
-
-    // Check if this is the homepage
     const isHomepage = !params.mdxPath || params.mdxPath.length === 0
+
+    // Include the language prefix in the canonical path
+    const canonicalPath = `/${params.lang}${params.mdxPath ? `/${params.mdxPath.join('/')}` : ''}`
 
     const ogImage = {
       url: isHomepage
@@ -31,6 +33,9 @@ export async function generateMetadata(props: PageProps): Promise<Metadata | nul
       openGraph: {
         ...metadata.openGraph,
         images: [ogImage]
+      },
+      alternates: {
+        canonical: `${BASE_URL}${canonicalPath}`
       }
     }
   } catch (e) {
