@@ -206,29 +206,67 @@ graph TD
 
 ### Common Mistakes & Anti-Patterns
 
-#### ❌ **Forcing Users Into a Modal (No Close Option)**
+#### Forcing Users Into a Modal (No Close Option)
 
-**What’s Wrong?** Users feel trapped if they can’t exit a modal easily.
+**❌ What’s Wrong?** Users feel trapped if they can’t exit a modal.
 
-**How to Fix It?** Always provide a clear **close button (X)** and support `Esc` key dismissal.
+**How to Fix It?** Always provide a clear **close button (X)** and support the `Esc` key for dismissal.
 
-#### ❌ **Triggering Modals on Page Load**
+---
 
-**What’s Wrong?** Unexpected modals on page load feel like pop-ups and disrupt the user experience.
+#### Triggering Modals on Page Load
 
-**How to Fix It?** Only show modals when a user **takes an intentional action**.
+**❌ What’s Wrong?** Unrequested modals on page load can feel like pop-ups that disrupt user flow.
 
-#### ❌ **Disrupting Background Page Focus**
+**How to Fix It?** Only show modals when the user **intentionally** initiates them.
 
-**What’s Wrong?** Some modals allow users to interact with background content while open, causing confusion.
+---
 
-**How to Fix It?** Add a **focus trap** inside the modal and prevent background interactions.
+#### Disrupting Background Page Focus
 
-#### ❌ **Modal Closes on Accidental Click**
+**❌ What’s Wrong?** Some modals allow interaction with background content while open, causing layered focus.
 
-**What’s Wrong?** Clicking outside the modal shouldn’t always close it—users may do this by mistake.
+**How to Fix It?** Add a **focus trap** inside the modal and prevent background interaction until it’s closed.
 
-**How to Fix It?** Allow closing on background click **only if the modal contains non-critical content**.
+---
+
+#### Modal Closes on Accidental Click
+
+**❌ What’s Wrong?** Clicking outside the modal might unintentionally dismiss it, frustrating or confusing users.
+
+**How to Fix It?** Only allow closing on background click if it’s non-critical info. For important data, require an explicit close action.
+
+---
+
+#### Missing or Incorrect ARIA Markup (Accessibility)
+
+**❌ What’s Wrong?** If the modal isn’t announced as a dialog (e.g., missing `role="dialog"`), screen readers might not indicate it properly.
+
+**How to Fix It?** Use `role="dialog"` or the `<dialog>` element with `aria-modal="true"`. Provide a clear heading or label.
+
+---
+
+#### Failing to Return Focus to the Trigger (Accessibility)
+
+**❌ What’s Wrong?** When the modal closes, focus can get lost (e.g., jump to the top of the page).
+
+**How to Fix It?** Store the element that triggered the modal and **return focus** to it after closing.
+
+---
+
+#### No Visible Focus States (Accessibility)
+
+**❌ What’s Wrong?** Keyboard users can’t see where they are if no focus outline is visible on buttons or form fields.
+
+**How to Fix It?** Ensure a **clear, high-contrast focus indicator** is present. Validate you can “Tab” through all interactive elements.
+
+---
+
+#### Overly Complex or Overstuffed Modals (Accessibility)
+
+**❌ What’s Wrong?** If a modal presents too much content (long forms, lots of text), users relying on screen readers may be overwhelmed.
+
+**How to Fix It?** Keep modals **brief and to the point**. For more complex workflows, use a dedicated page or a multi-step wizard.
 
 ## Tracking
 

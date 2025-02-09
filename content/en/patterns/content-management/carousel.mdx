@@ -248,29 +248,67 @@ graph TD
 
 ### Common Mistakes & Anti-Patterns
 
-#### ❌ **Auto-Play Without Controls**
+#### Auto-Play Without Controls
 
-**What’s Wrong?** Users might not have enough time to read or interact with content. Auto-rotating carousels can frustrate users and harm accessibility.
+**❌ What’s Wrong?** Users might not have enough time to read or interact with content, and constantly rotating slides can disorient or frustrate them—especially those using assistive technologies.
 
-**How to Fix It?** Always provide **pause/play controls** and respect `prefers-reduced-motion` settings.
+**How to Fix It?** Always provide **pause/play controls**. Respect `prefers-reduced-motion` by disabling or slowing auto-rotation for users who prefer less animation.
 
-#### ❌ **No Keyboard or Touch Support**
+---
 
-**What’s Wrong?** Carousels often lack keyboard navigation or proper swipe gestures, making them hard to use.
+#### No Keyboard or Touch Support
 
-**How to Fix It?** Ensure keyboard navigation (`Tab`, `Arrow keys`) and swipe support for mobile users.
+**❌ What’s Wrong?** Carousels often exclude users who rely on keyboard navigation or expect swipe gestures on mobile devices.
 
-#### ❌ **Hiding Important Content in Later Slides**
+**How to Fix It?** Ensure you can navigate slides via `Tab` and arrow keys. Add swipe or drag support for mobile. Test thoroughly across various devices and accessibility tools.
 
-**What’s Wrong?** Many users never interact with carousels, meaning they miss key content.
+---
 
-**How to Fix It?** Place the most critical information **in the first slide** or use a different layout if visibility is crucial.
+#### Hiding Important Content in Later Slides
 
-#### ❌ **Lack of Visible Pagination**
+**❌ What’s Wrong?** Many users never click past the first slide, missing crucial information if it’s hidden further down the carousel.
 
-**What’s Wrong?** Without clear indicators, users don’t know how many slides exist.
+**How to Fix It?** Place the most essential content **in the first slide**. If the content is critical, consider using a static layout or highlight it differently so users don’t need to scroll or click.
 
-**How to Fix It?** Add **pagination dots or numbers** to show progress in the carousel.
+---
+
+#### Lack of Visible Pagination
+
+**❌ What’s Wrong?** Without pagination dots or numbers, users can’t tell how many slides there are or where they are within the sequence.
+
+**How to Fix It?** Provide **clear pagination** (e.g., dots, numeric indicators) and label them properly (e.g., `aria-label="Go to slide 2"`).
+
+---
+
+#### Missing or Incorrect ARIA Labels
+
+**❌ What’s Wrong?** If navigation buttons and slides lack descriptive labels, screen readers can’t convey their function or content.
+
+**How to Fix It?** Use attributes like `aria-label="Next Slide"` on arrows, `role="tabpanel"` for slides, and `aria-roledescription="carousel"` on the container. Include a descriptive `aria-label` (e.g., `"Featured Products Carousel"`) so users know the carousel’s purpose.
+
+---
+
+#### No Clear Focus Indicator
+
+**❌ What’s Wrong?** Keyboard users can lose track of where they are if there’s no visible focus outline on controls or slides.
+
+**How to Fix It?** Ensure buttons, dots, or slide links have a **high-contrast focus style**. Test with keyboard-only navigation to confirm you never lose focus.
+
+---
+
+#### Inconsistent Screen Reader Announcements
+
+**❌ What’s Wrong?** If slide changes aren’t announced, users with screen readers won’t realize content has updated.
+
+**How to Fix It?** Use `aria-live="polite"` regions or update `aria-hidden` states so that each new slide is announced. Label slides accordingly (e.g., `"Slide 2 of 5"`).
+
+---
+
+#### Overloaded Slide Content
+
+**❌ What’s Wrong?** Placing too many interactive elements or large blocks of text in a single slide can overwhelm keyboard or screen reader users.
+
+**How to Fix It?** Keep each slide **focused and concise**. If extra content is necessary, link to a dedicated page or consider an alternative layout that isn’t a carousel.
 
 ## Tracking
 

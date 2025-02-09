@@ -206,29 +206,69 @@ graph TD
 
 ### Common Mistakes & Anti-Patterns
 
-#### ❌ **Tooltips That Disappear Too Fast**
+#### Tooltips That Disappear Too Fast
 
-**What’s Wrong?** Users might not have enough time to read the tooltip before it disappears.
+**❌ What’s Wrong?**
 
-**How to Fix It?** Ensure tooltips remain visible **for at least 3–5 seconds** or stay open on hover.
+Users might not have enough time to read the tooltip before it disappears.
 
-#### ❌ **Not Accessible via Keyboard**
+**How to Fix It?**
+Ensure tooltips remain visible **for at least 3–5 seconds** or stay open on hover.
 
-**What’s Wrong?** Many tooltips rely only on hover, making them inaccessible to keyboard users.
+---
 
-**How to Fix It?** Ensure tooltips can be triggered **via focus (`Tab` key)**.
+#### Not Accessible via Keyboard
 
-#### ❌ **Blocking Important Content**
+**❌ What’s Wrong?**
 
-**What’s Wrong?** Tooltips that cover input fields or buttons create frustration.
+Many tooltips rely only on hover, making them inaccessible to keyboard users.
 
-**How to Fix It?** Position tooltips **away from interactive elements** and use arrow indicators.
+**How to Fix It?**
+Ensure tooltips can be triggered **via focus (`Tab` key)`**. For screen readers, pair `aria-describedby` on the trigger element with `role="tooltip"` on the tooltip container.
 
-#### ❌ **Overloading with Too Much Text**
+---
 
-**What’s Wrong?** Long tooltips become unreadable and overwhelming.
+#### Blocking Important Content
 
-**How to Fix It?** Keep tooltips **brief (max 2 lines)** and link to a help page if needed.
+**❌ What’s Wrong?**
+
+Tooltips that cover input fields or buttons create confusion and may block clicks or taps.
+
+**How to Fix It?**
+Position tooltips **away from interactive elements** and use arrow indicators to point from the trigger to the tooltip.
+
+---
+
+#### Overloading with Too Much Text
+
+**❌ What’s Wrong?**
+
+Long tooltips become unreadable, especially for screen readers that have to announce everything at once.
+
+**How to Fix It?**
+Keep tooltips **brief (max 2 lines)**. For more details, link to a help page or open a larger popover or modal instead.
+
+---
+
+#### Not Announced by Screen Readers (Accessibility)
+
+**❌ What’s Wrong?**
+
+Tooltips that appear on mouse hover but lack ARIA attributes aren’t announced to screen reader users.
+
+**How to Fix It?**
+Use `role="tooltip"` for the tooltip element and link it to the trigger with `aria-describedby="tooltipId"`. Keep the tooltip in the DOM while it’s visible so assistive tech can detect it.
+
+---
+
+#### Insufficient Color Contrast or Tiny Font (Accessibility)
+
+**❌ What’s Wrong?**
+
+Text that’s too small or low-contrast is difficult for users with low vision to read.
+
+**How to Fix It?**
+Maintain a **4.5:1** color contrast ratio (minimum) and use a **legible font size** (usually at least 14–16px). Test with browser zoom to ensure the tooltip scales properly.
 
 ## Tracking
 
