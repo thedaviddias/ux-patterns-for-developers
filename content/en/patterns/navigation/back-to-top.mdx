@@ -100,6 +100,15 @@ end
 - **Focus**: Outline or highlight for keyboard navigation
 - **Hidden**: Button is invisible or removed when the user is near the top of the page
 
+#### **📌 Summary of Components**
+
+| Component         | Required? | Purpose                                                     |
+| ----------------- | --------- | ----------------------------------------------------------- |
+| **Container**     | ✅ Yes    | Clickable element that triggers scrolling to the top.       |
+| **Icon**          | ❌ No     | Visual indicator (e.g., an up arrow) for quick recognition. |
+| **Label Text**    | ❌ No     | Provides additional clarity, especially for screen readers. |
+| **Visual States** | ✅ Yes    | Defines interaction states (hover, active, focus, hidden).  |
+
 ## Best Practices
 
 ### Content
@@ -109,7 +118,7 @@ end
 - Show a clear visual indicator (usually an up arrow icon)
 - Display the button only after the user scrolls a predetermined distance
 - Hide it when the user is near the top of the page
-- Use an accessible label (e.g., aria-label="Back to top") if the text is omitted
+- Use an accessible label (e.g., `aria-label="Back to top"`) if the text is omitted
 
 **Don'ts ❌**
 
