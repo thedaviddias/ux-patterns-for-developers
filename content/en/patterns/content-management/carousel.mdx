@@ -311,6 +311,38 @@ graph TD
 
 **How to Fix It?** Keep each slide **focused and concise**. If extra content is necessary, link to a dedicated page or consider an alternative layout that isn’t a carousel.
 
+## Micro-Interactions & Animations
+
+For a carousel component, implement these specific animations to enhance user experience:
+
+- **Slide Transition Animation:**
+
+  - **Effect:** Animate a smooth horizontal (or vertical) slide where the current slide moves out while the next slide slides in.
+  - **Timing:** Aim for a 300ms transition with an ease-in-out timing function to create a natural flow.
+
+- **Fade Transition (Optional):**
+
+  - **Effect:** Instead of sliding, optionally fade the outgoing slide out and the incoming slide in, offering a softer transition.
+  - **Timing:** Use a fade duration of approximately 300ms for consistency.
+
+- **Navigation Controls (Arrows):**
+
+  - **Hover:** Apply a subtle scale-up (e.g., to 1.05×) or color change when the user hovers over the arrow buttons, clearly indicating interactivity.
+  - **Active/Click:** Trigger a brief pulse or slight scale-up effect (completing within 150–200ms) when a navigation arrow is clicked.
+
+- **Indicator Animations:**
+
+  - **Effect:** For carousel indicators (e.g., dots), animate the active state by scaling the active dot slightly or changing its color to visually distinguish it from inactive indicators.
+  - **Timing:** Keep the indicator animation brief (around 150–200ms) for immediate feedback.
+
+- **Auto-Play & Swipe Feedback:**
+
+  - **Effect:** For auto-playing carousels or when swiping, ensure that transitions remain smooth and consistent. Provide a responsive drag/swipe animation with a slight resistance effect at the edges.
+  - **Timing:** Use the same 300ms transition timing as manual navigation to maintain consistency.
+
+- **Reduced Motion Considerations:**
+  - **Implementation:** Detect user preferences (e.g., via the `prefers-reduced-motion` media query) and reduce or disable these animations accordingly to ensure accessibility.
+
 ## Tracking
 
 Tracking carousel interactions helps measure engagement, detect usability issues, and optimize content placement. By capturing key user actions, we can analyze how effectively the carousel is driving interaction and whether users engage with slides beyond the first one.
@@ -377,6 +409,10 @@ By continuously monitoring these metrics, we can refine the carousel’s effecti
 
 ## Localization
 
+The carousel component contains several interactive elements that require localization. This includes visible labels for buttons and controls, as well as ARIA labels for screen readers. The following JSON structure provides a comprehensive set of strings that should be translated for each supported language.
+
+Note that for right-to-left (RTL) languages, you may need to adjust the direction of navigation arrows and content flow accordingly.
+
 ```json
 {
   "carousel": {
@@ -416,6 +452,8 @@ By continuously monitoring these metrics, we can refine the carousel’s effecti
 
 #### Tabbed Carousel
 
+The Tabbed Carousel provides a clean, tab-style navigation system where users can switch between individual content panels. This pattern is particularly effective when each slide contains detailed information that deserves focused attention.
+
 <Playground
   patternType="content-management"
   pattern="carousel"
@@ -423,6 +461,8 @@ By continuously monitoring these metrics, we can refine the carousel’s effecti
 />
 
 #### Grouped Carousel
+
+The Grouped Carousel displays multiple items simultaneously, allowing users to browse through collections of related content. This implementation is ideal for showcasing product collections, image galleries, or any scenario where viewing items in groups enhances the user experience.
 
 <Playground
   patternType="content-management"
@@ -599,16 +639,21 @@ But if you need to support auto-rotation, here's the expected behavior:
 - Focus should remain on the control that triggered a slide change
 - Ensure focus is not trapped within the carousel
 
-## Keyboard Navigation
+### Keyboard Navigation
 
 The carousel must be fully operable with a keyboard. Here's the expected keyboard behavior:
 
-- **Left Arrow**: Move to previous slide
-- **Right Arrow**: Move to next slide
-- **Tab**: Navigate through interactive elements (navigation arrows, pagination dots, "See All" link)
-- **Enter/Space**: Activate buttons, select slides via pagination
-- **Escape**: Stop autoplay if enabled
-- **Page Up/Down**: Optional - can be used for previous/next slide
+| Key                  | Purpose                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------ |
+| Left Arrow           | Move to previous slide                                                                     |
+| Right Arrow          | Move to next slide                                                                         |
+| Tab                  | Navigate through interactive elements (navigation arrows, pagination dots, "See All" link) |
+| Enter/Space          | Activate buttons, select slides via pagination                                             |
+| Escape               | Stop autoplay if enabled                                                                   |
+| Page Up (Optional)   | Move to previous slide                                                                     |
+| Page Down (Optional) | Move to next slide                                                                         |
+
+> Note: Keys marked as optional may be omitted in some carousel implementations. The core keys (Left/Right Arrow, Tab, Enter/Space, and Escape) should always be supported for proper accessibility.
 
 ## Testing Guidelines
 
