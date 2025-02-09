@@ -204,6 +204,75 @@ graph TD
 - **Avoid excessive event listeners** that degrade performance.
 - **Don't trigger tooltips on every mouse movement**—use `mouseenter` instead of `mousemove`.
 
+## Tracking
+
+Tracking tooltip interactions helps measure their effectiveness, determine whether users find them useful, and identify potential usability issues. By analyzing tooltip engagement, we can assess whether tooltips enhance comprehension or if users ignore them.
+
+### Key Tracking Points
+
+Each tooltip interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**             | **Description**                                                       | **Why Track It?**                                   |
+| -------------------------- | --------------------------------------------------------------------- | --------------------------------------------------- |
+| `tooltip.view`             | When the tooltip first appears (hover, focus, or auto-triggered).     | Determines how often users see tooltips.            |
+| `tooltip.auto_open`        | When a tooltip appears automatically without user action.             | Helps assess if tooltips are too intrusive.         |
+| `tooltip.hover_open`       | When a user opens a tooltip by hovering over a trigger element.       | Tracks hover-based interactions.                    |
+| `tooltip.focus_open`       | When a tooltip opens via keyboard focus.                              | Ensures accessibility engagement is measured.       |
+| `tooltip.click_open`       | When a tooltip opens via a user click (if applicable).                | Measures intentional user engagement.               |
+| `tooltip.close`            | When a tooltip is dismissed (moving cursor away, pressing Esc, etc.). | Tracks how users exit tooltips.                     |
+| `tooltip.interaction_time` | The time a user spends viewing the tooltip before closing it.         | Helps determine if tooltips are helpful or ignored. |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "tooltip.view",
+  "properties": {
+    "tooltip_id": "form_help_email",
+    "trigger_method": "hover", // or "focus", "click", "auto"
+    "interaction_time": 2.8 // in seconds
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- Tooltip View Rate → Percentage of users who trigger a tooltip.
+- Hover vs. Focus Activation Rate → Compares how users open tooltips (mouse vs. keyboard).
+- Dismissal Rate → Percentage of users who close the tooltip quickly.
+- Average Interaction Time → How long users keep the tooltip open.
+- Repeated Views Per User → Indicates if users need repeated clarification.
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize tooltip behavior:
+
+- 🚨 **Low Tooltip View Rate?**
+  → Users might not notice tooltips or may not need them.
+  **Optimization:** Ensure triggers are visually clear, adjust placement, or test if an inline explanation is more effective.
+
+- ⏳ **Short Interaction Time?**
+  → Users might be dismissing tooltips too quickly without reading them.
+  **Optimization:** Simplify content, increase font size, or extend the display duration before auto-hiding.
+
+- 📉 **High Dismissal Rate?**
+  → Tooltips may be appearing at the wrong time, covering important content, or distracting users.
+  **Optimization:** Adjust positioning, delay appearance, or use persistent inline text instead of a tooltip.
+
+- 🎯 **Low Focus Activation Rate?**
+  → Keyboard users may struggle to access tooltips, indicating accessibility issues.
+  **Optimization:** Ensure proper **ARIA attributes** (`aria-describedby`), focus management, and keyboard navigation support.
+
+- 🔄 **Frequent Repeated Views?**
+  → Users may not fully understand the tooltip content.
+  **Optimization:** Improve clarity, rewrite text concisely, or add supporting visuals like icons or links to more detailed help content.
+
+By continuously monitoring these metrics, we can refine tooltip usability and ensure they provide **real value** rather than unnecessary friction.
+
 ## Code Examples
 
 ### Basic Implementation

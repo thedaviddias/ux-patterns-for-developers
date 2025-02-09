@@ -204,6 +204,76 @@ graph TD
 - Avoid modal heights that extend beyond the viewport if possible
 - Don't make modals so narrow that the content becomes unnecessarily constrained
 
+## Tracking
+
+Tracking modal interactions helps measure engagement, detect usability issues, and optimize how modals contribute to user workflows. By capturing key actions, we can determine whether modals improve the user experience or create friction.
+
+### Key Tracking Points
+
+Each modal interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**                 | **Description**                                                                          | **Why Track It?**                                                      |
+| ------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `modal.view`                   | When the modal first appears on the screen.                                              | Helps measure how often users encounter the modal.                     |
+| `modal.open`                   | When a user manually opens the modal (e.g., by clicking a button).                       | Measures user-initiated engagement.                                    |
+| `modal.auto_open`              | When the modal opens automatically (e.g., a pop-up triggered by page behavior).          | Helps track modal effectiveness vs. annoyance.                         |
+| `modal.close`                  | When a user closes the modal (by clicking an "X", pressing Escape, or clicking outside). | Identifies how users dismiss the modal.                                |
+| `modal.dismiss_without_action` | When a user closes the modal without interacting with any content inside it.             | Indicates if the modal is irrelevant or intrusive.                     |
+| `modal.primary_action`         | When a user clicks the **primary CTA** (e.g., "Submit", "Confirm", "Continue").          | Tracks conversion and engagement with modal content.                   |
+| `modal.secondary_action`       | When a user clicks a **secondary action** (e.g., "Cancel", "Learn More", "Skip").        | Measures alternative user behaviors.                                   |
+| `modal.interaction_time`       | The time a user spends interacting with the modal before closing.                        | Helps determine if users are engaging with the content or ignoring it. |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "modal.primary_action",
+  "properties": {
+    "modal_id": "newsletter_signup",
+    "action_label": "Subscribe",
+    "interaction_time": 5.2 // in seconds
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- Open Rate → Percentage of users who see the modal (manual vs. auto-open).
+- Engagement Rate → Percentage of users who interact with the modal before closing.
+- Dismissal Rate → Percentage of users who close the modal without taking any action.
+- Completion Rate → Percentage of users who complete the modal’s primary action.
+- Time in Modal → Average time users spend inside the modal.
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize the modal experience:
+
+- 🚨 **High Dismissal Rate?**
+  → Users may find the modal intrusive or irrelevant.
+  **Optimization:** Adjust the timing, trigger conditions, or placement to make it feel more contextual.
+
+- ⏳ **Low Interaction Time?**
+  → Users may not be reading the content or may be overwhelmed.
+  **Optimization:** Simplify the message, use bullet points, or reduce the amount of required input.
+
+- 📉 **Low Completion Rate?**
+  → The primary action may not be compelling enough.
+  **Optimization:** Improve CTA wording, adjust positioning, or offer better incentives.
+
+- ⚡ **High "Escape Key" or Click Outside Dismissals?**
+  → Users may instinctively close the modal without engaging.
+  **Optimization:** Ensure the modal provides clear value upfront and isn't disrupting the user's flow.
+
+- 🔄 **High Auto-Open Close Rate?**
+  → If most users dismiss auto-open modals immediately, they may be perceived as annoying.
+  **Optimization:** Make them **manual-triggered only**, delay their appearance, or ensure they are only shown when truly relevant.
+
+By continuously monitoring these metrics, we can refine the modal’s effectiveness and ensure it enhances, rather than disrupts, the user experience.
+
 ## Code Examples
 
 ### Method 1: Basic Implementation
