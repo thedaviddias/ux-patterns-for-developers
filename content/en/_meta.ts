@@ -11,9 +11,9 @@ export default {
     type: 'page',
     title: 'Patterns'
   },
-  'pattern-assistant': {
+  'pattern-guide': {
     type: 'page',
-    title: 'Pattern Assistant',
+    title: 'Pattern Guide',
     theme: {
       sidebar: false,
       typesetting: 'article',

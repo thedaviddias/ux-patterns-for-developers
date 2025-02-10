@@ -12,7 +12,7 @@ export type PatternAssistantPage = {
 }
 
 export async function getPatternAssistantPages(locale: string): Promise<PatternAssistantPage[]> {
-  const pageMap = await getPageMap(`/${locale}/pattern-assistant`)
+  const pageMap = await getPageMap(`/${locale}/pattern-guide`)
   if (!pageMap) return []
 
   const pages = pageMap.filter(page =>
@@ -28,7 +28,7 @@ export async function getPatternAssistantPages(locale: string): Promise<PatternA
     return {
       title: page.frontMatter?.title || page.name,
       summary: page.frontMatter?.summary || '',
-      href: `/${locale}/pattern-assistant/${page.name}`,
+      href: `/${locale}/pattern-guide/${page.name}`,
       icon: IconComponent,
       frontMatter: page.frontMatter || {}
     }
