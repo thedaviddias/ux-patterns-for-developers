@@ -33,7 +33,7 @@ import { PatternNextSteps } from "@app/_components/pattern-comparison/pattern-ne
   <DecisionFlowSection nodes={inputTypeNodes} edges={inputTypeEdges} title="Input Types Decision Flow" />
   <ComparisonGrid patterns={comparisonData.patterns} />
   <ImplementationMetrics patterns={implementationData.patterns} />
-  <ExamplesGrid examples={examplesData.examples} />
+  {/* <ExamplesGrid examples={examplesData.examples} /> */}
   <PatternNextSteps patterns={nextStepsData.patterns} />
 </div>
 
@@ -399,17 +399,17 @@ export const nextStepsData = {
     {
       title: "Text Input Implementation",
       description: "How to implement and style text inputs",
-      href: "/patterns/forms/text-input",
+      href: "/patterns/forms/text-field",
     },
     {
       title: "Select Component Guide",
       description: "Building accessible select components",
-      href: "/patterns/forms/select",
+      href: "/patterns/forms/selection-input",
     },
     {
-      title: "Radio & Checkbox Patterns",
+      title: "Radio Pattern",
       description: "Best practices for option selection",
-      href: "/patterns/forms/radio-checkbox",
+      href: "/patterns/forms/radio",
     },
   ],
 };
