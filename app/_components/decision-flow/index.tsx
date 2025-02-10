@@ -13,6 +13,7 @@ import ReactFlow, {
 } from 'reactflow'
 import 'reactflow/dist/style.css'
 
+import DownloadButton from './download-button'
 import { ConsiderationNode } from './nodes/ConsiderationNode'
 import { PatternNode } from './nodes/PatternNode'
 import { QuestionNode } from './nodes/QuestionNode'
@@ -99,7 +100,12 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
   return { nodes: layoutedNodes, edges: styledEdges }
 }
 
-export function DecisionFlow({ nodes: initialNodes, edges: initialEdges, className = '' }: DecisionFlowProps) {
+export function DecisionFlow({
+  nodes: initialNodes,
+  edges: initialEdges,
+  className = '',
+  title
+}: DecisionFlowProps) {
   // Layout the nodes on first render
   const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
     initialNodes,
@@ -126,11 +132,12 @@ export function DecisionFlow({ nodes: initialNodes, edges: initialEdges, classNa
         fitView
         minZoom={0.5}
         maxZoom={1.5}
-        defaultViewport={{ x: 0, y: 0, zoom: 0.7 }} // Reduced default zoom
+        defaultViewport={{ x: 0, y: 0, zoom: 0.7 }}
         attributionPosition="bottom-left"
       >
         <Background color="var(--flow-background-dots)" gap={16} />
         <Controls className="bg-white dark:bg-gray-800" />
+        <DownloadButton title={title} />
       </ReactFlow>
     </div>
   )

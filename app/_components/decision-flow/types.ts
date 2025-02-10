@@ -25,4 +25,5 @@ export interface DecisionFlowProps {
   nodes: DecisionNode[];
   edges: DecisionEdge[];
   className?: string;
+  title?: string; // Optional title for the download filename
 }

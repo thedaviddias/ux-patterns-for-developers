@@ -4,11 +4,12 @@ import { DecisionFlow } from '@app/_components/decision-flow'
 import type { DecisionEdge, DecisionNode } from '@app/_components/decision-flow/types'
 
 interface DecisionFlowSectionProps {
+  title: string
   nodes: DecisionNode[]
   edges: DecisionEdge[]
 }
 
-export function DecisionFlowSection({ nodes, edges }: DecisionFlowSectionProps) {
+export function DecisionFlowSection({ title, nodes, edges }: DecisionFlowSectionProps) {
   return (
     <div className="mb-16">
       <h2 className="text-2xl font-bold mb-6">Interactive Decision Flow</h2>
@@ -17,6 +18,7 @@ export function DecisionFlowSection({ nodes, edges }: DecisionFlowSectionProps) 
           nodes={nodes}
           edges={edges}
           className="rounded-xl"
+          title={title}
         />
       </div>
     </div>

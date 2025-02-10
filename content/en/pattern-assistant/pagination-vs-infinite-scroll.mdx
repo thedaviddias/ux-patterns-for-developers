@@ -34,7 +34,7 @@ import { PerformanceComparison } from "@app/_components/pattern-comparison/perfo
 
   </div>
 
-  <DecisionFlowSection nodes={nodes} edges={edges} />
+  <DecisionFlowSection nodes={nodes} edges={edges} title="Pagination vs Infinite Scroll Decision Flow" />
   <ComparisonGrid patterns={comparisonData.patterns} />
   <PerformanceComparison patterns={performanceData.patterns} />
   <ExamplesGrid examples={examplesData.examples} />
@@ -144,7 +144,7 @@ export const examplesData = {
         {
           title: "Pinterest Board",
           description: "Visual content discovery",
-          imageUrl: "/examples/pinterest-infinite.webp",
+          imageUrl: "/examples/pinterest-infinite.gif",
         },
         {
           title: "Facebook News Feed",

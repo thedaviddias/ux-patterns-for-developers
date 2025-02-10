@@ -30,7 +30,7 @@ import { PatternNextSteps } from "@app/_components/pattern-comparison/pattern-ne
 
   </div>
 
-  <DecisionFlowSection nodes={inputTypeNodes} edges={inputTypeEdges} />
+  <DecisionFlowSection nodes={inputTypeNodes} edges={inputTypeEdges} title="Input Types Decision Flow" />
   <ComparisonGrid patterns={comparisonData.patterns} />
   <ImplementationMetrics patterns={implementationData.patterns} />
   <ExamplesGrid examples={examplesData.examples} />
@@ -42,7 +42,7 @@ export const comparisonData = {
     {
       title: "Text Input",
       subtitle: "Best for single-line text entry and basic data collection",
-      href: "/patterns/forms/text-input",
+      href: "/patterns/forms/text-field",
       icon: "Input",
       theme: "pattern",
       criteria: [
@@ -70,7 +70,7 @@ export const comparisonData = {
     {
       title: "Select",
       subtitle: "Perfect for choosing from predefined options",
-      href: "/patterns/forms/select",
+      href: "/patterns/forms/selection-input",
       icon: "ListBox",
       theme: "pattern",
       criteria: [
@@ -413,5 +413,3 @@ export const nextStepsData = {
     },
   ],
 };
-
-;
