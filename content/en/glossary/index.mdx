@@ -1,13 +1,10 @@
 ---
 title: UX Patterns Glossary
-description: A comprehensive glossary of UX patterns, design principles, and web development terminology to help you better understand and implement user experience best practices.
+description: A comprehensive glossary of UX patterns, design principles, and web development terminology.
 ---
 
 import { AlphabetNav } from "@app/_components/glossary/alphabet-nav";
-import { TermsList } from "@app/_components/glossary/terms-list";
-import { getGlossaryTerms } from "@app/_utils/get-glossary-terms";
-
-export const terms = await getGlossaryTerms();
+import { TermsListContainer } from "@app/_components/glossary/terms-list-container";
 
 # UX Patterns Glossary
 
@@ -16,5 +13,4 @@ Welcome to our comprehensive glossary of UX patterns and web development termino
 ## Navigation
 
 <AlphabetNav />
-
-<TermsList terms={terms} />
+<TermsListContainer />

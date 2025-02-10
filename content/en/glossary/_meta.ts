@@ -1,4 +1,6 @@
 export default {
-  'index': '',
   'pagination': '',
+  'aria-attributes': '',
+  'semantic-html': '',
+  'progressive-loading': '',
 }

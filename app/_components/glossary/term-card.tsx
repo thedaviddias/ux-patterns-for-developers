@@ -12,7 +12,7 @@ interface TermCardProps {
 export function TermCard({ title, description, category, slug }: TermCardProps) {
   return (
     <Link
-      href={`./glossary/${slug}`}
+      href={`/glossary/${slug}`}
       className="block p-6 rounded-lg border border-gray-200 hover:border-primary transition-colors duration-200 dark:border-gray-700"
     >
       <div className="flex flex-col gap-2">
