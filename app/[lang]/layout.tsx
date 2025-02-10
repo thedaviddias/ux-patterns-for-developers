@@ -6,7 +6,7 @@ import {
   LocaleSwitch,
   Navbar
 } from 'nextra-theme-docs';
-import { Banner, Head } from 'nextra/components';
+import { Banner } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import { getDictionary } from '../_dictionaries/get-dictionary';
 
@@ -18,8 +18,6 @@ import { LinkCustom } from "../_components/link-custom";
 import { Stars } from "../_components/stars";
 import { GITHUB_REPO_URL, PROJECT_URL } from "../_constants/project";
 import { metadataSEO } from "../metadata";
-
-export const { viewport } = Head
 
 const fontSans = FontSans({
   subsets: ["latin"],

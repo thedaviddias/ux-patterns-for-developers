@@ -87,7 +87,7 @@ export const LinkCustom = React.forwardRef<HTMLAnchorElement, CustomLinkProps>(
     }
 
     const Comp = asChild ? Slot : Link
-    const linkProps = asChild ? { className: cn(linkVariants({ variant, size, className })) } : {
+    const linkProps = {
       href,
       className: cn(linkVariants({ variant, size, className }))
     }
