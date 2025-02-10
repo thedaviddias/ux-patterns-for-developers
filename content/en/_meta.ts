@@ -3,8 +3,8 @@ export default {
     type: 'page',
     display: 'hidden',
     theme: {
-      typesetting: 'article',
-      layout: 'full'
+      toc: false,
+      typesetting: 'article'
     }
   },
   patterns: {
@@ -15,9 +15,9 @@ export default {
     type: 'page',
     title: 'Pattern Guide',
     theme: {
+      toc: false,
       sidebar: false,
-      typesetting: 'article',
-      layout: 'full'
+      typesetting: 'article'
     }
   },
   glossary: {
@@ -33,6 +33,7 @@ export default {
     type: 'page',
     title: 'Blog',
     theme: {
+      toc: false,
       sidebar: false,
       typesetting: 'article'
     }
@@ -41,6 +42,7 @@ export default {
     type: 'page',
     title: 'About',
     theme: {
+      toc: false,
       sidebar: false,
       typesetting: 'article',
     }
