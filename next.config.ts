@@ -41,6 +41,11 @@ const nextConfig = withBundleAnalyzer(
         source: '/patterns',
         destination: '/patterns/getting-started',
         statusCode: 302
+      },
+      {
+        source: '/patterns/docs/navigation/breadcrumb',
+        destination: '/patterns/navigation/breadcrumb',
+        statusCode: 302
       }
     ],
     async rewrites() {
