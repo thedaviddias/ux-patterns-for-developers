@@ -39,7 +39,7 @@
     "dagre": "^0.8.5",
     "gray-matter": "^4.0.3",
     "html-to-image": "^1.11.11",
-    "lucide-react": "^0.474.0",
+    "lucide-react": "^0.475.0",
     "markdown-to-jsx": "^7.7.3",
     "next": "^15.1.6",
     "next-plausible": "^3.12.4",
