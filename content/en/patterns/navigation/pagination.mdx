@@ -16,7 +16,7 @@ import { StepsPagination } from "@app/_components/seo/steps-pagination.tsx";
 
 ## Overview
 
-**Pagination** is a navigation pattern used to divide large collections of content into manageable chunks or pages.
+**[Pagination](/glossary/pagination)** is a navigation pattern used to divide large collections of content into manageable chunks or pages.
 This helps users to navigate through data sets, search results, or product listings without overwhelming the page with too much information at once.
 
 While pagination is a common and effective pattern, it's important to consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain types of content. The choice between pagination and infinite scroll depends on factors such as the nature of the content, user behavior, and the goals of the interface.
@@ -214,18 +214,18 @@ flowchart TB
 
 #### Too Many Pages (No Page Limiting)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
 Users get overwhelmed if there are **dozens of pages** to click through, making it hard to find relevant content.
 
 **How to Fix It?**
-Consider using **“Load More”** or **infinite scroll** if the content is suited to continuous exploration. If pagination is necessary, cap the total pages or provide filters to reduce results.
+Consider using **"Load More"** or **infinite scroll** if the content is suited to continuous exploration. If pagination is necessary, cap the total pages or provide filters to reduce results.
 
 ---
 
 #### Hiding Pagination Controls on Mobile
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
 Some designs remove pagination on smaller screens, forcing mobile users to scroll endlessly or guess how to navigate deeper pages.
 
@@ -236,7 +236,7 @@ Use a **compact pagination menu** (e.g., next/previous buttons or a limited set 
 
 #### Not Remembering the Last Page
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
 When users navigate away and come back, they lose track of which page they were on, leading to frustration and repetitive browsing.
 
@@ -247,7 +247,7 @@ Store pagination state in the **URL (e.g., `?page=2`)** or in session/local stor
 
 #### Inconsistent Page Numbers (Jumping Pages)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
 Some pagination systems remove or rearrange pages based on dynamic data, confusing users who rely on consistent numbering.
 
@@ -258,9 +258,9 @@ Maintain a **stable page structure**—if new items appear, consider adding them
 
 #### No Keyboard Accessibility (Accessibility)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-If pagination links or buttons aren’t keyboard-focusable, users relying on the keyboard can’t move between pages effectively.
+If pagination links or buttons aren't keyboard-focusable, users relying on the keyboard can't move between pages effectively.
 
 **How to Fix It?**
 Use proper interactive elements (`<button>`, `<a href>`). Confirm `Tab` navigation works for each link or control, and that pressing `Enter` or `Space` actually triggers page changes.
@@ -269,34 +269,34 @@ Use proper interactive elements (`<button>`, `<a href>`). Confirm `Tab` navigati
 
 #### Poorly Labeled Page Links (Accessibility)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-Screen readers can’t convey page numbers or next/previous actions if the links have generic text like “...” or “Page.”
+Screen readers can't convey page numbers or next/previous actions if the links have generic text like "..." or "Page."
 
 **How to Fix It?**
-Add `aria-label` attributes (e.g., `aria-label="Go to page 2"`) or text that clearly states each page’s purpose. For “Next” and “Previous,” label them explicitly (e.g., `aria-label="Go to next page"`).
+Add `aria-label` attributes (e.g., `aria-label="Go to page 2"`) or text that clearly states each page's purpose. For "Next" and "Previous," label them explicitly (e.g., `aria-label="Go to next page"`).
 
 ---
 
 #### No Visible Focus Indicator (Accessibility)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-Users can’t see where their keyboard focus is if the pagination links have no visible outline or highlight.
+Users can't see where their keyboard focus is if the pagination links have no visible outline or highlight.
 
 **How to Fix It?**
-Include a **high-contrast focus style** (outline, underline, etc.) so it’s obvious which page or button is selected or about to be selected.
+Include a **high-contrast focus style** (outline, underline, etc.) so it's obvious which page or button is selected or about to be selected.
 
 ---
 
 #### Unclear Feedback After Page Selection (Accessibility)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
 When users click a pagination link, especially if the new page loads asynchronously, they might not realize the content has updated.
 
 **How to Fix It?**
-Use an **ARIA live region** or a brief status announcement (e.g., “Page 2 loaded”) so screen reader users (and everyone else) know new content has appeared.
+Use an **ARIA live region** or a brief status announcement (e.g., "Page 2 loaded") so screen reader users (and everyone else) know new content has appeared.
 
 ## Micro-Interactions & Animations
 
@@ -323,7 +323,7 @@ When building pagination, consider these specific, purpose-driven animations:
   - **Timing:** Transition the content opacity over approximately 250ms to ensure a smooth change without distracting from the overall experience.
 
 - **Reduced Motion Consideration:**
-  - **Implementation:** Always check for the user’s motion preferences (e.g., via the `prefers-reduced-motion` media query) and disable or minimize animations accordingly to ensure accessibility.
+  - **Implementation:** Always check for the user's motion preferences (e.g., via the `prefers-reduced-motion` media query) and disable or minimize animations accordingly to ensure accessibility.
 
 These precise animations provide just enough feedback to guide user interactions and enhance the overall feel of your pagination component without overwhelming the interface.
 
@@ -344,11 +344,11 @@ Each pagination interaction provides valuable insights into user behavior. Below
 | `pagination.first_click`  | When a user clicks the first page button (if available).                                                   | Measures how often users return to the beginning.                   |
 | `pagination.last_click`   | When a user clicks the last page button (if available).                                                    | Indicates if users want to skip directly to the end.                |
 | `pagination.page_load`    | When a new paginated page loads (via user interaction or auto-pagination).                                 | Helps measure engagement depth.                                     |
-| `pagination.scroll_usage` | If infinite scrolling is enabled, tracks when users reach a pagination trigger (e.g., “Load More” button). | Helps compare pagination click interactions vs. scrolling behavior. |
+| `pagination.scroll_usage` | If infinite scrolling is enabled, tracks when users reach a pagination trigger (e.g., "Load More" button). | Helps compare pagination click interactions vs. scrolling behavior. |
 
 ### Event Payload Structure
 
-To ensure consistent tracking, here’s a recommended event format:
+To ensure consistent tracking, here's a recommended event format:
 
 ```json
 {
@@ -486,7 +486,7 @@ By continuously monitoring these metrics, we can refine pagination usability, en
 
 ### ARIA Attributes
 
-**Required ARIA attributes:**
+**Required [ARIA Attributes](/glossary/aria-attributes):**
 
 - The container should use role="navigation" with an appropriate aria-label (e.g., "Pagination Navigation").
 - Each pagination item should include aria-labels indicating the respective page number.
@@ -504,8 +504,9 @@ The following table outlines the standard keyboard interactions for pagination c
 
 ## SEO
 
-- Use semantic HTML (e.g., `<nav>` and lists) to help search engines understand your site structure.
+- Use [semantic HTML](/glossary/semantic-html) (e.g., `<nav>` and lists) to help search engines understand your site structure.
 - Ensure that pagination links are crawlable, improving site indexing.
+- Consider implementing [progressive loading](/glossary/progressive-loading) for better performance and user experience.
 
 ## Testing Guidelines
 
