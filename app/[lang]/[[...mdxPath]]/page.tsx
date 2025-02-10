@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks -- false positive, useMDXComponents are not react hooks */
 
-import { SuggestPattern } from '@/app/_components/suggest-pattern'
 import { BASE_URL } from '@/app/_constants/project'
 import { JsonLd, generateArticleSchema } from '@app/_components/json-ld'
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema'
@@ -91,13 +90,14 @@ export default async function Page(props: PageProps) {
   const pageKey = `${params.lang}-${params.mdxPath?.join('-') || 'home'}`
 
   return (
-    <div className="nextra-content">
+    <>
       <JsonLd data={schemaData} />
       <JsonLd data={breadcrumbSchema} />
-      <Wrapper key={pageKey} toc={toc} metadata={metadata}>
-        <MDXContent {...props} params={params} />
-        {!isHomepage && <SuggestPattern />}
-      </Wrapper>
-    </div>
+      <div className="nextra-content">
+        <Wrapper key={pageKey} toc={toc} metadata={metadata}>
+          <MDXContent {...props} params={params} />
+        </Wrapper>
+      </div>
+    </>
   )
 }

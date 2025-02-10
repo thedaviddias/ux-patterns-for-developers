@@ -2,9 +2,6 @@ name: Setup project dependencies
 
 description: "Setup project dependencies"
 
-env:
-  HUSKY: 0
-
 runs:
   using: "composite"
   steps:

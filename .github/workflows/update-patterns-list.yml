@@ -16,7 +16,8 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}
 
@@ -24,6 +25,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - name: Install dependencies
+        uses: ./.github/actions/install
 
       - name: Update README
         run: node scripts/update-patterns-list.js
