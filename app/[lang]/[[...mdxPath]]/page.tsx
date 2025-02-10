@@ -31,7 +31,8 @@ export async function generateMetadata(props: PageProps): Promise<Metadata | nul
       ...metadata,
       openGraph: {
         ...metadata.openGraph,
-        images: [ogImage]
+        images: [ogImage],
+        url: `${BASE_URL}${canonicalPath}`
       },
       alternates: {
         canonical: `${BASE_URL}${canonicalPath}`

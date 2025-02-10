@@ -7,7 +7,7 @@ export const metadataSEO: Metadata = {
     template: '%s | UX Patterns for Devs'
   },
   description:
-    'UX Patterns for Devs is a collection of UX Patterns for Devs to use in their projects.',
+    'UX Patterns for Developers is a collection of UX Patterns for Devs to use in their projects.',
   robots: {
     index: true,
     follow: true,
@@ -25,7 +25,8 @@ export const metadataSEO: Metadata = {
     type: "website",
     locale: "en_US",
     title: "UX Patterns for Devs",
-    description: "UX Patterns for Devs is a collection of UX Patterns for Devs to use in their projects.",
+    description: "UX Patterns for Developers is a collection of UX Patterns for Devs to use in their projects.",
+    url: BASE_URL,
     images: [{
       url: '/og/opengraph-image.png',
       width: 1200,
