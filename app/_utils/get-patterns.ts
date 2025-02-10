@@ -6,6 +6,7 @@ export async function getPatterns(lang: string): Promise<PatternCategory[]> {
   return categories.map(category => ({
     name: category.name,
     path: category.path,
+    description: category.description,
     patterns: category.patterns.sort((a, b) => a.title.localeCompare(b.title))
   }))
 }

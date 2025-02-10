@@ -3,19 +3,23 @@ import { Pattern } from "../_utils/get-pattern-categories"
 export const PATTERNS_MAP = {
   'content-management': {
     name: 'Content Management',
-    path: 'content-management'
+    path: 'content-management',
+    description: 'Organize and present content effectively with patterns for layout, structure, and information hierarchy.'
   },
   navigation: {
     name: 'Layout & Navigation',
-    path: 'navigation'
+    path: 'navigation',
+    description: 'Guide users through your application with intuitive navigation patterns and clear layout structures.'
   },
   'user-feedback': {
     name: 'User Feedback',
-    path: 'user-feedback'
+    path: 'user-feedback',
+    description: 'Keep users informed and engaged with responsive feedback mechanisms and clear status indicators.'
   },
   forms: {
     name: 'Input & Forms',
-    path: 'forms'
+    path: 'forms',
+    description: 'Create user-friendly forms and input interfaces that streamline data collection and user interaction.'
   },
 } as const
 

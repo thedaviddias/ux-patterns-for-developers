@@ -17,9 +17,14 @@ export const OverviewGrid = async ({ lang }: { lang: string }) => {
     <div className="space-y-10 my-10">
       {categories.map((category) => (
         <div key={category.name}>
-          <h2 className="text-2xl font-bold mb-5 text-foreground">
-            {category.name}
-          </h2>
+          <div className="mb-5">
+            <h2 className="text-2xl font-bold text-foreground">
+              {category.name}
+            </h2>
+            <p className="mt-2 text-muted-foreground text-sm">
+              {category.description}
+            </p>
+          </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {category.patterns.map((pattern) => (
               <PatternWrapper key={pattern.title} pattern={pattern} />

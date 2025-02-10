@@ -13,6 +13,7 @@ export type PatternStatus = 'complete' | 'draft' | 'coming-soon'
 export type PatternCategory = {
   name: string
   path: string
+  description: string
   patterns: Pattern[]
 }
 
@@ -48,6 +49,7 @@ export async function getPatternCategories(locale: string): Promise<PatternCateg
       return {
         name: category.name,
         path: category.path,
+        description: category.description,
         patterns: pages.map(page => {
           const iconName = page.frontMatter?.icon
           const status = (page.frontMatter?.status as PatternStatus) || 'coming-soon'
