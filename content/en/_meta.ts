@@ -20,6 +20,15 @@ export default {
       layout: 'full'
     }
   },
+  glossary: {
+    type: 'page',
+    title: 'Glossary',
+    theme: {
+      sidebar: true,
+      typesetting: 'article',
+      layout: 'full'
+    }
+  },
   blog: {
     type: 'page',
     title: 'Blog',
