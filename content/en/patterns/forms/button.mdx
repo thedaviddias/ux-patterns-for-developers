@@ -131,6 +131,162 @@ end
 | Loading State | ❌ No     | Indicates an ongoing process (e.g., saving, submitting).  |
 | Visual States | ✅ Yes    | Defines button interactions (hover, focus, active, etc.). |
 
+## Button Variations
+
+### Content Composition
+
+1. **Text Only**
+
+   ```html
+   <button type="button">Button</button>
+   ```
+
+2. **Icon Only**
+
+   ```html
+   <button type="button" aria-label="Settings">
+     <svg aria-hidden="true">...</svg>
+   </button>
+   ```
+
+3. **Icon + Text**
+
+   - Left Icon
+
+   ```html
+   <button type="button">
+     <svg aria-hidden="true">...</svg>
+     <span>Button</span>
+   </button>
+   ```
+
+   - Right Icon
+
+   ```html
+   <button type="button">
+     <span>Button</span>
+     <svg aria-hidden="true">...</svg>
+   </button>
+   ```
+
+4. **Double Icon**
+
+   ```html
+   <button type="button">
+     <svg aria-hidden="true">...</svg>
+     <span>Button</span>
+     <svg aria-hidden="true">...</svg>
+   </button>
+   ```
+
+5. **With Counter/Badge**
+
+   ```html
+   <button type="button">
+     <span>Messages</span>
+     <span class="counter">18</span>
+   </button>
+   ```
+
+6. **With Command/Shortcut**
+   ```html
+   <button type="button">
+     <span>Print</span>
+     <span class="shortcut">⌘P</span>
+   </button>
+   ```
+
+### Profile Variations
+
+7. **With Avatar**
+   ```html
+   <button type="button">
+     <img src="avatar.jpg" alt="" />
+     <span>@username</span>
+   </button>
+   ```
+
+### Action Groups
+
+8. **Button Groups**
+
+   - Horizontal Group
+
+   ```html
+   <div role="group" aria-label="Text alignment">
+     <button type="button">Left</button>
+     <button type="button">Center</button>
+     <button type="button">Right</button>
+   </div>
+   ```
+
+   - Vertical Group
+
+   ```html
+   <div role="group" aria-label="Actions" class="vertical">
+     <button type="button">Files</button>
+     <button type="button">Media</button>
+   </div>
+   ```
+
+9. **Split Buttons**
+   ```html
+   <div class="split-button">
+     <button type="button">Action</button>
+     <button type="button" aria-label="More options">▼</button>
+   </div>
+   ```
+
+### State Variations
+
+10. **Loading States**
+
+    ```html
+    <button type="button" aria-busy="true">
+      <svg class="spinner" aria-hidden="true">...</svg>
+      <span>Loading...</span>
+    </button>
+    ```
+
+11. **Toggle States**
+    ```html
+    <button type="button" aria-pressed="false">
+      <span>Pin</span>
+    </button>
+    ```
+
+### Social Variations
+
+12. **Social Login**
+    ```html
+    <button type="button" class="social-login google">
+      <svg aria-hidden="true">...</svg>
+      <span>Login with Google</span>
+    </button>
+    ```
+
+### Special Purpose
+
+13. **Upload Button**
+
+    ```html
+    <button type="button" class="upload">
+      <svg aria-hidden="true">...</svg>
+      <span>Upload image</span>
+      <span class="status">No image uploaded</span>
+    </button>
+    ```
+
+14. **Numeric Indicator**
+    ```html
+    <button type="button">
+      <span>Star</span>
+      <span class="count">729</span>
+    </button>
+    ```
+
+Each variation can be combined with different visual styles (primary, secondary, outline, ghost) and sizes (small, medium, large) to create the full range of possible button components.
+
 ## Best Practices
 
 ### Content
