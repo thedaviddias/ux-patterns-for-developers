@@ -33,23 +33,20 @@ export async function generateMetadata({ params }): Promise<Metadata> {
       title,
       description,
       type: 'article',
-      images: [
-        ...(isPatternPage && patternName ? [{
-          url: `/covers/patterns/${patternName}.png`,
-          width: 800,
-          height: 400,
-          alt: `${summary} - UX Pattern`,
-        }] : []),
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: description || title,
-        },
-      ],
+      images: isPatternPage && patternName ? [{
+        url: `/covers/patterns/${patternName}.png`,
+        width: 800,
+        height: 400,
+        alt: `Example of ${patternName} pattern`,
+      }] : [{
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: description || title,
+      }],
     },
     alternates: {
-      canonical: `${baseUrl}/${params.lang}${path ? `/${path}` : ''}`,
+      canonical: `${baseUrl}/en/${path ? `/${path}` : ''}`,
     },
   }
 }
@@ -78,7 +75,7 @@ export default async function Page(props: PageProps) {
   const schemaData = generateArticleSchema(
     title,
     description,
-    `/${params.lang}/${params.mdxPath?.join('/') || ''}`,
+    `/en/${params.mdxPath?.join('/') || ''}`,
     ogImageUrl
   )
 
@@ -91,13 +88,13 @@ export default async function Page(props: PageProps) {
       currentPath += `/${segment}`
       breadcrumbs.push({
         title: segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
-        url: `/${params.lang}${currentPath}`
+        url: `/en${currentPath}`
       })
     }
   }
 
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
-  const pageKey = `${params.lang}-${params.mdxPath?.join('-') || 'home'}`
+  const pageKey = `en-${params.mdxPath?.join('-') || 'home'}`
 
   return (
     <>
