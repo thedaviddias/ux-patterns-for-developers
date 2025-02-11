@@ -36,7 +36,12 @@ export const metadataSEO: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    creator: '@thedaviddias'
+    creator: '@thedaviddias',
+    site: '@thedaviddias',
+    images: [{
+      url: '/og/opengraph-image.png',
+      alt: 'UX Patterns for Developers - A collection of UX patterns for building effective UI components'
+    }]
   },
   appleWebApp: {
     title: 'UX Patterns for Devs'

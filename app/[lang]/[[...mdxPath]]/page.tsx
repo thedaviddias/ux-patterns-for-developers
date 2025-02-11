@@ -32,7 +32,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      type: 'article',
+      type: isHomepage ? 'website' : 'article',
       images: isPatternPage && patternName ? [{
         url: `/covers/patterns/${patternName}.png`,
         width: 800,
@@ -42,6 +42,18 @@ export async function generateMetadata({ params }): Promise<Metadata> {
         url: ogImageUrl,
         width: 1200,
         height: 630,
+        alt: description || title,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@thedaviddias',
+      creator: '@thedaviddias',
+      images: isPatternPage && patternName ? [{
+        url: `/covers/patterns/${patternName}.png`,
+        alt: `Example of ${patternName} pattern`,
+      }] : [{
+        url: ogImageUrl,
         alt: description || title,
       }],
     },

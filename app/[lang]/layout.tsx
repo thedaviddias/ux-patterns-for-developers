@@ -30,7 +30,23 @@ const fontMono = FontMono({
   variable: "--font-mono",
 });
 
-export const metadata = metadataSEO
+export const metadata = {
+  ...metadataSEO,
+  openGraph: {
+    ...metadataSEO.openGraph,
+    type: 'website'
+  },
+  twitter: {
+    ...metadataSEO.twitter,
+    card: 'summary_large_image',
+    site: '@thedaviddias',
+    creator: '@thedaviddias',
+    images: [{
+      url: '/og/opengraph-image.png',
+      alt: 'UX Patterns for Developers - A collection of UX patterns for building effective UI components'
+    }]
+  }
+}
 
 export default async function RootLayout({ children, params }: {
   children: React.ReactNode
