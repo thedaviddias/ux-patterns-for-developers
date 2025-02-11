@@ -33,13 +33,11 @@
 > This project is a work in progress. New content and updates should be expected regularly.
 
 <!-- PATTERNS-LIST:START - Do not remove or modify this section -->
-
 This is an updated list of available and incoming patterns.
 
 ### Content Management
 
 #### [Accordion](https://uxpatterns.dev/patterns/content-management/accordion)
-
 > Expand and collapse content sections
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready</sub>
@@ -47,7 +45,6 @@ This is an updated list of available and incoming patterns.
 Create effective accordion components for your web applications. Learn best practices for implementing expandable content sections with proper accessibility and keyboard support.
 
 #### [Carousel](https://uxpatterns.dev/patterns/content-management/carousel)
-
 > Display multiple items in a rotating view
 
 <sub>🛠️ Complex implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
@@ -55,27 +52,23 @@ Create effective accordion components for your web applications. Learn best prac
 Build effective carousel components for your web applications. Learn best practices for implementing accessible, responsive carousels with proper navigation and touch support.
 
 #### Drag And Drop
-
 > Coming soon
 
 #### [Expandable Text](https://uxpatterns.dev/patterns/content-management/expandable-text)
-
 > Show or hide additional text content on demand
 
 <sub>⚡️ Simple implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
 
-Learn how to implement expandable text components in your web applications. Discover best practices for progressive disclosure, accessibility, and user experience with practical examples.
+Create expandable text components with progressive disclosure and accessibility features for better content management.
 
 #### [Modal](https://uxpatterns.dev/patterns/content-management/modal)
-
 > Display focused content or actions
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
 
-Create effective modal dialogs for your web applications. Learn best practices for implementing accessible modal windows with proper focus management and keyboard interactions.
+Build accessible modal dialogs with proper focus management, keyboard interactions, and user experience best practices.
 
 #### [Popover](https://uxpatterns.dev/patterns/content-management/popover)
-
 > Display focused content or actions
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
@@ -83,105 +76,85 @@ Create effective modal dialogs for your web applications. Learn best practices f
 Implement user-friendly popover components in your web applications. Learn best practices for contextual information display, positioning, and accessibility with practical examples.
 
 #### [Tooltip](https://uxpatterns.dev/patterns/content-management/tooltip)
-
 > Provide additional context on hover or focus
 
 <sub>⚡️ Simple implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
 
 Implement effective tooltip components in your web applications. Learn best practices for contextual help, positioning strategies, and accessibility considerations.
 
+
 ### Forms
 
 #### [Autocomplete](https://uxpatterns.dev/patterns/forms/autocomplete)
-
 > Suggest options as users type
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1 • 💻 Examples</sub>
 
-Implement user-friendly autocomplete functionality in your web applications. Learn best practices for search suggestions, keyboard navigation, and accessibility with practical examples.
+Build user-friendly autocomplete with search suggestions, keyboard navigation, and accessibility features.
 
 #### [Button](https://uxpatterns.dev/patterns/forms/button)
-
 > Trigger actions and submit forms
 
 <sub>⚡️ Simple implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
 
-Learn how to implement accessible and user-friendly buttons in your web applications. Discover best practices for button design, states, accessibility, and implementation with code examples and guidelines.
+Create accessible and user-friendly buttons with proper states, design patterns, and implementation guidelines.
 
 #### Checkbox
-
 > Coming soon
 
 #### Code Confirmation
-
 > Coming soon
 
 #### Color Picker
-
 > Coming soon
 
 #### Currency Input
-
 > Coming soon
 
 #### Date Input
-
 > Coming soon
 
 #### Date Picker
-
 > Coming soon
 
 #### Date Range
-
 > Coming soon
 
 #### File Input
-
 > Coming soon
 
 #### Form Validation
-
 > Coming soon
 
 #### Input Selection Guide
-
 > Coming soon
 
 #### Multi Select Input
-
 > Coming soon
 
 #### [Password](https://uxpatterns.dev/patterns/forms/password)
-
 > Secure password entry with feedback
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1</sub>
 
-Implement secure and user-friendly password fields in your web applications. Learn best practices for password validation, strength indicators, and accessibility with practical examples.
+Build secure and user-friendly password fields with validation, strength indicators, and accessibility features.
 
 #### Phone Number
-
 > Coming soon
 
 #### Radio
-
 > Coming soon
 
 #### Rating Input
-
 > Coming soon
 
 #### Rich Text Editor
-
 > Coming soon
 
 #### Search Field
-
 > Coming soon
 
 #### [Selection Input](https://uxpatterns.dev/patterns/forms/selection-input)
-
 > Choose from predefined options
 
 <sub>📚 Full guide • ♿️ WCAG 2.1 • 💻 Examples</sub>
@@ -189,45 +162,41 @@ Implement secure and user-friendly password fields in your web applications. Lea
 Learn how to implement user-friendly selection inputs in your web applications. Discover best practices for dropdowns, comboboxes, and list boxes with accessibility and usability guidelines.
 
 #### Signature Pad
-
 > Coming soon
 
 #### Slider
-
 > Coming soon
 
 #### Tag Input
-
 > Coming soon
 
 #### [Text Field](https://uxpatterns.dev/patterns/forms/text-field)
-
 > Enter and edit text content
 
 <sub>⚡️ Simple implementation • 📚 Full guide • 📱 Mobile-ready • 💻 Examples</sub>
 
-Learn how to implement accessible text input fields in your web applications. Discover best practices for validation, error handling, and user experience with practical examples.
+Implement accessible text input fields with validation, error handling, and user experience best practices.
+
+#### Textarea
+> Coming soon
 
 #### Time Input
-
 > Coming soon
 
 #### Toggle
-
 > Coming soon
+
 
 ### Navigation
 
 #### [Back To Top](https://uxpatterns.dev/patterns/navigation/back-to-top)
-
 > Quickly navigate back to the top of the page
 
 <sub>⚡️ Simple implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
 
-Learn how to implement a Back to Top button pattern to enhance user navigation on long pages. Discover best practices for placement, accessibility, and user experience with code examples and implementation guidelines.
+Implement a Back to Top button for enhanced navigation on long pages with best practices for placement and accessibility.
 
 #### [Breadcrumb](https://uxpatterns.dev/patterns/navigation/breadcrumb)
-
 > Help users understand their current location
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
@@ -235,73 +204,60 @@ Learn how to implement a Back to Top button pattern to enhance user navigation o
 Create effective breadcrumb navigation for better site orientation. Learn implementation techniques, accessibility requirements, and design best practices for clear hierarchical navigation.
 
 #### Hambuger Menu
-
 > Coming soon
 
 #### [Infinite Scroll](https://uxpatterns.dev/patterns/navigation/infinite-scroll)
-
 > Loads additional content automatically as users scroll down.
 
 <sub>🛠️ Complex implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready</sub>
 
-Implement infinite scroll for seamless content loading in your web applications. Learn best practices for performance, accessibility, and user experience with practical code examples.
+Create seamless content loading with infinite scroll, focusing on performance, accessibility, and user experience best practices.
 
 #### [Load More](https://uxpatterns.dev/patterns/navigation/load-more)
-
 > Load additional content on user demand
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready</sub>
 
-Learn how to implement a Load More pattern for efficient content pagination. Discover best practices for user experience, accessibility, and performance when loading content incrementally.
+Build efficient content loading with the Load More pattern, focusing on user experience and performance optimization.
 
 #### Megamenu
-
 > Coming soon
 
 #### Navigation Menu
-
 > Coming soon
 
 #### [Pagination](https://uxpatterns.dev/patterns/navigation/pagination)
-
 > Navigate through multiple pages of content
 
 <sub>🔧 Moderate complexity • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
 
-Master pagination implementation in web applications. Learn best practices for building accessible, user-friendly page navigation with clear guidelines for design, accessibility, and performance.
+Learn best practices for building accessible, user-friendly page navigation with clear guidelines for design and performance.
 
 #### Sidebar
-
 > Coming soon
 
 #### Tabs
-
 > Coming soon
+
 
 ### User Feedback
 
 #### Cookie Consent
-
 > Coming soon
 
 #### Empty States
-
 > Coming soon
 
 #### Loading Indicator
-
 > Coming soon
 
 #### Notification
-
 > Coming soon
 
 #### Progress Indicator
-
 > Coming soon
 
 #### Skeleton
-
 > Coming soon
 
 <!-- PATTERNS-LIST:END -->
