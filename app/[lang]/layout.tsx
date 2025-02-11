@@ -77,6 +77,7 @@ export default async function RootLayout({ children, params }: {
     <html lang={lang} suppressHydrationWarning>
       <head>
         <PlausibleProvider domain="uxpatterns.dev" trackOutboundLinks={true} taggedEvents={true} />
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="kp+2z+UG2C+LV5KT2+/B+w" async></script>
       </head>
       <body className={`${fontSans.variable} ${fontMono.variable} bg-background font-sans antialiased`}>
         <Layout

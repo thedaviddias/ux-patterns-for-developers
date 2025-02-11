@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks -- false positive, useMDXComponents are not react hooks */
 
-import { BASE_URL } from '@/app/_constants/project'
 import { JsonLd, generateArticleSchema } from '@app/_components/json-ld'
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema'
 import { Metadata } from 'next'
@@ -9,38 +8,49 @@ import { useMDXComponents } from '../../../mdx-components'
 
 export const generateStaticParams = generateStaticParamsFor('mdxPath')
 
-export async function generateMetadata(props: PageProps): Promise<Metadata | null> {
-  try {
-    const params = await props.params
-    const { metadata } = await importPage(params.mdxPath || [], params.lang)
-    const isHomepage = !params.mdxPath || params.mdxPath.length === 0
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const { frontMatter, metadata } = await importPage(params.mdxPath || [], params.lang)
+  const isHomepage = !params.mdxPath || params.mdxPath.length === 0
+  const baseUrl = 'https://uxpatterns.dev'
+  const path = params.mdxPath?.join('/') || ''
 
-    // Include the language prefix in the canonical path
-    const canonicalPath = `/${params.lang}${params.mdxPath ? `/${params.mdxPath.join('/')}` : ''}`
+  // Shared metadata
+  const title = frontMatter?.title || metadata?.title || 'UX Patterns for Devs'
+  const description = frontMatter?.description || metadata?.description || ''
+  const summary = frontMatter?.summary || ''
 
-    const ogImage = {
-      url: isHomepage
-        ? '/og/opengraph-image.png'
-        : `/api/og?title=${encodeURIComponent(metadata.title || '')}`,
-      width: 1200,
-      height: 630,
-      type: 'image/png',
-    }
+  // OG image handling
+  const isPatternPage = params.mdxPath?.[0] === 'patterns'
+  const patternName = isPatternPage ? params.mdxPath?.[params.mdxPath.length - 1] : null
+  const ogImageUrl = isHomepage
+    ? '/og/opengraph-image.png'
+    : `/api/og?title=${encodeURIComponent(title)}`
 
-    return {
-      ...metadata,
-      openGraph: {
-        ...metadata.openGraph,
-        images: [ogImage],
-        url: `${BASE_URL}${canonicalPath}`
-      },
-      alternates: {
-        canonical: `${BASE_URL}${canonicalPath}`
-      }
-    }
-  } catch (e) {
-    console.error('Error generating metadata:', e)
-    return null
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      images: [
+        ...(isPatternPage && patternName ? [{
+          url: `/covers/patterns/${patternName}.png`,
+          width: 800,
+          height: 400,
+          alt: `${summary} - UX Pattern`,
+        }] : []),
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: description || title,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `${baseUrl}/${params.lang}${path ? `/${path}` : ''}`,
+    },
   }
 }
 
@@ -55,26 +65,25 @@ const Wrapper = useMDXComponents().wrapper
 
 export default async function Page(props: PageProps) {
   const params = await props.params
-  const result = await importPage(params.mdxPath, params.lang)
-  const { default: MDXContent, toc, metadata } = result
+  const { default: MDXContent, toc, metadata } = await importPage(params.mdxPath, params.lang)
 
-  // Get the OG image URL from metadata
+  // Use the same logic for OG image as in generateMetadata
   const isHomepage = !params.mdxPath || params.mdxPath.length === 0
+  const title = metadata?.title || 'UX Patterns for Devs'
+  const description = metadata?.description || ''
   const ogImageUrl = isHomepage
     ? '/og/opengraph-image.png'
-    : `/api/og?title=${encodeURIComponent(metadata.title || '')}`
+    : `/api/og?title=${encodeURIComponent(title)}`
 
   const schemaData = generateArticleSchema(
-    metadata.title || '',
-    metadata.description || '',
+    title,
+    description,
     `/${params.lang}/${params.mdxPath?.join('/') || ''}`,
     ogImageUrl
   )
 
-  // Generate breadcrumb items
-  const breadcrumbs = [
-    { title: 'Home', url: `/${params.lang}` }
-  ]
+  // Generate breadcrumb items for patterns only
+  const breadcrumbs: Array<{ title: string; url: string }> = []
 
   if (params.mdxPath) {
     let currentPath = ''
@@ -93,7 +102,7 @@ export default async function Page(props: PageProps) {
   return (
     <>
       <JsonLd data={schemaData} />
-      <JsonLd data={breadcrumbSchema} />
+      {breadcrumbs.length > 0 && <JsonLd data={breadcrumbSchema} />}
       <div className="nextra-content">
         <Wrapper key={pageKey} toc={toc} metadata={metadata}>
           <MDXContent {...props} params={params} />
