@@ -19,18 +19,28 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const description = frontMatter?.description || metadata?.description || ''
   const summary = frontMatter?.summary || ''
 
-  // OG image handling
+  // Page type detection
   const isPatternPage = params.mdxPath?.[0] === 'patterns'
+  const isGlossaryPage = params.mdxPath?.[0] === 'glossary'
+
+  // Title with context
+  const titleWithContext = isPatternPage
+    ? `${title} Pattern`
+    : isGlossaryPage
+      ? `${title} - UX Glossary Term`
+      : title
+
+  // OG image handling
   const patternName = isPatternPage ? params.mdxPath?.[params.mdxPath.length - 1] : null
   const ogImageUrl = isHomepage
     ? '/og/opengraph-image.png'
-    : `/api/og?title=${encodeURIComponent(title)}`
+    : `/api/og?title=${encodeURIComponent(titleWithContext)}`
 
   return {
-    title,
+    title: titleWithContext,
     description,
     openGraph: {
-      title,
+      title: titleWithContext,
       description,
       type: isHomepage ? 'website' : 'article',
       images: isPatternPage && patternName ? [{
