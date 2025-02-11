@@ -43,6 +43,11 @@ const nextConfig = withBundleAnalyzer(
         statusCode: 302
       },
       {
+        source: '/patterns/navigation',
+        destination: '/',
+        statusCode: 302
+      },
+      {
         source: '/patterns/docs/navigation/breadcrumb',
         destination: '/patterns/navigation/breadcrumb',
         statusCode: 302
