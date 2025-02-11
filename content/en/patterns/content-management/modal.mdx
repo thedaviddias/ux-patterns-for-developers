@@ -1,6 +1,6 @@
 ---
 summary: "Display focused content or actions"
-description: "Create effective modal dialogs for your web applications. Learn best practices for implementing accessible modal windows with proper focus management and keyboard interactions."
+description: "Build accessible modal dialogs with proper focus management, keyboard interactions, and user experience best practices."
 icon: Maximize2
 status: complete
 ---
@@ -212,7 +212,7 @@ graph TD
 
 #### Forcing Users Into a Modal (No Close Option)
 
-**❌ What’s Wrong?** Users feel trapped if they can’t exit a modal.
+**❌ What's Wrong?** Users feel trapped if they can't exit a modal.
 
 **How to Fix It?** Always provide a clear **close button (X)** and support the `Esc` key for dismissal.
 
@@ -220,7 +220,7 @@ graph TD
 
 #### Triggering Modals on Page Load
 
-**❌ What’s Wrong?** Unrequested modals on page load can feel like pop-ups that disrupt user flow.
+**❌ What's Wrong?** Unrequested modals on page load can feel like pop-ups that disrupt user flow.
 
 **How to Fix It?** Only show modals when the user **intentionally** initiates them.
 
@@ -228,23 +228,23 @@ graph TD
 
 #### Disrupting Background Page Focus
 
-**❌ What’s Wrong?** Some modals allow interaction with background content while open, causing layered focus.
+**❌ What's Wrong?** Some modals allow interaction with background content while open, causing layered focus.
 
-**How to Fix It?** Add a **focus trap** inside the modal and prevent background interaction until it’s closed.
+**How to Fix It?** Add a **focus trap** inside the modal and prevent background interaction until it's closed.
 
 ---
 
 #### Modal Closes on Accidental Click
 
-**❌ What’s Wrong?** Clicking outside the modal might unintentionally dismiss it, frustrating or confusing users.
+**❌ What's Wrong?** Clicking outside the modal might unintentionally dismiss it, frustrating or confusing users.
 
-**How to Fix It?** Only allow closing on background click if it’s non-critical info. For important data, require an explicit close action.
+**How to Fix It?** Only allow closing on background click if it's non-critical info. For important data, require an explicit close action.
 
 ---
 
 #### Missing or Incorrect ARIA Markup (Accessibility)
 
-**❌ What’s Wrong?** If the modal isn’t announced as a dialog (e.g., missing `role="dialog"`), screen readers might not indicate it properly.
+**❌ What's Wrong?** If the modal isn't announced as a dialog (e.g., missing `role="dialog"`), screen readers might not indicate it properly.
 
 **How to Fix It?** Use `role="dialog"` or the `<dialog>` element with `aria-modal="true"`. Provide a clear heading or label.
 
@@ -252,7 +252,7 @@ graph TD
 
 #### Failing to Return Focus to the Trigger (Accessibility)
 
-**❌ What’s Wrong?** When the modal closes, focus can get lost (e.g., jump to the top of the page).
+**❌ What's Wrong?** When the modal closes, focus can get lost (e.g., jump to the top of the page).
 
 **How to Fix It?** Store the element that triggered the modal and **return focus** to it after closing.
 
@@ -260,15 +260,15 @@ graph TD
 
 #### No Visible Focus States (Accessibility)
 
-**❌ What’s Wrong?** Keyboard users can’t see where they are if no focus outline is visible on buttons or form fields.
+**❌ What's Wrong?** Keyboard users can't see where they are if no focus outline is visible on buttons or form fields.
 
-**How to Fix It?** Ensure a **clear, high-contrast focus indicator** is present. Validate you can “Tab” through all interactive elements.
+**How to Fix It?** Ensure a **clear, high-contrast focus indicator** is present. Validate you can "Tab" through all interactive elements.
 
 ---
 
 #### Overly Complex or Overstuffed Modals (Accessibility)
 
-**❌ What’s Wrong?** If a modal presents too much content (long forms, lots of text), users relying on screen readers may be overwhelmed.
+**❌ What's Wrong?** If a modal presents too much content (long forms, lots of text), users relying on screen readers may be overwhelmed.
 
 **How to Fix It?** Keep modals **brief and to the point**. For more complex workflows, use a dedicated page or a multi-step wizard.
 
@@ -293,7 +293,7 @@ Each modal interaction provides valuable insights into user behavior. Below are 
 
 ### Event Payload Structure
 
-To ensure consistent tracking, here’s a recommended event format:
+To ensure consistent tracking, here's a recommended event format:
 
 ```json
 {
@@ -313,7 +313,7 @@ Once tracking is in place, the following metrics provide actionable insights:
 - Open Rate → Percentage of users who see the modal (manual vs. auto-open).
 - Engagement Rate → Percentage of users who interact with the modal before closing.
 - Dismissal Rate → Percentage of users who close the modal without taking any action.
-- Completion Rate → Percentage of users who complete the modal’s primary action.
+- Completion Rate → Percentage of users who complete the modal's primary action.
 - Time in Modal → Average time users spend inside the modal.
 
 ### Insights & Optimization Based on Tracking
@@ -340,7 +340,7 @@ By analyzing tracking data, we can optimize the modal experience:
   → If most users dismiss auto-open modals immediately, they may be perceived as annoying.
   **Optimization:** Make them **manual-triggered only**, delay their appearance, or ensure they are only shown when truly relevant.
 
-By continuously monitoring these metrics, we can refine the modal’s effectiveness and ensure it enhances, rather than disrupts, the user experience.
+By continuously monitoring these metrics, we can refine the modal's effectiveness and ensure it enhances, rather than disrupts, the user experience.
 
 ## Localization
 

@@ -1,6 +1,6 @@
 ---
 summary: "Load additional content on user demand"
-description: "Learn how to implement a Load More pattern for efficient content pagination. Discover best practices for user experience, accessibility, and performance when loading content incrementally."
+description: "Build efficient content loading with the Load More pattern, focusing on user experience and performance optimization."
 icon: Plus
 status: complete
 ---
@@ -185,9 +185,9 @@ flowchart TB
 
 #### No Visual Feedback After Clicking "Load More"
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-Users may think the button is broken if there’s no immediate sign of progress after they click.
+Users may think the button is broken if there's no immediate sign of progress after they click.
 
 **How to Fix It?**
 Show a **spinner or loading animation** and possibly disable the button until the new content is fully loaded.
@@ -196,7 +196,7 @@ Show a **spinner or loading animation** and possibly disable the button until th
 
 #### Loading Too Many Items at Once
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
 Fetching a large batch of content can slow performance, cause layout shifts, and overwhelm users.
 
@@ -207,9 +207,9 @@ Load **smaller chunks** (e.g., 10–20 items per click). Provide incremental upd
 
 #### Forcing Users to Click "Load More" Too Often
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-Having users repeatedly click “Load More” leads to frustration and makes the page feel unresponsive.
+Having users repeatedly click "Load More" leads to frustration and makes the page feel unresponsive.
 
 **How to Fix It?**
 Use **auto-loading on scroll** after a few manual loads, or at least increase the batch size once you detect high engagement.
@@ -218,20 +218,20 @@ Use **auto-loading on scroll** after a few manual loads, or at least increase th
 
 #### No Clear End of Content Indicator
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-Users can’t tell when they’ve reached the final items, potentially clicking “Load More” with no result.
+Users can't tell when they've reached the final items, potentially clicking "Load More" with no result.
 
 **How to Fix It?**
-Display a **“You’ve reached the end”** message or hide the button entirely once there’s no more data.
+Display a "You've reached the end" message or hide the button entirely once there's no more data.
 
 ---
 
 #### Not Accessible via Keyboard (Accessibility)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-If the “Load More” button isn’t focusable or doesn’t respond to keyboard events, users relying on keyboard navigation can’t load new content.
+If the "Load More" button isn't focusable or doesn't respond to keyboard events, users relying on keyboard navigation can't load new content.
 
 **How to Fix It?**
 Ensure the button is a proper, focusable element (e.g., `<button>`). Confirm you can press `Tab` to focus and `Enter/Space` to trigger loading.
@@ -240,20 +240,20 @@ Ensure the button is a proper, focusable element (e.g., `<button>`). Confirm you
 
 #### No ARIA Updates for New Content (Accessibility)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-Screen reader users may not realize new items appeared if there’s no announcement that content was added to the page.
+Screen reader users may not realize new items appeared if there's no announcement that content was added to the page.
 
 **How to Fix It?**
-Wrap your list in a container with `role="region"` or use an `aria-live="polite"` area. Update the live region or add a brief “New content loaded” announcement after each batch is rendered.
+Wrap your list in a container with `role="region"` or use an `aria-live="polite"` area. Update the live region or add a brief "New content loaded" announcement after each batch is rendered.
 
 ---
 
 #### Insufficient Visual Contrast or Feedback (Accessibility)
 
-**❌ What’s Wrong?**
+**❌ What's Wrong?**
 
-If the “Load More” button is low contrast or the loading indicator is hard to see (e.g., small spinner on a cluttered background), low-vision users may struggle to notice it.
+If the "Load More" button is low contrast or the loading indicator is hard to see (e.g., small spinner on a cluttered background), low-vision users may struggle to notice it.
 
 **How to Fix It?**
 Provide a **high-contrast** button style and a **clear, visible** loading indicator (spinner or progress bar) that stands out from surrounding content.
@@ -276,7 +276,7 @@ Each "Load More" interaction provides valuable insights into user behavior. Belo
 
 ### Event Payload Structure
 
-To ensure consistent tracking, here’s a recommended event format:
+To ensure consistent tracking, here's a recommended event format:
 
 ```json
 {
