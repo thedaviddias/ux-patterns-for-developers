@@ -29,10 +29,10 @@ export function generateArticleSchema(title: string, description: string, path: 
       "name": "David Dias",
       "url": "https://thedaviddias.com",
       "sameAs": [
+        "https://www.reddit.com/r/UXPatterns/",
         "https://x.com/thedaviddias",
         "https://github.com/thedaviddias",
         "https://linkedin.com/in/thedaviddias",
-        "https://bsky.social/thedaviddias"
       ]
     },
     "publisher": {
