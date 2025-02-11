@@ -46,7 +46,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
       }],
     },
     alternates: {
-      canonical: `${baseUrl}/en/${path ? `/${path}` : ''}`,
+      canonical: `${baseUrl}/en/${path ? `${path}` : ''}`,
     },
   }
 }
