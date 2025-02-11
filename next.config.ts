@@ -4,7 +4,8 @@ import nextra from 'nextra';
 
 const withNextra = nextra({
   defaultShowCopyCode: true,
-  contentDirBasePath: '/'
+  contentDirBasePath: '/',
+  unstable_shouldAddLocaleToLinks: true
 })
 
 const withBundleAnalyzer = bundleAnalyzer({
@@ -21,7 +22,8 @@ const nextConfig = withBundleAnalyzer(
     },
     i18n: {
       locales: ['en'],
-      defaultLocale: 'en'
+      defaultLocale: 'en',
+      localeDetection: false
     },
     images: {
       remotePatterns: [
