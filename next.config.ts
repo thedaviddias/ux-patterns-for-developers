@@ -40,6 +40,16 @@ const nextConfig = withBundleAnalyzer(
     },
     redirects: async () => [
       {
+        source: '/llms-full.txt',
+        destination: '/en/llms-full.txt',
+        statusCode: 302
+      },
+      {
+        source: '/llms.txt',
+        destination: '/en/llms.txt',
+        statusCode: 302
+      },
+      {
         source: '/patterns',
         destination: '/patterns/getting-started',
         statusCode: 302
