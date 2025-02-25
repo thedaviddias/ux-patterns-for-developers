@@ -48,7 +48,7 @@
     "next-plausible": "^3.12.4",
     "nextra": "4.2.5",
     "nextra-theme-docs": "4.2.5",
-    "openai": "^4.83.0",
+    "openai": "^4.85.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-intersection-observer": "^9.15.1",
