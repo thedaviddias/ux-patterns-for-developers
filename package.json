@@ -32,7 +32,7 @@
     "@codesandbox/sandpack-react": "^2.19.11",
     "@mdn/browser-compat-data": "^5.6.37",
     "@radix-ui/react-slot": "^1.1.2",
-    "@sentry/nextjs": "^8.54.0",
+    "@sentry/nextjs": "^9.3.0",
     "@types/chalk": "^2.2.4",
     "@types/dagre": "^0.7.52",
     "chalk": "^5.4.1",
