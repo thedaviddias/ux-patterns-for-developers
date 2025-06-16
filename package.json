@@ -73,7 +73,7 @@
     "@radix-ui/react-dialog": "^1.1.6",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "4.0.5",
-    "@types/node": "22.13.1",
+    "@types/node": "24.0.1",
     "@types/react": "19.0.8",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
