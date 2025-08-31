@@ -1,15 +1,14 @@
-
-import { GlossaryStructuredData } from './structured-data'
+import { GlossaryStructuredData } from './structured-data';
 
 interface TermPageProps {
   frontMatter: {
-    title: string
-    description: string
-    category: string[]
-    related_patterns?: string[]
-    synonyms?: string[]
-  }
-  children: React.ReactNode
+    title: string;
+    description: string;
+    category: string[];
+    related_patterns?: string[];
+    synonyms?: string[];
+  };
+  children: React.ReactNode;
 }
 
 export function TermPage({ frontMatter, children }: TermPageProps) {
@@ -22,6 +21,5 @@ export function TermPage({ frontMatter, children }: TermPageProps) {
       />
       {children}
     </div>
-  )
+  );
 }
-

@@ -17,21 +17,28 @@
   "javascript.format.enable": true,
   "javascript.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "eslint.options": {
-    "extensions": [
-      ".js",
-      ".jsx",
-      ".md",
-      ".mdx",
-      ".ts",
-      ".tsx"
-    ]
-  },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[handlebars]": {
     "editor.defaultFormatter": "eamodio.html-formatter"

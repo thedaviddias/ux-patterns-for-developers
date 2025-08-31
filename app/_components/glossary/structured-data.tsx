@@ -1,15 +1,15 @@
-import { JsonLd } from '@app/_components/json-ld'
+import { JsonLd } from '@app/_components/json-ld';
 
 interface GlossaryStructuredDataProps {
-  term: string
-  definition: string
-  category: string[]
+  term: string;
+  definition: string;
+  category: string[];
 }
 
 export function GlossaryStructuredData({
   term,
   definition,
-  category
+  category,
 }: GlossaryStructuredDataProps) {
   const structuredData = {
     '@context': 'https://schema.org',
@@ -19,10 +19,10 @@ export function GlossaryStructuredData({
     inDefinedTermSet: {
       '@type': 'DefinedTermSet',
       name: 'UX Patterns Glossary',
-      url: 'https://uxpatterns.dev/glossary'
+      url: 'https://uxpatterns.dev/glossary',
     },
-    termCode: category.join(',')
-  }
+    termCode: category.join(','),
+  };
 
-  return <JsonLd data={structuredData} />
+  return <JsonLd data={structuredData} />;
 }

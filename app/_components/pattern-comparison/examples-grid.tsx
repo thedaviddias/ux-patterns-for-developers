@@ -1,48 +1,48 @@
-'use client'
+'use client';
 
-import { AspectRatio } from '@/app/_components/ui/aspect-ratio'
+import Image from 'next/image';
+import { useState } from 'react';
+import { AspectRatio } from '@/app/_components/ui/aspect-ratio';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/app/_components/ui/dialog'
-import { ImagePlaceholder } from '@/app/_components/ui/image-placeholder'
-import Image from 'next/image'
-import { useState } from 'react'
+} from '@/app/_components/ui/dialog';
+import { ImagePlaceholder } from '@/app/_components/ui/image-placeholder';
 
 interface Example {
-  title: string
-  description?: string
-  imageUrl: string
-  thumbnailUrl?: string
+  title: string;
+  description?: string;
+  imageUrl: string;
+  thumbnailUrl?: string;
 }
 
 interface PatternExamples {
-  pattern: string
-  examples: Example[]
+  pattern: string;
+  examples: Example[];
 }
 
 interface ExamplesGridProps {
-  examples: PatternExamples[]
+  examples: PatternExamples[];
 }
 
 export function ExamplesGrid({ examples }: ExamplesGridProps) {
-  const [selectedExample, setSelectedExample] = useState<Example | null>(null)
-  const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+  const [selectedExample, setSelectedExample] = useState<Example | null>(null);
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
-  const handleImageError = (imageUrl: string, error: any) => {
-    setFailedImages((prev) => new Set(prev).add(imageUrl))
-  }
+  const handleImageError = (imageUrl: string) => {
+    setFailedImages((prev) => new Set(prev).add(imageUrl));
+  };
 
   // Ensure image URLs are absolute from root
   const getImageUrl = (url: string) => {
     // If URL is already absolute (starts with http or //), return as is
-    if (url.startsWith('http') || url.startsWith('//')) return url
+    if (url.startsWith('http') || url.startsWith('//')) return url;
     // Remove any leading slashes and add a single slash
-    return '/' + url.replace(/^\/+/, '')
-  }
+    return `/${url.replace(/^\/+/, '')}`;
+  };
 
   return (
     <div className="mb-16">
@@ -62,6 +62,7 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
               {pattern.examples.map((example, index) => (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => setSelectedExample(example)}
                   className="group relative text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 dark:focus-visible:ring-neutral-300"
                 >
@@ -76,15 +77,17 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
                         src={getImageUrl(example.thumbnailUrl || example.imageUrl)}
                         alt={example.title}
                         className="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
-                        onError={(e) => {
+                        onError={() => {
                           console.log('Image load error details:', {
                             src: example.thumbnailUrl || example.imageUrl,
-                            error: e
                           });
-                          handleImageError(example.thumbnailUrl || example.imageUrl, e);
+                          handleImageError(example.thumbnailUrl || example.imageUrl);
                         }}
                         onLoad={() => {
-                          console.log('Image loaded successfully:', example.thumbnailUrl || example.imageUrl);
+                          console.log(
+                            'Image loaded successfully:',
+                            example.thumbnailUrl || example.imageUrl
+                          );
                         }}
                       />
                     )}
@@ -129,12 +132,11 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
                       height={720}
                       className="w-full h-full object-contain rounded-lg"
                       priority
-                      onError={(e) => {
+                      onError={() => {
                         console.log('Modal image load error details:', {
                           src: selectedExample.imageUrl,
-                          error: e
                         });
-                        handleImageError(selectedExample.imageUrl, e);
+                        handleImageError(selectedExample.imageUrl);
                       }}
                       onLoad={() => {
                         console.log('Modal image loaded successfully:', selectedExample.imageUrl);
@@ -148,5 +150,5 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
         </DialogContent>
       </Dialog>
     </div>
-  )
+  );
 }

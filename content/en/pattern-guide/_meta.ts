@@ -1,5 +1,5 @@
 export default {
-  'index': '',
+  index: '',
   'pagination-vs-infinite-scroll': '',
-  'choosing-input-types': ''
-}
+  'choosing-input-types': '',
+};

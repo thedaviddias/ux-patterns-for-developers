@@ -5,25 +5,20 @@ import nextra from 'nextra';
 const withNextra = nextra({
   defaultShowCopyCode: true,
   contentDirBasePath: '/',
-  unstable_shouldAddLocaleToLinks: true
-})
+  unstable_shouldAddLocaleToLinks: true,
+});
 
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true'
-})
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfig = withBundleAnalyzer(
   withNextra({
     reactStrictMode: true,
-    eslint: {
-      // Warning: This allows production builds to successfully complete even if
-      // your project has ESLint errors.
-      ignoreDuringBuilds: true
-    },
     i18n: {
       locales: ['en'],
       defaultLocale: 'en',
-      localeDetection: false
+      localeDetection: false,
     },
     images: {
       remotePatterns: [
@@ -42,28 +37,28 @@ const nextConfig = withBundleAnalyzer(
       {
         source: '/llms-full.txt',
         destination: '/en/llms-full.txt',
-        statusCode: 302
+        statusCode: 302,
       },
       {
         source: '/llms.txt',
         destination: '/en/llms.txt',
-        statusCode: 302
+        statusCode: 302,
       },
       {
         source: '/patterns',
         destination: '/patterns/getting-started',
-        statusCode: 302
+        statusCode: 302,
       },
       {
         source: '/patterns/navigation',
         destination: '/',
-        statusCode: 302
+        statusCode: 302,
       },
       {
         source: '/patterns/docs/navigation/breadcrumb',
         destination: '/patterns/navigation/breadcrumb',
-        statusCode: 302
-      }
+        statusCode: 302,
+      },
     ],
     async rewrites() {
       return [
@@ -71,17 +66,17 @@ const nextConfig = withBundleAnalyzer(
           source: '/og/:slug',
           destination: '/api/og?title=:slug',
         },
-      ]
+      ];
     },
   })
-)
+);
 
 export default withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
-  org: "thedaviddias",
-  project: "ux-patterns-for-developers",
+  org: 'thedaviddias',
+  project: 'ux-patterns-for-developers',
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
@@ -104,7 +99,9 @@ export default withSentryConfig(nextConfig, {
   // tunnelRoute: "/monitoring",
 
   // Hides source maps from generated client bundles
-  hideSourceMaps: true,
+  sourcemaps: {
+    deleteSourcemapsAfterUpload: true,
+  },
 
   // Automatically tree-shake Sentry logger statements to reduce bundle size
   disableLogger: true,

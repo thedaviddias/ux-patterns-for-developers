@@ -1,53 +1,53 @@
-import { PATTERNS_MAP } from "@/app/_constants/patterns";
-import { i18n, type Locale } from "@app/_dictionaries/i18n-config";
-import * as Sentry from "@sentry/nextjs";
-import { existsSync, readFileSync } from 'fs';
-import { NextRequest, NextResponse } from "next/server";
-import type { MdxFile } from 'nextra';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { i18n, type Locale } from '@app/_dictionaries/i18n-config';
+import * as Sentry from '@sentry/nextjs';
+import { type NextRequest, NextResponse } from 'next/server';
+import type { Heading, MdxFile } from 'nextra';
 import { getPageMap } from 'nextra/page-map';
 import { importPage } from 'nextra/pages';
-import { join } from 'path';
+import { PATTERNS_MAP } from '@/app/_constants/patterns';
 
 type MdxContent = {
-  route: string
-  name: string
-  frontMatter: Record<string, unknown> | null
+  route: string;
+  name: string;
+  frontMatter: Record<string, unknown> | null;
   metadata: {
-    title?: string
-    description?: string
-    [key: string]: unknown
-  }
-  toc: {
-    value: string
-    url: string
-    depth: number
-  }[]
-  content: string
-}
+    title?: string;
+    description?: string | null;
+    [key: string]: unknown;
+  };
+  toc: Heading[];
+  content: string;
+};
 
 async function getAllMdxContent(locale: string) {
   try {
-    const blogPages = ((await getPageMap(`/${locale}/blog`)) || []).filter(page => 'name' in page) as MdxFile[];
+    const blogPages = ((await getPageMap(`/${locale}/blog`)) || []).filter(
+      (page) => 'name' in page
+    ) as MdxFile[];
 
     // Get all pattern categories and check if they exist first
     const patternCategories = Object.values(PATTERNS_MAP)
-      .map(p => p.path)
-      .filter(category => {
+      .map((p) => p.path)
+      .filter((category) => {
         const categoryPath = join(process.cwd(), 'content', locale, 'patterns', category);
         return existsSync(categoryPath);
       });
 
-    const patternPages = (await Promise.all(
-      patternCategories.map(async category => {
-        try {
-          const pageMap = await getPageMap(`/${locale}/patterns/${category}`);
-          return (pageMap || []).filter(page => 'name' in page);
-        } catch (error) {
-          console.warn(`No content found for category: ${category}`, error);
-          return [];
-        }
-      })
-    )).flat() as MdxFile[];
+    const patternPages = (
+      await Promise.all(
+        patternCategories.map(async (category) => {
+          try {
+            const pageMap = await getPageMap(`/${locale}/patterns/${category}`);
+            return (pageMap || []).filter((page) => 'name' in page);
+          } catch (error) {
+            console.warn(`No content found for category: ${category}`, error);
+            return [];
+          }
+        })
+      )
+    ).flat() as MdxFile[];
 
     const allContent: MdxContent[] = [];
 
@@ -59,7 +59,7 @@ async function getAllMdxContent(locale: string) {
           const path = page.route.split('/').filter(Boolean);
           const result = await importPage(path, locale);
 
-          const filePath = join(process.cwd(), 'content', locale, ...path) + '.mdx';
+          const filePath = `${join(process.cwd(), 'content', locale, ...path)}.mdx`;
           const rawContent = readFileSync(filePath, 'utf-8');
 
           // Clean the content but preserve markdown
@@ -79,7 +79,7 @@ async function getAllMdxContent(locale: string) {
               frontMatter: 'frontMatter' in page && page.frontMatter ? page.frontMatter : null,
               metadata: result.metadata,
               toc: result.toc,
-              content: cleanContent
+              content: cleanContent,
             });
           }
         } catch (error) {
@@ -88,10 +88,7 @@ async function getAllMdxContent(locale: string) {
       }
     };
 
-    await Promise.all([
-      processPages(blogPages),
-      processPages(patternPages)
-    ]);
+    await Promise.all([processPages(blogPages), processPages(patternPages)]);
 
     return allContent;
   } catch (error) {
@@ -107,10 +104,7 @@ export async function GET(req: NextRequest) {
     const apiKey = process.env.MDX_API_KEY;
 
     if (!authHeader || authHeader !== `Bearer ${apiKey}`) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Get locale from query params or default to 'en'
@@ -118,26 +112,19 @@ export async function GET(req: NextRequest) {
     const locale = (searchParams.get('locale') || i18n.defaultLocale) as Locale;
 
     if (!i18n.locales.includes(locale)) {
-      return NextResponse.json(
-        { error: 'Invalid locale' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid locale' }, { status: 400 });
     }
 
     const content = await getAllMdxContent(locale);
 
     return NextResponse.json({
       content,
-      success: true
+      success: true,
     });
-
   } catch (error) {
     Sentry.captureException(error);
     console.error(error);
 
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

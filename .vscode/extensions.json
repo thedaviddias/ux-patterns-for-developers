@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "davidanson.vscode-markdownlint",
-    "dbaeumer.vscode-eslint"
-  ]
+  "recommendations": ["davidanson.vscode-markdownlint", "dbaeumer.vscode-eslint"]
 }

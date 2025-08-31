@@ -1,24 +1,24 @@
-'use client'
+'use client';
 
-import { cn } from '@/app/_utils/cn'
-import { Accessibility, Globe, Smartphone } from 'lucide-react'
+import { Accessibility, Globe, Smartphone } from 'lucide-react';
+import { cn } from '@/app/_utils/cn';
 
 interface MetricData {
-  label: string
-  value: number
-  status: 'green' | 'yellow' | 'red'
-  description: string
+  label: string;
+  value: number;
+  status: 'green' | 'yellow' | 'red';
+  description: string;
 }
 
 interface PatternMetrics {
-  pattern: string
-  accessibility: MetricData
-  mobile: MetricData
-  browser: MetricData
+  pattern: string;
+  accessibility: MetricData;
+  mobile: MetricData;
+  browser: MetricData;
 }
 
 interface ImplementationMetricsProps {
-  patterns: PatternMetrics[]
+  patterns: PatternMetrics[];
 }
 
 const metricInfo = {
@@ -37,30 +37,30 @@ const metricInfo = {
     title: 'Browser Support',
     description: 'Cross-browser compatibility and consistent behavior',
   },
-}
+};
 
 export function ImplementationMetrics({ patterns }: ImplementationMetricsProps) {
   const getStatusColor = (status: MetricData['status']) => {
     switch (status) {
       case 'green':
-        return 'text-green-600 dark:text-green-400'
+        return 'text-green-600 dark:text-green-400';
       case 'yellow':
-        return 'text-yellow-600 dark:text-yellow-400'
+        return 'text-yellow-600 dark:text-yellow-400';
       case 'red':
-        return 'text-red-600 dark:text-red-400'
+        return 'text-red-600 dark:text-red-400';
     }
-  }
+  };
 
   const getProgressColor = (status: MetricData['status']) => {
     switch (status) {
       case 'green':
-        return 'bg-green-600 dark:bg-green-400'
+        return 'bg-green-600 dark:bg-green-400';
       case 'yellow':
-        return 'bg-yellow-600 dark:bg-yellow-400'
+        return 'bg-yellow-600 dark:bg-yellow-400';
       case 'red':
-        return 'bg-red-600 dark:bg-red-400'
+        return 'bg-red-600 dark:bg-red-400';
     }
-  }
+  };
 
   return (
     <div className="mb-16">
@@ -124,10 +124,7 @@ export function ImplementationMetrics({ patterns }: ImplementationMetricsProps) 
                 <div className="flex justify-between mb-2">
                   <span className="text-sm font-medium">{pattern.pattern}</span>
                   <span
-                    className={cn(
-                      'text-sm font-medium',
-                      getStatusColor(pattern.mobile.status)
-                    )}
+                    className={cn('text-sm font-medium', getStatusColor(pattern.mobile.status))}
                   >
                     {pattern.mobile.description}
                   </span>
@@ -164,10 +161,7 @@ export function ImplementationMetrics({ patterns }: ImplementationMetricsProps) 
                 <div className="flex justify-between mb-2">
                   <span className="text-sm font-medium">{pattern.pattern}</span>
                   <span
-                    className={cn(
-                      'text-sm font-medium',
-                      getStatusColor(pattern.browser.status)
-                    )}
+                    className={cn('text-sm font-medium', getStatusColor(pattern.browser.status))}
                   >
                     {pattern.browser.description}
                   </span>
@@ -187,6 +181,5 @@ export function ImplementationMetrics({ patterns }: ImplementationMetricsProps) 
         </div>
       </div>
     </div>
-  )
+  );
 }
-

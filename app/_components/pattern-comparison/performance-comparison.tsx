@@ -1,23 +1,23 @@
-'use client'
+'use client';
 
-import { cn } from '@/app/_utils/cn'
-import { Cpu, Gauge } from 'lucide-react'
+import { Cpu, Gauge } from 'lucide-react';
+import { cn } from '@/app/_utils/cn';
 
 interface MetricData {
-  label: string
-  value: number
-  status: 'green' | 'yellow' | 'red'
-  description: string
+  label: string;
+  value: number;
+  status: 'green' | 'yellow' | 'red';
+  description: string;
 }
 
 interface PatternMetrics {
-  pattern: string
-  initialLoad: MetricData
-  memoryUsage: MetricData
+  pattern: string;
+  initialLoad: MetricData;
+  memoryUsage: MetricData;
 }
 
 interface PerformanceComparisonProps {
-  patterns: PatternMetrics[]
+  patterns: PatternMetrics[];
 }
 
 const metricInfo = {
@@ -31,30 +31,30 @@ const metricInfo = {
     title: 'Memory Usage',
     description: 'RAM consumption during normal usage',
   },
-}
+};
 
 export function PerformanceComparison({ patterns }: PerformanceComparisonProps) {
   const getStatusColor = (status: MetricData['status']) => {
     switch (status) {
       case 'green':
-        return 'text-green-600 dark:text-green-400'
+        return 'text-green-600 dark:text-green-400';
       case 'yellow':
-        return 'text-yellow-600 dark:text-yellow-400'
+        return 'text-yellow-600 dark:text-yellow-400';
       case 'red':
-        return 'text-red-600 dark:text-red-400'
+        return 'text-red-600 dark:text-red-400';
     }
-  }
+  };
 
   const getProgressColor = (status: MetricData['status']) => {
     switch (status) {
       case 'green':
-        return 'bg-green-600 dark:bg-green-400'
+        return 'bg-green-600 dark:bg-green-400';
       case 'yellow':
-        return 'bg-yellow-600 dark:bg-yellow-400'
+        return 'bg-yellow-600 dark:bg-yellow-400';
       case 'red':
-        return 'bg-red-600 dark:bg-red-400'
+        return 'bg-red-600 dark:bg-red-400';
     }
-  }
+  };
 
   return (
     <div className="mb-16">
@@ -141,5 +141,5 @@ export function PerformanceComparison({ patterns }: PerformanceComparisonProps) 
         </div>
       </div>
     </div>
-  )
+  );
 }

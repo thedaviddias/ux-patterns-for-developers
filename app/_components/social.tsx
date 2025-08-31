@@ -1,12 +1,12 @@
-import { siBluesky, siDiscord, siGithub, siReddit, siX } from 'simple-icons'
-import { SimpleIconComponent } from './browser-support'
+import { siBluesky, siDiscord, siGithub, siReddit, siX } from 'simple-icons';
+import { SimpleIconComponent } from './browser-support';
 
 interface SocialLink {
-  label: string
-  link: string
-  shortlink: string
-  icon?: React.ReactNode
-  rel?: 'me'
+  label: string;
+  link: string;
+  shortlink: string;
+  icon?: React.ReactNode;
+  rel?: 'me';
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -75,4 +75,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
       />
     ),
   },
-]
+];

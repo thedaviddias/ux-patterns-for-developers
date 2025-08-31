@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 interface PatternOption {
-  title: string
-  href: string
-  criteria: string[]
+  title: string;
+  href: string;
+  criteria: string[];
 }
 
 interface ComparisonGridProps {
-  patterns: PatternOption[]
+  patterns: PatternOption[];
 }
 
 export function ComparisonGrid({ patterns }: ComparisonGridProps) {
@@ -53,5 +53,5 @@ export function ComparisonGrid({ patterns }: ComparisonGridProps) {
         ))}
       </div>
     </div>
-  )
+  );
 }

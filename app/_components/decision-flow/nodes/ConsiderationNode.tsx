@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { AlertCircle } from 'lucide-react'
-import Link from 'next/link'
-import { Handle, Position } from 'reactflow'
-import type { NodeData } from '../types'
+import { AlertCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Handle, Position } from 'reactflow';
+import type { NodeData } from '../types';
 
 interface ConsiderationNodeProps {
-  data: NodeData
-  isConnectable: boolean
+  data: NodeData;
+  isConnectable: boolean;
 }
 
 export function ConsiderationNode({ data, isConnectable }: ConsiderationNodeProps) {
@@ -30,7 +30,9 @@ export function ConsiderationNode({ data, isConnectable }: ConsiderationNodeProp
             {data.label}
           </Link>
         ) : (
-          <div className="text-sm font-medium text-yellow-700 dark:text-yellow-200">{data.label}</div>
+          <div className="text-sm font-medium text-yellow-700 dark:text-yellow-200">
+            {data.label}
+          </div>
         )}
       </div>
 
@@ -47,5 +49,5 @@ export function ConsiderationNode({ data, isConnectable }: ConsiderationNodeProp
         className="w-2 h-2 !bg-yellow-500"
       />
     </div>
-  )
+  );
 }

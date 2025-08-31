@@ -1,6 +1,6 @@
-import { getGlossaryTerms } from "@app/_utils/get-glossary-terms";
+import { getGlossaryTerms } from '@app/_utils/get-glossary-terms';
 import { Suspense } from 'react';
-import { TermsList } from "./terms-list";
+import { TermsList } from './terms-list';
 
 function LoadingTerms() {
   return <div>Loading glossary terms...</div>;

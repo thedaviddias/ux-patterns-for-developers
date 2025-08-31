@@ -1,6 +1,4 @@
-import {
-  Footer as NextraFooter,
-} from 'nextra-theme-docs';
+import { Footer as NextraFooter } from 'nextra-theme-docs';
 
 import { FOOTER_MENU_LINKS } from '../_constants/footer';
 import { getDictionary } from '../_dictionaries/get-dictionary';
@@ -14,7 +12,7 @@ type FooterLinksProps = {
     path?: string;
     shortlink?: string;
   }>;
-}
+};
 
 const FooterLinks = ({ title, links }: FooterLinksProps) => {
   return (
@@ -33,32 +31,21 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 const FooterMenuLinks = ({ lang }: { lang: string }) => (
-  <FooterLinks
-    title="General"
-    links={FOOTER_MENU_LINKS(lang)}
-  />
-)
+  <FooterLinks title="General" links={FOOTER_MENU_LINKS(lang)} />
+);
 
-const FooterSocialLinks = () => (
-  <FooterLinks
-    title="Support"
-    links={SOCIAL_LINKS}
-  />
-)
+const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} />;
 
 export const Footer = async ({ lang }: { lang: string }) => {
-  const dictionary = await getDictionary(lang)
+  const dictionary = await getDictionary(lang);
 
   return (
     <NextraFooter className="mt-auto sm:pt-8 w-full">
-      <div
-        className="main-footer transform w-full"
-        aria-labelledby="footer-heading"
-      >
+      <div className="main-footer transform w-full" aria-labelledby="footer-heading">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
@@ -66,10 +53,7 @@ export const Footer = async ({ lang }: { lang: string }) => {
           <div className="flex flex-col-reverse sm:flex-row print:hidden">
             <div className="w-full flex-grow text-left sm:mb-0 sm:w-1/2 md:pr-24 lg:w-[20%]">
               <span className="mb-5 block text-xl font-bold">{dictionary.name}</span>
-              <p
-                className="text-sm text-gray-500 dark:text-gray-400">
-                {dictionary.description}
-              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary.description}</p>
               <div className="flex space-x-6"></div>
             </div>
 
@@ -79,15 +63,22 @@ export const Footer = async ({ lang }: { lang: string }) => {
             </div>
           </div>
           <div className="mt-8 flex items-center flex-col border-t border-gray-200 pt-3 dark:border-gray-400 text-sm">
+            <p className="text-gray-500">&copy; {new Date().getFullYear()} UX Patterns for Devs</p>
             <p className="text-gray-500">
-              &copy; {new Date().getFullYear()} UX Patterns for Devs
-            </p>
-            <p className="text-gray-500">
-              Made with ❤️ by <a href="https://ddias.link/blog" target="_blank" rel="noopener noreferrer" className="font-bold underline dark:text-gray-300">David Dias</a> for the Open-Source Community.
+              Made with ❤️ by{' '}
+              <a
+                href="https://ddias.link/blog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold underline dark:text-gray-300"
+              >
+                David Dias
+              </a>{' '}
+              for the Open-Source Community.
             </p>
           </div>
         </div>
       </div>
-    </NextraFooter >
-  )
-}
+    </NextraFooter>
+  );
+};

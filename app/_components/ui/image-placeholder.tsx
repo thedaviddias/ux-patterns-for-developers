@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { cn } from '@/app/_utils/cn'
-import { ImageIcon } from 'lucide-react'
+import { ImageIcon } from 'lucide-react';
+import { cn } from '@/app/_utils/cn';
 
 interface ImagePlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {
-  title?: string
-  description?: string
-  className?: string
+  title?: string;
+  description?: string;
+  className?: string;
 }
 
 export function ImagePlaceholder({
@@ -26,16 +26,12 @@ export function ImagePlaceholder({
       <ImageIcon className="h-10 w-10 text-neutral-400" />
       {title && (
         <div className="mt-4 text-center px-4">
-          <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
-            {title}
-          </p>
+          <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{title}</p>
           {description && (
-            <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-              {description}
-            </p>
+            <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{description}</p>
           )}
         </div>
       )}
     </div>
-  )
+  );
 }

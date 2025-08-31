@@ -1,6 +1,6 @@
 export default {
-  'pagination': '',
+  pagination: '',
   'aria-attributes': '',
   'semantic-html': '',
   'progressive-loading': '',
-}
+};

@@ -1,27 +1,21 @@
-import { getDictionary } from '@app/_dictionaries/get-dictionary'
-import type { Locale } from '@app/_dictionaries/i18n-config'
-import type { FC } from 'react'
-import { LinkCustom } from './link-custom'
+import { getDictionary } from '@app/_dictionaries/get-dictionary';
+import type { Locale } from '@app/_dictionaries/i18n-config';
+import type { FC } from 'react';
+import { LinkCustom } from './link-custom';
 
 type TopContentProps = {
-  title: string
-  date: string
+  title: string;
+  date: string;
   authors: {
-    name: string
-    link: string
-  }[]
-  lang: Locale
-}
+    name: string;
+    link: string;
+  }[];
+  lang: Locale;
+};
 
-export const TopContent: FC<TopContentProps> = async ({
-  title,
-  date,
-  authors,
-  lang
-}) => {
-
-  const dictionary = await getDictionary(lang)
-  const dateObj = new Date(date)
+export const TopContent: FC<TopContentProps> = async ({ title, date, authors, lang }) => {
+  const dictionary = await getDictionary(lang);
+  const dateObj = new Date(date);
 
   return (
     <>
@@ -31,11 +25,11 @@ export const TopContent: FC<TopContentProps> = async ({
           {dateObj.toLocaleDateString(lang, {
             month: 'long',
             day: 'numeric',
-            year: 'numeric'
+            year: 'numeric',
           })}
         </time>{' '}
         {dictionary.by}{' '}
-        {authors.map(author => (
+        {authors.map((author) => (
           <span key={author.name} className="not-last:after:content-[',_']">
             <LinkCustom href={author.link} className="text-gray-800 dark:text-gray-100">
               {author.name}
@@ -44,5 +38,5 @@ export const TopContent: FC<TopContentProps> = async ({
         ))}
       </div>
     </>
-  )
-}
+  );
+};
