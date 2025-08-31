@@ -1,8 +1,8 @@
 'use client';
 
+import { PROJECT_URL } from '@/app/_constants/project';
 import { usePlausible } from 'next-plausible';
 import { useId } from 'react';
-import { PROJECT_URL } from '@/app/_constants/project';
 import { LinkCustom } from './link-custom';
 
 export const SuggestPattern = () => {

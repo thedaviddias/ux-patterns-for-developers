@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-import { useState } from 'react';
 import { AspectRatio } from '@/app/_components/ui/aspect-ratio';
 import {
   Dialog,
@@ -11,6 +9,8 @@ import {
   DialogTitle,
 } from '@/app/_components/ui/dialog';
 import { ImagePlaceholder } from '@/app/_components/ui/image-placeholder';
+import Image from 'next/image';
+import { useState } from 'react';
 
 interface Example {
   title: string;

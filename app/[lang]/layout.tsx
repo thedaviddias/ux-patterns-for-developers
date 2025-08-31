@@ -3,7 +3,6 @@
 import { JetBrains_Mono as FontMono, Poppins as FontSans } from 'next/font/google';
 import PlausibleProvider from 'next-plausible';
 import { Banner } from 'nextra/components';
-import { DiscordIcon } from 'nextra/icons';
 import { getPageMap } from 'nextra/page-map';
 import { LastUpdated, Layout, LocaleSwitch, Navbar } from 'nextra-theme-docs';
 import '../../styles/globals.css';
@@ -80,8 +79,6 @@ export default async function RootLayout({
       }
       projectLink={PROJECT_URL}
       projectIcon={<Stars variant="small" />}
-      chatLink="https://ddias.link/discord"
-      chatIcon={<DiscordIcon className="w-6 h-6" aria-label="Discord" />}
     >
       <LocaleSwitch />
     </Navbar>
