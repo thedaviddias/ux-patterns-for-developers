@@ -1,12 +1,12 @@
-"use client"
+'use client';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 interface TermCardProps {
-  title: string
-  description: string
-  category: string[]
-  slug: string
+  title: string;
+  description: string;
+  category: string[];
+  slug: string;
 }
 
 export function TermCard({ title, description, category, slug }: TermCardProps) {
@@ -16,12 +16,8 @@ export function TermCard({ title, description, category, slug }: TermCardProps) 
       className="block p-6 rounded-lg border border-gray-200 hover:border-primary transition-colors duration-200 dark:border-gray-700"
     >
       <div className="flex flex-col gap-2">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-          {title}
-        </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          {description}
-        </p>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300">{description}</p>
         <div className="flex flex-wrap gap-2 mt-2">
           {category.map((cat) => (
             <span
@@ -34,6 +30,5 @@ export function TermCard({ title, description, category, slug }: TermCardProps) 
         </div>
       </div>
     </Link>
-  )
+  );
 }
-

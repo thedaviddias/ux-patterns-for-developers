@@ -72,4 +72,4 @@ export const tabbedCarouselExample = `
     </div>
   </div>
 </section>
-`
+`;

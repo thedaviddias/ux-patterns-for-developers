@@ -1,4 +1,4 @@
-import { Edge, Node } from 'reactflow';
+import type { Edge, Node } from 'reactflow';
 
 export type NodeData = {
   label: string;
@@ -7,11 +7,11 @@ export type NodeData = {
 };
 
 export type DecisionNodeType =
-  | 'question'      // Decision points
-  | 'pattern'       // Pattern recommendations
-  | 'category'      // Pattern categories
+  | 'question' // Decision points
+  | 'pattern' // Pattern recommendations
+  | 'category' // Pattern categories
   | 'consideration' // Important factors to consider
-  | 'comparison';   // Compare multiple patterns
+  | 'comparison'; // Compare multiple patterns
 
 export type DecisionNode = Node<NodeData> & {
   type: DecisionNodeType;

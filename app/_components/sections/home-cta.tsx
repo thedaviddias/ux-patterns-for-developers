@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import { ArrowRight } from "lucide-react";
-import { usePlausible } from "next-plausible";
-import { LinkCustom } from "../link-custom";
+import { ArrowRight } from 'lucide-react';
+import { usePlausible } from 'next-plausible';
+import { LinkCustom } from '../link-custom';
 
 export const HomeCTA = () => {
-  const plausible = usePlausible()
+  const plausible = usePlausible();
 
   return (
     <div className="my-8 flex justify-center gap-4">
@@ -24,6 +24,6 @@ export const HomeCTA = () => {
       >
         View on GitHub
       </LinkCustom>
-    </div >
+    </div>
   );
 };

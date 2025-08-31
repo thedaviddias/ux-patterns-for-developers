@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { HelpCircle } from 'lucide-react'
-import { Handle, Position } from 'reactflow'
-import type { NodeData } from '../types'
+import { HelpCircle } from 'lucide-react';
+import { Handle, Position } from 'reactflow';
+import type { NodeData } from '../types';
 
 interface QuestionNodeProps {
-  data: NodeData
-  isConnectable: boolean
+  data: NodeData;
+  isConnectable: boolean;
 }
 
 export function QuestionNode({ data, isConnectable }: QuestionNodeProps) {
@@ -25,9 +25,7 @@ export function QuestionNode({ data, isConnectable }: QuestionNodeProps) {
       </div>
 
       {data.description && (
-        <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-          {data.description}
-        </div>
+        <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">{data.description}</div>
       )}
 
       <Handle
@@ -37,5 +35,5 @@ export function QuestionNode({ data, isConnectable }: QuestionNodeProps) {
         className="w-2 h-2 !bg-gray-500 dark:!bg-gray-400"
       />
     </div>
-  )
+  );
 }

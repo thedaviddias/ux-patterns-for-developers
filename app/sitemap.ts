@@ -1,8 +1,8 @@
-import { readdirSync, statSync } from "fs";
-import { MetadataRoute } from "next";
-import { join } from "path";
-import { BASE_URL } from "./_constants/project";
-import { i18n } from "./_dictionaries/i18n-config";
+import { readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+import type { MetadataRoute } from 'next';
+import { BASE_URL } from './_constants/project';
+import { i18n } from './_dictionaries/i18n-config';
 
 function getContentPages(dir: string, baseDir: string = ''): string[] {
   const pages: string[] = [];
@@ -21,9 +21,7 @@ function getContentPages(dir: string, baseDir: string = ''): string[] {
         }
       } else if (item.endsWith('.mdx') && !item.startsWith('_')) {
         // Remove .mdx extension and index becomes empty string
-        const pagePath = item === 'index.mdx'
-          ? baseDir
-          : join(baseDir, item.replace('.mdx', ''));
+        const pagePath = item === 'index.mdx' ? baseDir : join(baseDir, item.replace('.mdx', ''));
         pages.push(pagePath);
       }
     }
@@ -43,13 +41,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const pages = getContentPages(contentDir);
 
     // Add routes for this language
-    pages.forEach(page => {
+    pages.forEach((page) => {
       routes.push({
         url: `${BASE_URL}/${locale}${page ? `/${page}` : ''}`,
         lastModified: new Date(),
-        changeFrequency: page.includes('patterns') ?
-          "daily" :
-          "weekly",
+        changeFrequency: page.includes('patterns') ? 'daily' : 'weekly',
         priority: getPriority(page),
       });
     });
@@ -59,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   routes.push({
     url: BASE_URL,
     lastModified: new Date(),
-    changeFrequency: "weekly",
+    changeFrequency: 'weekly',
     priority: 1,
   });
 

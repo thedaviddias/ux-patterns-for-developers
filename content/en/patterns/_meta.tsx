@@ -1,17 +1,13 @@
-import type { FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react';
 
 export const Separator: FC<{ children: ReactNode }> = ({ children }) => {
-  return (
-    <div className="flex items-center gap-2">
-      {children}
-    </div>
-  )
-}
+  return <div className="flex items-center gap-2">{children}</div>;
+};
 
 export default {
   'getting-started': '',
   'when-to-use-what': '',
-  'books': '',
+  books: '',
   _: {
     title: <Separator>Categories</Separator>,
     type: 'separator',
@@ -19,25 +15,25 @@ export default {
   'content-management': {
     title: 'Content Management',
     theme: {
-      collapsed: false
-    }
+      collapsed: false,
+    },
   },
-  'navigation': {
+  navigation: {
     title: 'Layout & Navigation',
     theme: {
-      collapsed: false
-    }
+      collapsed: false,
+    },
   },
   'user-feedback': {
     title: 'User Feedback',
     theme: {
-      collapsed: false
-    }
+      collapsed: false,
+    },
   },
-  'forms': {
+  forms: {
     title: 'Inputs & Forms',
     theme: {
-      collapsed: false
-    }
-  }
-}
+      collapsed: false,
+    },
+  },
+};

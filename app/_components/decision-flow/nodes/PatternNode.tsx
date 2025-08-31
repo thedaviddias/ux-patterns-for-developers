@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { Component } from 'lucide-react'
-import Link from 'next/link'
-import { Handle, Position } from 'reactflow'
-import type { NodeData } from '../types'
+import { Component } from 'lucide-react';
+import Link from 'next/link';
+import { Handle, Position } from 'reactflow';
+import type { NodeData } from '../types';
 
 interface PatternNodeProps {
-  data: NodeData
-  isConnectable: boolean
+  data: NodeData;
+  isConnectable: boolean;
 }
 
 export function PatternNode({ data, isConnectable }: PatternNodeProps) {
@@ -30,7 +30,9 @@ export function PatternNode({ data, isConnectable }: PatternNodeProps) {
             {data.label}
           </Link>
         ) : (
-          <div className="text-sm font-medium text-indigo-700 dark:text-indigo-300">{data.label}</div>
+          <div className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+            {data.label}
+          </div>
         )}
       </div>
 
@@ -47,5 +49,5 @@ export function PatternNode({ data, isConnectable }: PatternNodeProps) {
         className="w-2 h-2 !bg-indigo-500"
       />
     </div>
-  )
+  );
 }

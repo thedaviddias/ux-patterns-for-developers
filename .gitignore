@@ -43,3 +43,7 @@ repomix-output.txt
 # Lychee
 lychee-out.md
 .lycheecache
+
+# Claude
+
+.claude

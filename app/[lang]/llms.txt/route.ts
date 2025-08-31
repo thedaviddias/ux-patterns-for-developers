@@ -1,7 +1,7 @@
-import matter from 'gray-matter';
-import { NextResponse } from 'next/server';
 import fs from 'node:fs';
 import path from 'node:path';
+import matter from 'gray-matter';
+import { NextResponse } from 'next/server';
 
 const contentDirectory = path.join(process.cwd(), 'content/en/patterns');
 
@@ -17,13 +17,6 @@ interface PatternsByCategory {
   [category: string]: Pattern[];
 }
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
 function getAllPatterns(): PatternsByCategory {
   // Get all directories under patterns
   const categories = fs.readdirSync(contentDirectory);
@@ -37,10 +30,9 @@ function getAllPatterns(): PatternsByCategory {
     if (!fs.statSync(categoryPath).isDirectory()) continue;
 
     // Read all MDX files in the category
-    const files = fs.readdirSync(categoryPath)
-      .filter(file => file.endsWith('.mdx'));
+    const files = fs.readdirSync(categoryPath).filter((file) => file.endsWith('.mdx'));
 
-    const categoryPatterns = files.map(file => {
+    const categoryPatterns = files.map((file) => {
       const fullPath = path.join(categoryPath, file);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents);
@@ -51,7 +43,7 @@ function getAllPatterns(): PatternsByCategory {
         title: data.title || slug,
         summary: data.summary || '',
         status: data.status || 'coming soon',
-        slug
+        slug,
       };
     });
 
@@ -61,10 +53,7 @@ function getAllPatterns(): PatternsByCategory {
   return allPatterns;
 }
 
-export async function GET(
-  request: Request,
-  { params }: { params: { lang: string } }
-) {
+export async function GET(_request: Request, { params }: { params: { lang: string } }) {
   try {
     const patterns = getAllPatterns();
 
@@ -72,10 +61,10 @@ export async function GET(
     const [baseUrl, { lang }] = await Promise.all([
       Promise.resolve(
         process.env.NODE_ENV === 'development'
-          ? 'http://localhost:3000'
-          : `https://${process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'}`
+          ? 'http://localhost:3060'
+          : `https://${process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3060'}`
       ),
-      params
+      params,
     ]);
 
     // Generate the text content

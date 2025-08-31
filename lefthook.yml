@@ -1,0 +1,22 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: "*.{js,jsx,ts,tsx,json}"
+      run: npx @biomejs/biome format --write {staged_files}
+    lint:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: npx @biomejs/biome lint {staged_files}
+    organize-imports:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: npx @biomejs/biome check --write {staged_files}
+
+pre-push:
+  commands:
+    type-check:
+      run: pnpm tsc
+    build-check:
+      run: pnpm build
+    link-check:
+      run: pnpm check:links
+

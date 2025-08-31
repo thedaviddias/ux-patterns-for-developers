@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface PatternLink {
-  title: string
-  description: string
-  href: string
+  title: string;
+  description: string;
+  href: string;
 }
 
 interface PatternNextStepsProps {
-  patterns: PatternLink[]
+  patterns: PatternLink[];
 }
 
 export function PatternNextSteps({ patterns }: PatternNextStepsProps) {
@@ -40,5 +40,5 @@ export function PatternNextSteps({ patterns }: PatternNextStepsProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

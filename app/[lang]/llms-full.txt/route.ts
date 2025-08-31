@@ -1,8 +1,8 @@
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
 import fg from 'fast-glob';
 import matter from 'gray-matter';
 import { NextResponse } from 'next/server';
-import * as fs from 'node:fs/promises';
-import path from 'node:path';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
@@ -12,9 +12,11 @@ export const dynamic = 'force-dynamic';
 // Regular expressions for cleaning up the content
 const IMPORT_REGEX = /import\s+?(?:(?:{[^}]*}|\*|\w+)\s+from\s+)?['"](.*?)['"];?\n?/g;
 const COMPONENT_USAGE_REGEX = /<[A-Z][a-zA-Z]*(?:\s+[^>]*)?(?:\/?>|>[^<]*<\/[A-Z][a-zA-Z]*>)/g;
-const NEXTRA_COMPONENT_REGEX = /<(?:Callout|Steps|Tabs|Tab|FileTree)[^>]*>[^<]*<\/(?:Callout|Steps|Tabs|Tab|FileTree)>/g;
+const NEXTRA_COMPONENT_REGEX =
+  /<(?:Callout|Steps|Tabs|Tab|FileTree)[^>]*>[^<]*<\/(?:Callout|Steps|Tabs|Tab|FileTree)>/g;
 const MDX_EXPRESSION_REGEX = /{(?:[^{}]|{[^{}]*})*}/g;
-const EXPORT_REGEX = /export\s+(?:default\s+)?(?:const|let|var|function|class|interface|type)?\s+[a-zA-Z_$][0-9a-zA-Z_$]*[\s\S]*?(?:;|\n|$)/g;
+const EXPORT_REGEX =
+  /export\s+(?:default\s+)?(?:const|let|var|function|class|interface|type)?\s+[a-zA-Z_$][0-9a-zA-Z_$]*[\s\S]*?(?:;|\n|$)/g;
 
 async function processContent(content: string): Promise<string> {
   try {
@@ -40,10 +42,7 @@ async function processContent(content: string): Promise<string> {
       .trim();
 
     // Simple markdown processing without MDX
-    const file = await remark()
-      .use(remarkGfm)
-      .use(remarkStringify)
-      .process(cleanContent);
+    const file = await remark().use(remarkGfm).use(remarkStringify).process(cleanContent);
 
     return String(file);
   } catch (error) {
@@ -80,9 +79,12 @@ async function processFile(file: string, options: ProcessFileOptions) {
     }
 
     // Use filename as title if no title in frontmatter, and convert to Title Case
-    const title = data.title || basename.split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    const title =
+      data.title ||
+      basename
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 
     const processed = await processContent(content);
     const patternUrl = new URL(
@@ -101,10 +103,7 @@ ${processed}`;
   }
 }
 
-export async function GET(
-  _request: Request,
-  { params }: { params: { lang: string } }
-) {
+export async function GET(_request: Request, { params }: { params: { lang: string } }) {
   try {
     // Get base URL and await params
     const [baseUrl, { lang }] = await Promise.all([
@@ -112,10 +111,10 @@ export async function GET(
         process.env.NEXT_PUBLIC_VERCEL_URL
           ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
           : process.env.NODE_ENV === 'development'
-            ? 'http://localhost:3000'
+            ? 'http://localhost:3060'
             : ''
       ),
-      params
+      params,
     ]);
 
     if (!baseUrl) {
@@ -126,9 +125,9 @@ export async function GET(
     const files = await fg(['content/en/patterns/**/*.mdx']);
     const options: ProcessFileOptions = { baseUrl, lang };
 
-    const scanned = (await Promise.all(
-      files.map(file => processFile(file, options))
-    )).filter(Boolean);
+    const scanned = (await Promise.all(files.map((file) => processFile(file, options)))).filter(
+      Boolean
+    );
 
     if (!scanned.length) {
       return NextResponse.json({ error: 'No content found' }, { status: 404 });

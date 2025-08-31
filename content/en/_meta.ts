@@ -4,12 +4,12 @@ export default {
     display: 'hidden',
     theme: {
       toc: false,
-      typesetting: 'article'
-    }
+      typesetting: 'article',
+    },
   },
   patterns: {
     type: 'page',
-    title: 'Patterns'
+    title: 'Patterns',
   },
   'pattern-guide': {
     type: 'page',
@@ -17,8 +17,8 @@ export default {
     theme: {
       toc: false,
       sidebar: false,
-      typesetting: 'article'
-    }
+      typesetting: 'article',
+    },
   },
   glossary: {
     type: 'page',
@@ -26,8 +26,8 @@ export default {
     theme: {
       sidebar: true,
       typesetting: 'article',
-      layout: 'full'
-    }
+      layout: 'full',
+    },
   },
   blog: {
     type: 'page',
@@ -35,8 +35,8 @@ export default {
     theme: {
       toc: false,
       sidebar: false,
-      typesetting: 'article'
-    }
+      typesetting: 'article',
+    },
   },
   about: {
     type: 'page',
@@ -45,7 +45,7 @@ export default {
       toc: false,
       sidebar: false,
       typesetting: 'article',
-    }
+    },
   },
   'privacy-policy': {
     type: 'page',
@@ -54,8 +54,6 @@ export default {
     theme: {
       sidebar: false,
       typesetting: 'article',
-    }
-  }
-}
-
-
+    },
+  },
+};

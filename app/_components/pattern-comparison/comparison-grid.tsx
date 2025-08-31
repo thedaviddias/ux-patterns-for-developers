@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 interface PatternOption {
-  title: string
-  href: string
-  criteria: string[]
+  title: string;
+  href: string;
+  criteria: string[];
 }
 
 interface ComparisonGridProps {
-  patterns: PatternOption[]
+  patterns: PatternOption[];
 }
 
 export function ComparisonGrid({ patterns }: ComparisonGridProps) {
@@ -37,7 +37,7 @@ export function ComparisonGrid({ patterns }: ComparisonGridProps) {
                 <h4 className="font-medium mb-2">Choose When</h4>
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                   {pattern.criteria.map((criterion, index) => (
-                    <li key={index}>✓ {criterion}</li>
+                    <li key={`criterion-${pattern.title}-${index}`}>✓ {criterion}</li>
                   ))}
                 </ul>
               </div>
@@ -53,5 +53,5 @@ export function ComparisonGrid({ patterns }: ComparisonGridProps) {
         ))}
       </div>
     </div>
-  )
+  );
 }

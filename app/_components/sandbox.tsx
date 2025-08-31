@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from "@/app/_utils/cn";
 import type {
   CodeEditorProps,
   PreviewProps,
@@ -15,25 +14,13 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from '@codesandbox/sandpack-react';
-import type {
-  ButtonHTMLAttributes,
-  ComponentProps,
-  HTMLAttributes,
-} from 'react';
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import type { ButtonHTMLAttributes, ComponentProps, HTMLAttributes } from 'react';
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { cn } from '@/app/_utils/cn';
 
 export type SandboxProviderProps = SandpackProviderProps;
 
-export const SandboxProvider = ({
-  className,
-  ...props
-}: SandpackProviderProps) => (
+export const SandboxProvider = ({ className, ...props }: SandpackProviderProps) => (
   <div className={cn('size-full', className)}>
     <SandpackProvider className="!size-full !max-h-none" {...props} />
   </div>
@@ -43,10 +30,7 @@ export type SandboxLayoutProps = SandpackLayoutProps;
 
 export const SandboxLayout = ({ className, ...props }: SandpackLayoutProps) => (
   <SandpackLayout
-    className={cn(
-      '!rounded-none !border-none !bg-transparent !h-full',
-      className
-    )}
+    className={cn('!rounded-none !border-none !bg-transparent !h-full', className)}
     {...props}
   />
 );
@@ -56,17 +40,13 @@ export type SandboxTabsContextValue = {
   setSelectedTab: (value: string) => void;
 };
 
-const SandboxTabsContext = createContext<SandboxTabsContextValue | undefined>(
-  undefined
-);
+const SandboxTabsContext = createContext<SandboxTabsContextValue | undefined>(undefined);
 
 const useSandboxTabsContext = () => {
   const context = useContext(SandboxTabsContext);
 
   if (!context) {
-    throw new Error(
-      'SandboxTabs components must be used within a SandboxTabsProvider'
-    );
+    throw new Error('SandboxTabs components must be used within a SandboxTabsProvider');
   }
 
   return context;
@@ -121,10 +101,7 @@ export const SandboxTabs = ({
 
 export type SandboxTabsListProps = HTMLAttributes<HTMLDivElement>;
 
-export const SandboxTabsList = ({
-  className,
-  ...props
-}: SandboxTabsListProps) => (
+export const SandboxTabsList = ({ className, ...props }: SandboxTabsListProps) => (
   <div
     className={cn(
       'inline-flex w-full shrink-0 items-center justify-start border-b bg-secondary p-2 text-muted-foreground',
@@ -135,22 +112,13 @@ export const SandboxTabsList = ({
   />
 );
 
-export type SandboxTabsTriggerProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  'onClick'
-> & {
+export type SandboxTabsTriggerProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> & {
   value: string;
 };
 
-export const SandboxTabsTrigger = ({
-  className,
-  value,
-  ...props
-}: SandboxTabsTriggerProps) => {
+export const SandboxTabsTrigger = ({ className, value, ...props }: SandboxTabsTriggerProps) => {
   const { selectedTab, setSelectedTab } = useSandboxTabsContext();
-
   return (
-    // biome-ignore lint/nursery/useAriaPropsSupportedByRole: <explanation>
     <button
       role="tab"
       aria-selected={selectedTab === value}
@@ -169,11 +137,7 @@ export type SandboxTabsContentProps = HTMLAttributes<HTMLDivElement> & {
   value: string;
 };
 
-export const SandboxTabsContent = ({
-  className,
-  value,
-  ...props
-}: SandboxTabsContentProps) => {
+export const SandboxTabsContent = ({ className, value, ...props }: SandboxTabsContentProps) => {
   const { selectedTab } = useSandboxTabsContext();
 
   return (
@@ -195,19 +159,13 @@ export const SandboxTabsContent = ({
 
 export type SandboxCodeEditorProps = CodeEditorProps;
 
-export const SandboxCodeEditor = ({
-  showTabs = false,
-  ...props
-}: SandboxCodeEditorProps) => (
+export const SandboxCodeEditor = ({ showTabs = false, ...props }: SandboxCodeEditorProps) => (
   <SandpackCodeEditor showTabs={showTabs} {...props} />
 );
 
 export type SandboxConsoleProps = ComponentProps<typeof SandpackConsole>;
 
-export const SandboxConsole = ({
-  className,
-  ...props
-}: SandboxConsoleProps) => (
+export const SandboxConsole = ({ className, ...props }: SandboxConsoleProps) => (
   <SandpackConsole className={cn('h-full', className)} {...props} />
 );
 
@@ -227,9 +185,7 @@ export const SandboxPreview = ({
   />
 );
 
-export type SandboxFileExplorerProps = ComponentProps<
-  typeof SandpackFileExplorer
->;
+export type SandboxFileExplorerProps = ComponentProps<typeof SandpackFileExplorer>;
 
 export const SandboxFileExplorer = ({
   autoHiddenFiles = true,

@@ -1,7 +1,7 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import removeMarkdown from "remove-markdown";
+import type React from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import removeMarkdown from 'remove-markdown';
 
 type FAQItem = {
   question: string;
@@ -14,14 +14,14 @@ interface FAQProps {
 
 export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
   const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": items.map((item) => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": removeMarkdown(item.answer), // Strip markdown for schema
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: removeMarkdown(item.answer), // Strip markdown for schema
       },
     })),
   };
@@ -32,7 +32,7 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
         <dl className="space-y-6">
           {items.map((item, index) => (
             <div
-              key={index}
+              key={`faq-item-${item.question}-${index}`}
               className="group rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-700"
             >
               <dt className="text-lg font-semibold leading-snug text-neutral-900 dark:text-neutral-100">
@@ -43,18 +43,13 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
                   remarkPlugins={[remarkGfm]}
                   components={{
                     // Style links to match the site's design
-                    a: ({ node, ...props }) => (
+                    a: ({ ...props }) => (
                       <a
                         {...props}
                         className="text-neutral-900 dark:text-neutral-100 underline hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
                       />
                     ),
-                    ol: ({ node, ...props }) => (
-                      <ol
-                        {...props}
-                        className="list-decimal pl-5 space-y-1"
-                      />
-                    ),
+                    ol: ({ ...props }) => <ol {...props} className="list-decimal pl-5 space-y-1" />,
                   }}
                 >
                   {item.answer}
@@ -65,9 +60,7 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
         </dl>
       </div>
 
-      <script type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
     </>
   );
 };
