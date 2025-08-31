@@ -30,7 +30,8 @@ export const Stars = ({ variant = 'default' }: StarsProps) => {
 
   return (
     <div className="flex items-center justify-center gap-2">
-      <div
+      <button
+        type="button"
         className="!no-underline plausible-event-name=Star+Github inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-sm font-medium text-neutral-900 dark:text-neutral-100 rounded-lg border border-neutral-400 dark:border-neutral-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200 dark:focus:ring-neutral-700"
         aria-label="Star on GitHub"
       >
@@ -40,7 +41,7 @@ export const Stars = ({ variant = 'default' }: StarsProps) => {
           <StarIcon className="w-4 h-4 mr-1" aria-hidden="true" />
           {stars}
         </span>
-      </div>
+      </button>
     </div>
   );
 };

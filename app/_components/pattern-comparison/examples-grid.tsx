@@ -73,6 +73,7 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
                         description="Screenshot not available"
                       />
                     ) : (
+                      // biome-ignore lint/performance/noImgElement: Using img for grid thumbnails is more performant
                       <img
                         src={getImageUrl(example.thumbnailUrl || example.imageUrl)}
                         alt={example.title}

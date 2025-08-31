@@ -49,6 +49,7 @@ export async function GET(req: NextRequest) {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* biome-ignore lint/performance/noImgElement: OG image generation requires img element */}
         <img
           src={dataUrl}
           alt=""

@@ -40,15 +40,18 @@ const FooterMenuLinks = ({ lang }: { lang: string }) => (
 
 const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} />;
 
-export const Footer = async ({ lang }: { lang: string }) => {
-  const dictionary = await getDictionary(lang);
-
+// Client component for footer content
+const FooterContent = ({
+  dictionary,
+  lang,
+}: {
+  dictionary: Record<string, unknown>;
+  lang: string;
+}) => {
   return (
     <NextraFooter className="mt-auto sm:pt-8 w-full">
-      <div className="main-footer transform w-full" aria-labelledby="footer-heading">
-        <h2 id="footer-heading" className="sr-only">
-          Footer
-        </h2>
+      <div className="main-footer transform w-full">
+        <h2 className="sr-only">Footer</h2>
         <div className="mx-auto max-w-5xl px-2 py-12 sm:px-6 lg:px-8 lg:py-7">
           <div className="flex flex-col-reverse sm:flex-row print:hidden">
             <div className="w-full flex-grow text-left sm:mb-0 sm:w-1/2 md:pr-24 lg:w-[20%]">
@@ -81,4 +84,9 @@ export const Footer = async ({ lang }: { lang: string }) => {
       </div>
     </NextraFooter>
   );
+};
+
+export const Footer = async ({ lang }: { lang: string }) => {
+  const dictionary = await getDictionary(lang);
+  return <FooterContent dictionary={dictionary} lang={lang} />;
 };

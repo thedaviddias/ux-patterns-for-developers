@@ -1,16 +1,16 @@
-import type { LucideIcon } from 'lucide-react';
-import * as Icons from 'lucide-react';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import type { LucideIcon } from 'lucide-react';
+import * as Icons from 'lucide-react';
 
 // Type-safe icon access
 function getIconComponent(iconName: string): LucideIcon | undefined {
   return (Icons as Record<string, LucideIcon>)[iconName];
 }
 
-import { PATTERNS_MAP } from '@/app/_constants/patterns';
 import type { MdxFile } from 'nextra';
 import { getPageMap } from 'nextra/page-map';
+import { PATTERNS_MAP } from '@/app/_constants/patterns';
 
 import 'server-only';
 

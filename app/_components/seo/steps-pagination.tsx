@@ -33,10 +33,5 @@ export function StepsPagination() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
+  return <script type="application/ld+json">{JSON.stringify(schema)}</script>;
 }

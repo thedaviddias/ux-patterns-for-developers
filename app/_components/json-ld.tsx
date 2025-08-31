@@ -5,9 +5,7 @@ interface JsonLdProps {
 }
 
 export function JsonLd({ data }: JsonLdProps) {
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
-  );
+  return <script type="application/ld+json">{JSON.stringify(data)}</script>;
 }
 
 export function generateArticleSchema(
