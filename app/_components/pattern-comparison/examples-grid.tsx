@@ -61,7 +61,7 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
             <div className="grid grid-cols-2 gap-4">
               {pattern.examples.map((example, index) => (
                 <button
-                  key={index}
+                  key={`example-${pattern.name}-${example.title || index}`}
                   type="button"
                   onClick={() => setSelectedExample(example)}
                   className="group relative text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 dark:focus-visible:ring-neutral-300"

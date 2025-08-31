@@ -1,5 +1,11 @@
 import type { LucideIcon } from 'lucide-react';
 import * as Icons from 'lucide-react';
+
+// Type-safe icon access
+function getIconComponent(iconName: string): LucideIcon | undefined {
+  return (Icons as Record<string, LucideIcon>)[iconName];
+}
+
 import type { MdxFile } from 'nextra';
 import { getPageMap } from 'nextra/page-map';
 
@@ -20,9 +26,7 @@ export async function getPatternAssistantPages(locale: string): Promise<PatternA
   return pages.map((page) => {
     const iconName = page.frontMatter?.icon || 'GitBranch';
     // Exclude non-icon exports and cast the rest
-    const IconComponent = Icons[
-      iconName as keyof Omit<typeof Icons, 'createLucideIcon'>
-    ] as LucideIcon;
+    const IconComponent = getIconComponent(iconName);
 
     return {
       title: page.frontMatter?.title || page.name,

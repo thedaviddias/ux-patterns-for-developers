@@ -2,6 +2,12 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { LucideIcon } from 'lucide-react';
 import * as Icons from 'lucide-react';
+
+// Type-safe icon access
+function getIconComponent(iconName: string): LucideIcon | undefined {
+  return (Icons as Record<string, LucideIcon>)[iconName];
+}
+
 import type { MdxFile } from 'nextra';
 import { getPageMap } from 'nextra/page-map';
 import { PATTERNS_MAP } from '@/app/_constants/patterns';
@@ -54,7 +60,7 @@ export async function getPatternCategories(locale: string): Promise<PatternCateg
             summary: page.frontMatter?.summary || '',
             description: page.frontMatter?.description || '',
             href: `/${locale}/patterns/${category.path}/${page.name}`,
-            icon: iconName ? Icons[iconName] : undefined,
+            icon: iconName ? getIconComponent(iconName) : undefined,
             status,
             frontMatter: page.frontMatter || {},
           };

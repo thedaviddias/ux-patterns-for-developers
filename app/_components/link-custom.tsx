@@ -1,8 +1,8 @@
-import { cn } from '@/app/_utils/cn';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import Link, { type LinkProps } from 'next/link';
 import * as React from 'react';
+import { cn } from '@/app/_utils/cn';
 
 const linkVariants = cva(
   'inline-flex items-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative',

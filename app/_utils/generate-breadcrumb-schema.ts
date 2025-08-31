@@ -54,7 +54,7 @@ export function generateBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]) {
     '@type': 'BreadcrumbList',
     itemListElement: fullBreadcrumbs.map((crumb, index) => {
       const isLastItem = index === fullBreadcrumbs.length - 1;
-      const baseItem: any = {
+      const baseItem: Record<string, unknown> = {
         '@type': 'ListItem',
         position: index + 1,
         name: crumb.title,

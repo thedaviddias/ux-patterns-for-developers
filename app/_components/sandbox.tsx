@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from '@/app/_utils/cn';
 import type {
   CodeEditorProps,
   PreviewProps,
@@ -17,6 +16,7 @@ import {
 } from '@codesandbox/sandpack-react';
 import type { ButtonHTMLAttributes, ComponentProps, HTMLAttributes } from 'react';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { cn } from '@/app/_utils/cn';
 
 export type SandboxProviderProps = SandpackProviderProps;
 
@@ -118,9 +118,7 @@ export type SandboxTabsTriggerProps = Omit<ButtonHTMLAttributes<HTMLButtonElemen
 
 export const SandboxTabsTrigger = ({ className, value, ...props }: SandboxTabsTriggerProps) => {
   const { selectedTab, setSelectedTab } = useSandboxTabsContext();
-
   return (
-
     <button
       role="tab"
       aria-selected={selectedTab === value}

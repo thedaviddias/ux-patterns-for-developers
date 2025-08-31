@@ -7,7 +7,7 @@ const docsComponents = getDocsMDXComponents({
   pre: withIcons(Pre, { js: GitHubIcon }),
 });
 
-export const useMDXComponents = (components: any) => ({
+export const useMDXComponents = (components: Record<string, unknown>) => ({
   ...docsComponents,
   ...components,
   a: LinkCustom,
