@@ -17,10 +17,18 @@
   "javascript.format.enable": true,
   "javascript.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.defaultFormatter": "biomejs.biome",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+  "editor.codeActionsOnSave": {},
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {}
+  },
+  "[mdx]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {}
   },
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -35,9 +43,6 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[markdown]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[handlebars]": {

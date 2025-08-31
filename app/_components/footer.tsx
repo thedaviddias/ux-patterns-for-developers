@@ -41,13 +41,7 @@ const FooterMenuLinks = ({ lang }: { lang: string }) => (
 const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} />;
 
 // Client component for footer content
-const FooterContent = ({
-  dictionary,
-  lang,
-}: {
-  dictionary: Record<string, unknown>;
-  lang: string;
-}) => {
+const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) => {
   return (
     <NextraFooter className="mt-auto sm:pt-8 w-full">
       <div className="main-footer transform w-full">

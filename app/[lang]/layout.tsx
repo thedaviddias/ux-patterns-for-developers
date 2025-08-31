@@ -57,7 +57,7 @@ export default async function RootLayout({
 
   // Ensure lang is a string and provide fallback
   const locale = typeof lang === 'string' ? lang : 'en';
-  console.log('Debug - lang:', lang, 'locale:', locale, 'type:', typeof lang);
+
   // For getPageMap, we need to pass the route with the locale since Nextra expects it
   const pageMap = await getPageMap(`/${locale}`);
 

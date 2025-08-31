@@ -3,7 +3,7 @@ import * as Icons from 'lucide-react';
 
 // Type-safe icon access
 function getIconComponent(iconName: string): LucideIcon | undefined {
-  return (Icons as Record<string, LucideIcon>)[iconName];
+  return (Icons as unknown as Record<string, LucideIcon>)[iconName];
 }
 
 import type { MdxFile } from 'nextra';

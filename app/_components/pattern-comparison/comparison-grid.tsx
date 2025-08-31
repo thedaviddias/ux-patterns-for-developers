@@ -37,7 +37,7 @@ export function ComparisonGrid({ patterns }: ComparisonGridProps) {
                 <h4 className="font-medium mb-2">Choose When</h4>
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                   {pattern.criteria.map((criterion, index) => (
-                    <li key={`criterion-${pattern.name}-${index}`}>✓ {criterion}</li>
+                    <li key={`criterion-${pattern.title}-${index}`}>✓ {criterion}</li>
                   ))}
                 </ul>
               </div>

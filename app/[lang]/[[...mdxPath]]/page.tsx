@@ -10,12 +10,12 @@ export const generateStaticParams = generateStaticParamsFor('mdxPath');
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const resolvedParams = await params;
-  console.log('generateMetadata - resolvedParams:', resolvedParams);
+
   // Ensure lang is a string and provide fallback
   const locale = typeof resolvedParams.lang === 'string' ? resolvedParams.lang : 'en';
   // Ensure mdxPath is an array
   const pathSegments = Array.isArray(resolvedParams.mdxPath) ? resolvedParams.mdxPath : [];
-  console.log('generateMetadata - pathSegments:', pathSegments, 'locale:', locale);
+
   // For importPage, the lang parameter should be the locale string
   const result = await importPage(pathSegments, locale);
   const isHomepage = !resolvedParams.mdxPath || resolvedParams.mdxPath.length === 0;

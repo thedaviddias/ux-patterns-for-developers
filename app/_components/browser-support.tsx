@@ -12,7 +12,7 @@ export const SimpleIconComponent: FC<{ icon?: SimpleIcon; className?: string }> 
 }) => (
   <svg
     role="img"
-    aria-label={icon?.name || 'Browser icon'}
+    aria-label={icon?.title || 'Browser icon'}
     viewBox="0 0 26 26"
     xmlns="http://www.w3.org/2000/svg"
     className={className}

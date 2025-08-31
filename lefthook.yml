@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     format:
-      glob: "*.{js,jsx,ts,tsx,json,md}"
+      glob: "*.{js,jsx,ts,tsx,json}"
       run: npx @biomejs/biome format --write {staged_files}
     lint:
       glob: "*.{js,jsx,ts,tsx}"

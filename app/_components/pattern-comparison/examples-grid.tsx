@@ -61,7 +61,7 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
             <div className="grid grid-cols-2 gap-4">
               {pattern.examples.map((example, index) => (
                 <button
-                  key={`example-${pattern.name}-${example.title || index}`}
+                  key={`example-${pattern.pattern}-${example.title || index}`}
                   type="button"
                   onClick={() => setSelectedExample(example)}
                   className="group relative text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 dark:focus-visible:ring-neutral-300"
@@ -79,16 +79,10 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
                         alt={example.title}
                         className="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
                         onError={() => {
-                          console.log('Image load error details:', {
-                            src: example.thumbnailUrl || example.imageUrl,
-                          });
                           handleImageError(example.thumbnailUrl || example.imageUrl);
                         }}
                         onLoad={() => {
-                          console.log(
-                            'Image loaded successfully:',
-                            example.thumbnailUrl || example.imageUrl
-                          );
+                          // Image loaded successfully
                         }}
                       />
                     )}
@@ -134,13 +128,10 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
                       className="w-full h-full object-contain rounded-lg"
                       priority
                       onError={() => {
-                        console.log('Modal image load error details:', {
-                          src: selectedExample.imageUrl,
-                        });
                         handleImageError(selectedExample.imageUrl);
                       }}
                       onLoad={() => {
-                        console.log('Modal image loaded successfully:', selectedExample.imageUrl);
+                        // Modal image loaded successfully
                       }}
                     />
                   )}

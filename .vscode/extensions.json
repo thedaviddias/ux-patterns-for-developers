@@ -1,3 +1,8 @@
 {
-  "recommendations": ["davidanson.vscode-markdownlint", "dbaeumer.vscode-eslint"]
+  "recommendations": [
+    "biomejs.biome"
+  ],
+  "unwantedRecommendations": [
+    "esbenp.prettier-vscode"
+  ]
 }
