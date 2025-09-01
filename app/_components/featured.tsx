@@ -1,7 +1,6 @@
 'use client';
 
 import { Star } from 'lucide-react';
-import { usePlausible } from 'next-plausible';
 import { useEffect, useState } from 'react';
 import type { Pattern } from '../_actions/patterns';
 import { LinkCustom } from './link-custom';
@@ -24,8 +23,6 @@ async function getRandomPattern(locale: string = 'en') {
 }
 
 const FeaturedPatternSection = ({ pattern }: { pattern: Pattern }) => {
-  const plausible = usePlausible();
-
   return (
     <div className="featured-pattern animate-fade-up flex flex-col mt-10 py-10 px-4 border border-neutral-400 dark:border-neutral-600 rounded-xl">
       <div
@@ -50,7 +47,8 @@ const FeaturedPatternSection = ({ pattern }: { pattern: Pattern }) => {
             href={`${pattern.href}`}
             variant="outline"
             size="xs"
-            onClick={() => plausible('view-pattern')}
+            aria-label={`View pattern: ${pattern.title}`}
+            className="plausible-event-name=View+Pattern"
           >
             View Pattern
           </LinkCustom>

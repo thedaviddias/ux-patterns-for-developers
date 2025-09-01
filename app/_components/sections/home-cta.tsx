@@ -1,17 +1,15 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import { usePlausible } from 'next-plausible';
 import { LinkCustom } from '../link-custom';
 
 export const HomeCTA = () => {
-  const plausible = usePlausible();
-
   return (
     <div className="my-8 flex justify-center gap-4">
       <LinkCustom
         href="/patterns/getting-started"
-        onClick={() => plausible('get-started')}
+        aria-label="Get started with UX Patterns"
+        className="plausible-event-name=Get+Started"
         variant="neutral"
       >
         Get Started
@@ -19,7 +17,8 @@ export const HomeCTA = () => {
       </LinkCustom>
       <LinkCustom
         href="https://git.new/uxpatterns"
-        onClick={() => plausible('view-github')}
+        aria-label="View the project on GitHub"
+        className="plausible-event-name=View+GitHub"
         variant="outline"
       >
         View on GitHub

@@ -1,12 +1,10 @@
 'use client';
 
-import { PROJECT_URL } from '@/app/_constants/project';
-import { usePlausible } from 'next-plausible';
 import { useId } from 'react';
+import { PROJECT_URL } from '@/app/_constants/project';
 import { LinkCustom } from './link-custom';
 
 export const SuggestPattern = () => {
-  const plausible = usePlausible();
   const suggestPatternTitleId = useId();
 
   return (
@@ -20,7 +18,8 @@ export const SuggestPattern = () => {
       <p className="text-lg text-muted-foreground mb-6">Let us know, and we&apos;ll add it!</p>
       <LinkCustom
         href={`${PROJECT_URL}/discussions/new?category=suggestions`}
-        onClick={() => plausible('suggest-pattern')}
+        aria-label="Suggest a pattern on GitHub"
+        className="plausible-event-name=Suggest+Pattern"
         variant="outline"
       >
         Send Suggestion

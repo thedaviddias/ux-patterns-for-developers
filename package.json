@@ -65,7 +65,8 @@
     "require-in-the-middle": "^7.5.1",
     "simple-icons": "^14.6.0",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^4.1.5"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.2",
