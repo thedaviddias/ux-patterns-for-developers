@@ -33,19 +33,23 @@ function getAllPatterns(): PatternsByCategory {
     // Read all MDX files in the category
     const files = fs.readdirSync(categoryPath).filter((file) => file.endsWith('.mdx'));
 
-    const categoryPatterns = files.map((file) => {
+    const categoryPatterns = files.flatMap((file) => {
       const fullPath = path.join(categoryPath, file);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents);
+      
+      // Skip draft or hidden entries
+      if (data?.draft || data?.hidden) return [];
+      
       const slug = file.replace('.mdx', '');
 
-      return {
+      return [{
         category,
         title: data.title || slug,
         summary: data.summary || '',
         status: data.status || 'coming soon',
         slug,
-      };
+      }];
     });
 
     allPatterns[category] = categoryPatterns;
@@ -73,10 +77,7 @@ This is an automatically generated overview of all UX patterns documented in thi
     for (const [category, categoryPatterns] of Object.entries(patterns)) {
       content += `\n### ${category.charAt(0).toUpperCase() + category.slice(1)}\n`;
       for (const pattern of categoryPatterns) {
-        const patternUrl = new URL(
-          `/patterns/${category}/${pattern.slug}`,
-          baseUrl
-        ).toString();
+        const patternUrl = new URL(`/patterns/${category}/${pattern.slug}`, baseUrl).toString();
         content += `- [${pattern.title}](${patternUrl})${pattern.summary ? `: ${pattern.summary}` : ''} [${pattern.status}]\n`;
       }
     }
