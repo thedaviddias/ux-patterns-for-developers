@@ -12,6 +12,7 @@ import {
   JsonLd,
   ORGANIZATION_SCHEMA,
 } from '@app/_components/json-ld';
+import { SubscribeForm } from '@app/_components/subscribe';
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -455,6 +456,7 @@ export default async function Page(props: PageProps) {
       <div className="nextra-content">
         <Wrapper key={pageKey} toc={toc} metadata={metadata} sourceCode={result.sourceCode}>
           <MDXContent {...props} params={params} />
+          {!isHomepage && <SubscribeForm variant="inline" />}
         </Wrapper>
       </div>
     </>
