@@ -356,19 +356,26 @@ export default async function Page(props: PageProps) {
     const posts = extendedMetadata?.posts || extendedMetadata?.items || [];
 
     if (posts.length > 0) {
-      schemas.push(
-        generateCollectionPageSchema(
-          'UX Patterns Blog',
-          'Articles and insights about UX patterns and developer experience',
-          path,
-          posts.map((post: BlogPost) => ({
-            name: post.title || post.name || 'Untitled Post',
-            url: post.href || post.url || `/blog/${post.slug}`,
-            datePublished: post.date || post.datePublished,
-            description: post.description || post.summary,
-          }))
-        )
-      );
+      // Filter posts with valid URL components before mapping
+      const validPosts = posts
+        .filter((post: BlogPost) => post.href || post.url || post.slug)
+        .map((post: BlogPost) => ({
+          name: post.title || post.name || 'Untitled Post',
+          url: post.href || post.url || `/blog/${post.slug}`,
+          datePublished: post.date || post.datePublished,
+          description: post.description || post.summary,
+        }));
+
+      if (validPosts.length > 0) {
+        schemas.push(
+          generateCollectionPageSchema(
+            'UX Patterns Blog',
+            'Articles and insights about UX patterns and developer experience',
+            path,
+            validPosts
+          )
+        );
+      }
     } else {
       // Fallback to Article schema if no posts
       schemas.push(
