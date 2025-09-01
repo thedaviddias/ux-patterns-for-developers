@@ -315,19 +315,27 @@ export default async function Page(props: PageProps) {
     const items = extendedMetadata?.patterns || extendedMetadata?.items || [];
 
     if (items.length > 0) {
-      schemas.push(
-        generateItemListSchema(
-          title,
-          description,
-          path,
-          items.map((item: PatternItem, index: number) => ({
-            name: item.title || item.name || 'Untitled Pattern',
-            url: item.href || item.url || `${path}/${item.slug}`,
-            description: item.description || item.summary,
-            position: index + 1,
-          }))
-        )
-      );
+      // Filter items with valid URLs and map to schema objects
+      const validItems = items
+        .map((item: PatternItem) => {
+          const safeUrl = item.href || item.url || (item.slug ? `${path}/${item.slug}` : null);
+          return safeUrl
+            ? {
+                name: item.title || item.name || 'Untitled Pattern',
+                url: safeUrl,
+                description: item.description || item.summary,
+              }
+            : null;
+        })
+        .filter((item): item is NonNullable<typeof item> => item !== null)
+        .map((item, index) => ({
+          ...item,
+          position: index + 1,
+        }));
+
+      if (validItems.length > 0) {
+        schemas.push(generateItemListSchema(title, description, path, validItems));
+      }
     }
 
     // Also add Article schema
