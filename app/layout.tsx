@@ -44,11 +44,7 @@ export const metadata = {
   },
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const dictionary = await getDictionary('en');
   const pageMap = await getPageMap();
 
