@@ -43,7 +43,8 @@ export const TRACKING_EVENTS = {
 
 // Helper function to convert event name to Plausible class
 export const asPlausibleClass = (eventName: string): string => {
-  return `plausible-event-name=${eventName.replace(/\s+/g, '+')}`;
+  const encoded = encodeURIComponent(eventName).replace(/%20/g, '+');
+  return `plausible-event-name=${encoded}`;
 };
 
 // CSS Class Names for auto-tracking (plausible-event-name)
@@ -80,8 +81,9 @@ export const TRACKING_CLASSES = {
 } as const;
 
 // Type for Plausible tracking function
+type EventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
 export type PlausibleTracker = (
-  event: string,
+  event: EventName | string,
   options?: { props?: Record<string, string | number> }
 ) => void;
 
@@ -157,7 +159,16 @@ export const trackExternalLink = (
         props: { url },
       });
       break;
-    // Add more external link types as needed
+    case 'github':
+      plausible(TRACKING_EVENTS.VIEW_GITHUB_CLICK, {
+        props: { url },
+      });
+      break;
+    case 'social':
+      plausible(TRACKING_EVENTS.FOOTER_SOCIAL_CLICK, {
+        props: { url },
+      });
+      break;
   }
 };
 
@@ -165,6 +176,12 @@ export const trackExternalLink = (
 export const LEGACY_EVENTS = {
   NEWSLETTER_INPUT_FOCUS_INLINE: TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS,
   NEWSLETTER_BUTTON_CLICK_INLINE: TRACKING_EVENTS.NEWSLETTER_INLINE_BUTTON_CLICK,
+  // Navigation aliases for backward compatibility
+  'View Pattern': TRACKING_EVENTS.VIEW_PATTERN_CLICK,
+  'Get Started': TRACKING_EVENTS.GET_STARTED_CLICK,
+  'View GitHub': TRACKING_EVENTS.VIEW_GITHUB_CLICK,
+  'Star Github': TRACKING_EVENTS.GITHUB_STAR_CLICK,
+  'Suggest Pattern': TRACKING_EVENTS.SUGGEST_PATTERN_CLICK,
 } as const;
 
 // Helper function to get CSS class for tracking

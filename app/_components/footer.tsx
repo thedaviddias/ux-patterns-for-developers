@@ -1,8 +1,8 @@
 import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '@app/_constants/footer';
 import { getDictionary } from '@app/_dictionaries/get-dictionary';
-import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import { Footer as NextraFooter } from 'nextra-theme-docs';
-import { LinkCustom } from './link-custom';
+import { FooterLink } from './footer-link';
+import { FooterCopyright } from './footer-copyright';
 import { SOCIAL_LINKS } from './social';
 
 type FooterLinksProps = {
@@ -22,20 +22,14 @@ const FooterLinks = ({ title, links, linkType = 'general' }: FooterLinksProps) =
       <h3 className="small-title">{title}</h3>
       <ul className="mt-3 space-y-1">
         {links.map(({ label, path, shortlink, rel }) => (
-          <li key={label}>
-            <LinkCustom
-              href={path || shortlink || '#'}
+          <li key={path || shortlink || label}>
+            <FooterLink
+              label={label}
+              path={path}
+              shortlink={shortlink}
               rel={rel}
-              className={`text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors text-sm ${
-                linkType === 'social'
-                  ? TRACKING_CLASSES.FOOTER_SOCIAL_CLICK
-                  : TRACKING_CLASSES.FOOTER_LINK_CLICK
-              }`}
-              data-link-type={linkType}
-              data-link-label={label}
-            >
-              {label}
-            </LinkCustom>
+              linkType={linkType}
+            />
           </li>
         ))}
       </ul>
@@ -85,23 +79,7 @@ const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) 
             </div>
           </div>
           {/* Copyright Section */}
-          <div className="pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-            <p>&copy; {new Date().getFullYear()} UX Patterns for Devs</p>
-            <p className="mt-2">
-              Made with ❤️ by{' '}
-              <a
-                href="https://thedaviddias.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`font-semibold hover:text-gray-700 dark:hover:text-gray-200 transition-colors ${TRACKING_CLASSES.FOOTER_LINK_CLICK}`}
-                data-link-type="author"
-                data-link-label="David Dias"
-              >
-                David Dias
-              </a>{' '}
-              for the Open-Source Community.
-            </p>
-          </div>
+          <FooterCopyright />
         </div>
       </div>
     </NextraFooter>
