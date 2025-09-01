@@ -37,19 +37,21 @@ function getAllPatterns(): PatternsByCategory {
       const fullPath = path.join(categoryPath, file);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents);
-      
+
       // Skip draft or hidden entries
       if (data?.draft || data?.hidden) return [];
-      
+
       const slug = file.replace('.mdx', '');
 
-      return [{
-        category,
-        title: data.title || slug,
-        summary: data.summary || '',
-        status: data.status || 'coming soon',
-        slug,
-      }];
+      return [
+        {
+          category,
+          title: data.title || slug,
+          summary: data.summary || '',
+          status: data.status || 'coming soon',
+          slug,
+        },
+      ];
     });
 
     allPatterns[category] = categoryPatterns;

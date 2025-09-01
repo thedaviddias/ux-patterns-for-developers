@@ -344,7 +344,7 @@ This project is available under a dual license:
 - ✅ Attribution required
 - ✅ Modifications and distributions allowed
 - ❌ Commercial use not permitted
-- [View MIT License Details](./LICENCE.md)
+- [View MIT License Details](./LICENSE.md)
 
 ### 2. Commercial License
 
