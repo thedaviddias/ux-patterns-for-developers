@@ -4,7 +4,7 @@ import { getRandomPatternServer } from '@/app/_actions/patterns';
 import 'server-only';
 
 const COOKIE_NAME = 'featured-pattern-session';
-const COOKIE_MAX_AGE = 60 * 60 * 24; // 24 hours in seconds
+const _COOKIE_MAX_AGE = 60 * 60 * 24; // 24 hours in seconds
 
 export async function getFeaturedPatternSSR(locale: string = 'en'): Promise<Pattern | null> {
   const cookieStore = await cookies();
@@ -23,24 +23,7 @@ export async function getFeaturedPatternSSR(locale: string = 'en'): Promise<Patt
     }
   }
 
-  // Get a new random pattern
+  // Get a new random pattern (no cookie setting in SSR)
   const pattern = await getRandomPatternServer(locale);
-
-  if (pattern) {
-    // Store the pattern in a session cookie
-    const sessionData = {
-      locale,
-      pattern,
-      timestamp: Date.now(),
-    };
-
-    cookieStore.set(COOKIE_NAME, JSON.stringify(sessionData), {
-      maxAge: COOKIE_MAX_AGE,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-    });
-  }
-
   return pattern;
 }

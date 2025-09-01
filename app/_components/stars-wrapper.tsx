@@ -8,7 +8,7 @@ type StarsWrapperProps = {
 export const StarsWrapper = async ({ variant = 'default' }: StarsWrapperProps) => {
   try {
     const starsCount = await getGitHubStars();
-    return <Stars variant={variant} starsCount={starsCount} />;
+    return <Stars variant={variant} starsCount={starsCount} asLink={false} />;
   } catch (error) {
     // Fallback to a loading state or error state
     console.error('Failed to load GitHub stars:', error);
