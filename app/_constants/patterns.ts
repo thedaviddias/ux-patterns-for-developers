@@ -1,6 +1,18 @@
 import type { Pattern } from '../_utils/get-pattern-categories';
 
 export const PATTERNS_MAP = {
+  'data-display': {
+    name: 'Data Display',
+    path: 'data-display',
+    description:
+      'Present data effectively with tables, charts, timelines, and other visualization patterns.',
+  },
+  authentication: {
+    name: 'Authentication',
+    path: 'authentication',
+    description:
+      'Secure user authentication patterns including login, registration, and account management.',
+  },
   'content-management': {
     name: 'Content Management',
     path: 'content-management',
@@ -24,6 +36,29 @@ export const PATTERNS_MAP = {
     path: 'forms',
     description:
       'Create user-friendly forms and input interfaces that streamline data collection and user interaction.',
+  },
+  'e-commerce': {
+    name: 'E-commerce',
+    path: 'e-commerce',
+    description:
+      'Shopping and transaction patterns including product displays, carts, and checkout flows.',
+  },
+  social: {
+    name: 'Social',
+    path: 'social',
+    description: 'Social interaction patterns for comments, likes, sharing, and user engagement.',
+  },
+  media: {
+    name: 'Media',
+    path: 'media',
+    description:
+      'Media handling patterns for images, videos, and file uploads with rich interactions.',
+  },
+  advanced: {
+    name: 'Advanced',
+    path: 'advanced',
+    description:
+      'Advanced UI patterns for power users including search, wizards, and command interfaces.',
   },
 } as const;
 
