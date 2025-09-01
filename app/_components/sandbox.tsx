@@ -14,9 +14,11 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from '@codesandbox/sandpack-react';
+import { usePlausible } from 'next-plausible';
 import type { ButtonHTMLAttributes, ComponentProps, HTMLAttributes } from 'react';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { cn } from '@/app/_utils/cn';
+import { TRACKING_EVENTS, TRACKING_CLASSES } from '@app/_utils/tracking';
 
 export type SandboxProviderProps = SandpackProviderProps;
 
@@ -118,14 +120,24 @@ export type SandboxTabsTriggerProps = Omit<ButtonHTMLAttributes<HTMLButtonElemen
 
 export const SandboxTabsTrigger = ({ className, value, ...props }: SandboxTabsTriggerProps) => {
   const { selectedTab, setSelectedTab } = useSandboxTabsContext();
+  const plausible = usePlausible();
+
+  const handleClick = () => {
+    setSelectedTab(value);
+    // Track tab switch
+    plausible(TRACKING_EVENTS.SANDBOX_TAB_SWITCH, {
+      props: { tab_name: value }
+    });
+  };
+
   return (
     <button
       role="tab"
       aria-selected={selectedTab === value}
       data-state={selectedTab === value ? 'active' : 'inactive'}
-      onClick={() => setSelectedTab(value)}
+      onClick={handleClick}
       className={cn(
-        'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 font-medium text-sm ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow',
+        `${TRACKING_CLASSES.SANDBOX_TAB_SWITCH} inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 font-medium text-sm ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow`,
         className
       )}
       {...props}

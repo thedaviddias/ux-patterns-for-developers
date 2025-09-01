@@ -4,6 +4,7 @@ import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '../_constants/foot
 import { getDictionary } from '../_dictionaries/get-dictionary';
 import { LinkCustom } from './link-custom';
 import { SOCIAL_LINKS } from './social';
+import { TRACKING_CLASSES } from '../_utils/tracking';
 
 type FooterLinksProps = {
   title: string;
@@ -12,9 +13,10 @@ type FooterLinksProps = {
     path?: string;
     shortlink?: string;
   }>;
+  linkType?: 'general' | 'resource' | 'social';
 };
 
-const FooterLinks = ({ title, links }: FooterLinksProps) => {
+const FooterLinks = ({ title, links, linkType = 'general' }: FooterLinksProps) => {
   return (
     <div>
       <h3 className="small-title">{title}</h3>
@@ -23,7 +25,11 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
           <li key={label}>
             <LinkCustom
               href={path || shortlink || '#'}
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors text-sm"
+              className={`text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors text-sm ${
+                linkType === 'social' ? TRACKING_CLASSES.FOOTER_SOCIAL_CLICK : TRACKING_CLASSES.FOOTER_LINK_CLICK
+              }`}
+              data-link-type={linkType}
+              data-link-label={label}
             >
               {label}
             </LinkCustom>
@@ -34,11 +40,11 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
   );
 };
 
-const FooterGeneralLinks = () => <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} />;
+const FooterGeneralLinks = () => <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} linkType="general" />;
 
-const FooterResourcesLinks = () => <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} />;
+const FooterResourcesLinks = () => <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} linkType="resource" />;
 
-const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} />;
+const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} linkType="social" />;
 
 // Client component for footer content
 const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) => {
@@ -78,7 +84,9 @@ const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) 
                 href="https://thedaviddias.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+                className={`font-semibold hover:text-gray-700 dark:hover:text-gray-200 transition-colors ${TRACKING_CLASSES.FOOTER_LINK_CLICK}`}
+                data-link-type="author"
+                data-link-label="David Dias"
               >
                 David Dias
               </a>{' '}

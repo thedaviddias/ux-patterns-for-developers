@@ -1,6 +1,7 @@
 import bcd from '@mdn/browser-compat-data';
 import type { FC } from 'react';
 import { type SimpleIcon, siFirefox, siGooglechrome, siSafari } from 'simple-icons';
+import { TRACKING_CLASSES } from '@app/_utils/tracking';
 
 interface BrowserSupportProps {
   features: string[]; // e.g. ['html.elements.button', 'api.HTMLButtonElement']
@@ -84,7 +85,8 @@ export const BrowserSupport = ({ features }: BrowserSupportProps) => {
                 href={getCaniUseUrl(feature)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className={`hover:underline ${TRACKING_CLASSES.CANIUSE_LINK_CLICK}`}
+                data-feature={feature}
               >
                 View on CanIUse
               </a>

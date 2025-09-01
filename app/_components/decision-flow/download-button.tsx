@@ -1,6 +1,8 @@
 import { toPng } from 'html-to-image';
 import { Download } from 'lucide-react';
+import { usePlausible } from 'next-plausible';
 import { Panel, useReactFlow } from 'reactflow';
+import { TRACKING_EVENTS } from '@app/_utils/tracking';
 
 interface DownloadButtonProps {
   title?: string;
@@ -10,8 +12,15 @@ const DownloadButton = ({
   title = 'Decision Flow - UX Patterns for Devs',
 }: DownloadButtonProps) => {
   const reactFlowInstance = useReactFlow();
+  const plausible = usePlausible();
 
   const onClick = () => {
+    // Track the download event
+    plausible(TRACKING_EVENTS.DECISION_FLOW_DOWNLOAD, {
+      props: {
+        flow_title: title
+      }
+    });
     // Store the current viewport state
     const currentViewport = reactFlowInstance.getViewport();
 

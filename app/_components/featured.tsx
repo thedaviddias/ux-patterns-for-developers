@@ -3,6 +3,7 @@
 import { Star } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import type { Pattern } from '../_actions/patterns';
+import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import { LinkCustom } from './link-custom';
 
 async function getRandomPattern(locale: string = 'en') {
@@ -48,7 +49,7 @@ const FeaturedPatternSection = ({ pattern }: { pattern: Pattern }) => {
             variant="outline"
             size="xs"
             aria-label={`View pattern: ${pattern.title}`}
-            className="plausible-event-name=View+Pattern"
+            className={TRACKING_CLASSES.VIEW_PATTERN_CLICK}
           >
             View Pattern
           </LinkCustom>

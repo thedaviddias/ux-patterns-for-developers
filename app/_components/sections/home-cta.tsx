@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
+import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import { LinkCustom } from '../link-custom';
 
 export const HomeCTA = () => {
@@ -9,7 +10,7 @@ export const HomeCTA = () => {
       <LinkCustom
         href="/patterns/getting-started"
         aria-label="Get started with UX Patterns"
-        className="plausible-event-name=Get+Started"
+        className={TRACKING_CLASSES.GET_STARTED_CLICK}
         variant="neutral"
       >
         Get Started
@@ -18,7 +19,7 @@ export const HomeCTA = () => {
       <LinkCustom
         href="https://git.new/uxpatterns"
         aria-label="View the project on GitHub"
-        className="plausible-event-name=View+GitHub"
+        className={TRACKING_CLASSES.VIEW_GITHUB_CLICK}
         variant="outline"
       >
         View on GitHub
