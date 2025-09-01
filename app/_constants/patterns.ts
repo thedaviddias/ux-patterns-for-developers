@@ -1,23 +1,11 @@
 import type { Pattern } from '../_utils/get-pattern-categories';
 
 export const PATTERNS_MAP = {
-  'data-display': {
-    name: 'Data Display',
-    path: 'data-display',
+  forms: {
+    name: 'Input & Forms',
+    path: 'forms',
     description:
-      'Present data effectively with tables, charts, timelines, and other visualization patterns.',
-  },
-  authentication: {
-    name: 'Authentication',
-    path: 'authentication',
-    description:
-      'Secure user authentication patterns including login, registration, and account management.',
-  },
-  'content-management': {
-    name: 'Content Management',
-    path: 'content-management',
-    description:
-      'Organize and present content effectively with patterns for layout, structure, and information hierarchy.',
+      'Create user-friendly forms and input interfaces that streamline data collection and user interaction.',
   },
   navigation: {
     name: 'Layout & Navigation',
@@ -25,17 +13,41 @@ export const PATTERNS_MAP = {
     description:
       'Guide users through your application with intuitive navigation patterns and clear layout structures.',
   },
+  'content-management': {
+    name: 'Content Management',
+    path: 'content-management',
+    description:
+      'Organize and present content effectively with patterns for layout, structure, and information hierarchy.',
+  },
+  'data-display': {
+    name: 'Data Display',
+    path: 'data-display',
+    description:
+      'Present data effectively with tables, charts, timelines, and other visualization patterns.',
+  },
   'user-feedback': {
     name: 'User Feedback',
     path: 'user-feedback',
     description:
       'Keep users informed and engaged with responsive feedback mechanisms and clear status indicators.',
   },
-  forms: {
-    name: 'Input & Forms',
-    path: 'forms',
+  authentication: {
+    name: 'Authentication',
+    path: 'authentication',
     description:
-      'Create user-friendly forms and input interfaces that streamline data collection and user interaction.',
+      'Secure user authentication patterns including login, registration, and account management.',
+  },
+  'ai-intelligence': {
+    name: 'AI & Intelligence',
+    path: 'ai-intelligence',
+    description:
+      'AI interaction patterns for chat interfaces, streaming responses, and intelligent features.',
+  },
+  media: {
+    name: 'Media',
+    path: 'media',
+    description:
+      'Media handling patterns for images, videos, and file uploads with rich interactions.',
   },
   'e-commerce': {
     name: 'E-commerce',
@@ -47,12 +59,6 @@ export const PATTERNS_MAP = {
     name: 'Social',
     path: 'social',
     description: 'Social interaction patterns for comments, likes, sharing, and user engagement.',
-  },
-  media: {
-    name: 'Media',
-    path: 'media',
-    description:
-      'Media handling patterns for images, videos, and file uploads with rich interactions.',
   },
   advanced: {
     name: 'Advanced',
