@@ -72,8 +72,8 @@ export const SubscribeForm = ({ variant = 'default' }: SubscribeFormProps) => {
     <section
       className={
         isInline
-          ? "mt-12 mb-8 py-6 px-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-center"
-          : "flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600 rounded-xl"
+          ? 'mt-12 mb-8 py-6 px-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-center'
+          : 'flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600 rounded-xl'
       }
       aria-labelledby={subscribeTitleId}
     >
@@ -101,7 +101,7 @@ export const SubscribeForm = ({ variant = 'default' }: SubscribeFormProps) => {
       <form
         onSubmit={handleSubmit}
         aria-busy={status === 'loading'}
-        className={isInline ? "w-full max-w-md mx-auto" : "w-full max-w-md mx-auto"}
+        className={isInline ? 'w-full max-w-md mx-auto' : 'w-full max-w-md mx-auto'}
       >
         <div className="flex flex-col sm:flex-row gap-3">
           <input
