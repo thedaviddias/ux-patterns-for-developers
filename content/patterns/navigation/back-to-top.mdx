@@ -8,6 +8,7 @@ status: complete
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
+import { Playground } from "@app/_components/playground";
 
 # Back to Top
 
@@ -186,6 +187,55 @@ end
 
 - Don't move it around the page as the user scrolls
 - Don't tie it to an element that scrolls out of view
+
+## Interactive Example
+
+Experience the Back to Top pattern in action:
+
+<Playground patternType="navigation" pattern="back-to-top" example="basic" height="700px" />
+
+This example showcases:
+- Smooth scroll animation to top
+- Button appears after scrolling 300px
+- Fade-in/out transitions for button visibility
+- Progress bar showing scroll position
+- Throttled scroll events for performance
+- Keyboard support (Tab to focus, Enter/Space to activate)
+- Respects `prefers-reduced-motion` for accessibility
+- Mobile-optimized touch targets
+
+## Performance
+
+### Performance Metrics
+
+**Target Metrics:**
+
+- **Scroll trigger threshold**: Show after 2x viewport height (or ~1000px)
+- **Scroll animation duration**: 300-500ms for smooth feel
+- **Button fade-in**: < 200ms transition
+- **Interaction delay**: < 50ms response to click
+- **Frame rate**: Maintain 60fps during scroll animation
+
+**Scroll Performance:**
+
+- **Throttle scroll events**: Check position every 100-150ms (not on every scroll)
+- **Use Intersection Observer**: More performant than scroll listeners
+- **Passive event listeners**: Add `{ passive: true }` to scroll handlers
+- **RAF for animations**: Use requestAnimationFrame for smooth scrolling
+
+**Visibility Optimization:**
+
+- **CSS transitions**: Use for show/hide animations (not JavaScript)
+- **Transform + opacity**: Animate these properties for GPU acceleration
+- **Will-change**: Apply sparingly to button during transitions
+- **Avoid reflows**: Don't change layout properties during animations
+
+**Mobile Performance:**
+
+- **Touch responsiveness**: < 100ms feedback on tap
+- **Reduced motion**: Respect `prefers-reduced-motion` media query
+- **Scroll behavior**: Use native CSS `scroll-behavior: smooth` when possible
+- **Battery impact**: Minimize continuous animations
 
 ## Code Examples
 
@@ -373,6 +423,15 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
     },
   ]}
 />
+
+## Related Patterns
+
+Consider these related patterns when implementing **Back to Top**:
+
+- [Infinite Scroll](/patterns/navigation/infinite-scroll) - Often paired with Back to Top for long scrolling experiences.
+- [Pagination](/patterns/navigation/pagination) - Alternative navigation method for long content lists.
+- [Progress Indicator](/patterns/user-feedback/progress-indicator) - Shows users their scroll position on long pages.
+- [Sidebar](/patterns/navigation/sidebar) - Can include persistent navigation that reduces need for Back to Top.
 
 ## Resources
 

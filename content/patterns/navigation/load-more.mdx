@@ -7,6 +7,7 @@ status: complete
 
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
+import { Playground } from "@app/_components/playground";
 
 # Load More
 
@@ -257,6 +258,54 @@ If the "Load More" button is low contrast or the loading indicator is hard to se
 
 **How to Fix It?**
 Provide a **high-contrast** button style and a **clear, visible** loading indicator (spinner or progress bar) that stands out from surrounding content.
+
+## Interactive Example
+
+Try out this live implementation of the Load More pattern:
+
+<Playground patternType="navigation" pattern="load-more" example="basic" height="600px" />
+
+This example demonstrates:
+- Loading state with spinner animation
+- Smooth content insertion with fade-in effect  
+- Proper button state management (disabled during loading)
+- Progress tracking (showing X of Y items)
+- Keyboard support (Enter/Space to activate)
+- Screen reader announcements for loaded content
+- Automatic button removal when all content is loaded
+
+## Performance
+
+### Performance Metrics
+
+**Target Metrics:**
+
+- **Initial button render**: < 50ms after page load
+- **Loading state feedback**: < 100ms after click (immediate visual response)
+- **Content fetch time**: 200-500ms for typical batch (10-20 items)
+- **DOM update after fetch**: < 100ms for smooth insertion
+- **Total time to new content visible**: < 600ms ideal, < 1000ms acceptable
+
+**Memory Considerations:**
+
+- **Items per batch**: 10-20 items optimal (balance between requests and memory)
+- **DOM nodes**: Monitor total count, consider virtualization after 100+ items
+- **Image lazy loading**: Load images only when approaching viewport
+- **Previous content**: Keep in DOM for scroll position preservation
+
+**Network Optimization:**
+
+- **Prefetch next batch**: Start loading when user is 80% through current content
+- **Request debouncing**: Prevent multiple simultaneous requests
+- **Caching strategy**: Cache loaded pages for back navigation
+- **Compression**: Enable gzip/brotli for API responses
+
+**Animation Performance:**
+
+- **Use CSS transforms**: For smooth loading animations (not margins/positions)
+- **Will-change property**: Apply to animated elements sparingly
+- **RequestAnimationFrame**: For JavaScript-based scroll animations
+- **Reduce reflows**: Batch DOM updates, avoid layout thrashing
 
 ## Tracking
 
