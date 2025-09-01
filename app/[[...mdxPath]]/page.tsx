@@ -14,6 +14,7 @@ import {
 } from '@app/_components/json-ld';
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { generateStaticParamsFor, importPage } from 'nextra/pages';
 import { useMDXComponents } from '../../mdx-components';
 
@@ -184,7 +185,7 @@ export default async function Page(props: PageProps) {
 
   // Skip rendering for special paths that don't have content
   if (pathSegments[0] === '.well-known' || pathSegments[0] === 'api') {
-    return <div>404 - Page Not Found</div>;
+    notFound();
   }
 
   // Import page directly without locale prefix
@@ -192,11 +193,11 @@ export default async function Page(props: PageProps) {
   try {
     result = await importPage(pathSegments);
   } catch (_error) {
-    return <div>404 - Page Not Found</div>;
+    notFound();
   }
 
   if (!result) {
-    return <div>404 - Page Not Found</div>;
+    notFound();
   }
 
   const { default: MDXContent, toc, metadata } = result;
