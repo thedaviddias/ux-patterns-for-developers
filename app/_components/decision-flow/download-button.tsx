@@ -1,5 +1,9 @@
+'use client';
+
+import { TRACKING_EVENTS } from '@app/_utils/tracking';
 import { toPng } from 'html-to-image';
 import { Download } from 'lucide-react';
+import { usePlausible } from 'next-plausible';
 import { Panel, useReactFlow } from 'reactflow';
 
 interface DownloadButtonProps {
@@ -10,8 +14,15 @@ const DownloadButton = ({
   title = 'Decision Flow - UX Patterns for Devs',
 }: DownloadButtonProps) => {
   const reactFlowInstance = useReactFlow();
+  const plausible = usePlausible();
 
   const onClick = () => {
+    // Track the download event
+    plausible(TRACKING_EVENTS.DECISION_FLOW_DOWNLOAD, {
+      props: {
+        flow_title: title,
+      },
+    });
     // Store the current viewport state
     const currentViewport = reactFlowInstance.getViewport();
 
@@ -42,12 +53,17 @@ const DownloadButton = ({
         const className = node?.className?.toString() || '';
         return !className.includes('download-btn') && !className.includes('react-flow__controls');
       },
-    }).then((dataUrl) => {
-      const a = document.createElement('a');
-      a.setAttribute('download', `${title}${` - UX Patterns for Devs`}.png`);
-      a.setAttribute('href', dataUrl);
-      a.click();
-    });
+    })
+      .then((dataUrl) => {
+        const a = document.createElement('a');
+        a.setAttribute('download', `${title}${` - UX Patterns for Devs`}.png`);
+        a.setAttribute('href', dataUrl);
+        a.click();
+      })
+      .catch((err) => {
+        console.error('Decision flow download failed', err);
+        // Optionally: plausible(TRACKING_EVENTS.DECISION_FLOW_DOWNLOAD, { props: { flow_title: title, result: 'error' } });
+      });
   };
 
   return (

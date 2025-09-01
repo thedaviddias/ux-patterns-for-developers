@@ -1,8 +1,8 @@
+import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '@app/_constants/footer';
+import { getDictionary } from '@app/_dictionaries/get-dictionary';
 import { Footer as NextraFooter } from 'nextra-theme-docs';
-
-import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '../_constants/footer';
-import { getDictionary } from '../_dictionaries/get-dictionary';
-import { LinkCustom } from './link-custom';
+import { FooterLink } from './footer-link';
+import { FooterCopyright } from './footer-copyright';
 import { SOCIAL_LINKS } from './social';
 
 type FooterLinksProps = {
@@ -11,22 +11,25 @@ type FooterLinksProps = {
     label: string;
     path?: string;
     shortlink?: string;
+    rel?: string;
   }>;
+  linkType?: 'general' | 'resource' | 'social';
 };
 
-const FooterLinks = ({ title, links }: FooterLinksProps) => {
+const FooterLinks = ({ title, links, linkType = 'general' }: FooterLinksProps) => {
   return (
     <div>
       <h3 className="small-title">{title}</h3>
       <ul className="mt-3 space-y-1">
-        {links.map(({ label, path, shortlink }) => (
-          <li key={label}>
-            <LinkCustom
-              href={path || shortlink || '#'}
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors text-sm"
-            >
-              {label}
-            </LinkCustom>
+        {links.map(({ label, path, shortlink, rel }) => (
+          <li key={path || shortlink || label}>
+            <FooterLink
+              label={label}
+              path={path}
+              shortlink={shortlink}
+              rel={rel}
+              linkType={linkType}
+            />
           </li>
         ))}
       </ul>
@@ -34,11 +37,17 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
   );
 };
 
-const FooterGeneralLinks = () => <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} />;
+const FooterGeneralLinks = () => (
+  <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} linkType="general" />
+);
 
-const FooterResourcesLinks = () => <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} />;
+const FooterResourcesLinks = () => (
+  <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} linkType="resource" />
+);
 
-const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} />;
+const FooterSocialLinks = () => (
+  <FooterLinks title="Support" links={SOCIAL_LINKS} linkType="social" />
+);
 
 // Client component for footer content
 const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) => {
@@ -70,21 +79,7 @@ const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) 
             </div>
           </div>
           {/* Copyright Section */}
-          <div className="pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-            <p>&copy; {new Date().getFullYear()} UX Patterns for Devs</p>
-            <p className="mt-2">
-              Made with ❤️ by{' '}
-              <a
-                href="https://thedaviddias.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
-              >
-                David Dias
-              </a>{' '}
-              for the Open-Source Community.
-            </p>
-          </div>
+          <FooterCopyright />
         </div>
       </div>
     </NextraFooter>

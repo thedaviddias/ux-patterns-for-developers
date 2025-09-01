@@ -1,5 +1,6 @@
 'use client';
 
+import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import { useId } from 'react';
 import { PROJECT_URL } from '@/app/_constants/project';
 import { LinkCustom } from './link-custom';
@@ -19,7 +20,7 @@ export const SuggestPattern = () => {
       <LinkCustom
         href={`${PROJECT_URL}/discussions/new?category=suggestions`}
         aria-label="Suggest a pattern on GitHub"
-        className="plausible-event-name=Suggest+Pattern"
+        className={TRACKING_CLASSES.SUGGEST_PATTERN_CLICK}
         variant="outline"
       >
         Send Suggestion

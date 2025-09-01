@@ -8,7 +8,7 @@ import { LastUpdated, Layout, Navbar } from 'nextra-theme-docs';
 import '../styles/globals.css';
 import { Footer } from './_components/footer';
 import { LinkCustom } from './_components/link-custom';
-import { Stars } from './_components/stars';
+import { StarsWrapper } from './_components/stars-wrapper';
 import { GITHUB_REPO_URL, PROJECT_URL } from './_constants/project';
 import { getDictionary } from './_dictionaries/get-dictionary';
 import { metadataSEO } from './metadata';
@@ -65,7 +65,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </span>
       }
       projectLink={PROJECT_URL}
-      projectIcon={<Stars variant="small" />}
+      projectIcon={<StarsWrapper variant="small" />}
     />
   );
 
