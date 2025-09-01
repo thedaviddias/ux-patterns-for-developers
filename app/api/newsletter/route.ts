@@ -4,6 +4,8 @@ import { z } from 'zod';
 const subscribeSchema = z.object({
   email: z.string().trim().min(1, 'Email is required').email('Invalid email address'),
   groups: z.array(z.string().trim()).optional(),
+  honeypot: z.string().optional(), // Hidden field for bot detection
+  timestamp: z.number().optional(), // Timestamp for rate limiting
 });
 
 const API_BASE = 'https://connect.mailerlite.com/api';
@@ -43,7 +45,23 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, groups } = validationResult.data;
+    const { email, groups, honeypot, timestamp } = validationResult.data;
+
+    // Bot detection: if honeypot field is filled, reject the request
+    if (honeypot && honeypot.trim() !== '') {
+      return NextResponse.json(
+        { success: false, message: 'Invalid submission detected.' },
+        { status: 400 }
+      );
+    }
+
+    // Basic rate limiting: reject submissions that are too quick (less than 2 seconds)
+    if (timestamp && Date.now() - timestamp < 2000) {
+      return NextResponse.json(
+        { success: false, message: 'Please slow down and try again.' },
+        { status: 429 }
+      );
+    }
 
     if (!process.env.MAILERLITE_API_KEY) {
       console.error('MAILERLITE_API_KEY is not configured');
