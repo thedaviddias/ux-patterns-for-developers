@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { NextResponse } from 'next/server';
+import { BASE_URL } from '../_constants/project';
 
 const contentDirectory = path.join(process.cwd(), 'content/patterns');
 
@@ -58,9 +59,7 @@ export async function GET(_request: Request) {
     const patterns = getAllPatterns();
 
     // Get base URL
-    const baseUrl = process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3060'
-      : `https://${process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3060'}`;
+    const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3060' : BASE_URL;
 
     // Generate the text content
     let content = `# UX Patterns for Developers
