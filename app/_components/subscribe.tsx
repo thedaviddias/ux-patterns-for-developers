@@ -62,7 +62,11 @@ export const SubscribeForm = ({ variant = 'default' }: SubscribeFormProps) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: trimmedEmail, timestamp: Date.now() }),
+        body: JSON.stringify({
+          email: trimmedEmail,
+          honeypot: honeypot || '',
+          timestamp: Date.now(),
+        }),
       });
 
       const contentType = response.headers.get('content-type') || '';
