@@ -4,25 +4,21 @@ interface JsonLdProps {
   data: Record<string, unknown> | Record<string, unknown>[];
 }
 
+// Helper for robust absolute URL handling
+const absoluteUrl = (url?: string) => (!url ? undefined : new URL(url, BASE_URL).toString());
+
+// Stable author ID for entity de-duplication
+const AUTHOR_ID = `${BASE_URL}/about#author`;
+
 export function JsonLd({ data }: JsonLdProps) {
-  // Serialize and escape "<" characters to prevent script injection
-  const serializedData = JSON.stringify(data).replace(/</g, '\\u003c');
+  // Serialize and escape characters to prevent script injection and JS parser issues
+  const serializedData = JSON.stringify(data)
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
   // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for JSON-LD structured data injection with proper escaping
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializedData }} />;
 }
-
-// Author information reused across schemas
-const AUTHOR_SCHEMA = {
-  '@type': 'Person',
-  name: 'David Dias',
-  url: 'https://thedaviddias.com',
-  sameAs: [
-    'https://www.reddit.com/r/UXPatterns/',
-    'https://x.com/thedaviddias',
-    'https://github.com/thedaviddias',
-    'https://linkedin.com/in/thedaviddias',
-  ],
-};
 
 // Organization schema reused across schemas
 export const ORGANIZATION_SCHEMA = {
@@ -41,7 +37,7 @@ export const ORGANIZATION_SCHEMA = {
     'https://www.reddit.com/r/UXPatterns/',
     'https://x.com/thedaviddias',
   ],
-  founder: AUTHOR_SCHEMA,
+  founder: { '@id': AUTHOR_ID },
 };
 
 // WebSite schema for homepage
@@ -80,7 +76,7 @@ export function generateArticleSchema(
   section?: string,
   wordCount?: number
 ) {
-  const imageUrl = image && !image.startsWith('http') ? `${BASE_URL}${image}` : image;
+  const imageUrl = absoluteUrl(image);
 
   return {
     '@context': 'https://schema.org',
@@ -98,8 +94,8 @@ export function generateArticleSchema(
     ...(dateModified && { dateModified }),
     ...(section && { articleSection: section }),
     ...(wordCount && { wordCount }),
-    author: AUTHOR_SCHEMA,
-    publisher: ORGANIZATION_SCHEMA,
+    author: { '@id': AUTHOR_ID },
+    publisher: { '@id': `${BASE_URL}/#organization` },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${BASE_URL}${path}`,
@@ -119,7 +115,7 @@ export function generateBlogPostingSchema(
   tags?: string[],
   wordCount?: number
 ) {
-  const imageUrl = image && !image.startsWith('http') ? `${BASE_URL}${image}` : image;
+  const imageUrl = absoluteUrl(image);
 
   return {
     '@context': 'https://schema.org',
@@ -137,8 +133,8 @@ export function generateBlogPostingSchema(
     ...(dateModified && { dateModified }),
     ...(tags && tags.length > 0 && { keywords: tags.join(', ') }),
     ...(wordCount && { wordCount }),
-    author: AUTHOR_SCHEMA,
-    publisher: ORGANIZATION_SCHEMA,
+    author: { '@id': AUTHOR_ID },
+    publisher: { '@id': `${BASE_URL}/#organization` },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${BASE_URL}${path}`,
@@ -161,14 +157,15 @@ export function generateHowToSchema(
   totalTime?: string,
   image?: string
 ) {
-  const imageUrl = image && !image.startsWith('http') ? `${BASE_URL}${image}` : image;
+  const imageUrl = absoluteUrl(image);
 
   return {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: `How to Implement ${title}`,
+    name: title,
     description: description,
     url: `${BASE_URL}${path}`,
+    inLanguage: 'en-US',
     ...(imageUrl && {
       image: {
         '@type': 'ImageObject',
@@ -185,12 +182,12 @@ export function generateHowToSchema(
       ...(step.image && {
         image: {
           '@type': 'ImageObject',
-          url: step.image.startsWith('http') ? step.image : `${BASE_URL}${step.image}`,
+          url: absoluteUrl(step.image),
         },
       }),
     })),
-    author: AUTHOR_SCHEMA,
-    publisher: ORGANIZATION_SCHEMA,
+    author: { '@id': AUTHOR_ID },
+    publisher: { '@id': `${BASE_URL}/#organization` },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${BASE_URL}${path}`,
@@ -219,10 +216,13 @@ export function generateItemListSchema(
     numberOfItems: items.length,
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
-      position: item.position || index + 1,
-      name: item.name,
-      url: item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`,
-      ...(item.description && { description: item.description }),
+      position: Math.max(1, item.position ?? index + 1),
+      item: {
+        '@type': 'Thing',
+        name: item.name,
+        url: absoluteUrl(item.url),
+        ...(item.description && { description: item.description }),
+      },
     })),
   };
 }
@@ -245,21 +245,22 @@ export function generateCollectionPageSchema(
     name: title,
     description: description,
     url: `${BASE_URL}${path}`,
+    inLanguage: 'en-US',
     hasPart: items.map((item) => ({
       '@type': 'BlogPosting',
       headline: item.name,
-      url: item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`,
+      url: absoluteUrl(item.url),
       ...(item.datePublished && { datePublished: item.datePublished }),
       ...(item.description && { description: item.description }),
-      author: AUTHOR_SCHEMA,
-      publisher: ORGANIZATION_SCHEMA,
+      author: { '@id': AUTHOR_ID },
+      publisher: { '@id': `${BASE_URL}/#organization` },
     })),
     mainEntity: {
       '@type': 'Blog',
       name: 'UX Patterns for Devs Blog',
       description: 'Articles and insights about UX patterns and developer experience',
       url: `${BASE_URL}/blog`,
-      publisher: ORGANIZATION_SCHEMA,
+      publisher: { '@id': `${BASE_URL}/#organization` },
     },
   };
 }
@@ -283,8 +284,8 @@ export function generateSoftwareSourceCodeSchema(
     },
     text: codeText,
     ...(codeRepository && { codeRepository }),
-    author: AUTHOR_SCHEMA,
-    publisher: ORGANIZATION_SCHEMA,
+    author: { '@id': AUTHOR_ID },
+    publisher: { '@id': `${BASE_URL}/#organization` },
   };
 }
 
@@ -303,8 +304,9 @@ export function generateCourseSchema(
     name: title,
     description: description,
     url: `${BASE_URL}${path}`,
-    provider: ORGANIZATION_SCHEMA,
-    author: AUTHOR_SCHEMA,
+    provider: { '@id': `${BASE_URL}/#organization` },
+    author: { '@id': AUTHOR_ID },
+    isAccessibleForFree: true,
     ...(educationalLevel && { educationalLevel }),
     ...(timeRequired && { timeRequired }),
     ...(prerequisites &&
@@ -329,10 +331,10 @@ export function generatePersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${BASE_URL}/about#author`,
+    '@id': AUTHOR_ID,
     name: 'David Dias',
     url: 'https://thedaviddias.com',
-    image: 'https://thedaviddias.com/avatar.jpg',
+    image: { '@type': 'ImageObject', url: 'https://thedaviddias.com/avatar.jpg' },
     jobTitle: 'Frontend Developer & UX Enthusiast',
     description:
       'Creator of UX Patterns for Devs, helping developers build better user experiences.',
@@ -359,6 +361,8 @@ export function generatePersonSchema() {
 }
 
 // Helper to combine multiple schemas
-export function combineSchemas(...schemas: Record<string, unknown>[]): Record<string, unknown>[] {
-  return schemas.filter(Boolean);
+export function combineSchemas(
+  ...schemas: Array<Record<string, unknown> | null | undefined>
+): Record<string, unknown>[] {
+  return schemas.filter((s): s is Record<string, unknown> => Boolean(s));
 }
