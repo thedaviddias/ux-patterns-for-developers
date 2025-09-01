@@ -334,7 +334,10 @@ export function generatePersonSchema() {
     '@id': AUTHOR_ID,
     name: 'David Dias',
     url: 'https://thedaviddias.com',
-    image: { '@type': 'ImageObject', url: 'https://thedaviddias.com/avatar.jpg' },
+    image: {
+      '@type': 'ImageObject',
+      url: 'https://thedaviddias.com/_next/image?url=%2Fimages%2Fdavid-dias-round.jpg&w=256&q=75',
+    },
     jobTitle: 'Frontend Developer & UX Enthusiast',
     description:
       'Creator of UX Patterns for Devs, helping developers build better user experiences.',
