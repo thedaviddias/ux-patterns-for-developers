@@ -25,7 +25,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'X',
     link: 'https://x.com/thedaviddias',
-    shortlink: 'https://ddias.link/x',
+    shortlink: 'https://x.com/thedaviddias',
     rel: 'me',
     icon: (
       <SimpleIconComponent
@@ -37,13 +37,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/thedaviddias',
-    shortlink: 'https://ddias.link/linkedin',
+    shortlink: 'https://www.linkedin.com/in/thedaviddias/',
     rel: 'me',
   },
   {
     label: 'Github',
     link: 'https://github.com/thedaviddias',
-    shortlink: 'https://ddias.link/github',
+    shortlink: 'https://github.com/thedaviddias',
     rel: 'me',
     icon: (
       <SimpleIconComponent

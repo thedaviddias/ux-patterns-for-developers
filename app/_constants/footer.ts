@@ -1,30 +1,37 @@
-export const FOOTER_MENU_LINKS = (lang: string) => [
+export const FOOTER_GENERAL_LINKS = [
   {
     path: '/',
     label: 'Home',
   },
   {
-    path: `/${lang}/patterns/getting-started`,
+    path: '/patterns/getting-started',
     label: 'Patterns',
   },
   {
-    path: `/${lang}/blog`,
+    path: '/blog',
     label: 'Blog',
   },
   {
-    path: `/${lang}/llms.txt`,
+    path: '/about',
+    label: 'About',
+  },
+];
+
+export const FOOTER_RESOURCES_LINKS = [
+  {
+    path: '/llms.txt',
     label: 'LLMs',
   },
   {
-    path: `/${lang}/llms-full.txt`,
+    path: '/llms-full.txt',
     label: 'LLMs Full',
   },
   {
-    path: `/${lang}/about`,
-    label: 'About',
+    path: '/glossary',
+    label: 'Glossary',
   },
   {
-    path: `/${lang}/privacy-policy`,
+    path: '/privacy-policy',
     label: 'Privacy Policy',
   },
 ];

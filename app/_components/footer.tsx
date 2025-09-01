@@ -1,6 +1,6 @@
 import { Footer as NextraFooter } from 'nextra-theme-docs';
 
-import { FOOTER_MENU_LINKS } from '../_constants/footer';
+import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '../_constants/footer';
 import { getDictionary } from '../_dictionaries/get-dictionary';
 import { LinkCustom } from './link-custom';
 import { SOCIAL_LINKS } from './social';
@@ -34,8 +34,12 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
   );
 };
 
-const FooterMenuLinks = ({ lang }: { lang: string }) => (
-  <FooterLinks title="General" links={FOOTER_MENU_LINKS(lang)} />
+const FooterGeneralLinks = () => (
+  <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} />
+);
+
+const FooterResourcesLinks = () => (
+  <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} />
 );
 
 const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} />;
@@ -43,37 +47,48 @@ const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS
 // Client component for footer content
 const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) => {
   return (
-    <NextraFooter className="mt-auto sm:pt-8 w-full">
-      <div className="main-footer transform w-full">
-        <h2 className="sr-only">Footer</h2>
-        <div className="mx-auto max-w-5xl px-2 py-12 sm:px-6 lg:px-8 lg:py-7">
-          <div className="flex flex-col-reverse sm:flex-row print:hidden">
-            <div className="w-full flex-grow text-left sm:mb-0 sm:w-1/2 md:pr-24 lg:w-[20%]">
-              <span className="mb-5 block text-xl font-bold">{dictionary.name}</span>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary.description}</p>
-              <div className="flex space-x-6"></div>
-            </div>
+    <NextraFooter className="mt-auto w-full">
+      <div className="mx-auto max-w-[1200px] px-4">
+        <div className="w-full">
+          <h2 className="sr-only">Footer</h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-200 dark:border-gray-800">
+          {/* Brand Section */}
+          <div className="md:col-span-1">
+            <span className="mb-3 block text-xl font-bold">{dictionary.name}</span>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary.description}</p>
+          </div>
 
-            <div className="flex w-full !max-w-full flex-shrink-0 flex-grow justify-between text-gray-500 sm:w-1/2 lg:w-[30%] dark:text-gray-400">
-              <FooterMenuLinks lang={lang} />
-              <FooterSocialLinks />
-            </div>
+          {/* General Links */}
+          <div className="md:col-span-1">
+            <FooterGeneralLinks />
           </div>
-          <div className="mt-8 flex items-center flex-col border-t border-gray-200 pt-3 dark:border-gray-400 text-sm">
-            <p className="text-gray-500">&copy; {new Date().getFullYear()} UX Patterns for Devs</p>
-            <p className="text-gray-500">
-              Made with ❤️ by{' '}
-              <a
-                href="https://ddias.link/blog"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold underline dark:text-gray-300"
-              >
-                David Dias
-              </a>{' '}
-              for the Open-Source Community.
-            </p>
+
+          {/* Resources Links */}
+          <div className="md:col-span-1">
+            <FooterResourcesLinks />
           </div>
+
+          {/* Support/Social Links */}
+          <div className="md:col-span-1">
+            <FooterSocialLinks />
+          </div>
+        </div>
+        {/* Copyright Section */}
+        <div className="pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+          <p>&copy; {new Date().getFullYear()} UX Patterns for Devs</p>
+          <p className="mt-2">
+            Made with ❤️ by{' '}
+            <a
+              href="https://thedaviddias.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+            >
+              David Dias
+            </a>{' '}
+            for the Open-Source Community.
+          </p>
+        </div>
         </div>
       </div>
     </NextraFooter>

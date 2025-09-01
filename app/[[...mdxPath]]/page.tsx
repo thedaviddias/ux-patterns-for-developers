@@ -14,8 +14,25 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   // Ensure mdxPath is an array
   const pathSegments = Array.isArray(resolvedParams.mdxPath) ? resolvedParams.mdxPath : [];
 
+  // Skip importing for special paths that don't have content
+  if (pathSegments[0] === '.well-known' || pathSegments[0] === 'api') {
+    return {
+      title: 'UX Patterns for Devs',
+      description: 'A collection of UX patterns for developers to build effective, accessible, and usable UI components.',
+    };
+  }
+
   // Import page directly without locale prefix
-  const result = await importPage(pathSegments);
+  let result;
+  try {
+    result = await importPage(pathSegments);
+  } catch (error) {
+    // Return default metadata if page not found
+    return {
+      title: 'Page Not Found | UX Patterns for Devs',
+      description: 'The requested page could not be found.',
+    };
+  }
   const isHomepage = !resolvedParams.mdxPath || resolvedParams.mdxPath.length === 0;
   const baseUrl = 'https://uxpatterns.dev';
   const path = resolvedParams.mdxPath?.join('/') || '';
@@ -104,8 +121,19 @@ export default async function Page(props: PageProps) {
   const params = await props.params;
   // Ensure mdxPath is an array
   const pathSegments = Array.isArray(params.mdxPath) ? params.mdxPath : [];
+  
+  // Skip rendering for special paths that don't have content
+  if (pathSegments[0] === '.well-known' || pathSegments[0] === 'api') {
+    return <div>404 - Page Not Found</div>;
+  }
+  
   // Import page directly without locale prefix
-  const result = await importPage(pathSegments);
+  let result;
+  try {
+    result = await importPage(pathSegments);
+  } catch (error) {
+    return <div>404 - Page Not Found</div>;
+  }
   const { default: MDXContent, toc, metadata } = result;
 
   const mdxComponents = useMDXComponents({});
