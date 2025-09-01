@@ -37,7 +37,12 @@ export const ORGANIZATION_SCHEMA = {
     'https://www.reddit.com/r/UXPatterns/',
     'https://x.com/thedaviddias',
   ],
-  founder: { '@id': AUTHOR_ID },
+  founder: {
+    '@id': AUTHOR_ID,
+    '@type': 'Person',
+    name: 'David Dias',
+    url: 'https://thedaviddias.com',
+  },
 };
 
 // WebSite schema for homepage
@@ -52,6 +57,9 @@ export function generateWebSiteSchema() {
       'A comprehensive collection of UX patterns for developers to build effective, accessible, and usable UI components.',
     publisher: {
       '@id': `${BASE_URL}/#organization`,
+      '@type': 'Organization',
+      name: 'UX Patterns for Devs',
+      url: BASE_URL,
     },
     inLanguage: 'en-US',
   };
@@ -86,8 +94,18 @@ export function generateArticleSchema(
     ...(dateModified && { dateModified }),
     ...(section && { articleSection: section }),
     ...(wordCount && { wordCount }),
-    author: { '@id': AUTHOR_ID },
-    publisher: { '@id': `${BASE_URL}/#organization` },
+    author: {
+      '@id': AUTHOR_ID,
+      '@type': 'Person',
+      name: 'David Dias',
+      url: 'https://thedaviddias.com',
+    },
+    publisher: {
+      '@id': `${BASE_URL}/#organization`,
+      '@type': 'Organization',
+      name: 'UX Patterns for Devs',
+      url: BASE_URL,
+    },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${BASE_URL}${path}`,
@@ -125,8 +143,18 @@ export function generateBlogPostingSchema(
     ...(dateModified && { dateModified }),
     ...(tags && tags.length > 0 && { keywords: tags.join(', ') }),
     ...(wordCount && { wordCount }),
-    author: { '@id': AUTHOR_ID },
-    publisher: { '@id': `${BASE_URL}/#organization` },
+    author: {
+      '@id': AUTHOR_ID,
+      '@type': 'Person',
+      name: 'David Dias',
+      url: 'https://thedaviddias.com',
+    },
+    publisher: {
+      '@id': `${BASE_URL}/#organization`,
+      '@type': 'Organization',
+      name: 'UX Patterns for Devs',
+      url: BASE_URL,
+    },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${BASE_URL}${path}`,
@@ -178,8 +206,18 @@ export function generateHowToSchema(
         },
       }),
     })),
-    author: { '@id': AUTHOR_ID },
-    publisher: { '@id': `${BASE_URL}/#organization` },
+    author: {
+      '@id': AUTHOR_ID,
+      '@type': 'Person',
+      name: 'David Dias',
+      url: 'https://thedaviddias.com',
+    },
+    publisher: {
+      '@id': `${BASE_URL}/#organization`,
+      '@type': 'Organization',
+      name: 'UX Patterns for Devs',
+      url: BASE_URL,
+    },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${BASE_URL}${path}`,
@@ -244,15 +282,30 @@ export function generateCollectionPageSchema(
       url: absoluteUrl(item.url),
       ...(item.datePublished && { datePublished: item.datePublished }),
       ...(item.description && { description: item.description }),
-      author: { '@id': AUTHOR_ID },
-      publisher: { '@id': `${BASE_URL}/#organization` },
+      author: {
+        '@id': AUTHOR_ID,
+        '@type': 'Person',
+        name: 'David Dias',
+        url: 'https://thedaviddias.com',
+      },
+      publisher: {
+        '@id': `${BASE_URL}/#organization`,
+        '@type': 'Organization',
+        name: 'UX Patterns for Devs',
+        url: BASE_URL,
+      },
     })),
     mainEntity: {
       '@type': 'Blog',
       name: 'UX Patterns for Devs Blog',
       description: 'Articles and insights about UX patterns and developer experience',
       url: `${BASE_URL}/blog`,
-      publisher: { '@id': `${BASE_URL}/#organization` },
+      publisher: {
+        '@id': `${BASE_URL}/#organization`,
+        '@type': 'Organization',
+        name: 'UX Patterns for Devs',
+        url: BASE_URL,
+      },
     },
   };
 }
@@ -276,8 +329,18 @@ export function generateSoftwareSourceCodeSchema(
     },
     text: codeText,
     ...(codeRepository && { codeRepository }),
-    author: { '@id': AUTHOR_ID },
-    publisher: { '@id': `${BASE_URL}/#organization` },
+    author: {
+      '@id': AUTHOR_ID,
+      '@type': 'Person',
+      name: 'David Dias',
+      url: 'https://thedaviddias.com',
+    },
+    publisher: {
+      '@id': `${BASE_URL}/#organization`,
+      '@type': 'Organization',
+      name: 'UX Patterns for Devs',
+      url: BASE_URL,
+    },
   };
 }
 
@@ -296,8 +359,18 @@ export function generateCourseSchema(
     name: title,
     description: description,
     url: `${BASE_URL}${path}`,
-    provider: { '@id': `${BASE_URL}/#organization` },
-    author: { '@id': AUTHOR_ID },
+    provider: {
+      '@id': `${BASE_URL}/#organization`,
+      '@type': 'Organization',
+      name: 'UX Patterns for Devs',
+      url: BASE_URL,
+    },
+    author: {
+      '@id': AUTHOR_ID,
+      '@type': 'Person',
+      name: 'David Dias',
+      url: 'https://thedaviddias.com',
+    },
     isAccessibleForFree: true,
     ...(educationalLevel && { educationalLevel }),
     ...(timeRequired && { timeRequired }),

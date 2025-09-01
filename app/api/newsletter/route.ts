@@ -4,7 +4,57 @@ import { z } from 'zod';
 const subscribeSchema = z.object({
   email: z.string().trim().min(1, 'Email is required').email('Invalid email address'),
   groups: z.array(z.string().trim()).optional(),
+  honeypot: z.string().optional(), // Hidden field for bot detection
+  timestamp: z.number().optional(), // Deprecated - kept for backwards compatibility
 });
+
+// Simple in-memory rate limiter (consider using Redis/Upstash in production)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+// Clean up expired entries every 5 minutes
+setInterval(
+  () => {
+    const now = Date.now();
+    const keysToDelete: string[] = [];
+    rateLimitMap.forEach((value, key) => {
+      if (value.resetTime < now) {
+        keysToDelete.push(key);
+      }
+    });
+    keysToDelete.forEach((key) => {
+      rateLimitMap.delete(key);
+    });
+  },
+  5 * 60 * 1000
+);
+
+function getRateLimitKey(request: Request): string {
+  // Get client IP from headers (works with Vercel/Cloudflare)
+  const forwardedFor = request.headers.get('x-forwarded-for');
+  const realIp = request.headers.get('x-real-ip');
+  const cfConnectingIp = request.headers.get('cf-connecting-ip');
+
+  const clientIp = forwardedFor?.split(',')[0] || realIp || cfConnectingIp || 'unknown';
+  return `newsletter:${clientIp}`;
+}
+
+function checkRateLimit(key: string, maxRequests: number = 3, windowMs: number = 60000): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(key);
+
+  if (!record || record.resetTime < now) {
+    // Create new record or reset expired one
+    rateLimitMap.set(key, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+
+  if (record.count >= maxRequests) {
+    return false; // Rate limit exceeded
+  }
+
+  record.count++;
+  return true;
+}
 
 const API_BASE = 'https://connect.mailerlite.com/api';
 
@@ -43,7 +93,24 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, groups } = validationResult.data;
+    const { email, groups, honeypot } = validationResult.data;
+
+    // Bot detection: if honeypot field is filled, reject the request
+    if (honeypot && honeypot.trim() !== '') {
+      return NextResponse.json(
+        { success: false, message: 'Invalid submission detected.' },
+        { status: 400 }
+      );
+    }
+
+    // Server-side rate limiting based on IP address
+    const rateLimitKey = getRateLimitKey(request);
+    if (!checkRateLimit(rateLimitKey)) {
+      return NextResponse.json(
+        { success: false, message: 'Too many requests. Please try again in a minute.' },
+        { status: 429 }
+      );
+    }
 
     if (!process.env.MAILERLITE_API_KEY) {
       console.error('MAILERLITE_API_KEY is not configured');
@@ -56,12 +123,11 @@ export async function POST(request: Request) {
     const requestBody: MailerliteSubscriber = { email };
 
     // Use default group IDs from environment or provided groups
-    const groupIds =
-      groups ||
-      process.env.MAILERLITE_GROUP_IDS?.split(',')
-        .map((id) => id.trim())
-        .filter((v, i, a) => a.indexOf(v) === i)
-        .filter(Boolean);
+    const envGroupIds = process.env.MAILERLITE_GROUP_IDS?.split(',')
+      .map((id) => id.trim())
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .filter(Boolean);
+    const groupIds = Array.isArray(groups) && groups.length > 0 ? groups : envGroupIds;
     if (groupIds && groupIds.length > 0) {
       requestBody.groups = groupIds;
     }

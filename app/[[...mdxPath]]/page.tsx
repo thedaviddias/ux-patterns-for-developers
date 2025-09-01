@@ -14,9 +14,14 @@ import {
 } from '@app/_components/json-ld';
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { generateStaticParamsFor, importPage } from 'nextra/pages';
 import { useMDXComponents } from '../../mdx-components';
+
+const SubscribeForm = dynamic(() =>
+  import('@app/_components/subscribe').then((m) => ({ default: m.SubscribeForm }))
+);
 
 // Type definitions for pattern and blog items
 interface PatternItem {
@@ -455,6 +460,7 @@ export default async function Page(props: PageProps) {
       <div className="nextra-content">
         <Wrapper key={pageKey} toc={toc} metadata={metadata} sourceCode={result.sourceCode}>
           <MDXContent {...props} params={params} />
+          {!isHomepage && <SubscribeForm variant="inline" />}
         </Wrapper>
       </div>
     </>
