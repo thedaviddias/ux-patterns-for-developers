@@ -73,14 +73,17 @@ This is an automatically generated overview of all UX patterns documented in thi
     for (const [category, categoryPatterns] of Object.entries(patterns)) {
       content += `\n### ${category.charAt(0).toUpperCase() + category.slice(1)}\n`;
       for (const pattern of categoryPatterns) {
-        const patternUrl = `${baseUrl}/patterns/${category}/${pattern.slug}`;
+        const patternUrl = new URL(
+          `/patterns/${category}/${pattern.slug}`,
+          baseUrl
+        ).toString();
         content += `- [${pattern.title}](${patternUrl})${pattern.summary ? `: ${pattern.summary}` : ''} [${pattern.status}]\n`;
       }
     }
 
     content += `\n## Additional Resources
-- [Blog posts and articles about UX patterns](${baseUrl}/blog)
-- [Comprehensive glossary of UX terms](${baseUrl}/glossary)
+- [Blog posts and articles about UX patterns](${new URL('/blog', baseUrl).toString()})
+- [Comprehensive glossary of UX terms](${new URL('/glossary', baseUrl).toString()})
 
 ## Technical Implementation
 - Built with Next.js and TypeScript
