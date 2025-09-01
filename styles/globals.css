@@ -30,6 +30,64 @@
 body {
 }
 
+/* Constrain maximum width of the main content area */
+.nextra-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Alternative: Constrain the main content wrapper */
+.nextra-content {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* For pages with sidebar, adjust the main content area */
+.nextra-sidebar-container + .nextra-main {
+  max-width: calc(100vw - 300px) !important;
+}
+
+/* More specific targeting for Nextra's layout */
+.nextra-main {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Target the main content area specifically */
+.nextra-main .nextra-content {
+  max-width: 100% !important;
+}
+
+/* Hide sidebar on homepage and ensure full width */
+.nextra-sidebar-container {
+  display: none !important;
+}
+
+/* Ensure main content uses full width when sidebar is hidden */
+.nextra-sidebar-container + .nextra-main {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+/* For the main layout wrapper */
+.nextra-layout {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
+/* Homepage width constraints (even with layout: 'full') */
+.nextra-layout .nextra-content {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Ensure homepage content is constrained */
+.nextra-layout .nextra-main {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
 .nextra-mobile-nav {
   background-color: white;
 
@@ -71,4 +129,36 @@ body {
   max-width: 600px;
   height: auto;
   width: 100%;
+}
+
+/* Remove any flex space reserved for TOC */
+.nextra-layout > div:last-child {
+  flex: 1 !important;
+  max-width: 100% !important;
+}
+
+/* Remove TOC space completely on internal pages */
+nav.nextra-toc {
+  display: none !important;
+  width: 0 !important;
+  max-width: 0 !important;
+}
+
+/* Remove TOC container space */
+.nextra-toc-container {
+  display: none !important;
+  width: 0 !important;
+  max-width: 0 !important;
+}
+
+/* More comprehensive TOC removal */
+.nextra-toc,
+nav.nextra-toc,
+[class*="nextra-toc"],
+.x\:order-last.x\:max-xl\:hidden.x\:w-64.x\:shrink-0.x\:print\:hidden {
+  display: none !important;
+  width: 0 !important;
+  max-width: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
 }
