@@ -19,9 +19,8 @@ import { notFound } from 'next/navigation';
 import { generateStaticParamsFor, importPage } from 'nextra/pages';
 import { useMDXComponents } from '../../mdx-components';
 
-const SubscribeForm = dynamic(
-  () => import('@app/_components/subscribe').then((m) => ({ default: m.SubscribeForm })),
-  { ssr: false }
+const SubscribeForm = dynamic(() =>
+  import('@app/_components/subscribe').then((m) => ({ default: m.SubscribeForm }))
 );
 
 // Type definitions for pattern and blog items
