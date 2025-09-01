@@ -74,12 +74,11 @@ export async function POST(request: Request) {
     const requestBody: MailerliteSubscriber = { email };
 
     // Use default group IDs from environment or provided groups
-    const groupIds =
-      groups ||
-      process.env.MAILERLITE_GROUP_IDS?.split(',')
-        .map((id) => id.trim())
-        .filter((v, i, a) => a.indexOf(v) === i)
-        .filter(Boolean);
+    const envGroupIds = process.env.MAILERLITE_GROUP_IDS?.split(',')
+      .map((id) => id.trim())
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .filter(Boolean);
+    const groupIds = Array.isArray(groups) && groups.length > 0 ? groups : envGroupIds;
     if (groupIds && groupIds.length > 0) {
       requestBody.groups = groupIds;
     }
