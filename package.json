@@ -44,7 +44,7 @@
     "gray-matter": "^4.0.3",
     "html-to-image": "^1.11.13",
     "import-in-the-middle": "^1.14.2",
-    "lucide-react": "^0.475.0",
+    "lucide-react": "^0.542.0",
     "markdown-to-jsx": "^7.7.3",
     "next": "^15.5.2",
     "next-plausible": "^3.12.4",
