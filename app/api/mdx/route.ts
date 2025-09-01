@@ -23,7 +23,7 @@ type MdxContent = {
 
 async function getAllMdxContent(locale: string) {
   try {
-    const blogPages = ((await getPageMap(`/${locale}/blog`)) || []).filter(
+    const blogPages = ((await getPageMap(`/blog`)) || []).filter(
       (page) => 'name' in page
     ) as MdxFile[];
 
@@ -31,7 +31,7 @@ async function getAllMdxContent(locale: string) {
     const patternCategories = Object.values(PATTERNS_MAP)
       .map((p) => p.path)
       .filter((category) => {
-        const categoryPath = join(process.cwd(), 'content', locale, 'patterns', category);
+        const categoryPath = join(process.cwd(), 'content', 'patterns', category);
         return existsSync(categoryPath);
       });
 
@@ -39,7 +39,7 @@ async function getAllMdxContent(locale: string) {
       await Promise.all(
         patternCategories.map(async (category) => {
           try {
-            const pageMap = await getPageMap(`/${locale}/patterns/${category}`);
+            const pageMap = await getPageMap(`/patterns/${category}`);
             return (pageMap || []).filter((page) => 'name' in page);
           } catch (error) {
             console.warn(`No content found for category: ${category}`, error);
@@ -57,9 +57,9 @@ async function getAllMdxContent(locale: string) {
 
         try {
           const path = page.route.split('/').filter(Boolean);
-          const result = await importPage(path, locale);
+          const result = await importPage(path);
 
-          const filePath = `${join(process.cwd(), 'content', locale, ...path)}.mdx`;
+          const filePath = `${join(process.cwd(), 'content', ...path)}.mdx`;
           const rawContent = readFileSync(filePath, 'utf-8');
 
           // Clean the content but preserve markdown

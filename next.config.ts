@@ -4,8 +4,6 @@ import nextra from 'nextra';
 
 const withNextra = nextra({
   defaultShowCopyCode: true,
-  contentDirBasePath: '/',
-  unstable_shouldAddLocaleToLinks: true,
 });
 
 const withBundleAnalyzer = bundleAnalyzer({
@@ -15,11 +13,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = withBundleAnalyzer(
   withNextra({
     reactStrictMode: true,
-    i18n: {
-      locales: ['en'],
-      defaultLocale: 'en',
-      localeDetection: false,
-    },
     images: {
       remotePatterns: [
         {
@@ -34,16 +27,6 @@ const nextConfig = withBundleAnalyzer(
       formats: ['image/webp', 'image/avif'],
     },
     redirects: async () => [
-      {
-        source: '/llms-full.txt',
-        destination: '/en/llms-full.txt',
-        statusCode: 302,
-      },
-      {
-        source: '/llms.txt',
-        destination: '/en/llms.txt',
-        statusCode: 302,
-      },
       {
         source: '/patterns',
         destination: '/patterns/getting-started',

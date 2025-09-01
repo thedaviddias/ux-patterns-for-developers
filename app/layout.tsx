@@ -4,14 +4,14 @@ import { JetBrains_Mono as FontMono, Poppins as FontSans } from 'next/font/googl
 import PlausibleProvider from 'next-plausible';
 import { Banner } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
-import { LastUpdated, Layout, LocaleSwitch, Navbar } from 'nextra-theme-docs';
-import '../../styles/globals.css';
-import { Footer } from '../_components/footer';
-import { LinkCustom } from '../_components/link-custom';
-import { Stars } from '../_components/stars';
-import { GITHUB_REPO_URL, PROJECT_URL } from '../_constants/project';
-import { getDictionary } from '../_dictionaries/get-dictionary';
-import { metadataSEO } from '../metadata';
+import { LastUpdated, Layout, Navbar } from 'nextra-theme-docs';
+import '../styles/globals.css';
+import { Footer } from './_components/footer';
+import { LinkCustom } from './_components/link-custom';
+import { Stars } from './_components/stars';
+import { GITHUB_REPO_URL, PROJECT_URL } from './_constants/project';
+import { getDictionary } from './_dictionaries/get-dictionary';
+import { metadataSEO } from './metadata';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -46,20 +46,11 @@ export const metadata = {
 
 export default async function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: string }>;
 }) {
-  const resolvedParams = await params;
-  const { lang } = resolvedParams;
-  const dictionary = await getDictionary(lang);
-
-  // Ensure lang is a string and provide fallback
-  const locale = typeof lang === 'string' ? lang : 'en';
-
-  // For getPageMap, we need to pass the route with the locale since Nextra expects it
-  const pageMap = await getPageMap(`/${locale}`);
+  const dictionary = await getDictionary('en');
+  const pageMap = await getPageMap();
 
   const banner = (
     <Banner storageKey="swr-2">
@@ -79,14 +70,12 @@ export default async function RootLayout({
       }
       projectLink={PROJECT_URL}
       projectIcon={<Stars variant="small" />}
-    >
-      <LocaleSwitch />
-    </Navbar>
+    />
   );
 
-  const footer = <Footer lang={lang} />;
+  const footer = <Footer lang="en" />;
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <PlausibleProvider domain="uxpatterns.dev" trackOutboundLinks={true} taggedEvents={true} />
       </head>

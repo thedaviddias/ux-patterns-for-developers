@@ -4,20 +4,18 @@ import { generateArticleSchema, JsonLd } from '@app/_components/json-ld';
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema';
 import type { Metadata } from 'next';
 import { generateStaticParamsFor, importPage } from 'nextra/pages';
-import { useMDXComponents } from '../../../mdx-components';
+import { useMDXComponents } from '../../mdx-components';
 
 export const generateStaticParams = generateStaticParamsFor('mdxPath');
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const resolvedParams = await params;
 
-  // Ensure lang is a string and provide fallback
-  const locale = typeof resolvedParams.lang === 'string' ? resolvedParams.lang : 'en';
   // Ensure mdxPath is an array
   const pathSegments = Array.isArray(resolvedParams.mdxPath) ? resolvedParams.mdxPath : [];
 
-  // For importPage, the lang parameter should be the locale string
-  const result = await importPage(pathSegments, locale);
+  // Import page directly without locale prefix
+  const result = await importPage(pathSegments);
   const isHomepage = !resolvedParams.mdxPath || resolvedParams.mdxPath.length === 0;
   const baseUrl = 'https://uxpatterns.dev';
   const path = resolvedParams.mdxPath?.join('/') || '';
@@ -91,7 +89,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
             ],
     },
     alternates: {
-      canonical: `${baseUrl}/en/${path ? `${path}` : ''}`,
+      canonical: `${baseUrl}/${path ? `${path}` : ''}`,
     },
   };
 }
@@ -99,18 +97,15 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 type PageProps = Readonly<{
   params: Promise<{
     mdxPath: string[];
-    lang: string;
   }>;
 }>;
 
 export default async function Page(props: PageProps) {
   const params = await props.params;
-  // Ensure lang is a string and provide fallback
-  const locale = typeof params.lang === 'string' ? params.lang : 'en';
   // Ensure mdxPath is an array
   const pathSegments = Array.isArray(params.mdxPath) ? params.mdxPath : [];
-  // For importPage, the lang parameter should be the locale string
-  const result = await importPage(pathSegments, locale);
+  // Import page directly without locale prefix
+  const result = await importPage(pathSegments);
   const { default: MDXContent, toc, metadata } = result;
 
   const mdxComponents = useMDXComponents({});
@@ -127,7 +122,7 @@ export default async function Page(props: PageProps) {
   const schemaData = generateArticleSchema(
     title,
     description,
-    `/en/${params.mdxPath?.join('/') || ''}`,
+    `/${params.mdxPath?.join('/') || ''}`,
     ogImageUrl
   );
 
@@ -140,13 +135,13 @@ export default async function Page(props: PageProps) {
       currentPath += `/${segment}`;
       breadcrumbs.push({
         title: segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
-        url: `/en${currentPath}`,
+        url: `${currentPath}`,
       });
     }
   }
 
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
-  const pageKey = `en-${params.mdxPath?.join('-') || 'home'}`;
+  const pageKey = `${params.mdxPath?.join('-') || 'home'}`;
 
   return (
     <>

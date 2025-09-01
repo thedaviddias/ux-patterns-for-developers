@@ -33,16 +33,17 @@ export type Pattern = {
   frontMatter?: Record<string, unknown>;
 };
 
-export async function getPatternCategories(locale: string): Promise<PatternCategory[]> {
+export async function getPatternCategories(locale: string = 'en'): Promise<PatternCategory[]> {
   // Get all pattern categories and check if they exist first
   const categories = Object.values(PATTERNS_MAP).filter((category) => {
-    const categoryPath = join(process.cwd(), 'content', locale, 'patterns', category.path);
+    const categoryPath = join(process.cwd(), 'content', 'patterns', category.path);
     return existsSync(categoryPath);
   });
 
   const categoryData = await Promise.all(
     categories.map(async (category) => {
-      const pageMap = await getPageMap(`/${locale}/patterns/${category.path}`);
+      // Since contentDirBasePath is '/en', paths are relative to that
+      const pageMap = await getPageMap(`/patterns/${category.path}`);
       if (!pageMap) return null;
 
       const pages = pageMap.filter((page) => 'name' in page && page.name !== 'index') as MdxFile[];
@@ -59,7 +60,7 @@ export async function getPatternCategories(locale: string): Promise<PatternCateg
             title: page.frontMatter?.title || page.name,
             summary: page.frontMatter?.summary || '',
             description: page.frontMatter?.description || '',
-            href: `/${locale}/patterns/${category.path}/${page.name}`,
+            href: `/patterns/${category.path}/${page.name}`, // No locale in URL
             icon: iconName ? getIconComponent(iconName) : undefined,
             status,
             frontMatter: page.frontMatter || {},

@@ -12,7 +12,7 @@ export interface GlossaryTerm {
 
 export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
   try {
-    const glossaryPath = join(process.cwd(), 'content/en/glossary');
+    const glossaryPath = join(process.cwd(), 'content/glossary');
 
     if (!existsSync(glossaryPath)) {
       console.warn('Glossary directory not found:', glossaryPath);

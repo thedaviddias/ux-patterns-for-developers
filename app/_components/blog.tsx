@@ -11,7 +11,7 @@ export async function generateMetadata() {
 }
 
 export const Blog: FC<{ lang: string }> = async ({ lang }) => {
-  const pageMap = (await getPageMap(`/${lang}/blog`)) as unknown as MdxFile[];
+  const pageMap = (await getPageMap(`/blog`)) as unknown as MdxFile[];
 
   const sortedPages = pageMap
     .filter((page) => page.name !== 'index')

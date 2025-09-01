@@ -58,7 +58,6 @@ async function processContent(content: string): Promise<string> {
 
 interface ProcessFileOptions {
   baseUrl: string;
-  lang: string;
 }
 
 async function processFile(file: string, options: ProcessFileOptions) {
@@ -88,7 +87,7 @@ async function processFile(file: string, options: ProcessFileOptions) {
 
     const processed = await processContent(content);
     const patternUrl = new URL(
-      `/${options.lang}/patterns/${category}/${basename}`,
+      `/patterns/${category}/${basename}`,
       options.baseUrl
     ).toString();
 
@@ -103,27 +102,22 @@ ${processed}`;
   }
 }
 
-export async function GET(_request: Request, { params }: { params: { lang: string } }) {
+export async function GET(_request: Request) {
   try {
-    // Get base URL and await params
-    const [baseUrl, { lang }] = await Promise.all([
-      Promise.resolve(
-        process.env.NEXT_PUBLIC_VERCEL_URL
-          ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-          : process.env.NODE_ENV === 'development'
-            ? 'http://localhost:3060'
-            : ''
-      ),
-      params,
-    ]);
+    // Get base URL
+    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3060'
+        : '';
 
     if (!baseUrl) {
       return NextResponse.json({ error: 'Base URL not configured' }, { status: 500 });
     }
 
     // Get files and process them
-    const files = await fg(['content/en/patterns/**/*.mdx']);
-    const options: ProcessFileOptions = { baseUrl, lang };
+    const files = await fg(['content/patterns/**/*.mdx']);
+    const options: ProcessFileOptions = { baseUrl };
 
     const scanned = (await Promise.all(files.map((file) => processFile(file, options)))).filter(
       Boolean
