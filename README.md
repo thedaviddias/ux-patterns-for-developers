@@ -35,6 +35,75 @@
 <!-- PATTERNS-LIST:START - Do not remove or modify this section -->
 This is an updated list of available and incoming patterns.
 
+### Advanced
+
+#### Command Palette
+> Coming soon
+
+#### Search Results
+> Coming soon
+
+#### Wizard
+> Coming soon
+
+
+### Ai Intelligence
+
+#### Ai Chat
+> Coming soon
+
+#### Ai Error States
+> Coming soon
+
+#### Ai Loading States
+> Coming soon
+
+#### Ai Suggestions
+> Coming soon
+
+#### Context Window
+> Coming soon
+
+#### Model Selector
+> Coming soon
+
+#### Prompt Input
+> Coming soon
+
+#### Response Feedback
+> Coming soon
+
+#### Streaming Response
+> Coming soon
+
+#### Token Counter
+> Coming soon
+
+
+### Authentication
+
+#### Account Settings
+> Coming soon
+
+#### Login
+> Coming soon
+
+#### Password Reset
+> Coming soon
+
+#### Signup
+> Coming soon
+
+#### Social Login
+> Coming soon
+
+#### Two Factor
+> Coming soon
+
+#### User Profile
+> Coming soon
+
+
 ### Content Management
 
 #### [Accordion](https://uxpatterns.dev/patterns/content-management/accordion)
@@ -81,6 +150,57 @@ Implement user-friendly popover components in your web applications. Learn best 
 <sub>⚡️ Simple implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
 
 Implement effective tooltip components in your web applications. Learn best practices for contextual help, positioning strategies, and accessibility considerations.
+
+
+### Data Display
+
+#### Calendar
+> Coming soon
+
+#### Card Grid
+> Coming soon
+
+#### Chart
+> Coming soon
+
+#### Comparison Table
+> Coming soon
+
+#### Dashboard
+> Coming soon
+
+#### Filter Panel
+> Coming soon
+
+#### Kanban Board
+> Coming soon
+
+#### List View
+> Coming soon
+
+#### Statistics
+> Coming soon
+
+#### Table
+> Coming soon
+
+#### Timeline
+> Coming soon
+
+#### Tree View
+> Coming soon
+
+
+### E Commerce
+
+#### Checkout
+> Coming soon
+
+#### Product Card
+> Coming soon
+
+#### Shopping Cart
+> Coming soon
 
 
 ### Forms
@@ -187,6 +307,18 @@ Implement accessible text input fields with validation, error handling, and user
 > Coming soon
 
 
+### Media
+
+#### Image Gallery
+> Coming soon
+
+#### Image Upload
+> Coming soon
+
+#### Video Player
+> Coming soon
+
+
 ### Navigation
 
 #### [Back To Top](https://uxpatterns.dev/patterns/navigation/back-to-top)
@@ -237,6 +369,21 @@ Learn best practices for building accessible, user-friendly page navigation with
 > Coming soon
 
 #### Tabs
+> Coming soon
+
+
+### Social
+
+#### Activity Feed
+> Coming soon
+
+#### Comment System
+> Coming soon
+
+#### Like Button
+> Coming soon
+
+#### Share Dialog
 > Coming soon
 
 
