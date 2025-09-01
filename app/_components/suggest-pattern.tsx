@@ -18,6 +18,7 @@ export const SuggestPattern = () => {
       <p className="text-lg text-muted-foreground mb-6">Let us know, and we&apos;ll add it!</p>
       <LinkCustom
         href={`${PROJECT_URL}/discussions/new?category=suggestions`}
+        aria-label="Suggest a pattern on GitHub"
         className="plausible-event-name=Suggest+Pattern"
         variant="outline"
       >

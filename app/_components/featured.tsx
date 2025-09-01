@@ -47,6 +47,7 @@ const FeaturedPatternSection = ({ pattern }: { pattern: Pattern }) => {
             href={`${pattern.href}`}
             variant="outline"
             size="xs"
+            aria-label={`View pattern: ${pattern.title}`}
             className="plausible-event-name=View+Pattern"
           >
             View Pattern

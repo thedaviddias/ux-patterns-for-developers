@@ -2,15 +2,14 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
 const subscribeSchema = z.object({
-  email: z.string().min(1, 'Email is required').email('Invalid email address'),
-  groups: z.array(z.string()).optional(),
+  email: z.string().trim().min(1, 'Email is required').email('Invalid email address'),
+  groups: z.array(z.string().trim()).optional(),
 });
 
 const API_BASE = 'https://connect.mailerlite.com/api';
 
 interface MailerliteSubscriber {
   email: string;
-  fields?: Record<string, unknown>;
   groups?: string[];
 }
 
@@ -54,46 +53,69 @@ export async function POST(request: Request) {
       );
     }
 
-    const requestBody: MailerliteSubscriber = {
-      email,
-      fields: {},
-    };
+    const requestBody: MailerliteSubscriber = { email };
 
     // Use default group IDs from environment or provided groups
     const groupIds =
       groups ||
       process.env.MAILERLITE_GROUP_IDS?.split(',')
         .map((id) => id.trim())
+        .filter((v, i, a) => a.indexOf(v) === i)
         .filter(Boolean);
     if (groupIds && groupIds.length > 0) {
       requestBody.groups = groupIds;
     }
 
-    const response = await fetch(`${API_BASE}/subscribers`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${process.env.MAILERLITE_API_KEY}`,
-      },
-      body: JSON.stringify(requestBody),
-    });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
+
+    let response: Response;
+    try {
+      response = await fetch(`${API_BASE}/subscribers`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${process.env.MAILERLITE_API_KEY}`,
+        },
+        body: JSON.stringify(requestBody),
+        signal: controller.signal,
+      });
+    } catch (error) {
+      clearTimeout(timeout);
+
+      // Handle abort/timeout specifically
+      if (error instanceof Error && error.name === 'AbortError') {
+        return NextResponse.json(
+          { success: false, message: 'Request timeout. Please try again.' },
+          { status: 504 }
+        );
+      }
+
+      // Re-throw other errors to be handled by outer catch
+      throw error;
+    }
+
+    clearTimeout(timeout);
 
     // Check if it's a successful response (200 or 201)
     if (response.ok) {
       const result = (await response.json()) as MailerliteSuccessResponse;
 
-      return NextResponse.json({
-        success: true,
-        message: 'Successfully subscribed to the newsletter! Check your email for confirmation.',
-        subscriber: {
-          id: result.data?.id || '',
-          email: result.data?.email || email,
-          status: result.data?.status || 'active',
-          createdAt: result.data?.created_at || new Date().toISOString(),
-          updatedAt: result.data?.updated_at || new Date().toISOString(),
+      return NextResponse.json(
+        {
+          success: true,
+          message: 'Successfully subscribed to the newsletter! Check your email for confirmation.',
+          subscriber: {
+            id: result.data?.id || '',
+            email: result.data?.email || email,
+            status: result.data?.status || 'active',
+            createdAt: result.data?.created_at || new Date().toISOString(),
+            updatedAt: result.data?.updated_at || new Date().toISOString(),
+          },
         },
-      });
+        { status: response.status }
+      );
     }
 
     // Handle error responses
@@ -127,6 +149,8 @@ export async function POST(request: Request) {
       } catch (parseError) {
         console.error('Failed to parse Mailerlite error:', parseError);
       }
+    } else if (response.status === 409) {
+      errorMessage = "You're already subscribed! Check your inbox for our newsletters.";
     } else if (response.status === 401) {
       console.error('Invalid Mailerlite API key');
       errorMessage = 'Newsletter service configuration error. Please contact support.';
@@ -134,7 +158,16 @@ export async function POST(request: Request) {
       errorMessage = 'Too many requests. Please try again in a few minutes.';
     }
 
-    console.error(`Mailerlite API error (${response.status}):`, errorText);
+    try {
+      const parsed = JSON.parse(errorText);
+      console.error('Mailerlite API error:', {
+        status: response.status,
+        message: parsed?.message,
+        errors: parsed?.errors ? Object.keys(parsed.errors) : undefined,
+      });
+    } catch {
+      console.error('Mailerlite API error (unparsed):', { status: response.status });
+    }
 
     return NextResponse.json(
       { success: false, message: errorMessage },
@@ -143,8 +176,14 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Newsletter subscription error:', error);
 
-    // Check if it's a network error
-    if (error instanceof TypeError && error.message.includes('fetch')) {
+    // Network/abort errors
+    if ((error as Error).name === 'AbortError') {
+      return NextResponse.json(
+        { success: false, message: 'Newsletter service timed out. Please try again.' },
+        { status: 504 }
+      );
+    }
+    if (error instanceof TypeError) {
       return NextResponse.json(
         { success: false, message: 'Network error. Please check your connection and try again.' },
         { status: 503 }

@@ -8,6 +8,7 @@ export const HomeCTA = () => {
     <div className="my-8 flex justify-center gap-4">
       <LinkCustom
         href="/patterns/getting-started"
+        aria-label="Get started with UX Patterns"
         className="plausible-event-name=Get+Started"
         variant="neutral"
       >
@@ -16,6 +17,7 @@ export const HomeCTA = () => {
       </LinkCustom>
       <LinkCustom
         href="https://git.new/uxpatterns"
+        aria-label="View the project on GitHub"
         className="plausible-event-name=View+GitHub"
         variant="outline"
       >
