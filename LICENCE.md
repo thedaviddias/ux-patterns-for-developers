@@ -33,4 +33,4 @@ IN THE SOFTWARE.
 If you want to use this software for commercial purposes, you must purchase
 a commercial license. Contact [hello@thedaviddias.com](mailto:hello@thedaviddias.com)
 
-For more information, see [COMMERCIAL-LICENSE.md](./github/COMMERCIAL-LICENSE.md).
+For more information, see [COMMERCIAL-LICENSE.md](./.github/COMMERCIAL-LICENSE.md).
