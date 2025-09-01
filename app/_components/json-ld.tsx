@@ -5,7 +5,10 @@ interface JsonLdProps {
 }
 
 export function JsonLd({ data }: JsonLdProps) {
-  return <script type="application/ld+json">{JSON.stringify(data)}</script>;
+  // Serialize and escape "<" characters to prevent script injection
+  const serializedData = JSON.stringify(data).replace(/</g, '\\u003c');
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for JSON-LD structured data injection with proper escaping
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializedData }} />;
 }
 
 // Author information reused across schemas
