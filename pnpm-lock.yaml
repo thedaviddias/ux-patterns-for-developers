@@ -67,7 +67,7 @@ importers:
         version: 4.4.0(@types/react@19.0.8)(next@15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(nextra@4.4.0(next@15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.9.2))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.5.0(react@19.0.0))
       openai:
         specifier: ^5.16.0
-        version: 5.16.0
+        version: 5.16.0(zod@4.1.5)
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -113,6 +113,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.1.12)
+      zod:
+        specifier: ^4.1.5
+        version: 4.1.5
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.2.2
@@ -5632,6 +5635,9 @@ packages:
   zod@4.0.0-beta.20250424T163858:
     resolution: {integrity: sha512-fKhW+lEJnfUGo0fvQjmam39zUytARR2UdCEh7/OXJSBbKScIhD343K74nW+UUHu/r6dkzN6Uc/GqwogFjzpCXg==}
 
+  zod@4.1.5:
+    resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
+
   zustand@4.5.7:
     resolution: {integrity: sha512-CHOUy7mu3lbD6o6LJLfllpjkzhHXSBlX8B9+qPddUsIfeF5S/UZ5q0kmCsnRqT1UHFQZchNFDDzMbQsuesHWlw==}
     engines: {node: '>=12.7.0'}
@@ -10779,7 +10785,9 @@ snapshots:
       regex: 6.0.1
       regex-recursion: 6.0.2
 
-  openai@5.16.0: {}
+  openai@5.16.0(zod@4.1.5):
+    optionalDependencies:
+      zod: 4.1.5
 
   opener@1.5.2: {}
 
@@ -12056,6 +12064,8 @@ snapshots:
   zod@4.0.0-beta.20250424T163858:
     dependencies:
       '@zod/core': 0.9.0
+
+  zod@4.1.5: {}
 
   zustand@4.5.7(@types/react@19.0.8)(react@19.0.0):
     dependencies:
