@@ -3,6 +3,8 @@ import { tabbedCarouselExample } from './content-management/carousel/tabbed';
 import { basicExpandableTextExample } from './content-management/expandable-text/basic';
 import { basicModalExample } from './content-management/modal/basic';
 import { nativeModalExample } from './content-management/modal/native';
+import { basicBackToTopExample } from './navigation/back-to-top/basic';
+import { basicLoadMoreExample } from './navigation/load-more/basic';
 
 export const examples = {
   'content-management': {
@@ -16,6 +18,14 @@ export const examples = {
     modal: {
       basic: basicModalExample,
       native: nativeModalExample,
+    },
+  },
+  navigation: {
+    'load-more': {
+      basic: basicLoadMoreExample,
+    },
+    'back-to-top': {
+      basic: basicBackToTopExample,
     },
   },
 } as const;

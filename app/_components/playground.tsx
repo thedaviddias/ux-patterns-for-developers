@@ -28,7 +28,7 @@ export const Playground = ({ patternType, pattern, example, height = '650px' }) 
         theme={theme === 'dark' ? 'dark' : 'light'}
       >
         <SandboxLayout>
-          <SandboxTabs defaultValue="code" className="h-[calc(100%-3rem)]">
+          <SandboxTabs defaultValue="preview" className="h-[calc(100%-3rem)]">
             <div className="flex items-center justify-between p-2 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 bg-white">
               <SandboxTabsList className="border-none">
                 <SandboxTabsTrigger
