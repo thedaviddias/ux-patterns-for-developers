@@ -2,7 +2,6 @@ import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import type { MetadataRoute } from 'next';
 import { BASE_URL } from './_constants/project';
-import { i18n } from './_dictionaries/i18n-config';
 
 function getContentPages(dir: string, baseDir: string = ''): string[] {
   const pages: string[] = [];
@@ -35,28 +34,18 @@ function getContentPages(dir: string, baseDir: string = ''): string[] {
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [];
 
-  // Generate routes for each language
-  for (const locale of i18n.locales) {
-    const contentDir = join(process.cwd(), 'content', locale);
-    const pages = getContentPages(contentDir);
+  // Generate routes for content
+  const contentDir = join(process.cwd(), 'content');
+  const pages = getContentPages(contentDir);
 
-    // Add routes for this language
-    pages.forEach((page) => {
-      routes.push({
-        url: `${BASE_URL}/${locale}${page ? `/${page}` : ''}`,
-        lastModified: new Date(),
-        changeFrequency: page.includes('patterns') ? 'daily' : 'weekly',
-        priority: getPriority(page),
-      });
+  // Add routes without language prefix
+  pages.forEach((page) => {
+    routes.push({
+      url: `${BASE_URL}${page ? `/${page}` : ''}`,
+      lastModified: new Date(),
+      changeFrequency: page.includes('patterns') ? 'daily' : 'weekly',
+      priority: getPriority(page),
     });
-  }
-
-  // Add the root URL that redirects to default locale
-  routes.push({
-    url: BASE_URL,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 1,
   });
 
   return routes;

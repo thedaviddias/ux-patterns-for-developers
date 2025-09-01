@@ -18,7 +18,7 @@ export type PatternAssistantPage = {
 };
 
 export async function getPatternAssistantPages(locale: string): Promise<PatternAssistantPage[]> {
-  const pageMap = await getPageMap(`/${locale}/pattern-guide`);
+  const pageMap = await getPageMap(`/pattern-guide`);
   if (!pageMap) return [];
 
   const pages = pageMap.filter((page) => 'name' in page && page.name !== 'index') as MdxFile[];
@@ -31,7 +31,7 @@ export async function getPatternAssistantPages(locale: string): Promise<PatternA
     return {
       title: page.frontMatter?.title || page.name,
       summary: page.frontMatter?.summary || '',
-      href: `/${locale}/pattern-guide/${page.name}`,
+      href: `/pattern-guide/${page.name}`,
       icon: IconComponent,
       frontMatter: page.frontMatter || {},
     };

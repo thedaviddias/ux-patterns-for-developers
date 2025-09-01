@@ -3,7 +3,7 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import { NextResponse } from 'next/server';
 
-const contentDirectory = path.join(process.cwd(), 'content/en/patterns');
+const contentDirectory = path.join(process.cwd(), 'content/patterns');
 
 interface Pattern {
   category: string;
@@ -53,19 +53,14 @@ function getAllPatterns(): PatternsByCategory {
   return allPatterns;
 }
 
-export async function GET(_request: Request, { params }: { params: { lang: string } }) {
+export async function GET(_request: Request) {
   try {
     const patterns = getAllPatterns();
 
-    // Get base URL and await params
-    const [baseUrl, { lang }] = await Promise.all([
-      Promise.resolve(
-        process.env.NODE_ENV === 'development'
-          ? 'http://localhost:3060'
-          : `https://${process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3060'}`
-      ),
-      params,
-    ]);
+    // Get base URL
+    const baseUrl = process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3060'
+      : `https://${process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3060'}`;
 
     // Generate the text content
     let content = `# UX Patterns for Developers
@@ -79,14 +74,14 @@ This is an automatically generated overview of all UX patterns documented in thi
     for (const [category, categoryPatterns] of Object.entries(patterns)) {
       content += `\n### ${category.charAt(0).toUpperCase() + category.slice(1)}\n`;
       for (const pattern of categoryPatterns) {
-        const patternUrl = `${baseUrl}/${lang}/patterns/${category}/${pattern.slug}`;
+        const patternUrl = `${baseUrl}/patterns/${category}/${pattern.slug}`;
         content += `- [${pattern.title}](${patternUrl})${pattern.summary ? `: ${pattern.summary}` : ''} [${pattern.status}]\n`;
       }
     }
 
     content += `\n## Additional Resources
-- [Blog posts and articles about UX patterns](${baseUrl}/${lang}/blog)
-- [Comprehensive glossary of UX terms](${baseUrl}/${lang}/glossary)
+- [Blog posts and articles about UX patterns](${baseUrl}/blog)
+- [Comprehensive glossary of UX terms](${baseUrl}/glossary)
 
 ## Technical Implementation
 - Built with Next.js and TypeScript

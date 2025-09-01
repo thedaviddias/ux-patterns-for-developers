@@ -4,18 +4,19 @@ import { NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Only allow 'en' locale, redirect everything else to /en
-  if (pathname.startsWith('/fr/') || pathname === '/fr') {
+  // Redirect legacy /en/ and /fr/ URLs to new structure
+  if (pathname.startsWith('/en/') || pathname === '/en') {
     const newUrl = request.nextUrl.clone();
-    newUrl.pathname = pathname.replace(/^\/fr/, '/en');
-    return NextResponse.redirect(newUrl);
+    newUrl.pathname = pathname.replace(/^\/en/, '');
+    if (newUrl.pathname === '') newUrl.pathname = '/';
+    return NextResponse.redirect(newUrl, { status: 301 });
   }
 
-  // If accessing root without locale, redirect to /en
-  if (pathname === '/') {
+  if (pathname.startsWith('/fr/') || pathname === '/fr') {
     const newUrl = request.nextUrl.clone();
-    newUrl.pathname = '/en';
-    return NextResponse.redirect(newUrl);
+    newUrl.pathname = pathname.replace(/^\/fr/, '');
+    if (newUrl.pathname === '') newUrl.pathname = '/';
+    return NextResponse.redirect(newUrl, { status: 301 });
   }
 
   return NextResponse.next();
