@@ -12,28 +12,70 @@ export default {
     title: <Separator>Categories</Separator>,
     type: 'separator',
   },
-  'content-management': {
-    title: 'Content Management',
+  forms: {
+    title: 'Input & Forms',
     theme: {
-      collapsed: false,
+      collapsed: true,
     },
   },
   navigation: {
     title: 'Layout & Navigation',
     theme: {
-      collapsed: false,
+      collapsed: true,
+    },
+  },
+  'content-management': {
+    title: 'Content Management',
+    theme: {
+      collapsed: true,
+    },
+  },
+  'data-display': {
+    title: 'Data Display',
+    theme: {
+      collapsed: true,
     },
   },
   'user-feedback': {
     title: 'User Feedback',
     theme: {
-      collapsed: false,
+      collapsed: true,
     },
   },
-  forms: {
-    title: 'Inputs & Forms',
+  authentication: {
+    title: 'Authentication',
     theme: {
-      collapsed: false,
+      collapsed: true,
+    },
+  },
+  'ai-intelligence': {
+    title: 'AI & Intelligence',
+    theme: {
+      collapsed: true,
+    },
+  },
+  media: {
+    title: 'Media',
+    theme: {
+      collapsed: true,
+    },
+  },
+  'e-commerce': {
+    title: 'E-commerce',
+    theme: {
+      collapsed: true,
+    },
+  },
+  social: {
+    title: 'Social',
+    theme: {
+      collapsed: true,
+    },
+  },
+  advanced: {
+    title: 'Advanced',
+    theme: {
+      collapsed: true,
     },
   },
 };
