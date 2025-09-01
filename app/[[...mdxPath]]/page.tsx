@@ -228,7 +228,7 @@ export default async function Page(props: PageProps) {
   if (isHomepage) {
     // Homepage gets WebSite and Organization schemas
     schemas.push(generateWebSiteSchema());
-    schemas.push(ORGANIZATION_SCHEMA);
+    schemas.push({ '@context': 'https://schema.org', ...ORGANIZATION_SCHEMA });
   } else if (isBlogPost) {
     // Blog posts get BlogPosting schema
     const datePublished = extendedMetadata?.date || extendedMetadata?.datePublished;
@@ -309,7 +309,7 @@ export default async function Page(props: PageProps) {
   } else if (isAboutPage) {
     // About page gets Person and Organization schemas
     schemas.push(generatePersonSchema());
-    schemas.push(ORGANIZATION_SCHEMA);
+    schemas.push({ '@context': 'https://schema.org', ...ORGANIZATION_SCHEMA });
   } else if (isPatternsIndex || isPatternCategory) {
     // Pattern index and category pages get ItemList schema
     const items = extendedMetadata?.patterns || extendedMetadata?.items || [];
