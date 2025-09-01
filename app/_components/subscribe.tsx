@@ -65,7 +65,6 @@ export const SubscribeForm = ({ variant = 'default' }: SubscribeFormProps) => {
         body: JSON.stringify({
           email: trimmedEmail,
           honeypot: honeypot || '',
-          timestamp: Date.now(),
         }),
       });
 
