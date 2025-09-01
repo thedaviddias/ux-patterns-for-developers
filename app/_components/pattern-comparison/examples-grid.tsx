@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+import { useState } from 'react';
 import { AspectRatio } from '@/app/_components/ui/aspect-ratio';
 import {
   Dialog,
@@ -9,8 +11,6 @@ import {
   DialogTitle,
 } from '@/app/_components/ui/dialog';
 import { ImagePlaceholder } from '@/app/_components/ui/image-placeholder';
-import Image from 'next/image';
-import { useState } from 'react';
 
 interface Example {
   title: string;
@@ -38,9 +38,9 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
 
   // Ensure image URLs are absolute from root
   const getImageUrl = (url: string) => {
-    // If URL is already absolute (starts with http or //), return as is
-    if (url.startsWith('http') || url.startsWith('//')) return url;
-    // Remove any leading slashes and add a single slash
+    // Allow absolute and scheme/protocol-relative and data/blob URLs
+    if (/^(https?:)?\/\/|^data:|^blob:/.test(url)) return url;
+    // Normalize relative paths to root-based
     return `/${url.replace(/^\/+/, '')}`;
   };
 

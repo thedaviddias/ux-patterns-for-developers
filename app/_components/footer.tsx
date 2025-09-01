@@ -34,13 +34,9 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
   );
 };
 
-const FooterGeneralLinks = () => (
-  <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} />
-);
+const FooterGeneralLinks = () => <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} />;
 
-const FooterResourcesLinks = () => (
-  <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} />
-);
+const FooterResourcesLinks = () => <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} />;
 
 const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} />;
 
@@ -51,44 +47,44 @@ const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) 
       <div className="mx-auto max-w-[1200px] px-4">
         <div className="w-full">
           <h2 className="sr-only">Footer</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-200 dark:border-gray-800">
-          {/* Brand Section */}
-          <div className="md:col-span-1">
-            <span className="mb-3 block text-xl font-bold">{dictionary.name}</span>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary.description}</p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-200 dark:border-gray-800">
+            {/* Brand Section */}
+            <div className="md:col-span-1">
+              <span className="mb-3 block text-xl font-bold">{dictionary.name}</span>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary.description}</p>
+            </div>
 
-          {/* General Links */}
-          <div className="md:col-span-1">
-            <FooterGeneralLinks />
-          </div>
+            {/* General Links */}
+            <div className="md:col-span-1">
+              <FooterGeneralLinks />
+            </div>
 
-          {/* Resources Links */}
-          <div className="md:col-span-1">
-            <FooterResourcesLinks />
-          </div>
+            {/* Resources Links */}
+            <div className="md:col-span-1">
+              <FooterResourcesLinks />
+            </div>
 
-          {/* Support/Social Links */}
-          <div className="md:col-span-1">
-            <FooterSocialLinks />
+            {/* Support/Social Links */}
+            <div className="md:col-span-1">
+              <FooterSocialLinks />
+            </div>
           </div>
-        </div>
-        {/* Copyright Section */}
-        <div className="pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>&copy; {new Date().getFullYear()} UX Patterns for Devs</p>
-          <p className="mt-2">
-            Made with ❤️ by{' '}
-            <a
-              href="https://thedaviddias.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
-            >
-              David Dias
-            </a>{' '}
-            for the Open-Source Community.
-          </p>
-        </div>
+          {/* Copyright Section */}
+          <div className="pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>&copy; {new Date().getFullYear()} UX Patterns for Devs</p>
+            <p className="mt-2">
+              Made with ❤️ by{' '}
+              <a
+                href="https://thedaviddias.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+              >
+                David Dias
+              </a>{' '}
+              for the Open-Source Community.
+            </p>
+          </div>
         </div>
       </div>
     </NextraFooter>
