@@ -6,6 +6,7 @@ import { NextResponse } from 'next/server';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
+import { BASE_URL } from '../_constants/project';
 
 export const dynamic = 'force-dynamic';
 
@@ -86,10 +87,7 @@ async function processFile(file: string, options: ProcessFileOptions) {
         .join(' ');
 
     const processed = await processContent(content);
-    const patternUrl = new URL(
-      `/patterns/${category}/${basename}`,
-      options.baseUrl
-    ).toString();
+    const patternUrl = new URL(`/patterns/${category}/${basename}`, options.baseUrl).toString();
 
     return `# ${category.toUpperCase()}: [${title}](${patternUrl})
 
@@ -105,15 +103,7 @@ ${processed}`;
 export async function GET(_request: Request) {
   try {
     // Get base URL
-    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3060'
-        : '';
-
-    if (!baseUrl) {
-      return NextResponse.json({ error: 'Base URL not configured' }, { status: 500 });
-    }
+    const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3060' : BASE_URL;
 
     // Get files and process them
     const files = await fg(['content/patterns/**/*.mdx']);
