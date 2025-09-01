@@ -20,7 +20,7 @@ export const OverviewGrid = async ({ lang }: { lang: string }) => {
             <h2 className="text-2xl font-bold text-foreground">{category.name}</h2>
             <p className="mt-2 text-muted-foreground text-sm">{category.description}</p>
           </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
             {category.patterns.map((pattern) => (
               <PatternWrapper key={pattern.title} pattern={pattern} />
             ))}
