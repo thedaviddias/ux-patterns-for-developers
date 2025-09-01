@@ -51,7 +51,7 @@ export async function getPatternCategories(locale: string = 'en'): Promise<Patte
       return {
         name: category.name,
         path: category.path,
-        description: category.description,
+        description: category.description || '',
         patterns: pages.map((page) => {
           const iconName = page.frontMatter?.icon;
           const status = (page.frontMatter?.status as PatternStatus) || 'coming-soon';
