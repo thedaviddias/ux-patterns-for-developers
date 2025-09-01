@@ -12,12 +12,17 @@ import {
   JsonLd,
   ORGANIZATION_SCHEMA,
 } from '@app/_components/json-ld';
-import { SubscribeForm } from '@app/_components/subscribe';
 import { generateBreadcrumbSchema } from '@app/_utils/generate-breadcrumb-schema';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { generateStaticParamsFor, importPage } from 'nextra/pages';
 import { useMDXComponents } from '../../mdx-components';
+
+const SubscribeForm = dynamic(
+  () => import('@app/_components/subscribe').then((m) => ({ default: m.SubscribeForm })),
+  { ssr: false }
+);
 
 // Type definitions for pattern and blog items
 interface PatternItem {
