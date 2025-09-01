@@ -1,5 +1,6 @@
 'use client';
 
+import { getTrackingClass, trackNewsletterEvent } from '@app/_utils/tracking';
 import { usePlausible } from 'next-plausible';
 import { useId, useState } from 'react';
 

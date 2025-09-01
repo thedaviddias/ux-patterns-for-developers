@@ -1,7 +1,7 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
 import { TRACKING_CLASSES } from '@app/_utils/tracking';
+import { ArrowRight } from 'lucide-react';
 import { LinkCustom } from '../link-custom';
 
 export const HomeCTA = () => {

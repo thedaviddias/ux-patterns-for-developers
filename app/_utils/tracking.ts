@@ -75,7 +75,10 @@ export const TRACKING_CLASSES = {
 } as const;
 
 // Type for Plausible tracking function
-export type PlausibleTracker = (event: string, options?: { props?: Record<string, string | number> }) => void;
+export type PlausibleTracker = (
+  event: string,
+  options?: { props?: Record<string, string | number> }
+) => void;
 
 // Helper function to track newsletter events
 export const trackNewsletterEvent = (
@@ -83,10 +86,15 @@ export const trackNewsletterEvent = (
   type: 'success' | 'error',
   variant: 'default' | 'inline' = 'default'
 ) => {
-  const eventKey = variant === 'inline' 
-    ? (type === 'success' ? 'NEWSLETTER_SUBSCRIBE_SUCCESS_INLINE' : 'NEWSLETTER_SUBSCRIBE_ERROR_INLINE')
-    : (type === 'success' ? 'NEWSLETTER_SUBSCRIBE_SUCCESS' : 'NEWSLETTER_SUBSCRIBE_ERROR');
-  
+  const eventKey =
+    variant === 'inline'
+      ? type === 'success'
+        ? 'NEWSLETTER_SUBSCRIBE_SUCCESS_INLINE'
+        : 'NEWSLETTER_SUBSCRIBE_ERROR_INLINE'
+      : type === 'success'
+        ? 'NEWSLETTER_SUBSCRIBE_SUCCESS'
+        : 'NEWSLETTER_SUBSCRIBE_ERROR';
+
   plausible(TRACKING_EVENTS[eventKey]);
 };
 
@@ -96,15 +104,14 @@ export const trackFooterClick = (
   linkType: 'general' | 'resource' | 'social',
   linkLabel: string
 ) => {
-  const eventName = linkType === 'social' 
-    ? TRACKING_EVENTS.FOOTER_SOCIAL_CLICK 
-    : TRACKING_EVENTS.FOOTER_LINK_CLICK;
-  
+  const eventName =
+    linkType === 'social' ? TRACKING_EVENTS.FOOTER_SOCIAL_CLICK : TRACKING_EVENTS.FOOTER_LINK_CLICK;
+
   plausible(eventName, {
     props: {
       link_type: linkType,
-      link_label: linkLabel
-    }
+      link_label: linkLabel,
+    },
   });
 };
 
@@ -116,7 +123,7 @@ export const trackSandboxEvent = (
 ) => {
   if (action === 'tab_switch' && tabName) {
     plausible(TRACKING_EVENTS.SANDBOX_TAB_SWITCH, {
-      props: { tab_name: tabName }
+      props: { tab_name: tabName },
     });
   }
 };
@@ -130,7 +137,7 @@ export const trackExternalLink = (
   switch (linkType) {
     case 'caniuse':
       plausible(TRACKING_EVENTS.CANIUSE_LINK_CLICK, {
-        props: { url }
+        props: { url },
       });
       break;
     // Add more external link types as needed
@@ -140,12 +147,14 @@ export const trackExternalLink = (
 // Helper function to get CSS class for tracking
 export const getTrackingClass = (variant?: 'default' | 'inline') => {
   return {
-    newsletterInputFocus: variant === 'inline' 
-      ? TRACKING_CLASSES.NEWSLETTER_INPUT_FOCUS_INLINE 
-      : TRACKING_CLASSES.NEWSLETTER_INPUT_FOCUS,
-    
-    newsletterButtonClick: variant === 'inline'
-      ? TRACKING_CLASSES.NEWSLETTER_BUTTON_CLICK_INLINE
-      : TRACKING_CLASSES.NEWSLETTER_BUTTON_CLICK,
+    newsletterInputFocus:
+      variant === 'inline'
+        ? TRACKING_CLASSES.NEWSLETTER_INPUT_FOCUS_INLINE
+        : TRACKING_CLASSES.NEWSLETTER_INPUT_FOCUS,
+
+    newsletterButtonClick:
+      variant === 'inline'
+        ? TRACKING_CLASSES.NEWSLETTER_BUTTON_CLICK_INLINE
+        : TRACKING_CLASSES.NEWSLETTER_BUTTON_CLICK,
   };
 };

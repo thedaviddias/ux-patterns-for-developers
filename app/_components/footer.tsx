@@ -2,9 +2,9 @@ import { Footer as NextraFooter } from 'nextra-theme-docs';
 
 import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '../_constants/footer';
 import { getDictionary } from '../_dictionaries/get-dictionary';
+import { TRACKING_CLASSES } from '../_utils/tracking';
 import { LinkCustom } from './link-custom';
 import { SOCIAL_LINKS } from './social';
-import { TRACKING_CLASSES } from '../_utils/tracking';
 
 type FooterLinksProps = {
   title: string;
@@ -26,7 +26,9 @@ const FooterLinks = ({ title, links, linkType = 'general' }: FooterLinksProps) =
             <LinkCustom
               href={path || shortlink || '#'}
               className={`text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors text-sm ${
-                linkType === 'social' ? TRACKING_CLASSES.FOOTER_SOCIAL_CLICK : TRACKING_CLASSES.FOOTER_LINK_CLICK
+                linkType === 'social'
+                  ? TRACKING_CLASSES.FOOTER_SOCIAL_CLICK
+                  : TRACKING_CLASSES.FOOTER_LINK_CLICK
               }`}
               data-link-type={linkType}
               data-link-label={label}
@@ -40,11 +42,17 @@ const FooterLinks = ({ title, links, linkType = 'general' }: FooterLinksProps) =
   );
 };
 
-const FooterGeneralLinks = () => <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} linkType="general" />;
+const FooterGeneralLinks = () => (
+  <FooterLinks title="General" links={FOOTER_GENERAL_LINKS} linkType="general" />
+);
 
-const FooterResourcesLinks = () => <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} linkType="resource" />;
+const FooterResourcesLinks = () => (
+  <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} linkType="resource" />
+);
 
-const FooterSocialLinks = () => <FooterLinks title="Support" links={SOCIAL_LINKS} linkType="social" />;
+const FooterSocialLinks = () => (
+  <FooterLinks title="Support" links={SOCIAL_LINKS} linkType="social" />
+);
 
 // Client component for footer content
 const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) => {

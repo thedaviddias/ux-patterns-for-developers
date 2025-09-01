@@ -1,8 +1,8 @@
 'use client';
 
+import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import { useId } from 'react';
 import { PROJECT_URL } from '@/app/_constants/project';
-import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import { LinkCustom } from './link-custom';
 
 export const SuggestPattern = () => {

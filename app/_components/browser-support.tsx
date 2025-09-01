@@ -1,7 +1,7 @@
+import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import bcd from '@mdn/browser-compat-data';
 import type { FC } from 'react';
 import { type SimpleIcon, siFirefox, siGooglechrome, siSafari } from 'simple-icons';
-import { TRACKING_CLASSES } from '@app/_utils/tracking';
 
 interface BrowserSupportProps {
   features: string[]; // e.g. ['html.elements.button', 'api.HTMLButtonElement']

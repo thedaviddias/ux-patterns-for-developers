@@ -1,5 +1,6 @@
 'use client';
 
+import { TRACKING_CLASSES, TRACKING_EVENTS } from '@app/_utils/tracking';
 import type {
   CodeEditorProps,
   PreviewProps,
@@ -18,7 +19,6 @@ import { usePlausible } from 'next-plausible';
 import type { ButtonHTMLAttributes, ComponentProps, HTMLAttributes } from 'react';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { cn } from '@/app/_utils/cn';
-import { TRACKING_EVENTS, TRACKING_CLASSES } from '@app/_utils/tracking';
 
 export type SandboxProviderProps = SandpackProviderProps;
 
@@ -126,7 +126,7 @@ export const SandboxTabsTrigger = ({ className, value, ...props }: SandboxTabsTr
     setSelectedTab(value);
     // Track tab switch
     plausible(TRACKING_EVENTS.SANDBOX_TAB_SWITCH, {
-      props: { tab_name: value }
+      props: { tab_name: value },
     });
   };
 
