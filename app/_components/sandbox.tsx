@@ -123,6 +123,7 @@ export const SandboxTabsTrigger = ({ className, value, ...props }: SandboxTabsTr
   const plausible = usePlausible();
 
   const handleClick = () => {
+    if (selectedTab === value) return;
     setSelectedTab(value);
     // Track tab switch
     plausible(TRACKING_EVENTS.SANDBOX_TAB_SWITCH, {
@@ -137,7 +138,7 @@ export const SandboxTabsTrigger = ({ className, value, ...props }: SandboxTabsTr
       data-state={selectedTab === value ? 'active' : 'inactive'}
       onClick={handleClick}
       className={cn(
-        `${TRACKING_CLASSES.SANDBOX_TAB_SWITCH} inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 font-medium text-sm ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow`,
+        'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 font-medium text-sm ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow',
         className
       )}
       {...props}

@@ -10,10 +10,10 @@ export const TRACKING_EVENTS = {
   NEWSLETTER_SUBSCRIBE_SUCCESS_INLINE: 'Newsletter Subscribe Success Inline',
   NEWSLETTER_SUBSCRIBE_ERROR: 'Newsletter Subscribe Error',
   NEWSLETTER_SUBSCRIBE_ERROR_INLINE: 'Newsletter Subscribe Error Inline',
+  NEWSLETTER_INLINE_INPUT_FOCUS: 'Newsletter Inline Input Focus',
   NEWSLETTER_INPUT_FOCUS: 'Newsletter Input Focus',
-  NEWSLETTER_INPUT_FOCUS_INLINE: 'Newsletter Input Focus Inline',
+  NEWSLETTER_INLINE_BUTTON_CLICK: 'Newsletter Inline Button Click',
   NEWSLETTER_BUTTON_CLICK: 'Newsletter Button Click',
-  NEWSLETTER_BUTTON_CLICK_INLINE: 'Newsletter Button Click Inline',
 
   // Navigation Events
   GITHUB_STAR_CLICK: 'GitHub Star Click',
@@ -41,37 +41,42 @@ export const TRACKING_EVENTS = {
   PATTERN_PREV_CLICK: 'Pattern Previous Click',
 } as const;
 
+// Helper function to convert event name to Plausible class
+export const asPlausibleClass = (eventName: string): string => {
+  return `plausible-event-name=${eventName.replace(/\s+/g, '+')}`;
+};
+
 // CSS Class Names for auto-tracking (plausible-event-name)
 export const TRACKING_CLASSES = {
   // Newsletter
-  NEWSLETTER_INPUT_FOCUS: 'plausible-event-name=Newsletter+Input+Focus',
-  NEWSLETTER_INPUT_FOCUS_INLINE: 'plausible-event-name=Newsletter+Inline+Input+Focus',
-  NEWSLETTER_BUTTON_CLICK: 'plausible-event-name=Newsletter+Subscribe+Click',
-  NEWSLETTER_BUTTON_CLICK_INLINE: 'plausible-event-name=Newsletter+Inline+Subscribe+Click',
+  NEWSLETTER_INPUT_FOCUS: asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INPUT_FOCUS),
+  NEWSLETTER_INLINE_INPUT_FOCUS: asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS),
+  NEWSLETTER_BUTTON_CLICK: asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_BUTTON_CLICK),
+  NEWSLETTER_INLINE_BUTTON_CLICK: asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INLINE_BUTTON_CLICK),
 
   // Navigation
-  GITHUB_STAR_CLICK: 'plausible-event-name=Star+Github',
-  SUGGEST_PATTERN_CLICK: 'plausible-event-name=Suggest+Pattern',
-  VIEW_PATTERN_CLICK: 'plausible-event-name=View+Pattern',
-  GET_STARTED_CLICK: 'plausible-event-name=Get+Started',
-  VIEW_GITHUB_CLICK: 'plausible-event-name=View+GitHub',
+  GITHUB_STAR_CLICK: asPlausibleClass(TRACKING_EVENTS.GITHUB_STAR_CLICK),
+  SUGGEST_PATTERN_CLICK: asPlausibleClass(TRACKING_EVENTS.SUGGEST_PATTERN_CLICK),
+  VIEW_PATTERN_CLICK: asPlausibleClass(TRACKING_EVENTS.VIEW_PATTERN_CLICK),
+  GET_STARTED_CLICK: asPlausibleClass(TRACKING_EVENTS.GET_STARTED_CLICK),
+  VIEW_GITHUB_CLICK: asPlausibleClass(TRACKING_EVENTS.VIEW_GITHUB_CLICK),
 
   // Footer
-  FOOTER_LINK_CLICK: 'plausible-event-name=Footer+Link+Click',
-  FOOTER_SOCIAL_CLICK: 'plausible-event-name=Footer+Social+Click',
+  FOOTER_LINK_CLICK: asPlausibleClass(TRACKING_EVENTS.FOOTER_LINK_CLICK),
+  FOOTER_SOCIAL_CLICK: asPlausibleClass(TRACKING_EVENTS.FOOTER_SOCIAL_CLICK),
 
   // Sandbox
-  SANDBOX_TAB_SWITCH: 'plausible-event-name=Sandbox+Tab+Switch',
+  SANDBOX_TAB_SWITCH: asPlausibleClass(TRACKING_EVENTS.SANDBOX_TAB_SWITCH),
 
   // Decision Flow
-  DECISION_FLOW_DOWNLOAD: 'plausible-event-name=Decision+Flow+Download',
+  DECISION_FLOW_DOWNLOAD: asPlausibleClass(TRACKING_EVENTS.DECISION_FLOW_DOWNLOAD),
 
   // External Links
-  CANIUSE_LINK_CLICK: 'plausible-event-name=CanIUse+Link+Click',
+  CANIUSE_LINK_CLICK: asPlausibleClass(TRACKING_EVENTS.CANIUSE_LINK_CLICK),
 
   // Pattern Navigation
-  PATTERN_NEXT_CLICK: 'plausible-event-name=Pattern+Next+Click',
-  PATTERN_PREV_CLICK: 'plausible-event-name=Pattern+Prev+Click',
+  PATTERN_NEXT_CLICK: asPlausibleClass(TRACKING_EVENTS.PATTERN_NEXT_CLICK),
+  PATTERN_PREV_CLICK: asPlausibleClass(TRACKING_EVENTS.PATTERN_PREV_CLICK),
 } as const;
 
 // Type for Plausible tracking function
@@ -119,11 +124,23 @@ export const trackFooterClick = (
 export const trackSandboxEvent = (
   plausible: PlausibleTracker,
   action: 'tab_switch' | 'code_edit',
-  tabName?: string
+  tabName?: string,
+  additionalProps?: Record<string, string | number>
 ) => {
   if (action === 'tab_switch' && tabName) {
     plausible(TRACKING_EVENTS.SANDBOX_TAB_SWITCH, {
       props: { tab_name: tabName },
+    });
+  } else if (action === 'code_edit') {
+    const props: Record<string, string | number> = {};
+    if (tabName) {
+      props.tab_name = tabName;
+    }
+    if (additionalProps) {
+      Object.assign(props, additionalProps);
+    }
+    plausible(TRACKING_EVENTS.SANDBOX_CODE_EDIT, {
+      props,
     });
   }
 };
@@ -144,17 +161,23 @@ export const trackExternalLink = (
   }
 };
 
+// Legacy aliases for backward compatibility with existing dashboard queries
+export const LEGACY_EVENTS = {
+  NEWSLETTER_INPUT_FOCUS_INLINE: TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS,
+  NEWSLETTER_BUTTON_CLICK_INLINE: TRACKING_EVENTS.NEWSLETTER_INLINE_BUTTON_CLICK,
+} as const;
+
 // Helper function to get CSS class for tracking
 export const getTrackingClass = (variant?: 'default' | 'inline') => {
   return {
     newsletterInputFocus:
       variant === 'inline'
-        ? TRACKING_CLASSES.NEWSLETTER_INPUT_FOCUS_INLINE
-        : TRACKING_CLASSES.NEWSLETTER_INPUT_FOCUS,
+        ? asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS)
+        : asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INPUT_FOCUS),
 
     newsletterButtonClick:
       variant === 'inline'
-        ? TRACKING_CLASSES.NEWSLETTER_BUTTON_CLICK_INLINE
-        : TRACKING_CLASSES.NEWSLETTER_BUTTON_CLICK,
+        ? asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INLINE_BUTTON_CLICK)
+        : asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_BUTTON_CLICK),
   };
 };

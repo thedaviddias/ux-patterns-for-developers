@@ -1,8 +1,7 @@
+import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '@app/_constants/footer';
+import { getDictionary } from '@app/_dictionaries/get-dictionary';
+import { TRACKING_CLASSES } from '@app/_utils/tracking';
 import { Footer as NextraFooter } from 'nextra-theme-docs';
-
-import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '../_constants/footer';
-import { getDictionary } from '../_dictionaries/get-dictionary';
-import { TRACKING_CLASSES } from '../_utils/tracking';
 import { LinkCustom } from './link-custom';
 import { SOCIAL_LINKS } from './social';
 
@@ -12,6 +11,7 @@ type FooterLinksProps = {
     label: string;
     path?: string;
     shortlink?: string;
+    rel?: string;
   }>;
   linkType?: 'general' | 'resource' | 'social';
 };
@@ -21,10 +21,11 @@ const FooterLinks = ({ title, links, linkType = 'general' }: FooterLinksProps) =
     <div>
       <h3 className="small-title">{title}</h3>
       <ul className="mt-3 space-y-1">
-        {links.map(({ label, path, shortlink }) => (
+        {links.map(({ label, path, shortlink, rel }) => (
           <li key={label}>
             <LinkCustom
               href={path || shortlink || '#'}
+              rel={rel}
               className={`text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors text-sm ${
                 linkType === 'social'
                   ? TRACKING_CLASSES.FOOTER_SOCIAL_CLICK
