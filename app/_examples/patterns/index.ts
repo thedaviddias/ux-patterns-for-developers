@@ -3,6 +3,10 @@ import { tabbedCarouselExample } from './content-management/carousel/tabbed';
 import { basicExpandableTextExample } from './content-management/expandable-text/basic';
 import { basicModalExample } from './content-management/modal/basic';
 import { nativeModalExample } from './content-management/modal/native';
+import { basicTableExample } from './data-display/table/basic';
+import { filterableTableExample } from './data-display/table/filterable';
+import { paginatedTableExample } from './data-display/table/paginated';
+import { sortableTableExample } from './data-display/table/sortable';
 import { basicBackToTopExample } from './navigation/back-to-top/basic';
 import { basicLoadMoreExample } from './navigation/load-more/basic';
 
@@ -18,6 +22,14 @@ export const examples = {
     modal: {
       basic: basicModalExample,
       native: nativeModalExample,
+    },
+  },
+  'data-display': {
+    table: {
+      basic: basicTableExample,
+      sortable: sortableTableExample,
+      filterable: filterableTableExample,
+      paginated: paginatedTableExample,
     },
   },
   navigation: {
