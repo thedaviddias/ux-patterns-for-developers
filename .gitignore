@@ -45,7 +45,8 @@ lychee-out.md
 .lycheecache
 
 # Claude
-
 .claude
 claude.md
 sessions/
+
+.pattern-style-guide.md
