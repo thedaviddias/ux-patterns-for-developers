@@ -13,8 +13,8 @@ export const PatternPreview = ({ alt }: { alt: string }) => {
       <Image
         src={`/covers/patterns/${patternName}.png`}
         alt={alt || `Example of ${patternName} pattern`}
-        width={800}
-        height={400}
+        width={900}
+        height={500}
         priority
         unoptimized
       />
