@@ -51,6 +51,7 @@
     "nextra": "4.4.0",
     "nextra-theme-docs": "4.4.0",
     "openai": "^5.16.0",
+    "qrcode": "^1.5.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-intersection-observer": "^9.15.1",

@@ -9,6 +9,7 @@ import '../styles/globals.css';
 import { Footer } from './_components/footer';
 import { LinkCustom } from './_components/link-custom';
 import { StarsWrapper } from './_components/stars-wrapper';
+import { TextSelectionHandler } from './_components/text-to-social/text-selection-handler';
 import { GITHUB_REPO_URL, PROJECT_URL } from './_constants/project';
 import { getDictionary } from './_dictionaries/get-dictionary';
 import { metadataSEO } from './metadata';
@@ -102,6 +103,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         >
           {children}
         </Layout>
+        <TextSelectionHandler />
       </body>
     </html>
   );

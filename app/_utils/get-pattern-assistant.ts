@@ -17,7 +17,7 @@ export type PatternAssistantPage = {
   frontMatter?: Record<string, unknown>;
 };
 
-export async function getPatternAssistantPages(locale: string): Promise<PatternAssistantPage[]> {
+export async function getPatternAssistantPages(_locale: string): Promise<PatternAssistantPage[]> {
   const pageMap = await getPageMap(`/pattern-guide`);
   if (!pageMap) return [];
 

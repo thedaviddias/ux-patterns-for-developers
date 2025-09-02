@@ -27,60 +27,60 @@ body {
 
 /* Constrain maximum width of the main content area */
 .nextra-container {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Alternative: Constrain the main content wrapper */
 .nextra-content {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* For pages with sidebar, adjust the main content area */
 .nextra-sidebar-container + .nextra-main {
-  max-width: calc(100vw - 300px) !important;
+  max-width: calc(100vw - 300px);
 }
 
 /* More specific targeting for Nextra's layout */
 .nextra-main {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Target the main content area specifically */
 .nextra-main .nextra-content {
-  max-width: 100% !important;
+  max-width: 100%;
 }
 
 /* Hide sidebar on homepage and ensure full width */
 .nextra-sidebar-container {
-  display: none !important;
+  display: none;
 }
 
 /* Ensure main content uses full width when sidebar is hidden */
 .nextra-sidebar-container + .nextra-main {
-  max-width: 100% !important;
-  width: 100% !important;
-  margin-left: 0 !important;
+  max-width: 100%;
+  width: 100%;
+  margin-left: 0;
 }
 
 /* For the main layout wrapper */
 .nextra-layout {
-  max-width: 1400px !important;
-  margin: 0 auto !important;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Homepage width constraints (even with layout: 'full') */
 .nextra-layout .nextra-content {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Ensure homepage content is constrained */
 .nextra-layout .nextra-main {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nextra-mobile-nav {
@@ -127,22 +127,22 @@ body {
 
 /* Remove any flex space reserved for TOC */
 .nextra-layout > div:last-child {
-  flex: 1 !important;
-  max-width: 100% !important;
+  flex: 1;
+  max-width: 100%;
 }
 
 /* Remove TOC space completely on internal pages */
 nav.nextra-toc {
-  display: none !important;
-  width: 0 !important;
-  max-width: 0 !important;
+  display: none;
+  width: 0;
+  max-width: 0;
 }
 
 /* Remove TOC container space */
 .nextra-toc-container {
-  display: none !important;
-  width: 0 !important;
-  max-width: 0 !important;
+  display: none;
+  width: 0;
+  max-width: 0;
 }
 
 /* More comprehensive TOC removal */
@@ -150,9 +150,9 @@ nav.nextra-toc {
 nav.nextra-toc,
 [class*="nextra-toc"],
 .x\:order-last.x\:max-xl\:hidden.x\:w-64.x\:shrink-0.x\:print\:hidden {
-  display: none !important;
-  width: 0 !important;
-  max-width: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
+  display: none;
+  width: 0;
+  max-width: 0;
+  position: absolute;
+  left: -9999px;
 }
