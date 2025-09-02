@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import * as Sentry from '@sentry/nextjs';
 import type { LucideIcon } from 'lucide-react';
 import * as Icons from 'lucide-react';
 
@@ -44,30 +45,38 @@ export async function getPatternCategories(_locale: string = 'en'): Promise<Patt
         const pageMap = await getPageMap(`/patterns/${category.path}`);
         if (!pageMap) return null;
 
-        const pages = pageMap.filter((page) => 'name' in page && page.name !== 'index') as MdxFile[];
+        const pages = pageMap.filter(
+          (page) => 'name' in page && page.name !== 'index'
+        ) as MdxFile[];
 
-      return {
-        name: category.name,
-        path: category.path,
-        description: category.description || '',
-        patterns: pages.map((page) => {
-          const iconName = page.frontMatter?.icon;
-          const status = (page.frontMatter?.status as PatternStatus) || 'coming-soon';
+        return {
+          name: category.name,
+          path: category.path,
+          description: category.description || '',
+          patterns: pages.map((page) => {
+            const iconName = page.frontMatter?.icon;
+            const status = (page.frontMatter?.status as PatternStatus) || 'coming-soon';
 
-          return {
-            title: page.frontMatter?.title || page.name,
-            summary: page.frontMatter?.summary || '',
-            description: page.frontMatter?.description || '',
-            href: `/patterns/${category.path}/${page.name}`, // No locale in URL
-            icon: iconName ? getIconComponent(iconName) : undefined,
-            status,
-            frontMatter: page.frontMatter || {},
-          };
-        }),
-      };
+            return {
+              title: page.frontMatter?.title || page.name,
+              summary: page.frontMatter?.summary || '',
+              description: page.frontMatter?.description || '',
+              href: `/patterns/${category.path}/${page.name}`, // No locale in URL
+              icon: iconName ? getIconComponent(iconName) : undefined,
+              status,
+              frontMatter: page.frontMatter || {},
+            };
+          }),
+        };
       } catch (error) {
         // If getPageMap fails for this category, skip it
-        console.warn(`Failed to load category ${category.path}:`, error);
+        Sentry.captureException(error, {
+          tags: {
+            category: category.path,
+            component: 'getPatternCategories',
+          },
+          level: 'warning',
+        });
         return null;
       }
     })
