@@ -21,7 +21,7 @@ type MdxContent = {
   content: string;
 };
 
-async function getAllMdxContent(locale: string) {
+async function getAllMdxContent(_locale: string) {
   try {
     const blogPages = ((await getPageMap(`/blog`)) || []).filter(
       (page) => 'name' in page

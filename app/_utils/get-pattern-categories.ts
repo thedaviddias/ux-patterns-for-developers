@@ -33,7 +33,7 @@ export type Pattern = {
   frontMatter?: Record<string, unknown>;
 };
 
-export async function getPatternCategories(locale: string = 'en'): Promise<PatternCategory[]> {
+export async function getPatternCategories(_locale: string = 'en'): Promise<PatternCategory[]> {
   // Get all pattern categories and check if they exist first
   const categories = Object.values(PATTERNS_MAP).filter((category) => {
     const categoryPath = join(process.cwd(), 'content', 'patterns', category.path);

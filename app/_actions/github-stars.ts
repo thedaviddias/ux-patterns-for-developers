@@ -10,19 +10,20 @@ interface GitHubRepoResponse {
 
 const fetchGitHubStars = async (): Promise<number> => {
   try {
-    const response = await fetch('https://api.github.com/repos/thedaviddias/ux-patterns-for-developers', {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        'X-GitHub-Api-Version': '2022-11-28',
-        'User-Agent': 'UX-Patterns-for-Developers',
-        ...(process.env.GITHUB_TOKEN
-          ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
-          : {}),
-      },
-      next: {
-        revalidate: 3600, // Cache for 1 hour
-      },
-    });
+    const response = await fetch(
+      'https://api.github.com/repos/thedaviddias/ux-patterns-for-developers',
+      {
+        headers: {
+          Accept: 'application/vnd.github.v3+json',
+          'X-GitHub-Api-Version': '2022-11-28',
+          'User-Agent': 'UX-Patterns-for-Developers',
+          ...(process.env.GITHUB_TOKEN
+            ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+            : {}),
+        },
+        signal: AbortSignal.timeout(5000),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`GitHub API error: ${response.status}`);
@@ -37,11 +38,7 @@ const fetchGitHubStars = async (): Promise<number> => {
 };
 
 // Cache the GitHub stars fetch for 1 hour to avoid rate limits
-export const getGitHubStars = unstable_cache(
-  fetchGitHubStars,
-  ['github-stars'],
-  {
-    revalidate: 3600, // 1 hour
-    tags: ['github-stars'],
-  }
-);
+export const getGitHubStars = unstable_cache(fetchGitHubStars, ['github-stars'], {
+  revalidate: 3600, // 1 hour
+  tags: ['github-stars'],
+});

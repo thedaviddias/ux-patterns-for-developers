@@ -39,6 +39,11 @@ export const TRACKING_EVENTS = {
   // Pattern Navigation
   PATTERN_NEXT_CLICK: 'Pattern Next Click',
   PATTERN_PREV_CLICK: 'Pattern Previous Click',
+
+  // Text-to-Social Events
+  TEXT_TO_SOCIAL_POPOVER_SHOWN: 'Text to Social Popover Shown',
+  TEXT_TO_SOCIAL_IMAGE_GENERATED: 'Text to Social Image Generated',
+  TEXT_TO_SOCIAL_IMAGE_DOWNLOAD: 'Text to Social Image Download',
 } as const;
 
 // Helper function to convert event name to Plausible class
@@ -78,6 +83,11 @@ export const TRACKING_CLASSES = {
   // Pattern Navigation
   PATTERN_NEXT_CLICK: asPlausibleClass(TRACKING_EVENTS.PATTERN_NEXT_CLICK),
   PATTERN_PREV_CLICK: asPlausibleClass(TRACKING_EVENTS.PATTERN_PREV_CLICK),
+
+  // Text-to-Social
+  TEXT_TO_SOCIAL_POPOVER_SHOWN: asPlausibleClass(TRACKING_EVENTS.TEXT_TO_SOCIAL_POPOVER_SHOWN),
+  TEXT_TO_SOCIAL_IMAGE_GENERATED: asPlausibleClass(TRACKING_EVENTS.TEXT_TO_SOCIAL_IMAGE_GENERATED),
+  TEXT_TO_SOCIAL_IMAGE_DOWNLOAD: asPlausibleClass(TRACKING_EVENTS.TEXT_TO_SOCIAL_IMAGE_DOWNLOAD),
 } as const;
 
 // Type for Plausible tracking function
@@ -183,6 +193,53 @@ export const LEGACY_EVENTS = {
   'Star Github': TRACKING_EVENTS.GITHUB_STAR_CLICK,
   'Suggest Pattern': TRACKING_EVENTS.SUGGEST_PATTERN_CLICK,
 } as const;
+
+// Helper function to track text-to-social events
+export const trackTextToSocialEvent = (
+  plausible: PlausibleTracker,
+  action: 'popover_shown' | 'image_generated' | 'image_download',
+  options?: {
+    platform?: 'instagram' | 'twitter' | 'linkedin';
+    textLength?: number;
+    patternName?: string;
+  }
+) => {
+  const props: Record<string, string | number> = {};
+  
+  if (options?.platform) {
+    props.platform = options.platform;
+  }
+  
+  if (typeof options?.textLength === 'number') {
+    // Categorize text length into ranges
+    if (options.textLength <= 10) {
+      props.text_length_range = '0-10';
+    } else if (options.textLength <= 50) {
+      props.text_length_range = '11-50';
+    } else if (options.textLength <= 150) {
+      props.text_length_range = '51-150';
+    } else {
+      props.text_length_range = '151-500';
+    }
+    props.text_length = options.textLength;
+  }
+  
+  if (options?.patternName) {
+    props.pattern_name = options.patternName;
+  }
+
+  switch (action) {
+    case 'popover_shown':
+      plausible(TRACKING_EVENTS.TEXT_TO_SOCIAL_POPOVER_SHOWN, { props });
+      break;
+    case 'image_generated':
+      plausible(TRACKING_EVENTS.TEXT_TO_SOCIAL_IMAGE_GENERATED, { props });
+      break;
+    case 'image_download':
+      plausible(TRACKING_EVENTS.TEXT_TO_SOCIAL_IMAGE_DOWNLOAD, { props });
+      break;
+  }
+};
 
 // Helper function to get CSS class for tracking
 export const getTrackingClass = (variant?: 'default' | 'inline') => {

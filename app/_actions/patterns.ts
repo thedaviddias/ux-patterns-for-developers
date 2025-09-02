@@ -43,7 +43,7 @@ export async function getRandomPatternServer(locale: string = 'en'): Promise<Pat
   return pattern || null;
 }
 
-export async function getPatternCategories(locale: string): Promise<PatternCategory[]> {
+export async function getPatternCategories(_locale: string): Promise<PatternCategory[]> {
   // Get all pattern categories and check if they exist first
   const categories = Object.values(PATTERNS_MAP).filter((category) => {
     const categoryPath = join(process.cwd(), 'content', 'patterns', category.path);

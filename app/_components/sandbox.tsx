@@ -1,6 +1,6 @@
 'use client';
 
-import { TRACKING_CLASSES, TRACKING_EVENTS } from '@app/_utils/tracking';
+import { TRACKING_EVENTS } from '@app/_utils/tracking';
 import type {
   CodeEditorProps,
   PreviewProps,

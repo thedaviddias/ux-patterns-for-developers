@@ -1,8 +1,8 @@
 import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '@app/_constants/footer';
 import { getDictionary } from '@app/_dictionaries/get-dictionary';
 import { Footer as NextraFooter } from 'nextra-theme-docs';
-import { FooterLink } from './footer-link';
 import { FooterCopyright } from './footer-copyright';
+import { FooterLink } from './footer-link';
 import { SOCIAL_LINKS } from './social';
 
 type FooterLinksProps = {
