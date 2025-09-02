@@ -34,19 +34,17 @@ export type Pattern = {
 };
 
 export async function getPatternCategories(_locale: string = 'en'): Promise<PatternCategory[]> {
-  // Get all pattern categories and check if they exist first
-  const categories = Object.values(PATTERNS_MAP).filter((category) => {
-    const categoryPath = join(process.cwd(), 'content', 'patterns', category.path);
-    return existsSync(categoryPath);
-  });
+  // Get all pattern categories - let Nextra handle directory existence checking
+  const categories = Object.values(PATTERNS_MAP);
 
   const categoryData = await Promise.all(
     categories.map(async (category) => {
-      // Since contentDirBasePath is '/en', paths are relative to that
-      const pageMap = await getPageMap(`/patterns/${category.path}`);
-      if (!pageMap) return null;
+      try {
+        // Since contentDirBasePath is '/en', paths are relative to that
+        const pageMap = await getPageMap(`/patterns/${category.path}`);
+        if (!pageMap) return null;
 
-      const pages = pageMap.filter((page) => 'name' in page && page.name !== 'index') as MdxFile[];
+        const pages = pageMap.filter((page) => 'name' in page && page.name !== 'index') as MdxFile[];
 
       return {
         name: category.name,
@@ -67,6 +65,11 @@ export async function getPatternCategories(_locale: string = 'en'): Promise<Patt
           };
         }),
       };
+      } catch (error) {
+        // If getPageMap fails for this category, skip it
+        console.warn(`Failed to load category ${category.path}:`, error);
+        return null;
+      }
     })
   );
 
