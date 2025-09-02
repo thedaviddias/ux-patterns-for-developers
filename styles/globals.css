@@ -121,7 +121,6 @@ body {
 }
 
 .pattern-preview img {
-  max-width: 600px;
   height: auto;
   width: 100%;
 }
