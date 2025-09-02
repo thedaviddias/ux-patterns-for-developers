@@ -181,8 +181,12 @@ Implement effective tooltip components in your web applications. Learn best prac
 #### Statistics
 > Coming soon
 
-#### Table
-> Coming soon
+#### [Table](https://uxpatterns.dev/patterns/data-display/table)
+> Display structured data in rows and columns
+
+<sub>🛠️ Complex implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready • 💻 Examples</sub>
+
+Learn how to implement accessible and performant data tables. Discover best practices for sorting, filtering, pagination, and responsive table designs.
 
 #### Timeline
 > Coming soon
