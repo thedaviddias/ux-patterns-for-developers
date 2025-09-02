@@ -226,18 +226,45 @@ How the pattern changes based on context
 - **First Contentful Paint**: < 100ms for pattern initialization
 - **Time to Interactive**: < 200ms for user interaction readiness
 - **Bundle Size**: < 5KB minified and gzipped
+- **Memory Usage**: Monitor heap size for large datasets
+- **Frame Rate**: Maintain 60fps during animations
 
 **Optimization Strategies:**
 
 - **Lazy Loading**: Load pattern only when needed
 - **Code Splitting**: Separate heavy dependencies
 - **Memoization**: Cache expensive computations
+- **Virtual Scrolling**: For large lists or tables
+- **Debouncing/Throttling**: For frequent events
 
 **Mobile Performance:**
 
 - **Touch Optimization**: 44x44px minimum touch targets
 - **Reduced Animations**: Respect prefers-reduced-motion
 - **Network Awareness**: Adapt to connection speed
+- **Progressive Enhancement**: Core functionality first
+- **Offline Support**: Cache critical resources
+
+<!-- 
+  RECOMMENDED SECTION
+  User research and testing insights
+-->
+## Usability Testing Insights
+
+Research shows that users:
+
+- [Key finding with percentage, e.g., "Expect immediate feedback (85% of users)"]
+- [Another research insight with data]
+- [User preference or behavior pattern]
+- [Common user expectation]
+- [Accessibility-related finding]
+
+**Testing Recommendations:**
+
+- Test with real users in your target demographic
+- Include users with disabilities in testing
+- Test on actual devices, not just simulators
+- Conduct both moderated and unmoderated sessions
 
 <!-- 
   OPTIONAL SECTION
@@ -333,23 +360,26 @@ The following table outlines the standard keyboard interactions for {{name}} com
   OPTIONAL SECTION
   SEO considerations for the pattern
 -->
-## SEO
+## SEO Considerations
 
-**Structured Data:**
+- Use semantic HTML elements for better crawlability
+- Provide descriptive labels and captions
+- Include schema.org markup for structured data
+- Ensure content is accessible without JavaScript
+- Use descriptive text for all interactive elements
+- Consider Core Web Vitals impact
+- Implement proper heading hierarchy
+- Include alt text for visual elements
+
+**Structured Data Example:**
 ```json
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "{{name}} Pattern"
+  "name": "{{name}} Pattern",
+  "description": "Implementation guide for {{name}}"
 }
 ```
-
-**SEO Considerations:**
-- Use semantic HTML elements
-- Include descriptive alt text
-- Ensure crawlable content
-- Implement proper heading hierarchy
-- Consider Core Web Vitals impact
 
 <!-- 
   REQUIRED SECTION
@@ -427,27 +457,64 @@ test('{{name}} user flow', async ({ page }) => {
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 
-### {{name}} Tokens in DTF Format
-
 ```json
 {
   "$schema": "https://design-tokens.org/schema.json",
-  "{{name}}": {
-    "spacing": {
-      "padding": { "value": "16px" },
-      "margin": { "value": "8px" }
+  "{{name-lowercase}}": {
+    "container": {
+      "background": { "value": "{color.background.primary}", "type": "color" },
+      "borderRadius": { "value": "{radius.md}", "type": "dimension" },
+      "padding": { "value": "{spacing.md}", "type": "dimension" }
     },
-    "colors": {
-      "background": { "value": "#ffffff" },
-      "text": { "value": "#000000" }
+    "content": {
+      "color": { "value": "{color.text.primary}", "type": "color" },
+      "fontSize": { "value": "{typography.body.fontSize}", "type": "dimension" },
+      "lineHeight": { "value": "{typography.body.lineHeight}", "type": "number" }
     },
-    "typography": {
-      "fontSize": { "value": "16px" },
-      "lineHeight": { "value": "1.5" }
+    "interactive": {
+      "background": { "value": "{color.interactive.primary}", "type": "color" },
+      "backgroundHover": { "value": "{color.interactive.hover}", "type": "color" },
+      "borderColor": { "value": "{color.border.default}", "type": "color" }
+    },
+    "state": {
+      "disabled": {
+        "opacity": { "value": "0.5", "type": "number" },
+        "cursor": { "value": "not-allowed", "type": "string" }
+      },
+      "loading": {
+        "animation": { "value": "pulse 2s ease-in-out infinite", "type": "string" }
+      }
     }
   }
 }
 ```
+
+<!-- 
+  RECOMMENDED SECTION
+  Component library implementations
+-->
+## Component Library Examples
+
+### React Components
+
+- **[Library Name](https://example.com)** – Brief description of strengths
+- **[Another Library](https://example.com)** – What makes it unique
+- **[Third Option](https://example.com)** – Best use case
+
+### Vue Components
+
+- **[Vue Library](https://example.com)** – Key features
+- **[Alternative](https://example.com)** – When to use
+
+### Vanilla JavaScript
+
+- **[Pure JS Library](https://example.com)** – No framework needed
+- **[Lightweight Option](https://example.com)** – Minimal dependencies
+
+### Web Components
+
+- **[Custom Elements](https://example.com)** – Framework agnostic
+- **[Shadow DOM Implementation](https://example.com)** – Encapsulated styling
 
 <!-- 
   RECOMMENDED SECTION
