@@ -9,6 +9,7 @@ import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
+import { Playground } from "@app/_components/playground";
 
 # Text Field
 
@@ -103,9 +104,11 @@ graph TD
    - Typically placed **below the input field**.
    - Should be **persistent** and not disappear on focus.
 
-6. **Validation/Error Message (`p` or `span`, optional)**
+6. **Validation/Error Message (`<output>` preferred, `<p>` or `<span>` acceptable)**
 
    - Displays a **clear, specific message** when input is invalid.
+   - **Use `<output>` for dynamic validation feedback** - semantically represents the result of user input.
+   - Use `<p>` for static helper text that doesn't change.
    - Should be **associated with the input using `aria-describedby`**.
    - Appears below the input, replacing helper text if necessary.
 
@@ -137,9 +140,138 @@ graph TD
 | Prefix                   | ❌ No     | Displays static text before the input.       |
 | Suffix                   | ❌ No     | Displays static text after the input.        |
 
+## Variations
+
+### Basic Text Field
+Simple single-line input with label and optional helper text.
+
+```html
+<div class="text-field">
+  <label for="email">Email Address</label>
+  <input type="text" id="email" placeholder="Enter your email">
+</div>
+```
+
+### With Validation States
+Text field showing different validation states (error, success, warning).
+
+```html
+<!-- Error State -->
+<div class="text-field text-field--error">
+  <label for="password">Password</label>
+  <input type="password" id="password" aria-invalid="true" aria-describedby="password-error">
+  <output class="text-field__error" id="password-error">Password must be at least 8 characters</output>
+</div>
+
+<!-- Success State -->
+<div class="text-field text-field--success">
+  <label for="username">Username</label>
+  <input type="text" id="username" value="john_doe" aria-describedby="username-success">
+  <output class="text-field__success" id="username-success">Username is available</output>
+</div>
+```
+
+### With Character Counter
+Text field that shows remaining character count.
+
+```html
+<div class="text-field">
+  <label for="bio">Bio</label>
+  <textarea id="bio" maxlength="160" aria-describedby="bio-counter"></textarea>
+  <div class="text-field__counter" id="bio-counter">0/160</div>
+</div>
+```
+
+### With Prefix/Suffix
+Text field with icons or text before or after the input.
+
+```html
+<div class="text-field">
+  <label for="website">Website</label>
+  <div class="text-field__input-wrapper">
+    <span class="text-field__prefix">https://</span>
+    <input type="text" id="website" placeholder="example.com">
+    <button type="button" class="text-field__suffix" aria-label="Clear input">
+      <svg aria-hidden="true"><!-- clear icon --></svg>
+    </button>
+  </div>
+</div>
+```
+
+### With Helper Text
+Text field with additional guidance below the input.
+
+```html
+<div class="text-field">
+  <label for="username">Username</label>
+  <input type="text" id="username" aria-describedby="username-help">
+  <div class="text-field__help" id="username-help">Must be 3-20 characters, letters and numbers only</div>
+</div>
+```
+
+### Search Text Field
+Optimized for search with specific styling and behavior.
+
+```html
+<div class="text-field text-field--search">
+  <label for="search" class="sr-only">Search</label>
+  <div class="text-field__input-wrapper">
+    <svg class="text-field__prefix" aria-hidden="true"><!-- search icon --></svg>
+    <input type="search" id="search" placeholder="Search products...">
+    <button type="button" class="text-field__suffix" aria-label="Clear search">
+      <svg aria-hidden="true"><!-- close icon --></svg>
+    </button>
+  </div>
+</div>
+```
+
 ## Code Examples
 
-### **1️⃣ Best Practice: Explicit "Required" Label**
+### Basic Text Field
+
+Simple text field with label and proper accessibility attributes.
+
+<Playground patternType="forms" pattern="text-field" example="basic" />
+
+### With Validation States
+
+Text field showing different validation states (error, success, warning).
+
+<Playground patternType="forms" pattern="text-field" example="validation" />
+
+### With Helper Text
+
+Text field with additional guidance and formatting instructions.
+
+<Playground patternType="forms" pattern="text-field" example="helper-text" />
+
+### With Character Counter
+
+Text field that shows remaining character count as user types.
+
+<Playground patternType="forms" pattern="text-field" example="character-counter" />
+
+### With Icons
+
+Text field with prefix and suffix icons for enhanced usability.
+
+<Playground patternType="forms" pattern="text-field" example="with-icons" />
+
+### Different Input Types
+
+Various input types optimized for different data entry scenarios.
+
+<Playground patternType="forms" pattern="text-field" example="input-types" />
+
+### Required Field Indicators
+
+Best practices for marking required fields accessibly.
+
+<Playground patternType="forms" pattern="text-field" example="required" />
+
+### **Required Field Implementation Guidelines**
+
+#### **1️⃣ Best Practice: Explicit "Required" Label**
 
 ✅ **Most accessible** – clear for all users, including screen readers.
 
@@ -157,7 +289,7 @@ graph TD
 
 - Takes slightly more space in the UI.
 
-### **2️⃣ Alternative: Asterisk (\*) with ARIA Explanation**
+#### **2️⃣ Alternative: Asterisk (\*) with ARIA Explanation**
 
 ✅ **Common practice**, but needs `aria-describedby` for screen reader users.
 
@@ -185,7 +317,7 @@ graph TD
 - **Requires additional explanation** (`aria-describedby`).
 - **Without the extra message, asterisks alone are not accessible**.
 
-### **3️⃣ Alternative: Required Field with Visually Hidden Text**
+#### **3️⃣ Alternative: Required Field with Visually Hidden Text**
 
 ✅ **Keeps UI minimal while ensuring accessibility.**
 
@@ -203,7 +335,7 @@ graph TD
 
 - **Not visible for sighted users** who rely on visual cues.
 
-### **4️⃣ Alternative: Required Field with an Inline Icon + Tooltip**
+#### **4️⃣ Alternative: Required Field with an Inline Icon + Tooltip**
 
 ✅ **More user-friendly**, provides additional guidance.
 
@@ -234,7 +366,7 @@ graph TD
 - **Requires CSS for styling** (ensuring asterisks are not the only indicator).
 - Users **might not see tooltip hints** if they don't hover over the icon.
 
-### **5️⃣ Alternative: Required Field with `required` Attribute Only**
+#### **5️⃣ Alternative: Required Field with `required` Attribute Only**
 
 ⚠ **Not recommended as a standalone solution!**
 
@@ -253,6 +385,81 @@ graph TD
 - No **visible indicator for sighted users** before form submission.
 - **Errors only appear after submission**, which may confuse users.
 - Some browsers may **not enforce required fields consistently**.
+
+## Common Mistakes & Anti-Patterns
+
+#### Using Placeholder as Primary Label
+
+**❌ What's Wrong?** Relying on placeholder text as the only label makes the field inaccessible when users start typing, and screen readers may not announce it properly.
+
+```html
+<!-- Bad: Placeholder as label -->
+<input type="text" placeholder="First Name">
+```
+
+**How to Fix It?** Always provide a visible label and use placeholder for hints or examples only.
+
+```html
+<!-- Good: Label + helpful placeholder -->
+<label for="firstName">First Name</label>
+<input type="text" id="firstName" placeholder="e.g., John">
+```
+
+---
+
+#### Poor Validation Timing
+
+**❌ What's Wrong?** Showing error messages too early (on first keystroke) or too late (only on form submission) frustrates users.
+
+**How to Fix It?** Use **progressive validation**:
+- Show errors after field loses focus (onBlur) for first-time entry
+- Show real-time validation for corrections after initial error
+- Validate required fields on blur, format validation on input
+
+```javascript
+// Good: Progressive validation
+function validateField(input, hasBeenBlurred) {
+  if (hasBeenBlurred && input.value.length > 0) {
+    // Show real-time validation after first blur
+    showValidationFeedback(input);
+  }
+}
+```
+
+---
+
+#### Missing Error Recovery
+
+**❌ What's Wrong?** Not providing clear guidance on how to fix validation errors leaves users stuck.
+
+**How to Fix It?** Include specific, actionable error messages with examples.
+
+```html
+<!-- Bad: Vague error -->
+<output class="error">Invalid input</output>
+
+<!-- Good: Specific guidance -->
+<output class="error">
+  Password must contain at least 8 characters, including 1 number and 1 special character. 
+  Example: MyPass123!
+</output>
+```
+
+---
+
+#### Inaccessible Focus Management
+
+**❌ What's Wrong?** Poor focus indicators or focus traps make keyboard navigation impossible.
+
+**How to Fix It?** Ensure visible focus states and logical tab order.
+
+```css
+/* Good: Visible focus indicator */
+.text-field input:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+```
 
 ## Best Practices
 
@@ -434,6 +641,164 @@ Text fields should support **standard keyboard navigation and interactions** to 
 | `Arrow Up / Down`         | Moves the cursor within multi-line text fields (`textarea`).      |
 | `Esc`                     | If inside a **search field**, clears input _(optional behavior)._ |
 
+## Micro-Interactions & Animations
+
+For text field components, implement these specific animations to enhance user experience while maintaining performance:
+
+### Focus Animation
+- **Effect:** Smooth border color transition and subtle scale when field receives focus
+- **Timing:** 200ms ease-out transition for professional feel
+- **Implementation:** CSS transition on border-color and box-shadow properties
+
+```css
+.text-field input {
+  border: 1px solid #d1d5db;
+  transition: border-color 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.text-field input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+```
+
+### Validation State Animation
+- **Effect:** Smooth color transition when switching between validation states
+- **Timing:** 300ms ease-in-out to allow users to notice state changes
+- **Implementation:** Animate border color, text color, and icon appearance
+
+### Character Counter Animation
+- **Effect:** Number increments smoothly and color changes as limit approaches
+- **Timing:** 150ms for number updates, 200ms for color transitions
+- **Implementation:** Animate color when reaching 80% (warning) and 95% (danger) of limit
+
+### Label Float Animation
+- **Effect:** Label moves from placeholder position to above field when focused
+- **Timing:** 200ms ease-out for smooth, natural movement
+- **Implementation:** Transform translateY and scale properties
+
+## Tracking
+
+Text field interactions provide valuable insights into user behavior, form completion rates, and usability issues. Track these key metrics to optimize the input experience.
+
+### Key Tracking Points
+
+| **Event Name** | **Description** | **Why Track It?** |
+|----------------|-----------------|-------------------|
+| `textfield.focus` | When user focuses on a text field | Measures field engagement and interaction patterns |
+| `textfield.input` | When user types in the field | Tracks active usage and input behavior |
+| `textfield.blur` | When user leaves the field | Identifies completion patterns and field abandonment |
+| `textfield.clear` | When user clears field content | Shows user correction behavior and field complexity |
+| `textfield.validation_error` | When validation fails | Identifies problematic fields and error patterns |
+| `textfield.validation_success` | When validation passes | Measures successful field completion |
+| `textfield.paste` | When user pastes content | Shows copy-paste usage patterns |
+| `textfield.autocomplete_used` | When browser autocomplete is used | Indicates field recognition and user convenience |
+
+### Event Payload Structure
+
+```json
+{
+  "event": "textfield.validation_error",
+  "properties": {
+    "field_name": "email",
+    "field_type": "email",
+    "error_type": "invalid_format",
+    "input_length": 12,
+    "time_spent": 4.2,
+    "attempt_number": 2,
+    "form_id": "registration"
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+- **Field Completion Rate** → Percentage of users who successfully complete each field
+- **Error Rate** → Frequency of validation errors per field type
+- **Time to Complete** → Average time users spend on each field
+- **Abandonment Points** → Where users stop filling forms
+- **Correction Patterns** → How often users backspace or clear fields
+- **Paste Usage** → Fields where users commonly paste content
+
+## Localization
+
+Text fields require comprehensive localization support for international users, including text direction, input methods, and cultural formatting differences.
+
+```json
+{
+  "text_field": {
+    "validation": {
+      "required": "This field is required",
+      "invalid_email": "Please enter a valid email address",
+      "invalid_format": "Please check the format",
+      "too_short": "Must be at least {min} characters",
+      "too_long": "Must be no more than {max} characters",
+      "contains_invalid_chars": "Contains invalid characters"
+    },
+    "actions": {
+      "clear": "Clear field",
+      "show_password": "Show password",
+      "hide_password": "Hide password",
+      "copy": "Copy to clipboard",
+      "paste": "Paste from clipboard"
+    },
+    "counter": {
+      "characters_remaining": "{count} characters remaining",
+      "character_limit_reached": "Character limit reached",
+      "over_limit": "{count} characters over limit"
+    },
+    "states": {
+      "loading": "Loading...",
+      "success": "Valid",
+      "processing": "Processing...",
+      "saved": "Saved"
+    },
+    "placeholders": {
+      "search": "Search...",
+      "email": "Enter your email",
+      "password": "Enter your password",
+      "optional": "Optional"
+    }
+  }
+}
+```
+
+### RTL Language Support
+
+For right-to-left languages (Arabic, Hebrew), adjust text alignment and icon positions:
+
+```css
+[dir="rtl"] .text-field input {
+  text-align: right;
+}
+
+[dir="rtl"] .text-field__prefix {
+  order: 2;
+}
+
+[dir="rtl"] .text-field__suffix {
+  order: 0;
+}
+```
+
+### Input Method Support
+
+Consider different input methods for international users:
+
+- **IME Support:** Handle composition events for Chinese, Japanese, Korean input
+- **Virtual Keyboards:** Optimize for mobile virtual keyboards with appropriate `inputmode` attributes
+- **Cultural Formats:** Support local name orders, address formats, and phone number patterns
+
+## Performance Metrics
+
+Target performance metrics for text field components:
+
+- **Initial render**: < 100ms for text field appearance
+- **Focus response**: < 50ms from click to focus state
+- **Validation feedback**: < 150ms after input validation
+- **Character counter updates**: < 50ms for smooth counting
+- **Memory usage**: < 5KB per text field instance
+
 ## **Testing Guidelines**
 
 ### **Functional Testing**
@@ -575,4 +940,31 @@ Text fields should support **standard keyboard navigation and interactions** to 
 
 ### Libraries
 
-[Input - Origin UI](https://originui.com/input)
+- [Input - Origin UI](https://originui.com/input) - Modern input component collection
+- [React Hook Form](https://react-hook-form.com/) - Performant, flexible forms with validation
+- [Formik](https://formik.org/) - Forms without tears
+- [React Final Form](https://final-form.org/react) - High performance forms
+- [Mantine TextInput](https://mantine.dev/core/text-input/) - Full-featured text input component
+- [Chakra UI Input](https://chakra-ui.com/docs/components/input) - Simple and modular input component
+
+### Design Systems
+
+- [Material Design Text Fields](https://material.io/components/text-fields) - Google's text field guidelines
+- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/text-fields) - Apple's text field standards
+- [Ant Design Input](https://ant.design/components/input) - Enterprise-grade input design
+- [Carbon Design System](https://carbondesignsystem.com/components/text-input/usage) - IBM's input component guidelines
+- [Atlassian Design System](https://atlassian.design/components/textfield/examples) - Textfield component examples
+
+### Articles & Guides
+
+- [Form Design Best Practices](https://uxplanet.org/designing-perfect-text-field-clarity-accessibility-and-user-experience-6e7dd80e68c8) - Comprehensive form design guide
+- [Accessible Form Design](https://webaim.org/techniques/forms/) - WebAIM's form accessibility techniques
+- [Mobile Input Best Practices](https://developers.google.com/web/fundamentals/design-and-ux/input/forms) - Google's mobile form guidelines
+- [Input Validation Patterns](https://www.smashingmagazine.com/2009/07/web-form-validation-best-practices-and-tutorials/) - Validation best practices guide
+
+### Tools & Utilities
+
+- [HTML5 Input Types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types) - Complete reference for input types
+- [Accessibility Checker](https://wave.webaim.org/) - Check form accessibility
+- [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/) - Ensure sufficient contrast
+- [Screen Reader Testing](https://webaim.org/articles/screenreader_testing/) - Test with assistive technologies

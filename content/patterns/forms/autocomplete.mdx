@@ -18,9 +18,9 @@ import { PatternPreview } from "@app/_components/pattern-preview";
 
 ## Overview
 
-The **autocomplete** is an interactive input component that helps users quickly find and select values from a predefined list of options as they type.
+**Autocomplete** helps users quickly find and select values from predefined options as they type.
 
-They combine the flexibility of [text input](/patterns/forms/text-field) with dropdown-style selection, providing suggestions that match the user's input in real-time. This pattern reduces errors, speeds up data entry, and improves the overall form completion experience.
+Autocomplete combines [text input](/patterns/forms/text-field) flexibility with dropdown-style selection, providing real-time suggestions matching user input. This pattern reduces errors, speeds data entry, and improves form completion.
 
 <BuildEffort
   level="medium"
@@ -31,39 +31,39 @@ They combine the flexibility of [text input](/patterns/forms/text-field) with dr
 
 ### When to use:
 
-- When users need to select from a large set of predefined options (e.g., country selection, airport codes)
-- When you want to help users find and select options more quickly than scrolling through a long dropdown
-- When you want to reduce errors by guiding users to valid input options
-- When the input has a finite set of valid responses that are known in advance
-- When you want to combine free text input with suggestion functionality
+- Users select from large sets of predefined options (country selection, airport codes)
+- Users need faster option selection than scrolling through long dropdowns
+- Reducing errors by guiding users to valid input options
+- Input has finite, known valid responses
+- Combining free text input with suggestion functionality
 
 ### When not to use:
 
-- When there are fewer than 10 options (use a standard dropdown/select instead)
-- When users need to enter completely free-form text without restrictions
-- When all options need to be visible at once for comparison
-- When network latency could significantly delay suggestion results
-- When the input field requires exact, verbatim text entry (like passwords)
+- Fewer than 10 options exist (use standard dropdown/select instead)
+- Users enter completely free-form text without restrictions
+- All options need simultaneous visibility for comparison
+- Network latency significantly delays suggestion results
+- Input field requires exact, verbatim text entry (passwords)
 
 ### Common scenarios and examples
 
-- **Searching for products** in an e-commerce catalog
-- **Entering city names** for travel or weather applications
-- **Looking up user or contact names** in a messaging or collaboration tool
+- **Product search** in e-commerce catalogs
+- **City name entry** for travel or weather applications
+- **User or contact lookup** in messaging or collaboration tools
 
 ## Benefits
 
-- **Speeds up data entry** by narrowing down possible options in real-time
-- **Reduces user frustration** and guesswork by guiding them to valid options
-- **Minimizes mistakes** and typos, as suggestions can be confirmed or chosen from a list
+- **Faster data entry** through real-time option narrowing
+- **Less user frustration** with guided valid options
+- **Fewer mistakes** and typos using confirmed suggestions from lists
 
 ## Drawbacks
 
-- **Accessibility challenges** – Requires proper ARIA attributes (`aria-expanded`, `aria-controls`, `aria-activedescendant`) for screen readers.
-- **Keyboard navigation complexity** – Users must be able to navigate the suggestions using arrow keys and select options with Enter.
-- **Performance issues** – Fetching suggestions dynamically can introduce lag if not optimized with debouncing and caching.
-- **Overwhelming for users** – Too many suggestions or unclear results can create cognitive overload.
-- **Implementation effort** – Requires handling both filtering logic and managing suggestion visibility correctly.
+- **Accessibility challenges** – Needs proper ARIA attributes (`aria-expanded`, `aria-controls`, `aria-activedescendant`) for screen readers
+- **Keyboard navigation complexity** – Users navigate suggestions with arrow keys and select with Enter
+- **Performance issues** – Dynamic suggestion fetching introduces lag without debouncing and caching
+- **User overwhelm** – Too many suggestions or unclear results create cognitive overload
+- **Implementation effort** – Must handle filtering logic and suggestion visibility management
 
 ## Anatomy
 
@@ -93,23 +93,23 @@ graph TD
 
 1. **Container**
 
-- Wraps the entire autocomplete area, including the input and dropdown
-- Handles positioning, sizing, and possible floating layers for the suggestions
+- Wraps entire autocomplete area including input and dropdown
+- Handles positioning, sizing, and floating layers for suggestions
 
 2. **Input**
 
-- The text field where users type their query
-- Provides real-time updates and triggers suggestion fetching
+- Text field for user queries
+- Gives real-time updates and triggers suggestion fetching
 
 3. **Label**
 
-- Optional text label describing the input's purpose
-- Provides clarity for screen readers and visible context for users
+- Optional label describing input purpose
+- Clarifies for screen readers and provides visible context
 
 4. **Clear Button**
 
-- Allows users to quickly clear the input field
-- Often represented by an "X" or "✕" icon
+- Quick input field clearing
+- Usually shows as "X" or "✕" icon
 
 ## Best Practices
 

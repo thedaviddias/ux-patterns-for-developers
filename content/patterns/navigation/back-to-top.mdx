@@ -14,9 +14,9 @@ import { Playground } from "@app/_components/playground";
 
 ## Overview
 
-**Back to Top** provides users a quick way to return to the top of the page, especially when they have scrolled through lengthy or [infinite content](/patterns/navigation/infinite-scroll).
+**Back to Top** gives users a quick way back to the page top after scrolling through lengthy or [infinite content](/patterns/navigation/infinite-scroll).
 
-Commonly seen as a floating button or link at the bottom-right corner, it improves navigation and overall user experience.
+This floating button or link typically sits at the bottom-right corner, improving navigation and user experience.
 
 <BuildEffort
   level="low"
@@ -27,19 +27,19 @@ Commonly seen as a floating button or link at the bottom-right corner, it improv
 
 ### When to use:
 
-Use **Back to Top** when you need to **help users quickly return to the top of a long page without excessive scrolling**.
+Use **Back to Top** to **help users quickly return to long page tops without excessive scrolling**.
 
 **Common scenarios include:**
 
-- On long or content-heavy pages where the user is likely to scroll far down
-- When quick navigation back to the header or navigation menu is essential
-- In blogs, documentation pages, or e-commerce category listings with extensive scroll
+- Long or content-heavy pages where users scroll far down
+- Quick navigation back to headers or navigation menus is essential
+- Blogs, documentation pages, or e-commerce category listings need extensive scrolling
 
 ### When not to use:
 
-- On very short pages where scrolling is minimal or unnecessary
-- If your layout or design already provides persistent navigation at the bottom (navigation at the bottom) or top (sticky menus)
-- When infinite scrolling is not used (or scrolling is minimal and not an issue)
+- Very short pages with minimal or unnecessary scrolling
+- Your layout already has persistent bottom navigation or sticky top menus
+- Pages without infinite scrolling where scrolling isn't an issue
 
 ### Common scenarios and examples
 
@@ -51,18 +51,18 @@ Use **Back to Top** when you need to **help users quickly return to the top of a
 
 ## Benefits
 
-- Enhances user navigation and usability on long pages
-- Improves overall site accessibility by giving a direct route to main navigation
-- Reduces scrolling fatigue for mobile users
-- Helps maintain a clean UI by hiding controls when not needed, then showing them once the user scrolls down
+- Better navigation and usability on long pages
+- Improved site accessibility with direct routes to main navigation
+- Less scrolling fatigue for mobile users
+- Clean UI that hides controls until needed, showing them after scrolling
 
 ## Drawbacks
 
-- **Not always necessary** – If pages are short, the button may be redundant.
-- **Can be disruptive** – Sudden jumps to the top may disorient users.
-- **Visibility control** – Requires logic to appear only after a certain scroll depth.
-- **Potential for hidden functionality** – Users may not notice it or understand its purpose.
-- **Inconsistent placement** – Can interfere with floating UI elements if not positioned carefully.
+- **Not always necessary** – Short pages make the button redundant
+- **Can be disruptive** – Sudden jumps to top disorient users
+- **Visibility control** – Needs logic to appear after certain scroll depth
+- **Hidden functionality risk** – Users might not notice or understand it
+- **Placement conflicts** – Interferes with other floating UI elements without careful positioning
 
 ## Anatomy
 
@@ -78,22 +78,22 @@ end
 
 1. **Container**
 
-- A clickable element (usually a button) that triggers scrolling to the top
-- Often positioned as a floating element on desktop and mobile
-- Manages focus states and accessibility attributes
+- Clickable element (usually button) triggering scroll to top
+- Positioned as floating element on desktop and mobile
+- Handles focus states and accessibility attributes
 
 2. **Icon (Optional)**
 
-- Conveys the action of going to the top (e.g., an up arrow)
-- Should be clear and universally recognized
-- Must be sized for good readability (16×16px or 24×24px are common)
-- Color should contrast with the background
+- Shows the go-to-top action (up arrow)
+- Clear and universally recognized
+- Sized for readability (16×16px or 24×24px common)
+- Contrasts with background
 
 3. **Label Text (Optional)**
 
-- Helps clarify the action for screen readers or when the icon alone isn't sufficient
-- Typically hidden for visually oriented users, but available to assistive technology
-- Could be visible if design requires additional clarity
+- Clarifies action for screen readers or when icon alone doesn't work
+- Hidden for visual users but available to assistive technology
+- Visible when design needs extra clarity
 
 4. **Visual States**
 
@@ -111,6 +111,38 @@ end
 | Icon          | ❌ No     | Visual indicator (e.g., an up arrow) for quick recognition. |
 | Label Text    | ❌ No     | Provides additional clarity, especially for screen readers. |
 | Visual States | ✅ Yes    | Defines interaction states (hover, active, focus, hidden).  |
+
+## Variations
+
+### 1. Fixed Position Button
+The most common implementation - a button that remains in a fixed position (typically bottom-right) as the user scrolls.
+
+**When to use:** Standard long-form content pages, articles, documentation
+
+### 2. Sticky Footer Integration
+Integrated into a sticky footer bar that may also contain other navigation elements.
+
+**When to use:** When you have a persistent footer with multiple actions
+
+### 3. Progress Indicator Combo
+Combined with a scroll progress indicator that shows how far down the page the user has scrolled.
+
+**When to use:** Long articles or tutorials where progress tracking is valuable
+
+### 4. Expandable FAB (Floating Action Button)
+A floating action button that expands to reveal multiple navigation options including "Back to Top".
+
+**When to use:** Mobile apps or sites with multiple quick actions
+
+### 5. Sidebar Integration
+Embedded within a sticky sidebar navigation alongside other page navigation elements.
+
+**When to use:** Documentation sites or content with extensive navigation needs
+
+### 6. Contextual Appearance
+Appears only within specific long sections rather than globally on the page.
+
+**When to use:** Pages with distinct long sections that benefit from section-specific navigation
 
 ## Best Practices
 
@@ -188,9 +220,53 @@ end
 - Don't move it around the page as the user scrolls
 - Don't tie it to an element that scrolls out of view
 
-## Interactive Example
+## Common Mistakes & Anti-Patterns
 
-Experience the Back to Top pattern in action:
+### 🚫 **Always Visible on Short Pages**
+**The Problem:**
+Showing the Back to Top button on pages that don't require scrolling or have minimal content creates unnecessary UI clutter.
+
+**How to Fix It:**
+Only display the button after the user has scrolled at least 2x the viewport height or a minimum of 1000px.
+
+### 🚫 **Jarring Jump Without Animation**
+**The Problem:**
+Instantly jumping to the top without smooth scrolling can disorient users and make them lose context.
+
+**How to Fix It:**
+Implement smooth scrolling with `scroll-behavior: smooth` or JavaScript animation with appropriate duration (300-500ms).
+
+### 🚫 **Poor Button Visibility**
+**The Problem:**
+Using low contrast colors or making the button too small/transparent makes it hard to notice or click.
+
+**How to Fix It:**
+Ensure sufficient color contrast (WCAG AA minimum) and use a minimum touch target of 44x44px.
+
+### 🚫 **Blocking Important Content**
+**The Problem:**
+Placing the button where it covers important interactive elements like chat widgets or cookie banners.
+
+**How to Fix It:**
+Carefully position the button to avoid overlapping with other floating elements, adjusting position dynamically if needed.
+
+### 🚫 **Missing Keyboard Support**
+**The Problem:**
+Button only works with mouse/touch, excluding keyboard users from using the feature.
+
+**How to Fix It:**
+Ensure the button is keyboard accessible, focusable with Tab, and activatable with Enter/Space keys.
+
+### 🚫 **No Visual Feedback on Interaction**
+**The Problem:**
+Button doesn't provide hover, focus, or active states, leaving users uncertain if their interaction registered.
+
+**How to Fix It:**
+Implement clear visual states for all interactions including hover, focus, active, and disabled states.
+
+## Examples
+
+### Interactive Back to Top Demo
 
 <Playground patternType="navigation" pattern="back-to-top" example="basic" height="700px" />
 
@@ -204,7 +280,214 @@ This example showcases:
 - Respects `prefers-reduced-motion` for accessibility
 - Mobile-optimized touch targets
 
-## Performance
+## Micro-Interactions & Animations
+
+### Button Appearance Animation
+- **Effect:** Fade in with slight scale up
+- **Timing:** 200ms ease-out
+- **Trigger:** When scroll threshold is passed
+- **Implementation:** CSS transition on opacity and transform
+
+### Hover State Transition
+- **Effect:** Background color change with subtle shadow elevation
+- **Timing:** 150ms ease-in-out
+- **Trigger:** Mouse hover or focus
+- **Implementation:** CSS :hover and :focus states
+
+### Click Feedback
+- **Effect:** Scale down slightly then back to normal
+- **Timing:** 100ms down, 150ms up
+- **Trigger:** Click or tap
+- **Implementation:** CSS :active state with transform: scale(0.95)
+
+### Scroll Animation
+- **Effect:** Smooth easing scroll to top
+- **Timing:** 300-500ms depending on scroll distance
+- **Trigger:** Button activation
+- **Implementation:** JavaScript with easing function or CSS scroll-behavior
+
+### Progress Indicator (Optional)
+- **Effect:** Circular progress fills as user scrolls down
+- **Timing:** Real-time tracking
+- **Trigger:** Scroll events (throttled)
+- **Implementation:** SVG stroke-dasharray animation
+
+### Hide Animation
+- **Effect:** Fade out with slight scale down
+- **Timing:** 200ms ease-in
+- **Trigger:** When user scrolls back near top
+- **Implementation:** CSS transition with visibility toggle
+
+## Tracking
+
+### Key Events to Track
+
+| **Event Name** | **Description** | **Why Track It?** |
+| --- | --- | --- |
+| `back_to_top.shown` | Button becomes visible after scroll threshold | Understand if users scroll far enough to see it |
+| `back_to_top.clicked` | User clicks/taps the button | Measure actual usage and engagement |
+| `back_to_top.keyboard_activated` | Button activated via keyboard | Track accessibility feature usage |
+| `back_to_top.scroll_depth` | Maximum scroll depth before using button | Understand when users decide to return |
+| `back_to_top.time_to_use` | Time between button appearance and click | Measure decision making time |
+
+### Event Payload Structure
+
+```json
+{
+  "event": "back_to_top.clicked",
+  "properties": {
+    "page_height": 5000,
+    "scroll_depth": 3500,
+    "time_on_page": 45,
+    "device_type": "mobile",
+    "button_position": "bottom-right"
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+- **Usage Rate:** Percentage of users who see and use the button
+- **Scroll Depth at Use:** Average scroll position when button is clicked
+- **Time to Engagement:** How long users take to click after button appears
+- **Device Breakdown:** Usage patterns across desktop vs mobile
+- **Page Type Performance:** Which content types benefit most from the feature
+
+## Localization
+
+```json
+{
+  "back_to_top": {
+    "button": {
+      "label": "Back to top",
+      "aria_label": "Scroll back to top of page",
+      "tooltip": "Return to top"
+    },
+    "announcements": {
+      "scrolling": "Scrolling to top of page",
+      "completed": "Reached top of page"
+    },
+    "progress": {
+      "indicator_label": "Scroll progress: {percentage}%"
+    }
+  }
+}
+```
+
+### RTL (Right-to-Left) Considerations
+
+- Position button on bottom-left for RTL languages
+- Mirror any directional icons appropriately
+- Adjust animation directions for RTL context
+
+### Cultural Considerations
+
+- **Icon choice:** Up arrow is universally understood
+- **Position:** Bottom-right is standard in LTR, bottom-left in RTL
+- **Color significance:** Avoid colors with negative cultural connotations
+
+## Code Examples
+
+### Basic Implementation (HTML + minimal JS)
+
+```html
+<button type="button" class="js-back-to-top" aria-label="Back to top" hidden>
+  ↑
+</button>
+
+<script>
+  // Basic scroll logic
+  const backToTopBtn = document.querySelector(".js-back-to-top");
+  const scrollThreshold = 300; // in px
+
+  function toggleBackToTop() {
+    if (window.scrollY > scrollThreshold) {
+      backToTopBtn.removeAttribute("hidden");
+    } else {
+      backToTopBtn.setAttribute("hidden", "");
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.addEventListener("scroll", toggleBackToTop);
+  backToTopBtn.addEventListener("click", scrollToTop);
+</script>
+```
+
+### React Implementation with Hooks
+
+```tsx
+import { useState, useEffect } from 'react';
+
+function BackToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+    
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+  
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
+  return (
+    <button
+      className={`back-to-top ${isVisible ? 'visible' : ''}`}
+      onClick={scrollToTop}
+      aria-label="Back to top"
+    >
+      ↑
+    </button>
+  );
+}
+```
+
+### CSS Styling
+
+```css
+.back-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms, visibility 200ms;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: #555;
+}
+
+.back-to-top:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+```
+
+## Accessibility
 
 ### Performance Metrics
 
@@ -236,65 +519,6 @@ This example showcases:
 - **Reduced motion**: Respect `prefers-reduced-motion` media query
 - **Scroll behavior**: Use native CSS `scroll-behavior: smooth` when possible
 - **Battery impact**: Minimize continuous animations
-
-## Code Examples
-
-### Basic Implementation (HTML + minimal JS)
-
-```html
-<button type="button" class="js-back-to-top" aria-label="Back to top" hidden>
-  ↑
-</button>
-
-<script>
-  // Basic scroll logic
-  const backToTopBtn = document.querySelector(".js-back-to-top");
-  const scrollThreshold = 300; // in px
-
-  function backToTop() {
-    if (window.scrollY > scrollThreshold) {
-      backToTopBtn.removeAttribute("hidden");
-    } else {
-      backToTopBtn.setAttribute("hidden", "");
-    }
-  }
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  document.addEventListener("scroll", toggleBackToTop);
-  backToTopBtn.addEventListener("click", scrollToTop);
-</script>
-```
-
-## Accessibility
-
-### ARIA Attributes
-
-**Required ARIA attributes:**
-
-- Use `aria-label="Back to top"` if using icon-only buttons
-- Use `aria-hidden="true"` on the icon if text is included for screen readers
-- Use `hidden` or `aria-hidden="true"` to hide the button when not needed
-
-### Screen Reader Support
-
-```html
-<!-- Icon-only button with ARIA label -->
-<button type="button" aria-label="Back to top" hidden>
-  <svg aria-hidden="true">
-    <use href="#icon-arrow-up" />
-  </svg>
-</button>
-```
-
-### Keyboard Navigation
-
-- Must be focusable and activated with both Enter and Space keys
-- The user should be able to tab to it if it's visible
-- Focus outlines should remain intact for accessibility
-- Maintaining focus after click is optional; the scroll event is generally the key feedback
 
 ## Testing Guidelines
 
@@ -339,6 +563,43 @@ Performance Testing
 ## Browser Support
 
 <BrowserSupport features={["css.position.fixed", "window.api.scrollto"]} />
+
+## Performance Metrics
+
+### Target Metrics
+
+**Response Times:**
+- **Button appearance:** < 50ms after scroll threshold
+- **Hover feedback:** < 100ms visual response
+- **Click to scroll start:** < 50ms
+- **Scroll animation:** 300-500ms duration
+- **Focus outline:** Immediate (< 16ms)
+
+**Scroll Performance:**
+- **Throttle rate:** Check position every 100-150ms
+- **Frame rate:** Maintain 60fps during animations
+- **Memory usage:** < 1MB for button component
+- **CPU usage:** < 5% during scroll monitoring
+
+**Animation Performance:**
+- **Use transform/opacity:** GPU-accelerated properties only
+- **Avoid reflows:** No layout changes during animations
+- **Will-change:** Apply sparingly, remove after animation
+- **RequestAnimationFrame:** For smooth scroll implementations
+
+**Mobile Optimization:**
+- **Touch response:** < 100ms feedback
+- **Gesture recognition:** Support swipe-to-top on iOS
+- **Battery impact:** Minimal with throttled events
+- **Reduced motion:** Respect user preferences
+
+## SEO Considerations
+
+- **No direct SEO impact** - Back to Top is a UX feature that doesn't affect content indexing
+- **Indirect benefits:** Improved user engagement metrics (time on page, bounce rate)
+- **Ensure button doesn't hide content** from search engine crawlers
+- **Use semantic HTML** (`<button>` element) for better accessibility signals
+- **Avoid keyword stuffing** in button text or ARIA labels
 
 ## Design Tokens
 
@@ -391,7 +652,21 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
-## Frequently Asked Questions
+## Component Library Examples
+
+### React Components
+- **[React Scroll](https://github.com/fisshy/react-scroll)** – Scroll components with smooth animations
+- **[React Back to Top Button](https://github.com/HermanNygaard/react-back-to-top-button)** – Simple back to top button component
+
+### Vue Components
+- **[Vue Backtotop](https://github.com/caiofsouza/vue-backtotop)** – Back to top component for Vue.js
+- **[Vue Scroll To](https://github.com/rigor789/vue-scrollto)** – Scrolling to elements with easing
+
+### Vanilla JavaScript
+- **[Vanilla Back To Top](https://github.com/vfeskov/vanilla-back-to-top)** – Lightweight vanilla JS implementation
+- **[ScrollToTop.js](https://github.com/cferdinandi/smooth-scroll)** – Smooth scrolling library
+
+## FAQ
 
 <FaqStructuredData
   items={[

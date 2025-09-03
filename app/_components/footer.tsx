@@ -1,4 +1,4 @@
-import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS } from '@app/_constants/footer';
+import { FOOTER_GENERAL_LINKS, FOOTER_RESOURCES_LINKS, FOOTER_OPENSOURCE_LINKS } from '@app/_constants/footer';
 import { getDictionary } from '@app/_dictionaries/get-dictionary';
 import { Footer as NextraFooter } from 'nextra-theme-docs';
 import { FooterCopyright } from './footer-copyright';
@@ -45,8 +45,25 @@ const FooterResourcesLinks = () => (
   <FooterLinks title="Resources" links={FOOTER_RESOURCES_LINKS} linkType="resource" />
 );
 
-const FooterSocialLinks = () => (
-  <FooterLinks title="Support" links={SOCIAL_LINKS} linkType="social" />
+const FooterSocialIcons = () => (
+  <div className="flex gap-2 mt-4">
+    {SOCIAL_LINKS.filter(link => link.icon).map(({ label, link, shortlink, rel, icon }) => (
+      <a
+        key={label}
+        href={link}
+        aria-label={label}
+        rel={rel ? rel : 'noopener noreferrer'}
+        target="_blank"
+        className="inline-flex"
+      >
+        {icon}
+      </a>
+    ))}
+  </div>
+);
+
+const FooterOpenSourceLinks = () => (
+  <FooterLinks title="Open Source" links={FOOTER_OPENSOURCE_LINKS} linkType="resource" />
 );
 
 // Client component for footer content
@@ -61,6 +78,7 @@ const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) 
             <div className="md:col-span-1">
               <span className="mb-3 block text-xl font-bold">{dictionary.name}</span>
               <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary.description}</p>
+              <FooterSocialIcons />
             </div>
 
             {/* General Links */}
@@ -73,9 +91,9 @@ const FooterContent = ({ dictionary, lang }: { dictionary: any; lang: string }) 
               <FooterResourcesLinks />
             </div>
 
-            {/* Support/Social Links */}
+            {/* Open Source Links */}
             <div className="md:col-span-1">
-              <FooterSocialLinks />
+              <FooterOpenSourceLinks />
             </div>
           </div>
           {/* Copyright Section */}

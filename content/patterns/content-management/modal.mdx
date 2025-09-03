@@ -19,9 +19,9 @@ import { Playground } from "@app/_components/playground";
 
 ## Overview
 
-A **modal** is an interface element that appears on top of the main application screen, blocking interaction with the rest of the page until the modal is closed.
+A **modal** appears on top of the main application screen, blocking page interaction until closed.
 
-Modals are used to display important information, request user input, or confirm actions in a focused way.
+Modals display important information, request user input, or confirm actions in a focused way.
 
 <BuildEffort
   level="medium"
@@ -32,39 +32,39 @@ Modals are used to display important information, request user input, or confirm
 
 ### When to use:
 
-Use a modal when you need to **interrupt the user flow** to display important information or require user input before proceeding.
+Use modals to **interrupt user flow** for important information or required user input before proceeding.
 
 **Common scenarios include:**
 
-- **Confirmation dialogs** – e.g., "Are you sure you want to delete this item?"
-- **Critical system messages** – e.g., session expiration warnings, important alerts.
-- **Forms requiring user input** – e.g., login, payment, or signup flows.
-- **Media previews** – e.g., displaying images or videos in a lightbox overlay.
-- **Multi-step processes** – e.g., checkout steps or onboarding flows.
-- **Displaying terms and conditions** – e.g., requiring user agreement before proceeding.
+- **Confirmation dialogs** – "Are you sure you want to delete this item?"
+- **Critical system messages** – session expiration warnings, important alerts
+- **Forms requiring user input** – login, payment, or signup flows
+- **Media previews** – images or videos in lightbox overlays
+- **Multi-step processes** – checkout steps or onboarding flows
+- **Terms and conditions** – requiring user agreement before proceeding
 
 ### When not to use:
 
-- For non-essential information that doesn't require immediate attention
-- When the content or interaction can be displayed inline on the page
-- If the same information needs to be accessed frequently
-- For large amounts of content that require significant scrolling - use a dedicated page for better user experience and accessibility
-- When users need to interact with the main page while the modal is open
+- Non-essential information doesn't need immediate attention
+- Content or interaction fits inline on the page
+- Same information needs frequent access
+- Large content requires significant scrolling - dedicated pages work better for UX and accessibility
+- Users must interact with the main page while modal is open
 
 ## Benefits
 
-- Focuses user attention on important information or actions
-- Allows gathering necessary input without losing page context
-- Can simplify complex workflows by breaking them into focused steps
-- Prevents interaction with the main page until a specific task is completed
+- Focuses attention on important information or actions
+- Gathers necessary input without losing page context
+- Simplifies complex workflows into focused steps
+- Blocks main page interaction until task completion
 
 ## Drawbacks
 
-- **Disrupts user flow**, forcing interaction before continuing with the main content.
-- **Can be difficult to dismiss**, especially if there's no clear close button.
-- **Accessibility challenges** if focus trapping and keyboard navigation are not well managed.
-- **Not ideal for mobile users**, as modals may not fit well on small screens.
-- **Overuse can lead to frustration**, particularly if used for non-essential content.
+- **Disrupts user flow** – forces interaction before continuing with main content
+- **Difficult dismissal** – especially without clear close buttons
+- **Accessibility challenges** – focus trapping and keyboard navigation need proper management
+- **Mobile issues** – modals don't fit well on small screens
+- **Overuse frustrates** – particularly for non-essential content
 
 ## Anatomy
 
@@ -89,27 +89,27 @@ graph TD
 
 1. **Overlay**
 
-- A semi-transparent layer that covers the main page content
-- Helps focus attention on the modal content
-- Usually fades in/out during modal transitions
+- Semi-transparent layer covering main page content
+- Focuses attention on modal content
+- Fades in/out during modal transitions
 
 2. **Container**
 
-- Wraps the modal content, buttons, and close control
-- Often has a visible border or shadow to visually separate it from the page
-- Can be centered on the screen or aligned to another element
+- Wraps modal content, buttons, and close control
+- Has visible border or shadow separating it from the page
+- Centers on screen or aligns to another element
 
 3. **Header**
 
-- Contains the modal title
-- Can include a close button and/or icon
-- Helps users understand the modal's purpose, fundamental for accessibility
+- Contains modal title
+- Includes close button and/or icon
+- Shows modal's purpose, fundamental for accessibility
 
 4. **Content**
 
-- The main content area of the modal
-- Can contain text, images, forms, or other interactive elements
-- Should be focused and concise
+- Main modal content area
+- Contains text, images, forms, or interactive elements
+- Stays focused and concise
 
 5. **Footer (Optional)**
 

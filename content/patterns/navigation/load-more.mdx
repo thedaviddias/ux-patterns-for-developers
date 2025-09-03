@@ -5,15 +5,19 @@ icon: Plus
 status: complete
 ---
 
+import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { Playground } from "@app/_components/playground";
+import { PatternPreview } from "@app/_components/pattern-preview";
 
 # Load More
 
+<PatternPreview />
+
 ## Overview
 
-The **Load More** pattern allows users to request additional content dynamically rather than loading everything upfront. It enhances performance and user experience by reducing initial page load times while providing seamless access to more content when needed.
+**Load More** lets users request additional content dynamically instead of loading everything upfront. This pattern cuts initial page load times and gives users seamless access to more content when they need it.
 
 <BuildEffort
   level="medium"
@@ -24,22 +28,22 @@ The **Load More** pattern allows users to request additional content dynamically
 
 ### When to use:
 
-Use this pattern when you want users to progressively explore content at their own pace without overwhelming them with too many options at once. Unlike infinite scrolling, "Load More" provides clear control over content retrieval and allows users to consciously decide when to view more items.
+Use Load More when users should explore content progressively at their own pace without getting overwhelmed. Unlike infinite scrolling, Load More gives users clear control and lets them consciously decide when to view more items.
 
-To improve usability, ensure that the "Load More" button is **removed when all content is loaded** or updated to indicate that no additional items are available (e.g., **"No More Results"**).
+For better usability, make sure the Load More button gets **removed when all content is loaded** or updates to show that no additional items remain (like **"No More Results"**).
 
 **Common scenarios include:**
 
-- When displaying large lists of content (e.g., news feeds, product listings)
-- To improve page performance by loading only a subset of data initially
-- When users are likely to browse progressively rather than needing all content at once
-- To provide an alternative to infinite scrolling, offering more control over content loading
+- Large lists of content need pagination (news feeds, product listings)
+- Page performance improves by loading only a subset of data initially
+- Users browse progressively instead of needing all content at once
+- You want an alternative to infinite scrolling with more user control
 
 ### When not to use:
 
-- When the full content list is small enough to load upfront without performance concerns
-- If users need to compare multiple items at once ([pagination](/patterns/navigation/pagination) may be a better alternative)
-- When real-time updates or continuous data streaming is required
+- The full content list is small enough to load upfront without performance issues
+- Users need to compare multiple items at once ([pagination](/patterns/navigation/pagination) works better here)
+- Real-time updates or continuous data streaming is required
 
 ### Common scenarios and examples
 
@@ -50,23 +54,23 @@ To improve usability, ensure that the "Load More" button is **removed when all c
 
 ## Benefits
 
-- **Improves page performance** by reducing initial data load
-- **Gives users control** over content consumption, reducing cognitive overload
-- **Enhances accessibility** compared to infinite scrolling, ensuring users don't lose track of their position
-- **Works well with various devices** by enabling controlled data retrieval
-- **Enables footer access** by allowing users to reach the page's footer and access secondary links like return policies, shipping information, and contact details
-- **Prevents unnecessary interactions** by **removing the "Load More" button once all content has been loaded** or replacing it with a message like **"No More Results"**.
-- **Minimizes layout shifts** by ensuring that newly loaded content seamlessly appears without affecting user position.
+- **Speeds up initial page load** by reducing data overhead
+- **Users control** their content consumption, avoiding cognitive overload
+- **Better accessibility** than infinite scrolling since users keep track of their position
+- **Works across devices** with controlled data retrieval
+- **Footer stays accessible** – users can reach secondary links like policies, shipping info, and contact details
+- **Stops unnecessary clicks** by **removing the Load More button once everything loads** or showing **"No More Results"**
+- **Prevents layout jumps** – newly loaded content appears smoothly without shifting user position
 
 ## Drawbacks
 
-- **User Effort** – Requires users to take action to reveal more content instead of a seamless experience.
-- **Potentially Hidden Content** – Users may not realize more content is available if the button isn't clearly visible.
-- **Disrupted Flow** – Clicking **Load More** can break user immersion compared to continuous scrolling.
-- **Inconsistent Navigation** – Can make it harder for users to return to previously loaded sections if not implemented correctly.
-- **SEO Challenges** – Search engines may not always index dynamically loaded content unless handled properly.
-- **Accessibility Concerns** – Requires careful ARIA implementation to ensure screen readers announce newly loaded content.
-- **Performance Overhead** – Multiple content fetch requests can impact performance if not optimized properly.
+- **User Effort** – Users must take action to reveal more content, not seamless like infinite scroll
+- **Hidden Content Risk** – Users might miss that more content exists if the button lacks visibility
+- **Flow Interruption** – Clicking Load More breaks immersion compared to continuous scrolling
+- **Navigation Issues** – Returning to previously loaded sections gets tricky without proper implementation
+- **SEO Hurdles** – Search engines might skip dynamically loaded content without proper handling
+- **Accessibility Work** – Screen readers need careful ARIA implementation to announce new content
+- **Performance Cost** – Multiple fetch requests impact performance without optimization
 
 ## Anatomy
 
@@ -85,29 +89,29 @@ flowchart TB
 
 1. **Container**
 
-   - Wraps the entire load more component.
-   - Ensures content is properly structured and styled.
+   - Wraps the entire load more component
+   - Keeps content properly structured and styled
 
 2. **Initial Content List**
 
-   - Displays a **limited number of items** to prevent overwhelming users.
-   - Defines the default **starting state** before additional content is loaded.
+   - Shows a **limited number of items** to avoid overwhelming users
+   - Sets the default **starting state** before additional content loads
 
 3. **Load More Button**
 
-   - The primary trigger for **loading additional content**.
-   - Should provide **clear affordance** that more content is available.
-   - May include **ARIA attributes** to indicate loading state.
+   - Primary trigger for **loading additional content**
+   - Must show **clear affordance** that more content exists
+   - Often includes **ARIA attributes** to indicate loading state
 
 4. **Loading Indicator (Optional)**
 
-   - Provides **visual feedback** that new content is being fetched.
-   - Can be a **spinner, progress bar, or skeleton loader**.
+   - Shows **visual feedback** while fetching new content
+   - Usually a **spinner, progress bar, or skeleton loader**
 
 5. **Additional Content**
 
-   - The **newly loaded items** that appear after clicking "Load More".
-   - Should integrate **seamlessly** with the initial content list.
+   - **Newly loaded items** appear after clicking Load More
+   - Must blend **seamlessly** with the initial content list
 
 6. **Another Load More Button (Optional)**
    - Appears **if more content is available after the first load**.
@@ -124,74 +128,94 @@ flowchart TB
 | Additional Content       | ✅ Yes    | The dynamically inserted content after clicking "Load More." |
 | Another Load More Button | ❌ No     | Appears if further content can still be loaded.              |
 
+## Variations
+
+### Basic Load More
+Standard button that loads additional content when clicked.
+
+### Load More with Counter
+Shows how many items will be loaded (e.g., "Load 10 more items").
+
+### Load More with Progress
+Displays overall progress (e.g., "Showing 20 of 100 items").
+
+### Auto-Load on Scroll Proximity
+Automatically triggers when user scrolls near the button (hybrid approach).
+
+### Load More with Categories
+Multiple load more buttons for different content sections.
+
+### Skeleton Loading
+Shows placeholder content while real content loads.
+
 ## Best Practices
 
 ### Content
 
 **Do's ✅**
 
-- Clearly indicate that more content is available and can be loaded.
-- Use concise and meaningful labels like **"Load More"**, **"Show More"**, or **"See More Results"**.
-- Ensure a smooth transition when new content loads.
+- Show clearly that more content is available
+- Pick concise, meaningful labels: **"Load More"**, **"Show More"**, or **"See More Results"**
+- Keep transitions smooth when new content loads
 
 **Don'ts ❌**
 
-- Avoid vague labels like **"Click Here"**.
-- Don't load excessive content at once; keep it manageable.
-- Don't disrupt the existing layout when inserting new content.
+- Skip vague labels like **"Click Here"**
+- Never load excessive content at once; keep batches manageable
+- Avoid disrupting the existing layout when inserting new content
 
 ### Accessibility & UX
 
 **Do's ✅**
 
-- Ensure the **Load More** button is keyboard accessible (`tab` and `enter` keys).
-- Announce new content to screen readers (`aria-live="polite"`).
-- Provide feedback (e.g., loading indicators) to inform users of content retrieval.
-- **Maintain keyboard focus** – After clicking "Load More," focus should shift **to the newly loaded content** rather than returning to the button. This ensures a logical navigation flow.
-- **Announce new content to assistive technologies** – Use `aria-live="polite"` to notify screen reader users that additional items have been loaded.
+- Make the **Load More** button keyboard accessible (`tab` and `enter` keys)
+- Announce new content to screen readers (`aria-live="polite"`)
+- Give feedback (loading indicators) to show content retrieval
+- **Keep keyboard focus logical** – After clicking Load More, focus shifts **to the newly loaded content**, not back to the button
+- **Alert assistive technologies** – `aria-live="polite"` tells screen reader users that additional items loaded
 
 **Don'ts ❌**
 
-- Don't remove focus from the **Load More** button after clicking it (don't use `disabled`)
-- Avoid infinite scrolling without a **Load More** option as a fallback.
-- Don't rely solely on color for action buttons (ensure contrast and readable text).
+- Keep focus on the **Load More** button after clicking (skip `disabled`)
+- Never use infinite scrolling without a **Load More** fallback
+- Stop relying solely on color for action buttons (check contrast and readable text)
 
 ### Visual Design
 
 **Do's ✅**
 
-- Place the **Load More** button prominently below existing content.
-- Ensure clear visual feedback when new content loads (e.g., animations, progress indicators).
-- Maintain consistent spacing and alignment with existing content.
+- Put the **Load More** button prominently below existing content
+- Show clear visual feedback when new content loads (animations, progress indicators)
+- Keep spacing and alignment consistent with existing content
 
 **Don'ts ❌**
 
-- Don't make the button too small or difficult to tap on mobile devices.
-- Avoid sudden layout shifts when loading new content.
+- Never make the button too small for mobile tapping
+- Prevent sudden layout shifts when loading new content
 
 ### Layout & Positioning
 
 **Do's ✅**
 
-- Place the **Load More** button at logical breakpoints in the content.
-- Ensure loaded content appears immediately following the existing items.
-- Retain the user's position in the list after loading more content.
+- Put the **Load More** button at logical content breakpoints
+- Loaded content appears right after existing items
+- Keep the user's position in the list after loading more
 
 **Don'ts ❌**
 
-- Don't insert new content above the user's current view unless explicitly requested.
-- Avoid loading content off-screen without visual confirmation.
+- Never insert new content above the user's current view unless explicitly requested
+- Skip loading content off-screen without visual confirmation
 
-### Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns
 
 #### No Visual Feedback After Clicking "Load More"
 
 **❌ What's Wrong?**
 
-Users may think the button is broken if there's no immediate sign of progress after they click.
+Users think the button broke if nothing happens immediately after clicking.
 
 **How to Fix It?**
-Show a **spinner or loading animation** and possibly disable the button until the new content is fully loaded.
+Add a **spinner or loading animation** and consider disabling the button until new content fully loads.
 
 ---
 
@@ -199,10 +223,10 @@ Show a **spinner or loading animation** and possibly disable the button until th
 
 **❌ What's Wrong?**
 
-Fetching a large batch of content can slow performance, cause layout shifts, and overwhelm users.
+Large content batches slow performance, cause layout shifts, and overwhelm users.
 
 **How to Fix It?**
-Load **smaller chunks** (e.g., 10–20 items per click). Provide incremental updates rather than a single large data fetch.
+Load **smaller chunks** (10–20 items per click). Use incremental updates instead of one large data fetch.
 
 ---
 
@@ -210,10 +234,10 @@ Load **smaller chunks** (e.g., 10–20 items per click). Provide incremental upd
 
 **❌ What's Wrong?**
 
-Having users repeatedly click "Load More" leads to frustration and makes the page feel unresponsive.
+Repeated Load More clicks frustrate users and make pages feel unresponsive.
 
 **How to Fix It?**
-Use **auto-loading on scroll** after a few manual loads, or at least increase the batch size once you detect high engagement.
+Try **auto-loading on scroll** after a few manual loads, or increase batch size when you detect high engagement.
 
 ---
 
@@ -221,10 +245,10 @@ Use **auto-loading on scroll** after a few manual loads, or at least increase th
 
 **❌ What's Wrong?**
 
-Users can't tell when they've reached the final items, potentially clicking "Load More" with no result.
+Users can't tell when they've reached the end, clicking Load More repeatedly with no result.
 
 **How to Fix It?**
-Display a "You've reached the end" message or hide the button entirely once there's no more data.
+Show a "You've reached the end" message or hide the button entirely when no more data exists.
 
 ---
 
@@ -232,10 +256,10 @@ Display a "You've reached the end" message or hide the button entirely once ther
 
 **❌ What's Wrong?**
 
-If the "Load More" button isn't focusable or doesn't respond to keyboard events, users relying on keyboard navigation can't load new content.
+Load More buttons that aren't focusable or don't respond to keyboard events lock out keyboard users from loading new content.
 
 **How to Fix It?**
-Ensure the button is a proper, focusable element (e.g., `<button>`). Confirm you can press `Tab` to focus and `Enter/Space` to trigger loading.
+Use a proper, focusable element like `<button>`. Check that `Tab` focuses it and `Enter/Space` triggers loading.
 
 ---
 
@@ -243,10 +267,10 @@ Ensure the button is a proper, focusable element (e.g., `<button>`). Confirm you
 
 **❌ What's Wrong?**
 
-Screen reader users may not realize new items appeared if there's no announcement that content was added to the page.
+Screen reader users miss new items without announcements that content got added to the page.
 
 **How to Fix It?**
-Wrap your list in a container with `role="region"` or use an `aria-live="polite"` area. Update the live region or add a brief "New content loaded" announcement after each batch is rendered.
+Wrap your list with `role="region"` or use `aria-live="polite"`. Update the live region or add a brief "New content loaded" announcement after each batch renders.
 
 ---
 
@@ -254,66 +278,60 @@ Wrap your list in a container with `role="region"` or use an `aria-live="polite"
 
 **❌ What's Wrong?**
 
-If the "Load More" button is low contrast or the loading indicator is hard to see (e.g., small spinner on a cluttered background), low-vision users may struggle to notice it.
+Low-contrast Load More buttons or hard-to-see loading indicators (like small spinners on cluttered backgrounds) cause problems for low-vision users.
 
 **How to Fix It?**
-Provide a **high-contrast** button style and a **clear, visible** loading indicator (spinner or progress bar) that stands out from surrounding content.
+Use **high-contrast** button styles and **clear, visible** loading indicators (spinner or progress bar) that stand out from surrounding content.
 
-## Interactive Example
+## Examples
 
-Try out this live implementation of the Load More pattern:
+### Interactive Load More Demo
 
 <Playground patternType="navigation" pattern="load-more" example="basic" height="600px" />
 
 This example demonstrates:
 - Loading state with spinner animation
-- Smooth content insertion with fade-in effect  
+- Smooth content insertion with fade-in effect
 - Proper button state management (disabled during loading)
 - Progress tracking (showing X of Y items)
 - Keyboard support (Enter/Space to activate)
 - Screen reader announcements for loaded content
 - Automatic button removal when all content is loaded
 
-## Performance
+## Micro-Interactions & Animations
 
-### Performance Metrics
+### Button State Transitions
+- **Effect:** Smooth transition between default, hover, loading, and disabled states
+- **Timing:** 200ms ease-out for hover effects, immediate for loading state
+- **Implementation:** CSS transitions on background-color, transform, and opacity
 
-**Target Metrics:**
+### Loading Spinner Animation
+- **Effect:** Rotating spinner or pulsing dots to indicate loading
+- **Timing:** 1s infinite rotation or 1.4s pulse sequence
+- **Implementation:** CSS keyframe animations or SVG animations
 
-- **Initial button render**: < 50ms after page load
-- **Loading state feedback**: < 100ms after click (immediate visual response)
-- **Content fetch time**: 200-500ms for typical batch (10-20 items)
-- **DOM update after fetch**: < 100ms for smooth insertion
-- **Total time to new content visible**: < 600ms ideal, < 1000ms acceptable
+### Content Insertion Animation
+- **Effect:** New items fade in and slide up from below
+- **Timing:** 300ms ease-out for each item, staggered by 50ms
+- **Implementation:** CSS animations with animation-delay for stagger effect
 
-**Memory Considerations:**
+### Progress Counter Update
+- **Effect:** Number smoothly increments when new items load
+- **Timing:** 500ms ease-in-out
+- **Implementation:** JavaScript counter animation with requestAnimationFrame
 
-- **Items per batch**: 10-20 items optimal (balance between requests and memory)
-- **DOM nodes**: Monitor total count, consider virtualization after 100+ items
-- **Image lazy loading**: Load images only when approaching viewport
-- **Previous content**: Keep in DOM for scroll position preservation
-
-**Network Optimization:**
-
-- **Prefetch next batch**: Start loading when user is 80% through current content
-- **Request debouncing**: Prevent multiple simultaneous requests
-- **Caching strategy**: Cache loaded pages for back navigation
-- **Compression**: Enable gzip/brotli for API responses
-
-**Animation Performance:**
-
-- **Use CSS transforms**: For smooth loading animations (not margins/positions)
-- **Will-change property**: Apply to animated elements sparingly
-- **RequestAnimationFrame**: For JavaScript-based scroll animations
-- **Reduce reflows**: Batch DOM updates, avoid layout thrashing
+### End of Content Feedback
+- **Effect:** Button fades out and "End of content" message fades in
+- **Timing:** 300ms crossfade
+- **Implementation:** Opacity transition with element swap
 
 ## Tracking
 
-Tracking "Load More" interactions helps measure how users navigate through content, whether they prefer incremental loading over pagination, and how deep they engage with the content. By analyzing user behavior, we can optimize when and how "Load More" is implemented.
+Load More tracking measures how users navigate content, their preference for incremental loading versus pagination, and engagement depth. User behavior analysis optimizes when and how Load More gets implemented.
 
 ### Key Tracking Points
 
-Each "Load More" interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+Load More interactions provide valuable user behavior insights. Key events to track include:
 
 | **Event Name**           | **Description**                                                                           | **Why Track It?**                                                            |
 | ------------------------ | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -325,7 +343,7 @@ Each "Load More" interaction provides valuable insights into user behavior. Belo
 
 ### Event Payload Structure
 
-To ensure consistent tracking, here's a recommended event format:
+For consistent tracking, use this event format:
 
 ```json
 {
@@ -341,7 +359,7 @@ To ensure consistent tracking, here's a recommended event format:
 
 ### Key Metrics to Analyze
 
-Once tracking is in place, the following metrics provide actionable insights:
+After setting up tracking, these metrics provide actionable insights:
 
 - **Load More Click Rate** → Percentage of users who click the "Load More" button.
 - **Auto-Trigger Rate** → Percentage of users who load more content automatically via scrolling (if enabled).
@@ -351,29 +369,103 @@ Once tracking is in place, the following metrics provide actionable insights:
 
 ### Insights & Optimization Based on Tracking
 
-By analyzing tracking data, we can optimize the "Load More" experience:
+Tracking data analysis optimizes the Load More experience:
 
 - 🚨 **Low Load More Click Rate?**
-  → Users may not notice or find the "Load More" button unnecessary.
-  **Optimization:** Improve visibility, adjust styling, or test auto-loading on scroll.
+  → Users don't notice the button or find it unnecessary.
+  **Fix:** Improve visibility, adjust styling, or test auto-loading on scroll.
 
 - ⏳ **High Auto-Trigger Rate?**
-  → Users rely more on automatic loading rather than clicking.
-  **Optimization:** Consider fully replacing "Load More" with infinite scrolling or adding a "Show More" summary before triggering more content.
+  → Users rely on automatic loading instead of clicking.
+  **Fix:** Consider replacing Load More with infinite scrolling or add a "Show More" summary before triggering content.
 
 - 🔄 **Low Average Load More Depth?**
   → Users stop after one or two loads.
-  **Optimization:** Ensure the first few results are engaging enough to encourage further exploration.
+  **Fix:** Make the first few results engaging enough to encourage further exploration.
 
 - 🔁 **Low Completion Rate?**
-  → Users rarely reach the final batch of content.
-  **Optimization:** Test reducing content chunk sizes per load or adding preview indicators (e.g., "Showing 20 of 100 results").
+  → Users rarely reach the final batch.
+  **Fix:** Try smaller content chunks per load or add preview indicators ("Showing 20 of 100 results").
 
 - ⚙️ **High Scroll vs. Click Engagement?**
-  → Users prefer scrolling over clicking the button.
-  **Optimization:** Consider transitioning to infinite scrolling but ensure good performance and usability.
+  → Users prefer scrolling over clicking.
+  **Fix:** Consider switching to infinite scrolling but maintain good performance and usability.
 
-By continuously monitoring these metrics, we can refine the "Load More" pattern, ensuring users efficiently navigate through content without unnecessary friction.
+Continuous monitoring of these metrics refines the Load More pattern, helping users navigate content without unnecessary friction.
+
+## Localization
+
+```json
+{
+  "load_more": {
+    "button_text": {
+      "default": "Load More",
+      "with_count": "Load {count} More Items",
+      "loading": "Loading..."
+    },
+    "progress": {
+      "showing": "Showing {current} of {total} items",
+      "all_loaded": "All items loaded",
+      "end_message": "You've reached the end"
+    },
+    "errors": {
+      "load_failed": "Failed to load items. Please try again.",
+      "network_error": "Check your connection and try again"
+    },
+    "announcements": {
+      "items_loaded": "{count} new items loaded",
+      "loading_started": "Loading more items",
+      "no_more_items": "No more items to load"
+    }
+  }
+}
+```
+
+## Code Examples
+
+### Basic Load More Implementation
+
+```html
+<div class="content-list" role="region" aria-label="Content items">
+  <ul id="items-list">
+    <!-- Initial items -->
+  </ul>
+
+  <button
+    type="button"
+    class="load-more-btn"
+    aria-label="Load more items"
+    data-loading="false"
+  >
+    <span class="btn-text">Load More</span>
+    <span class="btn-spinner" aria-hidden="true"></span>
+  </button>
+
+  <div class="load-progress" aria-live="polite">
+    Showing <span id="current-count">10</span> of <span id="total-count">50</span> items
+  </div>
+</div>
+```
+
+### Load More with Intersection Observer
+
+```javascript
+// Auto-load when button is near viewport
+const loadMoreBtn = document.querySelector('.load-more-btn');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !isLoading) {
+      // Trigger load when button is 200px from viewport
+      loadMoreContent();
+    }
+  });
+}, {
+  rootMargin: '200px'
+});
+
+observer.observe(loadMoreBtn);
+```
 
 ## Accessibility
 
@@ -392,14 +484,6 @@ By continuously monitoring these metrics, we can refine the "Load More" pattern,
 - Users should be informed when new content is added.
 - Ensure proper tab focus order when new items appear.
 - Use accessible button elements (`<button>` instead of `<div>` or `<span>`).
-
-## SEO
-
-- Ensure content loaded via **Load More** is indexable by search engines.
-- Use progressive enhancement to allow content visibility even if JavaScript is disabled.
-- Provide a paginated alternative if necessary for deep content navigation.
-- Ensure that dynamically loaded content is **crawlable by search engines** by using progressive enhancement techniques or **server-side rendering**.
-- If SEO visibility is a priority, consider **implementing paginated URLs** as a fallback to allow search engines to index all content properly.
 
 ## Testing Guidelines
 
@@ -446,7 +530,7 @@ By continuously monitoring these metrics, we can refine the "Load More" pattern,
 
 ---
 
-### SEO Testing
+### SEO Considerations Testing
 
 **Should ✓**
 
@@ -482,15 +566,134 @@ By continuously monitoring these metrics, we can refine the "Load More" pattern,
 - Ensure **back navigation retains loaded content**, preventing users from losing progress.
 - Confirm the **component adapts to different screen sizes and orientations**.
 
-## Related Patterns
+## Usability Testing Insights
 
-Consider these related patterns when implementing **Load More**:
+Based on usability studies, users expect:
+- **Clear progress indication** - Users want to know how much content remains
+- **Consistent batch sizes** - Loading 10 items then 50 items confuses users
+- **Preserved scroll position** - Page shouldn't jump when new content loads
+- **Quick loading times** - Users abandon if loading takes > 3 seconds
+- **End-of-content clarity** - Users repeatedly click when the end isn't clear
 
-- [Infinite Scroll](/patterns/navigation/infinite-scroll) - Automatically loads content as users scroll.
-- [Pagination](/patterns/navigation/pagination) - A structured way to navigate large sets of content.
-- [Loading Indicator](/patterns/user-feedback/loading-indicator) - Displays feedback when content is loading.
+## Browser Support
 
-## Frequently Asked Questions
+<BrowserSupport features={["api.IntersectionObserver", "css.transitions", "html.elements.button"]} />
+
+## Performance Metrics
+
+**Target Metrics:**
+
+- **Initial button render**: < 50ms after page load
+- **Loading state feedback**: < 100ms after click (immediate visual response)
+- **Content fetch time**: 200-500ms for typical batch (10-20 items)
+- **DOM update after fetch**: < 100ms for smooth insertion
+- **Total time to new content visible**: < 600ms ideal, < 1000ms acceptable
+
+**Memory Considerations:**
+
+- **Items per batch**: 10-20 items optimal (balance between requests and memory)
+- **DOM nodes**: Monitor total count, consider virtualization after 100+ items
+- **Image lazy loading**: Load images only when approaching viewport
+- **Previous content**: Keep in DOM for scroll position preservation
+
+**Network Optimization:**
+
+- **Prefetch next batch**: Start loading when user is 80% through current content
+- **Request debouncing**: Prevent multiple simultaneous requests
+- **Caching strategy**: Cache loaded pages for back navigation
+- **Compression**: Enable gzip/brotli for API responses
+
+**Animation Performance:**
+
+- **Use CSS transforms**: For smooth loading animations (not margins/positions)
+- **Will-change property**: Apply to animated elements sparingly
+- **RequestAnimationFrame**: For JavaScript-based scroll animations
+- **Reduce reflows**: Batch DOM updates, avoid layout thrashing
+
+## SEO Considerations
+
+- Ensure content loaded via **Load More** is indexable by search engines.
+- Use progressive enhancement to allow content visibility even if JavaScript is disabled.
+- Provide a paginated alternative if necessary for deep content navigation.
+- Ensure that dynamically loaded content is **crawlable by search engines** by using progressive enhancement techniques or **server-side rendering**.
+- If SEO visibility is a priority, consider **implementing paginated URLs** as a fallback to allow search engines to index all content properly.
+
+## Design Tokens
+
+These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+
+### Load More Tokens in DTF Format
+
+```json
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "loadMore": {
+    "button": {
+      "background": {
+        "default": { "value": "{color.primary.600}", "type": "color" },
+        "hover": { "value": "{color.primary.700}", "type": "color" },
+        "active": { "value": "{color.primary.800}", "type": "color" },
+        "disabled": { "value": "{color.gray.300}", "type": "color" }
+      },
+      "text": {
+        "default": { "value": "{color.white}", "type": "color" },
+        "disabled": { "value": "{color.gray.500}", "type": "color" }
+      },
+      "padding": {
+        "vertical": { "value": "0.75rem", "type": "dimension" },
+        "horizontal": { "value": "1.5rem", "type": "dimension" }
+      },
+      "fontSize": { "value": "{typography.size.base}", "type": "fontSizes" },
+      "fontWeight": { "value": "{typography.weight.medium}", "type": "fontWeights" },
+      "borderRadius": { "value": "{radius.md}", "type": "dimension" },
+      "minWidth": { "value": "7.5rem", "type": "dimension" },
+      "minHeight": {
+        "value": "2.75rem",
+        "type": "dimension",
+        "description": "44px minimum touch target for WCAG compliance"
+      }
+    },
+    "spinner": {
+      "size": { "value": "1.25rem", "type": "dimension" },
+      "color": { "value": "{color.primary.600}", "type": "color" },
+      "animationDuration": { "value": "1s", "type": "duration" }
+    },
+    "content": {
+      "gap": { "value": "1rem", "type": "dimension" },
+      "itemAnimation": {
+        "duration": { "value": "300ms", "type": "duration" },
+        "staggerDelay": { "value": "50ms", "type": "duration" },
+        "slideDistance": { "value": "1.25rem", "type": "dimension" }
+      }
+    },
+    "progress": {
+      "fontSize": { "value": "{typography.size.sm}", "type": "fontSizes" },
+      "color": { "value": "{color.gray.600}", "type": "color" },
+      "margin": { "value": "1rem", "type": "dimension" }
+    },
+    "container": {
+      "marginTop": { "value": "2rem", "type": "dimension" },
+      "marginBottom": { "value": "2rem", "type": "dimension" }
+    }
+  }
+}
+```
+
+## Component Library Examples
+
+### React Components
+- **[React Infinite Scroll Component](https://github.com/ankeetmaini/react-infinite-scroll-component)** – Infinite scroll with "Load More" support
+- **[React Waypoint](https://github.com/civiccc/react-waypoint)** – Trigger functions when scrolling to an element
+
+### Vue Components
+- **[Vue Infinite Loading](https://github.com/PeachScript/vue-infinite-loading)** – Infinite scroll plugin with "Load More" button option
+- **[Vue Load More](https://github.com/Akryum/vue-observe-visibility)** – Detect when element becomes visible
+
+### Vanilla JavaScript
+- **[Infinite Scroll](https://infinite-scroll.com/)** – JavaScript plugin by Metafizzy
+- **[LoadMore.js](https://github.com/pakastin/loadmore)** – Lightweight load more implementation
+
+## FAQ
 
 <FaqStructuredData
   items={[
@@ -533,3 +736,39 @@ Consider these related patterns when implementing **Load More**:
     },
   ]}
 />
+
+## Related Patterns
+
+Consider these related patterns when implementing **Load More**:
+
+- [Infinite Scroll](/patterns/navigation/infinite-scroll) - Automatically loads content as users scroll.
+- [Pagination](/patterns/navigation/pagination) - A structured way to navigate large sets of content.
+- [Loading Indicator](/patterns/user-feedback/loading-indicator) - Displays feedback when content is loading.
+
+## Resources
+
+### Libraries & Frameworks
+
+- [React Infinite Scroll Component](https://github.com/ankeetmaini/react-infinite-scroll-component) - Includes load more functionality
+- [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) - Native browser API for detecting visibility
+- [React Query](https://tanstack.com/query/latest) - Data fetching with pagination support
+- [SWR](https://swr.vercel.app/) - Data fetching with infinite loading patterns
+
+### Design Systems
+
+- [Material Design - Progress & Activity](https://m3.material.io/components/progress-indicators/overview) - Loading patterns guidance
+- [Carbon Design System - Loading](https://carbondesignsystem.com/patterns/loading-pattern/) - IBM's loading patterns
+- [Atlassian Design System - Load More](https://atlassian.design/patterns/progressive-disclosure) - Progressive disclosure patterns
+
+### Articles & Guides
+
+- [Load More vs Pagination vs Infinite Scroll](https://www.nngroup.com/articles/infinite-scrolling-tips/) - Nielsen Norman Group analysis
+- [Implementing Load More Accessibly](https://www.deque.com/blog/accessible-loading-indicators/) - Deque accessibility guide
+- [Performance Best Practices for Load More](https://web.dev/patterns/web-vitals-patterns/infinite-scroll/) - Web.dev performance guide
+- [SEO Considerations for Load More](https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading) - Google's SEO guidelines
+
+### Tools & Testing
+
+- [WAVE](https://wave.webaim.org/) - Test load more accessibility
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse) - Performance testing for lazy loading
+- [PageSpeed Insights](https://pagespeed.web.dev/) - Analyze load more performance impact

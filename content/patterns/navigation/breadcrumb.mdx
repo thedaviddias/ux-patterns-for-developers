@@ -15,11 +15,11 @@ import { PatternPreview } from "@app/_components/pattern-preview";
 
 ## Overview
 
-**Breadcrumbs**, often displayed as a horizontal list of links separated by symbols, help users understand their location in a website's hierarchy at a glance.
+**Breadcrumbs** display as horizontal link lists separated by symbols, helping users understand their website location at a glance.
 
-They are secondary navigation aids that help users understand their current location within a website's hierarchy and provide an easy way to navigate back through parent pages.
+Breadcrumbs work as secondary navigation aids showing users their current location and providing easy navigation back through parent pages.
 
-They are particularly useful for websites with deep hierarchical structures or complex navigation paths.
+Websites with deep hierarchical structures or complex navigation paths benefit most from breadcrumbs.
 
 <BuildEffort
   level="medium"
@@ -30,22 +30,22 @@ They are particularly useful for websites with deep hierarchical structures or c
 
 ### When to use:
 
-Use **Breadcrumbs** when you need to **show users their location within a website's structure and help them navigate easily**.
+Use **Breadcrumbs** to **show users their location within a website's structure and help easy navigation**.
 
 **Common scenarios include:**
 
-- Websites with multiple hierarchical levels (e.g., categories, sub-categories)
-- Large or complex sites where users often land on deep pages from search engines
-- Systems that rely on nested file or document organization (e.g., file explorers, project management tools)
-- E-commerce stores with layered product categories
+- Websites have multiple hierarchical levels (categories, sub-categories)
+- Large or complex sites where users land on deep pages from search engines
+- Systems rely on nested file or document organization (file explorers, project management tools)
+- E-commerce stores use layered product categories
 
 ### When not to use:
 
-- Single-level websites with flat structure
-- Landing pages or homepages
-- Small websites with simple navigation
-- When the hierarchy is already evident through other navigation elements
-- For single-page applications with modal-based navigation
+- Single-level websites have flat structure
+- Landing pages or homepages don't need them
+- Small websites use simple navigation
+- Hierarchy already shows through other navigation elements
+- Single-page applications use modal-based navigation
 
 ### Common scenarios and examples
 
@@ -55,19 +55,19 @@ Use **Breadcrumbs** when you need to **show users their location within a websit
 
 ## Benefits
 
-- Reduces the number of actions users need to take to navigate up levels
-- Prevents users from feeling lost in complex hierarchies
-- Improves SEO by exposing site structure
-- Reduces bounce rates for deep-linked pages
-- Provides contextual information about current location
+- Fewer actions needed to navigate up levels
+- Users don't feel lost in complex hierarchies
+- Better SEO through exposed site structure
+- Lower bounce rates for deep-linked pages
+- Clear contextual information about current location
 
 ## Drawbacks
 
-- **Limited usefulness** – Not always needed if users primarily land on deeper pages from external links.
-- **Takes up space** – Can be redundant on small screens or when users don't need hierarchical navigation.
-- **Responsive design complexity** – Long breadcrumb trails require truncation or horizontal scrolling.
-- **Requires structured data** – Must be correctly implemented for SEO benefits (e.g., schema markup).
-- **Misuse in flat hierarchies** – Not beneficial if the site structure doesn't follow a clear depth-based navigation.
+- **Limited usefulness** – Not needed when users mainly land on deep pages from external links
+- **Takes up space** – Redundant on small screens or without hierarchical navigation needs
+- **Responsive design complexity** – Long trails need truncation or horizontal scrolling
+- **Structured data requirement** – Correct implementation needed for SEO benefits (schema markup)
+- **Misuse in flat hierarchies** – No benefit without clear depth-based navigation
 
 ## Anatomy
 
@@ -86,22 +86,22 @@ end
 
 1. **Container (`nav`)**
 
-- Wraps the entire breadcrumb navigation.
-- Uses **semantic navigation elements** for accessibility.
-- Should be properly labeled for **screen readers**.
+- Wraps entire breadcrumb navigation
+- Uses **semantic navigation elements** for accessibility
+- Needs proper labeling for **screen readers**
 
 2. **List (`ol`)**
 
-- Contains the **breadcrumb items** in sequential order.
-- Represents the **hierarchical structure** of the page.
-- Typically implemented as an **ordered list** to convey structure.
+- Holds **breadcrumb items** in sequential order
+- Shows **hierarchical structure** of the page
+- Usually an **ordered list** conveying structure
 
 3. **Items (`li`)**
 
-- **Home Link (Optional):** A starting point linking to the homepage.
-- **Parent Pages:** Clickable links that represent higher levels of navigation.
-- **Current Page:** The final item, which **should not be a link** since it represents the current view.
-- **Separators:** Visual dividers (e.g., `/`, `>`), providing clear navigation hierarchy.
+- **Home Link (Optional):** Starting point linking to homepage
+- **Parent Pages:** Clickable links representing higher navigation levels
+- **Current Page:** Final item that **shouldn't be a link** since it's the current view
+- **Separators:** Visual dividers (`/`, `>`) showing clear navigation hierarchy
 
 #### **Summary of Components**
 
