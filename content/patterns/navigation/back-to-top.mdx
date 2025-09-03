@@ -103,7 +103,7 @@ end
 - **Focus**: Outline or highlight for keyboard navigation
 - **Hidden**: Button is invisible or removed when the user is near the top of the page
 
-#### **Summary of Components**
+#### Summary of Components
 
 | Component     | Required? | Purpose                                                     |
 | ------------- | --------- | ----------------------------------------------------------- |
@@ -143,6 +143,136 @@ Embedded within a sticky sidebar navigation alongside other page navigation elem
 Appears only within specific long sections rather than globally on the page.
 
 **When to use:** Pages with distinct long sections that benefit from section-specific navigation
+
+## Examples
+
+### Interactive Back to Top Demo
+
+<Playground patternType="navigation" pattern="back-to-top" example="basic" height="700px" />
+
+This example showcases:
+- Smooth scroll animation to top
+- Button appears after scrolling 300px
+- Fade-in/out transitions for button visibility
+- Progress bar showing scroll position
+- Throttled scroll events for performance
+- Keyboard support (Tab to focus, Enter/Space to activate)
+- Respects `prefers-reduced-motion` for accessibility
+- Mobile-optimized touch targets
+
+### Basic Implementation (HTML + minimal JS)
+
+```html
+<button type="button" class="js-back-to-top" aria-label="Back to top" hidden>
+  ↑
+</button>
+
+<script>
+  // Basic scroll logic
+  const backToTopBtn = document.querySelector(".js-back-to-top");
+  const scrollThreshold = 300; // in px
+
+  function toggleBackToTop() {
+    if (window.scrollY > scrollThreshold) {
+      backToTopBtn.removeAttribute("hidden");
+    } else {
+      backToTopBtn.setAttribute("hidden", "");
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.addEventListener("scroll", toggleBackToTop);
+  backToTopBtn.addEventListener("click", scrollToTop);
+</script>
+```
+
+### React Implementation with Hooks
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function BackToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  return isVisible ? (
+    <button
+      onClick={scrollToTop}
+      className="back-to-top"
+      aria-label="Back to top"
+    >
+      ↑
+    </button>
+  ) : null;
+}
+```
+
+### CSS Styling
+
+```css
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.back-to-top:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+  }
+  
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+```
 
 ## Best Practices
 
@@ -222,63 +352,47 @@ Appears only within specific long sections rather than globally on the page.
 
 ## Common Mistakes & Anti-Patterns
 
-### 🚫 **Always Visible on Short Pages**
+### 🚫 Always Visible on Short Pages
 **The Problem:**
 Showing the Back to Top button on pages that don't require scrolling or have minimal content creates unnecessary UI clutter.
 
 **How to Fix It:**
 Only display the button after the user has scrolled at least 2x the viewport height or a minimum of 1000px.
 
-### 🚫 **Jarring Jump Without Animation**
+### 🚫 Jarring Jump Without Animation
 **The Problem:**
 Instantly jumping to the top without smooth scrolling can disorient users and make them lose context.
 
 **How to Fix It:**
 Implement smooth scrolling with `scroll-behavior: smooth` or JavaScript animation with appropriate duration (300-500ms).
 
-### 🚫 **Poor Button Visibility**
+### 🚫 Poor Button Visibility
 **The Problem:**
 Using low contrast colors or making the button too small/transparent makes it hard to notice or click.
 
 **How to Fix It:**
 Ensure sufficient color contrast (WCAG AA minimum) and use a minimum touch target of 44x44px.
 
-### 🚫 **Blocking Important Content**
+### 🚫 Blocking Important Content
 **The Problem:**
 Placing the button where it covers important interactive elements like chat widgets or cookie banners.
 
 **How to Fix It:**
 Carefully position the button to avoid overlapping with other floating elements, adjusting position dynamically if needed.
 
-### 🚫 **Missing Keyboard Support**
+### 🚫 Missing Keyboard Support
 **The Problem:**
 Button only works with mouse/touch, excluding keyboard users from using the feature.
 
 **How to Fix It:**
 Ensure the button is keyboard accessible, focusable with Tab, and activatable with Enter/Space keys.
 
-### 🚫 **No Visual Feedback on Interaction**
+### 🚫 No Visual Feedback on Interaction
 **The Problem:**
 Button doesn't provide hover, focus, or active states, leaving users uncertain if their interaction registered.
 
 **How to Fix It:**
 Implement clear visual states for all interactions including hover, focus, active, and disabled states.
-
-## Examples
-
-### Interactive Back to Top Demo
-
-<Playground patternType="navigation" pattern="back-to-top" example="basic" height="700px" />
-
-This example showcases:
-- Smooth scroll animation to top
-- Button appears after scrolling 300px
-- Fade-in/out transitions for button visibility
-- Progress bar showing scroll position
-- Throttled scroll events for performance
-- Keyboard support (Tab to focus, Enter/Space to activate)
-- Respects `prefers-reduced-motion` for accessibility
-- Mobile-optimized touch targets
 
 ## Micro-Interactions & Animations
 
@@ -386,9 +500,9 @@ This example showcases:
 - **Position:** Bottom-right is standard in LTR, bottom-left in RTL
 - **Color significance:** Avoid colors with negative cultural connotations
 
-## Code Examples
+## Accessibility
 
-### Basic Implementation (HTML + minimal JS)
+### Performance Metrics
 
 ```html
 <button type="button" class="js-back-to-top" aria-label="Back to top" hidden>
@@ -652,19 +766,6 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
-## Component Library Examples
-
-### React Components
-- **[React Scroll](https://github.com/fisshy/react-scroll)** – Scroll components with smooth animations
-- **[React Back to Top Button](https://github.com/HermanNygaard/react-back-to-top-button)** – Simple back to top button component
-
-### Vue Components
-- **[Vue Backtotop](https://github.com/caiofsouza/vue-backtotop)** – Back to top component for Vue.js
-- **[Vue Scroll To](https://github.com/rigor789/vue-scrollto)** – Scrolling to elements with easing
-
-### Vanilla JavaScript
-- **[Vanilla Back To Top](https://github.com/vfeskov/vanilla-back-to-top)** – Lightweight vanilla JS implementation
-- **[ScrollToTop.js](https://github.com/cferdinandi/smooth-scroll)** – Smooth scrolling library
 
 ## FAQ
 
@@ -709,6 +810,20 @@ Consider these related patterns when implementing **Back to Top**:
 - [Sidebar](/patterns/navigation/sidebar) - Can include persistent navigation that reduces need for Back to Top.
 
 ## Resources
+
+### Libraries & Frameworks
+
+#### React Components
+- [React Scroll](https://github.com/fisshy/react-scroll) – Scroll components with smooth animations
+- [React Back to Top Button](https://github.com/HermanNygaard/react-back-to-top-button) – Simple back to top button component
+
+#### Vue Components
+- [Vue Backtotop](https://github.com/caiofsouza/vue-backtotop) – Back to top component for Vue.js
+- [Vue Scroll To](https://github.com/rigor789/vue-scrollto) – Scrolling to elements with easing
+
+#### Vanilla JavaScript
+- [Vanilla Back To Top](https://github.com/vfeskov/vanilla-back-to-top) – Lightweight vanilla JS implementation
+- [ScrollToTop.js](https://github.com/cferdinandi/smooth-scroll) – Smooth scrolling library
 
 ### Articles
 

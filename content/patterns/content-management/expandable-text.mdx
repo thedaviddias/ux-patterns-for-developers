@@ -75,7 +75,7 @@ flowchart TB
     end
 ```
 
-### **Component Structure**
+### Component Structure
 
 1. **Trigger Button**
 
@@ -106,7 +106,7 @@ flowchart TB
 - **Expanded:** The full content is shown, and the button updates to "Read Less".
 - **Hover & Focus:** The button should have a **clear focus indicator** for accessibility.
 
-### **Summary of Components**
+### Summary of Components
 
 | Component            | Required? | Purpose                                           |
 | -------------------- | --------- | ------------------------------------------------- |
@@ -115,6 +115,32 @@ flowchart TB
 | Hidden Content       | ✅ Yes    | Represents the initially collapsed text.          |
 | Expand/Collapse Icon | ❌ No     | Provides a visual cue for expand/collapse states. |
 | Hover & Focus States | ✅ Yes    | Ensures proper accessibility and interaction.     |
+
+## Examples
+
+### Interactive Demo
+
+<Playground
+  patternType="content-management"
+  pattern="expandable-text"
+  example="basic"
+/>
+
+### Basic Implementation
+
+```html
+<div class="expandable-text">
+  <p class="expandable-text__preview">
+    This is the preview text that is always visible...
+    <button class="expandable-text__toggle" aria-expanded="false">
+      Read more
+    </button>
+  </p>
+  <div class="expandable-text__content" hidden>
+    <!-- Hidden content here -->
+  </div>
+</div>
+```
 
 ## Best Practices
 
@@ -246,16 +272,6 @@ By analyzing tracking data, we can optimize the expandable text experience:
   **Optimization:** A/B test auto-expanded vs. manually triggered content to determine user preference.
 
 By continuously monitoring these metrics, we can refine expandable text usability, ensuring users access necessary information without unnecessary friction.
-
-## Code Examples
-
-### Basic Implementation
-
-<Playground
-  patternType="content-management"
-  pattern="expandable-text"
-  example="basic"
-/>
 
 ## Accessibility
 

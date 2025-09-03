@@ -5,8 +5,10 @@ icon: MessageCircle
 status: complete
 ---
 
+import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
+import { Playground } from "@app/_components/playground";
 
 # Tooltip
 
@@ -76,8 +78,6 @@ Use a tooltip when you need to provide **additional context or explanations** wi
 
 ## Anatomy
 
-## Anatomy
-
 ```mermaid
 graph TD
     A[Tooltip] --> B[Trigger Element]
@@ -123,7 +123,7 @@ graph TD
 - Simple tooltips **should disappear on mouse-out, focus loss, or tap elsewhere**.
 - Rich tooltips **should remain open until dismissed manually**.
 
-#### **Summary of Components**
+#### Summary of Components**
 
 | Component            | Required? | Purpose                                        |
 | -------------------- | --------- | ---------------------------------------------- |
@@ -204,12 +204,10 @@ graph TD
 - **Avoid excessive event listeners** that degrade performance.
 - **Don't trigger tooltips on every mouse movement**—use `mouseenter` instead of `mousemove`.
 
-### Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns
 
-#### Tooltips That Disappear Too Fast
-
-**❌ What’s Wrong?**
-
+### 🚫 Tooltips That Disappear Too Fast
+**The Problem:**
 Users might not have enough time to read the tooltip before it disappears.
 
 **How to Fix It?**
@@ -217,10 +215,8 @@ Ensure tooltips remain visible **for at least 3–5 seconds** or stay open on ho
 
 ---
 
-#### Not Accessible via Keyboard
-
-**❌ What’s Wrong?**
-
+### 🚫 Not Accessible via Keyboard
+**The Problem:**
 Many tooltips rely only on hover, making them inaccessible to keyboard users.
 
 **How to Fix It?**
@@ -228,10 +224,8 @@ Ensure tooltips can be triggered **via focus (`Tab` key)`**. For screen readers,
 
 ---
 
-#### Blocking Important Content
-
-**❌ What’s Wrong?**
-
+### 🚫 Blocking Important Content
+**The Problem:**
 Tooltips that cover input fields or buttons create confusion and may block clicks or taps.
 
 **How to Fix It?**
@@ -239,10 +233,8 @@ Position tooltips **away from interactive elements** and use arrow indicators to
 
 ---
 
-#### Overloading with Too Much Text
-
-**❌ What’s Wrong?**
-
+### 🚫 Overloading with Too Much Text
+**The Problem:**
 Long tooltips become unreadable, especially for screen readers that have to announce everything at once.
 
 **How to Fix It?**
@@ -250,25 +242,121 @@ Keep tooltips **brief (max 2 lines)**. For more details, link to a help page or 
 
 ---
 
-#### Not Announced by Screen Readers (Accessibility)
-
-**❌ What’s Wrong?**
-
-Tooltips that appear on mouse hover but lack ARIA attributes aren’t announced to screen reader users.
+### 🚫 Not Announced by Screen Readers (Accessibility)
+**The Problem:**
+Tooltips that appear on mouse hover but lack ARIA attributes aren't announced to screen reader users.
 
 **How to Fix It?**
 Use `role="tooltip"` for the tooltip element and link it to the trigger with `aria-describedby="tooltipId"`. Keep the tooltip in the DOM while it’s visible so assistive tech can detect it.
 
 ---
 
-#### Insufficient Color Contrast or Tiny Font (Accessibility)
-
-**❌ What’s Wrong?**
-
-Text that’s too small or low-contrast is difficult for users with low vision to read.
+### 🚫 Insufficient Color Contrast or Tiny Font (Accessibility)
+**The Problem:**
+Text that's too small or low-contrast is difficult for users with low vision to read.
 
 **How to Fix It?**
 Maintain a **4.5:1** color contrast ratio (minimum) and use a **legible font size** (usually at least 14–16px). Test with browser zoom to ensure the tooltip scales properly.
+
+
+## Micro-Interactions & Animations
+
+### Appearance Animation
+- **Effect:** Fade in with subtle scale from 0.95 to 1
+- **Timing:** 200ms ease-out
+- **Trigger:** After hover/focus delay (300-500ms)
+- **Implementation:** CSS transition on opacity and transform
+
+### Position Adjustment
+- **Effect:** Smooth repositioning when viewport edge detected
+- **Timing:** 150ms ease-in-out
+- **Trigger:** When tooltip would overflow viewport
+- **Implementation:** JavaScript boundary detection with CSS transition
+
+### Dismissal Animation
+- **Effect:** Fade out to opacity 0
+- **Timing:** 150ms ease-in
+- **Trigger:** Mouse leave, focus lost, or Escape key
+- **Implementation:** CSS transition on opacity
+
+### Content Update (Rich Tooltips)
+- **Effect:** Cross-fade between content states
+- **Timing:** 200ms overlap transition
+- **Trigger:** When tooltip content changes dynamically
+- **Implementation:** Opacity transition with content swap
+
+## Examples
+
+### Interactive Tooltip Demo
+
+<Playground patternType="content-management" pattern="tooltip" example="basic" height="600px" />
+
+This example demonstrates:
+- Multiple positioning options (top, bottom, left, right)
+- Automatic viewport boundary detection
+- Keyboard support (Tab to focus, Escape to dismiss)
+- Hover delay to prevent accidental triggers
+- ARIA attributes for accessibility
+- Both simple and rich tooltip content
+
+### Basic Implementation
+
+```html
+<!-- Tooltip Trigger -->
+<button aria-describedby="tooltip-example" class="tooltip-trigger">?</button>
+
+<!-- Tooltip -->
+<div id="tooltip-example" role="tooltip" class="tooltip-content">
+  This is additional information about the element.
+</div>
+```
+
+## Performance
+
+### Performance Metrics
+
+**Target Metrics:**
+- **Show Delay**: 300-500ms to prevent accidental triggers
+- **Animation Duration**: < 200ms for smooth perception
+- **DOM Impact**: Single tooltip instance reused across triggers
+- **Memory Usage**: < 1KB per tooltip instance
+- **Event Listeners**: Use event delegation for multiple tooltips
+
+**Optimization Strategies:**
+- **Single Instance Pattern**: Reuse one tooltip element for all triggers
+- **Event Delegation**: Attach listeners to parent container, not individual elements
+- **Lazy Rendering**: Create tooltip DOM only when first needed
+- **GPU Acceleration**: Use `transform` and `opacity` for animations
+- **Debouncing**: Prevent rapid show/hide cycles during fast mouse movement
+
+**Mobile Performance:**
+- **Touch Alternative**: Replace with tap-to-toggle or inline help
+- **Viewport Detection**: Prevent tooltips from triggering reflows
+- **Reduced Motion**: Respect `prefers-reduced-motion` setting
+
+## Localization
+
+### Text Direction (RTL/LTR)
+- **Position Mirroring**: Flip tooltip positions for RTL languages
+- **Arrow Direction**: Reverse arrow pointing for RTL layouts
+- **Text Alignment**: Adjust based on language direction
+
+### Content Considerations
+- **Text Expansion**: Allow 30-50% extra space for translations
+- **Character Sets**: Support Unicode for all languages
+- **Font Selection**: Use system fonts that support target languages
+
+### Dynamic Content
+- **Number Formatting**: Respect locale-specific number formats
+- **Date/Time**: Use locale-appropriate date formatting
+- **Currency**: Display currency symbols correctly by locale
+
+## SEO Considerations
+
+- **No Direct SEO Impact**: Tooltips are typically hidden from search engines
+- **Content Accessibility**: Don't hide SEO-valuable content in tooltips
+- **Alternative Text**: Provide aria-labels for important tooltip content
+- **Progressive Enhancement**: Ensure content works without JavaScript
 
 ## Tracking
 
@@ -339,20 +427,6 @@ By analyzing tracking data, we can optimize tooltip behavior:
 
 By continuously monitoring these metrics, we can refine tooltip usability and ensure they provide **real value** rather than unnecessary friction.
 
-## Code Examples
-
-### Basic Implementation
-
-```html
-<!-- Tooltip Trigger -->
-<button aria-describedby="tooltip-example" class="tooltip-trigger">?</button>
-
-<!-- Tooltip -->
-<div id="tooltip-example" role="tooltip" class="tooltip-content">
-  This is additional information about the element.
-</div>
-```
-
 ## Accessibility
 
 ### Keyboard Interaction Pattern
@@ -410,6 +484,16 @@ The following table outlines the standard keyboard interactions for tooltip comp
 - [ ] Optimize tooltip animations to **use `opacity` and `transform` for smooth rendering**.
 - [ ] Test for **efficient event handling** to avoid performance degradation on repeated interactions.
 
+## Browser Support
+
+<BrowserSupport
+  features={[
+    "css.selectors.hover",
+    "css.selectors.focus",
+    "css.properties.position"
+  ]}
+/>
+
 ## Design Tokens
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -432,6 +516,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
 
 ## Related Patterns
 
@@ -475,6 +560,25 @@ Consider these related patterns when implementing tooltips:
 
 ## Resources
 
+### Libraries & Frameworks
+
+#### React Components
+- [React Tooltip](https://react-tooltip.com/) – Highly customizable tooltip component
+- [Floating UI](https://floating-ui.com/) – Positioning engine for tooltips and popovers
+- [Radix UI Tooltip](https://www.radix-ui.com/docs/primitives/components/tooltip) – Unstyled, accessible tooltip primitive
+- [MUI Tooltip](https://mui.com/material-ui/react-tooltip/) – Material Design tooltip component
+- [Tooltip - shadcn/ui](https://ui.shadcn.com/docs/components/tooltip) – Modern tooltip implementation
+
+#### Vue Components
+- [Floating Vue](https://floating-vue.starpad.dev/) – Floating UI components for Vue
+- [PrimeVue Tooltip](https://primevue.org/tooltip/) – Feature-rich tooltip directive
+
+#### Vanilla JavaScript
+- [Tippy.js](https://atomiks.github.io/tippyjs/) – Complete tooltip, popover, dropdown solution
+- [Popper.js](https://popper.js.org/) – Positioning engine used by many libraries
+- [Balloon.css](https://kazzkiq.github.io/balloon.css/) – Pure CSS tooltips
+- [Tooltip - Origin UI](https://originui.com/tooltip) – Vanilla JS tooltip implementation
+
 ### Articles
 
 - [Tooltip - Nielsen Norman Group](https://www.nngroup.com/articles/tooltip-guidelines/)
@@ -483,8 +587,3 @@ Consider these related patterns when implementing tooltips:
 ### Documentation
 
 - [Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
-
-### Libraries
-
-- [Tooltip - shadcn/ui](https://ui.shadcn.com/docs/components/tooltip)
-- [Tooltip - Origin UI](https://originui.com/tooltip)

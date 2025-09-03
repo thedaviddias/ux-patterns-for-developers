@@ -12,7 +12,7 @@ import { Playground } from "@app/_components/playground";
 
 # {{name}}
 
-<!-- 
+<!--
   REQUIRED SECTION
   Clear problem statement and what this pattern solves
 -->
@@ -20,7 +20,7 @@ import { Playground } from "@app/_components/playground";
 
 **{{name}}s** are [brief description of the component and the problem it solves].
 
-<!-- 
+<!--
   REQUIRED: Build effort indicator
   Levels: low | medium | high
 -->
@@ -29,7 +29,7 @@ import { Playground } from "@app/_components/playground";
   description="Requires [brief technical requirements]"
 />
 
-<!-- 
+<!--
   REQUIRED SECTION
   Help developers understand when this is the right solution
 -->
@@ -51,7 +51,7 @@ Use {{name}} when you need to [primary use case].
 - [Another anti-pattern with better solution]
 - [Common mistake to avoid]
 
-<!-- 
+<!--
   OPTIONAL SECTION
   Key advantages of using this pattern
 -->
@@ -61,7 +61,7 @@ Use {{name}} when you need to [primary use case].
 - [Developer benefit with technical detail]
 - [Business benefit with metrics if available]
 
-<!-- 
+<!--
   OPTIONAL SECTION
   Important limitations or trade-offs
 -->
@@ -71,7 +71,7 @@ Use {{name}} when you need to [primary use case].
 - [Complexity trade-off with context]
 - [Browser/device limitation if applicable]
 
-<!-- 
+<!--
   REQUIRED SECTION
   Visual or structural breakdown of the pattern
 -->
@@ -102,7 +102,7 @@ end
    - Dynamic vs static content
    - Loading states
 
-#### **Summary of Components**
+#### Summary of Components**
 
 | Component       | Required? | Purpose                         | Notes                |
 | --------------- | --------- | ------------------------------- | -------------------- |
@@ -111,7 +111,7 @@ end
 | Content Area    | Yes       | Displays the result             | Can be dynamic       |
 | Loading State   | No        | Shows progress                  | Improves UX          |
 
-<!-- 
+<!--
   REQUIRED SECTION
   Actionable guidelines for implementation
 -->
@@ -164,21 +164,7 @@ end
 - Avoid fixed positioning that breaks on mobile
 - Don't assume desktop-only usage
 
-### Common Mistakes & Anti-Patterns
-
-#### ❌ **Missing Loading States**
-**What's Wrong?** No feedback during async operations leaves users confused.
-**How to Fix It?** Always show loading indicators for operations taking >500ms.
-
-#### ❌ **Poor Error Handling**
-**What's Wrong?** Generic error messages don't help users recover.
-**How to Fix It?** Provide specific, actionable error messages with recovery options.
-
-#### ❌ **Ignoring Edge Cases**
-**What's Wrong?** Pattern breaks with empty states or extreme data.
-**How to Fix It?** Test with no data, single item, and maximum data scenarios.
-
-<!-- 
+<!--
   OPTIONAL SECTION (for patterns with variants)
   Different variations or types of the pattern
 -->
@@ -193,11 +179,15 @@ Description of alternative variations
 ### Contextual Variations
 How the pattern changes based on context
 
-<!-- 
+<!--
   REQUIRED SECTION
-  Interactive examples for developers
+  Examples combining interactive demos and implementation code
+  Place interactive Playground demos first for visual patterns,
+  followed by static code examples for implementation reference
 -->
-## Interactive Example
+## Examples
+
+### Interactive Demo
 
 <Playground
   patternType="{{category}}"
@@ -205,7 +195,7 @@ How the pattern changes based on context
   example="basic"
 />
 
-### Advanced Implementation
+### Advanced Demo
 
 <Playground
   patternType="{{category}}"
@@ -213,7 +203,39 @@ How the pattern changes based on context
   example="advanced"
 />
 
-<!-- 
+### Basic Implementation
+
+```html
+<!-- Basic HTML structure for the {{name}} pattern -->
+<div class="{{name-lowercase}}">
+  <!-- Component markup here -->
+</div>
+```
+
+## Common Mistakes & Anti-Patterns
+
+### 🚫 **Missing Loading States**
+**The Problem:**
+No feedback during async operations leaves users confused.
+
+**How to Fix It?**
+Always show loading indicators for operations taking >500ms.
+
+### 🚫 **Poor Error Handling**
+**The Problem:**
+Generic error messages don't help users recover.
+
+**How to Fix It?**
+Provide specific, actionable error messages with recovery options.
+
+### 🚫 **Ignoring Edge Cases**
+**The Problem:**
+Pattern breaks with empty states or extreme data.
+
+**How to Fix It?**
+Test with no data, single item, and maximum data scenarios.
+
+<!--
   RECOMMENDED SECTION
   Performance considerations and optimizations
 -->
@@ -245,7 +267,7 @@ How the pattern changes based on context
 - **Progressive Enhancement**: Core functionality first
 - **Offline Support**: Cache critical resources
 
-<!-- 
+<!--
   RECOMMENDED SECTION
   User research and testing insights
 -->
@@ -266,7 +288,7 @@ Research shows that users:
 - Test on actual devices, not just simulators
 - Conduct both moderated and unmoderated sessions
 
-<!-- 
+<!--
   OPTIONAL SECTION
   Analytics and tracking implementation
 -->
@@ -298,7 +320,7 @@ trackEvent('{{name}}_interaction', {
 - Identify drop-off points
 - Optimize based on usage patterns
 
-<!-- 
+<!--
   OPTIONAL SECTION (for multi-language apps)
   Internationalization considerations
 -->
@@ -321,7 +343,7 @@ trackEvent('{{name}}_interaction', {
 - Date/time formatting
 - Number formatting
 
-<!-- 
+<!--
   REQUIRED SECTION
   Accessibility requirements and guidelines
 -->
@@ -356,7 +378,7 @@ The following table outlines the standard keyboard interactions for {{name}} com
 - Include instructions in aria-describedby
 - Test with NVDA, JAWS, and VoiceOver
 
-<!-- 
+<!--
   OPTIONAL SECTION
   SEO considerations for the pattern
 -->
@@ -381,7 +403,7 @@ The following table outlines the standard keyboard interactions for {{name}} com
 }
 ```
 
-<!-- 
+<!--
   REQUIRED SECTION
   Testing strategies and guidelines
 -->
@@ -407,7 +429,7 @@ describe('{{name}}', () => {
   it('should render correctly', () => {
     // Test implementation
   });
-  
+
   it('should handle user interaction', () => {
     // Test implementation
   });
@@ -430,18 +452,18 @@ test('{{name}} user flow', async ({ page }) => {
 - Test different states and variations
 - Check responsive breakpoints
 
-<!-- 
+<!--
   OPTIONAL SECTION
   Browser compatibility information
 -->
 ## Browser Support
 
-<BrowserSupport 
+<BrowserSupport
   features={[
     "CSS Grid",
     "Flexbox",
     "Custom Properties"
-  ]} 
+  ]}
 />
 
 **Polyfills Required:**
@@ -449,7 +471,7 @@ test('{{name}} user flow', async ({ page }) => {
 - Progressive enhancement strategy
 - Fallback implementations
 
-<!-- 
+<!--
   OPTIONAL SECTION (for design system integration)
   Design token specifications
 -->
@@ -489,34 +511,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
-<!-- 
-  RECOMMENDED SECTION
-  Component library implementations
--->
-## Component Library Examples
-
-### React Components
-
-- **[Library Name](https://example.com)** – Brief description of strengths
-- **[Another Library](https://example.com)** – What makes it unique
-- **[Third Option](https://example.com)** – Best use case
-
-### Vue Components
-
-- **[Vue Library](https://example.com)** – Key features
-- **[Alternative](https://example.com)** – When to use
-
-### Vanilla JavaScript
-
-- **[Pure JS Library](https://example.com)** – No framework needed
-- **[Lightweight Option](https://example.com)** – Minimal dependencies
-
-### Web Components
-
-- **[Custom Elements](https://example.com)** – Framework agnostic
-- **[Shadow DOM Implementation](https://example.com)** – Encapsulated styling
-
-<!-- 
+<!--
   RECOMMENDED SECTION
   Common questions and answers
 -->
@@ -539,7 +534,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   ]}
 />
 
-<!-- 
+<!--
   RECOMMENDED SECTION
   Links to related patterns
 -->
@@ -551,11 +546,25 @@ Consider these related patterns when implementing {{name}}:
 - [Pattern 2](/patterns/category/pattern-2) - Complements this pattern for complex flows
 - [Pattern 3](/patterns/category/pattern-3) - Alternative approach for different context
 
-<!-- 
+<!--
   OPTIONAL SECTION
   External resources and references
 -->
 ## Resources
+
+### Libraries & Frameworks
+
+#### React Components
+- [Library Name](https://example.com) – Brief description of strengths
+- [Another Library](https://example.com) – What makes it unique
+
+#### Vue Components
+- [Vue Library](https://example.com) – Key features
+- [Alternative](https://example.com) – When to use
+
+#### Vanilla JavaScript
+- [Pure JS Library](https://example.com) – No framework needed
+- [Lightweight Option](https://example.com) – Minimal dependencies
 
 ### Articles
 - [Best Practices for {{name}}](https://example.com) - Comprehensive guide
@@ -564,9 +573,6 @@ Consider these related patterns when implementing {{name}}:
 ### Documentation
 - [MDN Web Docs](https://developer.mozilla.org) - Web standards reference
 - [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) - Accessibility standards
-
-### Libraries
-- [Popular {{name}} Library](https://github.com) - Well-maintained implementation
 - [Lightweight Alternative](https://github.com) - Minimal dependencies
 
 ### Tools

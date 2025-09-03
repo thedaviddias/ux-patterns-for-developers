@@ -127,7 +127,7 @@ graph TD
    - Static text **after the input** (e.g., `.com` for domain fields).
    - Helps users understand **expected input formats**.
 
-#### **Summary of Components**
+#### Summary of Components**
 
 | Component                | Required? | Purpose                                      |
 | ------------------------ | --------- | -------------------------------------------- |
@@ -225,245 +225,50 @@ Optimized for search with specific styling and behavior.
 </div>
 ```
 
-## Code Examples
 
-### Basic Text Field
+## Examples
 
-Simple text field with label and proper accessibility attributes.
+### Interactive Demo
 
 <Playground patternType="forms" pattern="text-field" example="basic" />
 
 ### With Validation States
 
-Text field showing different validation states (error, success, warning).
-
 <Playground patternType="forms" pattern="text-field" example="validation" />
 
 ### With Helper Text
-
-Text field with additional guidance and formatting instructions.
 
 <Playground patternType="forms" pattern="text-field" example="helper-text" />
 
 ### With Character Counter
 
-Text field that shows remaining character count as user types.
-
 <Playground patternType="forms" pattern="text-field" example="character-counter" />
 
 ### With Icons
-
-Text field with prefix and suffix icons for enhanced usability.
 
 <Playground patternType="forms" pattern="text-field" example="with-icons" />
 
 ### Different Input Types
 
-Various input types optimized for different data entry scenarios.
-
 <Playground patternType="forms" pattern="text-field" example="input-types" />
 
 ### Required Field Indicators
 
-Best practices for marking required fields accessibly.
-
 <Playground patternType="forms" pattern="text-field" example="required" />
 
-### **Required Field Implementation Guidelines**
-
-#### **1️⃣ Best Practice: Explicit "Required" Label**
-
-✅ **Most accessible** – clear for all users, including screen readers.
+### Basic Implementation
 
 ```html
-<label for="username"> Username <span>(Required)</span> </label>
-<input type="text" id="username" name="username" required />
-```
-
-**Pros ✅**
-
-- Works for **all users**, including screen readers and color-blind users.
-- No need for extra ARIA attributes.
-
-**Cons ❌**
-
-- Takes slightly more space in the UI.
-
-#### **2️⃣ Alternative: Asterisk (\*) with ARIA Explanation**
-
-✅ **Common practice**, but needs `aria-describedby` for screen reader users.
-
-```html
-<label for="username"> Username <span aria-hidden="true">*</span> </label>
-<input
-  type="text"
-  id="username"
-  name="username"
-  required
-  aria-describedby="required-msg"
-/>
-<p id="required-msg" class="sr-only">
-  Fields marked with an asterisk are required.
-</p>
-```
-
-**Pros ✅**
-
-- Keeps UI cleaner while maintaining accessibility.
-- Screen readers will announce **"Fields marked with an asterisk are required."**
-
-**Cons ❌**
-
-- **Requires additional explanation** (`aria-describedby`).
-- **Without the extra message, asterisks alone are not accessible**.
-
-#### **3️⃣ Alternative: Required Field with Visually Hidden Text**
-
-✅ **Keeps UI minimal while ensuring accessibility.**
-
-```html
-<label for="email"> Email <span class="sr-only">(Required)</span> </label>
-<input type="email" id="email" name="email" required />
-```
-
-**Pros ✅**
-
-- **Looks clean visually** while still accessible.
-- **Screen readers announce it as "Email Required"**.
-
-**Cons ❌**
-
-- **Not visible for sighted users** who rely on visual cues.
-
-#### **4️⃣ Alternative: Required Field with an Inline Icon + Tooltip**
-
-✅ **More user-friendly**, provides additional guidance.
-
-```html
-<label for="phone">
-  Phone Number
-  <span aria-hidden="true" class="required-icon" tabindex="0"> *</span>
-</label>
-<input
-  type="tel"
-  id="phone"
-  name="phone"
-  required
-  aria-describedby="required-msg"
-/>
-<p id="required-msg" class="sr-only">
-  Fields marked with an asterisk are required.
-</p>
-```
-
-**Pros ✅**
-
-- **Visually clear** while keeping text minimal.
-- Works well when paired with a **tooltip on hover or focus**.
-
-**Cons ❌**
-
-- **Requires CSS for styling** (ensuring asterisks are not the only indicator).
-- Users **might not see tooltip hints** if they don't hover over the icon.
-
-#### **5️⃣ Alternative: Required Field with `required` Attribute Only**
-
-⚠ **Not recommended as a standalone solution!**
-
-```html
-<label for="password"> Password </label>
-<input type="password" id="password" name="password" required />
-```
-
-**Pros ✅**
-
-- Works well for **basic validation**.
-- Screen readers **will announce the field as required**.
-
-**Cons ❌**
-
-- No **visible indicator for sighted users** before form submission.
-- **Errors only appear after submission**, which may confuse users.
-- Some browsers may **not enforce required fields consistently**.
-
-## Common Mistakes & Anti-Patterns
-
-#### Using Placeholder as Primary Label
-
-**❌ What's Wrong?** Relying on placeholder text as the only label makes the field inaccessible when users start typing, and screen readers may not announce it properly.
-
-```html
-<!-- Bad: Placeholder as label -->
-<input type="text" placeholder="First Name">
-```
-
-**How to Fix It?** Always provide a visible label and use placeholder for hints or examples only.
-
-```html
-<!-- Good: Label + helpful placeholder -->
-<label for="firstName">First Name</label>
-<input type="text" id="firstName" placeholder="e.g., John">
-```
-
----
-
-#### Poor Validation Timing
-
-**❌ What's Wrong?** Showing error messages too early (on first keystroke) or too late (only on form submission) frustrates users.
-
-**How to Fix It?** Use **progressive validation**:
-- Show errors after field loses focus (onBlur) for first-time entry
-- Show real-time validation for corrections after initial error
-- Validate required fields on blur, format validation on input
-
-```javascript
-// Good: Progressive validation
-function validateField(input, hasBeenBlurred) {
-  if (hasBeenBlurred && input.value.length > 0) {
-    // Show real-time validation after first blur
-    showValidationFeedback(input);
-  }
-}
-```
-
----
-
-#### Missing Error Recovery
-
-**❌ What's Wrong?** Not providing clear guidance on how to fix validation errors leaves users stuck.
-
-**How to Fix It?** Include specific, actionable error messages with examples.
-
-```html
-<!-- Bad: Vague error -->
-<output class="error">Invalid input</output>
-
-<!-- Good: Specific guidance -->
-<output class="error">
-  Password must contain at least 8 characters, including 1 number and 1 special character. 
-  Example: MyPass123!
-</output>
-```
-
----
-
-#### Inaccessible Focus Management
-
-**❌ What's Wrong?** Poor focus indicators or focus traps make keyboard navigation impossible.
-
-**How to Fix It?** Ensure visible focus states and logical tab order.
-
-```css
-/* Good: Visible focus indicator */
-.text-field input:focus {
-  outline: 2px solid #0066cc;
-  outline-offset: 2px;
-}
+<div class="text-field">
+  <label for="username">Username</label>
+  <input type="text" id="username" name="username" required>
+  <span class="text-field__error">Please enter a username</span>
+</div>
 ```
 
 ## Best Practices
 
-### **Content & Usability**
+### Content & Usability
 
 **Do's ✅**
 
@@ -487,7 +292,116 @@ function validateField(input, hasBeenBlurred) {
 
 ---
 
-### **Accessibility**
+### Required Field Implementation Guidelines
+
+#### 1️⃣ Best Practice: Explicit "Required" Label
+
+✅ **Most accessible** – clear for all users, including screen readers.
+
+```html
+<label for="username"> Username <span>(Required)</span> </label>
+<input type="text" id="username" name="username" required />
+```
+
+**Pros ✅**
+- Works for **all users**, including screen readers and color-blind users.
+- No need for extra ARIA attributes.
+
+**Cons ❌**
+- Takes slightly more space in the UI.
+
+#### 2️⃣ Alternative: Asterisk (*) with ARIA Explanation
+
+✅ **Common practice**, but needs `aria-describedby` for screen reader users.
+
+```html
+<label for="username"> Username <span aria-hidden="true">*</span> </label>
+<input
+  type="text"
+  id="username"
+  name="username"
+  required
+  aria-describedby="required-msg"
+/>
+<p id="required-msg" class="sr-only">
+  Fields marked with an asterisk are required.
+</p>
+```
+
+**Pros ✅**
+- Keeps UI cleaner while maintaining accessibility.
+- Screen readers will announce **"Fields marked with an asterisk are required."**
+
+**Cons ❌**
+- **Requires additional explanation** (`aria-describedby`).
+- **Without the extra message, asterisks alone are not accessible**.
+
+#### 3️⃣ Alternative: Required Field with Visually Hidden Text
+
+✅ **Keeps UI minimal while ensuring accessibility.**
+
+```html
+<label for="email"> Email <span class="sr-only">(Required)</span> </label>
+<input type="email" id="email" name="email" required />
+```
+
+**Pros ✅**
+- **Looks clean visually** while still accessible.
+- **Screen readers announce it as "Email Required"**.
+
+**Cons ❌**
+- **Not visible for sighted users** who rely on visual cues.
+
+#### 4️⃣ Alternative: Required Field with an Inline Icon + Tooltip
+
+✅ **More user-friendly**, provides additional guidance.
+
+```html
+<label for="phone">
+  Phone Number
+  <span aria-hidden="true" class="required-icon" tabindex="0"> *</span>
+</label>
+<input
+  type="tel"
+  id="phone"
+  name="phone"
+  required
+  aria-describedby="required-msg"
+/>
+<p id="required-msg" class="sr-only">
+  Fields marked with an asterisk are required.
+</p>
+```
+
+**Pros ✅**
+- **Visually clear** while keeping text minimal.
+- Works well when paired with a **tooltip on hover or focus**.
+
+**Cons ❌**
+- **Requires CSS for styling** (ensuring asterisks are not the only indicator).
+- Users **might not see tooltip hints** if they don't hover over the icon.
+
+#### 5️⃣ Alternative: Required Field with `required` Attribute Only
+
+⚠ **Not recommended as a standalone solution!**
+
+```html
+<label for="password"> Password </label>
+<input type="password" id="password" name="password" required />
+```
+
+**Pros ✅**
+- Works well for **basic validation**.
+- Screen readers **will announce the field as required**.
+
+**Cons ❌**
+- No **visible indicator for sighted users** before form submission.
+- **Errors only appear after submission**, which may confuse users.
+- Some browsers may **not enforce required fields consistently**.
+
+---
+
+### Accessibility
 
 **Do's ✅**
 
@@ -509,7 +423,7 @@ function validateField(input, hasBeenBlurred) {
 
 ---
 
-### **Visual Design**
+### Visual Design
 
 **Do's ✅**
 
@@ -528,7 +442,7 @@ function validateField(input, hasBeenBlurred) {
 
 ---
 
-### **Layout & Positioning**
+### Layout & Positioning
 
 **Do's ✅**
 
@@ -544,9 +458,9 @@ function validateField(input, hasBeenBlurred) {
 - Don't place validation messages too far from the field.
 - Avoid placing multiple fields **on the same line on mobile**, as this reduces readability.
 
-### **Input Description Placement: Above or Below the Text Field?**
+### Input Description Placement: Above or Below the Text Field?
 
-#### **Best Practice: Place Input Descriptions Below the Field**
+#### Best Practice: Place Input Descriptions Below the Field
 
 In most cases, **input descriptions (helper text, formatting hints, and additional guidance) should be placed below the text field** for **consistency, readability, and accessibility**.
 
@@ -559,7 +473,7 @@ In most cases, **input descriptions (helper text, formatting hints, and addition
 
 ---
 
-#### **📍 When to Place Descriptions Above the Field?**
+#### 📍 When to Place Descriptions Above the Field?
 
 ⚠ **There are some exceptions where placing descriptions above is preferable:**
 
@@ -572,7 +486,7 @@ In most cases, **input descriptions (helper text, formatting hints, and addition
 
 ---
 
-#### **Best Practice: Only Show One at a Time**
+#### Best Practice: Only Show One at a Time
 
 To avoid overwhelming users:
 
@@ -616,7 +530,7 @@ To avoid overwhelming users:
 </script>
 ```
 
-### **Final Recommendation for Input Description Placement**
+### Final Recommendation for Input Description Placement
 
 | **Scenario**                                                   | **Where to Place Helper Text?** | **Why?**                                                      |
 | -------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------- |
@@ -626,9 +540,84 @@ To avoid overwhelming users:
 | **Large forms with minimal UI**                                | **Above** or **Inline**         | To prevent visual clutter.                                    |
 | **Error messages**                                             | **Below**                       | Always below, ensuring users immediately see what went wrong. |
 
+## Common Mistakes & Anti-Patterns
+
+### 🚫 Using Placeholder as Primary Label
+**The Problem:**
+Relying on placeholder text as the only label makes the field inaccessible when users start typing, and screen readers may not announce it properly.
+
+```html
+<!-- Bad: Placeholder as label -->
+<input type="text" placeholder="First Name">
+```
+
+**How to Fix It?** Always provide a visible label and use placeholder for hints or examples only.
+
+```html
+<!-- Good: Label + helpful placeholder -->
+<label for="firstName">First Name</label>
+<input type="text" id="firstName" placeholder="e.g., John">
+```
+
+---
+
+### 🚫 Poor Validation Timing
+**The Problem:**
+Showing error messages too early (on first keystroke) or too late (only on form submission) frustrates users.
+
+**How to Fix It?** Use **progressive validation**:
+- Show errors after field loses focus (onBlur) for first-time entry
+- Show real-time validation for corrections after initial error
+- Validate required fields on blur, format validation on input
+
+```javascript
+// Good: Progressive validation
+function validateField(input, hasBeenBlurred) {
+  if (hasBeenBlurred && input.value.length > 0) {
+    // Show real-time validation after first blur
+    showValidationFeedback(input);
+  }
+}
+```
+
+---
+
+### 🚫 Missing Error Recovery
+**The Problem:**
+Not providing clear guidance on how to fix validation errors leaves users stuck.
+
+**How to Fix It?** Include specific, actionable error messages with examples.
+
+```html
+<!-- Bad: Vague error -->
+<output class="error">Invalid input</output>
+
+<!-- Good: Specific guidance -->
+<output class="error">
+  Password must contain at least 8 characters, including 1 number and 1 special character.
+  Example: MyPass123!
+</output>
+```
+
+---
+
+### 🚫 Inaccessible Focus Management
+**The Problem:**
+Poor focus indicators or focus traps make keyboard navigation impossible.
+
+**How to Fix It?** Ensure visible focus states and logical tab order.
+
+```css
+/* Good: Visible focus indicator */
+.text-field input:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+```
+
 ## Accessibility
 
-### **Keyboard Interaction Pattern**
+### Keyboard Interaction Pattern
 
 Text fields should support **standard keyboard navigation and interactions** to ensure accessibility and usability.
 
@@ -799,9 +788,9 @@ Target performance metrics for text field components:
 - **Character counter updates**: < 50ms for smooth counting
 - **Memory usage**: < 5KB per text field instance
 
-## **Testing Guidelines**
+## Testing Guidelines
 
-### **Functional Testing**
+### Functional Testing
 
 **Should ✓**
 
@@ -815,7 +804,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Accessibility Testing**
+### Accessibility Testing
 
 **Should ✓**
 
@@ -831,7 +820,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Performance Testing**
+### Performance Testing
 
 **Should ✓**
 
@@ -845,7 +834,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Security Testing**
+### Security Testing
 
 **Should ✓**
 
@@ -856,7 +845,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Mobile & Touch Testing**
+### Mobile & Touch Testing
 
 **Should ✓**
 
@@ -870,7 +859,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Error Handling & Validation Testing**
+### Error Handling & Validation Testing
 
 **Should ✓**
 
@@ -885,7 +874,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Edge Case Testing**
+### Edge Case Testing**
 
 **Should ✓**
 

@@ -133,7 +133,7 @@ end
    - Export formats (CSV, Excel, PDF)
    - View switcher (table, [Card Grid](/patterns/data-display/card-grid), [List View](/patterns/data-display/list-view))
 
-#### **Summary of Components**
+#### Summary of Components
 
 | Component              | Required? | Purpose                                                     |
 | ---------------------- | --------- | ----------------------------------------------------------- |
@@ -158,22 +158,14 @@ end
 ### Basic Table
 Simple table with static data, no interactive features.
 
-<Playground patternType="data-display" pattern="table" example="basic" />
-
 ### Sortable Table
 Columns can be sorted ascending/descending by clicking headers.
-
-<Playground patternType="data-display" pattern="table" example="sortable" />
 
 ### Filterable Table
 Advanced filtering per column or global filters.
 
-<Playground patternType="data-display" pattern="table" example="filterable" />
-
 ### Paginated Table
 Large datasets split across multiple pages.
-
-<Playground patternType="data-display" pattern="table" example="paginated" />
 
 ### Virtual Scrolling Table
 Renders only visible rows for performance with massive datasets.
@@ -192,6 +184,116 @@ Headers and/or first columns remain visible during scrolling.
 
 ### Grouped Rows
 Data grouped by categories with collapsible sections.
+
+## Examples
+
+### Interactive Demo
+
+<Playground patternType="data-display" pattern="table" example="basic" />
+
+### Sortable Table Demo
+
+<Playground patternType="data-display" pattern="table" example="sortable" />
+
+### Filterable Table Demo
+
+<Playground patternType="data-display" pattern="table" example="filterable" />
+
+### Paginated Table Demo
+
+<Playground patternType="data-display" pattern="table" example="paginated" />
+
+### Basic Implementation
+
+```html
+<table class="data-table">
+  <caption>User Account Information</caption>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Jane Smith</th>
+      <td>jane@example.com</td>
+      <td>Admin</td>
+      <td>
+        <span class="badge badge-success">Active</span>
+      </td>
+      <td>
+        <button type="button" aria-label="Edit Jane Smith">Edit</button>
+        <button type="button" aria-label="Delete Jane Smith">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">John Doe</th>
+      <td>john@example.com</td>
+      <td>Editor</td>
+      <td>
+        <span class="badge badge-warning">Pending</span>
+      </td>
+      <td>
+        <button type="button" aria-label="Edit John Doe">Edit</button>
+        <button type="button" aria-label="Delete John Doe">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Responsive Table with Horizontal Scroll
+
+```html
+<div class="table-container" role="region" aria-label="User data" tabindex="0">
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th scope="col" class="sticky-column">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Department</th>
+        <th scope="col">Location</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="sticky-column">Alice Johnson</th>
+        <td>alice@company.com</td>
+        <td>Engineering</td>
+        <td>New York</td>
+        <td>2023-01-15</td>
+        <td>$95,000</td>
+        <td>Active</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<style>
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.responsive-table {
+  min-width: 800px;
+}
+
+.sticky-column {
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 1;
+}
+</style>
+```
 
 ## Best Practices
 
@@ -411,41 +513,41 @@ const debouncedSearch = useMemo(
 
 ## Common Mistakes & Anti-Patterns
 
-#### Rendering All Rows at Once
-
-**❌ What's Wrong?** Loading thousands of DOM nodes simultaneously causes severe performance issues, slow scrolling, and can freeze the browser entirely.
+### 🚫 Rendering All Rows at Once
+**The Problem:**
+Loading thousands of DOM nodes simultaneously causes severe performance issues, slow scrolling, and can freeze the browser entirely.
 
 **How to Fix It?** Implement **virtual scrolling** to render only visible rows. Use libraries like [TanStack Virtual](https://tanstack.com/virtual/) or build custom virtualization that maintains smooth 60 FPS scrolling even with 10,000+ rows.
 
 ---
 
-#### No Mobile Alternative
-
-**❌ What's Wrong?** Forcing users to horizontally scroll through a desktop table on mobile devices creates a frustrating experience and makes data comparison nearly impossible.
+### 🚫 No Mobile Alternative
+**The Problem:**
+Forcing users to horizontally scroll through a desktop table on mobile devices creates a frustrating experience and makes data comparison nearly impossible.
 
 **How to Fix It?** Provide **mobile-specific views** like [Card Grid](/patterns/data-display/card-grid) layouts or stacked key-value pairs. Consider using a sticky first column for essential data when horizontal scrolling is necessary.
 
 ---
 
-#### Feature Overload
-
-**❌ What's Wrong?** Showing all available features (filters, exports, column toggles) at once overwhelms users and clutters the interface, especially for simple data browsing tasks.
+### 🚫 Feature Overload
+**The Problem:**
+Showing all available features (filters, exports, column toggles) at once overwhelms users and clutters the interface, especially for simple data browsing tasks.
 
 **How to Fix It?** Use **progressive disclosure** to hide advanced features initially. Start with essential controls (search, sort) and reveal complex features through settings menus or "Advanced" buttons.
 
 ---
 
-#### Missing Empty States
-
-**❌ What's Wrong?** Displaying a blank table when no data matches filters or searches leaves users confused about whether something is broken or if they need to take action.
+### 🚫 Missing Empty States
+**The Problem:**
+Displaying a blank table when no data matches filters or searches leaves users confused about whether something is broken or if they need to take action.
 
 **How to Fix It?** Always include clear **[Empty States](/patterns/user-feedback/empty-states)** with helpful messages and actionable next steps like "Clear filters", "Add first item", or "Try different search terms".
 
 ---
 
-#### Poor Accessibility Structure
-
-**❌ What's Wrong?** Using divs instead of semantic table elements or omitting proper ARIA attributes makes tables incomprehensible to screen reader users.
+### 🚫 Poor Accessibility Structure
+**The Problem:**
+Using divs instead of semantic table elements or omitting proper ARIA attributes makes tables incomprehensible to screen reader users.
 
 **How to Fix It?** Use semantic HTML (`<table>`, `<thead>`, `<tbody>`), add **scope attributes** to headers, provide **ARIA labels** for the table and controls, and announce state changes (sorting, filtering) to assistive technologies.
 
@@ -655,100 +757,6 @@ Note that for right-to-left (RTL) languages, you may need to adjust column order
 }
 ```
 
-## Code Examples
-
-### Basic HTML Table
-
-```html
-<table class="data-table">
-  <caption>User Account Information</caption>
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Role</th>
-      <th scope="col">Status</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Jane Smith</th>
-      <td>jane@example.com</td>
-      <td>Admin</td>
-      <td>
-        <span class="badge badge-success">Active</span>
-      </td>
-      <td>
-        <button type="button" aria-label="Edit Jane Smith">Edit</button>
-        <button type="button" aria-label="Delete Jane Smith">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">John Doe</th>
-      <td>john@example.com</td>
-      <td>Editor</td>
-      <td>
-        <span class="badge badge-warning">Pending</span>
-      </td>
-      <td>
-        <button type="button" aria-label="Edit John Doe">Edit</button>
-        <button type="button" aria-label="Delete John Doe">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-```
-
-### Responsive Table with Horizontal Scroll
-
-```html
-<div class="table-container" role="region" aria-label="User data" tabindex="0">
-  <table class="responsive-table">
-    <thead>
-      <tr>
-        <th scope="col" class="sticky-column">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Department</th>
-        <th scope="col">Location</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">Salary</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row" class="sticky-column">Alice Johnson</th>
-        <td>alice@company.com</td>
-        <td>Engineering</td>
-        <td>New York</td>
-        <td>2023-01-15</td>
-        <td>$95,000</td>
-        <td>Active</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<style>
-.table-container {
-  overflow-x: auto;
-  max-width: 100%;
-}
-
-.responsive-table {
-  min-width: 800px;
-}
-
-.sticky-column {
-  position: sticky;
-  left: 0;
-  background: white;
-  z-index: 1;
-}
-</style>
-```
-
 ## Accessibility
 
 When to use client-side vs server-side sorting and filtering?
@@ -814,7 +822,7 @@ This section outlines the **required ARIA attributes** for data tables, ensuring
 
 ---
 
-### **General Table ARIA Attributes**
+### General Table ARIA Attributes
 
 - **Table container**:
 
@@ -841,7 +849,7 @@ This section outlines the **required ARIA attributes** for data tables, ensuring
 
 ---
 
-### **ARIA Attributes for Interactive Tables**
+### ARIA Attributes for Interactive Tables
 
 - **Sortable columns**:
 
@@ -1078,21 +1086,6 @@ Target performance metrics for data tables:
 }
 ```
 
-## Component Library Examples
-
-### React Components
-- **[TanStack Table](https://tanstack.com/table/)** – Headless UI for complete control
-- **[AG Grid](https://www.ag-grid.com/)** – Enterprise-grade features
-- **[MUI DataGrid](https://mui.com/x/react-data-grid/)** – Material Design implementation
-
-### Vue Components
-- **[Vue Good Table](https://github.com/xaksis/vue-good-table)** – Simple and clean
-- **[Vueye Table](https://github.com/boussadjra/vueye-table)** – Advanced features
-
-### Vanilla JavaScript
-- **[DataTables](https://datatables.net/)** – jQuery-based, feature-rich
-- **[Tabulator](https://tabulator.info/)** – No dependencies, modern
-- **[Grid.js](https://gridjs.io/)** – Lightweight, simple API
 
 ## FAQ
 
@@ -1153,6 +1146,22 @@ Target performance metrics for data tables:
 - [Dashboard](/patterns/data-display/dashboard) – Data table within dashboard context
 
 ## Resources
+
+### Libraries & Frameworks
+
+#### React Components
+- [TanStack Table](https://tanstack.com/table/) – Headless UI for complete control
+- [AG Grid](https://www.ag-grid.com/) – Enterprise-grade features
+- [MUI DataGrid](https://mui.com/x/react-data-grid/) – Material Design implementation
+
+#### Vue Components
+- [Vue Good Table](https://github.com/xaksis/vue-good-table) – Simple and clean
+- [Vueye Table](https://github.com/boussadjra/vueye-table) – Advanced features
+
+#### Vanilla JavaScript
+- [DataTables](https://datatables.net/) – jQuery-based, feature-rich
+- [Tabulator](https://tabulator.info/) – No dependencies, modern
+- [Grid.js](https://gridjs.io/) – Lightweight, simple API
 
 ### Articles & Guides
 - [Design Better Data Tables](https://medium.com/nextux/design-better-data-tables-4ecc99d23356) - Comprehensive guide to data table design
