@@ -10,8 +10,15 @@ import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
 import { Playground } from "@app/_components/playground";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Text Field
+
+<PatternStats 
+  popularity="high"
+/>
 
 <PatternPreview />
 
@@ -44,6 +51,33 @@ Use a text field when you need users to input freeform text, such as:
 - **For structured data inputs** – Use specialized inputs like [date pickers](/patterns/forms/date-picker) or [currency fields](/patterns/forms/currency-input).
 - **For short selections** – Use [auto-complete](/patterns/forms/autocomplete) inputs instead of requiring full text input.
 - **When voice input or selections are better** – Consider alternatives for accessibility.
+
+<PatternComparison 
+  current="Text Field"
+  alternatives={[
+    {
+      name: "Autocomplete",
+      path: "/patterns/forms/autocomplete",
+      when: "users select from predefined options while typing",
+      pros: ["Reduces errors", "Faster input", "Guided selection"],
+      cons: ["More complex", "Requires data source", "Limited flexibility"]
+    },
+    {
+      name: "Date Picker",
+      path: "/patterns/forms/date-picker",
+      when: "users need to input dates with calendar visualization",
+      pros: ["Visual calendar", "Date validation", "No format confusion"],
+      cons: ["Only for dates", "Takes more space", "Complex interaction"]
+    },
+    {
+      name: "Multi-Select",
+      path: "/patterns/forms/multi-select-input",
+      when: "users select multiple items from predefined options",
+      pros: ["Clear options", "Multiple selections", "No typing needed"],
+      cons: ["Limited to presets", "Takes more space", "Not for freeform"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -921,9 +955,7 @@ Target performance metrics for text field components:
 
 ## Related Patterns
 
-- [Autocomplete](/patterns/forms/autocomplete) – Suggests options as users type.
-- [Password](/patterns/forms/password) – Specialized text field for secure input.
-- [Search Field](/patterns/forms/search-field) – Optimized for search queries.
+<RelatedPatternsCard category="forms" />
 
 ## Resources
 

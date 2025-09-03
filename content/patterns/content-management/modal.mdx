@@ -10,10 +10,17 @@ import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
 import { Playground } from "@app/_components/playground";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Modal
 
 **_(Also called dialog, dialog box, overlay, popup)_**
+
+<PatternStats 
+  popularity="high"
+/>
 
 <PatternPreview />
 
@@ -50,6 +57,33 @@ Use modals to **interrupt user flow** for important information or required user
 - Same information needs frequent access
 - Large content requires significant scrolling - dedicated pages work better for UX and accessibility
 - Users must interact with the main page while modal is open
+
+<PatternComparison 
+  current="Modal"
+  alternatives={[
+    {
+      name: "Popover",
+      path: "/patterns/content-management/popover",
+      when: "showing contextual information without blocking interaction",
+      pros: ["Non-blocking", "Contextual", "Lightweight"],
+      cons: ["Less focus", "Easy to dismiss", "Limited space"]
+    },
+    {
+      name: "Accordion",
+      path: "/patterns/content-management/accordion",
+      when: "content can be displayed inline within the page flow",
+      pros: ["Inline content", "No overlay", "Progressive disclosure"],
+      cons: ["Less emphasis", "Can be missed", "Page reflow"]
+    },
+    {
+      name: "Tooltip",
+      path: "/patterns/content-management/tooltip",
+      when: "providing brief hints or additional information",
+      pros: ["Minimal", "Non-intrusive", "Quick info"],
+      cons: ["Very limited space", "No complex content", "No actions"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -205,7 +239,7 @@ For a detailed breakdown of feature differences, refer to the table below:
 - Use clear, actionable titles that explain the modal's purpose
 - Provide obvious confirmation and dismissal options
 - Allow users to close the modal by clicking outside the content area
-- Ensure the modal content is accessible and responds properly to viewport changes
+- Ensure the modal content is accessible and responds properly to [viewport](/glossary/viewport) changes
 - Ensure the text is straightforward and free of jargon, avoid technical terms
 
 **Don'ts ❌**
@@ -260,13 +294,13 @@ For a detailed breakdown of feature differences, refer to the table below:
 
 - Center modals vertically and horizontally for a balanced layout
 - Align modal content to the left for better readability
-- Ensure modals have a minimum margin from screen edges on smaller viewports
+- Ensure modals have a minimum margin from screen edges on smaller [viewports](/glossary/viewport)
 - Consider placing action buttons in the footer for clear separation
 
 **Don'ts ❌**
 
 - Don't position modals in hard-to-reach areas like the extreme top or bottom of the page
-- Avoid modal heights that extend beyond the viewport if possible
+- Avoid modal heights that extend beyond the [viewport](/glossary/viewport) if possible
 - Don't make modals so narrow that the content becomes unnecessarily constrained
 
 ## Common Mistakes & Anti-Patterns
@@ -474,7 +508,7 @@ The following table outlines the standard keyboard interactions for modal compon
 - [ ] Verify that **clicking the close button** dismisses the modal.
 - [ ] Check that clicking **outside the modal (on the overlay)** closes it, if applicable.
 - [ ] Ensure the modal **does not close** when interacting with form fields or selecting text inside.
-- [ ] Test modal behavior **when resizing the viewport**—it should remain correctly positioned.
+- [ ] Test modal behavior **when resizing the [viewport](/glossary/viewport)**—it should remain correctly positioned.
 - [ ] Validate that **nested modals** (if supported) do not break functionality.
 
 ### Accessibility Testing
@@ -522,9 +556,9 @@ The following table outlines the standard keyboard interactions for modal compon
   features={["api.HTMLDialogElement", "css.properties.backdrop-filter"]}
 />
 
-## Design Tokens
+## [Design Tokens](/glossary/design-tokens)
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 
 ### Modal Tokens in DTF Format
 
@@ -606,6 +640,10 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
     },
   ]}
 />
+
+## Related Patterns
+
+<RelatedPatternsCard category="content-management" />
 
 ## Resources
 

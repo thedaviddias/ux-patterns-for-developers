@@ -285,7 +285,7 @@ Use a proper, focusable element like `<button>`. Check that `Tab` focuses it and
 Screen reader users miss new items without announcements that content got added to the page.
 
 **How to Fix It?**
-Wrap your list with `role="region"` or use `aria-live="polite"`. Update the live region or add a brief "New content loaded" announcement after each batch renders.
+Wrap your list with `role="region"` or use `aria-live="polite"`. Update the [live region](/glossary/live-regions) or add a brief "New content loaded" announcement after each batch renders.
 
 ---
 
@@ -348,7 +348,7 @@ Load More interactions provide valuable user behavior insights. Key events to tr
 
 | **Event Name**           | **Description**                                                                           | **Why Track It?**                                                            |
 | ------------------------ | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `load_more.view`         | When the "Load More" button enters the viewport.                                          | Determines visibility and whether users see the option to load more content. |
+| `load_more.view`         | When the "Load More" button enters the [viewport](/glossary/viewport).                                          | Determines visibility and whether users see the option to load more content. |
 | `load_more.click`        | When a user clicks the "Load More" button.                                                | Measures engagement and intent to see additional content.                    |
 | `load_more.auto_trigger` | When more content loads automatically without user action (e.g., lazy loading on scroll). | Helps compare manual clicks vs. auto-triggered loads.                        |
 | `load_more.depth`        | The number of times a user loads more content in one session.                             | Indicates how deep users are willing to explore.                             |
@@ -606,7 +606,7 @@ Based on usability studies, users expect:
 
 - **Items per batch**: 10-20 items optimal (balance between requests and memory)
 - **DOM nodes**: Monitor total count, consider virtualization after 100+ items
-- **Image lazy loading**: Load images only when approaching viewport
+- **Image lazy loading**: Load images only when approaching [viewport](/glossary/viewport)
 - **Previous content**: Keep in DOM for scroll position preservation
 
 **Network Optimization:**
@@ -631,9 +631,9 @@ Based on usability studies, users expect:
 - Ensure that dynamically loaded content is **crawlable by search engines** by using progressive enhancement techniques or **server-side rendering**.
 - If SEO visibility is a priority, consider **implementing paginated URLs** as a fallback to allow search engines to index all content properly.
 
-## Design Tokens
+## [Design Tokens](/glossary/design-tokens)
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 
 ### Load More Tokens in DTF Format
 
@@ -663,7 +663,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
       "minHeight": {
         "value": "2.75rem",
         "type": "dimension",
-        "description": "44px minimum touch target for WCAG compliance"
+        "description": "44px minimum [touch target](/glossary/touch-targets) for WCAG compliance"
       }
     },
     "spinner": {

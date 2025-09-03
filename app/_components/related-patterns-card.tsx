@@ -16,7 +16,6 @@ type RelatedPatternsCardProps = {
   patterns?: RelatedPattern[];
   category?: string;
   maxItems?: number;
-  showCategory?: boolean;
   className?: string;
 };
 
@@ -92,17 +91,35 @@ const categoryPatterns: Record<string, RelatedPattern[]> = {
     },
     { title: 'Chart', path: '/patterns/data-display/chart', description: 'Data visualization' },
   ],
+  'content-management': [
+    {
+      title: 'Accordion',
+      path: '/patterns/content-management/accordion',
+      description: 'Expandable sections',
+    },
+    { title: 'Tabs', path: '/patterns/navigation/tabs', description: 'Switch between views' },
+    { title: 'Modal', path: '/patterns/content-management/modal', description: 'Overlay dialog' },
+    {
+      title: 'Tooltip',
+      path: '/patterns/content-management/tooltip',
+      description: 'Contextual hints',
+    },
+    {
+      title: 'Popover',
+      path: '/patterns/content-management/popover',
+      description: 'Interactive overlays',
+    },
+  ],
 };
 
 export const RelatedPatternsCard = ({
   patterns,
   category,
   maxItems = 4,
-  showCategory = false,
   className,
 }: RelatedPatternsCardProps) => {
   const pathname = usePathname();
-  const currentPattern = pathname.split('/').pop();
+  const slug = pathname.replace(/\/$/, '').split('/').filter(Boolean).pop() || '';
 
   // Use provided patterns or get from category
   let displayPatterns = patterns;
@@ -113,7 +130,11 @@ export const RelatedPatternsCard = ({
 
   // Filter out current pattern and limit items
   displayPatterns = displayPatterns
-    ?.filter((p) => !p.path.includes(currentPattern || ''))
+    ?.filter((p) => {
+      if (!slug) return true;
+      const targetSlug = p.path.replace(/\/$/, '').split('/').filter(Boolean).pop() || '';
+      return targetSlug !== slug;
+    })
     .slice(0, maxItems);
 
   if (!displayPatterns || displayPatterns.length === 0) return null;

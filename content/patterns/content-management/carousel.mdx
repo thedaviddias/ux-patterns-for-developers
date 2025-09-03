@@ -9,10 +9,17 @@ import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { Playground } from "@app/_components/playground";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Carousel
 
 **_(Also called slider, slideshow, image rotator)_**
+
+<PatternStats 
+  popularity="medium"
+/>
 
 ## Overview
 
@@ -47,6 +54,33 @@ Use carousels to display **related content or images in limited space** while ke
 - Users must compare items side-by-side or view all options at once
 - Too many carousel items make navigation cumbersome
 - Complex content requires significant reading time
+
+<PatternComparison 
+  current="Carousel"
+  alternatives={[
+    {
+      name: "Tabs",
+      path: "/patterns/navigation/tabs",
+      when: "content sections are distinct and users need direct access",
+      pros: ["Direct navigation", "All options visible", "No auto-rotation"],
+      cons: ["Takes more space", "Not for many items", "Less visual impact"]
+    },
+    {
+      name: "Accordion",
+      path: "/patterns/content-management/accordion",
+      when: "vertical space is limited and content is text-heavy",
+      pros: ["Vertical layout", "Progressive disclosure", "Better for text"],
+      cons: ["Not for images", "Less engaging", "No auto-play"]
+    },
+    {
+      name: "Card Grid",
+      path: "/patterns/data-display/card-grid",
+      when: "all items need equal visibility and comparison",
+      pros: ["All visible", "Easy comparison", "No interaction needed"],
+      cons: ["Takes more space", "Requires scrolling", "Less focus"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -395,7 +429,7 @@ Each carousel interaction provides valuable insights into user behavior. Below a
 
 | **Event Name**               | **Description**                                    | **Why Track It?**                                                |
 | ---------------------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
-| `carousel.view`              | When the carousel first enters the viewport.       | Helps determine if users even see the carousel.                  |
+| `carousel.view`              | When the carousel first enters the [viewport](/glossary/viewport).       | Helps determine if users even see the carousel.                  |
 | `carousel.slide_change`      | When a user navigates to a different slide.        | Measures engagement and content interest.                        |
 | `carousel.auto_rotate_pause` | When a user **pauses auto-rotation** (if enabled). | Indicates if auto-rotation is frustrating users.                 |
 | `carousel.click`             | When a user clicks on a slide.                     | Helps measure which slides attract the most attention.           |
@@ -768,9 +802,9 @@ Target performance metrics for carousels:
 - **Memory usage**: < 10MB additional for image carousel
 - **CPU usage**: < 5% during idle, < 15% during transitions
 
-## Design Tokens
+## [Design Tokens](/glossary/design-tokens)
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 
 ### Carousel Tokens in DTF Format
 
@@ -924,6 +958,10 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
     },
   ]}
 />
+
+## Related Patterns
+
+<RelatedPatternsCard category="content-management" />
 
 ## Resources
 

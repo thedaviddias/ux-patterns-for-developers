@@ -11,10 +11,17 @@ import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
 import { Playground } from "@app/_components/playground";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Data Table
 
 **_(Also called data grids)_**
+
+<PatternStats 
+  popularity="high"
+/>
 
 <PatternPreview />
 
@@ -56,6 +63,33 @@ import { Playground } from "@app/_components/playground";
 - **Financial**: Transactions, invoices, accounting records
 - **Project management**: Task lists, resource allocation, timelines
 - **CRM systems**: Contact lists, sales pipelines, support tickets
+
+<PatternComparison 
+  current="Data Table"
+  alternatives={[
+    {
+      name: "Card Grid",
+      path: "/patterns/data-display/card-grid",
+      when: "visual content is more important than data comparison",
+      pros: ["Visual appeal", "Better for images", "Mobile friendly"],
+      cons: ["Hard to compare", "Less data density", "No sorting"]
+    },
+    {
+      name: "List View",
+      path: "/patterns/data-display/list-view",
+      when: "displaying simple items with few properties",
+      pros: ["Simpler layout", "Easy scanning", "Mobile optimized"],
+      cons: ["Limited properties", "No column comparison", "Less structured"]
+    },
+    {
+      name: "Dashboard",
+      path: "/patterns/data-display/dashboard",
+      when: "showing data overview with multiple visualizations",
+      pros: ["Visual insights", "Multiple views", "High-level overview"],
+      cons: ["Not for details", "Complex to build", "Takes more space"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -1116,34 +1150,7 @@ Target performance metrics for data tables:
 
 ## Related Patterns
 
-### Core Table Components
-- [Pagination](/patterns/navigation/pagination) – Navigate through large datasets
-- [Filter Panel](/patterns/data-display/filter-panel) – Advanced filtering options
-- [Search Field](/patterns/forms/search-field) – Global table search
-- [Checkbox](/patterns/forms/checkbox) – Row selection and bulk operations
-- [Button](/patterns/forms/button) – Table actions and CTAs
-
-### Loading & Feedback
-- [Loading Indicator](/patterns/user-feedback/loading-indicator) – Show data loading states
-- [Skeleton](/patterns/user-feedback/skeleton) – Loading placeholders for table rows
-- [Empty States](/patterns/user-feedback/empty-states) – No data messaging
-- [Notification](/patterns/user-feedback/notification) – Success/error feedback for actions
-- [Progress Indicator](/patterns/user-feedback/progress-indicator) – Bulk operation progress
-
-### Content Display
-- [Modal](/patterns/content-management/modal) – Detail views and confirmations
-- [Tooltip](/patterns/content-management/tooltip) – Additional info for truncated cells
-- [Popover](/patterns/content-management/popover) – Quick actions and previews
-- [Accordion](/patterns/content-management/accordion) – Expandable row details
-- [Drag and Drop](/patterns/content-management/drag-and-drop) – Reorderable rows
-
-### Alternative Views
-- [Card Grid](/patterns/data-display/card-grid) – Mobile-friendly card layout
-- [List View](/patterns/data-display/list-view) – Simple list alternative
-- [Kanban Board](/patterns/data-display/kanban-board) – Board view for status tracking
-- [Tree View](/patterns/data-display/tree-view) – Hierarchical data display
-- [Comparison Table](/patterns/data-display/comparison-table) – Side-by-side comparisons
-- [Dashboard](/patterns/data-display/dashboard) – Data table within dashboard context
+<RelatedPatternsCard category="data-display" />
 
 ## Resources
 

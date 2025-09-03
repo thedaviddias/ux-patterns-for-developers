@@ -8,10 +8,17 @@ status: complete
 import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Accordion
 
 **_(Also called collapsible panels)_**
+
+<PatternStats 
+  popularity="high"
+/>
 
 ## Overview
 
@@ -45,6 +52,33 @@ Use accordions to present **structured content benefiting from progressive discl
 - **Frequent section switching needed**—tabs work better
 - **Multiple sections need simultaneous viewing** (Terms and Conditions)—try popovers, modals, or side panels
 - **Deep nesting of multiple levels**—structured outlines or table of contents work better
+
+<PatternComparison 
+  current="Accordion"
+  alternatives={[
+    {
+      name: "Tabs",
+      path: "/patterns/navigation/tabs",
+      when: "content sections are mutually exclusive and users switch frequently",
+      pros: ["Quick switching", "Clear active state", "Horizontal layout"],
+      cons: ["Limited to few sections", "Takes horizontal space", "Not for many items"]
+    },
+    {
+      name: "Modal",
+      path: "/patterns/content-management/modal",
+      when: "content needs focused attention without page context",
+      pros: ["Full focus", "Clear action path", "Overlay isolation"],
+      cons: ["Blocks main content", "No multi-tasking", "Disruptive"]
+    },
+    {
+      name: "Disclosure",
+      path: "/patterns/content-management/disclosure",
+      when: "single expandable section without multiple panels",
+      pros: ["Simpler pattern", "Less complex", "Single focus"],
+      cons: ["Only one section", "Not for groups", "Limited use case"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -418,7 +452,7 @@ Each accordion interaction provides valuable insights into user behavior. Below 
 
 | **Event Name**           | **Description**                                                       | **Why Track It?**                                          |
 | ------------------------ | --------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `accordion.view`         | When the accordion component enters the viewport.                     | Determines visibility and content discovery.               |
+| `accordion.view`         | When the accordion component enters the [viewport](/glossary/viewport).                     | Determines visibility and content discovery.               |
 | `accordion.expand`       | When a user expands an accordion section.                             | Measures engagement and demand for additional information. |
 | `accordion.collapse`     | When a user collapses an accordion section.                           | Helps analyze whether users return to a condensed view.    |
 | `accordion.auto_expand`  | When a section expands automatically (e.g., pre-expanded by default). | Determines if auto-expansion leads to better engagement.   |
@@ -754,9 +788,9 @@ The following table outlines the standard keyboard interactions for accordion co
 - [ ] Verify that accordions **do not cause unnecessary reflows** when toggled.
 - [ ] Test large datasets inside the accordion to ensure **acceptable performance**.
 
-## Design Tokens
+## [Design Tokens](/glossary/design-tokens)
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 
 ### Accordion Tokens in DTF Format
 
@@ -829,6 +863,10 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
     },
   ]}
 />
+
+## Related Patterns
+
+<RelatedPatternsCard category="content-management" />
 
 ## Resources
 

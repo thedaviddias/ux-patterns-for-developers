@@ -1,0 +1,300 @@
+---
+title: "Keyboard Navigation"
+description: "The ability to navigate and interact with a website or application using only keyboard input, without requiring a mouse"
+category: ["Accessibility", "User Interaction"]
+related_patterns: ["/patterns/navigation/pagination", "/patterns/content-management/modal", "/patterns/forms/button"]
+status: published
+---
+
+import { GlossaryStructuredData } from "@app/_components/glossary/structured-data";
+
+<GlossaryStructuredData
+  term="Keyboard Navigation"
+  definition="The practice of making web interfaces fully accessible and usable through keyboard-only input, essential for users who cannot or prefer not to use a mouse."
+  category={["Accessibility", "User Interaction"]}
+/>
+
+# Keyboard Navigation
+
+Keyboard navigation refers to the ability to navigate through and interact with all elements of a website or application using only the keyboard. This is crucial for accessibility, as many users rely on keyboards due to motor disabilities, visual impairments, or personal preference.
+
+## Why Keyboard Navigation Matters
+
+### User Groups Who Depend on It
+- **Users with motor disabilities** who cannot use a mouse precisely
+- **Blind and low-vision users** who use screen readers
+- **Power users** who prefer keyboard efficiency
+- **Users with temporary limitations** (broken arm, holding a baby)
+- **Users of assistive technologies** like switch devices or voice control
+
+## Standard Keyboard Controls
+
+### Essential Keys
+| Key | Action |
+|-----|--------|
+| **Tab** | Move forward through interactive elements |
+| **Shift + Tab** | Move backward through interactive elements |
+| **Enter** | Activate buttons, submit forms, follow links |
+| **Space** | Toggle checkboxes, activate buttons, scroll |
+| **Arrow Keys** | Navigate within components (menus, radio groups) |
+| **Escape** | Close modals, cancel operations, exit menus |
+
+### Navigation Patterns
+```html
+<!-- Focusable elements in order -->
+<a href="#">Link</a>              <!-- Tab stop 1 -->
+<button>Button</button>           <!-- Tab stop 2 -->
+<input type="text">              <!-- Tab stop 3 -->
+<select>...</select>             <!-- Tab stop 4 -->
+<textarea>...</textarea>         <!-- Tab stop 5 -->
+```
+
+## Implementation Requirements
+
+### Making Elements Keyboard Accessible
+
+#### Native Interactive Elements
+Already keyboard accessible by default:
+- `<a href>`
+- `<button>`
+- `<input>`
+- `<select>`
+- `<textarea>`
+
+#### Custom Interactive Elements
+Require additional attributes:
+```html
+<!-- Make div interactive -->
+<div
+  role="button"
+  tabindex="0"
+  onclick="doSomething()"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') doSomething()"
+>
+  Custom Button
+</div>
+```
+
+### Focus Management
+
+#### Visible Focus Indicators
+```css
+/* Good: Clear focus style with :focus-visible for keyboard users */
+:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Alternative: Custom focus style that's always visible */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.5);
+  border: 2px solid #0066cc;
+}
+```
+
+#### Focus Order (tabindex)
+```html
+<!-- Natural tab order (recommended) -->
+<button>First</button>   <!-- tabindex = 0 (implicit) -->
+<button>Second</button>  <!-- tabindex = 0 (implicit) -->
+
+<!-- Custom tab order (ANTI-PATTERN - avoid positive tabindex) -->
+<button tabindex="2">Third</button>  <!-- ❌ Creates fragile focus order -->
+<button tabindex="1">First</button>  <!-- ❌ Hard to maintain -->
+
+<!-- Remove from tab order -->
+<button tabindex="-1">Not tabbable</button>
+
+<!-- Warning: Positive tabindex values create maintenance issues and can break when DOM changes.
+     Prefer natural document order or restructure your HTML instead. -->
+```
+
+## Complex Widget Patterns
+
+### Modal Dialogs
+```javascript
+// Focus trap implementation
+function trapFocus(element) {
+  const focusableElements = element.querySelectorAll(
+    'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+  );
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements[focusableElements.length - 1];
+
+  element.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+}
+```
+
+### Dropdown Menus
+```javascript
+// Arrow key navigation
+menu.addEventListener('keydown', (e) => {
+  const items = menu.querySelectorAll('[role="menuitem"]');
+
+  // Guard against empty menu
+  if (items.length === 0) return;
+
+  const currentIndex = Array.from(items).indexOf(document.activeElement);
+
+  switch(e.key) {
+    case 'ArrowDown':
+      e.preventDefault();
+      if (currentIndex === -1) {
+        // No focus, go to first item
+        items[0].focus();
+      } else {
+        // Go to next item, wrap to first
+        items[(currentIndex + 1) % items.length].focus();
+      }
+      break;
+
+    case 'ArrowUp':
+      e.preventDefault();
+      if (currentIndex === -1) {
+        // No focus, go to last item
+        items[items.length - 1].focus();
+      } else {
+        // Go to previous item, wrap to last
+        items[(currentIndex - 1 + items.length) % items.length].focus();
+      }
+      break;
+
+    case 'Home':
+      e.preventDefault();
+      items[0].focus();
+      break;
+
+    case 'End':
+      e.preventDefault();
+      items[items.length - 1].focus();
+      break;
+
+    case 'Escape':
+      closeMenu();
+      break;
+  }
+});
+```
+
+## Skip Links
+
+Provide shortcuts to main content:
+```html
+<body>
+  <!-- Skip link (visually hidden until focused) -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav><!-- Long navigation --></nav>
+
+  <main id="main">
+    <!-- Main content -->
+  </main>
+</body>
+
+<style>
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+</style>
+```
+
+## Common Keyboard Navigation Issues
+
+### Problems to Avoid
+
+1. **Keyboard Traps**: User can't escape an element
+2. **Missing Focus Indicators**: No visual feedback
+3. **Illogical Tab Order**: Focus jumps unexpectedly
+4. **Inaccessible Custom Controls**: Divs acting as buttons without proper keyboard support
+5. **Focus Lost**: Focus disappears after actions
+
+### Testing Checklist
+
+- [ ] Can you reach all interactive elements with Tab?
+- [ ] Can you activate all controls with Enter/Space?
+- [ ] Can you see which element has focus?
+- [ ] Can you escape from all components with Escape?
+- [ ] Does focus move logically through the page?
+- [ ] Can you complete all tasks without a mouse?
+
+## ARIA Attributes for Keyboard Navigation
+
+```html
+<!-- Indicate keyboard shortcuts -->
+<button aria-keyshortcuts="Alt+S">Save</button>
+
+<!-- Group related controls -->
+<div role="toolbar" aria-label="Text formatting">
+  <button>Bold</button>
+  <button>Italic</button>
+</div>
+
+<!-- Indicate current state -->
+<button aria-pressed="true">Toggle</button>
+<button aria-expanded="false">Menu</button>
+```
+
+## Best Practices
+
+### Do's ✅
+- Use semantic HTML elements that are naturally keyboard accessible
+- Provide visible focus indicators
+- Implement logical tab order
+- Add skip links for repetitive content
+- Test with keyboard only (unplug your mouse!)
+- Support both Enter and Space for buttons
+- Provide keyboard shortcuts for frequent actions
+
+### Don'ts ❌
+- Don't remove focus indicators without providing alternatives
+- Avoid positive tabindex values (use 0 or -1)
+- Don't trap keyboard focus unintentionally
+- Never make elements keyboard-only (mouse should work too)
+- Don't rely on accesskey (conflicts with browser/screen reader shortcuts)
+
+## Browser Differences
+
+Different browsers handle keyboard navigation slightly differently:
+- **Chrome/Edge**: Space scrolls page when button not focused
+- **Firefox**: F7 toggles caret browsing
+- **Safari**: Requires enabling full keyboard access in settings
+
+## Related Concepts
+
+- [Screen Reader](/glossary/screen-reader) - Depends on keyboard navigation
+- [ARIA Attributes](/glossary/aria-attributes) - Enhance keyboard accessibility
+- [Touch Targets](/glossary/touch-targets) - Mobile equivalent consideration
+- [Live Regions](/glossary/live-regions) - Announce keyboard-triggered changes
+
+## Key Takeaways
+
+- Keyboard navigation is essential for accessibility
+- Use semantic HTML for free keyboard support
+- Always provide visible focus indicators
+- Test by unplugging your mouse
+- Consider keyboard users in every interaction design
