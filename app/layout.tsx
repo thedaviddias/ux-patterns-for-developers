@@ -7,8 +7,8 @@ import { getPageMap } from 'nextra/page-map';
 import { LastUpdated, Layout, Navbar } from 'nextra-theme-docs';
 import '../styles/globals.css';
 import { Footer } from './_components/footer';
+import { HeaderActions } from './_components/header-actions';
 import { LinkCustom } from './_components/link-custom';
-import { StarsWrapper } from './_components/stars-wrapper';
 import { TextSelectionHandler } from './_components/text-to-social/text-selection-handler';
 import { GITHUB_REPO_URL, PROJECT_URL } from './_constants/project';
 import { getDictionary } from './_dictionaries/get-dictionary';
@@ -66,7 +66,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </span>
       }
       projectLink={PROJECT_URL}
-      projectIcon={<StarsWrapper variant="small" />}
+      projectIcon={<HeaderActions />}
     />
   );
 
