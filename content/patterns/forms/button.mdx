@@ -10,8 +10,15 @@ import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Button
+
+<PatternStats
+  popularity="high"
+/>
 
 <PatternPreview
   alt="Example of a primary button UI pattern showing a Continue button in
@@ -55,6 +62,33 @@ import { PatternPreview } from "@app/_components/pattern-preview";
 - Toggle actions: "Show More", "Expand/Collapse", "Play/Pause"
 - Process actions: "Upload", "Download", "Export"
 - Social actions: "Share", "Follow", "Like"
+
+<PatternComparison
+  current="Button"
+  alternatives={[
+    {
+      name: "Link",
+      path: "/patterns/navigation/link",
+      when: "navigating to different pages or sections",
+      pros: ["SEO friendly", "Right-click options", "Native browser behavior"],
+      cons: ["Not for actions", "Less visual emphasis", "No button states"]
+    },
+    {
+      name: "Icon Button",
+      path: "/patterns/forms/icon-button",
+      when: "space is limited or action is universally understood",
+      pros: ["Compact", "Visual clarity", "Good for toolbars"],
+      cons: ["Needs tooltip", "Less accessible", "Icon ambiguity"]
+    },
+    {
+      name: "Toggle Switch",
+      path: "/patterns/forms/toggle-switch",
+      when: "switching between two states or on/off settings",
+      pros: ["Clear state", "Immediate feedback", "Mobile friendly"],
+      cons: ["Only binary", "Takes more space", "Not for actions"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -374,14 +408,14 @@ Each variation can be combined with different visual styles (primary, secondary,
 **Do's ✅**
 
 - Use the same button style for the same action throughout the application
-- Make buttons finger-friendly for mobile users (minimum 44x44px touch target)
+- Make buttons finger-friendly for mobile users (minimum 44x44px [touch target](/glossary/touch-targets))
 - Use appropriate visual hierarchy (primary, secondary, tertiary buttons)
 - Maintain consistent spacing between button groups
 - Use appropriate color contrast ratios (WCAG 2.1 AA compliance)
 - Include hover and focus states for interactive feedback
 - Keep icon and text alignment consistent
 - Maintain consistent padding and height across similar buttons
-- Scale button size appropriately for different viewport sizes
+- Scale button size appropriately for different [viewport](/glossary/viewport) sizes
 
 **Don'ts ❌**
 
@@ -401,13 +435,13 @@ Each variation can be combined with different visual styles (primary, secondary,
 - Place primary actions within thumb-friendly zones
 - Use full-width buttons for important actions on mobile
 - Implement haptic feedback for touch interactions
-- Maintain sufficient spacing between touch targets (minimum 8px)
+- Maintain sufficient spacing between [touch targets](/glossary/touch-targets) (minimum 8px)
 
 **Don'ts ❌**
 
 - Don't place critical actions in hard-to-reach corners
 - Don't rely solely on hover states for mobile feedback
-- Don't make touch targets smaller than 44x44px
+- Don't make [touch targets](/glossary/touch-targets) smaller than 44x44px
 - Don't crowd multiple buttons together on mobile views
 
 ### Layout & Positioning
@@ -417,7 +451,7 @@ Each variation can be combined with different visual styles (primary, secondary,
 - Place primary action buttons in prominent, easily accessible locations
 - Align buttons consistently within forms and dialogs
 - Group related buttons together
-- Consider mobile touch targets (minimum 44x44px)
+- Consider mobile [touch targets](/glossary/touch-targets) (minimum 44x44px)
 
 **Don'ts ❌**
 
@@ -450,7 +484,7 @@ Each variation can be combined with different visual styles (primary, secondary,
 </button>
 
 <!-- Toggle button with ARIA pressed state -->
-<button type="button" aria-pressed="false"">
+<button type="button" aria-pressed="false">
   <span>Dark mode</span>
 </button>
 
@@ -492,7 +526,7 @@ Each variation can be combined with different visual styles (primary, secondary,
 - [ ] Support screen reader announcements of button state changes
 - [ ] Be operable with keyboard navigation
 - [ ] Communicate loading states to assistive technologies
-- [ ] Have appropriate touch target sizes (minimum 44x44px)
+- [ ] Have appropriate [touch target](/glossary/touch-targets) sizes (minimum 44x44px)
 
 ### Visual Testing
 
@@ -501,7 +535,7 @@ Each variation can be combined with different visual styles (primary, secondary,
 - [ ] Maintain consistent styling across different variants (primary, secondary, destructive)
 - [ ] Display icons with correct alignment and spacing
 - [ ] Show proper visual feedback for all interactive states
-- [ ] Render correctly across different viewport sizes
+- [ ] Render correctly across different [viewport](/glossary/viewport) sizes
 - [ ] Handle text overflow appropriately
 - [ ] Display loading spinners centered within the button
 - [ ] Maintain proper padding and margins in all states
@@ -528,9 +562,9 @@ Each variation can be combined with different visual styles (primary, secondary,
 
 <BrowserSupport features={["html.elements.button", "api.HTMLButtonElement"]} />
 
-## Design Tokens
+## [Design Tokens](/glossary/design-tokens)
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 
 ### Button Tokens in DTF Format
 
@@ -554,7 +588,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
       "touchTarget": {
         "value": "2.75rem",
         "type": "dimension",
-        "description": "44px minimum touch target"
+        "description": "44px minimum [touch target](/glossary/touch-targets)"
       }
     },
     "typography": {
@@ -671,6 +705,10 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
     },
   ]}
 />
+
+## Related Patterns
+
+<RelatedPatternsCard category="forms" />
 
 ## Resources
 

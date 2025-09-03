@@ -1,0 +1,240 @@
+---
+title: "Live Regions"
+description: "ARIA attributes that announce dynamic content changes to screen reader users without requiring focus"
+category: ["Accessibility", "ARIA", "Screen Readers"]
+related_patterns: ["/patterns/navigation/pagination", "/patterns/feedback/notifications", "/patterns/forms/validation"]
+status: published
+---
+
+import { GlossaryStructuredData } from "@app/_components/glossary/structured-data";
+
+<GlossaryStructuredData
+  term="Live Regions"
+  definition="ARIA live regions are parts of a web page that announce content changes to screen reader users automatically, without requiring user interaction or focus changes."
+  category={["Accessibility", "ARIA", "Screen Readers"]}
+/>
+
+# Live Regions
+
+ARIA live regions enable screen readers to announce dynamic content changes as they occur, without requiring users to navigate to the updated area. This is crucial for providing real-time feedback about page updates, notifications, and status messages to users who rely on assistive technology.
+
+## How Live Regions Work
+
+When content within a live region changes, screen readers automatically announce the update based on the region's configuration. This allows users to stay informed about important changes while continuing their current task.
+
+## ARIA Live Region Attributes
+
+### aria-live
+
+Defines the priority of announcements:
+
+```html
+<!-- Polite: Waits for screen reader to finish current task -->
+<div aria-live="polite">Status update here</div>
+
+<!-- Assertive: Interrupts current screen reader output -->
+<div aria-live="assertive">Critical alert here</div>
+
+<!-- Off: No announcements (default) -->
+<div aria-live="off">Silent updates</div>
+```
+
+### aria-atomic
+
+Controls whether the entire region or just changes are announced:
+
+```html
+<!-- Announce entire region on any change -->
+<div aria-live="polite" aria-atomic="true">
+  <p>Items in cart: <span>3</span></p>
+</div>
+
+<!-- Announce only the changed parts -->
+<div aria-live="polite" aria-atomic="false">
+  <p>Processing... <span>50%</span> complete</p>
+</div>
+```
+
+### aria-relevant
+
+Specifies which changes trigger announcements:
+
+```html
+<!-- Announce additions and removals -->
+<ul aria-live="polite" aria-relevant="additions removals">
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+<!-- Options: additions, removals, text, all -->
+<div aria-live="polite" aria-relevant="all">
+  Complete monitoring
+</div>
+```
+
+## Common Live Region Roles
+
+### Status
+For non-critical status updates:
+```html
+<div role="status">
+  Form saved successfully
+</div>
+<!-- Equivalent to aria-live="polite" aria-atomic="true" -->
+```
+
+### Alert
+For important messages requiring user awareness:
+```html
+<div role="alert">
+  Error: Invalid email address
+</div>
+<!-- Equivalent to aria-live="assertive" aria-atomic="true" -->
+```
+
+### Log
+For sequential information like chat messages:
+```html
+<div role="log">
+  <div>User1: Hello</div>
+  <div>User2: Hi there</div>
+</div>
+<!-- Equivalent to aria-live="polite" -->
+```
+
+### Timer
+For countdown or elapsed time:
+```html
+<div role="timer">
+  Time remaining: 5:00
+</div>
+<!-- Equivalent to aria-live="off" -->
+```
+
+## Implementation Examples
+
+### Form Validation
+```html
+<form>
+  <label for="email">Email:</label>
+  <input type="email" id="email" aria-describedby="email-error">
+  
+  <!-- Live region for error messages -->
+  <div id="email-error" role="alert" aria-live="assertive">
+    <!-- Error messages inserted here dynamically -->
+  </div>
+</form>
+```
+
+### Loading States
+```html
+<button onclick="loadData()">Load More</button>
+
+<!-- Status region for loading feedback -->
+<div role="status" aria-live="polite">
+  <!-- "Loading..." inserted during fetch -->
+  <!-- "10 more items loaded" after completion -->
+</div>
+```
+
+### Notifications
+```html
+<!-- Toast notification container -->
+<div class="toast-container" 
+     role="region" 
+     aria-label="Notifications"
+     aria-live="polite">
+  <!-- Notifications inserted here -->
+</div>
+```
+
+## Best Practices
+
+### Do's ✅
+
+1. **Choose appropriate politeness levels**
+   - Use `polite` for most updates
+   - Reserve `assertive` for critical/time-sensitive information
+
+2. **Keep messages concise**
+   - Screen reader users hear everything
+   - Avoid verbose or repetitive announcements
+
+3. **Provide context**
+   - Include enough information to understand the change
+   - Example: "Filter applied: 5 results" not just "5"
+
+4. **Test with actual screen readers**
+   - NVDA (Windows)
+   - JAWS (Windows)
+   - VoiceOver (macOS/iOS)
+   - TalkBack (Android)
+
+### Don'ts ❌
+
+1. **Don't overuse assertive**
+   - Interrupting users is disruptive
+   - Most updates can wait for polite announcement
+
+2. **Don't announce every change**
+   - Frequent updates become noise
+   - Focus on meaningful state changes
+
+3. **Don't rely solely on live regions**
+   - Also update focus when appropriate
+   - Provide visual feedback for all users
+
+4. **Don't dynamically create live regions**
+   - Define regions on page load
+   - Update content within existing regions
+
+## Common Pitfalls
+
+### Race Conditions
+Live regions must exist before content changes:
+```javascript
+// ❌ Wrong: Region doesn't exist yet
+container.innerHTML = '<div aria-live="polite">Updated!</div>';
+
+// ✅ Right: Region exists, then content changes
+// HTML: <div id="status" aria-live="polite"></div>
+document.getElementById('status').textContent = 'Updated!';
+```
+
+### Platform Differences
+Screen readers behave differently:
+- Some announce all changes immediately
+- Others queue polite announcements
+- Test across multiple screen readers
+
+### Content Clearing
+Empty regions may announce "blank" or nothing:
+```javascript
+// Better to hide than empty
+statusRegion.setAttribute('aria-hidden', 'true');
+// Or remove from DOM entirely
+statusRegion.remove();
+```
+
+## Related Patterns
+
+Live regions are essential for:
+- [Pagination](/patterns/navigation/pagination) - Page change announcements
+- [Notifications](/patterns/feedback/notifications) - Alert messages
+- [Form Validation](/patterns/forms/validation) - Error/success feedback
+
+## Testing Tips
+
+1. Use screen reader browser extensions for quick testing
+2. Enable screen reader announcement viewers
+3. Test timing of announcements
+4. Verify announcement order in complex updates
+5. Check behavior across different screen readers
+
+## Key Takeaways
+
+- Live regions announce changes without focus movement
+- Choose politeness level based on urgency
+- Keep announcements concise and contextual
+- Test with real screen readers
+- Define regions on page load, update content dynamically

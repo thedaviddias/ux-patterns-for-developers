@@ -20,7 +20,7 @@ import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Pagination
 
-<PatternStats 
+<PatternStats
   popularity="high"
 />
 
@@ -59,7 +59,7 @@ Pagination helps users navigate large information sets without getting overwhelm
 - [Infinite scroll](/patterns/navigation/infinite-scroll) or ["load more"](/patterns/navigation/load-more) patterns suit the experience better
 - Users need continuous comparison between items on different pages
 
-<PatternComparison 
+<PatternComparison
   current="Pagination"
   alternatives={[
     {
@@ -248,7 +248,7 @@ This example demonstrates:
         type="button"
         class="pagination-item"
         aria-label="Page 1"
-        aria-current="true"
+        aria-current="page"
       >
         1
       </button>
@@ -310,7 +310,7 @@ This example demonstrates:
 - Mark current page with `aria-current="page"`
 - Auto-scroll to top of content area when loading new pages
 - Move focus to main content or first item after loading
-- Announce loading status with ARIA live regions for screen readers
+- Announce loading status with ARIA [live regions](/glossary/live-regions) (e.g., <div role="status" aria-live="polite">Loading…</div>) for screen readers
 - Include "Skip to content" link that shows on focus for keyboard users
 
 **Don'ts ❌**
@@ -437,14 +437,26 @@ Pagination interactions provide valuable user behavior insights. Key events to t
 
 | **Event Name**            | **Description**                                                                                            | **Why Track It?**                                                   |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `pagination.view`         | When the pagination component enters the viewport.                                                         | Determines visibility and whether pagination is available to users. |
+| `pagination.view`         | When the pagination component enters the [viewport](/glossary/viewport).                                                         | Determines visibility and whether pagination is available to users. |
 | `pagination.next_click`   | When a user clicks the **next page** button.                                                               | Measures sequential navigation behavior.                            |
 | `pagination.prev_click`   | When a user clicks the **previous page** button.                                                           | Tracks backward navigation trends.                                  |
 | `pagination.page_click`   | When a user clicks a specific numbered page.                                                               | Helps assess whether users jump ahead instead of clicking next.     |
 | `pagination.first_click`  | When a user clicks the first page button (if available).                                                   | Measures how often users return to the beginning.                   |
 | `pagination.last_click`   | When a user clicks the last page button (if available).                                                    | Indicates if users want to skip directly to the end.                |
 | `pagination.page_load`    | When a new paginated page loads (via user interaction or auto-pagination).                                 | Helps measure engagement depth.                                     |
-| `pagination.scroll_usage` | If infinite scrolling is enabled, tracks when users reach a pagination trigger (e.g., "Load More" button). | Helps compare pagination click interactions vs. scrolling behavior. |
+| `pagination.scroll_trigger` | If infinite scrolling is enabled, tracks when users reach a pagination trigger (e.g., "Load More" button). | Helps compare pagination click interactions vs. scrolling behavior. |
+
+### Common Payload Contract
+
+All pagination events should include these core properties for consistent analysis:
+
+```json
+{
+  "component_id": "search_results",
+  "current_page": 3,
+  "total_pages": 10
+}
+```
 
 ### Event Payload Structure
 
@@ -535,7 +547,7 @@ Continuous monitoring of these metrics refines pagination usability, helping use
 
 - The container should use role="navigation" with an appropriate aria-label (e.g., "Pagination Navigation").
 - Each pagination item should include aria-labels indicating the respective page number.
-- Indicate the current page using aria-current="true".
+- Indicate the current page using aria-current="page".
 
 ### Keyboard Interaction Pattern
 
@@ -604,7 +616,7 @@ The following table outlines the standard keyboard interactions for pagination c
 
 **Rendering Performance:**
 - **First Contentful Paint:** < 500ms
-- **Layout shift:** CLS < 0.1
+- **Cumulative Layout Shift (CLS):** [CLS](/glossary/cls-cumulative-layout-shift) < 0.1
 - **Time to Interactive:** < 1500ms
 - **Frame rate:** 60fps during animations
 
@@ -621,7 +633,7 @@ The following table outlines the standard keyboard interactions for pagination c
 - Consider implementing [progressive loading](/glossary/progressive-loading) for better performance and user experience.
 - Use unique URL parameters for each page (e.g., `/products?page=2`)
 - Implement rel="prev" and rel="next" link tags for search engines
-- Avoid duplicate content issues with proper canonical tags
+- Avoid duplicate content issues with proper [canonical tags](/glossary/canonical-tags)
 
 ## Design Tokens
 
