@@ -68,7 +68,7 @@ export const BrowserSupport = ({ features }: BrowserSupportProps) => {
               {['chrome', 'firefox', 'safari'].map((browser) => (
                 <div
                   key={browser}
-                  className="text-center p-2 rounded-lg bg-white border border-gray-200 dark:border-none dark:bg-gray-800"
+                  className="text-center p-2 rounded-lg bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800"
                 >
                   <div className="text-lg mb-1 flex justify-center">{getBrowserIcon(browser)}</div>
                   <div className="text-xs text-gray-500 x.dark:text-gray-400 capitalize mb-1">

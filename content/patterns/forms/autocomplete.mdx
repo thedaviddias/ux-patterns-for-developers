@@ -9,10 +9,17 @@ import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Autocomplete
 
 **_(Also called Autosuggest)_**
+
+<PatternStats 
+  popularity="high"
+/>
 
 <PatternPreview />
 
@@ -50,6 +57,33 @@ Autocomplete combines [text input](/patterns/forms/text-field) flexibility with 
 - **Product search** in e-commerce catalogs
 - **City name entry** for travel or weather applications
 - **User or contact lookup** in messaging or collaboration tools
+
+<PatternComparison 
+  current="Autocomplete"
+  alternatives={[
+    {
+      name: "Text Field",
+      path: "/patterns/forms/text-field",
+      when: "users need complete freedom in their input without suggestions",
+      pros: ["Simple implementation", "No constraints", "Works offline"],
+      cons: ["No guidance", "More typing errors", "Slower input"]
+    },
+    {
+      name: "Multi-Select",
+      path: "/patterns/forms/multi-select-input",
+      when: "users need to select multiple items from a predefined list",
+      pros: ["Multiple selections", "Clear options", "Visual feedback"],
+      cons: ["Takes more space", "Not for single selection", "Complex for many options"]
+    },
+    {
+      name: "Date Picker",
+      path: "/patterns/forms/date-picker",
+      when: "users need to select dates with calendar visualization",
+      pros: ["Visual calendar", "Date validation", "Range selection"],
+      cons: ["Only for dates", "More complex UI", "Mobile space issues"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -266,6 +300,10 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
     },
   ]}
 />
+
+## Related Patterns
+
+<RelatedPatternsCard category="forms" />
 
 ## Resources
 

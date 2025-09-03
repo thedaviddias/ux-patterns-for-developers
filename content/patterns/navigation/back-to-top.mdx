@@ -9,8 +9,15 @@ import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { Playground } from "@app/_components/playground";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Back to Top
+
+<PatternStats 
+  popularity="medium"
+/>
 
 ## Overview
 
@@ -48,6 +55,33 @@ Use **Back to Top** to **help users quickly return to long page tops without exc
 - FAQ pages with collapsible or expanded sections
 - Dashboards or analytics pages containing large data tables
 - Infinite scrolling experiences (e.g., social feeds) to let users quickly jump to the top
+
+<PatternComparison 
+  current="Back to Top"
+  alternatives={[
+    {
+      name: "Infinite Scroll",
+      path: "/patterns/navigation/infinite-scroll",
+      when: "content should load continuously without user action",
+      pros: ["Seamless experience", "No clicks needed", "Engaging"],
+      cons: ["Can't reach footer", "Performance issues with long lists"]
+    },
+    {
+      name: "Pagination",
+      path: "/patterns/navigation/pagination",
+      when: "users need to navigate through discrete pages of content",
+      pros: ["Clear position", "Bookmarkable", "Better for SEO"],
+      cons: ["Interrupts flow", "Multiple page loads"]
+    },
+    {
+      name: "Breadcrumb",
+      path: "/patterns/navigation/breadcrumb",
+      when: "showing hierarchical navigation path",
+      pros: ["Shows context", "Multi-level navigation"],
+      cons: ["Horizontal only", "Not for vertical navigation"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -802,12 +836,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ## Related Patterns
 
-Consider these related patterns when implementing **Back to Top**:
-
-- [Infinite Scroll](/patterns/navigation/infinite-scroll) - Often paired with Back to Top for long scrolling experiences.
-- [Pagination](/patterns/navigation/pagination) - Alternative navigation method for long content lists.
-- [Progress Indicator](/patterns/user-feedback/progress-indicator) - Shows users their scroll position on long pages.
-- [Sidebar](/patterns/navigation/sidebar) - Can include persistent navigation that reduces need for Back to Top.
+<RelatedPatternsCard category="navigation" />
 
 ## Resources
 

@@ -9,10 +9,17 @@ import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { Callout } from "nextra/components";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Infinite scroll
 
 **_(Also called Continuous scrolling)_**
+
+<PatternStats 
+  popularity="trending"
+/>
 
 ## Overview
 
@@ -46,6 +53,33 @@ Use Infinite Scroll when you need to dynamically load more content as users scro
 - **If performance is a concern** – Infinite scroll can lead to high memory usage and slow rendering.
 - **For content requiring user actions** – If users frequently need to interact with elements (e.g., filling forms), infinite scrolling can be disruptive.
 - **When reaching the footer is important** – Users may struggle to access footer content if new items keep loading.
+
+<PatternComparison 
+  current="Infinite Scroll"
+  alternatives={[
+    {
+      name: "Pagination",
+      path: "/patterns/navigation/pagination",
+      when: "users need precise navigation and bookmarkable pages",
+      pros: ["Clear position", "SEO friendly", "Footer accessible"],
+      cons: ["Requires user action", "Interrupts flow"]
+    },
+    {
+      name: "Load More",
+      path: "/patterns/navigation/load-more",
+      when: "users want control over when to load content",
+      pros: ["User control", "Footer accessible", "Better for mobile"],
+      cons: ["Requires clicks", "Less engaging"]
+    },
+    {
+      name: "Back to Top",
+      path: "/patterns/navigation/back-to-top",
+      when: "users need quick navigation to page start with long content",
+      pros: ["Quick return", "Works with any pattern", "Simple to implement"],
+      cons: ["Not a content loading solution", "Only helps with upward navigation"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -206,8 +240,7 @@ flowchart TB
 
 ## Related Patterns
 
-- [Pagination](/patterns/navigation/pagination) – A structured alternative to infinite scrolling.
-- [Back to Top](/patterns/navigation/back-to-top) – Helps users quickly return to the top of the page.
+<RelatedPatternsCard category="navigation" />
 
 ## Frequently Asked Questions
 

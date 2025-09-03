@@ -12,10 +12,17 @@ import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
 import { Playground } from "@app/_components/playground";
 import { StepsPagination } from "@app/_components/seo/steps-pagination.tsx";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 <StepsPagination />
 
 # Pagination
+
+<PatternStats 
+  popularity="high"
+/>
 
 <PatternPreview />
 
@@ -51,6 +58,33 @@ Pagination helps users navigate large information sets without getting overwhelm
 - All content fits better on a single page (short lists or summaries)
 - [Infinite scroll](/patterns/navigation/infinite-scroll) or ["load more"](/patterns/navigation/load-more) patterns suit the experience better
 - Users need continuous comparison between items on different pages
+
+<PatternComparison 
+  current="Pagination"
+  alternatives={[
+    {
+      name: "Load More",
+      path: "/patterns/navigation/load-more",
+      when: "users prefer continuous browsing without page reloads",
+      pros: ["Keeps context", "Smoother experience"],
+      cons: ["No jump to specific content", "Can't bookmark position"]
+    },
+    {
+      name: "Infinite Scroll",
+      path: "/patterns/navigation/infinite-scroll",
+      when: "content consumption should be seamless and addictive",
+      pros: ["No user action needed", "Engagement focused"],
+      cons: ["Footer inaccessible", "Performance issues with long lists"]
+    },
+    {
+      name: "Tabs",
+      path: "/patterns/navigation/tabs",
+      when: "content has distinct categories that users switch between",
+      pros: ["Clear organization", "Quick switching"],
+      cons: ["Limited to few categories", "Not for large datasets"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -651,12 +685,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ## Related Patterns
 
-Consider these related patterns when implementing **Pagination**:
-
-- [Load More](/patterns/navigation/load-more) - Alternative for continuous content loading
-- [Infinite Scroll](/patterns/navigation/infinite-scroll) - Automatic content loading on scroll
-- [Table](/patterns/data-display/table) - Often uses pagination for large datasets
-- [Search Results](/patterns/search/search-results) - Commonly paired with pagination
+<RelatedPatternsCard category="navigation" />
 
 ## Resources
 

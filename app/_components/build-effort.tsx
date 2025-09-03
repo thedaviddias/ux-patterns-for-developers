@@ -26,7 +26,7 @@ export const BuildEffort = ({ level, description }: BuildEffortProps) => {
   }[level];
 
   return (
-    <div className="border mt-4 p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow duration-200">
+    <div className="border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 mt-4 p-6 rounded-lg">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold tracking-tight">Build Effort</h3>
