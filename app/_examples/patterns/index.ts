@@ -17,6 +17,7 @@ import {
   validationTextFieldExample,
   withIconsTextFieldExample,
 } from './forms/text-field';
+import { basicAutocompleteExample } from './forms/autocomplete/basic';
 import { basicBackToTopExample } from './navigation/back-to-top/basic';
 import { basicLoadMoreExample } from './navigation/load-more/basic';
 import { basicPaginationExample } from './navigation/pagination/basic';
@@ -55,6 +56,9 @@ export const examples = {
       'with-icons': withIconsTextFieldExample,
       'input-types': inputTypesTextFieldExample,
       required: requiredTextFieldExample,
+    },
+    autocomplete: {
+      basic: basicAutocompleteExample,
     },
   },
   navigation: {
