@@ -8,8 +8,15 @@ status: complete
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Breadcrumb
+
+<PatternStats 
+  popularity="medium"
+/>
 
 <PatternPreview />
 
@@ -52,6 +59,33 @@ Use **Breadcrumbs** to **show users their location within a website's structure 
 - E-commerce: Home > Electronics > Smartphones > iPhone 15
 - Content Management: Dashboard > Projects > Project A > Documents
 - File Systems: My Drive > Work > 2024 > Reports
+
+<PatternComparison 
+  current="Breadcrumb"
+  alternatives={[
+    {
+      name: "Tabs",
+      path: "/patterns/navigation/tabs",
+      when: "content is organized in parallel sections at the same level",
+      pros: ["Quick switching", "Clear organization", "No hierarchy needed"],
+      cons: ["Not for deep navigation", "Limited to few items"]
+    },
+    {
+      name: "Pagination",
+      path: "/patterns/navigation/pagination",
+      when: "navigating through sequential content pages",
+      pros: ["Good for linear content", "Clear progress indicator"],
+      cons: ["Not for hierarchical navigation", "Only works for ordered content"]
+    },
+    {
+      name: "Back to Top",
+      path: "/patterns/navigation/back-to-top",
+      when: "users need quick return to page start",
+      pros: ["Simple implementation", "Universal understanding"],
+      cons: ["Only vertical navigation", "Not for complex hierarchies"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -436,6 +470,10 @@ function generateBreadcrumbSchema(breadcrumbs) {
     },
   ]}
 />
+
+## Related Patterns
+
+<RelatedPatternsCard category="navigation" />
 
 ## Resources
 

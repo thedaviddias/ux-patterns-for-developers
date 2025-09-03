@@ -10,8 +10,15 @@ import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { Playground } from "@app/_components/playground";
 import { PatternPreview } from "@app/_components/pattern-preview";
+import { PatternStats } from "@app/_components/pattern-stats";
+import { PatternComparison } from "@app/_components/pattern-comparison";
+import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Load More
+
+<PatternStats 
+  popularity="high"
+/>
 
 <PatternPreview />
 
@@ -51,6 +58,26 @@ For better usability, make sure the Load More button gets **removed when all con
 - **News or blog feeds**: Expanding more articles dynamically
 - **Social media feeds**: Loading additional posts without overwhelming users
 - **Search results**: Fetching more results upon user request
+
+<PatternComparison 
+  current="Load More"
+  alternatives={[
+    {
+      name: "Pagination",
+      path: "/patterns/navigation/pagination",
+      when: "users need to jump to specific pages or see total item count",
+      pros: ["Better for SEO", "Clear position indicator"],
+      cons: ["More clicks required", "Page reload disruption"]
+    },
+    {
+      name: "Infinite Scroll",
+      path: "/patterns/navigation/infinite-scroll",
+      when: "content consumption should be seamless and continuous",
+      pros: ["No user action needed", "Smooth browsing"],
+      cons: ["Hard to reach footer", "Can't bookmark position"]
+    }
+  ]}
+/>
 
 ## Benefits
 
@@ -711,11 +738,10 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ## Related Patterns
 
-Consider these related patterns when implementing **Load More**:
-
-- [Infinite Scroll](/patterns/navigation/infinite-scroll) - Automatically loads content as users scroll.
-- [Pagination](/patterns/navigation/pagination) - A structured way to navigate large sets of content.
-- [Loading Indicator](/patterns/user-feedback/loading-indicator) - Displays feedback when content is loading.
+<RelatedPatternsCard 
+  category="navigation"
+  showCategory={true}
+/>
 
 ## Resources
 
