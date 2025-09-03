@@ -10,6 +10,7 @@ import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { PatternPreview } from "@app/_components/pattern-preview";
+import { Playground } from "@app/_components/playground";
 import { StepsPagination } from "@app/_components/seo/steps-pagination.tsx";
 
 <StepsPagination />
@@ -20,10 +21,10 @@ import { StepsPagination } from "@app/_components/seo/steps-pagination.tsx";
 
 ## Overview
 
-**[Pagination](/glossary/pagination)** is a navigation pattern used to divide large collections of content into manageable chunks or pages.
-This helps users to navigate through data sets, search results, or product listings without overwhelming the page with too much information at once.
+**[Pagination](/glossary/pagination)** divides large content collections into manageable chunks or pages.
+Users navigate through data sets, search results, or product listings without getting overwhelmed by too much information at once.
 
-While pagination is a common and effective pattern, it's important to consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain types of content. The choice between pagination and infinite scroll depends on factors such as the nature of the content, user behavior, and the goals of the interface.
+Pagination works well, but consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain content types. Your choice between pagination and infinite scroll depends on content nature, user behavior, and interface goals.
 
 <BuildEffort
   level="medium"
@@ -34,40 +35,40 @@ While pagination is a common and effective pattern, it's important to consider a
 
 ### When to use:
 
-Use this pattern when content needs to be progressively revealed or loaded in a structured manner, ensuring a smoother user experience and improved performance.
+Use pagination when content needs structured, progressive loading for smoother user experience and better performance.
 
-It helps users navigate large sets of information without overwhelming them.
+Pagination helps users navigate large information sets without getting overwhelmed.
 
 **Common scenarios include:**
 
-- **Browsing content lists** – e.g., search results, blog archives, or product listings.
-- **Improving page performance** – by loading content in smaller, more manageable segments.
-- **Enhancing user clarity** – making large data sets easier to understand and navigate.
-- **Navigating sequential content** – e.g., multi-page tutorials or articles.
+- **Content lists** need browsing (search results, blog archives, product listings)
+- **Page performance** improves by loading smaller content segments
+- **User clarity** increases when large data sets become easier to navigate
+- **Sequential content** requires navigation (multi-page tutorials or articles)
 
 ### When not to use:
 
-- When all content is better presented on a single page (e.g., short lists or summaries).
-- If [infinite scroll](/patterns/navigation/infinite-scroll) or a ["load more"](/patterns/navigation/load-more) pattern better suits the user experience.
-- In scenarios where users need continuous comparison between items on different pages.
+- All content fits better on a single page (short lists or summaries)
+- [Infinite scroll](/patterns/navigation/infinite-scroll) or ["load more"](/patterns/navigation/load-more) patterns suit the experience better
+- Users need continuous comparison between items on different pages
 
 ## Benefits
 
-- Improves page load times by limiting the amount of content loaded at once
-- Enhances user orientation within large datasets
-- Provides clear navigation cues for moving through content
-- Supports better performance and reduced server load
-- Allows for easier bookmarking and sharing of specific pages
-- Gives users a sense of the content's scope (total number of pages/items)
-- Better suited for goal-oriented tasks compared to infinite scroll
+- Page loads faster by limiting content loaded at once
+- Users stay oriented within large datasets
+- Clear navigation cues guide through content
+- Performance improves and server load drops
+- Bookmarking and sharing specific pages becomes easier
+- Users understand content scope (total pages/items)
+- Goal-oriented tasks work better than with infinite scroll
 
 ## Drawbacks
 
-- **Can interrupt user flow** – Users must manually click to navigate instead of continuous scrolling.
-- **Navigation complexity** – Requires handling of "Previous," "Next," first, and last page navigation.
-- **Harder for mobile users** – Small pagination buttons can be difficult to tap on touchscreens.
-- **SEO considerations** – Improper implementation can lead to duplicate content issues
-- **Page reload delays** – If not dynamically updated, full-page reloads can slow down user experience.
+- **Interrupts user flow** – Users must click to navigate instead of scrolling continuously
+- **Complex navigation** – Must handle "Previous," "Next," first, and last page controls
+- **Mobile challenges** – Small pagination buttons are hard to tap on touchscreens
+- **SEO risks** – Poor implementation creates duplicate content issues
+- **Reload delays** – Full-page reloads slow the experience without dynamic updates
 
 ## Anatomy
 
@@ -87,35 +88,35 @@ flowchart TB
 
 1. **Container**
 
-- The wrapper element that encompasses all pagination controls.
-- Manages layout and spacing.
-- Ensures proper ARIA labeling and keyboard navigation.
+- Wraps all pagination controls
+- Manages layout and spacing
+- Handles ARIA labeling and keyboard navigation
 
 2. **Previous Button**
 
-- Allows users to navigate to the preceding page.
-- Typically disabled on the first page to indicate there is no previous content.
+- Navigates to the preceding page
+- Disabled on first page to show no previous content exists
 
 3. **Pagination Items**
 
-- Numbered buttons or links for each page.
-- Clearly indicate the current page (using visual cues and ARIA attributes).
-- May include an ellipsis ("…") for large ranges of pages.
+- Numbered buttons or links for each page
+- Current page shows clearly (visual cues and ARIA attributes)
+- Ellipsis ("…") appears for large page ranges
 
 4. **Next Button**
 
-- Allows users to navigate to the next page.
-- Disabled on the last page to prevent further navigation.
+- Navigates to the next page
+- Disabled on last page to prevent further navigation
 
 5. **First & Last Page Buttons (Optional)**
 
-- Provide quick navigation to the **first** and **last** pages.
-- Useful when dealing with **long pagination ranges**.
+- Quick jumps to **first** and **last** pages
+- Helpful for **long pagination ranges**
 
 6. **Ellipsis (Optional)**
 
-- Indicates missing page numbers in large paginations.
-- Reduces clutter while maintaining navigation clarity.
+- Shows missing page numbers in large paginations
+- Reduces clutter, keeps navigation clear
 
 7. **Visual States**
 
@@ -139,80 +140,117 @@ flowchart TB
 | Ellipsis                | ❌ No     | Represents omitted pages in large paginations.   |
 | Loading Indicator       | ❌ No     | Displays when fetching new paginated content.    |
 
+## Variations
+
+### 1. Standard Pagination
+The classic numbered page navigation with Previous/Next buttons.
+
+**When to use:** General content lists, search results, tables
+
+### 2. Infinite Pagination
+Combines pagination with infinite scroll - loads new pages automatically but maintains page boundaries.
+
+**When to use:** Social feeds, image galleries where users want continuous browsing
+
+### 3. Load More Pagination
+Shows a "Load More" button instead of page numbers, appending content to the current view.
+
+**When to use:** Mobile interfaces, casual browsing experiences
+
+### 4. Simple Previous/Next
+Only shows Previous and Next buttons without page numbers.
+
+**When to use:** Linear content like tutorials, wizards, or articles
+
+### 5. Alphabetical/Range Pagination
+Groups content by alphabetical ranges (A-C, D-F) or other categories.
+
+**When to use:** Directories, glossaries, large catalogs
+
+### 6. Mini Pagination
+Compact version showing limited page numbers (e.g., 1...5, 6, 7...20).
+
+**When to use:** Limited space, mobile views, secondary navigation
+
+### 7. Hybrid Pagination
+Combines page numbers with a dropdown to jump to any page.
+
+**When to use:** Large datasets where users need both sequential and random access
+
 ## Best Practices
 
 ### Content
 
 **Do's ✅**
 
-- Use clear, concise labels for navigation controls
-- Provide context (e.g., "Page 5 of 20")
-- Consider using ellipsis (...) for large page ranges
-- Evaluate whether pagination or infinite scroll is more appropriate for your specific use case and content type
-- Show a loading indicator when fetching new content
-- Update the URL to reflect the current page number
+- Pick clear, concise labels for navigation controls
+- Give context ("Page 5 of 20")
+- Use ellipsis (...) for large page ranges
+- Check if pagination or infinite scroll fits your use case and content type better
+- Display loading indicators when fetching new content
+- Update URLs to reflect current page numbers
 
 **Don'ts ❌**
 
-- Don't clutter the interface with too many pagination controls
-- Avoid using pagination for very short lists that can be displayed on a single page
-- Don't use ambiguous labels that could confuse the user
-- Avoid loading unnecessary data or assets that aren't relevant to the current page
+- Skip cluttering the interface with excessive pagination controls
+- Never paginate short lists that fit on one page
+- Avoid ambiguous labels that confuse users
+- Stop loading unnecessary data or assets irrelevant to the current page
 
 ### Accessibility
 
 **Do's ✅**
 
-- Use the semantic `<nav>` element to wrap pagination controls
-- Label the `<nav>` element with `aria-label="Pagination"` or similar for screen readers
-- Ensure each page link is a focusable element and includes clear labels
-- Provide a logical keyboard navigation order (e.g., Tab, Enter, Arrow keys)
-- Use `aria-current="page"` to indicate the current page
-- Automatically scroll to the top of the content area when loading a new page
-- Set focus to the main content area or the first item in the new page after loading
-- Use ARIA live regions to announce loading status to screen reader users
-- Provide a "Skip to content" link that becomes visible on focus for keyboard users
+- Wrap pagination controls with semantic `<nav>` element
+- Add `aria-label="Pagination"` or similar for screen readers
+- Make each page link focusable with clear labels
+- Set logical keyboard navigation order (Tab, Enter, Arrow keys)
+- Mark current page with `aria-current="page"`
+- Auto-scroll to top of content area when loading new pages
+- Move focus to main content or first item after loading
+- Announce loading status with ARIA live regions for screen readers
+- Include "Skip to content" link that shows on focus for keyboard users
 
 **Don'ts ❌**
 
-- Don't rely solely on color to indicate the current page; also include text or icons
-- Avoid complex pagination structures that could confuse keyboard and assistive technology users
-- Don't leave the user's scroll position unchanged when loading an entirely new page of content
-- Avoid setting focus to the pagination controls after page load, as this can be disorienting
+- Never rely only on color for current page; add text or icons too
+- Skip complex pagination structures that confuse keyboard and assistive tech users
+- Always change scroll position when loading new page content
+- Don't set focus to pagination controls after page load – it disorients users
 
 ### Visual Design
 
 **Do's ✅**
 
-- Use consistent spacing, typography, and colors to maintain clarity
-- Provide clear visual separation between individual pagination items
-- Ensure the active state stands out visually
-- Consider using subtle hover animations to signal interactivity
-- Design for scalability with large numbers of pages (e.g., use abbreviated formats like 1k, 2k for 1000, 2000)
-- Implement efficient server-side pagination to minimize load times
-- Use smooth scrolling when automatically moving to the top of new content
+- Keep spacing, typography, and colors consistent for clarity
+- Separate pagination items visually
+- Make active state stand out
+- Add subtle hover animations to signal interactivity
+- Design for scale with many pages (abbreviate: 1k, 2k for 1000, 2000)
+- Build efficient server-side pagination to cut load times
+- Apply smooth scrolling when auto-moving to new content top
 
 **Don'ts ❌**
 
-- Don't make interactive elements too small or difficult to tap on mobile devices
-- Avoid overly decorative styles that detract from content readability
-- Don't block user interaction with the entire page during loading unless absolutely necessary
+- Never make interactive elements too small for mobile tapping
+- Skip decorative styles that hurt content readability
+- Avoid blocking entire page interaction during loading unless necessary
 
 ### Layout & Positioning
 
 **Do's ✅**
 
-- Position the pagination control in a logical location (typically at the bottom of content listings)
-- Ensure sufficient contrast between pagination controls and the background
-- Use responsive design techniques to maintain usability on various devices
-- Consider using progressive loading techniques for images and other media
-- Maintain scroll position if only part of the page is being updated (e.g., in a single-page application)
+- Place pagination controls logically (usually bottom of content listings)
+- Maintain strong contrast between pagination controls and background
+- Apply responsive design for usability across devices
+- Try progressive loading for images and media
+- Keep scroll position when updating only part of the page (single-page apps)
 
 **Don'ts ❌**
 
-- Don't position pagination too far from the actual content, which may force excessive scrolling
-- Avoid fixed positioning that could interfere with content readability on small screens
-- Don't break the browser's history functionality with custom pagination implementations
+- Keep pagination close to content to avoid excessive scrolling
+- Skip fixed positioning that blocks content on small screens
+- Preserve browser history functionality with custom pagination
 
 ### Common Mistakes & Anti-Patterns
 
@@ -220,10 +258,10 @@ flowchart TB
 
 **❌ What's Wrong?**
 
-Users get overwhelmed if there are **dozens of pages** to click through, making it hard to find relevant content.
+**Dozens of pages** overwhelm users and make finding relevant content hard.
 
 **How to Fix It?**
-Consider using **"Load More"** or **infinite scroll** if the content is suited to continuous exploration. If pagination is necessary, cap the total pages or provide filters to reduce results.
+Try **"Load More"** or **infinite scroll** for continuous exploration content. When pagination is necessary, cap total pages or add filters to reduce results.
 
 ---
 
@@ -231,10 +269,10 @@ Consider using **"Load More"** or **infinite scroll** if the content is suited t
 
 **❌ What's Wrong?**
 
-Some designs remove pagination on smaller screens, forcing mobile users to scroll endlessly or guess how to navigate deeper pages.
+Removing pagination on small screens forces mobile users into endless scrolling or guessing navigation to deeper pages.
 
 **How to Fix It?**
-Use a **compact pagination menu** (e.g., next/previous buttons or a limited set of page links) so users can still control navigation on mobile devices.
+Add a **compact pagination menu** (next/previous buttons or limited page links) so mobile users still control navigation.
 
 ---
 
@@ -302,42 +340,86 @@ When users click a pagination link, especially if the new page loads asynchronou
 **How to Fix It?**
 Use an **ARIA live region** or a brief status announcement (e.g., "Page 2 loaded") so screen reader users (and everyone else) know new content has appeared.
 
+## Common Mistakes & Anti-Patterns
+
+### 🚫 **No Indication of Total Pages**
+**The Problem:**
+Users can't gauge content size or their progress.
+
+**How to Fix It:**
+Show total page count or items ("Page 3 of 12" or "Showing 21-30 of 120 items").
+
+### 🚫 **Missing Current Page Highlight**
+**The Problem:**
+Users lose track of their current page, especially after scrolling.
+
+**How to Fix It:**
+Distinguish the active page with contrasting colors, borders, or size.
+
+### 🚫 **Tiny Click Targets**
+**The Problem:**
+Page numbers and controls are too small for easy clicking, especially on mobile.
+
+**How to Fix It:**
+Use minimum 44x44px touch targets with adequate spacing between elements.
+
+### 🚫 **No Keyboard Navigation**
+**The Problem:**
+Pagination works only with mouse/touch, locking out keyboard users.
+
+**How to Fix It:**
+Add full keyboard support with Tab navigation and Enter/Space activation.
+
+### 🚫 **Jumping to Top Without Warning**
+**The Problem:**
+Page changes trigger unexpected scroll to top, disorienting users.
+
+**How to Fix It:**
+Keep scroll position or smoothly animate to top with clear indication.
+
+### 🚫 **Poor Mobile Adaptation**
+**The Problem:**
+Desktop pagination with many page numbers fails on mobile.
+
+**How to Fix It:**
+Apply responsive design showing fewer page numbers on smaller screens.
+
 ## Micro-Interactions & Animations
 
-When building pagination, consider these specific, purpose-driven animations:
+Pagination needs these specific, purpose-driven animations:
 
 - **Button Hover Animation:**
 
-  - **Effect:** On hover, scale the button up to 1.05× its original size and smoothly transition the background color.
-  - **Timing:** Use a 200ms ease transition to ensure responsiveness without delay.
+  - **Effect:** Scale button to 1.05× on hover and smoothly transition background color
+  - **Timing:** 200ms ease transition for responsive feel without delay
 
 - **Focus State Animation:**
 
-  - **Effect:** When a button receives focus (via keyboard or pointer), animate a clear visual indicator—such as a crisp outline or subtle drop-shadow—to emphasize its active state.
-  - **Timing:** Apply the effect over 200ms to create a smooth visual cue.
+  - **Effect:** Button focus (keyboard or pointer) animates clear visual indicator—crisp outline or subtle drop-shadow for active state
+  - **Timing:** 200ms effect creates smooth visual cue
 
 - **Active (Click) Animation:**
 
-  - **Effect:** Upon clicking a pagination button, trigger a brief confirmation animation (for example, a quick pulse or a slight scale up to 1.1×) to signal the selection.
-  - **Timing:** The animation should complete within 150–200ms to provide immediate feedback without interrupting the user flow.
+  - **Effect:** Clicking triggers brief confirmation animation (quick pulse or scale to 1.1×) signaling selection
+  - **Timing:** 150–200ms completion gives immediate feedback without interrupting flow
 
 - **Content Transition (When Applicable):**
 
-  - **Effect:** If the pagination action triggers a content update (common in SPAs), apply a fade transition where the outgoing content fades out and the incoming content fades in.
-  - **Timing:** Transition the content opacity over approximately 250ms to ensure a smooth change without distracting from the overall experience.
+  - **Effect:** Pagination triggering content updates (common in SPAs) uses fade transition—outgoing fades out, incoming fades in
+  - **Timing:** 250ms opacity transition ensures smooth change without distraction
 
 - **Reduced Motion Consideration:**
-  - **Implementation:** Always check for the user's motion preferences (e.g., via the `prefers-reduced-motion` media query) and disable or minimize animations accordingly to ensure accessibility.
+  - **Implementation:** Check user motion preferences (`prefers-reduced-motion` media query) and disable or minimize animations for accessibility
 
-These precise animations provide just enough feedback to guide user interactions and enhance the overall feel of your pagination component without overwhelming the interface.
+These animations give just enough feedback to guide interactions and enhance pagination feel without overwhelming the interface.
 
 ## Tracking
 
-Tracking pagination interactions helps measure how users navigate through paginated content, whether they prefer clicking through pages sequentially or skipping ahead, and if they reach deeper pages. By analyzing pagination behavior, we can optimize the user experience and improve content discoverability.
+Pagination tracking measures how users navigate content, their preference for sequential clicking versus skipping ahead, and whether they reach deeper pages. Analyzing pagination behavior optimizes user experience and improves content discoverability.
 
 ### Key Tracking Points
 
-Each pagination interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+Pagination interactions provide valuable user behavior insights. Key events to track:
 
 | **Event Name**            | **Description**                                                                                            | **Why Track It?**                                                   |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -352,7 +434,7 @@ Each pagination interaction provides valuable insights into user behavior. Below
 
 ### Event Payload Structure
 
-To ensure consistent tracking, here's a recommended event format:
+For consistent tracking, use this event format:
 
 ```json
 {
@@ -368,7 +450,7 @@ To ensure consistent tracking, here's a recommended event format:
 
 ### Key Metrics to Analyze
 
-Once tracking is in place, the following metrics provide actionable insights:
+After setting up tracking, these metrics provide actionable insights:
 
 - **Next Page Click Rate** → Percentage of users who click the "Next" button.
 - **Page Jump Rate** → Percentage of users who select a specific page instead of clicking "Next."
@@ -379,29 +461,29 @@ Once tracking is in place, the following metrics provide actionable insights:
 
 ### Insights & Optimization Based on Tracking
 
-By analyzing tracking data, we can optimize the pagination experience:
+Tracking data analysis optimizes the pagination experience:
 
 - 🚨 **Low Next Page Click Rate?**
-  → Users may not be finding pagination useful or engaging.
-  **Optimization:** Improve results per page, add stronger visual cues, or test infinite scrolling.
+  → Users don't find pagination useful or engaging.
+  **Fix:** Improve results per page, strengthen visual cues, or test infinite scrolling.
 
 - ⏳ **High Page Jump Rate?**
-  → Users may prefer skipping ahead rather than navigating sequentially.
-  **Optimization:** Provide better filtering options or allow users to select results per page.
+  → Users prefer skipping ahead over sequential navigation.
+  **Fix:** Add better filtering options or let users select results per page.
 
 - 🔄 **Frequent Backward Navigation?**
-  → Users might be missing important content on previous pages.
-  **Optimization:** Improve sorting and relevance of content on earlier pages.
+  → Users miss important content on previous pages.
+  **Fix:** Improve sorting and relevance on earlier pages.
 
 - 🔁 **Low Deep Pagination Engagement?**
-  → Users rarely go beyond the first few pages.
-  **Optimization:** Ensure important content isn't buried too deep or test loading more items per page.
+  → Users rarely go past the first few pages.
+  **Fix:** Don't bury important content deep or test loading more items per page.
 
 - ⚙️ **High Infinite Scroll Usage vs. Clicks?**
-  → If users prefer scrolling over clicking pagination, consider testing infinite scrolling as the default option.
-  **Optimization:** Ensure infinite scroll doesn't negatively impact performance or usability.
+  → Users prefer scrolling over clicking pagination.
+  **Fix:** Test infinite scrolling as default but check performance and usability impact.
 
-By continuously monitoring these metrics, we can refine pagination usability, ensuring users efficiently navigate through content without frustration.
+Continuous monitoring of these metrics refines pagination usability, helping users navigate content without frustration.
 
 ## Localization
 
@@ -506,12 +588,6 @@ The following table outlines the standard keyboard interactions for pagination c
 | Enter/Space | Activate the focused pagination button                   |
 | Arrow Keys  | Optionally, navigate between page items (if implemented) |
 
-## SEO
-
-- Use [semantic HTML](/glossary/semantic-html) (e.g., `<nav>` and lists) to help search engines understand your site structure.
-- Ensure that pagination links are crawlable, improving site indexing.
-- Consider implementing [progressive loading](/glossary/progressive-loading) for better performance and user experience.
-
 ## Testing Guidelines
 
 ### Functional Testing
@@ -547,6 +623,101 @@ The following table outlines the standard keyboard interactions for pagination c
 - [ ] Ensure that pagination does not cause significant loading delays.
 - [ ] Validate that new page content loads efficiently when navigating.
 
+## Browser Support
+
+<BrowserSupport features={["css.flexbox", "window.api.history.pushstate"]} />
+
+## Performance Metrics
+
+### Target Metrics
+
+**Response Times:**
+- **Page change initiation:** < 100ms after click
+- **Content load start:** < 200ms
+- **Full page render:** < 1000ms (ideal), < 2000ms (acceptable)
+- **Animation duration:** 200-300ms for transitions
+
+**Data Loading:**
+- **Prefetch strategy:** Load adjacent pages in background
+- **Cache duration:** 5 minutes for recently viewed pages
+- **Request size:** < 50KB per page of data
+- **Concurrent requests:** Maximum 2 prefetch requests
+
+**Rendering Performance:**
+- **First Contentful Paint:** < 500ms
+- **Layout shift:** CLS < 0.1
+- **Time to Interactive:** < 1500ms
+- **Frame rate:** 60fps during animations
+
+**Mobile Optimization:**
+- **Touch response:** < 100ms feedback
+- **Bandwidth usage:** Minimize with compression
+- **Battery impact:** Avoid continuous animations
+- **Memory footprint:** < 10MB for pagination component
+
+## SEO Considerations
+
+- Use [semantic HTML](/glossary/semantic-html) (e.g., `<nav>` and lists) to help search engines understand your site structure.
+- Ensure that pagination links are crawlable, improving site indexing.
+- Consider implementing [progressive loading](/glossary/progressive-loading) for better performance and user experience.
+- Use unique URL parameters for each page (e.g., `/products?page=2`)
+- Implement rel="prev" and rel="next" link tags for search engines
+- Avoid duplicate content issues with proper canonical tags
+
+## Component Library Examples
+
+<Playground patternType="navigation" pattern="pagination" example="basic" height="400px" />
+
+This example demonstrates:
+- Page number navigation with Previous/Next buttons
+- Current page highlighting
+- Disabled states for first/last pages
+- Keyboard navigation support
+- ARIA labels for accessibility
+- Responsive design for mobile
+- Smooth transitions between pages
+
+## Related Patterns
+
+Consider these related patterns when implementing **Pagination**:
+
+- [Load More](/patterns/navigation/load-more) - Alternative for continuous content loading
+- [Infinite Scroll](/patterns/navigation/infinite-scroll) - Automatic content loading on scroll
+- [Table](/patterns/data-display/table) - Often uses pagination for large datasets
+- [Search Results](/patterns/search/search-results) - Commonly paired with pagination
+
+## FAQ
+
+<FaqStructuredData
+  items={[
+    {
+      question: "What is pagination in web design?",
+      answer:
+        "Pagination is a UI pattern that divides content into discrete pages, allowing users to navigate through large datasets in manageable chunks. It provides controls like page numbers and Previous/Next buttons.",
+    },
+    {
+      question: "When should I use pagination vs infinite scroll?",
+      answer:
+        "Use pagination when users need to reference specific locations, for SEO-critical content, or when users expect to find specific items. Use infinite scroll for casual browsing experiences like social feeds.",
+    },
+    {
+      question: "How many items should I show per page?",
+      answer:
+        "Typically 10-50 items per page, depending on content type. Consider 10 for detailed items, 25 for medium detail, and 50 for simple lists. Always provide options for users to adjust.",
+    },
+    {
+      question: "How can I make pagination SEO-friendly?",
+      answer:
+        "Use unique URLs for each page, implement rel='prev' and rel='next' links, ensure all pages are crawlable, and avoid duplicate content issues with proper canonical tags.",
+    },
+    {
+      question: "What's the best pagination pattern for mobile?",
+      answer:
+        "For mobile, show fewer page numbers (e.g., < 1 2 3 ... 10 >), ensure touch targets are at least 44x44px, and consider 'Load More' as an alternative for better mobile experience.",
+    },
+  ]}
+/>
+
 ## Design Tokens
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -575,49 +746,19 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
-## Related Patterns
-
-- [Infinite Scroll](/patterns/navigation/infinite-scroll) - An alternative to pagination for certain types of content, particularly suited for content streams or social media feeds
-- [Load More](/patterns/navigation/load-more) - A simpler alternative to pagination that gives users manual control over loading additional content
-
-## Frequently Asked Questions
-
-<FaqStructuredData
-  items={[
-    {
-      question: "What is pagination in web design?",
-      answer:
-        "Pagination is a UI design pattern that divides content into discrete pages, allowing users to navigate through large datasets efficiently. It prevents information overload and improves performance. Compared to [Infinite Scroll](/patterns/navigation/infinite-scroll), pagination gives users more control over navigation and reduces performance issues.",
-    },
-    {
-      question: "When should I use pagination?",
-      answer:
-        "Use pagination when dealing with large content collections, such as search results, product listings, or blog archives. It is particularly useful when users need to revisit specific pages, unlike [Infinite Scroll](/patterns/navigation/infinite-scroll), which makes it harder to return to previous items.",
-    },
-    {
-      question: "How can I make pagination accessible?",
-      answer:
-        "Ensure pagination controls are keyboard-navigable and screen reader-friendly. Use semantic HTML elements like `<nav>` to denote navigation regions and provide ARIA attributes such as `aria-current` for the active page. Additionally, consider using a 'Load More' button as an alternative in certain cases—see the [Load More](/patterns/navigation/load-more) pattern for best practices.",
-    },
-    {
-      question: "What are the benefits of using pagination?",
-      answer:
-        "Pagination improves usability by organizing content into structured pages, making it easier to navigate. Unlike [Infinite Scroll](/patterns/navigation/infinite-scroll), it ensures users can access the footer and navigate efficiently without performance concerns. Additionally, pagination creates unique URLs, benefiting SEO by allowing search engines to index content properly.",
-    },
-    {
-      question:
-        "What are common mistakes to avoid when implementing pagination?",
-      answer:
-        "Avoid using vague labels like 'Previous' and 'Next' without clear context—use explicit page numbers where possible. Ensure pagination controls are not too small or closely spaced, as they must be easily tappable, especially on mobile. If the dataset is large, consider implementing both pagination and a [Back to Top](/patterns/navigation/back-to-top) button to improve usability.",
-    },
-    {
-      question: "How does pagination compare to infinite scroll and load more?",
-      answer:
-        "Pagination allows structured navigation and works well for large datasets, whereas [Infinite Scroll](/patterns/navigation/infinite-scroll) offers a seamless browsing experience but can make revisiting content difficult. [Load More](/patterns/navigation/load-more) provides a middle ground, allowing users to request additional content manually while still keeping the page uncluttered.",
-    },
-  ]}
-/>
 ## Resources
+
+### Articles
+
+- [Pagination Design Pattern](https://www.nngroup.com/articles/pagination/)
+- [SEO Best Practices for Pagination](https://developers.google.com/search/docs/specialty/ecommerce/pagination)
+- [Accessibility Guidelines for Pagination](https://www.w3.org/WAI/ARIA/apg/patterns/pagination/)
+
+### Implementation Guides
+
+- [React Pagination Tutorial](https://www.digitalocean.com/community/tutorials/how-to-build-custom-pagination-with-react)
+- [Vue.js Pagination Component](https://vuejs.org/examples/#grid-component)
+- [Accessible Pagination with ARIA](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
 
 ### Libraries
 

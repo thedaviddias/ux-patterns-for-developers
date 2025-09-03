@@ -15,9 +15,9 @@ import { FaqStructuredData } from "@app/_components/faq-structured-data";
 
 ## Overview
 
-An **accordion** is a UI component that consists of a vertically stacked list of headers that can be expanded or collapsed to reveal or hide related content. It helps conserve screen space by displaying content in a structured and interactive way.
+An **accordion** consists of vertically stacked headers that expand or collapse to reveal or hide related content. Accordions conserve screen space by displaying content in a structured, interactive way.
 
-Accordions are commonly used for **FAQs, settings panels, and structured content** where users need to access multiple sections without scrolling through all the information at once.
+Accordions work well for **FAQs, settings panels, and structured content** where users access multiple sections without scrolling through everything.
 
 <BuildEffort
   level="medium"
@@ -28,38 +28,38 @@ Accordions are commonly used for **FAQs, settings panels, and structured content
 
 ### When to use:
 
-Use an accordion when you need to present **structured content that benefits from progressive disclosure**.
+Use accordions to present **structured content benefiting from progressive disclosure**.
 
 **Common use cases include:**
 
-- **FAQs (Frequently Asked Questions)** – Helps users find answers quickly.
-- **Settings and Preferences** – Organizes options into collapsible categories.
-- **Product Details or Features** – Allows users to expand sections they are interested in.
-- **Documentation or Guides** – Presents step-by-step content in an organized way.
-- **Navigation and Filtering** – Used in sidebars for hierarchical content.
+- **FAQs (Frequently Asked Questions)** – Users find answers quickly
+- **Settings and Preferences** – Options organize into collapsible categories
+- **Product Details or Features** – Users expand sections they're interested in
+- **Documentation or Guides** – Step-by-step content stays organized
+- **Navigation and Filtering** – Sidebars use them for hierarchical content
 
 ### When not to use:
 
-- If **all content needs to be visible at once** (e.g., comparison tables).
-- When **content is too short**—collapsing small amounts of text may reduce usability.
-- If frequent **switching between sections is necessary**—a tabbed interface might be better.
-- When users need to **view multiple sections at the same time** (e.g., Terms and Conditions) —consider popovers, modals, or side panels instead.
-- If content requires **deep nesting of multiple levels**, a structured outline or table of contents may work better.
+- **All content needs simultaneous visibility** (comparison tables)
+- **Content is too short**—collapsing small text reduces usability
+- **Frequent section switching needed**—tabs work better
+- **Multiple sections need simultaneous viewing** (Terms and Conditions)—try popovers, modals, or side panels
+- **Deep nesting of multiple levels**—structured outlines or table of contents work better
 
 ## Benefits
 
-- **Saves space** by showing only relevant content when needed.
-- **Improves readability** by reducing visual clutter.
-- **Enhances usability** by grouping related content.
-- **Optimizes mobile experiences** by minimizing scroll length.
+- **Saves space** showing only relevant content when needed
+- **Better readability** with reduced visual clutter
+- **Enhanced usability** through grouped related content
+- **Optimized mobile experiences** with minimal scroll length
 
 ## Drawbacks
 
-- **Hides content by default**, requiring extra interaction to access information.
-- **Can make scanning content harder**, especially if multiple sections are collapsed.
-- **May not work well for all content types**, particularly if users need to see multiple sections at once.
-- **Can have accessibility issues** if not correctly implemented with ARIA roles.
-- **Excessive nesting** of accordions can create a poor user experience.
+- **Hides content by default** – extra interaction needed for information access
+- **Harder content scanning** – especially with multiple collapsed sections
+- **Not suitable for all content** – particularly when users need multiple sections visible
+- **Accessibility issues** – without correct ARIA role implementation
+- **Excessive nesting** – creates poor user experience
 
 ## Anatomy
 
@@ -81,32 +81,32 @@ graph TD
 
 1. **Accordion Container**
 
-- Wraps all the accordion items.
-- Handles state management (e.g., open/close behavior).
-- Should provide appropriate aria-label for screen reader users.
+- Wraps all accordion items
+- Handles state management (open/close behavior)
+- Provides appropriate aria-label for screen readers
 
 2. **Accordion Item**
 
-- A single collapsible section consisting of a header (trigger) and a content panel.
+- Single collapsible section with header (trigger) and content panel
 
 3. **Accordion Header (Trigger)**
 
-- The clickable element that expands/collapses the associated content.
-- Should be a button element for accessibility.
-- Must contain aria-expanded="true|false" to indicate state.
+- Clickable element expanding/collapsing associated content
+- Must be button element for accessibility
+- Contains aria-expanded="true|false" indicating state
 
 4. **Accordion Icon**
 
-- Provides a visual cue of the accordion state (collapsed or expanded).
-- Common examples: chevron icons (▼/▲), plus/minus (+/−).
-- Should rotate or change appearance when toggled.
-- Must be visually distinguishable and large enough for touch interaction.
+- Visual cue showing accordion state (collapsed or expanded)
+- Common examples: chevron icons (▼/▲), plus/minus (+/−)
+- Rotates or changes appearance when toggled
+- Visually distinguishable and large enough for touch interaction
 
 5. **Accordion Content Panel**
 
-- The collapsible section that appears when triggered.
-- Should be associated with its header via aria-controls and aria-labelledby.
-- Must use aria-hidden="true|false" to indicate visibility to screen readers.
+- Collapsible section appearing when triggered
+- Associates with header via aria-controls and aria-labelledby
+- Uses aria-hidden="true|false" indicating visibility to screen readers
 
 #### **Summary of Components**
 

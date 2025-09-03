@@ -16,9 +16,9 @@ import { Playground } from "@app/_components/playground";
 
 ## Overview
 
-A **carousel** is a UI component that displays a set of content or images in a rotating or sliding manner. Users can navigate through the content using arrows, dots, or swipe gestures on touch devices.
+A **carousel** displays content or images in a rotating or sliding manner. Users navigate through content with arrows, dots, or swipe gestures on touch devices.
 
-Carousels are often used to showcase featured content, promotions, or image galleries in a limited space.
+Carousels showcase featured content, promotions, or image galleries in limited space.
 
 <BuildEffort
   level="high"
@@ -29,40 +29,40 @@ Carousels are often used to showcase featured content, promotions, or image gall
 
 ### When to use:
 
-Use a carousel when you need to display a **series of related content or images in a limited space** while keeping users engaged.
+Use carousels to display **related content or images in limited space** while keeping users engaged.
 
 **Common use cases include:**
 
-- Showcasing featured products or services (e.g., homepage promotions)
-- Highlighting key messages or storytelling (e.g., step-by-step guides)
-- Displaying a portfolio of work or case studies
-- Presenting testimonials or customer reviews
-- Guiding users through a multi-step process or tutorial
-- Featuring news updates or event announcements
+- Featured products or services need showcasing (homepage promotions)
+- Key messages or storytelling require highlighting (step-by-step guides)
+- Portfolio of work or case studies needs display
+- Testimonials or customer reviews for presentation
+- Multi-step processes or tutorials guide users
+- News updates or event announcements get featured
 
 ### When not to use:
 
-- When the content is critical for users to see or interact with immediately
-- If the content doesn't have a clear relationship or narrative flow
-- When users need to compare items side-by-side or view all options at once
-- If the carousel contains too many items, making navigation cumbersome
-- When the content is complex or requires significant reading time
+- Critical content needs immediate user interaction
+- Content lacks clear relationship or narrative flow
+- Users must compare items side-by-side or view all options at once
+- Too many carousel items make navigation cumbersome
+- Complex content requires significant reading time
 
 ## Benefits
 
-- Maximizes the use of limited screen space for featuring content
-- Helps guide users through a series of related items or messages
-- Can increase engagement and time spent on a page
-- Allows for visual storytelling and brand expression
-- Provides an interactive element for users to explore
+- Maximizes limited screen space for featured content
+- Guides users through related items or messages
+- Increases engagement and page time
+- Enables visual storytelling and brand expression
+- Gives users interactive elements to explore
 
 ## Drawbacks
 
-- **Low engagement rates**, as users often ignore or miss slides.
-- **Performance-heavy**, especially with large images or auto-rotation.
-- **Accessibility issues**, particularly for keyboard and screen reader users.
-- **Not ideal for displaying critical content**, as users may not interact with all slides.
-- **Auto-rotation can be frustrating**, especially if there is no pause control.
+- **Low engagement rates** – users often ignore or miss slides
+- **Performance-heavy** – especially with large images or auto-rotation
+- **Accessibility issues** – particularly for keyboard and screen reader users
+- **Poor for critical content** – users might not interact with all slides
+- **Auto-rotation frustrates** – especially without pause control
 
 ## Anatomy
 
@@ -93,25 +93,25 @@ graph TD
 
 1. **Container**
 
-- Wraps the carousel content and controls
-- Defines the visible area and overall dimensions of the carousel
-- Can have a border, background color, or shadow to visually separate it from other content
+- Wraps carousel content and controls
+- Sets visible area and overall carousel dimensions
+- Has border, background color, or shadow to separate from other content
 
 2. **Content Wrapper**
 
-- Contains the individual carousel slides or items
-- Allows for smooth transitioning between slides
-- Often uses CSS transforms or absolute positioning for slide placement
+- Holds individual carousel slides or items
+- Enables smooth slide transitions
+- Uses CSS transforms or absolute positioning for slide placement
 
 3. **Slides**
 
-- The individual content items displayed within the carousel
-- Can contain images, text, videos, or other interactive elements
-- Should have consistent dimensions and styling for a cohesive appearance
+- Individual content items in the carousel
+- Contains images, text, videos, or interactive elements
+- Needs consistent dimensions and styling for cohesive appearance
 
 4. **Navigation Arrows**
 
-- Allow users to manually advance or go back through the carousel slides
+- Users manually advance or go back through carousel slides
 - Typically placed on the left and right sides of the carousel
 - Should have clear hover and focus states for accessibility
 
