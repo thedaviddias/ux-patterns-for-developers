@@ -127,7 +127,7 @@ graph TD
    - Static text **after the input** (e.g., `.com` for domain fields).
    - Helps users understand **expected input formats**.
 
-#### **Summary of Components**
+#### Summary of Components**
 
 | Component                | Required? | Purpose                                      |
 | ------------------------ | --------- | -------------------------------------------- |
@@ -268,7 +268,7 @@ Optimized for search with specific styling and behavior.
 
 ## Best Practices
 
-### **Content & Usability**
+### Content & Usability
 
 **Do's ✅**
 
@@ -292,9 +292,9 @@ Optimized for search with specific styling and behavior.
 
 ---
 
-### **Required Field Implementation Guidelines**
+### Required Field Implementation Guidelines
 
-#### **1️⃣ Best Practice: Explicit "Required" Label**
+#### 1️⃣ Best Practice: Explicit "Required" Label
 
 ✅ **Most accessible** – clear for all users, including screen readers.
 
@@ -310,7 +310,7 @@ Optimized for search with specific styling and behavior.
 **Cons ❌**
 - Takes slightly more space in the UI.
 
-#### **2️⃣ Alternative: Asterisk (*) with ARIA Explanation**
+#### 2️⃣ Alternative: Asterisk (*) with ARIA Explanation
 
 ✅ **Common practice**, but needs `aria-describedby` for screen reader users.
 
@@ -336,7 +336,7 @@ Optimized for search with specific styling and behavior.
 - **Requires additional explanation** (`aria-describedby`).
 - **Without the extra message, asterisks alone are not accessible**.
 
-#### **3️⃣ Alternative: Required Field with Visually Hidden Text**
+#### 3️⃣ Alternative: Required Field with Visually Hidden Text
 
 ✅ **Keeps UI minimal while ensuring accessibility.**
 
@@ -352,7 +352,7 @@ Optimized for search with specific styling and behavior.
 **Cons ❌**
 - **Not visible for sighted users** who rely on visual cues.
 
-#### **4️⃣ Alternative: Required Field with an Inline Icon + Tooltip**
+#### 4️⃣ Alternative: Required Field with an Inline Icon + Tooltip
 
 ✅ **More user-friendly**, provides additional guidance.
 
@@ -381,7 +381,7 @@ Optimized for search with specific styling and behavior.
 - **Requires CSS for styling** (ensuring asterisks are not the only indicator).
 - Users **might not see tooltip hints** if they don't hover over the icon.
 
-#### **5️⃣ Alternative: Required Field with `required` Attribute Only**
+#### 5️⃣ Alternative: Required Field with `required` Attribute Only
 
 ⚠ **Not recommended as a standalone solution!**
 
@@ -401,7 +401,7 @@ Optimized for search with specific styling and behavior.
 
 ---
 
-### **Accessibility**
+### Accessibility
 
 **Do's ✅**
 
@@ -423,7 +423,7 @@ Optimized for search with specific styling and behavior.
 
 ---
 
-### **Visual Design**
+### Visual Design
 
 **Do's ✅**
 
@@ -442,7 +442,7 @@ Optimized for search with specific styling and behavior.
 
 ---
 
-### **Layout & Positioning**
+### Layout & Positioning
 
 **Do's ✅**
 
@@ -458,9 +458,9 @@ Optimized for search with specific styling and behavior.
 - Don't place validation messages too far from the field.
 - Avoid placing multiple fields **on the same line on mobile**, as this reduces readability.
 
-### **Input Description Placement: Above or Below the Text Field?**
+### Input Description Placement: Above or Below the Text Field?
 
-#### **Best Practice: Place Input Descriptions Below the Field**
+#### Best Practice: Place Input Descriptions Below the Field
 
 In most cases, **input descriptions (helper text, formatting hints, and additional guidance) should be placed below the text field** for **consistency, readability, and accessibility**.
 
@@ -473,7 +473,7 @@ In most cases, **input descriptions (helper text, formatting hints, and addition
 
 ---
 
-#### **📍 When to Place Descriptions Above the Field?**
+#### 📍 When to Place Descriptions Above the Field?
 
 ⚠ **There are some exceptions where placing descriptions above is preferable:**
 
@@ -486,7 +486,7 @@ In most cases, **input descriptions (helper text, formatting hints, and addition
 
 ---
 
-#### **Best Practice: Only Show One at a Time**
+#### Best Practice: Only Show One at a Time
 
 To avoid overwhelming users:
 
@@ -530,7 +530,7 @@ To avoid overwhelming users:
 </script>
 ```
 
-### **Final Recommendation for Input Description Placement**
+### Final Recommendation for Input Description Placement
 
 | **Scenario**                                                   | **Where to Place Helper Text?** | **Why?**                                                      |
 | -------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------- |
@@ -542,9 +542,9 @@ To avoid overwhelming users:
 
 ## Common Mistakes & Anti-Patterns
 
-### Using Placeholder as Primary Label
-
-**❌ What's Wrong?** Relying on placeholder text as the only label makes the field inaccessible when users start typing, and screen readers may not announce it properly.
+### 🚫 Using Placeholder as Primary Label
+**The Problem:**
+Relying on placeholder text as the only label makes the field inaccessible when users start typing, and screen readers may not announce it properly.
 
 ```html
 <!-- Bad: Placeholder as label -->
@@ -561,9 +561,9 @@ To avoid overwhelming users:
 
 ---
 
-### Poor Validation Timing
-
-**❌ What's Wrong?** Showing error messages too early (on first keystroke) or too late (only on form submission) frustrates users.
+### 🚫 Poor Validation Timing
+**The Problem:**
+Showing error messages too early (on first keystroke) or too late (only on form submission) frustrates users.
 
 **How to Fix It?** Use **progressive validation**:
 - Show errors after field loses focus (onBlur) for first-time entry
@@ -582,9 +582,9 @@ function validateField(input, hasBeenBlurred) {
 
 ---
 
-### Missing Error Recovery
-
-**❌ What's Wrong?** Not providing clear guidance on how to fix validation errors leaves users stuck.
+### 🚫 Missing Error Recovery
+**The Problem:**
+Not providing clear guidance on how to fix validation errors leaves users stuck.
 
 **How to Fix It?** Include specific, actionable error messages with examples.
 
@@ -594,16 +594,16 @@ function validateField(input, hasBeenBlurred) {
 
 <!-- Good: Specific guidance -->
 <output class="error">
-  Password must contain at least 8 characters, including 1 number and 1 special character. 
+  Password must contain at least 8 characters, including 1 number and 1 special character.
   Example: MyPass123!
 </output>
 ```
 
 ---
 
-### Inaccessible Focus Management
-
-**❌ What's Wrong?** Poor focus indicators or focus traps make keyboard navigation impossible.
+### 🚫 Inaccessible Focus Management
+**The Problem:**
+Poor focus indicators or focus traps make keyboard navigation impossible.
 
 **How to Fix It?** Ensure visible focus states and logical tab order.
 
@@ -617,7 +617,7 @@ function validateField(input, hasBeenBlurred) {
 
 ## Accessibility
 
-### **Keyboard Interaction Pattern**
+### Keyboard Interaction Pattern
 
 Text fields should support **standard keyboard navigation and interactions** to ensure accessibility and usability.
 
@@ -788,9 +788,9 @@ Target performance metrics for text field components:
 - **Character counter updates**: < 50ms for smooth counting
 - **Memory usage**: < 5KB per text field instance
 
-## **Testing Guidelines**
+## Testing Guidelines
 
-### **Functional Testing**
+### Functional Testing
 
 **Should ✓**
 
@@ -804,7 +804,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Accessibility Testing**
+### Accessibility Testing
 
 **Should ✓**
 
@@ -820,7 +820,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Performance Testing**
+### Performance Testing
 
 **Should ✓**
 
@@ -834,7 +834,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Security Testing**
+### Security Testing
 
 **Should ✓**
 
@@ -845,7 +845,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Mobile & Touch Testing**
+### Mobile & Touch Testing
 
 **Should ✓**
 
@@ -859,7 +859,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Error Handling & Validation Testing**
+### Error Handling & Validation Testing
 
 **Should ✓**
 
@@ -874,7 +874,7 @@ Target performance metrics for text field components:
 
 ---
 
-### **Edge Case Testing**
+### Edge Case Testing**
 
 **Should ✓**
 

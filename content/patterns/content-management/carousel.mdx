@@ -135,7 +135,7 @@ graph TD
 - Can be overlaid on the slide image or placed below the slide
 - Should be concise and not obstruct the main slide content
 
-#### Summary of Components
+### Summary of Components
 
 | Component             | Required? | Purpose                                                 |
 | --------------------- | --------- | ------------------------------------------------------- |
@@ -150,7 +150,7 @@ graph TD
 
 ### Interactive Demo
 
-#### Tabbed Carousel
+### Tabbed Carousel
 
 The Tabbed Carousel provides a clean, tab-style navigation system where users can switch between individual content panels. This pattern is particularly effective when each slide contains detailed information that deserves focused attention.
 
@@ -160,7 +160,7 @@ The Tabbed Carousel provides a clean, tab-style navigation system where users ca
   example="tabbed"
 />
 
-#### Grouped Carousel
+### Grouped Carousel
 
 The Grouped Carousel displays multiple items simultaneously, allowing users to browse through collections of related content. This implementation is ideal for showcasing product collections, image galleries, or any scenario where viewing items in groups enhances the user experience.
 
@@ -290,67 +290,66 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 - Avoid **large DOM structures**—if the carousel contains many slides, use virtualized rendering.
 - Don't use **excessive animations** that could impact performance on lower-powered devices.
 
-### Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns
 
-#### Auto-Play Without Controls
-
-**❌ What’s Wrong?** Users might not have enough time to read or interact with content, and constantly rotating slides can disorient or frustrate them—especially those using assistive technologies.
+### 🚫 Auto-Play Without Controls
+**The Problem:** Users might not have enough time to read or interact with content, and constantly rotating slides can disorient or frustrate them—especially those using assistive technologies.
 
 **How to Fix It?** Always provide **pause/play controls**. Respect `prefers-reduced-motion` by disabling or slowing auto-rotation for users who prefer less animation.
 
 ---
 
-#### No Keyboard or Touch Support
+### 🚫 No Keyboard or Touch Support
 
-**❌ What’s Wrong?** Carousels often exclude users who rely on keyboard navigation or expect swipe gestures on mobile devices.
+**The Problem:** Carousels often exclude users who rely on keyboard navigation or expect swipe gestures on mobile devices.
 
 **How to Fix It?** Ensure you can navigate slides via `Tab` and arrow keys. Add swipe or drag support for mobile. Test thoroughly across various devices and accessibility tools.
 
 ---
 
-#### Hiding Important Content in Later Slides
+### 🚫 Hiding Important Content in Later Slides
 
-**❌ What’s Wrong?** Many users never click past the first slide, missing crucial information if it’s hidden further down the carousel.
+**The Problem:** Many users never click past the first slide, missing crucial information if it’s hidden further down the carousel.
 
 **How to Fix It?** Place the most essential content **in the first slide**. If the content is critical, consider using a static layout or highlight it differently so users don’t need to scroll or click.
 
 ---
 
-#### Lack of Visible Pagination
+### 🚫 Lack of Visible Pagination
 
-**❌ What’s Wrong?** Without pagination dots or numbers, users can’t tell how many slides there are or where they are within the sequence.
+**The Problem:** Without pagination dots or numbers, users can’t tell how many slides there are or where they are within the sequence.
 
 **How to Fix It?** Provide **clear pagination** (e.g., dots, numeric indicators) and label them properly (e.g., `aria-label="Go to slide 2"`).
 
 ---
 
-#### Missing or Incorrect ARIA Labels
+### 🚫 Missing or Incorrect ARIA Labels
 
-**❌ What’s Wrong?** If navigation buttons and slides lack descriptive labels, screen readers can’t convey their function or content.
+**The Problem:** If navigation buttons and slides lack descriptive labels, screen readers can’t convey their function or content.
 
 **How to Fix It?** Use attributes like `aria-label="Next Slide"` on arrows, `role="tabpanel"` for slides, and `aria-roledescription="carousel"` on the container. Include a descriptive `aria-label` (e.g., `"Featured Products Carousel"`) so users know the carousel’s purpose.
 
 ---
 
-#### No Clear Focus Indicator
+### 🚫 No Clear Focus Indicator
 
-**❌ What’s Wrong?** Keyboard users can lose track of where they are if there’s no visible focus outline on controls or slides.
+**The Problem:** Keyboard users can lose track of where they are if there’s no visible focus outline on controls or slides.
 
 **How to Fix It?** Ensure buttons, dots, or slide links have a **high-contrast focus style**. Test with keyboard-only navigation to confirm you never lose focus.
 
 ---
 
-#### Inconsistent Screen Reader Announcements
+### 🚫 Inconsistent Screen Reader Announcements
 
-**❌ What’s Wrong?** If slide changes aren’t announced, users with screen readers won’t realize content has updated.
+**The Problem:** If slide changes aren’t announced, users with screen readers won’t realize content has updated.
 
 **How to Fix It?** Use `aria-live="polite"` regions or update `aria-hidden` states so that each new slide is announced. Label slides accordingly (e.g., `"Slide 2 of 5"`).
 
 ---
 
-#### Overloaded Slide Content
+### 🚫 Overloaded Slide Content
 
-**❌ What’s Wrong?** Placing too many interactive elements or large blocks of text in a single slide can overwhelm keyboard or screen reader users.
+**The Problem:** Placing too many interactive elements or large blocks of text in a single slide can overwhelm keyboard or screen reader users.
 
 **How to Fix It?** Keep each slide **focused and concise**. If extra content is necessary, link to a dedicated page or consider an alternative layout that isn’t a carousel.
 
@@ -930,16 +929,16 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ### Libraries & Frameworks
 
-#### React Components
+### React Components
 - [Swiper React](https://swiperjs.com/react) – Most popular, touch-friendly
 - [React Slick](https://react-slick.neostack.com/) – Feature-rich carousel
 - [Embla Carousel React](https://www.embla-carousel.com/) – Lightweight and performant
 
-#### Vue Components  
+### Vue Components  
 - [Vue Carousel](https://github.com/SSENSE/vue-carousel) – Simple and flexible
 - [Swiper Vue](https://swiperjs.com/vue) – Vue version of Swiper
 
-#### Vanilla JavaScript
+### Vanilla JavaScript
 - [Swiper](https://swiperjs.com/) – Modern mobile touch slider
 - [Glide.js](https://glidejs.com/) – Dependency-free carousel
 - [Splide](https://splidejs.com/) – Lightweight, flexible slider

@@ -13,7 +13,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Instagram',
     link: 'https://www.instagram.com/uxpatternsfordevs',
-    rel: 'me',
+    shortlink: 'https://www.instagram.com/uxpatternsfordevs',
+    rel: 'me' as const,
     icon: (
       <SimpleIconComponent
         icon={siInstagram}
@@ -25,7 +26,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Reddit',
     link: 'https://www.reddit.com/r/UXPatterns/',
     shortlink: 'https://ddias.link/ux-reddit',
-    rel: 'me',
+    rel: 'me' as const,
     icon: (
       <SimpleIconComponent
         icon={siReddit}
@@ -37,7 +38,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'X',
     link: 'https://x.com/thedaviddias',
     shortlink: 'https://x.com/thedaviddias',
-    rel: 'me',
+    rel: 'me' as const,
     icon: (
       <SimpleIconComponent
         icon={siX}
@@ -49,13 +50,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/thedaviddias',
     shortlink: 'https://www.linkedin.com/in/thedaviddias/',
-    rel: 'me',
+    rel: 'me' as const,
   },
   {
     label: 'Github',
     link: 'https://github.com/thedaviddias',
     shortlink: 'https://github.com/thedaviddias',
-    rel: 'me',
+    rel: 'me' as const,
     icon: (
       <SimpleIconComponent
         icon={siGithub}
