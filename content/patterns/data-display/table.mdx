@@ -513,7 +513,7 @@ const debouncedSearch = useMemo(
 
 ## Common Mistakes & Anti-Patterns
 
-#### Rendering All Rows at Once
+### Rendering All Rows at Once
 
 **❌ What's Wrong?** Loading thousands of DOM nodes simultaneously causes severe performance issues, slow scrolling, and can freeze the browser entirely.
 
@@ -521,7 +521,7 @@ const debouncedSearch = useMemo(
 
 ---
 
-#### No Mobile Alternative
+### No Mobile Alternative
 
 **❌ What's Wrong?** Forcing users to horizontally scroll through a desktop table on mobile devices creates a frustrating experience and makes data comparison nearly impossible.
 
@@ -529,7 +529,7 @@ const debouncedSearch = useMemo(
 
 ---
 
-#### Feature Overload
+### Feature Overload
 
 **❌ What's Wrong?** Showing all available features (filters, exports, column toggles) at once overwhelms users and clutters the interface, especially for simple data browsing tasks.
 
@@ -537,7 +537,7 @@ const debouncedSearch = useMemo(
 
 ---
 
-#### Missing Empty States
+### Missing Empty States
 
 **❌ What's Wrong?** Displaying a blank table when no data matches filters or searches leaves users confused about whether something is broken or if they need to take action.
 

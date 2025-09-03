@@ -542,7 +542,7 @@ To avoid overwhelming users:
 
 ## Common Mistakes & Anti-Patterns
 
-#### Using Placeholder as Primary Label
+### Using Placeholder as Primary Label
 
 **❌ What's Wrong?** Relying on placeholder text as the only label makes the field inaccessible when users start typing, and screen readers may not announce it properly.
 
@@ -561,7 +561,7 @@ To avoid overwhelming users:
 
 ---
 
-#### Poor Validation Timing
+### Poor Validation Timing
 
 **❌ What's Wrong?** Showing error messages too early (on first keystroke) or too late (only on form submission) frustrates users.
 
@@ -582,7 +582,7 @@ function validateField(input, hasBeenBlurred) {
 
 ---
 
-#### Missing Error Recovery
+### Missing Error Recovery
 
 **❌ What's Wrong?** Not providing clear guidance on how to fix validation errors leaves users stuck.
 
@@ -601,7 +601,7 @@ function validateField(input, hasBeenBlurred) {
 
 ---
 
-#### Inaccessible Focus Management
+### Inaccessible Focus Management
 
 **❌ What's Wrong?** Poor focus indicators or focus traps make keyboard navigation impossible.
 

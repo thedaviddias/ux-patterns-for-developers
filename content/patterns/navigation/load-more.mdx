@@ -208,7 +208,7 @@ Shows placeholder content while real content loads.
 
 ## Common Mistakes & Anti-Patterns
 
-#### No Visual Feedback After Clicking "Load More"
+### No Visual Feedback After Clicking "Load More"
 
 **❌ What's Wrong?**
 
@@ -219,7 +219,7 @@ Add a **spinner or loading animation** and consider disabling the button until n
 
 ---
 
-#### Loading Too Many Items at Once
+### Loading Too Many Items at Once
 
 **❌ What's Wrong?**
 
@@ -230,7 +230,7 @@ Load **smaller chunks** (10–20 items per click). Use incremental updates inste
 
 ---
 
-#### Forcing Users to Click "Load More" Too Often
+### Forcing Users to Click "Load More" Too Often
 
 **❌ What's Wrong?**
 
@@ -241,7 +241,7 @@ Try **auto-loading on scroll** after a few manual loads, or increase batch size 
 
 ---
 
-#### No Clear End of Content Indicator
+### No Clear End of Content Indicator
 
 **❌ What's Wrong?**
 
@@ -252,7 +252,7 @@ Show a "You've reached the end" message or hide the button entirely when no more
 
 ---
 
-#### Not Accessible via Keyboard (Accessibility)
+### Not Accessible via Keyboard (Accessibility)
 
 **❌ What's Wrong?**
 
@@ -263,7 +263,7 @@ Use a proper, focusable element like `<button>`. Check that `Tab` focuses it and
 
 ---
 
-#### No ARIA Updates for New Content (Accessibility)
+### No ARIA Updates for New Content (Accessibility)
 
 **❌ What's Wrong?**
 
@@ -274,7 +274,7 @@ Wrap your list with `role="region"` or use `aria-live="polite"`. Update the live
 
 ---
 
-#### Insufficient Visual Contrast or Feedback (Accessibility)
+### Insufficient Visual Contrast or Feedback (Accessibility)
 
 **❌ What's Wrong?**
 
