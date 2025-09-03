@@ -146,6 +146,49 @@ graph TD
 | Pagination Indicators | ❌ No     | Shows the current position within the carousel.         |
 | Autoplay Controls     | ❌ No     | Allows users to start/stop automatic slide transitions. |
 
+## Examples
+
+### Interactive Demo
+
+#### Tabbed Carousel
+
+The Tabbed Carousel provides a clean, tab-style navigation system where users can switch between individual content panels. This pattern is particularly effective when each slide contains detailed information that deserves focused attention.
+
+<Playground
+  patternType="content-management"
+  pattern="carousel"
+  example="tabbed"
+/>
+
+#### Grouped Carousel
+
+The Grouped Carousel displays multiple items simultaneously, allowing users to browse through collections of related content. This implementation is ideal for showcasing product collections, image galleries, or any scenario where viewing items in groups enhances the user experience.
+
+<Playground
+  patternType="content-management"
+  pattern="carousel"
+  example="grouped"
+/>
+
+### Basic Implementation
+
+```html
+<div class="carousel">
+  <div class="carousel__track">
+    <div class="carousel__slide" data-slide="1">Slide 1</div>
+    <div class="carousel__slide" data-slide="2">Slide 2</div>
+    <div class="carousel__slide" data-slide="3">Slide 3</div>
+  </div>
+  <button class="carousel__nav carousel__nav--prev" aria-label="Previous slide">❮</button>
+  <button class="carousel__nav carousel__nav--next" aria-label="Next slide">❯</button>
+  <div class="carousel__indicators">
+    <button class="carousel__dot" aria-label="Go to slide 1"></button>
+    <button class="carousel__dot" aria-label="Go to slide 2"></button>
+    <button class="carousel__dot" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+```
+
 ## Best Practices
 
 ### Content
@@ -445,30 +488,6 @@ Note that for right-to-left (RTL) languages, you may need to adjust the directio
   }
 }
 ```
-
-## Code Examples
-
-### Basic Implementation
-
-#### Tabbed Carousel
-
-The Tabbed Carousel provides a clean, tab-style navigation system where users can switch between individual content panels. This pattern is particularly effective when each slide contains detailed information that deserves focused attention.
-
-<Playground
-  patternType="content-management"
-  pattern="carousel"
-  example="tabbed"
-/>
-
-#### Grouped Carousel
-
-The Grouped Carousel displays multiple items simultaneously, allowing users to browse through collections of related content. This implementation is ideal for showcasing product collections, image galleries, or any scenario where viewing items in groups enhances the user experience.
-
-<Playground
-  patternType="content-management"
-  pattern="carousel"
-  example="grouped"
-/>
 
 ## Accessibility
 
@@ -862,21 +881,6 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
-## Component Library Examples
-
-### React Components
-- **[Swiper React](https://swiperjs.com/react)** – Most popular, touch-friendly
-- **[React Slick](https://react-slick.neostack.com/)** – Feature-rich carousel
-- **[Embla Carousel React](https://www.embla-carousel.com/)** – Lightweight and performant
-
-### Vue Components  
-- **[Vue Carousel](https://github.com/SSENSE/vue-carousel)** – Simple and flexible
-- **[Swiper Vue](https://swiperjs.com/vue)** – Vue version of Swiper
-
-### Vanilla JavaScript
-- **[Swiper](https://swiperjs.com/)** – Modern mobile touch slider
-- **[Glide.js](https://glidejs.com/)** – Dependency-free carousel
-- **[Splide](https://splidejs.com/)** – Lightweight, flexible slider
 
 ## Frequently Asked Questions
 
@@ -923,6 +927,22 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 />
 
 ## Resources
+
+### Libraries & Frameworks
+
+#### React Components
+- [Swiper React](https://swiperjs.com/react) – Most popular, touch-friendly
+- [React Slick](https://react-slick.neostack.com/) – Feature-rich carousel
+- [Embla Carousel React](https://www.embla-carousel.com/) – Lightweight and performant
+
+#### Vue Components  
+- [Vue Carousel](https://github.com/SSENSE/vue-carousel) – Simple and flexible
+- [Swiper Vue](https://swiperjs.com/vue) – Vue version of Swiper
+
+#### Vanilla JavaScript
+- [Swiper](https://swiperjs.com/) – Modern mobile touch slider
+- [Glide.js](https://glidejs.com/) – Dependency-free carousel
+- [Splide](https://splidejs.com/) – Lightweight, flexible slider
 
 ### Articles
 

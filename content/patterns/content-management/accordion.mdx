@@ -118,6 +118,203 @@ graph TD
 | Icon          | ✅ Yes    | Indicates open/closed state (e.g., chevron).     |
 | Content Panel | ✅ Yes    | Holds the content that expands/collapses.        |
 
+## Examples
+
+### **Method 1: Using `<button>` and aria-expanded (ARIA Approach and Recommended)**
+
+```html
+<section class="accordion">
+  <h2 class="accordion-title">Frequently Asked Questions</h2>
+
+  <div class="accordion-item">
+    <h3 id="accordion1-heading">What is an accordion?</h3>
+    <button
+      class="accordion-trigger"
+      aria-expanded="false"
+      aria-controls="panel1"
+      aria-labelledby="accordion1-heading"
+    >
+      <span class="accordion-icon" aria-hidden="true">▼</span>
+    </button>
+    <section
+      id="panel1"
+      role="region"
+      aria-labelledby="accordion1-heading"
+      class="accordion-content"
+      hidden
+    >
+      <p>
+        An accordion is a UI pattern that expands and collapses content
+        sections.
+      </p>
+    </section>
+  </div>
+
+  <div class="accordion-item">
+    <h3 id="accordion2heading">When should I use an accordion?</h3>
+    <button
+      class="accordion-trigger"
+      aria-expanded="false"
+      aria-controls="panel2"
+      aria-labelledby="accordion2-heading"
+    >
+      <span class="accordion-icon" aria-hidden="true">▼</span>
+    </button>
+    <section
+      id="panel2"
+      role="region"
+      aria-labelledby="accordion2-heading"
+      class="accordion-content"
+      hidden
+    >
+      <p>
+        Use an accordion when you want to organize content into collapsible
+        sections.
+      </p>
+    </section>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".accordion-trigger").forEach((button) => {
+    button.addEventListener("click", function () {
+      const expanded = this.getAttribute("aria-expanded") === "true";
+      this.setAttribute("aria-expanded", !expanded);
+      this.nextElementSibling.hidden = expanded;
+
+      // Toggle icon direction
+      const icon = this.querySelector(".accordion-icon");
+      icon.textContent = expanded ? "▼" : "▲";
+    });
+  });
+</script>
+
+<style>
+  .accordion {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 600px;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .accordion-content {
+    padding: 1rem;
+    display: none;
+  }
+
+  .accordion-trigger[aria-expanded="true"] + .accordion-content {
+    display: block;
+  }
+
+  .accordion-icon {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .accordion-trigger[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+  }
+</style>
+```
+
+**Pros ✅**
+
+- Full styling flexibility—no browser-imposed limitations.
+- Explicit aria-expanded handling—better screen reader support.
+- More customization options—e.g., "only one section open at a time" behavior.
+
+**Cons ❌**
+
+- Requires JavaScript to toggle states.
+- More implementation complexity compared to `<details>`.
+
+### **Method 2: Using `<details>` and `<summary>` (Native Approach)**
+
+This approach leverages **native browser behavior** without requiring JavaScript.
+
+```html
+<section class="accordion">
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary id="accordion1">What is an accordion?</summary>
+    <div id="panel1">
+      <p>
+        An accordion is a UI component that allows users to expand and collapse
+        sections of content.
+      </p>
+    </div>
+  </details>
+
+  <details>
+    <summary id="accordion2">How does it improve user experience?</summary>
+    <div id="panel2">
+      <p>
+        Accordions help reduce clutter and make information easier to digest,
+        enhancing the overall user experience.
+      </p>
+    </div>
+  </details>
+</section>
+
+<style>
+  details {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+  }
+
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  details[open] summary {
+    color: #007acc;
+  }
+</style>
+```
+
+**Pros ✅**
+
+- No JavaScript required—fully functional with just HTML & CSS.
+- Keyboard accessible by default—users can navigate with Tab and toggle with Enter.
+- Simpler implementation with native support.
+
+**Cons ❌**
+
+- Limited styling control—some browsers restrict `<summary>` styling.
+- No aria-expanded state by default—some screen readers may not properly announce expansion.
+- All items can be expanded at once—doesn't support "only one section open" behavior.
+
+### When to use a tabbed carousel vs grouped carousel?
+
+Use the **decision tree** below to determine the right method:
+
+```mermaid
+graph TD
+  A[Do you need full control over styling and behavior?] -->|Yes| B[Use Button + ARIA Accordion]
+  A -->|No| C[Do you want a native solution with minimal code?]
+  C -->|Yes| D[Use Native <details> Accordion]
+  C -->|No| B[Use Button + ARIA Accordion]
+```
+
 ## Best Practices
 
 ### Content & Usability
@@ -281,7 +478,7 @@ By analyzing tracking data, we can optimize the accordion experience:
 
 By continuously monitoring these metrics, we can refine accordion usability, ensuring users efficiently access necessary information while avoiding unnecessary interactions.
 
-## Code Example
+## Accessibility
 
 ### **Method 1: Using `<button>` and aria-expanded (ARIA Approach and Recommended)**
 

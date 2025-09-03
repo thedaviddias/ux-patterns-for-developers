@@ -33,7 +33,7 @@ body {
 
 /* Alternative: Constrain the main content wrapper */
 .nextra-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -44,7 +44,6 @@ body {
 
 /* More specific targeting for Nextra's layout */
 .nextra-main {
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -67,20 +66,29 @@ body {
 
 /* For the main layout wrapper */
 .nextra-layout {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 /* Homepage width constraints (even with layout: 'full') */
 .nextra-layout .nextra-content {
-  max-width: 1200px;
   margin: 0 auto;
 }
 
 /* Ensure homepage content is constrained */
 .nextra-layout .nextra-main {
-  max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Pattern pages with TOC - increase content width */
+.nextra-toc ~ * .nextra-content,
+.nextra-toc-container ~ * .nextra-content {
+  max-width: 1400px;
+}
+
+/* When TOC is present, give main content more space */
+nav.nextra-toc:not([style*="display: none"]) ~ main .nextra-content {
+  max-width: none;
 }
 
 .nextra-mobile-nav {
@@ -131,28 +139,22 @@ body {
   max-width: 100%;
 }
 
-/* Remove TOC space completely on internal pages */
-nav.nextra-toc {
-  display: none;
-  width: 0;
-  max-width: 0;
+/* Hide H3 and deeper headings in TOC - show only H2 */
+.nextra-toc li[data-depth="3"],
+.nextra-toc li[data-depth="4"],
+.nextra-toc li[data-depth="5"],
+.nextra-toc li[data-depth="6"] {
+  display: none !important;
 }
 
-/* Remove TOC container space */
-.nextra-toc-container {
-  display: none;
-  width: 0;
-  max-width: 0;
+/* Alternative approach - hide nested ul elements in TOC */
+.nextra-toc ul ul {
+  display: none !important;
 }
 
-/* More comprehensive TOC removal */
-.nextra-toc,
-nav.nextra-toc,
-[class*="nextra-toc"],
-.x\:order-last.x\:max-xl\:hidden.x\:w-64.x\:shrink-0.x\:print\:hidden {
-  display: none;
-  width: 0;
-  max-width: 0;
-  position: absolute;
-  left: -9999px;
+/* Hide indented items that represent H3+ */
+.nextra-toc a[class*="ps-4"],
+.nextra-toc a[class*="ps-6"],
+.nextra-toc a[class*="ps-8"] {
+  display: none !important;
 }

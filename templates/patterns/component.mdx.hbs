@@ -164,20 +164,6 @@ end
 - Avoid fixed positioning that breaks on mobile
 - Don't assume desktop-only usage
 
-### Common Mistakes & Anti-Patterns
-
-#### ❌ **Missing Loading States**
-**What's Wrong?** No feedback during async operations leaves users confused.
-**How to Fix It?** Always show loading indicators for operations taking >500ms.
-
-#### ❌ **Poor Error Handling**
-**What's Wrong?** Generic error messages don't help users recover.
-**How to Fix It?** Provide specific, actionable error messages with recovery options.
-
-#### ❌ **Ignoring Edge Cases**
-**What's Wrong?** Pattern breaks with empty states or extreme data.
-**How to Fix It?** Test with no data, single item, and maximum data scenarios.
-
 <!-- 
   OPTIONAL SECTION (for patterns with variants)
   Different variations or types of the pattern
@@ -195,9 +181,13 @@ How the pattern changes based on context
 
 <!-- 
   REQUIRED SECTION
-  Interactive examples for developers
+  Examples combining interactive demos and implementation code
+  Place interactive Playground demos first for visual patterns,
+  followed by static code examples for implementation reference
 -->
-## Interactive Example
+## Examples
+
+### Interactive Demo
 
 <Playground
   patternType="{{category}}"
@@ -205,13 +195,45 @@ How the pattern changes based on context
   example="basic"
 />
 
-### Advanced Implementation
+### Advanced Demo
 
 <Playground
   patternType="{{category}}"
   pattern="{{name-lowercase}}"
   example="advanced"
 />
+
+### Basic Implementation
+
+```html
+<!-- Basic HTML structure for the {{name}} pattern -->
+<div class="{{name-lowercase}}">
+  <!-- Component markup here -->
+</div>
+```
+
+## Common Mistakes & Anti-Patterns
+
+### 🚫 **Missing Loading States**
+**The Problem:**
+No feedback during async operations leaves users confused.
+
+**How to Fix It?**
+Always show loading indicators for operations taking >500ms.
+
+### 🚫 **Poor Error Handling**
+**The Problem:**
+Generic error messages don't help users recover.
+
+**How to Fix It?**
+Provide specific, actionable error messages with recovery options.
+
+### 🚫 **Ignoring Edge Cases**
+**The Problem:**
+Pattern breaks with empty states or extreme data.
+
+**How to Fix It?**
+Test with no data, single item, and maximum data scenarios.
 
 <!-- 
   RECOMMENDED SECTION
@@ -491,33 +513,6 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 <!-- 
   RECOMMENDED SECTION
-  Component library implementations
--->
-## Component Library Examples
-
-### React Components
-
-- **[Library Name](https://example.com)** – Brief description of strengths
-- **[Another Library](https://example.com)** – What makes it unique
-- **[Third Option](https://example.com)** – Best use case
-
-### Vue Components
-
-- **[Vue Library](https://example.com)** – Key features
-- **[Alternative](https://example.com)** – When to use
-
-### Vanilla JavaScript
-
-- **[Pure JS Library](https://example.com)** – No framework needed
-- **[Lightweight Option](https://example.com)** – Minimal dependencies
-
-### Web Components
-
-- **[Custom Elements](https://example.com)** – Framework agnostic
-- **[Shadow DOM Implementation](https://example.com)** – Encapsulated styling
-
-<!-- 
-  RECOMMENDED SECTION
   Common questions and answers
 -->
 ## Frequently Asked Questions
@@ -557,6 +552,20 @@ Consider these related patterns when implementing {{name}}:
 -->
 ## Resources
 
+### Libraries & Frameworks
+
+#### React Components
+- [Library Name](https://example.com) – Brief description of strengths
+- [Another Library](https://example.com) – What makes it unique
+
+#### Vue Components
+- [Vue Library](https://example.com) – Key features
+- [Alternative](https://example.com) – When to use
+
+#### Vanilla JavaScript
+- [Pure JS Library](https://example.com) – No framework needed
+- [Lightweight Option](https://example.com) – Minimal dependencies
+
 ### Articles
 - [Best Practices for {{name}}](https://example.com) - Comprehensive guide
 - [{{name}} Performance Optimization](https://example.com) - Advanced techniques
@@ -564,9 +573,6 @@ Consider these related patterns when implementing {{name}}:
 ### Documentation
 - [MDN Web Docs](https://developer.mozilla.org) - Web standards reference
 - [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) - Accessibility standards
-
-### Libraries
-- [Popular {{name}} Library](https://github.com) - Well-maintained implementation
 - [Lightweight Alternative](https://github.com) - Minimal dependencies
 
 ### Tools

@@ -294,6 +294,42 @@ end
 
 Each variation can be combined with different visual styles (primary, secondary, outline, ghost) and sizes (small, medium, large) to create the full range of possible button components.
 
+## Examples
+
+### Basic Implementation
+
+```html
+<!-- Small Button -->
+<button type="button" class="button-sm">Small</button>
+
+<!-- Default Size Button -->
+<button type="button">Default</button>
+
+<!-- Large Button -->
+<button type="button" class="button-lg">Large</button>
+
+<!-- Icon-only Button -->
+<button type="button" aria-label="Settings">
+  <svg aria-hidden="true">
+    <use href="#icon-settings" />
+  </svg>
+</button>
+```
+
+### Form Submit Button
+
+```html
+<form>
+  <!-- Form fields here -->
+  <button type="submit" class="button button-primary" data-loading="false">
+    <span class="button-text">Submit Form</span>
+    <svg class="icon spinner hidden" aria-hidden="true">
+      <use href="#icon-loading" />
+    </svg>
+  </button>
+</form>
+```
+
 ## Best Practices
 
 ### Content
@@ -388,42 +424,6 @@ Each variation can be combined with different visual styles (primary, secondary,
 - Don't position buttons where they might be accidentally clicked
 - Don't hide important actions behind dropdown menus
 - Don't place buttons in unexpected locations (e.g., footer)
-
-## Code Examples
-
-### Basic Implementation
-
-```html
-<!-- Small Button -->
-<button type="button" class="button-sm">Small</button>
-
-<!-- Default Size Button -->
-<button type="button">Default</button>
-
-<!-- Large Button -->
-<button type="button" class="button-lg">Large</button>
-
-<!-- Icon-only Button -->
-<button type="button" aria-label="Settings">
-  <svg aria-hidden="true">
-    <use href="#icon-settings" />
-  </svg>
-</button>
-```
-
-### Form Submit Button
-
-```html
-<form>
-  <!-- Form fields here -->
-  <button type="submit" class="button button-primary" data-loading="false">
-    <span class="button-text">Submit Form</span>
-    <svg class="icon spinner hidden" aria-hidden="true">
-      <use href="#icon-loading" />
-    </svg>
-  </button>
-</form>
-```
 
 ## Accessibility
 

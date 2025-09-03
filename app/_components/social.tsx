@@ -1,4 +1,4 @@
-import { siGithub, siReddit, siX } from 'simple-icons';
+import { siGithub, siInstagram, siReddit, siX } from 'simple-icons';
 import { SimpleIconComponent } from './browser-support';
 
 interface SocialLink {
@@ -10,6 +10,17 @@ interface SocialLink {
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
+  {
+    label: 'Instagram',
+    link: 'https://www.instagram.com/uxpatternsfordevs',
+    rel: 'me',
+    icon: (
+      <SimpleIconComponent
+        icon={siInstagram}
+        className="w-10 h-10 p-1.5 border rounded-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-200 dark:border-gray-700"
+      />
+    ),
+  },
   {
     label: 'Reddit',
     link: 'https://www.reddit.com/r/UXPatterns/',

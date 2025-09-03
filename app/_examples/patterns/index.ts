@@ -3,6 +3,7 @@ import { tabbedCarouselExample } from './content-management/carousel/tabbed';
 import { basicExpandableTextExample } from './content-management/expandable-text/basic';
 import { basicModalExample } from './content-management/modal/basic';
 import { nativeModalExample } from './content-management/modal/native';
+import { basicTooltipExample } from './content-management/tooltip/basic';
 import { basicTableExample } from './data-display/table/basic';
 import { filterableTableExample } from './data-display/table/filterable';
 import { paginatedTableExample } from './data-display/table/paginated';
@@ -32,6 +33,9 @@ export const examples = {
     modal: {
       basic: basicModalExample,
       native: nativeModalExample,
+    },
+    tooltip: {
+      basic: basicTooltipExample,
     },
   },
   'data-display': {

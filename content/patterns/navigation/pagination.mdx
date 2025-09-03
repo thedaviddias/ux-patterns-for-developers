@@ -177,6 +177,74 @@ Combines page numbers with a dropdown to jump to any page.
 
 **When to use:** Large datasets where users need both sequential and random access
 
+## Examples
+
+### Basic Pagination
+
+<Playground patternType="navigation" pattern="pagination" example="basic" height="400px" />
+
+This example demonstrates:
+- Page number navigation with Previous/Next buttons
+- Current page highlighting
+- Disabled states for first/last pages
+- Keyboard navigation support
+- ARIA labels for accessibility
+- Responsive design for mobile
+- Smooth transitions between pages
+
+### Basic Implementation
+
+```html
+<!-- Pagination Container -->
+<nav class="pagination" aria-label="Pagination Navigation">
+  <!-- Previous Button -->
+  <button
+    type="button"
+    class="pagination-prev"
+    aria-label="Previous page"
+    disabled
+  >
+    Previous
+  </button>
+
+  <!-- Pagination Items -->
+  <ul class="pagination-list">
+    <li>
+      <button
+        type="button"
+        class="pagination-item"
+        aria-label="Page 1"
+        aria-current="true"
+      >
+        1
+      </button>
+    </li>
+    <li>
+      <button type="button" class="pagination-item" aria-label="Page 2">
+        2
+      </button>
+    </li>
+    <li>
+      <button type="button" class="pagination-item" aria-label="Page 3">
+        3
+      </button>
+    </li>
+    <!-- Ellipsis for additional pages, if needed -->
+    <li><span class="pagination-ellipsis">…</span></li>
+    <li>
+      <button type="button" class="pagination-item" aria-label="Page 10">
+        10
+      </button>
+    </li>
+  </ul>
+
+  <!-- Next Button -->
+  <button type="button" class="pagination-next" aria-label="Next page">
+    Next
+  </button>
+</nav>
+```
+
 ## Best Practices
 
 ### Content
@@ -252,94 +320,6 @@ Combines page numbers with a dropdown to jump to any page.
 - Skip fixed positioning that blocks content on small screens
 - Preserve browser history functionality with custom pagination
 
-### Common Mistakes & Anti-Patterns
-
-#### Too Many Pages (No Page Limiting)
-
-**❌ What's Wrong?**
-
-**Dozens of pages** overwhelm users and make finding relevant content hard.
-
-**How to Fix It?**
-Try **"Load More"** or **infinite scroll** for continuous exploration content. When pagination is necessary, cap total pages or add filters to reduce results.
-
----
-
-#### Hiding Pagination Controls on Mobile
-
-**❌ What's Wrong?**
-
-Removing pagination on small screens forces mobile users into endless scrolling or guessing navigation to deeper pages.
-
-**How to Fix It?**
-Add a **compact pagination menu** (next/previous buttons or limited page links) so mobile users still control navigation.
-
----
-
-#### Not Remembering the Last Page
-
-**❌ What's Wrong?**
-
-When users navigate away and come back, they lose track of which page they were on, leading to frustration and repetitive browsing.
-
-**How to Fix It?**
-Store pagination state in the **URL (e.g., `?page=2`)** or in session/local storage. When users return, restore them to the same page.
-
----
-
-#### Inconsistent Page Numbers (Jumping Pages)
-
-**❌ What's Wrong?**
-
-Some pagination systems remove or rearrange pages based on dynamic data, confusing users who rely on consistent numbering.
-
-**How to Fix It?**
-Maintain a **stable page structure**—if new items appear, consider adding them at the end or updating page counts without shifting existing page numbers unexpectedly.
-
----
-
-#### No Keyboard Accessibility (Accessibility)
-
-**❌ What's Wrong?**
-
-If pagination links or buttons aren't keyboard-focusable, users relying on the keyboard can't move between pages effectively.
-
-**How to Fix It?**
-Use proper interactive elements (`<button>`, `<a href>`). Confirm `Tab` navigation works for each link or control, and that pressing `Enter` or `Space` actually triggers page changes.
-
----
-
-#### Poorly Labeled Page Links (Accessibility)
-
-**❌ What's Wrong?**
-
-Screen readers can't convey page numbers or next/previous actions if the links have generic text like "..." or "Page."
-
-**How to Fix It?**
-Add `aria-label` attributes (e.g., `aria-label="Go to page 2"`) or text that clearly states each page's purpose. For "Next" and "Previous," label them explicitly (e.g., `aria-label="Go to next page"`).
-
----
-
-#### No Visible Focus Indicator (Accessibility)
-
-**❌ What's Wrong?**
-
-Users can't see where their keyboard focus is if the pagination links have no visible outline or highlight.
-
-**How to Fix It?**
-Include a **high-contrast focus style** (outline, underline, etc.) so it's obvious which page or button is selected or about to be selected.
-
----
-
-#### Unclear Feedback After Page Selection (Accessibility)
-
-**❌ What's Wrong?**
-
-When users click a pagination link, especially if the new page loads asynchronously, they might not realize the content has updated.
-
-**How to Fix It?**
-Use an **ARIA live region** or a brief status announcement (e.g., "Page 2 loaded") so screen reader users (and everyone else) know new content has appeared.
-
 ## Common Mistakes & Anti-Patterns
 
 ### 🚫 **No Indication of Total Pages**
@@ -383,21 +363,6 @@ Desktop pagination with many page numbers fails on mobile.
 
 **How to Fix It:**
 Apply responsive design showing fewer page numbers on smaller screens.
-
-## Examples
-
-### Basic Pagination
-
-<Playground patternType="navigation" pattern="pagination" example="basic" height="400px" />
-
-This example demonstrates:
-- Page number navigation with Previous/Next buttons
-- Current page highlighting
-- Disabled states for first/last pages
-- Keyboard navigation support
-- ARIA labels for accessibility
-- Responsive design for mobile
-- Smooth transitions between pages
 
 ## Micro-Interactions & Animations
 
@@ -528,61 +493,6 @@ Continuous monitoring of these metrics refines pagination usability, helping use
 }
 ```
 
-## Code Examples
-
-### Basic Implementation
-
-```html
-<!-- Pagination Container -->
-<nav class="pagination" aria-label="Pagination Navigation">
-  <!-- Previous Button -->
-  <button
-    type="button"
-    class="pagination-prev"
-    aria-label="Previous page"
-    disabled
-  >
-    Previous
-  </button>
-
-  <!-- Pagination Items -->
-  <ul class="pagination-list">
-    <li>
-      <button
-        type="button"
-        class="pagination-item"
-        aria-label="Page 1"
-        aria-current="true"
-      >
-        1
-      </button>
-    </li>
-    <li>
-      <button type="button" class="pagination-item" aria-label="Page 2">
-        2
-      </button>
-    </li>
-    <li>
-      <button type="button" class="pagination-item" aria-label="Page 3">
-        3
-      </button>
-    </li>
-    <!-- Ellipsis for additional pages, if needed -->
-    <li><span class="pagination-ellipsis">…</span></li>
-    <li>
-      <button type="button" class="pagination-item" aria-label="Page 10">
-        10
-      </button>
-    </li>
-  </ul>
-
-  <!-- Next Button -->
-  <button type="button" class="pagination-next" aria-label="Next page">
-    Next
-  </button>
-</nav>
-```
-
 ## Accessibility
 
 ### ARIA Attributes
@@ -707,21 +617,6 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
-## Component Library Examples
-
-### React Components
-- **[React Paginate](https://github.com/AdeleD/react-paginate)** – A ReactJS component to render a pagination
-- **[RC Pagination](https://github.com/react-component/pagination)** – React pagination component
-- **[Ant Design Pagination](https://ant.design/components/pagination)** – Enterprise-class pagination component
-
-### Vue Components
-- **[Vue Pagination 2](https://github.com/matfish2/vue-pagination-2)** – Vue.js 2 pagination component
-- **[Vuetify Pagination](https://vuetifyjs.com/en/components/paginations/)** – Material Design pagination component
-
-### Vanilla JavaScript
-- **[Pagination.js](http://pagination.js.org/)** – A jQuery plugin for pagination
-- **[SimplePagination.js](https://flaviusmatis.github.io/simplePagination.js/)** – Simple and lightweight pagination plugin
-
 ## FAQ
 
 <FaqStructuredData
@@ -765,6 +660,21 @@ Consider these related patterns when implementing **Pagination**:
 
 ## Resources
 
+### Libraries & Frameworks
+
+#### React Components
+- [React Paginate](https://github.com/AdeleD/react-paginate) – A ReactJS component to render a pagination
+- [RC Pagination](https://github.com/react-component/pagination) – React pagination component
+- [Ant Design Pagination](https://ant.design/components/pagination) – Enterprise-class pagination component
+
+#### Vue Components
+- [Vue Pagination 2](https://github.com/matfish2/vue-pagination-2) – Vue.js 2 pagination component
+- [Vuetify Pagination](https://vuetifyjs.com/en/components/paginations/) – Material Design pagination component
+
+#### Vanilla JavaScript
+- [Pagination.js](http://pagination.js.org/) – A jQuery plugin for pagination
+- [SimplePagination.js](https://flaviusmatis.github.io/simplePagination.js) – Simple and lightweight pagination plugin
+
 ### Articles
 
 - [Pagination Design Pattern](https://www.nngroup.com/articles/pagination/)
@@ -776,8 +686,3 @@ Consider these related patterns when implementing **Pagination**:
 - [React Pagination Tutorial](https://www.digitalocean.com/community/tutorials/how-to-build-custom-pagination-with-react)
 - [Vue.js Pagination Component](https://vuejs.org/examples/#grid-component)
 - [Accessible Pagination with ARIA](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
-
-### Libraries
-
-- [Pagination - shadcn/ui](https://ui.shadcn.com/docs/components/pagination)
-- [Pagination - Origin UI](https://originui.com/pagination)
