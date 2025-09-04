@@ -72,6 +72,7 @@
     "@tailwindcss/postcss": "4.1.12",
     "@types/node": "22.13.1",
     "@types/react": "19.0.8",
+    "@thedaviddias/config-typescript": "workspace:*",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "lefthook": "^1.12.3",
