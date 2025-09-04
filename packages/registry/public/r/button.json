@@ -1,17 +1,17 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "button",
-  "type": "registry:ui",
-  "dependencies": [],
-  "registryDependencies": [],
-  "files": [
-    {
-      "path": "registry/default/ui/button.tsx",
-      "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"../lib/utils\";\n\nconst buttonVariants = cva(\n\t\"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-primary text-primary-foreground shadow hover:bg-primary/90\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90\",\n\t\t\t\toutline:\n\t\t\t\t\t\"border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground\",\n\t\t\t\tsecondary:\n\t\t\t\t\t\"bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80\",\n\t\t\t\tghost: \"hover:bg-accent hover:text-accent-foreground\",\n\t\t\t\tlink: \"text-primary underline-offset-4 hover:underline\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tdefault: \"h-9 px-4 py-2\",\n\t\t\t\tsm: \"h-8 px-3 text-xs\",\n\t\t\t\tlg: \"h-10 px-8\",\n\t\t\t\ticon: \"h-9 w-9\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"default\",\n\t\t},\n\t}\n);\n\nexport interface ButtonProps\n\textends React.ButtonHTMLAttributes<HTMLButtonElement>,\n\t\tVariantProps<typeof buttonVariants> {\n\tasChild?: boolean;\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n\t({ className, variant, size, asChild = false, ...props }, ref) => {\n\t\tconst Comp = asChild ? \"span\" : \"button\";\n\n\t\treturn (\n\t\t\t<Comp\n\t\t\t\tclassName={cn(buttonVariants({ variant, size, className }))}\n\t\t\t\tref={ref}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t);\n\t},\n);\nButton.displayName = \"Button\";\n\nexport { Button, buttonVariants };",
-      "type": "registry:ui"
-    }
-  ],
-  "meta": {
-    "tags": []
-  }
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "button",
+	"type": "registry:ui",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "registry/default/ui/button.tsx",
+			"content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"../lib/utils\";\n\nconst buttonVariants = cva(\n\t\"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-primary text-primary-foreground shadow hover:bg-primary/90\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90\",\n\t\t\t\toutline:\n\t\t\t\t\t\"border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground\",\n\t\t\t\tsecondary:\n\t\t\t\t\t\"bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80\",\n\t\t\t\tghost: \"hover:bg-accent hover:text-accent-foreground\",\n\t\t\t\tlink: \"text-primary underline-offset-4 hover:underline\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tdefault: \"h-9 px-4 py-2\",\n\t\t\t\tsm: \"h-8 px-3 text-xs\",\n\t\t\t\tlg: \"h-10 px-8\",\n\t\t\t\ticon: \"h-9 w-9\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"default\",\n\t\t},\n\t}\n);\n\nexport interface ButtonProps\n\textends React.ButtonHTMLAttributes<HTMLButtonElement>,\n\t\tVariantProps<typeof buttonVariants> {\n\tasChild?: boolean;\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n\t({ className, variant, size, asChild = false, ...props }, ref) => {\n\t\tconst Comp = asChild ? \"span\" : \"button\";\n\n\t\treturn (\n\t\t\t<Comp\n\t\t\t\tclassName={cn(buttonVariants({ variant, size, className }))}\n\t\t\t\tref={ref}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t);\n\t},\n);\nButton.displayName = \"Button\";\n\nexport { Button, buttonVariants };",
+			"type": "registry:ui"
+		}
+	],
+	"meta": {
+		"tags": []
+	}
 }

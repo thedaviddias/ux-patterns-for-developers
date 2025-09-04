@@ -6,7 +6,7 @@ icon: MousePointerClick
 
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs'
 import { Callout } from 'fumadocs-ui/components/callout'
-import { ComponentPreview } from '@/components/registry/component-preview'
+import { ComponentPreview } from '@ux-patterns/ui/components/custom/registry/component-preview'
 
 Buttons are interactive elements that trigger actions or events when clicked or interacted with. They are one of the most fundamental UI components in any application. For comprehensive UX guidelines and patterns, see the [Button Pattern documentation](https://uxpatterns.dev/patterns/forms/button).
 
@@ -19,22 +19,22 @@ Buttons are interactive elements that trigger actions or events when clicked or 
 <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
   <Tab value="pnpm">
     ```bash
-    pnpm dlx shadcn@latest add button
+    pnpm dlx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
     ```
   </Tab>
   <Tab value="npm">
     ```bash
-    npx shadcn@latest add button
+    npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
     ```
   </Tab>
   <Tab value="bun">
     ```bash
-    bunx shadcn@latest add button
+    bunx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
     ```
   </Tab>
   <Tab value="yarn">
     ```bash
-    yarn dlx shadcn@latest add button
+    yarn dlx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
     ```
   </Tab>
 </Tabs>
@@ -269,43 +269,6 @@ Show user profile information with avatars:
     className="mr-2 h-6 w-6 rounded-full"
   />
   <span className="text-sm">@georgelucas</span>
-</Button>
-```
-
-### Upload Button
-
-File upload buttons with status information:
-
-<ComponentPreview name="button-upload" height="h-[150px]" />
-
-```tsx
-<Button variant="outline" className="h-auto p-4">
-  <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-  </svg>
-  <div className="text-left">
-    <div className="font-medium">Upload image</div>
-    <div className="text-xs text-muted-foreground">No image uploaded</div>
-  </div>
-</Button>
-```
-
-### Toggle Button
-
-Interactive buttons that show pressed/unpressed states:
-
-<ComponentPreview name="button-toggle" height="h-[150px]" />
-
-```tsx
-<Button
-  variant={isPinned ? "default" : "outline"}
-  onClick={() => setIsPinned(!isPinned)}
-  className="gap-2"
->
-  <svg className={`h-4 w-4 ${isPinned ? "fill-current" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-  </svg>
-  {isPinned ? "Pinned" : "Pin"}
 </Button>
 ```
 

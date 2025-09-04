@@ -1,17 +1,17 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "button-icon-right",
-  "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
-  "files": [
-    {
-      "path": "registry/default/blocks/button-icon-right.tsx",
-      "content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonIconRight() {\n  return (\n    <Button>\n      Continue\n      <svg className=\"ml-2 h-4 w-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M9 5l7 7-7 7\" />\n      </svg>\n    </Button>\n  )\n}\n",
-      "type": "registry:block"
-    }
-  ],
-  "meta": {
-    "tags": []
-  }
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "button-icon-right",
+	"type": "registry:block",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "registry/default/blocks/button-icon-right.tsx",
+			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonIconRight() {\n  return (\n    <Button>\n      Continue\n      <svg className=\"ml-2 h-4 w-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M9 5l7 7-7 7\" />\n      </svg>\n    </Button>\n  )\n}\n",
+			"type": "registry:block"
+		}
+	],
+	"meta": {
+		"tags": []
+	}
 }

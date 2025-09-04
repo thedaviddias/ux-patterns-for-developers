@@ -1,17 +1,17 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "button-with-keyboard-shortcut",
-  "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
-  "files": [
-    {
-      "path": "registry/default/blocks/button-with-keyboard-shortcut.tsx",
-      "content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonWithKeyboardShortcut() {\n  return (\n    <Button className=\"justify-between\">\n      <span>Save</span>\n      <kbd className=\"ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground\">\n        ⌘S\n      </kbd>\n    </Button>\n  )\n}\n",
-      "type": "registry:block"
-    }
-  ],
-  "meta": {
-    "tags": []
-  }
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "button-with-keyboard-shortcut",
+	"type": "registry:block",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "registry/default/blocks/button-with-keyboard-shortcut.tsx",
+			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonWithKeyboardShortcut() {\n  return (\n    <Button className=\"justify-between\">\n      <span>Save</span>\n      <kbd className=\"ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground\">\n        ⌘S\n      </kbd>\n    </Button>\n  )\n}\n",
+			"type": "registry:block"
+		}
+	],
+	"meta": {
+		"tags": []
+	}
 }

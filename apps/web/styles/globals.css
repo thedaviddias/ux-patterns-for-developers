@@ -4,22 +4,22 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --nextra-bg-color: #000;
-  --nextra-bg-color-dark: #000;
+	--nextra-bg-color: #000;
+	--nextra-bg-color-dark: #000;
 }
 
 :root {
-  --edge-label-bg: rgba(241, 245, 249, 0.95); /* slate-100 with higher opacity */
-  --edge-label-text: #1e293b; /* slate-800 for better contrast */
-  --edge-stroke: #334155; /* slate-700 for more visible edges */
-  --flow-background-dots: #cbd5e1; /* slate-300 for light mode dots */
+	--edge-label-bg: rgba(241, 245, 249, 0.95); /* slate-100 with higher opacity */
+	--edge-label-text: #1e293b; /* slate-800 for better contrast */
+	--edge-stroke: #334155; /* slate-700 for more visible edges */
+	--flow-background-dots: #cbd5e1; /* slate-300 for light mode dots */
 }
 
 .dark {
-  --edge-label-bg: rgba(15, 23, 42, 0.8); /* slate-900 with opacity */
-  --edge-label-text: #e2e8f0; /* slate-200 */
-  --edge-stroke: #94a3b8; /* slate-400 */
-  --flow-background-dots: #475569; /* slate-600 for dark mode dots */
+	--edge-label-bg: rgba(15, 23, 42, 0.8); /* slate-900 with opacity */
+	--edge-label-text: #e2e8f0; /* slate-200 */
+	--edge-stroke: #94a3b8; /* slate-400 */
+	--flow-background-dots: #475569; /* slate-600 for dark mode dots */
 }
 
 body {
@@ -27,116 +27,116 @@ body {
 
 /* Constrain maximum width of the main content area */
 .nextra-container {
-  max-width: 1200px;
-  margin: 0 auto;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 /* Alternative: Constrain the main content wrapper */
 .nextra-content {
-  max-width: 1400px;
-  margin: 0 auto;
+	max-width: 1400px;
+	margin: 0 auto;
 }
 
 /* For pages with sidebar, adjust the main content area */
 .nextra-sidebar-container + .nextra-main {
-  max-width: calc(100vw - 300px);
+	max-width: calc(100vw - 300px);
 }
 
 /* More specific targeting for Nextra's layout */
 .nextra-main {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 /* Target the main content area specifically */
 .nextra-main .nextra-content {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 /* Hide sidebar on homepage and ensure full width */
 .nextra-sidebar-container {
-  display: none;
+	display: none;
 }
 
 /* Ensure main content uses full width when sidebar is hidden */
 .nextra-sidebar-container + .nextra-main {
-  max-width: 100%;
-  width: 100%;
-  margin-left: 0;
+	max-width: 100%;
+	width: 100%;
+	margin-left: 0;
 }
 
 /* For the main layout wrapper */
 .nextra-layout {
-  max-width: 1600px;
-  margin: 0 auto;
+	max-width: 1600px;
+	margin: 0 auto;
 }
 
 /* Homepage width constraints (even with layout: 'full') */
 .nextra-layout .nextra-content {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 /* Ensure homepage content is constrained */
 .nextra-layout .nextra-main {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 /* Pattern pages with TOC - increase content width */
 .nextra-toc ~ * .nextra-content,
 .nextra-toc-container ~ * .nextra-content {
-  max-width: 1400px;
+	max-width: 1400px;
 }
 
 /* When TOC is present, give main content more space */
 nav.nextra-toc:not([style*="display: none"]) ~ main .nextra-content {
-  max-width: none;
+	max-width: none;
 }
 
 .nextra-mobile-nav {
-  background-color: white;
+	background-color: white;
 
-  .dark & {
-    background-color: black;
-  }
+	.dark & {
+		background-color: black;
+	}
 }
 
 .featured-pattern {
-  @apply relative overflow-hidden rounded-lg border bg-gradient-to-br dark:from-neutral-900/50 dark:to-neutral-900 from-neutral-100/50 to-neutral-100 p-8;
+	@apply relative overflow-hidden rounded-lg border bg-gradient-to-br dark:from-neutral-900/50 dark:to-neutral-900 from-neutral-100/50 to-neutral-100 p-8;
 }
 
 .nextra-content img {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 /* Add a caption to the image */
 .nextra-content img + em {
-  text-align: center;
-  display: block;
-  margin-top: 0.5em;
+	text-align: center;
+	display: block;
+	margin-top: 0.5em;
 }
 
 .nextra-content .contains-task-list li {
-  @apply my-2;
+	@apply my-2;
 }
 
 .pattern-preview {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
-  padding: 1rem 0;
-  border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	margin: 1rem 0;
+	padding: 1rem 0;
+	border-radius: 8px;
 }
 
 .pattern-preview img {
-  height: auto;
-  width: 100%;
+	height: auto;
+	width: 100%;
 }
 
 /* Remove any flex space reserved for TOC */
 .nextra-layout > div:last-child {
-  flex: 1;
-  max-width: 100%;
+	flex: 1;
+	max-width: 100%;
 }
 
 /* Hide H3 and deeper headings in TOC - show only H2 */
@@ -144,17 +144,17 @@ nav.nextra-toc:not([style*="display: none"]) ~ main .nextra-content {
 .nextra-toc li[data-depth="4"],
 .nextra-toc li[data-depth="5"],
 .nextra-toc li[data-depth="6"] {
-  display: none !important;
+	display: none !important;
 }
 
 /* Alternative approach - hide nested ul elements in TOC */
 .nextra-toc ul ul {
-  display: none !important;
+	display: none !important;
 }
 
 /* Hide indented items that represent H3+ */
 .nextra-toc a[class*="ps-4"],
 .nextra-toc a[class*="ps-6"],
 .nextra-toc a[class*="ps-8"] {
-  display: none !important;
+	display: none !important;
 }

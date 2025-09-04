@@ -1,17 +1,17 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "button-loading-states",
-  "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
-  "files": [
-    {
-      "path": "registry/default/blocks/button-loading-states.tsx",
-      "content": "\"use client\"\n\nimport { Button } from \"../ui/button\"\nimport { useState } from \"react\"\n\nexport default function ButtonLoadingStates() {\n  const [isLoading, setIsLoading] = useState(false)\n\n  const handleClick = () => {\n    setIsLoading(true)\n    setTimeout(() => setIsLoading(false), 2000)\n  }\n\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Button onClick={handleClick} disabled={isLoading}>\n        {isLoading && (\n          <svg className=\"mr-2 h-4 w-4 animate-spin\" viewBox=\"0 0 24 24\">\n            <circle className=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" strokeWidth=\"4\" fill=\"none\" />\n            <path className=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\" />\n          </svg>\n        )}\n        {isLoading ? \"Saving...\" : \"Save Changes\"}\n      </Button>\n\n      <Button disabled>\n        <svg className=\"mr-2 h-4 w-4 animate-spin\" viewBox=\"0 0 24 24\">\n          <circle className=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" strokeWidth=\"4\" fill=\"none\" />\n          <path className=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\" />\n        </svg>\n        Processing...\n      </Button>\n    </div>\n  )\n}\n",
-      "type": "registry:block"
-    }
-  ],
-  "meta": {
-    "tags": []
-  }
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "button-loading-states",
+	"type": "registry:block",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "registry/default/blocks/button-loading-states.tsx",
+			"content": "\"use client\"\n\nimport { Button } from \"../ui/button\"\nimport { useState } from \"react\"\n\nexport default function ButtonLoadingStates() {\n  const [isLoading, setIsLoading] = useState(false)\n\n  const handleClick = () => {\n    setIsLoading(true)\n    setTimeout(() => setIsLoading(false), 2000)\n  }\n\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Button onClick={handleClick} disabled={isLoading}>\n        {isLoading && (\n          <svg className=\"mr-2 h-4 w-4 animate-spin\" viewBox=\"0 0 24 24\">\n            <circle className=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" strokeWidth=\"4\" fill=\"none\" />\n            <path className=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\" />\n          </svg>\n        )}\n        {isLoading ? \"Saving...\" : \"Save Changes\"}\n      </Button>\n\n      <Button disabled>\n        <svg className=\"mr-2 h-4 w-4 animate-spin\" viewBox=\"0 0 24 24\">\n          <circle className=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" strokeWidth=\"4\" fill=\"none\" />\n          <path className=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\" />\n        </svg>\n        Processing...\n      </Button>\n    </div>\n  )\n}\n",
+			"type": "registry:block"
+		}
+	],
+	"meta": {
+		"tags": []
+	}
 }

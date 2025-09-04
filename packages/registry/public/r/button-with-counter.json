@@ -1,17 +1,17 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "button-with-counter",
-  "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
-  "files": [
-    {
-      "path": "registry/default/blocks/button-with-counter.tsx",
-      "content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonWithCounter() {\n  return (\n    <Button variant=\"outline\">\n      <span>Star</span>\n      <span className=\"ml-2 rounded-full bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground\">\n        729\n      </span>\n    </Button>\n  )\n}\n",
-      "type": "registry:block"
-    }
-  ],
-  "meta": {
-    "tags": []
-  }
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "button-with-counter",
+	"type": "registry:block",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "registry/default/blocks/button-with-counter.tsx",
+			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonWithCounter() {\n  return (\n    <Button variant=\"outline\">\n      <span>Star</span>\n      <span className=\"ml-2 rounded-full bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground\">\n        729\n      </span>\n    </Button>\n  )\n}\n",
+			"type": "registry:block"
+		}
+	],
+	"meta": {
+		"tags": []
+	}
 }

@@ -8,19 +8,19 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: {
-    template: '%s | UP Kit',
-    default: 'UP Kit'
-  },
-  description:
-    'UP Kit is a React component library that provides a set of reusable components for building web applications.',
-  authors: [
-    {
-      name: 'UP Kit',
-      url: 'https://kit.uxpatterns.dev'
-    }
-  ]
-} satisfies Metadata
+	title: {
+		template: "%s | UP Kit",
+		default: "UP Kit",
+	},
+	description:
+		"UP Kit is a React component library that provides a set of reusable components for building web applications.",
+	authors: [
+		{
+			name: "UP Kit",
+			url: "https://kit.uxpatterns.dev",
+		},
+	],
+} satisfies Metadata;
 
 export default function Layout({ children }: LayoutProps<"/">) {
 	return (

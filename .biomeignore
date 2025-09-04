@@ -1,2 +1,16 @@
 # Generated registry files
-__registry__/
+packages/registry/.generated/
+packages/registry/public/
+packages/registry/registry.json
+
+.next/
+out/
+build/
+dist/
+node_modules/
+.turbo/
+.vercel/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

@@ -1,12 +1,12 @@
 {
-  "title": "ui",
-  "root": true,
-  "pages": [
-    "---Getting Started---",
-    "index",
-    "installation",
-    "cli",
-    "---Components---",
-    "...components"
-  ]
+	"title": "ui",
+	"root": true,
+	"pages": [
+		"---Getting Started---",
+		"index",
+		"installation",
+		"cli",
+		"---Components---",
+		"...components"
+	]
 }

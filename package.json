@@ -1,31 +1,31 @@
 {
-  "name": "ux-patterns-for-developers",
-  "license": "Dual MIT and Commercial",
-  "author": "David Dias",
-  "private": true,
-  "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "lint": "turbo run lint",
-    "check": "turbo run check",
-    "format": "turbo run format",
-    "check:links": "lychee --config ./lychee.toml --verbose .",
-    "clean": "git clean -xdf node_modules out .next",
-    "postinstall": "manypkg fix",
-    "test": "turbo run test",
-    "release": "auto shipit",
-    "release:first": "auto shipit --prerelease",
-    "release:verbose": "auto shipit -v",
-    "release:version": "auto version -v",
-    "syncpack:fix": "pnpm dlx syncpack fix-mismatches",
-    "syncpack:list": "pnpm dlx syncpack list-mismatches"
-  },
-  "devDependencies": {
-    "@manypkg/cli": "^0.23.0",
-    "turbo": "^2.3.3"
-  },
-  "packageManager": "pnpm@10.2.1",
-  "engines": {
-    "node": ">=20.0.0"
-  }
+	"name": "ux-patterns-for-developers",
+	"license": "Dual MIT and Commercial",
+	"author": "David Dias",
+	"private": true,
+	"scripts": {
+		"dev": "turbo run dev",
+		"build": "turbo run build",
+		"lint": "turbo run lint",
+		"check": "turbo run check",
+		"format": "turbo run format",
+		"check:links": "lychee --config ./lychee.toml --verbose .",
+		"clean": "git clean -xdf node_modules out .next",
+		"postinstall": "manypkg fix",
+		"test": "turbo run test",
+		"release": "auto shipit",
+		"release:first": "auto shipit --prerelease",
+		"release:verbose": "auto shipit -v",
+		"release:version": "auto version -v",
+		"syncpack:fix": "pnpm dlx syncpack fix-mismatches",
+		"syncpack:list": "pnpm dlx syncpack list-mismatches"
+	},
+	"devDependencies": {
+		"@manypkg/cli": "^0.23.0",
+		"turbo": "^2.3.3"
+	},
+	"packageManager": "pnpm@10.2.1",
+	"engines": {
+		"node": ">=20.0.0"
+	}
 }

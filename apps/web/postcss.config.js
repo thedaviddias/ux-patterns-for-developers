@@ -1,6 +1,6 @@
 /** @type {import('postcss').Postcss} */
 export default {
-  plugins: {
-    '@tailwindcss/postcss': {},
-  },
+	plugins: {
+		"@tailwindcss/postcss": {},
+	},
 };

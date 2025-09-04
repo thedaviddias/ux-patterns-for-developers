@@ -1,15 +1,27 @@
 {
-  "extends": "@thedaviddias/config-typescript/nextjs.json",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "strict": false,
-    "strictNullChecks": true,
-    "noUncheckedIndexedAccess": true,
-    "paths": {
-      "@/*": ["./*"],
-      "@app/*": ["./app/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", ".next"]
+	"extends": "@thedaviddias/config-typescript/nextjs.json",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"strict": false,
+		"strictNullChecks": true,
+		"noUncheckedIndexedAccess": true,
+		"paths": {
+			"@/*": ["./*"],
+			"@app/*": ["./app/*"],
+			"@ux-patterns/ui/*": ["../../packages/ui/src/*"],
+			"@ux-patterns/hooks/*": ["../../packages/hooks/src/*"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"app/**/*.ts",
+		"app/**/*.tsx",
+		"content/**/*.ts",
+		"content/**/*.tsx",
+		"styles/**/*.ts",
+		"*.ts",
+		"*.tsx",
+		".next/types/**/*.ts"
+	],
+	"exclude": ["node_modules", ".next"]
 }

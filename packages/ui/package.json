@@ -1,54 +1,52 @@
 {
-  "name": "@ux-patterns/ui",
-  "version": "0.1.0",
-  "description": "Shared UI components for UX Patterns Kit - compatible with shadcn/ui and Magic UI",
-  "type": "module",
-  "exports": {
-    "./lib/utils": "./src/lib/utils.ts",
-    "./hooks/use-in-view": "./src/hooks/use-in-view.ts",
-    "./components/shadcn/*": "./src/components/shadcn/*.tsx",
-    "./components/magicui/*": "./src/components/magicui/*.tsx",
-    "./styles/globals.css": "./src/styles/globals.css"
-  },
-  "scripts": {
-    "lint": "eslint src/",
-    "check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@radix-ui/react-accordion": "^1.2.2",
-    "@radix-ui/react-alert-dialog": "^1.1.4",
-    "@radix-ui/react-avatar": "^1.1.2",
-    "@radix-ui/react-checkbox": "^1.1.4",
-    "@radix-ui/react-collapsible": "^1.1.12",
-    "@radix-ui/react-dialog": "^1.1.6",
-    "@radix-ui/react-dropdown-menu": "^2.1.4",
-    "@radix-ui/react-label": "^2.1.1",
-    "@radix-ui/react-popover": "^1.1.4",
-    "@radix-ui/react-select": "^2.1.4",
-    "@radix-ui/react-separator": "^1.1.1",
-    "@radix-ui/react-slot": "^1.2.3",
-    "@radix-ui/react-tabs": "^1.1.13",
-    "@radix-ui/react-toast": "^1.2.4",
-    "@radix-ui/react-tooltip": "^1.2.8",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.1.0",
-    "lucide-react": "^0.468.0",
-    "tailwind-merge": "^3.0.1"
-  },
-  "devDependencies": {
-    "@thedaviddias/config-typescript": "workspace:*",
-    "@types/node": "24.3.0",
-    "@types/react": "^19.1.12",
-    "@types/react-dom": "^19.1.9",
-    "eslint": "^9.18.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.12",
-    "typescript": "^5.9.2"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
-  }
+	"name": "@ux-patterns/ui",
+	"version": "0.1.0",
+	"description": "Shared UI components for UX Patterns Kit - compatible with shadcn/ui and Magic UI",
+	"type": "module",
+	"exports": {
+		"./lib/utils": "./src/lib/utils.ts",
+		"./components/shadcn/*": "./src/components/shadcn/*.tsx",
+		"./components/magicui/*": "./src/components/magicui/*.tsx",
+		"./components/custom/*": "./src/components/custom/*",
+		"./styles/globals.css": "./src/styles/globals.css"
+	},
+	"scripts": {
+		"lint": "eslint src/",
+		"check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@radix-ui/react-accordion": "^1.2.2",
+		"@radix-ui/react-alert-dialog": "^1.1.4",
+		"@radix-ui/react-avatar": "^1.1.2",
+		"@radix-ui/react-checkbox": "^1.1.4",
+		"@radix-ui/react-collapsible": "^1.1.12",
+		"@radix-ui/react-dialog": "^1.1.6",
+		"@radix-ui/react-dropdown-menu": "^2.1.4",
+		"@radix-ui/react-icons": "^1.3.2",
+		"@radix-ui/react-label": "^2.1.1",
+		"@radix-ui/react-popover": "^1.1.4",
+		"@radix-ui/react-select": "^2.1.4",
+		"@radix-ui/react-separator": "^1.1.1",
+		"@radix-ui/react-slot": "^1.2.3",
+		"@radix-ui/react-tabs": "^1.1.13",
+		"@radix-ui/react-toast": "^1.2.4",
+		"@radix-ui/react-tooltip": "^1.2.8",
+		"@ux-patterns/hooks": "workspace:*",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"framer-motion": "^12.1.0",
+		"lucide-react": "^0.468.0",
+		"tailwind-merge": "^3.0.1"
+	},
+	"devDependencies": {
+		"@thedaviddias/config-typescript": "workspace:*",
+		"@types/node": "24.3.0",
+		"@types/react": "^19.1.12",
+		"@types/react-dom": "^19.1.9",
+		"eslint": "^9.18.0",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1",
+		"tailwindcss": "^4.1.12",
+		"typescript": "^5.9.2"
+	}
 }

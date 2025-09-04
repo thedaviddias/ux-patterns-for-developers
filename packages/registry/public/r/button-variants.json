@@ -1,17 +1,17 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "button-variants",
-  "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
-  "files": [
-    {
-      "path": "registry/default/blocks/button-variants.tsx",
-      "content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonVariants() {\n  return (\n    <div className=\"space-y-4\">\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Default</h4>\n        <Button>Default Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Secondary</h4>\n        <Button variant=\"secondary\">Secondary Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Destructive</h4>\n        <Button variant=\"destructive\">Destructive Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Outline</h4>\n        <Button variant=\"outline\">Outline Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Ghost</h4>\n        <Button variant=\"ghost\">Ghost Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Link</h4>\n        <Button variant=\"link\">Link Button</Button>\n      </div>\n    </div>\n  )\n}\n",
-      "type": "registry:block"
-    }
-  ],
-  "meta": {
-    "tags": []
-  }
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "button-variants",
+	"type": "registry:block",
+	"dependencies": [],
+	"registryDependencies": [],
+	"files": [
+		{
+			"path": "registry/default/blocks/button-variants.tsx",
+			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonVariants() {\n  return (\n    <div className=\"space-y-4\">\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Default</h4>\n        <Button>Default Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Secondary</h4>\n        <Button variant=\"secondary\">Secondary Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Destructive</h4>\n        <Button variant=\"destructive\">Destructive Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Outline</h4>\n        <Button variant=\"outline\">Outline Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Ghost</h4>\n        <Button variant=\"ghost\">Ghost Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Link</h4>\n        <Button variant=\"link\">Link Button</Button>\n      </div>\n    </div>\n  )\n}\n",
+			"type": "registry:block"
+		}
+	],
+	"meta": {
+		"tags": []
+	}
 }
