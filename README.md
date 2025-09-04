@@ -250,9 +250,6 @@ Create accessible and user-friendly buttons with proper states, design patterns,
 #### Form Validation
 > Coming soon
 
-#### Input Selection Guide
-> Coming soon
-
 #### Multi Select Input
 > Coming soon
 
