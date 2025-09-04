@@ -1,45 +1,120 @@
-# kit
+# UP Kit
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+A component registry for UX patterns and UI components, compatible with shadcn/ui CLI.
 
-Run development server:
+## Features
+
+- 🎨 Ready-to-use UI components
+- 📦 Component registry system
+- 🔧 Compatible with shadcn/ui CLI
+- 🚀 Built with Next.js and Tailwind CSS
+- 📱 Responsive and accessible components
+
+## Getting Started
+
+### Development
 
 ```bash
-npm run dev
-# or
+# Install dependencies
+pnpm install
+
+# Start development server
 pnpm dev
-# or
-yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+The registry will be available at `http://localhost:3065`
 
-## Explore
+### Using Components with shadcn CLI
 
-In the project, you can see:
+You can install components from this registry using the shadcn CLI:
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+```bash
+# Install the button component
+npx shadcn@latest add http://localhost:3065/r/button.json
+```
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+### API Endpoints
 
-### Fumadocs MDX
+- `GET /registry` - Returns the complete registry configuration
+- `GET /r/[component-name].json` - Returns a specific component with file contents
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+### Registry Structure
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+```
+registry/
+└── default/
+    ├── ui/              # Base UI components
+    │   ├── button.tsx
+    │   ├── input.tsx
+    │   └── label.tsx
+    ├── components/      # Complex components
+    │   └── input-basic.tsx
+    ├── hooks/           # Custom React hooks
+    ├── lib/             # Utility functions
+    │   └── utils.ts
+    └── blocks/          # Page sections and layouts
+        ├── hero-section.tsx
+        └── feature-grid.tsx
+```
 
-## Learn More
+### Adding New Components
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+1. Create your component file in the appropriate directory:
+   - `registry/default/ui/` for base UI components
+   - `registry/default/components/` for complex components
+   - `registry/default/blocks/` for page sections
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+2. Add the component to `registry.json`:
+
+```json
+{
+  "name": "your-component",
+  "type": "registry:component",
+  "registryDependencies": ["button", "input"],
+  "files": [
+    {
+      "path": "registry/default/components/your-component.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["form", "input"]
+  }
+}
+```
+
+3. The component will automatically be available via the API
+
+### Example Usage
+
+Visit `/examples` to see components in action, or use them in your code:
+
+```tsx
+import { Button } from "@/registry/default/ui/button"
+import InputBasic from "@/registry/default/components/input-basic"
+
+export default function MyPage() {
+  return (
+    <div>
+      <Button>Click me</Button>
+      <InputBasic />
+    </div>
+  )
+}
+```
+
+## Deployment
+
+When deploying, make sure to update the `homepage` field in `registry.json` to point to your production URL.
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch for your component
+3. Add your component following the structure above
+4. Test locally using the shadcn CLI
+5. Submit a pull request
+
+## License
+
+MIT

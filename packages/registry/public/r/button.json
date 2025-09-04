@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/ui/button.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"../lib/utils\";\n\nconst buttonVariants = {\n\tvariant: {\n\t\tdefault: \"bg-primary text-primary-foreground shadow hover:bg-primary/90\",\n\t\tdestructive:\n\t\t\t\"bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90\",\n\t\toutline:\n\t\t\t\"border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground\",\n\t\tsecondary:\n\t\t\t\"bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80\",\n\t\tghost: \"hover:bg-accent hover:text-accent-foreground\",\n\t\tlink: \"text-primary underline-offset-4 hover:underline\",\n\t},\n\tsize: {\n\t\tdefault: \"h-9 px-4 py-2\",\n\t\tsm: \"h-8 px-3 text-xs\",\n\t\tlg: \"h-10 px-8\",\n\t\ticon: \"h-9 w-9\",\n\t},\n};\n\nexport interface ButtonProps\n\textends React.ButtonHTMLAttributes<HTMLButtonElement> {\n\tvariant?: keyof typeof buttonVariants.variant;\n\tsize?: keyof typeof buttonVariants.size;\n\tasChild?: boolean;\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n\t(\n\t\t{\n\t\t\tclassName,\n\t\t\tvariant = \"default\",\n\t\t\tsize = \"default\",\n\t\t\tasChild = false,\n\t\t\t...props\n\t\t},\n\t\tref,\n\t) => {\n\t\tconst baseClasses =\n\t\t\t\"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\";\n\t\tconst variantClasses = buttonVariants.variant[variant];\n\t\tconst sizeClasses = buttonVariants.size[size];\n\n\t\tconst Comp = asChild ? \"span\" : \"button\";\n\n\t\treturn (\n\t\t\t<Comp\n\t\t\t\tclassName={cn(baseClasses, variantClasses, sizeClasses, className)}\n\t\t\t\tref={ref}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t);\n\t},\n);\nButton.displayName = \"Button\";\n\nexport { Button };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

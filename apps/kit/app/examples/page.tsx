@@ -6,7 +6,8 @@ export default function ExamplesPage() {
 			<section>
 				<h2 className="text-2xl font-semibold mb-4">Available Components</h2>
 				<p className="text-muted-foreground mb-6">
-					Components are installed via the shadcn CLI and added directly to your project.
+					Components are installed via the shadcn CLI and added directly to your
+					project.
 				</p>
 
 				<div className="space-y-4">
@@ -34,9 +35,16 @@ export default function ExamplesPage() {
 				<div className="mt-8 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
 					<h3 className="font-semibold mb-2">How to Add Components</h3>
 					<ol className="text-sm space-y-1 list-decimal list-inside">
-						<li>Drop component files in <code>packages/registry/registry/default/</code></li>
-						<li>Run <code>pnpm registry:generate</code></li>
-						<li>Install with <code>npx shadcn@latest add [url]</code></li>
+						<li>
+							Drop component files in{" "}
+							<code>packages/registry/registry/default/</code>
+						</li>
+						<li>
+							Run <code>pnpm registry:generate</code>
+						</li>
+						<li>
+							Install with <code>npx shadcn@latest add [url]</code>
+						</li>
 					</ol>
 				</div>
 			</section>

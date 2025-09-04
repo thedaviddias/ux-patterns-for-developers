@@ -1,6 +1,6 @@
-import fs from "fs";
+import fs from "node:fs";
 import { type NextRequest, NextResponse } from "next/server";
-import path from "path";
+import path from "node:path";
 
 export async function GET(
 	_request: NextRequest,

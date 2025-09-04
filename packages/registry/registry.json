@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "up-kit",
+  "homepage": "https://up-kit.vercel.app",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    }
+  ]
+}
