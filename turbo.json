@@ -1,11 +1,17 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
+  "remoteCache": {
+    "signature": true
+  },
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "out/**"],
+      "dependsOn": ["^build", "registry:generate"],
+      "outputs": [".next/**", "!.next/cache/**", "out/**", "registry.json", "public/r/**"],
       "env": ["NODE_ENV", "NEXT_PUBLIC_*", "SENTRY_*", "VERCEL_*", "MDX_API_KEY", "MAILERLITE_API_KEY", "MAILERLITE_GROUP_IDS", "PLAUSIBLE_API_KEY"]
+    },
+    "registry:generate": {
+      "outputs": ["registry.json", "public/r/**"]
     },
     "dev": {
       "cache": false,

@@ -1,54 +1,135 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
 
-# dependencies
-**/node_modules
+# Testing
+coverage/
+.nyc_output
 
-# testing
-**/coverage
-
-# next.js
+# Next.js
 .next/
+out/
+build/
+dist/
 
-# production
-/build
-dist
-public/_pagefind
+# Production
+build/
 
-# misc
+# Misc
 .DS_Store
 *.pem
 
-# debug
+# Debug
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# local env files
-!.env.example
-.env.*
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# vercel
+# Vercel
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
+next-env.d.ts
 
-/test-results/
+# Turbo
+.turbo
 
+# Sentry
+.sentryclirc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
 .eslintcache
 
-repomix-output.txt
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
 
-# Sentry Config File
-.env.sentry-build-plugin
+# Optional REPL history
+.node_repl_history
 
-# Lychee
-lychee-out.md
-.lycheecache
+# Output of 'npm pack'
+*.tgz
 
-# Claude
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Fumadocs
+.fumadocs
+
+
 .claude
 claude.md
 sessions/
 
-.pattern-style-guide.md
-
-.turbo/
+.lycheecache
+lychee-out.md
