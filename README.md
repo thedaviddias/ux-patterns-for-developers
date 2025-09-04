@@ -349,6 +349,9 @@ Create effective breadcrumb navigation for better site orientation. Learn implem
 
 Create seamless content loading with infinite scroll, focusing on performance, accessibility, and user experience best practices.
 
+#### Link
+> Coming soon
+
 #### [Load More](https://uxpatterns.dev/patterns/navigation/load-more)
 > Load additional content on user demand
 
