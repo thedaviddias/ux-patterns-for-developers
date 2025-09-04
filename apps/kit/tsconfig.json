@@ -1,12 +1,20 @@
 {
-  "extends": "@thedaviddias/config-typescript/nextjs.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/.source": ["./.source/index.ts"],
-      "@/*": ["./*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+	"extends": "@thedaviddias/config-typescript/nextjs.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/.source": ["./.source/index.ts"],
+			"@/*": ["./*"]
+		},
+		"skipLibCheck": true
+	},
+	"include": [
+		"next-env.d.ts",
+		"types.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		".source/**/*.ts"
+	],
+	"exclude": ["node_modules"]
 }
