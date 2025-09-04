@@ -17,7 +17,7 @@ import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 **_(Also called slider, slideshow, image rotator)_**
 
-<PatternStats 
+<PatternStats
   popularity="medium"
 />
 
@@ -55,7 +55,7 @@ Use carousels to display **related content or images in limited space** while ke
 - Too many carousel items make navigation cumbersome
 - Complex content requires significant reading time
 
-<PatternComparison 
+<PatternComparison
   current="Carousel"
   alternatives={[
     {
@@ -324,16 +324,16 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 - Avoid **large DOM structures**—if the carousel contains many slides, use virtualized rendering.
 - Don't use **excessive animations** that could impact performance on lower-powered devices.
 
-## Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns 🚫
 
-### 🚫 Auto-Play Without Controls
+### Auto-Play Without Controls
 **The Problem:** Users might not have enough time to read or interact with content, and constantly rotating slides can disorient or frustrate them—especially those using assistive technologies.
 
 **How to Fix It?** Always provide **pause/play controls**. Respect `prefers-reduced-motion` by disabling or slowing auto-rotation for users who prefer less animation.
 
 ---
 
-### 🚫 No Keyboard or Touch Support
+### No Keyboard or Touch Support
 
 **The Problem:** Carousels often exclude users who rely on keyboard navigation or expect swipe gestures on mobile devices.
 
@@ -341,7 +341,7 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 
 ---
 
-### 🚫 Hiding Important Content in Later Slides
+### Hiding Important Content in Later Slides
 
 **The Problem:** Many users never click past the first slide, missing crucial information if it’s hidden further down the carousel.
 
@@ -349,7 +349,7 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 
 ---
 
-### 🚫 Lack of Visible Pagination
+### Lack of Visible Pagination
 
 **The Problem:** Without pagination dots or numbers, users can’t tell how many slides there are or where they are within the sequence.
 
@@ -357,15 +357,15 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 
 ---
 
-### 🚫 Missing or Incorrect ARIA Labels
+### Missing or Incorrect ARIA Labels
 
-**The Problem:** If navigation buttons and slides lack descriptive labels, screen readers can’t convey their function or content.
+**The Problem:** If navigation buttons and slides lack descriptive labels, screen readers can't convey their function or content.
 
-**How to Fix It?** Use attributes like `aria-label="Next Slide"` on arrows, `role="tabpanel"` for slides, and `aria-roledescription="carousel"` on the container. Include a descriptive `aria-label` (e.g., `"Featured Products Carousel"`) so users know the carousel’s purpose.
+**How to Fix It?** Use attributes like `aria-label="Next slide"` on arrows and `aria-roledescription="carousel"` on the container. For Tabbed Carousels, the slide panels use `role="tabpanel"` (see "ARIA Attributes for Tabbed Carousels"); for standard carousels, treat slides as groups with clear labels (e.g., "Slide 2 of 5").
 
 ---
 
-### 🚫 No Clear Focus Indicator
+### No Clear Focus Indicator
 
 **The Problem:** Keyboard users can lose track of where they are if there’s no visible focus outline on controls or slides.
 
@@ -373,7 +373,7 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 
 ---
 
-### 🚫 Inconsistent Screen Reader Announcements
+### Inconsistent Screen Reader Announcements
 
 **The Problem:** If slide changes aren’t announced, users with screen readers won’t realize content has updated.
 
@@ -381,7 +381,7 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 
 ---
 
-### 🚫 Overloaded Slide Content
+### Overloaded Slide Content
 
 **The Problem:** Placing too many interactive elements or large blocks of text in a single slide can overwhelm keyboard or screen reader users.
 
@@ -672,7 +672,7 @@ This order ensures that users can control the carousel's behavior before interac
 
 2. **Auto-rotation Behavior**
 
-In most cases, auto-rotation is discourage as it makes more difficult for users to have a complete control over the carousel.
+In most cases, auto-rotation is discouraged as it makes it more difficult for users to have complete control over the carousel.
 
 But if you need to support auto-rotation, here's the expected behavior:
 
@@ -972,7 +972,7 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 - [React Slick](https://react-slick.neostack.com/) – Feature-rich carousel
 - [Embla Carousel React](https://www.embla-carousel.com/) – Lightweight and performant
 
-### Vue Components  
+### Vue Components
 - [Vue Carousel](https://github.com/SSENSE/vue-carousel) – Simple and flexible
 - [Swiper Vue](https://swiperjs.com/vue) – Vue version of Swiper
 
@@ -986,7 +986,7 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 - [A Step-By-Step Guide To Building Accessible Carousels](https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/)
 - [More Alternatives to Using a Carousel on Your Website - Mightybytes](https://www.mightybytes.com/blog/more-alternatives-to-carousels-on-website/)
 - [How to build a more accessible carousel or slider - DEV Community](https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp)
-- [The Unbearable Inaccessibility of Slideshows — SitePointSitePoint](https://www.sitepoint.com/unbearable-accessible-slideshow/)
+- [The Unbearable Inaccessibility of Slideshows — SitePoint](https://www.sitepoint.com/unbearable-accessible-slideshow/)
 - [Usability Guidelines For Better Carousels UX — Smashing Magazine](https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/)
 - [How to Test and Improve Carousel Accessibility: A Complete Guide - The A11Y Collective](https://www.a11y-collective.com/blog/accessible-carousel/)
 

@@ -123,7 +123,7 @@ graph TD
 - Simple tooltips **should disappear on mouse-out, focus loss, or tap elsewhere**.
 - Rich tooltips **should remain open until dismissed manually**.
 
-#### Summary of Components**
+#### Summary of Components
 
 | Component            | Required? | Purpose                                        |
 | -------------------- | --------- | ---------------------------------------------- |
@@ -204,9 +204,9 @@ graph TD
 - **Avoid excessive event listeners** that degrade performance.
 - **Don't trigger tooltips on every mouse movement**—use `mouseenter` instead of `mousemove`.
 
-## Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns 🚫
 
-### 🚫 Tooltips That Disappear Too Fast
+### Tooltips That Disappear Too Fast
 **The Problem:**
 Users might not have enough time to read the tooltip before it disappears.
 
@@ -215,16 +215,16 @@ Ensure tooltips remain visible **for at least 3–5 seconds** or stay open on ho
 
 ---
 
-### 🚫 Not Accessible via Keyboard
+### Not Accessible via Keyboard
 **The Problem:**
 Many tooltips rely only on hover, making them inaccessible to keyboard users.
 
 **How to Fix It?**
-Ensure tooltips can be triggered **via focus (`Tab` key)`**. For screen readers, pair `aria-describedby` on the trigger element with `role="tooltip"` on the tooltip container.
+Ensure tooltips can be triggered **via focus (`Tab` key)**. For screen readers, pair `aria-describedby` on the trigger element with `role="tooltip"` on the tooltip container.
 
 ---
 
-### 🚫 Blocking Important Content
+### Blocking Important Content
 **The Problem:**
 Tooltips that cover input fields or buttons create confusion and may block clicks or taps.
 
@@ -233,7 +233,7 @@ Position tooltips **away from interactive elements** and use arrow indicators to
 
 ---
 
-### 🚫 Overloading with Too Much Text
+### Overloading with Too Much Text
 **The Problem:**
 Long tooltips become unreadable, especially for screen readers that have to announce everything at once.
 
@@ -242,7 +242,7 @@ Keep tooltips **brief (max 2 lines)**. For more details, link to a help page or 
 
 ---
 
-### 🚫 Not Announced by Screen Readers (Accessibility)
+### Not Announced by Screen Readers (Accessibility)
 **The Problem:**
 Tooltips that appear on mouse hover but lack ARIA attributes aren't announced to screen reader users.
 
@@ -251,7 +251,7 @@ Use `role="tooltip"` for the tooltip element and link it to the trigger with `ar
 
 ---
 
-### 🚫 Insufficient Color Contrast or Tiny Font (Accessibility)
+### Insufficient Color Contrast or Tiny Font (Accessibility)
 **The Problem:**
 Text that's too small or low-contrast is difficult for users with low vision to read.
 

@@ -16,7 +16,7 @@ import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Text Field
 
-<PatternStats 
+<PatternStats
   popularity="high"
 />
 
@@ -52,7 +52,7 @@ Use a text field when you need users to input freeform text, such as:
 - **For short selections** – Use [auto-complete](/patterns/forms/autocomplete) inputs instead of requiring full text input.
 - **When voice input or selections are better** – Consider alternatives for accessibility.
 
-<PatternComparison 
+<PatternComparison
   current="Text Field"
   alternatives={[
     {
@@ -161,7 +161,7 @@ graph TD
    - Static text **after the input** (e.g., `.com` for domain fields).
    - Helps users understand **expected input formats**.
 
-#### Summary of Components**
+#### Summary of Components
 
 | Component                | Required? | Purpose                                      |
 | ------------------------ | --------- | -------------------------------------------- |
@@ -574,9 +574,9 @@ To avoid overwhelming users:
 | **Large forms with minimal UI**                                | **Above** or **Inline**         | To prevent visual clutter.                                    |
 | **Error messages**                                             | **Below**                       | Always below, ensuring users immediately see what went wrong. |
 
-## Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns 🚫
 
-### 🚫 Using Placeholder as Primary Label
+### Using Placeholder as Primary Label
 **The Problem:**
 Relying on placeholder text as the only label makes the field inaccessible when users start typing, and screen readers may not announce it properly.
 
@@ -595,7 +595,7 @@ Relying on placeholder text as the only label makes the field inaccessible when 
 
 ---
 
-### 🚫 Poor Validation Timing
+### Poor Validation Timing
 **The Problem:**
 Showing error messages too early (on first keystroke) or too late (only on form submission) frustrates users.
 
@@ -616,7 +616,7 @@ function validateField(input, hasBeenBlurred) {
 
 ---
 
-### 🚫 Missing Error Recovery
+### Missing Error Recovery
 **The Problem:**
 Not providing clear guidance on how to fix validation errors leaves users stuck.
 
@@ -635,7 +635,7 @@ Not providing clear guidance on how to fix validation errors leaves users stuck.
 
 ---
 
-### 🚫 Inaccessible Focus Management
+### Inaccessible Focus Management
 **The Problem:**
 Poor focus indicators or focus traps make keyboard navigation impossible.
 

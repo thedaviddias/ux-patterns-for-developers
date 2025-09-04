@@ -19,7 +19,7 @@ import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 **_(Also called data grids)_**
 
-<PatternStats 
+<PatternStats
   popularity="high"
 />
 
@@ -64,7 +64,7 @@ import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 - **Project management**: Task lists, resource allocation, timelines
 - **CRM systems**: Contact lists, sales pipelines, support tickets
 
-<PatternComparison 
+<PatternComparison
   current="Data Table"
   alternatives={[
     {
@@ -545,9 +545,9 @@ const debouncedSearch = useMemo(
 </div>
 ```
 
-## Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns 🚫
 
-### 🚫 Rendering All Rows at Once
+### Rendering All Rows at Once
 **The Problem:**
 Loading thousands of DOM nodes simultaneously causes severe performance issues, slow scrolling, and can freeze the browser entirely.
 
@@ -555,7 +555,7 @@ Loading thousands of DOM nodes simultaneously causes severe performance issues, 
 
 ---
 
-### 🚫 No Mobile Alternative
+### No Mobile Alternative
 **The Problem:**
 Forcing users to horizontally scroll through a desktop table on mobile devices creates a frustrating experience and makes data comparison nearly impossible.
 
@@ -563,7 +563,7 @@ Forcing users to horizontally scroll through a desktop table on mobile devices c
 
 ---
 
-### 🚫 Feature Overload
+### Feature Overload
 **The Problem:**
 Showing all available features (filters, exports, column toggles) at once overwhelms users and clutters the interface, especially for simple data browsing tasks.
 
@@ -571,7 +571,7 @@ Showing all available features (filters, exports, column toggles) at once overwh
 
 ---
 
-### 🚫 Missing Empty States
+### Missing Empty States
 **The Problem:**
 Displaying a blank table when no data matches filters or searches leaves users confused about whether something is broken or if they need to take action.
 
@@ -579,7 +579,7 @@ Displaying a blank table when no data matches filters or searches leaves users c
 
 ---
 
-### 🚫 Poor Accessibility Structure
+### Poor Accessibility Structure
 **The Problem:**
 Using divs instead of semantic table elements or omitting proper ARIA attributes makes tables incomprehensible to screen reader users.
 
@@ -963,7 +963,7 @@ Focus must be properly managed during table interactions:
 
 3. **Focus States**
 
-- All interactive elements must have visible focus indicators (minimum 2:1 contrast)
+- All interactive elements must have visible focus indicators (minimum 3:1 contrast)
 - Focus indicators should be consistent across all table controls
 - Focus should not be lost when table data updates
 - Avoid automatic focus moves unless necessary for user flow
