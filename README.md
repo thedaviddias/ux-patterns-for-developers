@@ -250,9 +250,6 @@ Create accessible and user-friendly buttons with proper states, design patterns,
 #### Form Validation
 > Coming soon
 
-#### Input Selection Guide
-> Coming soon
-
 #### Multi Select Input
 > Coming soon
 
@@ -348,6 +345,9 @@ Create effective breadcrumb navigation for better site orientation. Learn implem
 <sub>🛠️ Complex implementation • 📚 Full guide • ♿️ WCAG 2.1 • 📱 Mobile-ready</sub>
 
 Create seamless content loading with infinite scroll, focusing on performance, accessibility, and user experience best practices.
+
+#### Link
+> Coming soon
 
 #### [Load More](https://uxpatterns.dev/patterns/navigation/load-more)
 > Load additional content on user demand
