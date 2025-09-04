@@ -15,7 +15,7 @@ import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Back to Top
 
-<PatternStats 
+<PatternStats
   popularity="medium"
 />
 
@@ -56,7 +56,7 @@ Use **Back to Top** to **help users quickly return to long page tops without exc
 - Dashboards or analytics pages containing large data tables
 - Infinite scrolling experiences (e.g., social feeds) to let users quickly jump to the top
 
-<PatternComparison 
+<PatternComparison
   current="Back to Top"
   alternatives={[
     {
@@ -293,7 +293,7 @@ function BackToTop() {
   .back-to-top {
     transition: none;
   }
-  
+
   * {
     scroll-behavior: auto !important;
   }
@@ -384,44 +384,44 @@ function BackToTop() {
 - Don't move it around the page as the user scrolls
 - Don't tie it to an element that scrolls out of view
 
-## Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns 🚫
 
-### 🚫 Always Visible on Short Pages
+### Always Visible on Short Pages
 **The Problem:**
 Showing the Back to Top button on pages that don't require scrolling or have minimal content creates unnecessary UI clutter.
 
 **How to Fix It:**
 Only display the button after the user has scrolled at least 2x the viewport height or a minimum of 1000px.
 
-### 🚫 Jarring Jump Without Animation
+### Jarring Jump Without Animation
 **The Problem:**
 Instantly jumping to the top without smooth scrolling can disorient users and make them lose context.
 
 **How to Fix It:**
 Implement smooth scrolling with `scroll-behavior: smooth` or JavaScript animation with appropriate duration (300-500ms).
 
-### 🚫 Poor Button Visibility
+### Poor Button Visibility
 **The Problem:**
 Using low contrast colors or making the button too small/transparent makes it hard to notice or click.
 
 **How to Fix It:**
 Ensure sufficient color contrast (WCAG AA minimum) and use a minimum touch target of 44x44px.
 
-### 🚫 Blocking Important Content
+### Blocking Important Content
 **The Problem:**
 Placing the button where it covers important interactive elements like chat widgets or cookie banners.
 
 **How to Fix It:**
 Carefully position the button to avoid overlapping with other floating elements, adjusting position dynamically if needed.
 
-### 🚫 Missing Keyboard Support
+### Missing Keyboard Support
 **The Problem:**
 Button only works with mouse/touch, excluding keyboard users from using the feature.
 
 **How to Fix It:**
 Ensure the button is keyboard accessible, focusable with Tab, and activatable with Enter/Space keys.
 
-### 🚫 No Visual Feedback on Interaction
+### No Visual Feedback on Interaction
 **The Problem:**
 Button doesn't provide hover, focus, or active states, leaving users uncertain if their interaction registered.
 
@@ -572,23 +572,23 @@ import { useState, useEffect } from 'react';
 
 function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
-  
+
   useEffect(() => {
     const toggleVisibility = () => {
       setIsVisible(window.scrollY > 300);
     };
-    
+
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
-  
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
-  
+
   return (
     <button
       className={`back-to-top ${isVisible ? 'visible' : ''}`}

@@ -16,7 +16,7 @@ import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
 
 # Load More
 
-<PatternStats 
+<PatternStats
   popularity="high"
 />
 
@@ -59,7 +59,7 @@ For better usability, make sure the Load More button gets **removed when all con
 - **Social media feeds**: Loading additional posts without overwhelming users
 - **Search results**: Fetching more results upon user request
 
-<PatternComparison 
+<PatternComparison
   current="Load More"
   alternatives={[
     {
@@ -233,9 +233,9 @@ Shows placeholder content while real content loads.
 - Never insert new content above the user's current view unless explicitly requested
 - Skip loading content off-screen without visual confirmation
 
-## Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns 🚫
 
-### 🚫 No Visual Feedback
+### No Visual Feedback
 **The Problem:**
 Users think the button broke if nothing happens immediately after clicking.
 
@@ -244,7 +244,7 @@ Add a **spinner or loading animation** and consider disabling the button until n
 
 ---
 
-### 🚫 Loading Too Many Items at Once
+### Loading Too Many Items at Once
 **The Problem:**
 Large content batches slow performance, cause layout shifts, and overwhelm users.
 
@@ -253,7 +253,7 @@ Load **smaller chunks** (10–20 items per click). Use incremental updates inste
 
 ---
 
-### 🚫 Forcing Excessive Load More Clicks
+### Forcing Excessive Load More Clicks
 **The Problem:**
 Repeated Load More clicks frustrate users and make pages feel unresponsive.
 
@@ -262,7 +262,7 @@ Try **auto-loading on scroll** after a few manual loads, or increase batch size 
 
 ---
 
-### 🚫 No End of Content Indicator
+### No End of Content Indicator
 **The Problem:**
 Users can't tell when they've reached the end, clicking Load More repeatedly with no result.
 
@@ -271,7 +271,7 @@ Show a "You've reached the end" message or hide the button entirely when no more
 
 ---
 
-### 🚫 Missing Keyboard Accessibility
+### Missing Keyboard Accessibility
 **The Problem:**
 Load More buttons that aren't focusable or don't respond to keyboard events lock out keyboard users from loading new content.
 
@@ -280,7 +280,7 @@ Use a proper, focusable element like `<button>`. Check that `Tab` focuses it and
 
 ---
 
-### 🚫 Missing ARIA Updates for New Content
+### Missing ARIA Updates for New Content
 **The Problem:**
 Screen reader users miss new items without announcements that content got added to the page.
 
@@ -289,7 +289,7 @@ Wrap your list with `role="region"` or use `aria-live="polite"`. Update the [liv
 
 ---
 
-### 🚫 Insufficient Visual Contrast
+### Insufficient Visual Contrast
 **The Problem:**
 Low-contrast Load More buttons or hard-to-see loading indicators (like small spinners on cluttered backgrounds) cause problems for low-vision users.
 
@@ -738,7 +738,7 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 
 ## Related Patterns
 
-<RelatedPatternsCard 
+<RelatedPatternsCard
   category="navigation"
   showCategory={true}
 />

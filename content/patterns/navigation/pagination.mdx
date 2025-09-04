@@ -162,7 +162,7 @@ flowchart TB
 - **ARIA Live Updates:** Announces page changes for screen readers.
 - **Loading Indicators (Optional):** Shows progress when paginated content is being fetched asynchronously.
 
-#### Summary of Components**
+#### Summary of Components
 
 | Component               | Required? | Purpose                                          |
 | ----------------------- | --------- | ------------------------------------------------ |
@@ -354,44 +354,44 @@ This example demonstrates:
 - Skip fixed positioning that blocks content on small screens
 - Preserve browser history functionality with custom pagination
 
-## Common Mistakes & Anti-Patterns
+## Common Mistakes & Anti-Patterns 🚫
 
-### 🚫 **No Indication of Total Pages**
+### **No Indication of Total Pages**
 **The Problem:**
 Users can't gauge content size or their progress.
 
 **How to Fix It:**
 Show total page count or items ("Page 3 of 12" or "Showing 21-30 of 120 items").
 
-### 🚫 **Missing Current Page Highlight**
+### **Missing Current Page Highlight**
 **The Problem:**
 Users lose track of their current page, especially after scrolling.
 
 **How to Fix It:**
 Distinguish the active page with contrasting colors, borders, or size.
 
-### 🚫 **Tiny Click Targets**
+### **Tiny Click Targets**
 **The Problem:**
 Page numbers and controls are too small for easy clicking, especially on mobile.
 
 **How to Fix It:**
 Use minimum 44x44px touch targets with adequate spacing between elements.
 
-### 🚫 **No Keyboard Navigation**
+### **No Keyboard Navigation**
 **The Problem:**
 Pagination works only with mouse/touch, locking out keyboard users.
 
 **How to Fix It:**
 Add full keyboard support with Tab navigation and Enter/Space activation.
 
-### 🚫 **Jumping to Top Without Warning**
+### **Jumping to Top Without Warning**
 **The Problem:**
 Page changes trigger unexpected scroll to top, disorienting users.
 
 **How to Fix It:**
 Keep scroll position or smoothly animate to top with clear indication.
 
-### 🚫 **Poor Mobile Adaptation**
+### **Poor Mobile Adaptation**
 **The Problem:**
 Desktop pagination with many page numbers fails on mobile.
 
