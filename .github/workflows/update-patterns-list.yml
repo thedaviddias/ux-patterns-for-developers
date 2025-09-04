@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - "content/patterns/**"
+      - "apps/web/content/patterns/**"
 
 jobs:
   update-readme:

@@ -14,7 +14,7 @@ runs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version-file: ".nvmrc"
+        node-version-file: "apps/web/.nvmrc"
         registry-url: "https://registry.npmjs.org"
         cache: "pnpm"
 
@@ -24,7 +24,7 @@ runs:
       with:
         path: |
           ~/.pnpm
-          ${{ github.workspace }}/.next/cache
+          ${{ github.workspace }}/apps/web/.next/cache
         key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
         restore-keys: |
           ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
