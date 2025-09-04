@@ -3,8 +3,6 @@ name: Links Checker
 on:
   repository_dispatch:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * 1" # bi weekly on Monday
 
 env:
   HUSKY: 0
