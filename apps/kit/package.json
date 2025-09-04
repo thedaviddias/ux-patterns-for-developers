@@ -9,22 +9,22 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "next": "15.5.2",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "fumadocs-ui": "15.7.8",
     "fumadocs-core": "15.7.8",
-    "fumadocs-mdx": "11.8.3"
+    "fumadocs-mdx": "11.8.3",
+    "fumadocs-ui": "15.7.8",
+    "next": "^15.5.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "@thedaviddias/config-typescript": "workspace:*",
+    "@types/mdx": "^2.0.13",
     "@types/node": "24.3.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
-    "typescript": "^5.9.2",
-    "@types/mdx": "^2.0.13",
-    "@tailwindcss/postcss": "^4.1.12",
-    "tailwindcss": "^4.1.12",
     "postcss": "^8.5.6",
-    "@thedaviddias/config-typescript": "workspace:*"
+    "tailwindcss": "^4.1.12",
+    "typescript": "^5.9.2"
   }
 }
