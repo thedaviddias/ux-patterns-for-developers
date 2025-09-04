@@ -359,9 +359,9 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 
 ### Missing or Incorrect ARIA Labels
 
-**The Problem:** If navigation buttons and slides lack descriptive labels, screen readers can’t convey their function or content.
+**The Problem:** If navigation buttons and slides lack descriptive labels, screen readers can't convey their function or content.
 
-**How to Fix It?** Use attributes like `aria-label="Next Slide"` on arrows, `role="tabpanel"` for slides, and `aria-roledescription="carousel"` on the container. Include a descriptive `aria-label` (e.g., `"Featured Products Carousel"`) so users know the carousel’s purpose.
+**How to Fix It?** Use attributes like `aria-label="Next slide"` on arrows and `aria-roledescription="carousel"` on the container. For Tabbed Carousels, the slide panels use `role="tabpanel"` (see "ARIA Attributes for Tabbed Carousels"); for standard carousels, treat slides as groups with clear labels (e.g., "Slide 2 of 5").
 
 ---
 
@@ -672,7 +672,7 @@ This order ensures that users can control the carousel's behavior before interac
 
 2. **Auto-rotation Behavior**
 
-In most cases, auto-rotation is discourage as it makes more difficult for users to have a complete control over the carousel.
+In most cases, auto-rotation is discouraged as it makes it more difficult for users to have complete control over the carousel.
 
 But if you need to support auto-rotation, here's the expected behavior:
 
@@ -986,7 +986,7 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 - [A Step-By-Step Guide To Building Accessible Carousels](https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/)
 - [More Alternatives to Using a Carousel on Your Website - Mightybytes](https://www.mightybytes.com/blog/more-alternatives-to-carousels-on-website/)
 - [How to build a more accessible carousel or slider - DEV Community](https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp)
-- [The Unbearable Inaccessibility of Slideshows — SitePointSitePoint](https://www.sitepoint.com/unbearable-accessible-slideshow/)
+- [The Unbearable Inaccessibility of Slideshows — SitePoint](https://www.sitepoint.com/unbearable-accessible-slideshow/)
 - [Usability Guidelines For Better Carousels UX — Smashing Magazine](https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/)
 - [How to Test and Improve Carousel Accessibility: A Complete Guide - The A11Y Collective](https://www.a11y-collective.com/blog/accessible-carousel/)
 
