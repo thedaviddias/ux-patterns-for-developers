@@ -1,0 +1,416 @@
+---
+title: Button
+description: Interactive elements that trigger actions or events when clicked
+icon: MousePointerClick
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs'
+import { Callout } from 'fumadocs-ui/components/callout'
+import { ComponentPreview } from '@/components/registry/component-preview'
+
+Buttons are interactive elements that trigger actions or events when clicked or interacted with. They are one of the most fundamental UI components in any application. For comprehensive UX guidelines and patterns, see the [Button Pattern documentation](https://uxpatterns.dev/patterns/forms/button).
+
+## Preview
+
+<ComponentPreview name="button-demo" />
+
+## Installation
+
+<Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
+  <Tab value="pnpm">
+    ```bash
+    pnpm dlx shadcn@latest add button
+    ```
+  </Tab>
+  <Tab value="npm">
+    ```bash
+    npx shadcn@latest add button
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```bash
+    bunx shadcn@latest add button
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```bash
+    yarn dlx shadcn@latest add button
+    ```
+  </Tab>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export default function Example() {
+  return <Button>Click me</Button>
+}
+```
+
+## Variants
+
+The button component comes with multiple variants to suit different use cases:
+
+### Default
+
+<ComponentPreview name="button-default" height="h-[100px]" />
+
+```tsx
+<Button>Default</Button>
+```
+
+### Destructive
+
+Use for dangerous or destructive actions like deleting data.
+
+<ComponentPreview name="button-destructive" height="h-[100px]" />
+
+```tsx
+<Button variant="destructive">Delete</Button>
+```
+
+### Outline
+
+A button with a border and transparent background.
+
+<ComponentPreview name="button-outline" height="h-[100px]" />
+
+```tsx
+<Button variant="outline">Outline</Button>
+```
+
+### Secondary
+
+For less prominent actions.
+
+<ComponentPreview name="button-secondary" height="h-[100px]" />
+
+```tsx
+<Button variant="secondary">Secondary</Button>
+```
+
+### Ghost
+
+Minimal styling for tertiary actions.
+
+<ComponentPreview name="button-ghost" height="h-[100px]" />
+
+```tsx
+<Button variant="ghost">Ghost</Button>
+```
+
+### Link
+
+Styled to look like a link but with button behavior.
+
+<ComponentPreview name="button-link" height="h-[100px]" />
+
+```tsx
+<Button variant="link">Link</Button>
+```
+
+## Sizes
+
+Buttons come in different sizes for various contexts:
+
+<ComponentPreview name="button-sizes" height="h-[150px]" />
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>
+<Button size="icon">
+  <Settings className="h-4 w-4" />
+</Button>
+```
+
+## With Icons
+
+Buttons can include icons to enhance clarity:
+
+<ComponentPreview name="button-with-icons"  />
+
+### Icon on the left
+
+Add an icon to the left side of the button text for better visual hierarchy:
+
+<ComponentPreview name="button-icon-left" height="h-[150px]" />
+
+```tsx
+<Button>
+  <Mail className="mr-2 h-4 w-4" />
+  Send Email
+</Button>
+```
+
+### Icon on the right
+
+Place an icon on the right side to indicate forward action or progression:
+
+<ComponentPreview name="button-icon-right" height="h-[150px]" />
+
+```tsx
+<Button>
+  Continue
+  <ArrowRight className="ml-2 h-4 w-4" />
+</Button>
+```
+
+### Icon only
+
+Use icon-only buttons for compact interfaces or when the action is universally understood:
+
+<ComponentPreview name="button-icon-only" height="h-[150px]" />
+
+```tsx
+<Button size="icon" aria-label="Settings">
+  <Settings className="h-4 w-4" />
+</Button>
+```
+
+## States
+
+### Loading
+
+Show a loading state when performing async operations:
+
+<ComponentPreview name="button-loading-states" height="h-[150px]" />
+
+```tsx
+<Button disabled>
+  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+  Saving...
+</Button>
+```
+
+### Disabled
+
+Prevent interaction when an action is not available:
+
+<ComponentPreview name="button-disabled" height="h-[150px]" />
+
+```tsx
+<Button disabled>Disabled</Button>
+```
+
+## Button Groups
+
+Group related actions together to create cohesive action sets:
+
+<ComponentPreview name="button-groups" />
+
+## Full Width
+
+Make a button span the full width of its container for prominent actions:
+
+<ComponentPreview name="button-full-width" />
+
+```tsx
+<Button className="w-full">Full Width Button</Button>
+```
+
+## As Child
+
+Use the button styling with other components like links or form elements:
+
+<ComponentPreview name="button-as-child" height="h-[150px]" />
+
+```tsx
+<Button asChild>
+  <Link href="/login">Login</Link>
+</Button>
+```
+
+## Advanced Examples
+
+### With Badge
+
+Add a badge to show additional information like counts or status:
+
+<ComponentPreview name="button-with-badge" height="h-[150px]" />
+
+```tsx
+<Button>
+  Messages
+  <span className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground">
+    12
+  </span>
+</Button>
+```
+
+### With Counter
+
+Display numeric indicators like counts or ratings:
+
+<ComponentPreview name="button-with-counter" height="h-[150px]" />
+
+```tsx
+<Button variant="outline">
+  <span>Star</span>
+  <span className="ml-2 rounded-full bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground">
+    729
+  </span>
+</Button>
+```
+
+### With Avatar
+
+Show user profile information with avatars:
+
+<ComponentPreview name="button-with-avatar" height="h-[150px]" />
+
+```tsx
+<Button variant="ghost" className="h-auto p-2">
+  <img
+    src="https://github.com/shadcn.png"
+    alt="User avatar"
+    className="mr-2 h-6 w-6 rounded-full"
+  />
+  <span className="text-sm">@georgelucas</span>
+</Button>
+```
+
+### Upload Button
+
+File upload buttons with status information:
+
+<ComponentPreview name="button-upload" height="h-[150px]" />
+
+```tsx
+<Button variant="outline" className="h-auto p-4">
+  <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+  </svg>
+  <div className="text-left">
+    <div className="font-medium">Upload image</div>
+    <div className="text-xs text-muted-foreground">No image uploaded</div>
+  </div>
+</Button>
+```
+
+### Toggle Button
+
+Interactive buttons that show pressed/unpressed states:
+
+<ComponentPreview name="button-toggle" height="h-[150px]" />
+
+```tsx
+<Button
+  variant={isPinned ? "default" : "outline"}
+  onClick={() => setIsPinned(!isPinned)}
+  className="gap-2"
+>
+  <svg className={`h-4 w-4 ${isPinned ? "fill-current" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+  </svg>
+  {isPinned ? "Pinned" : "Pin"}
+</Button>
+```
+
+### Double Icon
+
+Buttons with icons on both sides for enhanced visual communication:
+
+<ComponentPreview name="button-double-icon" height="h-[150px]" />
+
+```tsx
+<Button>
+  <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>
+  Send Email
+  <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+  </svg>
+</Button>
+```
+
+### With Keyboard Shortcut
+
+Display keyboard shortcuts to help users learn and use keyboard navigation:
+
+<ComponentPreview name="button-with-keyboard-shortcut" height="h-[150px]" />
+
+```tsx
+<Button className="justify-between">
+  <span>Save</span>
+  <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+    ⌘S
+  </kbd>
+</Button>
+```
+
+### Social Login Buttons
+
+<ComponentPreview name="button-social-login" />
+
+```tsx
+<Button className="w-full" variant="outline">
+  <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+    {/* Google icon SVG */}
+  </svg>
+  Continue with Google
+</Button>
+
+<Button className="w-full" variant="outline">
+  <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+    {/* GitHub icon SVG */}
+  </svg>
+  Continue with GitHub
+</Button>
+```
+
+### Split Button
+
+Create a split button with a primary action and a dropdown trigger for related options:
+
+<ComponentPreview name="button-split" height="h-[150px]" />
+
+```tsx
+<div className="flex">
+  <Button className="rounded-r-none">
+    Export
+  </Button>
+  <Button size="icon" variant="outline" className="rounded-l-none border-l-0">
+    <ChevronDown className="h-4 w-4" />
+  </Button>
+</div>
+```
+
+## Accessibility
+
+Buttons are accessible by default with proper keyboard support and ARIA attributes. See the [accessibility guidelines](https://uxpatterns.dev/patterns/forms/button#accessibility) for comprehensive details:
+
+- **Keyboard Navigation**: Buttons can be focused with Tab and activated with Enter or Space
+- **Screen Readers**: Use descriptive text or `aria-label` for icon-only buttons
+- **Focus Indicators**: Visible focus states for keyboard navigation
+- **Disabled State**: Properly announced to assistive technologies
+
+### Best Practices
+
+For detailed UX best practices, see the [Button Pattern best practices](https://uxpatterns.dev/patterns/forms/button#best-practices).
+
+1. **Use semantic HTML**: Always use `<button>` for actions, not `<div>` or `<span>`
+2. **Provide labels**: Icon-only buttons must have `aria-label`
+3. **Indicate loading**: Use `aria-busy="true"` during async operations
+4. **Group related actions**: Use `role="group"` with `aria-label` for button groups
+5. **Avoid disabled buttons**: Consider showing why an action is unavailable instead
+
+## API Reference
+
+### Button Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "destructive" \| "outline" \| "secondary" \| "ghost" \| "link"` | `"default"` | The visual variant of the button |
+| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"default"` | The size of the button |
+| `asChild` | `boolean` | `false` | Merge props onto child element instead of creating button |
+| `disabled` | `boolean` | `false` | Whether the button is disabled |
+| `type` | `"button" \| "submit" \| "reset"` | `"button"` | The HTML button type |
+| `className` | `string` | - | Additional CSS classes |
+
+<Callout>
+  **Pro Tip**: When using buttons for navigation, consider using the `asChild` prop with Next.js Link component for better SEO and performance. Learn more about [when to use buttons vs links](https://uxpatterns.dev/patterns/forms/button#use-cases).
+</Callout>

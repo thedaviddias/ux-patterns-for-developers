@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "dev": "pnpm --filter=@ux-patterns/registry registry:generate && next dev -p 3065 --turbo",
+    "build": "pnpm build:registry && next build",
+    "build:registry": "node ../../scripts/build-registry.js",
+    "dev": "pnpm build:registry && pnpm --filter=@ux-patterns/registry registry:generate && next dev -p 3065 --turbo",
     "start": "next start",
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.2",
     "@sentry/nextjs": "^10.8.0",
     "@ux-patterns/registry": "workspace:*",
     "@ux-patterns/ui": "workspace:*",

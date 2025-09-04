@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-toggle",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-toggle.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"../ui/button\"\nimport { useState } from \"react\"\n\nexport default function ButtonToggle() {\n  const [isPinned, setIsPinned] = useState(false)\n\n  return (\n    <Button\n      variant={isPinned ? \"default\" : \"outline\"}\n      onClick={() => setIsPinned(!isPinned)}\n      className=\"gap-2\"\n    >\n      <svg className={`h-4 w-4 ${isPinned ? \"fill-current\" : \"\"}`} fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M5 15l7-7 7 7\" />\n      </svg>\n      {isPinned ? \"Pinned\" : \"Pin\"}\n    </Button>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

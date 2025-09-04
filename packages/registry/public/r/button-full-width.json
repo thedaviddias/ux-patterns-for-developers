@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-full-width",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-full-width.tsx",
+      "content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonFullWidth() {\n  return (\n    <div className=\"w-full max-w-md space-y-4\">\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Full Width Default</h4>\n        <Button className=\"w-full\">Full Width Button</Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Full Width Secondary</h4>\n        <Button variant=\"secondary\" className=\"w-full\">\n          Secondary Full Width\n        </Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Full Width Outline</h4>\n        <Button variant=\"outline\" className=\"w-full\">\n          Outline Full Width\n        </Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Full Width Large</h4>\n        <Button size=\"lg\" className=\"w-full\">\n          Large Full Width Button\n        </Button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h4 className=\"text-sm font-medium\">Stacked Full Width</h4>\n        <div className=\"space-y-2\">\n          <Button className=\"w-full\">Primary Action</Button>\n          <Button variant=\"outline\" className=\"w-full\">\n            Secondary Action\n          </Button>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}
