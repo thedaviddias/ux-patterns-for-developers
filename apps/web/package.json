@@ -27,7 +27,7 @@
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.19.11",
     "@mdn/browser-compat-data": "^5.6.37",
-    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-slot": "^1.2.3",
     "@sentry/nextjs": "^10.8.0",
     "@types/dagre": "^0.7.52",
     "chalk": "^5.4.1",
@@ -38,7 +38,7 @@
     "gray-matter": "^4.0.3",
     "html-to-image": "^1.11.13",
     "import-in-the-middle": "^1.14.2",
-    "lucide-react": "^0.475.0",
+    "lucide-react": "^0.468.0",
     "markdown-to-jsx": "^7.7.3",
     "next": "^15.5.2",
     "next-plausible": "^3.12.4",

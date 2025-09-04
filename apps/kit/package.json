@@ -9,15 +9,22 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.8.0",
     "@ux-patterns/registry": "workspace:*",
+    "@ux-patterns/ui": "workspace:*",
     "clsx": "^2.1.1",
     "fumadocs-core": "15.7.8",
     "fumadocs-mdx": "11.8.3",
     "fumadocs-ui": "15.7.8",
+    "import-in-the-middle": "^1.14.2",
+    "lucide-react": "^0.468.0",
     "next": "^15.5.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwind-merge": "^3.0.1"
+    "require-in-the-middle": "^7.5.1",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-motion": "^1.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.12",
