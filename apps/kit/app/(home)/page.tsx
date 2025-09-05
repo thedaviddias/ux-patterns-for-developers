@@ -57,7 +57,7 @@ export default function HomePage() {
 						</div>
 						<div className="flex items-center gap-2">
 							<Shield className="h-4 w-4" />
-							<span>WCAG 2.1 Compliant</span>
+							<span>WCAG 2.2 Compliant</span>
 						</div>
 					</div>
 				</div>

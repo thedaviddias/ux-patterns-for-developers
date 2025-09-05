@@ -135,7 +135,7 @@ function generatePatternsList() {
 
 					// Add additional features if available
 					if (metadata.hasAccessibility) {
-						features.push("♿️ WCAG 2.1");
+						features.push("♿️ WCAG 2.2");
 					}
 					if (metadata.hasMobileConsiderations) {
 						features.push("📱 Mobile-ready");
