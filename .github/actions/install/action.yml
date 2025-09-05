@@ -12,9 +12,9 @@ runs:
         run_install: false
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
-        node-version-file: "apps/web/.nvmrc"
+        node-version-file: ".nvmrc"
         registry-url: "https://registry.npmjs.org"
         cache: "pnpm"
 
