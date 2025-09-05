@@ -125,30 +125,79 @@ This project is built with **Next.js**, using **TypeScript** and **Tailwind CSS*
   </Step>
 
   <Step>
+    ### Configure namespaced registries (Optional)
+
+    For a cleaner installation experience, you can configure namespaced registries in your `components.json` file. This allows you to use `@namespace/component` syntax instead of full URLs.
+
+    **Add the `registries` object to your existing `components.json`:**
+
+    ```json title="components.json"
+    {
+      ...
+      "registries": {
+        "@upkit": "https://kit.uxpatterns.dev/r/{name}.json"
+      }
+    }
+    ```
+
+    <Callout>
+      **What are namespaced registries?** This feature allows you to organize components from different sources using clean namespace prefixes like `@upkit/button` instead of long URLs. It's supported in shadcn CLI 3.0+ and provides better organization and easier discovery of components.
+    </Callout>
+  </Step>
+
+  <Step>
     ### Add your first component
 
-    Now you can start adding UP Kit components and patterns to your project:
+    Now you can start adding UP Kit components to your project using either method:
 
-    <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
-      <Tab value="pnpm">
-        ```bash
-        pnpm shadcn@latest add https://kit.uxpatterns.dev/r/button.json
-        ```
+    <Tabs items={['Namespaced (Recommended)', 'Direct URL']}>
+      <Tab value="Namespaced (Recommended)">
+        <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
+          <Tab value="pnpm">
+            ```bash
+            pnpm shadcn@latest add @upkit/button
+            ```
+          </Tab>
+          <Tab value="npm">
+            ```bash
+            npx shadcn@latest add @upkit/button
+            ```
+          </Tab>
+          <Tab value="bun">
+            ```bash
+            bunx shadcn@latest add @upkit/button
+            ```
+          </Tab>
+          <Tab value="yarn">
+            ```bash
+            yarn shadcn@latest add @upkit/button
+            ```
+          </Tab>
+        </Tabs>
       </Tab>
-      <Tab value="npm">
-        ```bash
-        npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
-        ```
-      </Tab>
-      <Tab value="bun">
-        ```bash
-        bunx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
-        ```
-      </Tab>
-      <Tab value="yarn">
-        ```bash
-        yarn shadcn@latest add https://kit.uxpatterns.dev/r/button.json
-        ```
+      <Tab value="Direct URL">
+        <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
+          <Tab value="pnpm">
+            ```bash
+            pnpm shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+            ```
+          </Tab>
+          <Tab value="npm">
+            ```bash
+            npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+            ```
+          </Tab>
+          <Tab value="bun">
+            ```bash
+            bunx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+            ```
+          </Tab>
+          <Tab value="yarn">
+            ```bash
+            yarn shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+            ```
+          </Tab>
+        </Tabs>
       </Tab>
     </Tabs>
 
@@ -168,9 +217,48 @@ This project is built with **Next.js**, using **TypeScript** and **Tailwind CSS*
   </Step>
 
   <Step>
+    ### Understanding namespaced registries
+
+    The namespaced registry system in shadcn CLI 3.0+ provides several benefits:
+
+    **Benefits:**
+    - **Cleaner syntax**: Use `@upkit/button` instead of long URLs
+    - **Better organization**: Clear separation between different component libraries
+    - **Easier discovery**: More intuitive component names
+    - **Multiple registries**: Support for multiple component sources in one project
+
+    **Example with multiple registries:**
+    ```json title="components.json"
+    {
+      "registries": {
+        "@upkit": "https://kit.uxpatterns.dev/r/{name}.json",
+        "@kibo-ui": "https://www.kibo-ui.com/r/{name}.json",
+        "@tailark": "https://tailark.com/r/{name}.json"
+      }
+    }
+    ```
+
+    **Usage:**
+    ```bash
+    # Install from UP Kit
+    npx shadcn@latest add @upkit/button
+
+    # Install from other registries
+    npx shadcn@latest add @kibo-ui/gantt
+    npx shadcn@latest add @tailark/hero
+    ```
+
+    **Backward compatibility:**
+    The old URL-based method still works for users who prefer it or need to install from unregistered sources:
+    ```bash
+    npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+    ```
+  </Step>
+
+  <Step>
     ### Done! 🎉
 
-    You can now use the UP Kit CLI to add components and patterns, or manually copy-paste them from the documentation.
+    You can now use the UP Kit CLI to add components, or manually copy-paste them from the documentation.
 
     <Callout>
       **Using the CLI is recommended** - It automatically handles dependencies, creates necessary files, and ensures proper setup. See the [CLI documentation](/docs/cli) for more information.
