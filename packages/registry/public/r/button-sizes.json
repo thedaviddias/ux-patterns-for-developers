@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-sizes",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-sizes.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonSizes() {\n\treturn (\n\t\t<div className=\"flex items-center gap-4\">\n\t\t\t<Button size=\"sm\">Small</Button>\n\t\t\t<Button size=\"default\">Default</Button>\n\t\t\t<Button size=\"lg\">Large</Button>\n\t\t\t<Button size=\"icon\">\n\t\t\t\t<svg\n\t\t\t\t\tclassName=\"h-4 w-4\"\n\t\t\t\t\tfill=\"none\"\n\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t\t>\n\t\t\t\t\t<path\n\t\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\t\tstrokeWidth={2}\n\t\t\t\t\t\td=\"M12 4v16m8-8H4\"\n\t\t\t\t\t/>\n\t\t\t\t</svg>\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

@@ -1,0 +1,179 @@
+---
+title: Installation
+description: A simple guide to set up UP Kit with the required dependencies and structure
+icon: PackagePlus
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps'
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs'
+import { Callout } from 'fumadocs-ui/components/callout'
+
+This project is built with **Next.js**, using **TypeScript** and **Tailwind CSS** for all components.
+
+<Steps>
+  <Step>
+    ### Create a Next.js project
+
+    Start by creating a new Next.js project if you don't have one set up already.
+
+    <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm create next-app@latest my-app --typescript --tailwind --app
+        cd my-app
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx create-next-app@latest my-app --typescript --tailwind --app
+        cd my-app
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx create-next-app@latest my-app --typescript --tailwind --app
+        cd my-app
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        yarn create next-app@latest my-app --typescript --tailwind --app
+        cd my-app
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step>
+    ### Install shadcn/ui
+
+    UP Kit is built on top of shadcn/ui. Set it up in your project:
+
+    <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest init
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest init
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest init
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        yarn dlx shadcn@latest init
+        ```
+      </Tab>
+    </Tabs>
+
+    Follow the prompts to configure your components.json. We recommend:
+    - **Style**: Default
+    - **Base color**: Slate
+    - **CSS variables**: Yes
+  </Step>
+
+  <Step>
+    ### Install required dependencies
+
+    Install the icon library and utility packages used by UP Kit components:
+
+    <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm add lucide-react clsx tailwind-merge
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npm install lucide-react clsx tailwind-merge
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bun add lucide-react clsx tailwind-merge
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        yarn add lucide-react clsx tailwind-merge
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step>
+    ### Add the cn utility
+
+    Add this utility function for conditionally applying Tailwind CSS classes:
+
+    ```ts title="lib/utils.ts"
+    import { clsx, type ClassValue } from 'clsx'
+    import { twMerge } from 'tailwind-merge'
+
+    export function cn(...inputs: ClassValue[]) {
+      return twMerge(clsx(inputs))
+    }
+    ```
+
+    This utility is likely already created if you've initialized shadcn/ui.
+  </Step>
+
+  <Step>
+    ### Add your first component
+
+    Now you can start adding UP Kit components and patterns to your project:
+
+    <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        yarn shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+        ```
+      </Tab>
+    </Tabs>
+
+    Then import and use the components in your project:
+
+    ```tsx title="app/page.tsx"
+    import { Button } from "@/components/upkit/button"
+
+    export default function HomePage() {
+      return (
+        <div>
+          <Button>Click me</Button>
+        </div>
+      )
+    }
+    ```
+  </Step>
+
+  <Step>
+    ### Done! 🎉
+
+    You can now use the UP Kit CLI to add components and patterns, or manually copy-paste them from the documentation.
+
+    <Callout>
+      **Using the CLI is recommended** - It automatically handles dependencies, creates necessary files, and ensures proper setup. See the [CLI documentation](/docs/cli) for more information.
+    </Callout>
+  </Step>
+</Steps>

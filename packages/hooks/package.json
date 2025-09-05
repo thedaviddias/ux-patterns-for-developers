@@ -1,0 +1,20 @@
+{
+	"name": "@ux-patterns/hooks",
+	"version": "0.1.0",
+	"description": "Shared React hooks for UX Patterns applications",
+	"type": "module",
+	"exports": {
+		"./*": "./src/*"
+	},
+	"scripts": {
+		"check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"react": "^19.1.1"
+	},
+	"devDependencies": {
+		"@thedaviddias/config-typescript": "workspace:*",
+		"@types/react": "^19.1.12",
+		"typescript": "^5.9.2"
+	}
+}

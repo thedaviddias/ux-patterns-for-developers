@@ -4,7 +4,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/.source": ["./.source/index.ts"],
-			"@/*": ["./*"]
+			"@/*": ["./*"],
+			"@ux-patterns/*": ["../../packages/*"]
 		},
 		"skipLibCheck": true
 	},

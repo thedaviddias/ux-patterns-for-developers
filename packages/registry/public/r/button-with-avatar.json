@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-with-avatar",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-with-avatar.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonWithAvatar() {\n\treturn (\n\t\t<Button variant=\"ghost\" className=\"h-auto p-2\">\n\t\t\t<img\n\t\t\t\tsrc=\"https://github.com/shadcn.png\"\n\t\t\t\talt=\"User avatar\"\n\t\t\t\tclassName=\"mr-2 h-6 w-6 rounded-full\"\n\t\t\t/>\n\t\t\t<span className=\"text-sm\">@georgelucas</span>\n\t\t</Button>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

@@ -1,30 +1,30 @@
-import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+	const { pathname } = request.nextUrl;
 
-  // Redirect legacy /en/ and /fr/ URLs to new structure
-  if (pathname.startsWith('/en/') || pathname === '/en') {
-    const newUrl = request.nextUrl.clone();
-    newUrl.pathname = pathname.replace(/^\/en/, '');
-    if (newUrl.pathname === '') newUrl.pathname = '/';
-    return NextResponse.redirect(newUrl, { status: 301 });
-  }
+	// Redirect legacy /en/ and /fr/ URLs to new structure
+	if (pathname.startsWith("/en/") || pathname === "/en") {
+		const newUrl = request.nextUrl.clone();
+		newUrl.pathname = pathname.replace(/^\/en/, "");
+		if (newUrl.pathname === "") newUrl.pathname = "/";
+		return NextResponse.redirect(newUrl, { status: 301 });
+	}
 
-  if (pathname.startsWith('/fr/') || pathname === '/fr') {
-    const newUrl = request.nextUrl.clone();
-    newUrl.pathname = pathname.replace(/^\/fr/, '');
-    if (newUrl.pathname === '') newUrl.pathname = '/';
-    return NextResponse.redirect(newUrl, { status: 301 });
-  }
+	if (pathname.startsWith("/fr/") || pathname === "/fr") {
+		const newUrl = request.nextUrl.clone();
+		newUrl.pathname = pathname.replace(/^\/fr/, "");
+		if (newUrl.pathname === "") newUrl.pathname = "/";
+		return NextResponse.redirect(newUrl, { status: 301 });
+	}
 
-  return NextResponse.next();
+	return NextResponse.next();
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
-  matcher: [
-    '/((?!api/mdx|api/email|api/patterns/random|api/og|_next/static|_next/image|llms-full.txt|llms.txt|favicon.ico|robots.txt|og/opengraph-image.png|covers|twitter-image|sitemap.xml|6ba7b811-9dad-11d1-80b4.txt|43mg4ybv6sxxanu24g7dngawd9up5w93.txt|apple-icon.png|manifest|_pagefind|examples).*)',
-  ],
+	// Matcher ignoring `/_next/` and `/api/`
+	matcher: [
+		"/((?!api/mdx|api/email|api/patterns/random|api/og|_next/static|_next/image|llms-full.txt|llms.txt|favicon.ico|robots.txt|og/opengraph-image.png|covers|twitter-image|sitemap.xml|6ba7b811-9dad-11d1-80b4.txt|43mg4ybv6sxxanu24g7dngawd9up5w93.txt|apple-icon.png|manifest|_pagefind|examples).*)",
+	],
 };

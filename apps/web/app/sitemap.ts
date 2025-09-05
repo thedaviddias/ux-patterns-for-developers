@@ -1,59 +1,62 @@
-import { readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
-import type { MetadataRoute } from 'next';
-import { BASE_URL } from './_constants/project';
+import { readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
+import type { MetadataRoute } from "next";
+import { BASE_URL } from "./_constants/project";
 
-function getContentPages(dir: string, baseDir: string = ''): string[] {
-  const pages: string[] = [];
+function getContentPages(dir: string, baseDir: string = ""): string[] {
+	const pages: string[] = [];
 
-  try {
-    const items = readdirSync(dir);
+	try {
+		const items = readdirSync(dir);
 
-    for (const item of items) {
-      const fullPath = join(dir, item);
-      const stat = statSync(fullPath);
+		for (const item of items) {
+			const fullPath = join(dir, item);
+			const stat = statSync(fullPath);
 
-      if (stat.isDirectory()) {
-        // Skip hidden directories and _meta files
-        if (!item.startsWith('_')) {
-          pages.push(...getContentPages(fullPath, join(baseDir, item)));
-        }
-      } else if (item.endsWith('.mdx') && !item.startsWith('_')) {
-        // Remove .mdx extension and index becomes empty string
-        const pagePath = item === 'index.mdx' ? baseDir : join(baseDir, item.replace('.mdx', ''));
-        pages.push(pagePath);
-      }
-    }
-  } catch (error) {
-    console.error(`Error reading directory ${dir}:`, error);
-  }
+			if (stat.isDirectory()) {
+				// Skip hidden directories and _meta files
+				if (!item.startsWith("_")) {
+					pages.push(...getContentPages(fullPath, join(baseDir, item)));
+				}
+			} else if (item.endsWith(".mdx") && !item.startsWith("_")) {
+				// Remove .mdx extension and index becomes empty string
+				const pagePath =
+					item === "index.mdx"
+						? baseDir
+						: join(baseDir, item.replace(".mdx", ""));
+				pages.push(pagePath);
+			}
+		}
+	} catch (error) {
+		console.error(`Error reading directory ${dir}:`, error);
+	}
 
-  return pages;
+	return pages;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes: MetadataRoute.Sitemap = [];
+	const routes: MetadataRoute.Sitemap = [];
 
-  // Generate routes for content
-  const contentDir = join(process.cwd(), 'content');
-  const pages = getContentPages(contentDir);
+	// Generate routes for content
+	const contentDir = join(process.cwd(), "content");
+	const pages = getContentPages(contentDir);
 
-  // Add routes without language prefix
-  pages.forEach((page) => {
-    routes.push({
-      url: `${BASE_URL}${page ? `/${page}` : ''}`,
-      lastModified: new Date(),
-      changeFrequency: page.includes('patterns') ? 'daily' : 'weekly',
-      priority: getPriority(page),
-    });
-  });
+	// Add routes without language prefix
+	pages.forEach((page) => {
+		routes.push({
+			url: `${BASE_URL}${page ? `/${page}` : ""}`,
+			lastModified: new Date(),
+			changeFrequency: page.includes("patterns") ? "daily" : "weekly",
+			priority: getPriority(page),
+		});
+	});
 
-  return routes;
+	return routes;
 }
 
 function getPriority(path: string): number {
-  if (!path) return 1; // Homepage
-  if (path === 'patterns/getting-started') return 0.9;
-  if (path.startsWith('patterns/')) return 0.8;
-  return 0.5; // Other pages
+	if (!path) return 1; // Homepage
+	if (path === "patterns/getting-started") return 0.9;
+	if (path.startsWith("patterns/")) return 0.8;
+	return 0.5; // Other pages
 }

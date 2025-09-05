@@ -1,7 +1,7 @@
 export default {
-  '*': {
-    theme: {
-      toc: true,
-    },
-  },
+	"*": {
+		theme: {
+			toc: true,
+		},
+	},
 };

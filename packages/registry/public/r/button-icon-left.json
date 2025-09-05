@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-icon-left",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-icon-left.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonIconLeft() {\n\treturn (\n\t\t<Button>\n\t\t\t<svg\n\t\t\t\tclassName=\"mr-2 h-4 w-4\"\n\t\t\t\tfill=\"none\"\n\t\t\t\tstroke=\"currentColor\"\n\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t>\n\t\t\t\t<path\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\tstrokeWidth={2}\n\t\t\t\t\td=\"M3 8l7.89 7.89a1 1 0 001.42 0L21 7\"\n\t\t\t\t/>\n\t\t\t</svg>\n\t\t\tSend Email\n\t\t</Button>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

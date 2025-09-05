@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-with-keyboard-shortcut",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-with-keyboard-shortcut.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonWithKeyboardShortcut() {\n\treturn (\n\t\t<Button className=\"justify-between\">\n\t\t\t<span>Save</span>\n\t\t\t<kbd className=\"ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground\">\n\t\t\t\t⌘S\n\t\t\t</kbd>\n\t\t</Button>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

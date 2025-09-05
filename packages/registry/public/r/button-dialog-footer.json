@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-dialog-footer",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-dialog-footer.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonDialogFooter() {\n\treturn (\n\t\t<div className=\"rounded-lg border p-6 space-y-4\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h3 className=\"text-lg font-semibold\">Delete Item?</h3>\n\t\t\t\t<p className=\"text-sm text-muted-foreground\">\n\t\t\t\t\tThis action cannot be undone. This will permanently delete your item\n\t\t\t\t\tand remove your data from our servers.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div className=\"flex justify-end gap-2\">\n\t\t\t\t<Button variant=\"outline\">Cancel</Button>\n\t\t\t\t<Button variant=\"destructive\">Delete</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

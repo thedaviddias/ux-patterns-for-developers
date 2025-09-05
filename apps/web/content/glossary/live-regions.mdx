@@ -51,7 +51,7 @@ Controls whether the entire region or just changes are announced:
 
 <!-- Announce only the changed parts -->
 <div aria-live="polite" aria-atomic="false">
-  <p>Processing... <span>50%</span> complete</p>
+  <p>Saving... <span>50%</span> complete</p>
 </div>
 ```
 
@@ -118,7 +118,7 @@ For countdown or elapsed time:
 <form>
   <label for="email">Email:</label>
   <input type="email" id="email" aria-describedby="email-error">
-  
+
   <!-- Live region for error messages -->
   <div id="email-error" role="alert" aria-live="assertive">
     <!-- Error messages inserted here dynamically -->
@@ -140,8 +140,8 @@ For countdown or elapsed time:
 ### Notifications
 ```html
 <!-- Toast notification container -->
-<div class="toast-container" 
-     role="region" 
+<div class="toast-container"
+     role="region"
      aria-label="Notifications"
      aria-live="polite">
   <!-- Notifications inserted here -->
