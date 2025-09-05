@@ -94,7 +94,7 @@ export function ExamplesGrid({ examples }: ExamplesGridProps) {
 										)}
 									</AspectRatio>
 									<div className="mt-2">
-										<h4 className="text-sm font-medium">{example.title}</h4>
+										<span className="text-sm font-medium">{example.title}</span>
 										{example.description && (
 											<p className="text-sm text-neutral-500 dark:text-neutral-400">
 												{example.description}

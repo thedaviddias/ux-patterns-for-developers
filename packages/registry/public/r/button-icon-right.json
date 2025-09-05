@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button-icon-right.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonIconRight() {\n\treturn (\n\t\t<Button>\n\t\t\tContinue\n\t\t\t<svg\n\t\t\t\tclassName=\"ml-2 h-4 w-4\"\n\t\t\t\tfill=\"none\"\n\t\t\t\tstroke=\"currentColor\"\n\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t>\n\t\t\t\t<path\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\tstrokeWidth={2}\n\t\t\t\t\td=\"M9 5l7 7-7 7\"\n\t\t\t\t/>\n\t\t\t</svg>\n\t\t</Button>\n\t);\n}\n",
+      "content": "import { ChevronRight } from \"lucide-react\";\nimport { Button } from \"../ui/button\";\n\nexport default function ButtonIconRight() {\n\treturn (\n\t\t<Button>\n\t\t\tContinue\n\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t</Button>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

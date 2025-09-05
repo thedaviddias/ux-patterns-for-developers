@@ -17,6 +17,7 @@
 		"clsx": "^2.1.1",
 		"fumadocs-core": "15.7.8",
 		"fumadocs-mdx": "11.8.3",
+		"fumadocs-typescript": "^4.0.6",
 		"fumadocs-ui": "15.7.8",
 		"import-in-the-middle": "^1.14.2",
 		"lucide-react": "^0.468.0",
@@ -24,9 +25,11 @@
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"require-in-the-middle": "^7.5.1",
+		"shiki": "^3.12.2",
 		"tailwind-merge": "^3.0.1",
 		"tailwindcss-animate": "^1.0.7",
-		"tailwindcss-motion": "^1.1.1"
+		"tailwindcss-motion": "^1.1.1",
+		"ts-morph": "^26.0.0"
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4.1.12",
