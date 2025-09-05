@@ -1,17 +1,17 @@
 {
-	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "button-with-badge",
-	"type": "registry:block",
-	"dependencies": [],
-	"registryDependencies": [],
-	"files": [
-		{
-			"path": "registry/default/blocks/button-with-badge.tsx",
-			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonWithBadge() {\n  return (\n    <Button>\n      Messages\n      <span className=\"ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground\">\n        12\n      </span>\n    </Button>\n  )\n}\n",
-			"type": "registry:block"
-		}
-	],
-	"meta": {
-		"tags": []
-	}
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-with-badge",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-with-badge.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonWithBadge() {\n\treturn (\n\t\t<Button>\n\t\t\tMessages\n\t\t\t<span className=\"ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground\">\n\t\t\t\t12\n\t\t\t</span>\n\t\t</Button>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
 }

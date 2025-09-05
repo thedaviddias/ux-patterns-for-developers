@@ -154,7 +154,7 @@ export async function POST(request: NextRequest) {
 									// Bold text
 									return (
 										<span
-											key={index}
+											key={`bold-${index}-${part.slice(2, 10)}`}
 											style={{
 												fontWeight: 800,
 												fontFamily: "Poppins",
@@ -168,7 +168,7 @@ export async function POST(request: NextRequest) {
 									// Regular text
 									return (
 										<span
-											key={index}
+											key={`text-${index}-${part.slice(0, 10)}`}
 											style={{
 												fontWeight: 500,
 												fontFamily: "Poppins",
@@ -239,8 +239,10 @@ export async function POST(request: NextRequest) {
 								gap: "8px",
 							}}
 						>
+							{/* biome-ignore lint/performance/noImgElement: Required for image generation in API route */}
 							<img
 								src={qrCodeDataUrl}
+								alt="QR code for URL"
 								width="100"
 								height="100"
 								style={{

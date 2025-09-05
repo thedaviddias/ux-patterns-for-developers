@@ -1,17 +1,17 @@
 {
-	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "button-form-actions",
-	"type": "registry:block",
-	"dependencies": [],
-	"registryDependencies": [],
-	"files": [
-		{
-			"path": "registry/default/blocks/button-form-actions.tsx",
-			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonFormActions() {\n  return (\n    <form className=\"space-y-4\">\n      <div className=\"space-y-2\">\n        <label htmlFor=\"email\" className=\"text-sm font-medium\">\n          Email\n        </label>\n        <input\n          id=\"email\"\n          type=\"email\"\n          placeholder=\"Enter your email\"\n          className=\"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm\"\n        />\n      </div>\n      <div className=\"flex gap-2\">\n        <Button type=\"submit\">Save Changes</Button>\n        <Button type=\"button\" variant=\"outline\">\n          Cancel\n        </Button>\n      </div>\n    </form>\n  )\n}\n",
-			"type": "registry:block"
-		}
-	],
-	"meta": {
-		"tags": []
-	}
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-form-actions",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-form-actions.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonFormActions() {\n\treturn (\n\t\t<form className=\"space-y-4\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<label htmlFor=\"email\" className=\"text-sm font-medium\">\n\t\t\t\t\tEmail\n\t\t\t\t</label>\n\t\t\t\t<input\n\t\t\t\t\tid=\"email\"\n\t\t\t\t\ttype=\"email\"\n\t\t\t\t\tplaceholder=\"Enter your email\"\n\t\t\t\t\tclassName=\"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm\"\n\t\t\t\t/>\n\t\t\t</div>\n\t\t\t<div className=\"flex gap-2\">\n\t\t\t\t<Button type=\"submit\">Save Changes</Button>\n\t\t\t\t<Button type=\"button\" variant=\"outline\">\n\t\t\t\t\tCancel\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</form>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
 }

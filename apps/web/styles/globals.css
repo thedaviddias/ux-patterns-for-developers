@@ -22,9 +22,6 @@
 	--flow-background-dots: #475569; /* slate-600 for dark mode dots */
 }
 
-body {
-}
-
 /* Constrain maximum width of the main content area */
 .nextra-container {
 	max-width: 1200px;
@@ -144,17 +141,17 @@ nav.nextra-toc:not([style*="display: none"]) ~ main .nextra-content {
 .nextra-toc li[data-depth="4"],
 .nextra-toc li[data-depth="5"],
 .nextra-toc li[data-depth="6"] {
-	display: none !important;
+	display: none;
 }
 
 /* Alternative approach - hide nested ul elements in TOC */
 .nextra-toc ul ul {
-	display: none !important;
+	display: none;
 }
 
 /* Hide indented items that represent H3+ */
 .nextra-toc a[class*="ps-4"],
 .nextra-toc a[class*="ps-6"],
 .nextra-toc a[class*="ps-8"] {
-	display: none !important;
+	display: none;
 }

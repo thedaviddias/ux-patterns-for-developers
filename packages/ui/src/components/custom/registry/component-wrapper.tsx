@@ -11,7 +11,10 @@ interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 	name: string;
 	height?: string;
 	kit?: boolean;
-	pageMetadata?: any;
+	pageMetadata?: {
+		component?: string;
+		[key: string]: unknown;
+	} | null;
 }
 
 export const ComponentWrapper = ({

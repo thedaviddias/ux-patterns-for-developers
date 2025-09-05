@@ -64,7 +64,7 @@ const FooterResourcesLinks = () => (
 const FooterSocialIcons = () => (
 	<div className="flex gap-2 mt-4">
 		{SOCIAL_LINKS.filter((link) => link.icon).map(
-			({ label, link, shortlink, rel, icon }) => (
+			({ label, link, rel, icon }) => (
 				<a
 					key={label}
 					href={link}
@@ -91,10 +91,8 @@ const FooterOpenSourceLinks = () => (
 // Client component for footer content
 const FooterContent = ({
 	dictionary,
-	lang,
 }: {
-	dictionary: any;
-	lang: string;
+	dictionary: Awaited<ReturnType<typeof getDictionary>>;
 }) => {
 	return (
 		<NextraFooter className="mt-auto w-full">
@@ -138,5 +136,5 @@ const FooterContent = ({
 
 export const Footer = async ({ lang }: { lang: string }) => {
 	const dictionary = await getDictionary(lang);
-	return <FooterContent dictionary={dictionary} lang={lang} />;
+	return <FooterContent dictionary={dictionary} />;
 };

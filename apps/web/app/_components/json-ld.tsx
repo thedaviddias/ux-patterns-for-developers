@@ -17,7 +17,6 @@ export function JsonLd({ data }: JsonLdProps) {
 		.replace(/</g, "\\u003c")
 		.replace(/\u2028/g, "\\u2028")
 		.replace(/\u2029/g, "\\u2029");
-	// biome-ignore lint/security/noDangerouslySetInnerHtml: Required for JSON-LD structured data injection with proper escaping
 	return (
 		<script
 			type="application/ld+json"

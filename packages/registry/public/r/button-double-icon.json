@@ -1,17 +1,17 @@
 {
-	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "button-double-icon",
-	"type": "registry:block",
-	"dependencies": [],
-	"registryDependencies": [],
-	"files": [
-		{
-			"path": "registry/default/blocks/button-double-icon.tsx",
-			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonDoubleIcon() {\n  return (\n    <Button>\n      <svg className=\"mr-2 h-4 w-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\" />\n      </svg>\n      Send Email\n      <svg className=\"ml-2 h-4 w-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M13 7l5 5m0 0l-5 5m5-5H6\" />\n      </svg>\n    </Button>\n  )\n}\n",
-			"type": "registry:block"
-		}
-	],
-	"meta": {
-		"tags": []
-	}
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-double-icon",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-double-icon.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonDoubleIcon() {\n\treturn (\n\t\t<Button>\n\t\t\t<svg\n\t\t\t\tclassName=\"mr-2 h-4 w-4\"\n\t\t\t\tfill=\"none\"\n\t\t\t\tstroke=\"currentColor\"\n\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t>\n\t\t\t\t<path\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\tstrokeWidth={2}\n\t\t\t\t\td=\"M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"\n\t\t\t\t/>\n\t\t\t</svg>\n\t\t\tSend Email\n\t\t\t<svg\n\t\t\t\tclassName=\"ml-2 h-4 w-4\"\n\t\t\t\tfill=\"none\"\n\t\t\t\tstroke=\"currentColor\"\n\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t>\n\t\t\t\t<path\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\tstrokeWidth={2}\n\t\t\t\t\td=\"M13 7l5 5m0 0l-5 5m5-5H6\"\n\t\t\t\t/>\n\t\t\t</svg>\n\t\t</Button>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
 }

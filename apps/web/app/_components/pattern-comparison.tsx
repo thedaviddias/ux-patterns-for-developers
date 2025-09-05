@@ -11,13 +11,11 @@ type Alternative = {
 };
 
 type PatternComparisonProps = {
-	current: string;
 	alternatives: Alternative[];
 	className?: string;
 };
 
 export const PatternComparison = ({
-	current,
 	alternatives,
 	className,
 }: PatternComparisonProps) => {

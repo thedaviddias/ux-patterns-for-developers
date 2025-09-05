@@ -3,11 +3,19 @@
 import { ComponentPreview } from "@ux-patterns/ui/components/custom/registry/component-preview";
 import React from "react";
 
+interface PageMetadata {
+	title?: string;
+	description?: string;
+	[key: string]: unknown;
+}
+
 // Create a context to pass metadata to components
-const MetadataContext = React.createContext<any>(null);
+const MetadataContext = React.createContext<PageMetadata | null>(null);
 
 // Enhanced ComponentPreview that uses metadata context
-export const ComponentPreviewWithMetadata = (props: any) => {
+export const ComponentPreviewWithMetadata = (
+	props: React.ComponentProps<typeof ComponentPreview>,
+) => {
 	const metadata = React.useContext(MetadataContext);
 	return <ComponentPreview {...props} pageMetadata={metadata} />;
 };
@@ -18,7 +26,7 @@ export const MetadataProvider = ({
 	metadata,
 }: {
 	children: React.ReactNode;
-	metadata: any;
+	metadata: PageMetadata;
 }) => {
 	return (
 		<MetadataContext.Provider value={metadata}>

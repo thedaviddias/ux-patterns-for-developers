@@ -21,6 +21,7 @@
 		"syncpack:list": "pnpm dlx syncpack list-mismatches"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^2.2.3",
 		"@manypkg/cli": "^0.23.0",
 		"turbo": "^2.3.3"
 	},

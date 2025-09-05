@@ -1,17 +1,17 @@
 {
-	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "button-demo",
-	"type": "registry:block",
-	"dependencies": [],
-	"registryDependencies": [],
-	"files": [
-		{
-			"path": "registry/default/blocks/button-demo.tsx",
-			"content": "import { Button } from \"../ui/button\"\n\nexport default function ButtonDemo() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Button>Default</Button>\n      <Button variant=\"secondary\">Secondary</Button>\n      <Button variant=\"destructive\">Destructive</Button>\n      <Button variant=\"outline\">Outline</Button>\n      <Button variant=\"ghost\">Ghost</Button>\n      <Button variant=\"link\">Link</Button>\n    </div>\n  )\n}\n",
-			"type": "registry:block"
-		}
-	],
-	"meta": {
-		"tags": []
-	}
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/blocks/button-demo.tsx",
+      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonDemo() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button>Default</Button>\n\t\t\t<Button variant=\"secondary\">Secondary</Button>\n\t\t\t<Button variant=\"destructive\">Destructive</Button>\n\t\t\t<Button variant=\"outline\">Outline</Button>\n\t\t\t<Button variant=\"ghost\">Ghost</Button>\n\t\t\t<Button variant=\"link\">Link</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
 }

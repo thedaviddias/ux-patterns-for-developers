@@ -20,6 +20,7 @@ export function baseOptions(): BaseLayoutProps {
 						aria-label="UP Kit Logo"
 						className="text-primary"
 					>
+						<title>UP Kit Logo</title>
 						{/* UX/UI focused icon - layers representing patterns */}
 						<rect
 							x="3"

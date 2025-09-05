@@ -62,7 +62,7 @@ export function CodeBlockCommand({
 			>
 				<div className="flex items-start justify-between border-b border-zinc-800 bg-zinc-900 px-3 pt-2.5 w-full">
 					<TabsList className="h-7 translate-y-[2px] gap-3 bg-transparent p-0 pl-1 w-fit">
-						{Object.entries(tabs).map(([key, value]) => {
+						{Object.entries(tabs).map(([key, _value]) => {
 							return (
 								<TabsTrigger
 									key={key}

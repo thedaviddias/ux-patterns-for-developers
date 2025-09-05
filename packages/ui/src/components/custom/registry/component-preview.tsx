@@ -16,7 +16,11 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	preview?: boolean;
 	height?: string;
 	kit?: boolean;
-	pageMetadata?: any;
+	pageMetadata?: {
+		title?: string;
+		description?: string;
+		[key: string]: unknown;
+	} | null;
 }
 
 export function ComponentPreview({

@@ -3,15 +3,7 @@
 	"version": "0.1.0",
 	"description": "UX Patterns component registry system",
 	"type": "module",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
 	"exports": {
-		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.js",
-			"types": "./dist/index.d.ts"
-		},
 		"./.generated": "./.generated/index.tsx",
 		"./registry.json": "./registry.json"
 	},
