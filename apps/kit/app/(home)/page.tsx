@@ -25,15 +25,13 @@ export default function HomePage() {
 			<section className="container mx-auto px-4 py-16 md:py-24 text-center">
 				<div className="max-w-4xl mx-auto">
 					<Badge variant="secondary" className="mb-6">
-						UX Patterns for Developers
+						Copy & Paste Ready
 					</Badge>
-					<h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
+					<h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-neutral-900 to-neutral-600 dark:from-neutral-100 dark:to-neutral-400 bg-clip-text text-transparent">
 						UP Kit
 					</h1>
-					<p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-						A comprehensive collection of UX patterns and UI components for
-						developers who want to build effective, accessible, and usable
-						interfaces.
+					<p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+						Ship better UX than most design teams. Without the meetings. Production-ready components with all the UX decisions already made. Every pattern, animation, and interaction battle-tested. Copy the excellence, skip the committees.
 					</p>
 					<div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
 						<Button asChild size="lg">
@@ -42,7 +40,12 @@ export default function HomePage() {
 							</Link>
 						</Button>
 						<Button variant="outline" size="lg" asChild>
-							<Link href="/examples">View Examples</Link>
+							<Link href="/docs/components/button">View Components</Link>
+						</Button>
+						<Button variant="ghost" size="lg" asChild>
+							<Link href="https://uxpatterns.dev">
+								Learn the Patterns <ArrowRight className="h-4 w-4" />
+							</Link>
 						</Button>
 					</div>
 					<div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
@@ -150,7 +153,7 @@ export default function HomePage() {
 						</p>
 						<div className="bg-background rounded-lg p-6 mb-8">
 							<code className="text-sm">
-								npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+								npx shadcn@latest add @upkit/button
 							</code>
 						</div>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -160,7 +163,7 @@ export default function HomePage() {
 								</Link>
 							</Button>
 							<Button variant="outline" size="lg" asChild>
-								<Link href="/examples">View Examples</Link>
+								<Link href="/docs/components/button">View Components</Link>
 							</Button>
 						</div>
 					</div>

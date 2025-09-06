@@ -69,27 +69,49 @@ function extractMetadata(content) {
 }
 
 /**
- * Analyze imports to auto-detect registry dependencies
+ * Analyze imports to auto-detect registry dependencies and npm packages
  */
 function analyzeImports(content) {
-	const imports = [];
-	const importRegex =
-		/import\s+.*?\s+from\s+["']@\/registry\/default\/(ui|components|blocks|hooks|lib)\/([^"']+)["']/g;
+	const registryImports = [];
+	const packageImports = [];
+	
+	// Detect registry dependencies (@/ui, @/lib, etc.)
+	const registryRegex =
+		/import\s+.*?\s+from\s+["']@\/(ui|components|blocks|hooks|lib)\/([^"']+)["']/g;
 
 	let match: RegExpExecArray | null;
-	// biome-ignore lint/suspicious/noAssignInExpression: needed for regex iteration
-	while ((match = importRegex.exec(content)) !== null) {
+	// biome-ignore lint: needed for regex iteration
+	while ((match = registryRegex.exec(content)) !== null) {
 		const [, , componentName] = match;
 		// Extract just the component name without file extension
 		const name = componentName.replace(/\.(tsx?|jsx?)$/, "");
-		imports.push(name);
+		registryImports.push(name);
+	}
+	
+	// Detect npm package dependencies (exclude relative imports and @/ imports)
+	const packageRegex = /import\s+.*?\s+from\s+["']([^.\/][^'"]+)['"]/g;
+	
+	// biome-ignore lint: needed for regex iteration
+	while ((match = packageRegex.exec(content)) !== null) {
+		const [, packageName] = match;
+		// Exclude @/ aliases and Node.js built-ins
+		if (!packageName.startsWith('@/') && !packageName.startsWith('node:') && !packageName.includes('react/')) {
+			// Handle scoped packages properly
+			const pkgName = packageName.startsWith('@') 
+				? packageName.split('/').slice(0, 2).join('/')
+				: packageName.split('/')[0];
+			packageImports.push(pkgName);
+		}
 	}
 
-	return [...new Set(imports)]; // Remove duplicates
+	return {
+		registryDependencies: [...new Set(registryImports)],
+		dependencies: [...new Set(packageImports)]
+	};
 }
 
 /**
- * Scan directory for component files and extract metadata
+ * Scan directory for component files and extract metadata (recursively)
  */
 async function scanDirectory(dirPath, type) {
 	const items = [];
@@ -107,7 +129,11 @@ async function scanDirectory(dirPath, type) {
 		const filePath = path.join(dirPath, file);
 		const stat = await fs.stat(filePath);
 
-		if (
+		if (stat.isDirectory()) {
+			// Recursively scan subdirectories
+			const subItems = await scanDirectory(filePath, type);
+			items.push(...subItems);
+		} else if (
 			stat.isFile() &&
 			(file.endsWith(".tsx") || file.endsWith(".jsx") || file.endsWith(".ts"))
 		) {
@@ -145,13 +171,13 @@ async function scanDirectory(dirPath, type) {
 				});
 			} else {
 				// Auto-detect for files without metadata
-				const autoDetectedDeps = analyzeImports(content);
+				const { registryDependencies, dependencies } = analyzeImports(content);
 
 				items.push({
 					name: componentName,
 					type: type,
-					dependencies: [],
-					registryDependencies: autoDetectedDeps,
+					dependencies: dependencies,
+					registryDependencies: registryDependencies,
 					files: [
 						{
 							path: relativePath,
@@ -213,7 +239,7 @@ async function main() {
 	const cleanRegistry = {
 		$schema: "https://ui.shadcn.com/schema/registry.json",
 		name: "up-kit",
-		homepage: "https://up-kit.vercel.app",
+		homepage: "https://kit.uxpatterns.dev",
 		items: registryItems.map((item) => ({
 			...item,
 			files: item.files.map(({ content, ...file }) => file),

@@ -6,35 +6,52 @@ icon: MousePointerClick
 
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs'
 import { Callout } from 'fumadocs-ui/components/callout'
-import { ComponentPreview } from '@ux-patterns/ui/components/custom/registry/component-preview'
+import { ComponentPreviewServer } from '@ux-patterns/ui/components/custom/registry/component-preview-server'
+import { PoweredBy } from '@/components/powered-by'
+import { PatternBanner } from '@/components/pattern-banner'
 
-Buttons are interactive elements that trigger actions or events when clicked or interacted with. They are one of the most fundamental UI components in any application. For comprehensive UX guidelines and patterns, see the [Button Pattern documentation](https://uxpatterns.dev/patterns/forms/button).
+Buttons are interactive elements that trigger actions or events when clicked or interacted with. Our enhanced button component provides advanced features like motion effects, haptic feedback, loading states, and comprehensive accessibility support.
+
+<PatternBanner 
+  patternName="Button" 
+  patternUrl="https://uxpatterns.dev/patterns/forms/button"
+/>
+
+<PoweredBy
+  packages={[
+    { name: "motion", url: "https://motion.dev" },
+    { name: "lucide-react", url: "https://lucide.dev" },
+    { name: "class-variance-authority", url: "https://cva.style" },
+    { name: "tailwind-merge", url: "https://github.com/dcastil/tailwind-merge" },
+    { name: "@radix-ui/slot", url: "https://www.radix-ui.com/primitives/docs/utilities/slot" }
+  ]}
+/>
 
 ## Preview
 
-<ComponentPreview name="button-demo" />
+<ComponentPreviewServer name="button-preview" preview={true} />
 
 ## Installation
 
 <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
   <Tab value="pnpm">
     ```bash
-    pnpm dlx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+    pnpm dlx shadcn@latest add @upkit/button
     ```
   </Tab>
   <Tab value="npm">
     ```bash
-    npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+    npx shadcn@latest add @upkit/button
     ```
   </Tab>
   <Tab value="bun">
     ```bash
-    bunx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+    bunx shadcn@latest add @upkit/button
     ```
   </Tab>
   <Tab value="yarn">
     ```bash
-    yarn dlx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
+    yarn dlx shadcn@latest add @upkit/button
     ```
   </Tab>
 </Tabs>
@@ -51,171 +68,230 @@ export default function Example() {
 
 ## Variants
 
-The button component comes with multiple variants to suit different use cases:
+Choose button variants based on visual hierarchy and importance. Primary actions should stand out, while secondary and tertiary actions progressively recede. This creates clear action paths and reduces cognitive load for users. Learn more about [button variations](https://uxpatterns.dev/patterns/forms/button#button-variations).
 
-### Default
+<ComponentPreviewServer name="button-variants" />
 
-<ComponentPreview name="button-default" height="h-[100px]" />
+### Solid (Default)
 
-### Destructive
+The primary button style for main actions.
 
-Use for dangerous or destructive actions like deleting data.
+<ComponentPreviewServer name="button-default" height="h-[100px]" />
 
-<ComponentPreview name="button-destructive" height="h-[100px]" />
+### Danger
+
+Use for destructive actions like deleting data.
+
+<ComponentPreviewServer name="button-destructive" height="h-[100px]" />
 
 ### Outline
 
 A button with a border and transparent background.
 
-<ComponentPreview name="button-outline" height="h-[100px]" />
+<ComponentPreviewServer name="button-outline" height="h-[100px]" />
 
-### Secondary
+### Soft
 
-For less prominent actions.
+For less prominent secondary actions.
 
-<ComponentPreview name="button-secondary" height="h-[100px]" />
+<ComponentPreviewServer name="button-soft" height="h-[100px]" />
 
 ### Ghost
 
 Minimal styling for tertiary actions.
 
-<ComponentPreview name="button-ghost" height="h-[100px]" />
+<ComponentPreviewServer name="button-ghost" height="h-[100px]" />
 
 ### Link
 
 Styled to look like a link but with button behavior.
 
-<ComponentPreview name="button-link" height="h-[100px]" />
+<ComponentPreviewServer name="button-link" height="h-[100px]" />
+
+### Success, Warning, Gradient & Glass
+
+Additional variants for special use cases:
 
 ## Sizes
 
-Buttons come in different sizes for various contexts:
+Button size affects touch targets and visual weight. Larger buttons are easier to click but take more space. Follow minimum touch target guidelines (44x44px on mobile) while balancing information density with usability. See [mobile considerations](https://uxpatterns.dev/patterns/forms/button#mobile--touch-considerations).
 
-<ComponentPreview name="button-sizes" height="h-[150px]" />
+<ComponentPreviewServer name="button-sizes" height="h-[150px]" />
 
-## With Icons
+## Motion Effects
 
-Buttons can include icons to enhance clarity:
+Subtle animations provide feedback and polish. Click effects confirm activation while hover effects preview interactivity. Use sparingly - motion should enhance clarity, not distract from the task. Read about [state variations](https://uxpatterns.dev/patterns/forms/button#state-variations).
 
-<ComponentPreview name="button-with-icons"  />
+<ComponentPreviewServer name="button-motion-effects" />
 
-### Icon on the left
-
-Add an icon to the left side of the button text for better visual hierarchy:
-
-<ComponentPreview name="button-icon-left" height="h-[150px]" />
-
-### Icon on the right
-
-Place an icon on the right side to indicate forward action or progression:
-
-<ComponentPreview name="button-icon-right" height="h-[150px]" />
-
-### Icon only
-
-Use icon-only buttons for compact interfaces or when the action is universally understood:
-
-<ComponentPreview name="button-icon-only" height="h-[150px]" />
+<Callout>
+  **Motion Preference**: All motion effects automatically respect `prefers-reduced-motion` settings. Users who prefer reduced motion will get instant feedback without animations.
+</Callout>
 
 ## States
 
-### Loading
+Clear state indicators prevent user confusion and repeated clicks. Loading states show progress, success confirms completion, and disabled states explain unavailability. Never leave users wondering if their action was registered. Learn about [state variations](https://uxpatterns.dev/patterns/forms/button#state-variations).
 
-Show a loading state when performing async operations:
+<ComponentPreviewServer name="button-states" />
 
-<ComponentPreview name="button-loading-states" height="h-[150px]" />
+### Loading States
 
-### Disabled
+Multiple loading indicators for different contexts:
 
-Prevent interaction when an action is not available:
+<ComponentPreviewServer name="button-loading-states" />
 
-<ComponentPreview name="button-disabled" height="h-[150px]" />
+### Disabled States
 
-## Button Groups
+By default, the `disabled` prop uses `aria-disabled` for better accessibility (keeps button in tab order). Use `forceNativeDisabled` to apply the native HTML disabled attribute when needed:
 
-Group related actions together to create cohesive action sets:
+<ComponentPreviewServer name="button-disabled" height="h-[150px]" />
 
-<ComponentPreview name="button-groups" />
+<Callout type="warning">
+  **Performance Note**: When using loading states, always provide feedback within 100ms to prevent users from thinking the button is broken. For actions taking longer than 3 seconds, consider showing progress indicators.
+</Callout>
 
-## Full Width
+## Interactive Features
 
-Make a button span the full width of its container for prominent actions:
+Multi-sensory feedback creates more engaging and accessible interactions. Haptics, sounds, and long-press gestures add depth to the user experience while maintaining accessibility for all users. Explore [accessibility guidelines](https://uxpatterns.dev/patterns/forms/button#accessibility).
 
-<ComponentPreview name="button-full-width" />
+### Haptic Feedback
 
-## As Child
+Add tactile feedback on mobile devices:
 
-Use the button styling with other components like links or form elements:
+<ComponentPreviewServer name="button-with-haptics" height="h-[150px]" />
 
-<ComponentPreview name="button-as-child" height="h-[150px]" />
+### Sound Effects
+
+Provide audio feedback for interactions:
+
+<ComponentPreviewServer name="button-with-sound" height="h-[150px]" />
+
+### Long Press
+
+Support long press interactions:
+
+<ComponentPreviewServer name="button-long-press" height="h-[150px]" />
+
+<Callout type="info">
+  **Pro Tip**: Our enhanced button component includes advanced features like haptic feedback, sound effects, and motion animations that work seamlessly across all platforms. These features are opt-in and don't affect the core button functionality.
+</Callout>
+
+## With Icons
+
+Icons improve scannability and reinforce meaning, making interfaces faster to parse. Always pair icons with text for clarity - icon-only buttons should be reserved for universally recognized actions and include proper labels for accessibility. See [content composition](https://uxpatterns.dev/patterns/forms/button#content-composition).
+
+<Callout>
+  **Icon Guidelines**: Ensure icons are from the same family (e.g., all Lucide icons) for visual consistency. Mix-and-match icon styles create visual discord.
+</Callout>
+
+### Icon on the Left
+
+<ComponentPreviewServer name="button-icon-left" height="h-[150px]" />
+
+### Icon on the Right
+
+<ComponentPreviewServer name="button-icon-right" height="h-[150px]" />
+
+### Icon Only
+
+<ComponentPreviewServer name="button-icon-only" height="h-[150px]" />
+
+### Double Icons
+
+<ComponentPreviewServer name="button-double-icon" height="h-[150px]" />
+
+### With Icons (All Variations)
+
+<ComponentPreviewServer name="button-with-icons" />
+
+## Layout Options
+
+Button layout affects visual flow and interaction patterns. Full-width buttons work well in forms and modals, while button groups organize related actions. Consider thumb reach on mobile when positioning primary actions. Read about [layout & positioning](https://uxpatterns.dev/patterns/forms/button#layout--positioning).
+
+### Full Width
+
+<ComponentPreviewServer name="button-full-width" />
+
+### Button Groups
+
+Group related actions together:
+
+<ComponentPreviewServer name="button-groups" />
+
+<Callout type="info">
+  **Design Tip**: Group related actions but limit to 3-4 buttons maximum. For more options, consider a dropdown menu to reduce cognitive load.
+</Callout>
 
 ## Advanced Examples
 
-### With Badge
+Real-world buttons combine multiple patterns for specific use cases. These examples demonstrate practical implementations like social logins, payment flows, and confirmation actions that balance functionality with user experience.
 
-Add a badge to show additional information like counts or status:
+### As Child
 
-<ComponentPreview name="button-with-badge" height="h-[150px]" />
+Use button styling with other components like links:
 
-### With Counter
+<ComponentPreviewServer name="button-as-child" height="h-[150px]" />
 
-Display numeric indicators like counts or ratings:
+### With Badges & Notifications
 
-<ComponentPreview name="button-with-counter" height="h-[150px]" />
+Badges communicate status and urgency without cluttering the interface. Use sparingly to maintain impact - when everything is urgent, nothing is. Ensure proper contrast and accessibility for color-blind users.
+
+<ComponentPreviewServer name="button-notification-badge" />
+
+### With Counters
+
+Social proof and engagement metrics build trust and encourage interaction. Keep counts readable with abbreviations (1.2k vs 1,234) and ensure real-time updates don't distract from the primary action.
+
+<ComponentPreviewServer name="button-counter-inline" />
 
 ### With Avatar
 
-Show user profile information with avatars:
+Avatar buttons personalize the interface and provide quick access to account actions. The dropdown indicator clarifies that more options are available, preventing confusion about the button's purpose.
 
-<ComponentPreview name="button-with-avatar" height="h-[150px]" />
-
-### Double Icon
-
-Buttons with icons on both sides for enhanced visual communication:
-
-<ComponentPreview name="button-double-icon" height="h-[150px]" />
+<ComponentPreviewServer name="button-with-avatar" height="h-[150px]" />
 
 ### With Keyboard Shortcut
 
-Display keyboard shortcuts to help users learn and use keyboard navigation:
+Displaying keyboard shortcuts educates power users and improves efficiency. Show shortcuts subtly to avoid visual clutter while helping users transition from clicking to keyboard navigation.
 
-<ComponentPreview name="button-with-keyboard-shortcut" height="h-[150px]" />
+<ComponentPreviewServer name="button-with-keyboard-shortcut" height="h-[150px]" />
 
-### Social Login Buttons
+### Confirmation Actions
 
-<ComponentPreview name="button-social-login" />
+Destructive actions need safeguards to prevent accidents. Inline confirmations work for low-risk actions, while modal dialogs better suit irreversible operations. Long-press alternatives reduce friction while maintaining safety.
 
-### Split Button
+<ComponentPreviewServer name="button-confirmation" />
 
-Create a split button with a primary action and a dropdown trigger for related options:
+**Component Composition:** For modal confirmations, combine with the Dialog component. The inline confirmation pattern shown here is suitable for less critical actions.
 
-<ComponentPreview name="button-split" height="h-[150px]" />
+<Callout type="warning">
+  **UX Best Practice**: Reserve confirmation patterns for destructive actions only. Overusing confirmations creates "confirmation fatigue" where users click through without reading.
+</Callout>
+
+### Social Buttons
+
+Social login reduces friction and password fatigue. Display recognizable brand colors and icons to build trust, but offer traditional signup as an alternative for privacy-conscious users.
+
+<ComponentPreviewServer name="button-social" />
+
+### Payment Buttons
+
+Payment buttons must inspire confidence through familiar branding and clear security indicators. Express checkout options reduce cart abandonment while maintaining trust through recognized payment providers.
+
+<ComponentPreviewServer name="button-payment" />
 
 ## Accessibility
 
-Buttons are accessible by default with proper keyboard support and ARIA attributes. See the [accessibility guidelines](https://uxpatterns.dev/patterns/forms/button#accessibility) for comprehensive details:
+Our button component includes comprehensive accessibility features by default:
 
-- **Keyboard Navigation**: Buttons can be focused with Tab and activated with Enter or Space
-- **Screen Readers**: Use descriptive text or `aria-label` for icon-only buttons
-- **Focus Indicators**: Visible focus states for keyboard navigation
-- **Disabled State**: Properly announced to assistive technologies
+<ComponentPreviewServer name="button-aria-features" />
 
-### Best Practices
-
-For detailed UX best practices, see the [Button Pattern best practices](https://uxpatterns.dev/patterns/forms/button#best-practices).
-
-1. **Use semantic HTML**: Always use `<button>` for actions, not `<div>` or `<span>`
-2. **Provide labels**: Icon-only buttons must have `aria-label`
-3. **Indicate loading**: Use `aria-busy="true"` during async operations
-4. **Group related actions**: Use `role="group"` with `aria-label` for button groups
-5. **Avoid disabled buttons**: Consider showing why an action is unavailable instead
+<Callout>
+  **Accessibility First**: Our button component prioritizes accessibility with comprehensive ARIA support, keyboard navigation, and screen reader compatibility. Learn more in the [Button Pattern accessibility guide](https://uxpatterns.dev/patterns/forms/button#accessibility).
+</Callout>
 
 ## API Reference
 
 ### Button Props
 
 <auto-type-table path="../../../../../packages/registry/registry/default/ui/button.tsx" name="ButtonProps" />
-
-<Callout>
-  **Pro Tip**: When using buttons for navigation, consider using the `asChild` prop with Next.js Link component for better SEO and performance. Learn more about [when to use buttons vs links](https://uxpatterns.dev/patterns/forms/button#use-cases).
-</Callout>

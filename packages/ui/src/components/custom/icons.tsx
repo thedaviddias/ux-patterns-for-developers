@@ -2,12 +2,16 @@ import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
 import {
 	AlertTriangle,
 	ArrowRight,
+	Brackets,
 	Check,
 	ChevronLeft,
 	ClipboardCheck,
+	Code2,
+	CodeSquare,
 	Copy,
 	CreditCard,
 	File,
+	FileCode,
 	FileText,
 	HelpCircle,
 	Image,
@@ -19,6 +23,7 @@ import {
 	Plus,
 	Settings,
 	SunMedium,
+	Terminal,
 	Trash,
 	User,
 	X,
@@ -128,6 +133,11 @@ export const Icons = {
 	arrowRight: ArrowRight,
 	help: HelpCircle,
 	pizza: Pizza,
+	code: Code2,
+	codeSquare: CodeSquare,
+	codeFile: FileCode,
+	brackets: Brackets,
+	terminal: Terminal,
 	twitter: (props: IconProps) => (
 		<svg
 			{...props}

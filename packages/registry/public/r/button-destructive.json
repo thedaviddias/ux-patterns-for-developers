@@ -3,11 +3,13 @@
   "name": "button-destructive",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-destructive.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonDestructive() {\n\treturn <Button variant=\"destructive\">Delete</Button>;\n}\n",
+      "path": "registry/default/blocks/button/button-destructive.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDestructive() {\n\treturn <Button variant=\"danger\">Delete</Button>;\n}",
       "type": "registry:block"
     }
   ],

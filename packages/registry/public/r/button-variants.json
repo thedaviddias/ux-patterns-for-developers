@@ -3,11 +3,13 @@
   "name": "button-variants",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-variants.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonVariants() {\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Default</span>\n\t\t\t\t<Button type=\"button\">Default Button</Button>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Secondary</span>\n\t\t\t\t<Button variant=\"secondary\" type=\"button\">\n\t\t\t\t\tSecondary Button\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Destructive</span>\n\t\t\t\t<Button variant=\"destructive\" type=\"button\">\n\t\t\t\t\tDestructive Button\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Outline</span>\n\t\t\t\t<Button variant=\"outline\" type=\"button\">\n\t\t\t\t\tOutline Button\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Ghost</span>\n\t\t\t\t<Button variant=\"ghost\" type=\"button\">\n\t\t\t\t\tGhost Button\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Link</span>\n\t\t\t\t<Button variant=\"link\">Link Button</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-variants.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonVariants() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button variant=\"solid\">Solid</Button>\n\t\t\t<Button variant=\"outline\">Outline</Button>\n\t\t\t<Button variant=\"soft\">Soft</Button>\n\t\t\t<Button variant=\"ghost\">Ghost</Button>\n\t\t\t<Button variant=\"link\">Link</Button>\n\t\t\t<Button variant=\"danger\">Danger</Button>\n\t\t\t<Button variant=\"success\">Success</Button>\n\t\t\t<Button variant=\"warning\">Warning</Button>\n\t\t</div>\n\t);\n}",
       "type": "registry:block"
     }
   ],

@@ -2,12 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-icon-only",
   "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-icon-only.tsx",
-      "content": "import { Settings } from \"lucide-react\";\nimport { Button } from \"../ui/button\";\n\nexport default function ButtonIconOnly() {\n\treturn (\n\t\t<Button size=\"icon\" aria-label=\"Settings\">\n\t\t\t<Settings className=\"h-4 w-4\" />\n\t\t</Button>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-icon-only.tsx",
+      "content": "import { Save, Trash2, Edit, Settings, Share2, Heart } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconOnly() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button aria-label=\"Save\">\n\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Delete\">\n\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Edit\">\n\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Settings\" variant=\"outline\">\n\t\t\t\t<Settings className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Share\" variant=\"ghost\">\n\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Favorite\" variant=\"soft\">\n\t\t\t\t<Heart className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
       "type": "registry:block"
     }
   ],

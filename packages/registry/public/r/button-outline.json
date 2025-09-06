@@ -3,11 +3,13 @@
   "name": "button-outline",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-outline.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonOutline() {\n\treturn <Button variant=\"outline\">Outline</Button>;\n}\n",
+      "path": "registry/default/blocks/button/button-outline.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonOutline() {\n\treturn (\n\t\t<Button type=\"button\" variant=\"outline\">\n\t\t\tOutline\n\t\t</Button>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

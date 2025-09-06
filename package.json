@@ -18,11 +18,16 @@
 		"release:verbose": "auto shipit -v",
 		"release:version": "auto version -v",
 		"syncpack:fix": "pnpm dlx syncpack fix-mismatches",
-		"syncpack:list": "pnpm dlx syncpack list-mismatches"
+		"syncpack:list": "pnpm dlx syncpack list-mismatches",
+		"registry:generate": "pnpm --filter @ux-patterns/registry registry:generate",
+		"registry:build": "pnpm --filter @ux-patterns/registry registry:build",
+		"registry:index": "node scripts/build-registry.js",
+		"registry:watch": "pnpm --filter @ux-patterns/registry dev"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.3",
 		"@manypkg/cli": "^0.23.0",
+		"nodemon": "^3.1.7",
 		"turbo": "^2.3.3"
 	},
 	"packageManager": "pnpm@10.2.1",

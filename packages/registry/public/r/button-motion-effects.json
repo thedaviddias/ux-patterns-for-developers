@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-motion-effects",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/button/button-motion-effects.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonMotionEffects() {\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Click Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Click Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button clickEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button clickEffect=\"scale\">Scale</Button>\n\t\t\t\t\t<Button clickEffect=\"ripple\">Ripple</Button>\n\t\t\t\t\t<Button clickEffect=\"pulse\">Pulse</Button>\n\t\t\t\t\t<Button clickEffect=\"spring\">Spring</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t{/* Hover Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Hover Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button hoverEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button hoverEffect=\"glow\">Glow</Button>\n\t\t\t\t\t<Button hoverEffect=\"shine\">Shine</Button>\n\t\t\t\t\t<Button hoverEffect=\"shimmer\">Shimmer</Button>\n\t\t\t\t\t<Button hoverEffect=\"lift\">Lift</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

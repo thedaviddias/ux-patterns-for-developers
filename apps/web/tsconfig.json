@@ -9,7 +9,9 @@
 			"@/*": ["./*"],
 			"@app/*": ["./app/*"],
 			"@ux-patterns/ui/*": ["../../packages/ui/src/*"],
-			"@ux-patterns/hooks/*": ["../../packages/hooks/src/*"]
+			"@ux-patterns/hooks/*": ["../../packages/hooks/src/*"],
+			"@/ui/*": ["../../packages/registry/registry/default/ui/*"],
+			"@/lib/*": ["../../packages/registry/registry/default/lib/*"]
 		}
 	},
 	"include": [

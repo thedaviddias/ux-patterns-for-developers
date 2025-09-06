@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-soft",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/button/button-soft.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonSoft() {\n\treturn <Button variant=\"soft\">Soft</Button>;\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

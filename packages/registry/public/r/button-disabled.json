@@ -3,11 +3,13 @@
   "name": "button-disabled",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-disabled.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonDisabled() {\n\treturn <Button disabled>Disabled</Button>;\n}\n",
+      "path": "registry/default/blocks/button/button-disabled.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDisabled() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button disabled>Default (ARIA Disabled)</Button>\n\t\t\t<Button disabled forceNativeDisabled>Force Native Disabled</Button>\n\t\t\t<Button state=\"disabled\">State Disabled</Button>\n\t\t\t<Button variant=\"outline\" disabled>Disabled Outline</Button>\n\t\t</div>\n\t);\n}",
       "type": "registry:block"
     }
   ],

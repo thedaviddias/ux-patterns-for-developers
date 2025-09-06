@@ -5,6 +5,23 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
 	reactStrictMode: true,
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'www.google.com',
+				pathname: '/s2/favicons',
+			},
+		],
+	},
+	async rewrites() {
+		return [
+			{
+				source: '/docs/:path*.mdx',
+				destination: '/llms.mdx/:path*',
+			},
+		];
+	},
 	webpack: (config) => {
 		// Ignore OpenTelemetry instrumentation warnings
 		config.ignoreWarnings = [

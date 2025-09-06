@@ -3,11 +3,13 @@
   "name": "button-link",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-link.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonLink() {\n\treturn <Button variant=\"link\">Link</Button>;\n}\n",
+      "path": "registry/default/blocks/button/button-link.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonLink() {\n\treturn <Button variant=\"link\">Link</Button>;\n}\n",
       "type": "registry:block"
     }
   ],

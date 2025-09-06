@@ -13,496 +13,619 @@ interface ComponentInfo {
     target: string;
   }>;
   component: React.LazyExoticComponent<React.ComponentType<any>>;
+  source?: string;
   meta: {
     tags: string[];
   };
 }
 
 export const Index: Record<string, ComponentInfo> = {
-  "button-as-child": {
-    name: "button-as-child",
-    description: "button-as-child component",
+  "button-aria-features": {
+    name: "button-aria-features",
+    description: "button-aria-features component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-as-child.tsx",
+        path: "registry/default/blocks/button/button-aria-features.tsx",
         type: "registry:block",
-        target: "components/blocks/button-as-child.tsx"
+        target: "components/blocks/button-aria-features.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-as-child") as any
+      const mod = await import("../registry/default/blocks/button/button-aria-features") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "\"use client\";\n\nimport { Save, Trash2, Edit, Share2 } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonAriaFeatures() {\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-label=\"Save document\">\n\t\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Delete item\">\n\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Edit content\">\n\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Share post\">\n\t\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-disabled=\"true\">ARIA Disabled</Button>\n\t\t\t\t<Button announceChanges state=\"loading\">\n\t\t\t\t\tWith Screen Reader Announcements\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-busy=\"true\">\n\t\t\t\t\tARIA Busy State\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button \n\t\t\t\t\taria-describedby=\"help-text\"\n\t\t\t\t\ttooltipWhenDisabled=\"Feature coming soon\"\n\t\t\t\t>\n\t\t\t\t\tWith Description\n\t\t\t\t</Button>\n\t\t\t\t<span id=\"help-text\" className=\"sr-only\">\n\t\t\t\t\tThis button saves your current progress\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
+    meta: {"tags":[]},
+  },
+  "button-as-child": {
+    name: "button-as-child",
+    description: "button-as-child component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-as-child.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-as-child.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-as-child") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonAsChild() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button asChild>\n\t\t\t\t<a href=\"#pricing\" className=\"no-underline\">View Pricing</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" asChild>\n\t\t\t\t<a href=\"#docs\" className=\"no-underline\">Documentation</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"ghost\" asChild>\n\t\t\t\t<a href=\"#about\">About Us</a>\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+    meta: {"tags":[]},
+  },
+  "button-confirmation": {
+    name: "button-confirmation",
+    description: "button-confirmation component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-confirmation.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-confirmation.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-confirmation") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { Trash2, AlertTriangle, Check, X } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\nimport { useState } from \"react\";\n\nexport default function ButtonConfirmation() {\n\tconst [deleteState, setDeleteState] = useState<\"idle\" | \"confirming\">(\"idle\");\n\tconst [archiveState, setArchiveState] = useState<\"idle\" | \"confirming\">(\"idle\");\n\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Delete with confirmation */}\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t{deleteState === \"idle\" ? (\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"danger\"\n\t\t\t\t\t\tonClick={() => setDeleteState(\"confirming\")}\n\t\t\t\t\t\thaptics=\"medium\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t\t\tDelete\n\t\t\t\t\t</Button>\n\t\t\t\t) : (\n\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium\">Are you sure?</span>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"danger\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\t// Perform delete action\n\t\t\t\t\t\t\t\tsetDeleteState(\"idle\");\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t\thaptics=\"heavy\"\n\t\t\t\t\t\t\tsound=\"click\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<Check className=\"h-4 w-4\" />\n\t\t\t\t\t\t\tYes, delete\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => setDeleteState(\"idle\")}\n\t\t\t\t\t\t\thaptics=\"light\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<X className=\"h-4 w-4\" />\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</div>\n\t\t\t\t)}\n\t\t\t</div>\n\n\t\t\t{/* Archive with inline confirmation */}\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t{archiveState === \"idle\" ? (\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tonClick={() => setArchiveState(\"confirming\")}\n\t\t\t\t\t\thaptics=\"light\"\n\t\t\t\t\t>\n\t\t\t\t\t\tArchive Item\n\t\t\t\t\t</Button>\n\t\t\t\t) : (\n\t\t\t\t\t<div className=\"inline-flex rounded-lg border border-amber-200 bg-amber-50 p-1 dark:border-amber-900 dark:bg-amber-950\">\n\t\t\t\t\t\t<span className=\"flex items-center px-2 text-sm text-amber-800 dark:text-amber-200\">\n\t\t\t\t\t\t\t<AlertTriangle className=\"mr-1 h-3 w-3\" />\n\t\t\t\t\t\t\tConfirm archive?\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"warning\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\t// Perform archive action\n\t\t\t\t\t\t\t\tsetArchiveState(\"idle\");\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t\thaptics=\"medium\"\n\t\t\t\t\t\t\tclassName=\"ml-1\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tArchive\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"ghost\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => setArchiveState(\"idle\")}\n\t\t\t\t\t\t\thaptics=\"light\"\n\t\t\t\t\t\t\tclassName=\"ml-1\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</div>\n\t\t\t\t)}\n\t\t\t</div>\n\n\t\t\t{/* Long press confirmation */}\n\t\t\t<Button\n\t\t\t\tvariant=\"danger\"\n\t\t\t\tlongPress={{\n\t\t\t\t\tduration: 1000,\n\t\t\t\t\tonLongPress: () => {\n\t\t\t\t\t\tconsole.log(\"Item deleted via long press\");\n\t\t\t\t\t}\n\t\t\t\t}}\n\t\t\t\thaptics=\"heavy\"\n\t\t\t>\n\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\tHold to Delete\n\t\t\t</Button>\n\n\t\t\t{/* Two-step action */}\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\tstate=\"idle\"\n\t\t\t\t\tonAction={async () => {\n\t\t\t\t\t\t// Simulate async action\n\t\t\t\t\t\tawait new Promise(resolve => setTimeout(resolve, 1500));\n\t\t\t\t\t}}\n\t\t\t\t\tloadingText=\"Publishing...\"\n\t\t\t\t\tsuccessText=\"Published!\"\n\t\t\t\t\thaptics=\"medium\"\n\t\t\t\t\tsound=\"click\"\n\t\t\t\t>\n\t\t\t\t\tPublish Changes\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<p className=\"text-sm text-muted-foreground\">\n\t\t\t\tNote: For modal confirmations, combine with Dialog component\n\t\t\t</p>\n\t\t</div>\n\t);\n}\n",
+    meta: {"tags":[]},
+  },
+  "button-counter-inline": {
+    name: "button-counter-inline",
+    description: "button-counter-inline component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-counter-inline.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-counter-inline.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-counter-inline") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { Star, Heart, MessageSquare, Eye, Users, ThumbsUp } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\nimport { useState } from \"react\";\n\nexport default function ButtonCounterInline() {\n\tconst [starred, setStarred] = useState(false);\n\tconst [starCount, setStarCount] = useState(234);\n\tconst [liked, setLiked] = useState(false);\n\tconst [likeCount, setLikeCount] = useState(42);\n\n\tconst handleStar = () => {\n\t\tsetStarred(!starred);\n\t\tsetStarCount(starred ? starCount - 1 : starCount + 1);\n\t};\n\n\tconst handleLike = () => {\n\t\tsetLiked(!liked);\n\t\tsetLikeCount(liked ? likeCount - 1 : likeCount + 1);\n\t};\n\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Basic counters */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button variant=\"outline\" className=\"tabular-nums\" aria-label=\"Star this repository, 729 stars\">\n\t\t\t\t\t<Star className=\"h-4 w-4\" />\n\t\t\t\t\tStar\n\t\t\t\t\t<span className=\"ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium\" aria-hidden=\"true\">\n\t\t\t\t\t\t729\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"ghost\" className=\"tabular-nums\">\n\t\t\t\t\t<ThumbsUp className=\"h-4 w-4\" />\n\t\t\t\t\tLike\n\t\t\t\t\t<span className=\"sr-only\">, 42 likes</span>\n\t\t\t\t\t<span className=\"ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium\" aria-hidden=\"true\">\n\t\t\t\t\t\t42\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"soft\" className=\"tabular-nums\" aria-describedby=\"comments-count\">\n\t\t\t\t\t<MessageSquare className=\"h-4 w-4\" />\n\t\t\t\t\tComments\n\t\t\t\t\t<span id=\"comments-count\" className=\"ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium\">\n\t\t\t\t\t\t18\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t{/* Interactive counters */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t{/* Like with animation */}\n\t\t\t\t<Button\n\t\t\t\t\tvariant={liked ? \"danger\" : \"ghost\"}\n\t\t\t\t\tonClick={handleLike}\n\t\t\t\t\thaptics={liked ? \"medium\" : \"light\"}\n\t\t\t\t\tsound=\"subtle\"\n\t\t\t\t\tclickEffect={liked ? \"spring\" : \"scale\"}\n\t\t\t\t\tclassName=\"tabular-nums\"\n\t\t\t\t\taria-label={`${liked ? \"Unlike\" : \"Like\"} this post, ${likeCount} likes`}\n\t\t\t\t>\n\t\t\t\t\t<Heart className={liked ? \"fill-current h-4 w-4\" : \"h-4 w-4\"} />\n\t\t\t\t\t<span aria-hidden=\"true\">{likeCount}</span>\n\t\t\t\t</Button>\n\n\t\t\t\t{/* Comment count */}\n\t\t\t\t<Button variant=\"ghost\" haptics=\"light\" className=\"tabular-nums\">\n\t\t\t\t\t<MessageSquare className=\"h-4 w-4\" />\n\t\t\t\t\t<span className=\"sr-only\">View comments,</span>\n\t\t\t\t\t128\n\t\t\t\t\t<span className=\"sr-only\">comments</span>\n\t\t\t\t</Button>\n\n\t\t\t\t{/* View count (read-only) */}\n\t\t\t\t<Button variant=\"ghost\" disabled className=\"tabular-nums\" aria-label=\"1,200 views\">\n\t\t\t\t\t<Eye className=\"h-4 w-4\" />\n\t\t\t\t\t<span aria-hidden=\"true\">1.2k</span>\n\t\t\t\t</Button>\n\n\t\t\t\t{/* Followers */}\n\t\t\t\t<Button variant=\"soft\" haptics=\"light\" className=\"tabular-nums\" aria-describedby=\"follower-count\">\n\t\t\t\t\t<Users className=\"h-4 w-4\" />\n\t\t\t\t\tFollow\n\t\t\t\t\t<span id=\"follower-count\" className=\"ml-2 text-xs opacity-60\">892 followers</span>\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
     meta: {"tags":[]},
   },
   "button-default": {
     name: "button-default",
     description: "button-default component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-default.tsx",
+        path: "registry/default/blocks/button/button-default.tsx",
         type: "registry:block",
         target: "components/blocks/button-default.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-default") as any
+      const mod = await import("../registry/default/blocks/button/button-default") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
-    meta: {"tags":[]},
-  },
-  "button-demo": {
-    name: "button-demo",
-    description: "button-demo component",
-    type: "registry:block",
-    registryDependencies: [],
-    files: [{
-        path: "registry/default/blocks/button-demo.tsx",
-        type: "registry:block",
-        target: "components/blocks/button-demo.tsx"
-      }],
-    component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-demo") as any
-      const keys = Object.keys(mod);
-      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
-      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
-    }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDefault() {\n\treturn <Button>Default Button</Button>;\n}",
     meta: {"tags":[]},
   },
   "button-destructive": {
     name: "button-destructive",
     description: "button-destructive component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-destructive.tsx",
+        path: "registry/default/blocks/button/button-destructive.tsx",
         type: "registry:block",
         target: "components/blocks/button-destructive.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-destructive") as any
+      const mod = await import("../registry/default/blocks/button/button-destructive") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
-    meta: {"tags":[]},
-  },
-  "button-dialog-footer": {
-    name: "button-dialog-footer",
-    description: "button-dialog-footer component",
-    type: "registry:block",
-    registryDependencies: [],
-    files: [{
-        path: "registry/default/blocks/button-dialog-footer.tsx",
-        type: "registry:block",
-        target: "components/blocks/button-dialog-footer.tsx"
-      }],
-    component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-dialog-footer") as any
-      const keys = Object.keys(mod);
-      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
-      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
-    }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDestructive() {\n\treturn <Button variant=\"danger\">Delete</Button>;\n}",
     meta: {"tags":[]},
   },
   "button-disabled": {
     name: "button-disabled",
     description: "button-disabled component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-disabled.tsx",
+        path: "registry/default/blocks/button/button-disabled.tsx",
         type: "registry:block",
         target: "components/blocks/button-disabled.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-disabled") as any
+      const mod = await import("../registry/default/blocks/button/button-disabled") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDisabled() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button disabled>Default (ARIA Disabled)</Button>\n\t\t\t<Button disabled forceNativeDisabled>Force Native Disabled</Button>\n\t\t\t<Button state=\"disabled\">State Disabled</Button>\n\t\t\t<Button variant=\"outline\" disabled>Disabled Outline</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-double-icon": {
     name: "button-double-icon",
     description: "button-double-icon component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-double-icon.tsx",
+        path: "registry/default/blocks/button/button-double-icon.tsx",
         type: "registry:block",
         target: "components/blocks/button-double-icon.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-double-icon") as any
+      const mod = await import("../registry/default/blocks/button/button-double-icon") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
-    meta: {"tags":[]},
-  },
-  "button-form-actions": {
-    name: "button-form-actions",
-    description: "button-form-actions component",
-    type: "registry:block",
-    registryDependencies: [],
-    files: [{
-        path: "registry/default/blocks/button-form-actions.tsx",
-        type: "registry:block",
-        target: "components/blocks/button-form-actions.tsx"
-      }],
-    component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-form-actions") as any
-      const keys = Object.keys(mod);
-      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
-      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
-    }),
+    source: "import { Mail, ArrowRight, Download, ExternalLink, Lock, ChevronRight } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonDoubleIcon() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\t<Mail className=\"h-4 w-4\" />\n\t\t\t\tSend Email\n\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\t<Download className=\"h-4 w-4\" />\n\t\t\t\tExport PDF\n\t\t\t\t<ExternalLink className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"soft\">\n\t\t\t\t<Lock className=\"h-4 w-4\" />\n\t\t\t\tView Details\n\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-full-width": {
     name: "button-full-width",
     description: "button-full-width component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-full-width.tsx",
+        path: "registry/default/blocks/button/button-full-width.tsx",
         type: "registry:block",
         target: "components/blocks/button-full-width.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-full-width") as any
+      const mod = await import("../registry/default/blocks/button/button-full-width") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonFullWidth() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-4\">\n\t\t\t<Button wide>Full Width with Wide Prop</Button>\n\t\t\t<Button wide variant=\"outline\">Full Width Outline</Button>\n\t\t\t<Button wide size=\"lg\">Full Width Large</Button>\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Button wide>Primary Action</Button>\n\t\t\t\t<Button wide variant=\"ghost\">Secondary Action</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-ghost": {
     name: "button-ghost",
     description: "button-ghost component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-ghost.tsx",
+        path: "registry/default/blocks/button/button-ghost.tsx",
         type: "registry:block",
         target: "components/blocks/button-ghost.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-ghost") as any
+      const mod = await import("../registry/default/blocks/button/button-ghost") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonGhost() {\n\treturn (\n\t\t<Button type=\"button\" variant=\"ghost\">\n\t\t\tGhost\n\t\t</Button>\n\t);\n}\n",
     meta: {"tags":[]},
   },
   "button-groups": {
     name: "button-groups",
     description: "button-groups component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-groups.tsx",
+        path: "registry/default/blocks/button/button-groups.tsx",
         type: "registry:block",
         target: "components/blocks/button-groups.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-groups") as any
+      const mod = await import("../registry/default/blocks/button/button-groups") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Edit, Trash2, Share2 } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonGroups() {\n\treturn (\n\t\t<div className=\"space-y-6\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Horizontal Group</h4>\n\t\t\t\t<div className=\"flex\">\n\t\t\t\t\t<Button className=\"rounded-r-none border-r-0\">Left</Button>\n\t\t\t\t\t<Button variant=\"outline\" className=\"rounded-none border-r-0\">\n\t\t\t\t\t\tCenter\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" className=\"rounded-l-none\">\n\t\t\t\t\t\tRight\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Attached Group</h4>\n\t\t\t\t<div className=\"inline-flex rounded-md shadow-sm\" role=\"group\">\n\t\t\t\t\t<Button variant=\"outline\" className=\"rounded-r-none border-r-0\">\n\t\t\t\t\t\tYears\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" className=\"rounded-none border-r-0\">\n\t\t\t\t\t\tMonths\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" className=\"rounded-l-none\">\n\t\t\t\t\t\tDays\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Icon Button Group</h4>\n\t\t\t\t<div className=\"inline-flex rounded-md shadow-sm\" role=\"group\">\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\taria-label=\"Edit\"\n\t\t\t\t\t\tclassName=\"rounded-r-none border-r-0\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\taria-label=\"Delete\"\n\t\t\t\t\t\tclassName=\"rounded-none border-r-0\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" aria-label=\"Share\" className=\"rounded-l-none\">\n\t\t\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-icon-left": {
     name: "button-icon-left",
     description: "button-icon-left component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-icon-left.tsx",
+        path: "registry/default/blocks/button/button-icon-left.tsx",
         type: "registry:block",
         target: "components/blocks/button-icon-left.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-icon-left") as any
+      const mod = await import("../registry/default/blocks/button/button-icon-left") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Mail, Save, Upload } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconLeft() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\t<Mail className=\"h-4 w-4\" />\n\t\t\t\tSend Email\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t\tSave Document\n\t\t\t</Button>\n\t\t\t<Button variant=\"soft\">\n\t\t\t\t<Upload className=\"h-4 w-4\" />\n\t\t\t\tUpload File\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-icon-only": {
     name: "button-icon-only",
     description: "button-icon-only component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-icon-only.tsx",
+        path: "registry/default/blocks/button/button-icon-only.tsx",
         type: "registry:block",
         target: "components/blocks/button-icon-only.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-icon-only") as any
+      const mod = await import("../registry/default/blocks/button/button-icon-only") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Save, Trash2, Edit, Settings, Share2, Heart } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconOnly() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button aria-label=\"Save\">\n\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Delete\">\n\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Edit\">\n\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Settings\" variant=\"outline\">\n\t\t\t\t<Settings className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Share\" variant=\"ghost\">\n\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Favorite\" variant=\"soft\">\n\t\t\t\t<Heart className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-icon-right": {
     name: "button-icon-right",
     description: "button-icon-right component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-icon-right.tsx",
+        path: "registry/default/blocks/button/button-icon-right.tsx",
         type: "registry:block",
         target: "components/blocks/button-icon-right.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-icon-right") as any
+      const mod = await import("../registry/default/blocks/button/button-icon-right") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { ChevronRight, ArrowRight, ExternalLink } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconRight() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\tContinue\n\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\tNext Step\n\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"link\">\n\t\t\t\tLearn More\n\t\t\t\t<ExternalLink className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-link": {
     name: "button-link",
     description: "button-link component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-link.tsx",
+        path: "registry/default/blocks/button/button-link.tsx",
         type: "registry:block",
         target: "components/blocks/button-link.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-link") as any
+      const mod = await import("../registry/default/blocks/button/button-link") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonLink() {\n\treturn <Button variant=\"link\">Link</Button>;\n}\n",
     meta: {"tags":[]},
   },
   "button-loading-states": {
     name: "button-loading-states",
     description: "button-loading-states component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-loading-states.tsx",
+        path: "registry/default/blocks/button/button-loading-states.tsx",
         type: "registry:block",
         target: "components/blocks/button-loading-states.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-loading-states") as any
+      const mod = await import("../registry/default/blocks/button/button-loading-states") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonLoadingStates() {\n\tconst [isLoading, setIsLoading] = useState(false);\n\n\tconst handleClick = () => {\n\t\tsetIsLoading(true);\n\t\tsetTimeout(() => setIsLoading(false), 2000);\n\t};\n\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Button \n\t\t\t\t\tstate={isLoading ? \"loading\" : \"idle\"} \n\t\t\t\t\tonClick={handleClick}\n\t\t\t\t\tloadingType=\"spinner\"\n\t\t\t\t>\n\t\t\t\t\tSave Changes\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"loading\" loadingType=\"spinner\">\n\t\t\t\t\tLoading Spinner\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"loading\" loadingType=\"dots\">\n\t\t\t\t\tLoading Dots\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Button state=\"loading\" loadingText=\"Processing...\">\n\t\t\t\t\tCustom Loading Text\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"success\" successText=\"Saved!\">\n\t\t\t\t\tSuccess State\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"error\" errorText=\"Failed\">\n\t\t\t\t\tError State\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
+    meta: {"tags":[]},
+  },
+  "button-long-press": {
+    name: "button-long-press",
+    description: "button-long-press component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-long-press.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-long-press.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-long-press") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonLongPress() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button\n\t\t\t\tlongPress={{\n\t\t\t\t\tduration: 500,\n\t\t\t\t\tonLongPress: () => alert(\"Long pressed for 500ms!\"),\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tHold 0.5s\n\t\t\t</Button>\n\t\t\t<Button\n\t\t\t\tlongPress={{\n\t\t\t\t\tduration: 1000,\n\t\t\t\t\tonLongPress: () => alert(\"Long pressed for 1 second!\"),\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tHold 1s\n\t\t\t</Button>\n\t\t\t<Button\n\t\t\t\tlongPress={{\n\t\t\t\t\tduration: 2000,\n\t\t\t\t\tonLongPress: () => alert(\"Long pressed for 2 seconds!\"),\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\tHold 2s\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
+    meta: {"tags":[]},
+  },
+  "button-motion-effects": {
+    name: "button-motion-effects",
+    description: "button-motion-effects component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-motion-effects.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-motion-effects.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-motion-effects") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonMotionEffects() {\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Click Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Click Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button clickEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button clickEffect=\"scale\">Scale</Button>\n\t\t\t\t\t<Button clickEffect=\"ripple\">Ripple</Button>\n\t\t\t\t\t<Button clickEffect=\"pulse\">Pulse</Button>\n\t\t\t\t\t<Button clickEffect=\"spring\">Spring</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t{/* Hover Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Hover Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button hoverEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button hoverEffect=\"glow\">Glow</Button>\n\t\t\t\t\t<Button hoverEffect=\"shine\">Shine</Button>\n\t\t\t\t\t<Button hoverEffect=\"shimmer\">Shimmer</Button>\n\t\t\t\t\t<Button hoverEffect=\"lift\">Lift</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
+    meta: {"tags":[]},
+  },
+  "button-notification-badge": {
+    name: "button-notification-badge",
+    description: "button-notification-badge component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-notification-badge.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-notification-badge.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-notification-badge") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { Bell, AlertTriangle } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\nimport { useState } from \"react\";\n\nexport default function ButtonNotificationBadge() {\n\tconst [notifications, setNotifications] = useState(5);\n\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Basic badges */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-label=\"Messages, 12 new\">\n\t\t\t\t\tMessages\n\t\t\t\t\t<span className=\"ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-primary-foreground/20 px-2 py-0.5 text-xs font-medium text-primary-foreground\" aria-hidden=\"true\">\n\t\t\t\t\t\t12\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\tNotifications\n\t\t\t\t\t<span className=\"sr-only\">, 3 unread</span>\n\t\t\t\t\t<span className=\"ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-600 dark:text-amber-400\" aria-hidden=\"true\">\n\t\t\t\t\t\t3\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"soft\" aria-describedby=\"updates-new\">\n\t\t\t\t\tUpdates\n\t\t\t\t\t<span id=\"updates-new\" className=\"ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-medium text-green-600 dark:text-green-400\">\n\t\t\t\t\t\tNew\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t{/* Notification badges */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t{/* Icon with badge */}\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\taria-label={`Notifications${notifications > 0 ? ` (${notifications})` : ''}`}\n\t\t\t\t\tonClick={() => setNotifications(0)}\n\t\t\t\t\thaptics=\"light\"\n\t\t\t\t\tsound=\"subtle\"\n\t\t\t\t\tclassName=\"relative h-9 w-9 p-0\"\n\t\t\t\t>\n\t\t\t\t\t<Bell className=\"h-4 w-4\" />\n\t\t\t\t\t{notifications > 0 && (\n\t\t\t\t\t\t<span className=\"absolute -top-2 left-full -translate-x-1/2 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white\">\n\t\t\t\t\t\t\t{notifications > 99 ? \"99+\" : notifications}\n\t\t\t\t\t\t</span>\n\t\t\t\t\t)}\n\t\t\t\t</Button>\n\n\t\t\t\t{/* Pulsing notification */}\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"soft\"\n\t\t\t\t\taria-label=\"Updates available\"\n\t\t\t\t\tclassName=\"relative\"\n\t\t\t\t>\n\t\t\t\t\tUpdates\n\t\t\t\t\t<span className=\"absolute -top-0.5 -right-0.5 flex h-3 w-3\">\n\t\t\t\t\t\t<span className=\"animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75\"></span>\n\t\t\t\t\t\t<span className=\"relative inline-flex rounded-full h-3 w-3 bg-emerald-500\"></span>\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\n\t\t\t\t{/* Warning badge */}\n\t\t\t\t<Button variant=\"warning\" haptics=\"medium\">\n\t\t\t\t\t<AlertTriangle className=\"h-4 w-4\" />\n\t\t\t\t\tAction Required\n\t\t\t\t\t<span className=\"ml-2 inline-flex h-5 items-center justify-center rounded-full bg-red-500 px-2 text-[10px] font-bold text-white\">\n\t\t\t\t\t\t!\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
     meta: {"tags":[]},
   },
   "button-outline": {
     name: "button-outline",
     description: "button-outline component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-outline.tsx",
+        path: "registry/default/blocks/button/button-outline.tsx",
         type: "registry:block",
         target: "components/blocks/button-outline.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-outline") as any
+      const mod = await import("../registry/default/blocks/button/button-outline") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonOutline() {\n\treturn (\n\t\t<Button type=\"button\" variant=\"outline\">\n\t\t\tOutline\n\t\t</Button>\n\t);\n}\n",
     meta: {"tags":[]},
   },
-  "button-secondary": {
-    name: "button-secondary",
-    description: "button-secondary component",
+  "button-payment": {
+    name: "button-payment",
+    description: "button-payment component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-secondary.tsx",
+        path: "registry/default/blocks/button/button-payment.tsx",
         type: "registry:block",
-        target: "components/blocks/button-secondary.tsx"
+        target: "components/blocks/button-payment.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-secondary") as any
+      const mod = await import("../registry/default/blocks/button/button-payment") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\nimport { CreditCard, ShoppingCart, Clock } from \"lucide-react\";\n\nexport default function ButtonPayment() {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      {/* Primary payment methods */}\n      <div className=\"flex flex-wrap gap-2\">\n        <Button\n          variant=\"solid\"\n          size=\"md\"\n          hoverEffect=\"lift\"\n          className=\"bg-[#5469d4] hover:bg-[#4456c7] text-white dark:bg-[#5469d4] dark:hover:bg-[#4456c7] transition-all hover:shadow-lg hover:shadow-[#5469d4]/20\"\n        >\n          <CreditCard className=\"h-5 w-5\" />\n          Pay with Card\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          size=\"md\"\n          hoverEffect=\"lift\"\n          className=\"bg-[#FFC439] hover:bg-[#f7b500] text-black dark:bg-[#FFC439] dark:hover:bg-[#f7b500] dark:text-black transition-all hover:shadow-lg hover:shadow-[#FFC439]/20\"\n        >\n          <svg className=\"w-4 h-4\" aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fab\" data-icon=\"paypal\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><path fill=\"currentColor\" d=\"M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4 .7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9 .7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z\"></path></svg>\n          PayPal\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          size=\"md\"\n          hoverEffect=\"lift\"\n          className=\"bg-gray-900 hover:bg-black text-white dark:bg-gray-100 dark:hover:bg-white dark:text-black transition-all hover:shadow-lg hover:shadow-black/20 dark:hover:shadow-white/20\"\n        >\n          <svg className=\"w-5 h-5\" aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fab\" data-icon=\"apple\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><path fill=\"currentColor\" d=\"M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z\"></path></svg>\n          Apple Pay\n        </Button>\n      </div>\n\n      {/* Checkout button */}\n      <div className=\"flex flex-wrap gap-2\">\n        <Button\n          variant=\"success\"\n          size=\"md\"\n          wide\n          hoverEffect=\"lift\"\n          className=\"font-semibold transition-all hover:shadow-lg hover:shadow-emerald-500/20\"\n        >\n          <ShoppingCart className=\"h-5 w-5\" />\n          Complete Purchase - $99.00\n        </Button>\n      </div>\n\n      {/* Modern alternative */}\n      <div className=\"flex flex-wrap gap-2\">\n        <Button\n          variant=\"outline\"\n          size=\"md\"\n          wide\n          hoverEffect=\"lift\"\n          className=\"border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white font-semibold transition-all hover:shadow-lg hover:shadow-orange-500/20\"\n        >\n          <Clock className=\"h-5 w-5\" />\n          Buy Now, Pay Later\n        </Button>\n      </div>\n    </div>\n  );\n}\n",
+    meta: {"tags":[]},
+  },
+  "button-preview": {
+    name: "button-preview",
+    description: "button-preview component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-preview.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-preview.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-preview") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { useState } from \"react\";\nimport { Settings, Mail, ArrowRight } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonPreview() {\n\tconst [loadingState, setLoadingState] = useState<\"idle\" | \"loading\" | \"success\" | \"error\">(\"idle\");\n\n\tconst handleAsyncAction = async () => {\n\t\tsetLoadingState(\"loading\");\n\t\tawait new Promise((resolve) => setTimeout(resolve, 1500));\n\t\tsetLoadingState(\"success\");\n\t\tsetTimeout(() => setLoadingState(\"idle\"), 1500);\n\t};\n\n\treturn (\n\t\t<div className=\"grid gap-6\">\n\t\t\t{/* Primary Showcase */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button>Get Started</Button>\n\t\t\t\t<Button variant=\"outline\">Learn More</Button>\n\t\t\t\t<Button variant=\"ghost\">Documentation</Button>\n\t\t\t\t<Button variant=\"soft\">Explore</Button>\n\t\t\t</div>\n\n\t\t\t{/* Interactive States */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\tstate={loadingState}\n\t\t\t\t\tonClick={handleAsyncAction}\n\t\t\t\t\tloadingText=\"Processing...\"\n\t\t\t\t\tsuccessText=\"Done!\"\n\t\t\t\t>\n\t\t\t\t\tTry Me\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"danger\">Delete</Button>\n\t\t\t\t<Button variant=\"success\">Confirm</Button>\n\t\t\t\t<Button disabled>Disabled</Button>\n\t\t\t</div>\n\n\t\t\t{/* Sizes & Effects */}\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Button size=\"xs\" clickEffect=\"scale\">Extra Small</Button>\n\t\t\t\t<Button size=\"sm\" clickEffect=\"ripple\">Small Ripple</Button>\n\t\t\t\t<Button size=\"md\" variant=\"soft\">Soft</Button>\n\t\t\t\t<Button size=\"lg\" variant=\"outline\">Large Outline</Button>\n\t\t\t</div>\n\n\t\t\t{/* With Icons & Features */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-label=\"Settings\">\n\t\t\t\t\t<Settings className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button>\n\t\t\t\t\t<Mail className=\"h-4 w-4\" />\n\t\t\t\t\tSend Email\n\t\t\t\t</Button>\n\t\t\t\t<Button asChild variant=\"link\">\n\t\t\t\t\t<a href=\"#features\" className=\"no-underline\">\n\t\t\t\t\t\tView Features\n\t\t\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t\t\t</a>\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\tStar\n\t\t\t\t\t<span className=\"ml-2 rounded bg-primary/10 px-1.5 py-0.5 text-xs\">\n\t\t\t\t\t\t2.3k\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
     meta: {"tags":[]},
   },
   "button-sizes": {
     name: "button-sizes",
     description: "button-sizes component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-sizes.tsx",
+        path: "registry/default/blocks/button/button-sizes.tsx",
         type: "registry:block",
         target: "components/blocks/button-sizes.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-sizes") as any
+      const mod = await import("../registry/default/blocks/button/button-sizes") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonSizes() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button size=\"xs\">Extra Small</Button>\n\t\t\t<Button size=\"sm\">Small</Button>\n\t\t\t<Button size=\"md\">Medium</Button>\n\t\t\t<Button size=\"lg\">Large</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
-  "button-social-login": {
-    name: "button-social-login",
-    description: "button-social-login component",
+  "button-social": {
+    name: "button-social",
+    description: "button-social component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-social-login.tsx",
+        path: "registry/default/blocks/button/button-social.tsx",
         type: "registry:block",
-        target: "components/blocks/button-social-login.tsx"
+        target: "components/blocks/button-social.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-social-login") as any
+      const mod = await import("../registry/default/blocks/button/button-social") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\nimport { Github, Facebook, Linkedin, Instagram, Youtube } from \"lucide-react\";\n\nexport default function ButtonSocial() {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      {/* Primary social buttons */}\n      <div className=\"flex flex-wrap gap-2\">\n        <Button\n          variant=\"solid\"\n          hoverEffect=\"lift\"\n          className=\"bg-gray-900 hover:bg-black text-white transition-all hover:shadow-lg hover:shadow-black/20\"\n        >\n          <Github className=\"h-4 w-4\" />\n          Sign in with GitHub\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          hoverEffect=\"lift\"\n          className=\"bg-black hover:bg-gray-900 text-white transition-all hover:shadow-lg hover:shadow-black/20\"\n        >\n          <svg className=\"h-4 w-4\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\">\n            <path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\"/>\n          </svg>\n          Sign in with X\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          hoverEffect=\"lift\"\n          className=\"bg-[#4267B2] hover:bg-[#365899] text-white transition-all hover:shadow-lg hover:shadow-[#4267B2]/25\"\n        >\n          <Facebook className=\"h-4 w-4\" />\n          Sign in with Facebook\n        </Button>\n      </div>\n\n      {/* Outline social buttons */}\n      <div className=\"flex flex-wrap gap-2\">\n        <Button\n          variant=\"outline\"\n          hoverEffect=\"lift\"\n          className=\"border-[#0077B5] text-[#0077B5] hover:bg-[#0077B5] hover:text-white hover:border-[#0077B5] transition-all hover:shadow-lg hover:shadow-[#0077B5]/20\"\n        >\n          <Linkedin className=\"h-4 w-4\" />\n          Connect LinkedIn\n        </Button>\n\n        <Button\n          variant=\"outline\"\n          hoverEffect=\"lift\"\n          className=\"border-[#E4405F] text-[#E4405F] hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F] transition-all hover:shadow-lg hover:shadow-[#E4405F]/20\"\n        >\n          <Instagram className=\"h-4 w-4\" />\n          Follow on Instagram\n        </Button>\n\n        <Button\n          variant=\"outline\"\n          hoverEffect=\"lift\"\n          className=\"border-[#FF0000] text-[#FF0000] hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all hover:shadow-lg hover:shadow-[#FF0000]/20\"\n        >\n          <Youtube className=\"h-4 w-4\" />\n          Subscribe on YouTube\n        </Button>\n      </div>\n\n      {/* Icon-only social buttons */}\n      <div className=\"flex flex-wrap gap-2\">\n        <Button\n          variant=\"solid\"\n          size=\"sm\"\n          hoverEffect=\"lift\"\n          className=\"bg-gray-900 hover:bg-black text-white transition-all hover:shadow-lg hover:shadow-black/20\"\n          aria-label=\"GitHub\"\n        >\n          <Github className=\"h-4 w-4\" />\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          size=\"sm\"\n          hoverEffect=\"lift\"\n          className=\"bg-black hover:bg-gray-900 text-white transition-all hover:shadow-lg hover:shadow-black/20\"\n          aria-label=\"X\"\n        >\n          <svg className=\"h-4 w-4\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\">\n            <path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\"/>\n          </svg>\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          size=\"sm\"\n          hoverEffect=\"lift\"\n          className=\"bg-[#4267B2] hover:bg-[#365899] text-white transition-all hover:shadow-lg hover:shadow-[#4267B2]/25\"\n          aria-label=\"Facebook\"\n        >\n          <Facebook className=\"h-4 w-4\" />\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          size=\"sm\"\n          hoverEffect=\"lift\"\n          className=\"bg-[#0077B5] hover:bg-[#006097] text-white transition-all hover:shadow-lg hover:shadow-[#0077B5]/25\"\n          aria-label=\"LinkedIn\"\n        >\n          <Linkedin className=\"h-4 w-4\" />\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          size=\"sm\"\n          hoverEffect=\"lift\"\n          className=\"bg-gradient-to-br from-[#833AB4] via-[#E4405F] to-[#FCAF45] hover:opacity-90 text-white transition-all hover:shadow-lg hover:shadow-[#E4405F]/25\"\n          aria-label=\"Instagram\"\n        >\n          <Instagram className=\"h-4 w-4\" />\n        </Button>\n\n        <Button\n          variant=\"solid\"\n          size=\"sm\"\n          hoverEffect=\"lift\"\n          className=\"bg-[#FF0000] hover:bg-[#e60000] text-white transition-all hover:shadow-lg hover:shadow-[#FF0000]/25\"\n          aria-label=\"YouTube\"\n        >\n          <Youtube className=\"h-4 w-4\" />\n        </Button>\n      </div>\n\n    </div>\n  );\n}\n",
     meta: {"tags":[]},
   },
-  "button-split": {
-    name: "button-split",
-    description: "button-split component",
+  "button-soft": {
+    name: "button-soft",
+    description: "button-soft component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-split.tsx",
+        path: "registry/default/blocks/button/button-soft.tsx",
         type: "registry:block",
-        target: "components/blocks/button-split.tsx"
+        target: "components/blocks/button-soft.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-split") as any
+      const mod = await import("../registry/default/blocks/button/button-soft") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonSoft() {\n\treturn <Button variant=\"soft\">Soft</Button>;\n}\n",
+    meta: {"tags":[]},
+  },
+  "button-states": {
+    name: "button-states",
+    description: "button-states component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-states.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-states.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-states") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonStates() {\n\tconst [state, setState] = useState<\"idle\" | \"loading\" | \"success\" | \"error\">(\"idle\");\n\n\tconst handleClick = async () => {\n\t\tsetState(\"loading\");\n\t\tawait new Promise((resolve) => setTimeout(resolve, 2000));\n\t\tsetState(Math.random() > 0.5 ? \"success\" : \"error\");\n\t\tsetTimeout(() => setState(\"idle\"), 2000);\n\t};\n\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button state=\"idle\">Idle State</Button>\n\t\t\t\t<Button state=\"loading\">Loading State</Button>\n\t\t\t\t<Button state=\"success\">Success State</Button>\n\t\t\t\t<Button state=\"error\">Error State</Button>\n\t\t\t\t<Button state=\"disabled\">Disabled State</Button>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<Button \n\t\t\t\t\tstate={state} \n\t\t\t\t\tonClick={handleClick}\n\t\t\t\t\tloadingText=\"Processing...\"\n\t\t\t\t\tsuccessText=\"Complete!\"\n\t\t\t\t\terrorText=\"Try Again\"\n\t\t\t\t>\n\t\t\t\t\tClick to Test States\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-variants": {
     name: "button-variants",
     description: "button-variants component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-variants.tsx",
+        path: "registry/default/blocks/button/button-variants.tsx",
         type: "registry:block",
         target: "components/blocks/button-variants.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-variants") as any
+      const mod = await import("../registry/default/blocks/button/button-variants") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonVariants() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button variant=\"solid\">Solid</Button>\n\t\t\t<Button variant=\"outline\">Outline</Button>\n\t\t\t<Button variant=\"soft\">Soft</Button>\n\t\t\t<Button variant=\"ghost\">Ghost</Button>\n\t\t\t<Button variant=\"link\">Link</Button>\n\t\t\t<Button variant=\"danger\">Danger</Button>\n\t\t\t<Button variant=\"success\">Success</Button>\n\t\t\t<Button variant=\"warning\">Warning</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-with-avatar": {
     name: "button-with-avatar",
     description: "button-with-avatar component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-with-avatar.tsx",
+        path: "registry/default/blocks/button/button-with-avatar.tsx",
         type: "registry:block",
         target: "components/blocks/button-with-avatar.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-with-avatar") as any
+      const mod = await import("../registry/default/blocks/button/button-with-avatar") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { ChevronDown } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithAvatar() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button variant=\"ghost\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://kit.uxpatterns.dev/avatar.jpg\"\n\t\t\t\t\talt=\"User avatar\"\n\t\t\t\t\tclassName=\"h-5 w-5 rounded-full\"\n\t\t\t\t/>\n\t\t\t\t@thedaviddias\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://github.com/vercel.png\"\n\t\t\t\t\talt=\"Team avatar\"\n\t\t\t\t\tclassName=\"h-5 w-5 rounded-full\"\n\t\t\t\t/>\n\t\t\t\tVercel Team\n\t\t\t</Button>\n\t\t\t<Button variant=\"soft\">\n\t\t\t\t<span className=\"flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-xs font-bold text-white\">\n\t\t\t\t\tJD\n\t\t\t\t</span>\n\t\t\t\tJohn Doe\n\t\t\t</Button>\n\t\t\t\n\t\t\t{/* Account menu button - common in headers */}\n\t\t\t<Button \n\t\t\t\tvariant=\"ghost\" \n\t\t\t\tsize=\"sm\"\n\t\t\t\taria-label=\"Account menu\"\n\t\t\t\tclassName=\"gap-1\"\n\t\t\t>\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://kit.uxpatterns.dev/avatar.jpg\"\n\t\t\t\t\talt=\"User avatar\"\n\t\t\t\t\tclassName=\"h-6 w-6 rounded-full\"\n\t\t\t\t/>\n\t\t\t\t<ChevronDown className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
-  "button-with-badge": {
-    name: "button-with-badge",
-    description: "button-with-badge component",
+  "button-with-haptics": {
+    name: "button-with-haptics",
+    description: "button-with-haptics component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-with-badge.tsx",
+        path: "registry/default/blocks/button/button-with-haptics.tsx",
         type: "registry:block",
-        target: "components/blocks/button-with-badge.tsx"
+        target: "components/blocks/button-with-haptics.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-with-badge") as any
+      const mod = await import("../registry/default/blocks/button/button-with-haptics") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
-    meta: {"tags":[]},
-  },
-  "button-with-counter": {
-    name: "button-with-counter",
-    description: "button-with-counter component",
-    type: "registry:block",
-    registryDependencies: [],
-    files: [{
-        path: "registry/default/blocks/button-with-counter.tsx",
-        type: "registry:block",
-        target: "components/blocks/button-with-counter.tsx"
-      }],
-    component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-with-counter") as any
-      const keys = Object.keys(mod);
-      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
-      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
-    }),
+    source: "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithHaptics() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button haptics=\"light\">Light Haptic</Button>\n\t\t\t<Button haptics=\"medium\">Medium Haptic</Button>\n\t\t\t<Button haptics=\"heavy\">Heavy Haptic</Button>\n\t\t\t<Button haptics=\"off\">No Haptic</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
   "button-with-icons": {
     name: "button-with-icons",
     description: "button-with-icons component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-with-icons.tsx",
+        path: "registry/default/blocks/button/button-with-icons.tsx",
         type: "registry:block",
         target: "components/blocks/button-with-icons.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-with-icons") as any
+      const mod = await import("../registry/default/blocks/button/button-with-icons") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Plus, Heart, ChevronRight, Download, Edit, Trash, Share2 } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithIcons() {\n\treturn (\n\t\t<div className=\"space-y-6\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Icon on the Left</h4>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button>\n\t\t\t\t\t\t<Plus className=\"h-4 w-4\" />\n\t\t\t\t\t\tAdd Item\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\t\t<Heart className=\"h-4 w-4\" />\n\t\t\t\t\t\tLike\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Icon on the Right</h4>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button>\n\t\t\t\t\t\tContinue\n\t\t\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\t\tDownload\n\t\t\t\t\t\t<Download className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Icon Only</h4>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button aria-label=\"Edit\">\n\t\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" aria-label=\"Delete\">\n\t\t\t\t\t\t<Trash className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"ghost\" aria-label=\"Share\">\n\t\t\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
     meta: {"tags":[]},
   },
   "button-with-keyboard-shortcut": {
     name: "button-with-keyboard-shortcut",
     description: "button-with-keyboard-shortcut component",
     type: "registry:block",
-    registryDependencies: [],
+    registryDependencies: ["button"],
     files: [{
-        path: "registry/default/blocks/button-with-keyboard-shortcut.tsx",
+        path: "registry/default/blocks/button/button-with-keyboard-shortcut.tsx",
         type: "registry:block",
         target: "components/blocks/button-with-keyboard-shortcut.tsx"
       }],
     component: React.lazy(async () => {
-      const mod = await import("../registry/default/blocks/button-with-keyboard-shortcut") as any
+      const mod = await import("../registry/default/blocks/button/button-with-keyboard-shortcut") as any
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
     }),
+    source: "import { Button } from \"@/ui/button\";\n\nexport default function ButtonWithKeyboardShortcut() {\n\treturn (\n\t\t<Button>\n\t\t\t<span>Save</span>\n\t\t\t<kbd className=\"pointer-events-none inline-flex h-5 select-none items-center rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground\">\n\t\t\t\t⌘S\n\t\t\t</kbd>\n\t\t</Button>\n\t);\n}\n",
+    meta: {"tags":[]},
+  },
+  "button-with-sound": {
+    name: "button-with-sound",
+    description: "button-with-sound component",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+        path: "registry/default/blocks/button/button-with-sound.tsx",
+        type: "registry:block",
+        target: "components/blocks/button-with-sound.tsx"
+      }],
+    component: React.lazy(async () => {
+      const mod = await import("../registry/default/blocks/button/button-with-sound") as any
+      const keys = Object.keys(mod);
+      const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
+      return { default: mod.default || (exportName ? mod[exportName] : undefined) }
+    }),
+    source: "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithSound() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button sound=\"subtle\">Subtle Sound</Button>\n\t\t\t<Button sound=\"click\">Click Sound</Button>\n\t\t\t<Button sound=\"off\">No Sound</Button>\n\t\t</div>\n\t);\n}",
     meta: {"tags":[]},
   },
 };

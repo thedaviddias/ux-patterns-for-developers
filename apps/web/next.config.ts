@@ -62,7 +62,7 @@ export default withSentryConfig(nextConfig, {
 	project: "ux-patterns-for-developers",
 
 	// Only print logs for uploading source maps in CI
-	silent: !process.env.CI,
+	silent: true,
 
 	// For all available options, see:
 	// https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
@@ -81,9 +81,9 @@ export default withSentryConfig(nextConfig, {
 	// side errors will fail.
 	// tunnelRoute: "/monitoring",
 
-	// Hides source maps from generated client bundles
+	// Disable source map uploads for faster builds
 	sourcemaps: {
-		deleteSourcemapsAfterUpload: true,
+		disable: true,
 	},
 
 	// Automatically tree-shake Sentry logger statements to reduce bundle size

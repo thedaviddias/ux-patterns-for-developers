@@ -9,7 +9,12 @@
 }
 
 :root {
-	--edge-label-bg: rgba(241, 245, 249, 0.95); /* slate-100 with higher opacity */
+	--edge-label-bg: rgba(
+		241,
+		245,
+		249,
+		0.95
+	); /* slate-100 with higher opacity */
 	--edge-label-text: #1e293b; /* slate-800 for better contrast */
 	--edge-stroke: #334155; /* slate-700 for more visible edges */
 	--flow-background-dots: #cbd5e1; /* slate-300 for light mode dots */

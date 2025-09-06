@@ -5,7 +5,9 @@
 		"module": "ESNext",
 		"moduleResolution": "bundler",
 		"paths": {
-			"@/*": ["./registry/default/*"]
+			"@/registry/*": ["./registry/default/*"],
+			"@/ui/*": ["./registry/default/ui/*"],
+			"@/lib/*": ["./registry/default/lib/*"]
 		}
 	},
 	"include": ["registry/**/*", "scripts/**/*", ".generated/**/*"],

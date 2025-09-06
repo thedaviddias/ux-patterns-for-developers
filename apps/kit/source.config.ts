@@ -6,7 +6,9 @@ import {
 } from "fumadocs-mdx/config";
 import { createGenerator, remarkAutoTypeTable } from "fumadocs-typescript";
 
-const generator = createGenerator();
+const generator = createGenerator({
+	cache: false, // Disable caching to avoid ENOENT errors in CI
+});
 
 // You can customise Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.dev/docs/mdx/collections#define-docs
