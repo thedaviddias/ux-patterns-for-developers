@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
+import { buildDocsUrl, buildRegistryUrl } from "@ux-patterns/ui/constants/urls";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { RotateCcw } from "lucide-react";
 import React from "react";
@@ -40,10 +41,10 @@ export const ComponentWrapper = ({
 					.filter(Boolean);
 				if (pathSegments.includes("patterns") && pathSegments.length > 2) {
 					const lastSegment = pathSegments[pathSegments.length - 1];
-					return `https://kit.uxpatterns.dev/docs/components/${lastSegment}`;
+					return buildDocsUrl(lastSegment);
 				}
 			}
-			return `https://kit.uxpatterns.dev/docs/components/${name}`;
+			return buildDocsUrl(name);
 		}
 
 		// Extract variant from name (e.g., "button-default" -> "default")
@@ -52,11 +53,10 @@ export const ComponentWrapper = ({
 			: null;
 
 		// Build URL with anchor if variant exists
-		const baseUrl = `https://kit.uxpatterns.dev/docs/components/${componentName}`;
-		return variant ? `${baseUrl}#${variant}` : baseUrl;
+		return buildDocsUrl(componentName, variant ?? undefined);
 	}, [name, pageMetadata]);
 
-	const url = `https://kit.uxpatterns.dev/r/${name}.json`;
+	const url = buildRegistryUrl(name);
 
 	return (
 		<div

@@ -8,13 +8,18 @@
 		"./components/shadcn/*": "./src/components/shadcn/*.tsx",
 		"./components/magicui/*": "./src/components/magicui/*.tsx",
 		"./components/custom/*": "./src/components/custom/*",
+		"./constants/urls": "./src/constants/urls.ts",
 		"./styles/globals.css": "./src/styles/globals.css"
 	},
 	"scripts": {
 		"lint": "biome lint .",
-		"check": "tsc --noEmit"
+		"check": "tsc --noEmit",
+		"test": "vitest",
+		"test:ui": "vitest --ui",
+		"test:run": "vitest run"
 	},
 	"dependencies": {
+		"@icons-pack/react-simple-icons": "^13.7.0",
 		"@radix-ui/react-accordion": "^1.2.2",
 		"@radix-ui/react-alert-dialog": "^1.1.4",
 		"@radix-ui/react-avatar": "^1.1.2",
@@ -25,29 +30,42 @@
 		"@radix-ui/react-icons": "^1.3.2",
 		"@radix-ui/react-label": "^2.1.1",
 		"@radix-ui/react-popover": "^1.1.4",
-		"@radix-ui/react-select": "^2.1.4",
+		"@radix-ui/react-select": "^2.2.6",
 		"@radix-ui/react-separator": "^1.1.1",
 		"@radix-ui/react-slot": "^1.2.3",
 		"@radix-ui/react-tabs": "^1.1.13",
 		"@radix-ui/react-toast": "^1.2.4",
 		"@radix-ui/react-tooltip": "^1.2.8",
+		"@radix-ui/react-use-controllable-state": "^1.2.2",
+		"@shikijs/transformers": "^3.12.2",
 		"@ux-patterns/hooks": "workspace:*",
 		"@ux-patterns/registry": "workspace:^",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"framer-motion": "^12.1.0",
+		"fumadocs-ui": "15.7.8",
 		"lucide-react": "^0.468.0",
-		"tailwind-merge": "^3.0.1"
+		"outdent": "^0.8.0",
+		"preact-render-to-string": "^6.6.1",
+		"shiki": "^3.12.2",
+		"tailwind-merge": "^3.0.1",
+		"undent": "^1.0.0"
 	},
 	"devDependencies": {
+		"@testing-library/jest-dom": "^6.8.0",
+		"@testing-library/react": "^16.3.0",
+		"@testing-library/user-event": "^14.6.1",
 		"@thedaviddias/config-typescript": "workspace:*",
 		"@types/node": "24.3.0",
 		"@types/react": "^19.1.12",
 		"@types/react-dom": "^19.1.9",
+		"@vitest/ui": "^3.2.4",
 		"eslint": "^9.18.0",
+		"jsdom": "^26.1.0",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"tailwindcss": "^4.1.12",
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.2",
+		"vitest": "^3.2.4"
 	}
 }

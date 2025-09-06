@@ -14,7 +14,7 @@ export const HomeCTA = () => {
 				variant="neutral"
 			>
 				Get Started
-				<ArrowRight className="ml-2 h-4 w-4" />
+				<ArrowRight className="h-4 w-4" />
 			</LinkCustom>
 			<LinkCustom
 				href="https://git.new/uxpatterns"

@@ -11,8 +11,12 @@ export default function ButtonDialogFooter() {
 				</p>
 			</div>
 			<div className="flex justify-end gap-2">
-				<Button variant="outline">Cancel</Button>
-				<Button variant="destructive">Delete</Button>
+				<Button type="button" variant="outline">
+					Cancel
+				</Button>
+				<Button type="button" variant="destructive">
+					Delete
+				</Button>
 			</div>
 		</div>
 	);

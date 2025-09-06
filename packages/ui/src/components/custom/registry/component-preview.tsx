@@ -1,13 +1,8 @@
 import { Index } from "@ux-patterns/registry/.generated";
 import { Icons } from "@ux-patterns/ui/components/custom/icons";
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from "@ux-patterns/ui/components/shadcn/tabs";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import * as React from "react";
+import { CodeDisplay } from "./code-display";
 import { ComponentWrapper } from "./component-wrapper";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -16,6 +11,8 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	preview?: boolean;
 	height?: string;
 	kit?: boolean;
+	extractJSX?: boolean; // If true, shows only JSX content; if false, shows full component
+	showHTML?: boolean; // If true, shows rendered HTML instead of JSX/component code
 	pageMetadata?: {
 		title?: string;
 		description?: string;
@@ -28,17 +25,21 @@ export function ComponentPreview({
 	children,
 	className,
 	align = "center",
-	preview = true,
+	preview = false,
 	height,
 	kit = false,
+	extractJSX = true,
+	showHTML = false,
 	pageMetadata,
 	...props
 }: ComponentPreviewProps) {
 	const Codes = React.Children.toArray(children) as React.ReactElement[];
 	const Code = Codes[0];
 
+	const registryItem = Index[name];
+
 	const Preview = React.useMemo(() => {
-		const Component = Index[name]?.component;
+		const Component = registryItem?.component;
 
 		if (!Component) {
 			console.error(`Component with name "${name}" not found in registry.`);
@@ -54,62 +55,47 @@ export function ComponentPreview({
 		}
 
 		return <Component />;
-	}, [name]);
+	}, [registryItem, name]);
 
 	return (
 		<div
 			className={cn(
-				"relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
+				"relative my-4 flex flex-col space-y-4 lg:max-w-[120ch]",
 				className,
 			)}
 			{...props}
 		>
-			<Tabs defaultValue="preview" className="relative mr-auto w-full">
-				{!preview && (
-					<div className="flex items-center justify-between pb-3">
-						<TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
-							<TabsTrigger
-								value="preview"
-								className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-							>
-								Preview
-							</TabsTrigger>
-							<TabsTrigger
-								value="code"
-								className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-							>
-								Code
-							</TabsTrigger>
-						</TabsList>
-					</div>
-				)}
-				<TabsContent value="preview" className="relative rounded-md">
-					<ComponentWrapper
-						name={name}
-						height={height}
-						kit={kit}
-						pageMetadata={pageMetadata}
+			{/* Preview Section */}
+			<div className="relative rounded-md">
+				<ComponentWrapper
+					name={name}
+					height={height}
+					kit={kit}
+					pageMetadata={pageMetadata}
+				>
+					<React.Suspense
+						fallback={
+							<div className="flex items-center text-sm text-muted-foreground">
+								<Icons.spinner className="mr-2 size-4 animate-spin" />
+								Loading...
+							</div>
+						}
 					>
-						<React.Suspense
-							fallback={
-								<div className="flex items-center text-sm text-muted-foreground">
-									<Icons.spinner className="mr-2 size-4 animate-spin" />
-									Loading...
-								</div>
-							}
-						>
-							{Preview}
-						</React.Suspense>
-					</ComponentWrapper>
-				</TabsContent>
-				<TabsContent value="code">
-					<div className="flex flex-col space-y-4">
-						<div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
-							{Code}
-						</div>
-					</div>
-				</TabsContent>
-			</Tabs>
+						{Preview}
+					</React.Suspense>
+				</ComponentWrapper>
+			</div>
+
+			{/* Code Section */}
+			{!preview && (
+				Code || (
+					<CodeDisplay
+						name={name}
+						extractJSX={extractJSX}
+						showHTML={showHTML}
+					/>
+				)
+			)}
 		</div>
 	);
 }

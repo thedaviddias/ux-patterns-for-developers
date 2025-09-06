@@ -17,9 +17,12 @@
   "javascript.format.enable": true,
   "javascript.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
-  "editor.codeActionsOnSave": {},
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
   "[markdown]": {
     "editor.formatOnSave": false,
     "editor.defaultFormatter": null,

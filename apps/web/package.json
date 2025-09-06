@@ -45,7 +45,6 @@
 		"next-plausible": "^3.12.4",
 		"nextra": "4.4.0",
 		"nextra-theme-docs": "4.4.0",
-		"openai": "^5.16.0",
 		"qrcode": "^1.5.4",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
@@ -65,7 +64,7 @@
 		"zod": "^4.1.5"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.2.2",
+		"@biomejs/biome": "^2.2.3",
 		"@next/bundle-analyzer": "^15.1.6",
 		"@radix-ui/react-aspect-ratio": "^1.1.2",
 		"@radix-ui/react-dialog": "^1.1.6",
