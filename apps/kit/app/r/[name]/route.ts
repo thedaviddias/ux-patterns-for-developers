@@ -112,10 +112,26 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 
 		// Handle individual component requests
 		try {
+			// Debug: Log what we're looking for
+			console.log(`Looking for component: ${componentName}`);
+			
+			const allItems = await generateRegistry();
+			console.log(`Total registry items found: ${allItems.length}`);
+			console.log(`Available components: ${allItems.map(i => i.name).join(', ')}`);
+			
 			const componentData = await findRegistryItem(componentName);
+			console.log(`Component data found: ${!!componentData}`);
+			
 			if (!componentData) {
 				return NextResponse.json(
-					{ error: "Component not found" },
+					{ 
+						error: "Component not found",
+						debug: {
+							searchedFor: componentName,
+							totalItems: allItems.length,
+							availableComponents: allItems.map(i => i.name)
+						}
+					},
 					{ status: 404 },
 				);
 			}
