@@ -1,11 +1,12 @@
 "use client";
 
-import { Bell, AlertTriangle } from "lucide-react";
+import { AlertTriangle, Bell } from "lucide-react";
+import { useId, useState } from "react";
 import { Button } from "@/ui/button";
-import { useState } from "react";
 
 export default function ButtonNotificationBadge() {
 	const [notifications, setNotifications] = useState(5);
+	const updatesNewId = useId();
 
 	return (
 		<div className="flex flex-col gap-4">
@@ -13,20 +14,29 @@ export default function ButtonNotificationBadge() {
 			<div className="flex flex-wrap gap-2">
 				<Button aria-label="Messages, 12 new">
 					Messages
-					<span className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-primary-foreground/20 px-2 py-0.5 text-xs font-medium text-primary-foreground" aria-hidden="true">
+					<span
+						className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-primary-foreground/20 px-2 py-0.5 text-xs font-medium text-primary-foreground"
+						aria-hidden="true"
+					>
 						12
 					</span>
 				</Button>
 				<Button variant="outline">
 					Notifications
 					<span className="sr-only">, 3 unread</span>
-					<span className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-600 dark:text-amber-400" aria-hidden="true">
+					<span
+						className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-600 dark:text-amber-400"
+						aria-hidden="true"
+					>
 						3
 					</span>
 				</Button>
-				<Button variant="soft" aria-describedby="updates-new">
+				<Button variant="soft" aria-describedby={updatesNewId}>
 					Updates
-					<span id="updates-new" className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-medium text-green-600 dark:text-green-400">
+					<span
+						id={updatesNewId}
+						className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-medium text-green-600 dark:text-green-400"
+					>
 						New
 					</span>
 				</Button>
@@ -38,7 +48,7 @@ export default function ButtonNotificationBadge() {
 				<Button
 					variant="outline"
 					size="sm"
-					aria-label={`Notifications${notifications > 0 ? ` (${notifications})` : ''}`}
+					aria-label={`Notifications${notifications > 0 ? ` (${notifications})` : ""}`}
 					onClick={() => setNotifications(0)}
 					haptics="light"
 					sound="subtle"

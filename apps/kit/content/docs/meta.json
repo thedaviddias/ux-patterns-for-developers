@@ -7,9 +7,9 @@
 		"installation",
 		"---Input & Forms---",
 		"../components/button",
-    "---Layout & Navigation---",
-    "../components/load-more",
-    "---Content Management---",
-    "../components/expandable-text"
+		"---Layout & Navigation---",
+		"../components/load-more",
+		"---Content Management---",
+		"../components/expandable-text"
 	]
 }

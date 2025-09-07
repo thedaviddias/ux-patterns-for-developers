@@ -4,7 +4,9 @@ import { useState } from "react";
 import { Button } from "@/ui/button";
 
 export default function ButtonStates() {
-	const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
+	const [state, setState] = useState<"idle" | "loading" | "success" | "error">(
+		"idle",
+	);
 
 	const handleClick = async () => {
 		setState("loading");
@@ -23,8 +25,8 @@ export default function ButtonStates() {
 				<Button state="disabled">Disabled State</Button>
 			</div>
 			<div>
-				<Button 
-					state={state} 
+				<Button
+					state={state}
 					onClick={handleClick}
 					loadingText="Processing..."
 					successText="Complete!"

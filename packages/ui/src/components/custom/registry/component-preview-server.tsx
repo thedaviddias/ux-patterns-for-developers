@@ -4,7 +4,8 @@ import * as React from "react";
 import { CodeDisplayServer } from "./code-display-server";
 import { ComponentWrapper } from "./component-wrapper";
 
-interface ComponentPreviewServerProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ComponentPreviewServerProps
+	extends React.HTMLAttributes<HTMLDivElement> {
 	name: string;
 	align?: "center" | "start" | "end";
 	preview?: boolean;
@@ -85,15 +86,14 @@ export async function ComponentPreviewServer({
 			</div>
 
 			{/* Code Section - Server-side loaded */}
-			{!preview && (
-				Code || (
+			{!preview &&
+				(Code || (
 					<CodeDisplayServer
 						name={name}
 						extractJSX={extractJSX}
 						showHTML={showHTML}
 					/>
-				)
-			)}
+				))}
 		</div>
 	);
 }

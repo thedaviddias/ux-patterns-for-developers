@@ -7,9 +7,9 @@ import {
 } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
 import { source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
-import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 	const params = await props.params;

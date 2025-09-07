@@ -1,4 +1,11 @@
-import { Mail, ArrowRight, Download, ExternalLink, Lock, ChevronRight } from "lucide-react";
+import {
+	ArrowRight,
+	ChevronRight,
+	Download,
+	ExternalLink,
+	Lock,
+	Mail,
+} from "lucide-react";
 import { Button } from "@/ui/button";
 
 export default function ButtonDoubleIcon() {

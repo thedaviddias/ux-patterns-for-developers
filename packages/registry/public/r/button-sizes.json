@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-sizes.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonSizes() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button size=\"xs\">Extra Small</Button>\n\t\t\t<Button size=\"sm\">Small</Button>\n\t\t\t<Button size=\"md\">Medium</Button>\n\t\t\t<Button size=\"lg\">Large</Button>\n\t\t</div>\n\t);\n}",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonSizes() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button size=\"xs\">Extra Small</Button>\n\t\t\t<Button size=\"sm\">Small</Button>\n\t\t\t<Button size=\"md\">Medium</Button>\n\t\t\t<Button size=\"lg\">Large</Button>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

@@ -1,4 +1,12 @@
-import { Plus, Heart, ChevronRight, Download, Edit, Trash, Share2 } from "lucide-react";
+import {
+	ChevronRight,
+	Download,
+	Edit,
+	Heart,
+	Plus,
+	Share2,
+	Trash,
+} from "lucide-react";
 import { Button } from "@/ui/button";
 
 export default function ButtonWithIcons() {

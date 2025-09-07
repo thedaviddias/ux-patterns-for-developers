@@ -1,4 +1,4 @@
-import { ChevronRight, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/ui/button";
 
 export default function ButtonIconRight() {

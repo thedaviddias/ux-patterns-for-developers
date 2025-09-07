@@ -8,24 +8,27 @@ const config = {
 	images: {
 		remotePatterns: [
 			{
-				protocol: 'https',
-				hostname: 'www.google.com',
-				pathname: '/s2/favicons',
+				protocol: "https",
+				hostname: "www.google.com",
+				pathname: "/s2/favicons",
 			},
 		],
 	},
 	async rewrites() {
 		return [
 			{
-				source: '/docs/:path*.mdx',
-				destination: '/llms.mdx/:path*',
+				source: "/docs/:path*.mdx",
+				destination: "/llms.mdx/:path*",
 			},
 		];
 	},
 	webpack: (config) => {
 		// Ignore OpenTelemetry instrumentation warnings
 		config.ignoreWarnings = [
-			{ module: /@opentelemetry\/instrumentation/, message: /Critical dependency/ },
+			{
+				module: /@opentelemetry\/instrumentation/,
+				message: /Critical dependency/,
+			},
 		];
 		return config;
 	},

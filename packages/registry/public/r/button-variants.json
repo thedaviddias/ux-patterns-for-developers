@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-variants.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonVariants() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button variant=\"solid\">Solid</Button>\n\t\t\t<Button variant=\"outline\">Outline</Button>\n\t\t\t<Button variant=\"soft\">Soft</Button>\n\t\t\t<Button variant=\"ghost\">Ghost</Button>\n\t\t\t<Button variant=\"link\">Link</Button>\n\t\t\t<Button variant=\"danger\">Danger</Button>\n\t\t\t<Button variant=\"success\">Success</Button>\n\t\t\t<Button variant=\"warning\">Warning</Button>\n\t\t</div>\n\t);\n}",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonVariants() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button variant=\"solid\">Solid</Button>\n\t\t\t<Button variant=\"outline\">Outline</Button>\n\t\t\t<Button variant=\"soft\">Soft</Button>\n\t\t\t<Button variant=\"ghost\">Ghost</Button>\n\t\t\t<Button variant=\"link\">Link</Button>\n\t\t\t<Button variant=\"danger\">Danger</Button>\n\t\t\t<Button variant=\"success\">Success</Button>\n\t\t\t<Button variant=\"warning\">Warning</Button>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

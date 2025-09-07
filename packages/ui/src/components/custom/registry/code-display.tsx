@@ -32,9 +32,9 @@ function formatJSX(jsxCode: string): string {
 		}
 
 		// Count tag changes on this line
-		const openingTags = (trimmed.match(/<[A-Za-z][^>]*>/g) || [] as string[]).filter(
-			(tag: string) => !tag.endsWith("/>"),
-		).length;
+		const openingTags = (
+			trimmed.match(/<[A-Za-z][^>]*>/g) || ([] as string[])
+		).filter((tag: string) => !tag.endsWith("/>")).length;
 		const closingTags = (trimmed.match(/<\/[^>]*>/g) || []).length;
 		const fragments = (trimmed.match(/<>/g) || []).length;
 		const closingFragments = (trimmed.match(/<\/>/g) || []).length;
@@ -187,7 +187,7 @@ export function CodeDisplay({
 				// Get the source code from the bundled index
 				const registryItem = Index[name];
 				const fullContent = registryItem?.source;
-				
+
 				if (fullContent) {
 					if (showHTML) {
 						// First extract JSX

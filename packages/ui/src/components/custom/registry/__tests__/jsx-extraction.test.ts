@@ -222,12 +222,12 @@ export default function ButtonSizes() {
 		// Copy the formatHTML function for testing
 		function formatHTML(html: string): string {
 			// First, add line breaks around tags and handle text content properly
-			let formatted = html
-				.replace(/></g, '>\n<')  // Add line breaks between adjacent tags
-				.replace(/>([^<\n]+)</g, '>\n$1\n<')  // Put text content on separate lines
-				.split('\n')
-				.map(line => line.trim())
-				.filter(line => line.length > 0);
+			const formatted = html
+				.replace(/></g, ">\n<") // Add line breaks between adjacent tags
+				.replace(/>([^<\n]+)</g, ">\n$1\n<") // Put text content on separate lines
+				.split("\n")
+				.map((line) => line.trim())
+				.filter((line) => line.length > 0);
 
 			let depth = 0;
 			const result: string[] = [];
@@ -244,20 +244,25 @@ export default function ButtonSizes() {
 				}
 
 				// Add line with indentation
-				const indent = '  '.repeat(depth);
+				const indent = "  ".repeat(depth);
 				result.push(indent + trimmed);
 
 				// Increase depth for opening tags that aren't self-closing or don't close on same line
 				const hasOpeningTag = /<[A-Za-z]/.test(trimmed);
-				const isSelfClosing = trimmed.endsWith('/>');
+				const isSelfClosing = trimmed.endsWith("/>");
 				const hasClosingOnSameLine = /<\//.test(trimmed);
 
-				if (hasOpeningTag && !isSelfClosing && !hasClosingOnSameLine && !isClosingTag) {
+				if (
+					hasOpeningTag &&
+					!isSelfClosing &&
+					!hasClosingOnSameLine &&
+					!isClosingTag
+				) {
 					depth++;
 				}
 			}
 
-			return result.join('\n');
+			return result.join("\n");
 		}
 
 		it("should format simple HTML correctly", () => {

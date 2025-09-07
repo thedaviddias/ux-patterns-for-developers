@@ -1,12 +1,14 @@
 "use client";
 
-import { Trash2, AlertTriangle, Check, X } from "lucide-react";
-import { Button } from "@/ui/button";
+import { AlertTriangle, Check, Trash2, X } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/ui/button";
 
 export default function ButtonConfirmation() {
 	const [deleteState, setDeleteState] = useState<"idle" | "confirming">("idle");
-	const [archiveState, setArchiveState] = useState<"idle" | "confirming">("idle");
+	const [archiveState, setArchiveState] = useState<"idle" | "confirming">(
+		"idle",
+	);
 
 	return (
 		<div className="flex flex-col gap-4">
@@ -98,7 +100,7 @@ export default function ButtonConfirmation() {
 					duration: 1000,
 					onLongPress: () => {
 						console.log("Item deleted via long press");
-					}
+					},
 				}}
 				haptics="heavy"
 			>
@@ -113,7 +115,7 @@ export default function ButtonConfirmation() {
 					state="idle"
 					onAction={async () => {
 						// Simulate async action
-						await new Promise(resolve => setTimeout(resolve, 1500));
+						await new Promise((resolve) => setTimeout(resolve, 1500));
 					}}
 					loadingText="Publishing..."
 					successText="Published!"

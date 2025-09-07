@@ -14,8 +14,8 @@ export default function ButtonLoadingStates() {
 	return (
 		<div className="space-y-4">
 			<div className="flex flex-wrap items-center gap-2">
-				<Button 
-					state={isLoading ? "loading" : "idle"} 
+				<Button
+					state={isLoading ? "loading" : "idle"}
 					onClick={handleClick}
 					loadingType="spinner"
 				>

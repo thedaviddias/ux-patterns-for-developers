@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
 	Tooltip,
@@ -5,8 +7,13 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@ux-patterns/ui/components/shadcn/tooltip";
+import { usePlausible } from "next-plausible";
 
 export function OpenInV0Button({ url }: { url: string }) {
+	const plausible = usePlausible();
+
+	// Extract component name from URL
+	const componentName = url.split("/").pop()?.replace(".json", "") || "unknown";
 	return (
 		<TooltipProvider delayDuration={0}>
 			<Tooltip>
@@ -20,6 +27,13 @@ export function OpenInV0Button({ url }: { url: string }) {
 							href={`https://v0.dev/chat/api/open?url=${url}`}
 							target="_blank"
 							rel="noreferrer"
+							onClick={() => {
+								plausible("Open in V0", {
+									props: {
+										component_name: componentName,
+									},
+								});
+							}}
 						>
 							<svg
 								viewBox="0 0 40 20"

@@ -74,7 +74,7 @@ function extractMetadata(content) {
 function analyzeImports(content) {
 	const registryImports = [];
 	const packageImports = [];
-	
+
 	// Detect registry dependencies (@/ui, @/lib, etc.)
 	const registryRegex =
 		/import\s+.*?\s+from\s+["']@\/(ui|components|blocks|hooks|lib)\/([^"']+)["']/g;
@@ -87,26 +87,30 @@ function analyzeImports(content) {
 		const name = componentName.replace(/\.(tsx?|jsx?)$/, "");
 		registryImports.push(name);
 	}
-	
+
 	// Detect npm package dependencies (exclude relative imports and @/ imports)
-	const packageRegex = /import\s+.*?\s+from\s+["']([^.\/][^'"]+)['"]/g;
-	
+	const packageRegex = /import\s+.*?\s+from\s+["']([^./][^'"]+)['"]/g;
+
 	// biome-ignore lint: needed for regex iteration
 	while ((match = packageRegex.exec(content)) !== null) {
 		const [, packageName] = match;
 		// Exclude @/ aliases and Node.js built-ins
-		if (!packageName.startsWith('@/') && !packageName.startsWith('node:') && !packageName.includes('react/')) {
+		if (
+			!packageName.startsWith("@/") &&
+			!packageName.startsWith("node:") &&
+			!packageName.includes("react/")
+		) {
 			// Handle scoped packages properly
-			const pkgName = packageName.startsWith('@') 
-				? packageName.split('/').slice(0, 2).join('/')
-				: packageName.split('/')[0];
+			const pkgName = packageName.startsWith("@")
+				? packageName.split("/").slice(0, 2).join("/")
+				: packageName.split("/")[0];
 			packageImports.push(pkgName);
 		}
 	}
 
 	return {
 		registryDependencies: [...new Set(registryImports)],
-		dependencies: [...new Set(packageImports)]
+		dependencies: [...new Set(packageImports)],
 	};
 }
 

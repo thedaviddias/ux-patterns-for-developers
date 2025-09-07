@@ -1,9 +1,12 @@
 "use client";
 
-import { Save, Trash2, Edit, Share2 } from "lucide-react";
+import { Edit, Save, Share2, Trash2 } from "lucide-react";
+import { useId } from "react";
 import { Button } from "@/ui/button";
 
 export default function ButtonAriaFeatures() {
+	const helpTextId = useId();
+
 	return (
 		<div className="space-y-4">
 			<div className="flex flex-wrap gap-2">
@@ -25,18 +28,16 @@ export default function ButtonAriaFeatures() {
 				<Button announceChanges state="loading">
 					With Screen Reader Announcements
 				</Button>
-				<Button aria-busy="true">
-					ARIA Busy State
-				</Button>
+				<Button aria-busy="true">ARIA Busy State</Button>
 			</div>
 			<div className="flex flex-wrap gap-2">
-				<Button 
-					aria-describedby="help-text"
+				<Button
+					aria-describedby={helpTextId}
 					tooltipWhenDisabled="Feature coming soon"
 				>
 					With Description
 				</Button>
-				<span id="help-text" className="sr-only">
+				<span id={helpTextId} className="sr-only">
 					This button saves your current progress
 				</span>
 			</div>

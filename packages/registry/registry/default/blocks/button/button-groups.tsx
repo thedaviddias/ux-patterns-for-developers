@@ -1,4 +1,4 @@
-import { Edit, Trash2, Share2 } from "lucide-react";
+import { Edit, Share2, Trash2 } from "lucide-react";
 import { Button } from "@/ui/button";
 
 export default function ButtonGroups() {
@@ -49,7 +49,11 @@ export default function ButtonGroups() {
 					>
 						<Trash2 className="h-4 w-4" />
 					</Button>
-					<Button variant="outline" aria-label="Share" className="rounded-l-none">
+					<Button
+						variant="outline"
+						aria-label="Share"
+						className="rounded-l-none"
+					>
 						<Share2 className="h-4 w-4" />
 					</Button>
 				</div>

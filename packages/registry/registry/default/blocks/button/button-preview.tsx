@@ -1,11 +1,13 @@
 "use client";
 
+import { ArrowRight, Mail, Settings } from "lucide-react";
 import { useState } from "react";
-import { Settings, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/ui/button";
 
 export default function ButtonPreview() {
-	const [loadingState, setLoadingState] = useState<"idle" | "loading" | "success" | "error">("idle");
+	const [loadingState, setLoadingState] = useState<
+		"idle" | "loading" | "success" | "error"
+	>("idle");
 
 	const handleAsyncAction = async () => {
 		setLoadingState("loading");
@@ -41,10 +43,18 @@ export default function ButtonPreview() {
 
 			{/* Sizes & Effects */}
 			<div className="flex flex-wrap items-center gap-2">
-				<Button size="xs" clickEffect="scale">Extra Small</Button>
-				<Button size="sm" clickEffect="ripple">Small Ripple</Button>
-				<Button size="md" variant="soft">Soft</Button>
-				<Button size="lg" variant="outline">Large Outline</Button>
+				<Button size="xs" clickEffect="scale">
+					Extra Small
+				</Button>
+				<Button size="sm" clickEffect="ripple">
+					Small Ripple
+				</Button>
+				<Button size="md" variant="soft">
+					Soft
+				</Button>
+				<Button size="lg" variant="outline">
+					Large Outline
+				</Button>
 			</div>
 
 			{/* With Icons & Features */}

@@ -9,16 +9,19 @@
 		"ignoreUnknown": true,
 		"includes": [
 			"**",
-			"!**/public/_pagefind/**",
-			"!**/public/r/**",
-			"!**/.next/**",
-			"!**/dist/**",
-			"!**/build/**",
-			"!**/node_modules/**",
-			"!**/.source/**",
-			"!**/packages/registry/.generated/**",
-			"!**/coverage/**",
-			"!**/.turbo/**"
+			"!**/public/_pagefind",
+			"!**/public/r",
+			"!**/.next",
+			"!**/dist",
+			"!**/build",
+			"!**/node_modules",
+			"!**/.source",
+			"!**/packages/registry/.generated",
+			"!**/packages/registry/registry.json",
+			"!**/packages/registry/registry",
+			"!**/packages/registry/public/r",
+			"!**/coverage",
+			"!**/.turbo"
 		]
 	},
 	"linter": {

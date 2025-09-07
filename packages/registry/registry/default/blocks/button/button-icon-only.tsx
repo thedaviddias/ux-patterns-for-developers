@@ -1,4 +1,4 @@
-import { Save, Trash2, Edit, Settings, Share2, Heart } from "lucide-react";
+import { Edit, Heart, Save, Settings, Share2, Trash2 } from "lucide-react";
 import { Button } from "@/ui/button";
 
 export default function ButtonIconOnly() {

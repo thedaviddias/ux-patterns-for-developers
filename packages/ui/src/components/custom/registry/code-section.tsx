@@ -74,18 +74,17 @@ export function CodeSection({
 		};
 	}, [onCodeContentChange, onShouldShowExpandChange]);
 
-
 	// Apply styles directly to pre elements
 	React.useEffect(() => {
 		if (codeRef.current) {
-			const preElements = codeRef.current.querySelectorAll('pre');
+			const preElements = codeRef.current.querySelectorAll("pre");
 			preElements.forEach((pre) => {
 				if (shouldShowExpand && !isExpanded) {
-					pre.style.maxHeight = '350px';
-					pre.style.overflow = 'hidden';
+					pre.style.maxHeight = "350px";
+					pre.style.overflow = "hidden";
 				} else {
-					pre.style.maxHeight = 'none';
-					pre.style.overflow = 'visible';
+					pre.style.maxHeight = "none";
+					pre.style.overflow = "visible";
 				}
 			});
 		}
@@ -97,9 +96,7 @@ export function CodeSection({
 				ref={codeRef}
 				className={cn(
 					"w-full transition-all duration-200 relative",
-					shouldShowExpand
-						? "rounded-t-none rounded-b-md"
-						: "rounded-md",
+					shouldShowExpand ? "rounded-t-none rounded-b-md" : "rounded-md",
 					"[&_pre]:my-0",
 				)}
 			>

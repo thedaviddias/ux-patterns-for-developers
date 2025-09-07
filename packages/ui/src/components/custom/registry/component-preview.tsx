@@ -87,15 +87,14 @@ export function ComponentPreview({
 			</div>
 
 			{/* Code Section */}
-			{!preview && (
-				Code || (
+			{!preview &&
+				(Code || (
 					<CodeDisplay
 						name={name}
 						extractJSX={extractJSX}
 						showHTML={showHTML}
 					/>
-				)
-			)}
+				))}
 		</div>
 	);
 }

@@ -2,7 +2,7 @@
 
 declare module "@/.source" {
 	import type { Source } from "fumadocs-core/source";
-	
+
 	// Extended page data that includes MDX compilation output
 	interface MDXPageData {
 		title: string;
@@ -18,14 +18,14 @@ declare module "@/.source" {
 		structuredData?: any;
 		[key: string]: any;
 	}
-	
+
 	interface GeneratedDocs {
 		toFumadocsSource(): Source<{
 			pageData: MDXPageData;
 			metaData: any;
 		}>;
 	}
-	
+
 	export const docs: GeneratedDocs;
 }
 
