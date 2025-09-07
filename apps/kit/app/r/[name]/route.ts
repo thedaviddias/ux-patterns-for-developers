@@ -1,8 +1,4 @@
-import {
-	findRegistryItem,
-	generateRegistry,
-	type RegistryItem,
-} from "@ux-patterns/registry/lib/registry-generator";
+import registry from "@ux-patterns/registry/registry.json";
 import { type NextRequest, NextResponse } from "next/server";
 
 // Validate component name to prevent path traversal and invalid characters
@@ -70,82 +66,34 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 
 		// Handle registry index request
 		if (componentName === "registry") {
-			try {
-				console.log("[DEBUG] Registry index endpoint called");
-				const registryItems = await generateRegistry();
-				console.log(`[DEBUG] Registry index got ${registryItems.length} items`);
-				const response: RegistrySchema = {
-					$schema: "https://ui.shadcn.com/schema/registry.json",
-					name: "upkit",
-					homepage: "https://kit.uxpatterns.dev",
-					items: registryItems.map((item: RegistryItem) => ({
-						name: item.name,
-						type: item.type,
-						title: item.title,
-						description: item.description,
-						author: item.author,
-						dependencies: item.dependencies,
-						devDependencies: item.devDependencies,
-						registryDependencies: item.registryDependencies,
-						categories: item.categories,
-						files:
-							item.files?.map((f) => ({
-								path: f.path,
-								type: f.type,
-								target: f.target,
-							})) || [],
-						meta: item.meta,
-					})),
-				};
-
-				return NextResponse.json(response, {
-					headers: {
-						"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
-					},
-				});
-			} catch (error) {
-				console.error("Failed to generate registry:", error);
-				return NextResponse.json(
-					{ error: "Failed to generate registry" },
-					{ status: 500 },
-				);
-			}
+			return NextResponse.json(registry, {
+				headers: {
+					"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
+				},
+			});
 		}
 
 		// Handle individual component requests
 		try {
-			// Debug: Log what we're looking for
-			console.log(`Looking for component: ${componentName}`);
-
-			const allItems = await generateRegistry();
-			console.log(`Total registry items found: ${allItems.length}`);
-			console.log(
-				`Available components: ${allItems.map((i) => i.name).join(", ")}`,
+			// Find the component in the static registry
+			const componentData = registry.items.find(
+				(item) => item.name === componentName,
 			);
-
-			const componentData = await findRegistryItem(componentName);
-			console.log(`Component data found: ${!!componentData}`);
 
 			if (!componentData) {
 				return NextResponse.json(
-					{
-						error: "Component not found",
-						debug: {
-							searchedFor: componentName,
-							totalItems: allItems.length,
-							availableComponents: allItems.map((i) => i.name),
-						},
-					},
+					{ error: "Component not found" },
 					{ status: 404 },
 				);
 			}
+
 			return NextResponse.json(componentData, {
 				headers: {
 					"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
 				},
 			});
 		} catch (error) {
-			console.error("Failed to generate component:", error);
+			console.error("Failed to load component:", error);
 			return NextResponse.json(
 				{ error: "Failed to load component" },
 				{ status: 500 },
