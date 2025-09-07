@@ -2,18 +2,32 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-ghost",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Ghost Button",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Ghost button variant with subtle styling",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-ghost.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonGhost() {\n\treturn (\n\t\t<Button type=\"button\" variant=\"ghost\">\n\t\t\tGhost\n\t\t</Button>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-ghost\n * @title Ghost Button\n * @type registry:block\n * @description Ghost button variant with subtle styling\n * @categories [\"buttons\", \"variants\", \"subtle\"]\n * @tags [\"ghost\", \"variant\", \"subtle\", \"minimal\", \"transparent\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonGhost() {\n\treturn (\n\t\t<Button type=\"button\" variant=\"ghost\">\n\t\t\tGhost\n\t\t</Button>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-ghost.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "ghost",
+      "variant",
+      "subtle",
+      "minimal",
+      "transparent"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "variants",
+    "subtle"
+  ]
 }

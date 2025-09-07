@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-icon-right",
   "type": "registry:block",
+  "title": "Button with Right Icons",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button with icons positioned on the right side",
   "dependencies": [
     "lucide-react"
   ],
@@ -11,11 +14,24 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-icon-right.tsx",
-      "content": "import { ArrowRight, ChevronRight, ExternalLink } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconRight() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\tContinue\n\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\tNext Step\n\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"link\">\n\t\t\t\tLearn More\n\t\t\t\t<ExternalLink className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-icon-right\n * @title Button with Right Icons\n * @type registry:block\n * @description Button with icons positioned on the right side\n * @categories [\"buttons\", \"icons\", \"layout\"]\n * @tags [\"icons\", \"right\", \"layout\", \"lucide\", \"positioning\", \"navigation\"]\n * @dependencies [\"lucide-react\"]\n * @registryDependencies [\"button\"]\n */\nimport { ArrowRight, ChevronRight, ExternalLink } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconRight() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button type=\"button\">\n\t\t\t\tContinue\n\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" type=\"button\">\n\t\t\t\tNext Step\n\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"link\" type=\"button\">\n\t\t\t\tLearn More\n\t\t\t\t<ExternalLink className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-icon-right.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "icons",
+      "right",
+      "layout",
+      "lucide",
+      "positioning",
+      "navigation"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "icons",
+    "layout"
+  ]
 }

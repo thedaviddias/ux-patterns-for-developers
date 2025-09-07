@@ -2,18 +2,32 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-soft",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Soft Button",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Soft button variant with subtle background",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-soft.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonSoft() {\n\treturn <Button variant=\"soft\">Soft</Button>;\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-soft\n * @title Soft Button\n * @type registry:block\n * @description Soft button variant with subtle background\n * @categories [\"buttons\", \"variants\", \"soft\"]\n * @tags [\"soft\", \"variant\", \"subtle\", \"background\", \"muted\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonSoft() {\n\treturn <Button variant=\"soft\" type=\"button\">Soft</Button>;\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-soft.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "soft",
+      "variant",
+      "subtle",
+      "background",
+      "muted"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "variants",
+    "soft"
+  ]
 }

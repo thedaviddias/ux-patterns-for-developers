@@ -2,18 +2,33 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-with-sound",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Sound Effects Buttons",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button with audio feedback and sound effects",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-with-sound.tsx",
-      "content": "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithSound() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button sound=\"subtle\">Subtle Sound</Button>\n\t\t\t<Button sound=\"click\">Click Sound</Button>\n\t\t\t<Button sound=\"off\">No Sound</Button>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-with-sound\n * @title Sound Effects Buttons\n * @type registry:block\n * @description Button with audio feedback and sound effects\n * @categories [\"buttons\", \"sound\", \"audio\"]\n * @tags [\"sound\", \"audio\", \"feedback\", \"effects\", \"interactive\", \"accessibility\"]\n * @registryDependencies [\"button\"]\n */\n\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithSound() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button sound=\"subtle\" type=\"button\">Subtle Sound</Button>\n\t\t\t<Button sound=\"click\" type=\"button\">Click Sound</Button>\n\t\t\t<Button sound=\"off\" type=\"button\">No Sound</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-with-sound.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "sound",
+      "audio",
+      "feedback",
+      "effects",
+      "interactive",
+      "accessibility"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "sound",
+    "audio"
+  ]
 }

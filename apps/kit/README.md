@@ -90,8 +90,8 @@ registry/
 Visit `/examples` to see components in action, or use them in your code:
 
 ```tsx
-import { Button } from "@/registry/default/components/upkit/button"
-import InputBasic from "@/registry/default/components/input-basic"
+import { Button } from "@/ui/button"
+import InputBasic from "@/registry/input-basic"
 
 export default function MyPage() {
   return (

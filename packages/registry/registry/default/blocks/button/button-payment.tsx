@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-payment
+ * @title Payment & Checkout Buttons
+ * @type registry:block
+ * @description Payment buttons with brand colors and checkout flows
+ * @categories ["buttons", "payment", "e-commerce"]
+ * @tags ["payment", "e-commerce", "checkout", "brands", "stripe", "paypal", "apple-pay", "lucide"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { Clock, CreditCard, ShoppingCart } from "lucide-react";
 import { Button } from "@/ui/button";
 
@@ -7,6 +18,7 @@ export default function ButtonPayment() {
 			{/* Primary payment methods */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="solid"
 					size="md"
 					hoverEffect="lift"
@@ -17,6 +29,7 @@ export default function ButtonPayment() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="md"
 					hoverEffect="lift"
@@ -41,6 +54,7 @@ export default function ButtonPayment() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="md"
 					hoverEffect="lift"
@@ -68,6 +82,7 @@ export default function ButtonPayment() {
 			{/* Checkout button */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="success"
 					size="md"
 					wide
@@ -82,6 +97,7 @@ export default function ButtonPayment() {
 			{/* Modern alternative */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="outline"
 					size="md"
 					wide

@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-aria-features",
   "type": "registry:block",
+  "title": "Accessible Button Features",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button with accessibility features and ARIA attributes",
   "dependencies": [
     "lucide-react",
     "react"
@@ -12,11 +15,23 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-aria-features.tsx",
-      "content": "\"use client\";\n\nimport { Edit, Save, Share2, Trash2 } from \"lucide-react\";\nimport { useId } from \"react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonAriaFeatures() {\n\tconst helpTextId = useId();\n\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-label=\"Save document\">\n\t\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Delete item\">\n\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Edit content\">\n\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Share post\">\n\t\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-disabled=\"true\">ARIA Disabled</Button>\n\t\t\t\t<Button announceChanges state=\"loading\">\n\t\t\t\t\tWith Screen Reader Announcements\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-busy=\"true\">ARIA Busy State</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\taria-describedby={helpTextId}\n\t\t\t\t\ttooltipWhenDisabled=\"Feature coming soon\"\n\t\t\t\t>\n\t\t\t\t\tWith Description\n\t\t\t\t</Button>\n\t\t\t\t<span id={helpTextId} className=\"sr-only\">\n\t\t\t\t\tThis button saves your current progress\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-aria-features\n * @title Accessible Button Features\n * @type registry:block\n * @description Button with accessibility features and ARIA attributes\n * @categories [\"buttons\", \"accessibility\", \"aria\"]\n * @tags [\"accessibility\", \"aria\", \"screen-reader\", \"inclusive\", \"a11y\"]\n * @dependencies [\"lucide-react\", \"react\"]\n * @registryDependencies [\"button\"]\n */\n\"use client\";\n\nimport { Edit, Save, Share2, Trash2 } from \"lucide-react\";\nimport { useId } from \"react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonAriaFeatures() {\n\tconst helpTextId = useId();\n\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-label=\"Save document\" type=\"button\">\n\t\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Delete item\" type=\"button\">\n\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Edit content\" type=\"button\">\n\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Share post\" type=\"button\">\n\t\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-disabled={true} type=\"button\">\n\t\t\t\t\tARIA Disabled\n\t\t\t\t</Button>\n\t\t\t\t<Button announceChanges state=\"loading\" type=\"button\">\n\t\t\t\t\tWith Screen Reader Announcements\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-busy={true} type=\"button\">\n\t\t\t\t\tARIA Busy State\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\ttype=\"button\"\n\t\t\t\t\taria-describedby={helpTextId}\n\t\t\t\t\ttooltipWhenDisabled=\"Feature coming soon\"\n\t\t\t\t>\n\t\t\t\t\tWith Description\n\t\t\t\t</Button>\n\t\t\t\t<span id={helpTextId} className=\"sr-only\">\n\t\t\t\t\tThis button saves your current progress\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-aria-features.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "accessibility",
+      "aria",
+      "screen-reader",
+      "inclusive",
+      "a11y"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "accessibility",
+    "aria"
+  ]
 }

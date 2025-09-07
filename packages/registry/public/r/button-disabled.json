@@ -2,18 +2,32 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-disabled",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Disabled Button States",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button in disabled states with different approaches",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-disabled.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDisabled() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button disabled>Default (ARIA Disabled)</Button>\n\t\t\t<Button disabled forceNativeDisabled>\n\t\t\t\tForce Native Disabled\n\t\t\t</Button>\n\t\t\t<Button state=\"disabled\">State Disabled</Button>\n\t\t\t<Button variant=\"outline\" disabled>\n\t\t\t\tDisabled Outline\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-disabled\n * @title Disabled Button States\n * @type registry:block\n * @description Button in disabled states with different approaches\n * @categories [\"buttons\", \"states\", \"accessibility\"]\n * @tags [\"disabled\", \"states\", \"accessibility\", \"aria\", \"interactive\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonDisabled() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button disabled type=\"button\">Default (ARIA Disabled)</Button>\n\t\t\t<Button disabled forceNativeDisabled type=\"button\">\n\t\t\t\tForce Native Disabled\n\t\t\t</Button>\n\t\t\t<Button state=\"disabled\" type=\"button\">State Disabled</Button>\n\t\t\t<Button variant=\"outline\" disabled type=\"button\">\n\t\t\t\tDisabled Outline\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-disabled.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "disabled",
+      "states",
+      "accessibility",
+      "aria",
+      "interactive"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "states",
+    "accessibility"
+  ]
 }

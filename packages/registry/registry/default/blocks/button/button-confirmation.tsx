@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-confirmation
+ * @title Confirmation & Destructive Actions
+ * @type registry:block
+ * @description Button with confirmation patterns and destructive actions
+ * @categories ["buttons", "confirmation", "destructive-actions"]
+ * @tags ["confirmation", "destructive", "safety", "interactive", "haptics", "sound"]
+ * @dependencies ["lucide-react", "react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { AlertTriangle, Check, Trash2, X } from "lucide-react";
@@ -13,9 +24,10 @@ export default function ButtonConfirmation() {
 	return (
 		<div className="flex flex-col gap-4">
 			{/* Delete with confirmation */}
-			<div className="flex items-center gap-2">
+			<div className="flex items-center gap-2" aria-live="polite">
 				{deleteState === "idle" ? (
 					<Button
+						type="button"
 						variant="danger"
 						onClick={() => setDeleteState("confirming")}
 						haptics="medium"
@@ -27,6 +39,7 @@ export default function ButtonConfirmation() {
 					<div className="flex items-center gap-2">
 						<span className="text-sm font-medium">Are you sure?</span>
 						<Button
+							type="button"
 							variant="danger"
 							size="sm"
 							onClick={() => {
@@ -40,6 +53,7 @@ export default function ButtonConfirmation() {
 							Yes, delete
 						</Button>
 						<Button
+							type="button"
 							variant="outline"
 							size="sm"
 							onClick={() => setDeleteState("idle")}
@@ -56,6 +70,7 @@ export default function ButtonConfirmation() {
 			<div className="flex items-center gap-2">
 				{archiveState === "idle" ? (
 					<Button
+						type="button"
 						variant="outline"
 						onClick={() => setArchiveState("confirming")}
 						haptics="light"
@@ -69,6 +84,7 @@ export default function ButtonConfirmation() {
 							Confirm archive?
 						</span>
 						<Button
+							type="button"
 							variant="warning"
 							size="sm"
 							onClick={() => {
@@ -81,6 +97,7 @@ export default function ButtonConfirmation() {
 							Archive
 						</Button>
 						<Button
+							type="button"
 							variant="ghost"
 							size="sm"
 							onClick={() => setArchiveState("idle")}
@@ -95,6 +112,7 @@ export default function ButtonConfirmation() {
 
 			{/* Long press confirmation */}
 			<Button
+				type="button"
 				variant="danger"
 				longPress={{
 					duration: 1000,
@@ -111,6 +129,7 @@ export default function ButtonConfirmation() {
 			{/* Two-step action */}
 			<div className="flex items-center gap-2">
 				<Button
+					type="button"
 					variant="outline"
 					state="idle"
 					onAction={async () => {

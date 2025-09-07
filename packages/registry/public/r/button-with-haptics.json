@@ -2,18 +2,33 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-with-haptics",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Haptic Feedback Buttons",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button with haptic feedback for mobile devices",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-with-haptics.tsx",
-      "content": "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithHaptics() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button haptics=\"light\">Light Haptic</Button>\n\t\t\t<Button haptics=\"medium\">Medium Haptic</Button>\n\t\t\t<Button haptics=\"heavy\">Heavy Haptic</Button>\n\t\t\t<Button haptics=\"off\">No Haptic</Button>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-with-haptics\n * @title Haptic Feedback Buttons\n * @type registry:block\n * @description Button with haptic feedback for mobile devices\n * @categories [\"buttons\", \"haptics\", \"mobile\"]\n * @tags [\"haptics\", \"mobile\", \"feedback\", \"touch\", \"vibration\", \"interactive\"]\n * @registryDependencies [\"button\"]\n */\n\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithHaptics() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button haptics=\"light\" type=\"button\">Light Haptic</Button>\n\t\t\t<Button haptics=\"medium\" type=\"button\">Medium Haptic</Button>\n\t\t\t<Button haptics=\"heavy\" type=\"button\">Heavy Haptic</Button>\n\t\t\t<Button haptics=\"off\" type=\"button\">No Haptic</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-with-haptics.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "haptics",
+      "mobile",
+      "feedback",
+      "touch",
+      "vibration",
+      "interactive"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "haptics",
+    "mobile"
+  ]
 }

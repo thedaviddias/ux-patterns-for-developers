@@ -1,24 +1,35 @@
 {
-	"extends": "@thedaviddias/config-typescript/nextjs.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/.source": ["./.source/index.ts"],
-			"@/*": ["./*"],
-			"@ux-patterns/*": ["../../packages/*"],
-			"@/components/upkit/*": ["../../packages/registry/registry/default/ui/*"],
-			"@/registry/*": ["../../packages/registry/registry/default/*"],
-			"@/ui/*": ["../../packages/registry/registry/default/ui/*"]
-		},
-		"skipLibCheck": true
-	},
-	"include": [
-		"next-env.d.ts",
-		"types.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts",
-		".source/**/*.ts"
-	],
-	"exclude": ["node_modules"]
+  "extends": "@thedaviddias/config-typescript/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/.source": [
+        "./.source/index.ts"
+      ],
+      "@/*": [
+        "./*"
+      ],
+      "@ux-patterns/*": [
+        "../../packages/*"
+      ],
+      "@/registry/*": [
+        "../../packages/registry/registry/default/*"
+      ],
+      "@/ui/*": [
+        "../../packages/registry/registry/default/ui/*"
+      ]
+    },
+    "skipLibCheck": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "types.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".source/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

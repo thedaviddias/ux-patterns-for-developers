@@ -2,18 +2,31 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-default",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Default Button",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Basic button with default styling and behavior",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-default.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDefault() {\n\treturn <Button>Default Button</Button>;\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-default\n * @title Default Button\n * @type registry:block\n * @description Basic button with default styling and behavior\n * @categories [\"buttons\", \"basic\", \"foundation\"]\n * @tags [\"default\", \"basic\", \"foundation\", \"simple\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonDefault() {\n\treturn <Button type=\"button\">Default Button</Button>;\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-default.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "default",
+      "basic",
+      "foundation",
+      "simple"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "basic",
+    "foundation"
+  ]
 }

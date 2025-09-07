@@ -1,17 +1,30 @@
 {
-	"extends": "@thedaviddias/config-typescript/react-library.json",
-	"compilerOptions": {
-		"outDir": "dist",
-		"baseUrl": ".",
-		"module": "ESNext",
-		"moduleResolution": "bundler",
-		"paths": {
-			"@/*": ["./src/*"],
-			"@ux-patterns/hooks/*": ["../hooks/src/*"],
-			"@ux-patterns/ui/*": ["./src/*"],
-			"@/ui/*": ["../registry/registry/default/ui/*"]
-		}
-	},
-	"include": ["src/**/*"],
-	"exclude": ["node_modules", "dist"]
+  "extends": "@thedaviddias/config-typescript/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@ux-patterns/hooks/*": [
+        "../hooks/src/*"
+      ],
+      "@ux-patterns/ui/*": [
+        "./src/*"
+      ],
+      "@/ui/*": [
+        "../registry/registry/default/ui/*"
+      ],
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-motion-effects
+ * @title Motion Effects Button
+ * @type registry:block
+ * @description Button with various motion effects and animations
+ * @categories ["buttons", "motion", "animation"]
+ * @tags ["motion", "animation", "effects", "interactive"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { Button } from "@/ui/button";
@@ -9,11 +19,11 @@ export default function ButtonMotionEffects() {
 			<div>
 				<h3 className="text-sm font-medium mb-2">Click Effects</h3>
 				<div className="flex flex-wrap gap-2">
-					<Button clickEffect="none">No Effect</Button>
-					<Button clickEffect="scale">Scale</Button>
-					<Button clickEffect="ripple">Ripple</Button>
-					<Button clickEffect="pulse">Pulse</Button>
-					<Button clickEffect="spring">Spring</Button>
+					<Button clickEffect="none" type="button">No Effect</Button>
+					<Button clickEffect="scale" type="button">Scale</Button>
+					<Button clickEffect="ripple" type="button">Ripple</Button>
+					<Button clickEffect="pulse" type="button">Pulse</Button>
+					<Button clickEffect="spring" type="button">Spring</Button>
 				</div>
 			</div>
 
@@ -21,11 +31,11 @@ export default function ButtonMotionEffects() {
 			<div>
 				<h3 className="text-sm font-medium mb-2">Hover Effects</h3>
 				<div className="flex flex-wrap gap-2">
-					<Button hoverEffect="none">No Effect</Button>
-					<Button hoverEffect="glow">Glow</Button>
-					<Button hoverEffect="shine">Shine</Button>
-					<Button hoverEffect="shimmer">Shimmer</Button>
-					<Button hoverEffect="lift">Lift</Button>
+					<Button hoverEffect="none" type="button">No Effect</Button>
+					<Button hoverEffect="glow" type="button">Glow</Button>
+					<Button hoverEffect="shine" type="button">Shine</Button>
+					<Button hoverEffect="shimmer" type="button">Shimmer</Button>
+					<Button hoverEffect="lift" type="button">Lift</Button>
 				</div>
 			</div>
 		</div>

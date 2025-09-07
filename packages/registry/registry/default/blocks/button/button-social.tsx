@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-social
+ * @title Social Media Buttons
+ * @type registry:block
+ * @description Social media buttons with brand colors and icons
+ * @categories ["buttons", "social", "authentication"]
+ * @tags ["social", "brand", "authentication", "external", "icons"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { Facebook, Github, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/ui/button";
 
@@ -7,6 +18,7 @@ export default function ButtonSocial() {
 			{/* Primary social buttons */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="solid"
 					hoverEffect="lift"
 					className="bg-gray-900 hover:bg-black text-white transition-all hover:shadow-lg hover:shadow-black/20"
@@ -16,6 +28,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					hoverEffect="lift"
 					className="bg-black hover:bg-gray-900 text-white transition-all hover:shadow-lg hover:shadow-black/20"
@@ -32,6 +45,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					hoverEffect="lift"
 					className="bg-[#4267B2] hover:bg-[#365899] text-white transition-all hover:shadow-lg hover:shadow-[#4267B2]/25"
@@ -44,6 +58,7 @@ export default function ButtonSocial() {
 			{/* Outline social buttons */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="outline"
 					hoverEffect="lift"
 					className="border-[#0077B5] text-[#0077B5] hover:bg-[#0077B5] hover:text-white hover:border-[#0077B5] transition-all hover:shadow-lg hover:shadow-[#0077B5]/20"
@@ -53,6 +68,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="outline"
 					hoverEffect="lift"
 					className="border-[#E4405F] text-[#E4405F] hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F] transition-all hover:shadow-lg hover:shadow-[#E4405F]/20"
@@ -62,6 +78,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="outline"
 					hoverEffect="lift"
 					className="border-[#FF0000] text-[#FF0000] hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all hover:shadow-lg hover:shadow-[#FF0000]/20"
@@ -74,6 +91,7 @@ export default function ButtonSocial() {
 			{/* Icon-only social buttons */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="solid"
 					size="sm"
 					hoverEffect="lift"
@@ -84,6 +102,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="sm"
 					hoverEffect="lift"
@@ -101,6 +120,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="sm"
 					hoverEffect="lift"
@@ -111,6 +131,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="sm"
 					hoverEffect="lift"
@@ -121,6 +142,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="sm"
 					hoverEffect="lift"
@@ -131,6 +153,7 @@ export default function ButtonSocial() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="sm"
 					hoverEffect="lift"

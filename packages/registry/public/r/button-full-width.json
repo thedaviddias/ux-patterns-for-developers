@@ -2,18 +2,32 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-full-width",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Full-Width Buttons",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button with full width styling for prominent actions",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-full-width.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonFullWidth() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-4\">\n\t\t\t<Button wide>Full Width with Wide Prop</Button>\n\t\t\t<Button wide variant=\"outline\">\n\t\t\t\tFull Width Outline\n\t\t\t</Button>\n\t\t\t<Button wide size=\"lg\">\n\t\t\t\tFull Width Large\n\t\t\t</Button>\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Button wide>Primary Action</Button>\n\t\t\t\t<Button wide variant=\"ghost\">\n\t\t\t\t\tSecondary Action\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-full-width\n * @title Full-Width Buttons\n * @type registry:block\n * @description Button with full width styling for prominent actions\n * @categories [\"buttons\", \"layout\", \"full-width\"]\n * @tags [\"full-width\", \"wide\", \"layout\", \"prominent\", \"mobile\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonFullWidth() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-4\">\n\t\t\t<Button wide type=\"button\">Full Width with Wide Prop</Button>\n\t\t\t<Button wide variant=\"outline\" type=\"button\">\n\t\t\t\tFull Width Outline\n\t\t\t</Button>\n\t\t\t<Button wide size=\"lg\" type=\"button\">\n\t\t\t\tFull Width Large\n\t\t\t</Button>\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Button wide type=\"button\">Primary Action</Button>\n\t\t\t\t<Button wide variant=\"ghost\" type=\"button\">\n\t\t\t\t\tSecondary Action\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-full-width.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "full-width",
+      "wide",
+      "layout",
+      "prominent",
+      "mobile"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "layout",
+    "full-width"
+  ]
 }

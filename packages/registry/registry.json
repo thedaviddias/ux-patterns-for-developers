@@ -1,11 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "up-kit",
+  "name": "upkit",
   "homepage": "https://kit.uxpatterns.dev",
   "items": [
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button",
       "type": "registry:ui",
+      "title": "button",
+      "description": "Auto-generated button component",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ],
       "dependencies": [
         "@radix-ui/react-slot",
         "class-variance-authority",
@@ -13,77 +24,90 @@
       ],
       "registryDependencies": [
         "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/default/ui/button.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "meta": {
-        "tags": []
-      }
+      ]
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button-aria-features",
       "type": "registry:block",
-      "dependencies": [
-        "lucide-react",
-        "react"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "title": "Accessible Button Features",
+      "description": "Button with accessibility features and ARIA attributes",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-aria-features.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-aria-features.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-as-child",
-      "type": "registry:block",
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "accessibility",
+        "aria"
+      ],
+      "meta": {
+        "tags": [
+          "accessibility",
+          "aria",
+          "screen-reader",
+          "inclusive",
+          "a11y"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-as-child",
+      "type": "registry:block",
+      "title": "Polymorphic Button (asChild)",
+      "description": "Button component using the asChild pattern for custom elements",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-as-child.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-as-child.tsx"
         }
-      ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-confirmation",
-      "type": "registry:block",
-      "dependencies": [
-        "lucide-react",
-        "react"
       ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "patterns",
+        "composition"
+      ],
+      "meta": {
+        "tags": [
+          "asChild",
+          "composition",
+          "polymorphic",
+          "links",
+          "navigation"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-confirmation",
+      "type": "registry:block",
+      "title": "Confirmation & Destructive Actions",
+      "description": "Button with confirmation patterns and destructive actions",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-confirmation.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-confirmation.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-counter-inline",
-      "type": "registry:block",
       "dependencies": [
         "lucide-react",
         "react"
@@ -91,323 +115,543 @@
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "confirmation",
+        "destructive-actions"
+      ],
+      "meta": {
+        "tags": [
+          "confirmation",
+          "destructive",
+          "safety",
+          "interactive",
+          "haptics",
+          "sound"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-counter-inline",
+      "type": "registry:block",
+      "title": "Button with Inline Counters",
+      "description": "Button with inline counters and interactive counts",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-counter-inline.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-counter-inline.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-default",
-      "type": "registry:block",
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "counters",
+        "interactive"
+      ],
+      "meta": {
+        "tags": [
+          "counters",
+          "inline",
+          "interactive",
+          "social",
+          "engagement",
+          "lucide",
+          "haptics"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-default",
+      "type": "registry:block",
+      "title": "Default Button",
+      "description": "Basic button with default styling and behavior",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-default.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-default.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-destructive",
-      "type": "registry:block",
-      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "basic",
+        "foundation"
+      ],
+      "meta": {
+        "tags": [
+          "default",
+          "basic",
+          "foundation",
+          "simple"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-destructive",
+      "type": "registry:block",
+      "title": "Destructive Button",
+      "description": "Destructive button variant for dangerous actions",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-destructive.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-destructive.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-disabled",
-      "type": "registry:block",
-      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "destructive-actions",
+        "danger"
+      ],
+      "meta": {
+        "tags": [
+          "destructive",
+          "danger",
+          "delete",
+          "warning",
+          "red"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-disabled",
+      "type": "registry:block",
+      "title": "Disabled Button States",
+      "description": "Button in disabled states with different approaches",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-disabled.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-disabled.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-double-icon",
-      "type": "registry:block",
-      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "states",
+        "accessibility"
+      ],
+      "meta": {
+        "tags": [
+          "disabled",
+          "states",
+          "accessibility",
+          "aria",
+          "interactive"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-double-icon",
+      "type": "registry:block",
+      "title": "Double Icon Button",
+      "description": "Button with icons on both left and right sides",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-double-icon.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-double-icon.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-full-width",
-      "type": "registry:block",
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "icons",
+        "layout"
+      ],
+      "meta": {
+        "tags": [
+          "double-icon",
+          "icons",
+          "left-right",
+          "layout",
+          "lucide",
+          "complex"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-full-width",
+      "type": "registry:block",
+      "title": "Full-Width Buttons",
+      "description": "Button with full width styling for prominent actions",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-full-width.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-full-width.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-ghost",
-      "type": "registry:block",
-      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "layout",
+        "full-width"
+      ],
+      "meta": {
+        "tags": [
+          "full-width",
+          "wide",
+          "layout",
+          "prominent",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-ghost",
+      "type": "registry:block",
+      "title": "Ghost Button",
+      "description": "Ghost button variant with subtle styling",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-ghost.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-ghost.tsx"
         }
-      ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-groups",
-      "type": "registry:block",
-      "dependencies": [
-        "lucide-react"
       ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "variants",
+        "subtle"
+      ],
+      "meta": {
+        "tags": [
+          "ghost",
+          "variant",
+          "subtle",
+          "minimal",
+          "transparent"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-groups",
+      "type": "registry:block",
+      "title": "Button Groups & Toolbars",
+      "description": "Button components arranged in connected groups",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-groups.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-groups.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-icon-left",
-      "type": "registry:block",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "groups",
+        "layout"
+      ],
+      "meta": {
+        "tags": [
+          "groups",
+          "connected",
+          "layout",
+          "segmented",
+          "toolbar",
+          "lucide"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-icon-left",
+      "type": "registry:block",
+      "title": "Button with Left Icons",
+      "description": "Button with icons positioned on the left side",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-icon-left.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-icon-left.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-icon-only",
-      "type": "registry:block",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "icons",
+        "layout"
+      ],
+      "meta": {
+        "tags": [
+          "icons",
+          "left",
+          "layout",
+          "lucide",
+          "positioning"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-icon-only",
+      "type": "registry:block",
+      "title": "Icon-Only Buttons",
+      "description": "Button with only icons, no text labels",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-icon-only.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-icon-only.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-icon-right",
-      "type": "registry:block",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "icons",
+        "compact"
+      ],
+      "meta": {
+        "tags": [
+          "icons",
+          "only",
+          "compact",
+          "minimal",
+          "aria-label",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-icon-right",
+      "type": "registry:block",
+      "title": "Button with Right Icons",
+      "description": "Button with icons positioned on the right side",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-icon-right.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-icon-right.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-link",
-      "type": "registry:block",
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "icons",
+        "layout"
+      ],
+      "meta": {
+        "tags": [
+          "icons",
+          "right",
+          "layout",
+          "lucide",
+          "positioning",
+          "navigation"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-link",
+      "type": "registry:block",
+      "title": "Link Button",
+      "description": "Link-styled button variant. For navigation, prefer using asChild with an <a> element to preserve link semantics and accessibility.",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-link.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-link.tsx"
         }
-      ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-loading-states",
-      "type": "registry:block",
-      "dependencies": [
-        "react"
       ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "variants",
+        "navigation"
+      ],
+      "meta": {
+        "tags": [
+          "link",
+          "variant",
+          "navigation",
+          "text",
+          "minimal"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-loading-states",
+      "type": "registry:block",
+      "title": "Loading States Button",
+      "description": "Button with various loading states and animations",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-loading-states.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-loading-states.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-long-press",
-      "type": "registry:block",
-      "dependencies": [],
+      "dependencies": [
+        "react"
+      ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "loading",
+        "states"
+      ],
+      "meta": {
+        "tags": [
+          "loading",
+          "animation",
+          "states",
+          "interactive",
+          "feedback"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-long-press",
+      "type": "registry:block",
+      "title": "Long Press Buttons",
+      "description": "Button with long press gesture support",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-long-press.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-long-press.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-motion-effects",
-      "type": "registry:block",
-      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "gestures",
+        "mobile"
+      ],
+      "meta": {
+        "tags": [
+          "long-press",
+          "gestures",
+          "mobile",
+          "touch",
+          "interactive",
+          "duration"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-motion-effects",
+      "type": "registry:block",
+      "title": "Motion Effects Button",
+      "description": "Button with various motion effects and animations",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-motion-effects.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-motion-effects.tsx"
         }
-      ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-notification-badge",
-      "type": "registry:block",
-      "dependencies": [
-        "lucide-react",
-        "react"
       ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "motion",
+        "animation"
+      ],
+      "meta": {
+        "tags": [
+          "motion",
+          "animation",
+          "effects",
+          "interactive"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-notification-badge",
+      "type": "registry:block",
+      "title": "Notification Badge Buttons",
+      "description": "Button with notification badges and status indicators",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-notification-badge.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-notification-badge.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-outline",
-      "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [
-        "button"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-outline.tsx",
-          "type": "registry:block"
-        }
-      ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-payment",
-      "type": "registry:block",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-payment.tsx",
-          "type": "registry:block"
-        }
-      ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-preview",
-      "type": "registry:block",
       "dependencies": [
         "lucide-react",
         "react"
@@ -415,209 +659,497 @@
       "registryDependencies": [
         "button"
       ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-preview.tsx",
-          "type": "registry:block"
-        }
+      "categories": [
+        "buttons",
+        "notifications",
+        "badges"
       ],
       "meta": {
-        "tags": []
+        "tags": [
+          "notifications",
+          "badges",
+          "indicators",
+          "status",
+          "lucide",
+          "haptics",
+          "pulsing"
+        ]
       }
     },
     {
-      "name": "button-sizes",
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-outline",
       "type": "registry:block",
-      "dependencies": [],
+      "title": "Outline Button",
+      "description": "Outline button variant with border styling",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-outline.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-outline.tsx"
+        }
+      ],
       "registryDependencies": [
         "button"
       ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-sizes.tsx",
-          "type": "registry:block"
-        }
+      "categories": [
+        "buttons",
+        "variants",
+        "outline"
       ],
       "meta": {
-        "tags": []
+        "tags": [
+          "outline",
+          "variant",
+          "border",
+          "secondary"
+        ]
       }
     },
     {
-      "name": "button-social",
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-payment",
       "type": "registry:block",
+      "title": "Payment & Checkout Buttons",
+      "description": "Payment buttons with brand colors and checkout flows",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-payment.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-payment.tsx"
+        }
+      ],
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "button"
       ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-social.tsx",
-          "type": "registry:block"
-        }
+      "categories": [
+        "buttons",
+        "payment",
+        "e-commerce"
       ],
       "meta": {
-        "tags": []
+        "tags": [
+          "payment",
+          "e-commerce",
+          "checkout",
+          "brands",
+          "stripe",
+          "paypal",
+          "apple-pay",
+          "lucide"
+        ]
       }
     },
     {
-      "name": "button-soft",
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-preview",
       "type": "registry:block",
-      "dependencies": [],
+      "title": "Button Features Showcase",
+      "description": "Comprehensive button showcase with all features and variants",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-preview.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-preview.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
       "registryDependencies": [
         "button"
       ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-soft.tsx",
-          "type": "registry:block"
-        }
+      "categories": [
+        "buttons",
+        "showcase",
+        "demo"
       ],
       "meta": {
-        "tags": []
+        "tags": [
+          "showcase",
+          "demo",
+          "comprehensive",
+          "features",
+          "variants",
+          "interactive",
+          "lucide"
+        ]
       }
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-sizes",
+      "type": "registry:block",
+      "title": "Button Sizes",
+      "description": "Button component showcasing different size variants",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-sizes.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-sizes.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "categories": [
+        "buttons",
+        "sizes",
+        "variants"
+      ],
+      "meta": {
+        "tags": [
+          "sizes",
+          "variants",
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "responsive"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-social",
+      "type": "registry:block",
+      "title": "Social Media Buttons",
+      "description": "Social media buttons with brand colors and icons",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-social.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-social.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "categories": [
+        "buttons",
+        "social",
+        "authentication"
+      ],
+      "meta": {
+        "tags": [
+          "social",
+          "brand",
+          "authentication",
+          "external",
+          "icons"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-soft",
+      "type": "registry:block",
+      "title": "Soft Button",
+      "description": "Soft button variant with subtle background",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-soft.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-soft.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "categories": [
+        "buttons",
+        "variants",
+        "soft"
+      ],
+      "meta": {
+        "tags": [
+          "soft",
+          "variant",
+          "subtle",
+          "background",
+          "muted"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button-states",
       "type": "registry:block",
+      "title": "Interactive Button States",
+      "description": "Button component showcasing different interactive states",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-states.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-states.tsx"
+        }
+      ],
       "dependencies": [
         "react"
       ],
       "registryDependencies": [
         "button"
       ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-states.tsx",
-          "type": "registry:block"
-        }
+      "categories": [
+        "buttons",
+        "states",
+        "interactive"
       ],
       "meta": {
-        "tags": []
+        "tags": [
+          "states",
+          "interactive",
+          "idle",
+          "loading",
+          "success",
+          "error",
+          "disabled",
+          "dynamic"
+        ]
       }
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button-variants",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [
-        "button"
-      ],
+      "title": "Button Variants Showcase",
+      "description": "Button component showcasing all available style variants",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-variants.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-variants.tsx"
         }
       ],
+      "registryDependencies": [
+        "button"
+      ],
+      "categories": [
+        "buttons",
+        "variants",
+        "showcase"
+      ],
       "meta": {
-        "tags": []
+        "tags": [
+          "variants",
+          "showcase",
+          "solid",
+          "outline",
+          "ghost",
+          "link",
+          "danger",
+          "success",
+          "warning"
+        ]
       }
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button-with-avatar",
       "type": "registry:block",
+      "title": "Button with Avatars",
+      "description": "Button with user avatars and profile information",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-with-avatar.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-with-avatar.tsx"
+        }
+      ],
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "button"
       ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-with-avatar.tsx",
-          "type": "registry:block"
-        }
+      "categories": [
+        "buttons",
+        "avatars",
+        "user-interface"
       ],
       "meta": {
-        "tags": []
+        "tags": [
+          "avatars",
+          "user",
+          "profile",
+          "account",
+          "menu",
+          "lucide",
+          "images"
+        ]
       }
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button-with-haptics",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [
-        "button"
-      ],
+      "title": "Haptic Feedback Buttons",
+      "description": "Button with haptic feedback for mobile devices",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-with-haptics.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-with-haptics.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-with-icons",
-      "type": "registry:block",
-      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "haptics",
+        "mobile"
+      ],
+      "meta": {
+        "tags": [
+          "haptics",
+          "mobile",
+          "feedback",
+          "touch",
+          "vibration",
+          "interactive"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-with-icons",
+      "type": "registry:block",
+      "title": "Button Icon Patterns",
+      "description": "Button component showcasing various icon positioning patterns",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-with-icons.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-with-icons.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-with-keyboard-shortcut",
-      "type": "registry:block",
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "button"
       ],
+      "categories": [
+        "buttons",
+        "icons",
+        "patterns"
+      ],
+      "meta": {
+        "tags": [
+          "icons",
+          "patterns",
+          "positioning",
+          "left",
+          "right",
+          "only",
+          "lucide",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-with-keyboard-shortcut",
+      "type": "registry:block",
+      "title": "Keyboard Shortcut Button",
+      "description": "Button with keyboard shortcut display",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/blocks/button/button-with-keyboard-shortcut.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/blocks/button-with-keyboard-shortcut.tsx"
         }
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-with-sound",
-      "type": "registry:block",
-      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
-      "files": [
-        {
-          "path": "registry/default/blocks/button/button-with-sound.tsx",
-          "type": "registry:block"
-        }
+      "categories": [
+        "buttons",
+        "keyboard",
+        "shortcuts"
       ],
       "meta": {
-        "tags": []
+        "tags": [
+          "keyboard",
+          "shortcuts",
+          "kbd",
+          "accessibility",
+          "power-user",
+          "mac"
+        ]
       }
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button-with-sound",
+      "type": "registry:block",
+      "title": "Sound Effects Buttons",
+      "description": "Button with audio feedback and sound effects",
+      "author": "David Dias <hello@thedaviddias.com>",
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-with-sound.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/button-with-sound.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "categories": [
+        "buttons",
+        "sound",
+        "audio"
+      ],
+      "meta": {
+        "tags": [
+          "sound",
+          "audio",
+          "feedback",
+          "effects",
+          "interactive",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
-      "registryDependencies": [],
+      "title": "utils",
+      "description": "Auto-generated utils component",
+      "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
           "path": "registry/default/lib/utils.ts",
-          "type": "registry:lib"
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
         }
       ],
-      "meta": {
-        "tags": []
-      }
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ]
     }
   ]
 }

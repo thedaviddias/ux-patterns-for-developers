@@ -2,18 +2,34 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-sizes",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Button Sizes",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button component showcasing different size variants",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-sizes.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonSizes() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button size=\"xs\">Extra Small</Button>\n\t\t\t<Button size=\"sm\">Small</Button>\n\t\t\t<Button size=\"md\">Medium</Button>\n\t\t\t<Button size=\"lg\">Large</Button>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-sizes\n * @title Button Sizes\n * @type registry:block\n * @description Button component showcasing different size variants\n * @categories [\"buttons\", \"sizes\", \"variants\"]\n * @tags [\"sizes\", \"variants\", \"xs\", \"sm\", \"md\", \"lg\", \"responsive\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonSizes() {\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button size=\"xs\" type=\"button\">Extra Small</Button>\n\t\t\t<Button size=\"sm\" type=\"button\">Small</Button>\n\t\t\t<Button size=\"md\" type=\"button\">Medium</Button>\n\t\t\t<Button size=\"lg\" type=\"button\">Large</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-sizes.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "sizes",
+      "variants",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "responsive"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "sizes",
+    "variants"
+  ]
 }

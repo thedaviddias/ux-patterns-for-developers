@@ -16,7 +16,7 @@ import {
 import { usePlausible } from "next-plausible";
 import { useMemo, useState } from "react";
 import { cn } from "../lib/cn";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "@ux-patterns/ui/components/shadcn/button";
 
 const cache = new Map<string, string>();
 
@@ -73,7 +73,6 @@ export function LLMCopyButton({
 			disabled={isLoading}
 			className={cn(
 				buttonVariants({
-					color: "secondary",
 					size: "sm",
 					className: "gap-2 [&_svg]:size-3.5 [&_svg]:text-fd-muted-foreground",
 				}),
@@ -237,7 +236,6 @@ export function ViewOptions({
 			<PopoverTrigger
 				className={cn(
 					buttonVariants({
-						color: "secondary",
 						size: "sm",
 						className: "gap-2",
 					}),

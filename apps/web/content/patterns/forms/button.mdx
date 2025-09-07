@@ -6,16 +6,6 @@ ogImage: /covers/patterns/button.png
 status: complete
 component: button
 ---
-
-import { BrowserSupport } from "@app/_components/browser-support";
-import { BuildEffort } from "@app/_components/build-effort";
-import { FaqStructuredData } from "@app/_components/faq-structured-data";
-import { PatternPreview } from "@app/_components/pattern-preview";
-import { PatternStats } from "@app/_components/pattern-stats";
-import { PatternComparison } from "@app/_components/pattern-comparison";
-import { RelatedPatternsCard } from "@app/_components/related-patterns-card";
-import { KitBanner } from "@app/_components/kit-banner";
-
 # Button
 
 <PatternStats
@@ -180,11 +170,7 @@ end
 
 1. **Text Only**
 
-    ```html
-    <button type="button">
-      Default
-    </button>
-    ```
+   <ComponentPreviewServer name="button-default" />
 
 2. **Icon Only**
 
@@ -292,7 +278,7 @@ end
       <svg class="spinner" aria-hidden="true">...</svg>
       <span>Loading...</span>
     </button>
-    
+
     <!-- Responsive: Icon-only on mobile with preserved context -->
     <button type="button" aria-busy="true" aria-label="Save document">
       <svg class="icon-save" aria-hidden="true">...</svg>
