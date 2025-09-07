@@ -4,19 +4,21 @@ import { cn } from "@ux-patterns/ui/lib/utils";
 import { ArrowRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { usePlausible } from "next-plausible";
+import { getWebAppUrl } from "@/lib/constants";
 
 type PatternBannerProps = {
 	patternName: string;
-	patternUrl: string;
+	patternPath: string;
 	className?: string;
 };
 
 export const PatternBanner = ({
 	patternName,
-	patternUrl,
+	patternPath,
 	className,
 }: PatternBannerProps) => {
 	const plausible = usePlausible();
+	const patternUrl = `${getWebAppUrl()}${patternPath}`;
 
 	return (
 		<Link

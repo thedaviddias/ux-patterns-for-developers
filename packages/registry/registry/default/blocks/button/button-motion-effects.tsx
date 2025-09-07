@@ -33,8 +33,6 @@ export default function ButtonMotionEffects() {
 				<div className="flex flex-wrap gap-2">
 					<Button hoverEffect="none" type="button">No Effect</Button>
 					<Button hoverEffect="glow" type="button">Glow</Button>
-					<Button hoverEffect="shine" type="button">Shine</Button>
-					<Button hoverEffect="shimmer" type="button">Shimmer</Button>
 					<Button hoverEffect="lift" type="button">Lift</Button>
 				</div>
 			</div>
