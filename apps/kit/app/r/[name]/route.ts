@@ -1,3 +1,5 @@
+import fs from "node:fs/promises";
+import path from "node:path";
 import registry from "@ux-patterns/registry/registry.json";
 import { type NextRequest, NextResponse } from "next/server";
 
@@ -50,23 +52,41 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 
 		// Handle individual component requests
 		try {
-			// Find the component in the static registry
-			const componentData = registry.items.find(
-				(item) => item.name === componentName,
+			// Read the component data from the individual JSON file with full content
+			const registryPath = path.join(
+				process.cwd(),
+				"../../packages/registry/public/r",
+				`${componentName}.json`,
 			);
 
-			if (!componentData) {
-				return NextResponse.json(
-					{ error: "Component not found" },
-					{ status: 404 },
-				);
-			}
+			try {
+				const fileContent = await fs.readFile(registryPath, "utf-8");
+				const componentData = JSON.parse(fileContent);
 
-			return NextResponse.json(componentData, {
-				headers: {
-					"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
-				},
-			});
+				return NextResponse.json(componentData, {
+					headers: {
+						"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
+					},
+				});
+			} catch (fileError) {
+				// Fallback to registry.json if file doesn't exist
+				const componentData = registry.items.find(
+					(item) => item.name === componentName,
+				);
+
+				if (!componentData) {
+					return NextResponse.json(
+						{ error: "Component not found" },
+						{ status: 404 },
+					);
+				}
+
+				return NextResponse.json(componentData, {
+					headers: {
+						"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
+					},
+				});
+			}
 		} catch (error) {
 			console.error("Failed to load component:", error);
 			return NextResponse.json(

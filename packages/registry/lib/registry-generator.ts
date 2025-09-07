@@ -31,7 +31,7 @@ export interface RegistryItem {
 		path: string;
 		type: string;
 		content: string;
-		target: string;
+		target?: string;
 	}>;
 	meta?: {
 		tags: string[];
@@ -152,7 +152,10 @@ function analyzeImports(content: string): {
 				.split("/")
 				.pop()
 				?.replace(/\.(tsx?|jsx?)$/, "") ?? "";
-		registryImports.push(name);
+		// Skip utils as it's a standard utility, not a registry dependency
+		if (name !== "utils") {
+			registryImports.push(name);
+		}
 	}
 
 	// Detect npm package dependencies (exclude relative imports and @/ imports)
@@ -244,6 +247,18 @@ async function scanDirectory(
 				const itemType = metadata.type || type;
 				const fileType = metadata.type || type;
 
+				const fileEntry: any = {
+					path: relativePath,
+					type: fileType,
+					content: content,
+				};
+
+				// Add target field to control installation directory
+				fileEntry.target = getTargetPath(
+					fileType,
+					metadata.name || componentName,
+				);
+
 				const registryItem: RegistryItem = {
 					$schema: "https://ui.shadcn.com/schema/registry-item.json",
 					name: metadata.name || componentName,
@@ -251,14 +266,7 @@ async function scanDirectory(
 					title: metadata.title || metadata.name || componentName,
 					description: metadata.description,
 					author: metadata.author || "David Dias <hello@thedaviddias.com>",
-					files: [
-						{
-							path: relativePath,
-							type: fileType,
-							content: content,
-							target: getTargetPath(fileType, metadata.name || componentName),
-						},
-					],
+					files: [fileEntry],
 				};
 
 				// Only include arrays if they have content
@@ -286,6 +294,15 @@ async function scanDirectory(
 				// Auto-detect for files without metadata
 				const { registryDependencies, dependencies } = analyzeImports(content);
 
+				const autoFileEntry: any = {
+					path: relativePath,
+					type: type,
+					content: content,
+				};
+
+				// Add target field to control installation directory
+				autoFileEntry.target = getTargetPath(type, componentName);
+
 				const autoRegistryItem: RegistryItem = {
 					$schema: "https://ui.shadcn.com/schema/registry-item.json",
 					name: componentName,
@@ -293,14 +310,7 @@ async function scanDirectory(
 					title: componentName,
 					description: `Auto-generated ${componentName} component`,
 					author: "David Dias <hello@thedaviddias.com>",
-					files: [
-						{
-							path: relativePath,
-							type: type,
-							content: content,
-							target: getTargetPath(type, componentName),
-						},
-					],
+					files: [autoFileEntry],
 				};
 
 				// Only include arrays if they have content

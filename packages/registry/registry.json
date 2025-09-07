@@ -22,9 +22,6 @@
         "class-variance-authority",
         "motion"
       ],
-      "registryDependencies": [
-        "utils"
-      ],
       "categories": [
         "buttons",
         "ui",
