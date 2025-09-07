@@ -4,28 +4,22 @@
 		"baseUrl": ".",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
+		"types": ["vitest/globals", "@testing-library/jest-dom", "vitest-axe"],
 		"paths": {
-			"@/registry/*": [
-				"./registry/default/*"
-			],
-			"@/components/ui/*": [
-				"./registry/default/ui/*"
-			],
-			"@/ui/*": [
-				"./registry/default/ui/*"
-			],
-			"@/lib/*": [
-				"./registry/default/lib/*"
-			]
+			"@": ["./registry/default"],
+			"@/*": ["./registry/default/*"],
+			"@/registry/*": ["./registry/default/*"],
+			"@/components/ui/*": ["./registry/default/ui/*"],
+			"@/ui/*": ["./registry/default/ui/*"],
+			"@/lib/*": ["./registry/default/lib/*"]
 		}
 	},
 	"include": [
 		"registry/**/*",
 		"scripts/**/*",
-		".generated/**/*"
+		".generated/**/*",
+		"tests/**/*",
+		"test-setup.ts"
 	],
-	"exclude": [
-		"node_modules",
-		"public"
-	]
+	"exclude": ["node_modules", "public"]
 }

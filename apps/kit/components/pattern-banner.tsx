@@ -4,25 +4,32 @@ import { cn } from "@ux-patterns/ui/lib/utils";
 import { ArrowRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { usePlausible } from "next-plausible";
+import { getWebAppUrl } from "@/lib/constants";
 
 type PatternBannerProps = {
 	patternName: string;
-	patternUrl: string;
+	patternPath: string;
 	className?: string;
 };
 
 export const PatternBanner = ({
 	patternName,
-	patternUrl,
+	patternPath,
 	className,
 }: PatternBannerProps) => {
 	const plausible = usePlausible();
+	const base = getWebAppUrl();
+	const normalizedPath = patternPath.startsWith("/")
+		? patternPath
+		: `/${patternPath}`;
+	const patternUrl = new URL(normalizedPath, base).toString();
 
 	return (
 		<Link
 			href={patternUrl}
 			target="_blank"
-			rel="noopener"
+			rel="noopener noreferrer"
+			prefetch={false}
 			className={cn(
 				"not-prose group relative mb-8 flex items-center justify-between rounded-lg",
 				"border border-border/50 bg-gradient-to-r from-muted/30 to-muted/10",

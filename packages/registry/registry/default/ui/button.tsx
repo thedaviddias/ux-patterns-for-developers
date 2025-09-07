@@ -94,6 +94,18 @@ const playSound = (type: "off" | "subtle" | "click") => {
 
 		oscillator.start();
 		oscillator.stop(audioContext.currentTime + config.duration);
+
+		const teardown = () => {
+			try {
+				gainNode.disconnect();
+				oscillator.disconnect();
+				audioContext.close().catch(() => {});
+			} catch {}
+		};
+		// OscillatorNode emits "ended" when it stops
+		(oscillator as any).addEventListener?.("ended", teardown);
+		// Fallback in case the event isn't supported
+		setTimeout(teardown, (config.duration + 0.05) * 1000);
 	} catch {
 		// Silently fail if Web Audio API is not available
 	}
@@ -175,7 +187,7 @@ export type ButtonClickEffect =
 	| "ripple"
 	| "pulse"
 	| "spring";
-export type ButtonHoverEffect = "none" | "glow" | "shine" | "shimmer" | "lift";
+export type ButtonHoverEffect = "none" | "glow" | "lift";
 export type LoadingType = "spinner" | "dots";
 
 /* ================= Button Variants Configuration ================= */
@@ -215,8 +227,6 @@ const buttonVariants = cva(
 			hoverEffect: {
 				none: "",
 				glow: "hover:shadow-[0_0_20px_rgba(59,130,246,0.35)]",
-				shine: "relative overflow-hidden",
-				shimmer: "relative overflow-hidden",
 				lift: "hover:-translate-y-0.5 transition-transform",
 			},
 			wide: { true: "w-full", false: "" },
@@ -332,11 +342,8 @@ const getMotionProps = (
 			};
 			if (!props.transition) props.transition = { duration: 0.3 };
 			break;
-		case "shine":
-			// Shine effect handled by Motion.div overlay
-			break;
-		case "shimmer":
-			// Shimmer effect handled by Motion.div overlay
+		case "lift":
+			// Lift effect handled by CSS classes
 			break;
 	}
 
@@ -411,11 +418,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		}, [preserveWidth]);
 
 		/* ========== Event Handlers ========== */
-		const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
-			onClick?.(e);
-			if (e.defaultPrevented) return;
+		const handleClick = async (
+			e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
+		) => {
+			// Check disabled/loading state BEFORE calling onClick
 			if (effectiveDisabled || state === "loading") return;
 			if (preventDoubleClick && isClicking) return;
+
+			onClick?.(e as any);
+			if (e.defaultPrevented) return;
 
 			// Trigger pulse animation
 			if (clickEffect === "pulse") {
@@ -443,7 +454,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			// Interactive feedback
 			triggerHaptics(hapticPref);
 			playSound(soundPref);
-			triggerRipple(e);
+
+			// Only trigger ripple for pointer events with valid coordinates
+			if (clickEffect === "ripple" && "clientX" in e && "clientY" in e) {
+				triggerRipple(e as MouseEvent<HTMLButtonElement>);
+			}
 
 			if (onAction) await onAction();
 		};
@@ -457,7 +472,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
 			onKeyDown?.(e);
 			if (e.defaultPrevented) return;
-			if ((e.key === " " || e.key === "Enter") && longPress) startLongPress();
+
+			// Enter and Space should activate the button
+			if (e.key === "Enter" || e.key === " ") {
+				e.preventDefault(); // Prevent default scrolling for Space
+				if (!effectiveDisabled && state !== "loading") {
+					handleClick(e as any); // Trigger click handler for keyboard activation
+				}
+				if (longPress) startLongPress();
+			}
 		};
 
 		/* ========== Content Generation ========== */
@@ -482,6 +505,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		/* ========== AsChild Pattern Handling ========== */
 		if (asChild) {
 			const child = Children.only(children) as ReactElement<any>;
+
 			return cloneElement(child, {
 				className: cn(
 					buttonVariants({ variant, size, clickEffect, hoverEffect, wide }),
@@ -500,6 +524,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				"data-state": state,
 				style: { ...(child.props.style || {}), minWidth },
 				onClick: (e: MouseEvent) => {
+					// Check disabled/loading state BEFORE calling child's onClick
+					if (effectiveDisabled || state === "loading") {
+						e.preventDefault();
+						return;
+					}
 					child.props?.onClick?.(e);
 					handleClick(e as MouseEvent<HTMLButtonElement>);
 				},
@@ -523,7 +552,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					child.props?.onKeyUp?.(e);
 					clearLongPress();
 				},
-				ref: ref,
+				ref: (element: any) => {
+					// Update btnRef for useImperativeHandle
+					btnRef.current = element;
+
+					// Forward ref to both the internal ref and the external ref
+					if (ref) {
+						if (typeof ref === "function") {
+							ref(element);
+						} else {
+							ref.current = element;
+						}
+					}
+					if (child.props.ref) {
+						if (typeof child.props.ref === "function") {
+							child.props.ref(element);
+						} else {
+							child.props.ref.current = element;
+						}
+					}
+				},
 				children: (
 					<>
 						{RippleElement}
@@ -573,11 +621,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					minWidth,
 					position: "relative",
 					// Only apply overflow hidden for effects that need it
-					...(clickEffect === "ripple" ||
-					hoverEffect === "shine" ||
-					hoverEffect === "shimmer"
-						? { overflow: "hidden" }
-						: {}),
+					...(clickEffect === "ripple" ? { overflow: "hidden" } : {}),
 				}}
 				onClick={handleClick}
 				onMouseDown={handleMouseDown}
@@ -588,39 +632,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				{...getMotionProps(clickEffect, hoverEffect)}
 				{...props}
 			>
-				{/* Hover effect overlays */}
-				{hoverEffect === "shine" && (
-					<Motion.div
-						className="absolute inset-0 -z-10 pointer-events-none overflow-hidden rounded-[inherit]"
-						initial={{ x: "-100%" }}
-						whileHover={{ x: "100%" }}
-						transition={{ duration: 0.6, ease: "easeOut" }}
-						style={{
-							background:
-								"linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.5) 50%, transparent 60%)",
-							width: "100%",
-						}}
-					/>
-				)}
-				{hoverEffect === "shimmer" && (
-					<Motion.div
-						className="absolute inset-0 -z-10 pointer-events-none overflow-hidden rounded-[inherit]"
-						style={{
-							background:
-								"linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%)",
-							width: "200%",
-						}}
-						initial={{ x: "-200%" }}
-						animate={{ x: "200%" }}
-						transition={{
-							duration: 2,
-							repeat: Infinity,
-							ease: "linear",
-							repeatDelay: 1,
-						}}
-					/>
-				)}
-
 				{/* Pulse effect */}
 				{isPulsing && clickEffect === "pulse" && (
 					<>
