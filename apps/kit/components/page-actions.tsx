@@ -13,10 +13,9 @@ import {
 	ExternalLinkIcon,
 	MessageCircleIcon,
 } from "lucide-react";
-import { usePlausible } from "next-plausible";
 import { useMemo, useState } from "react";
 import { cn } from "../lib/cn";
-import { buttonVariants } from "@ux-patterns/ui/components/shadcn/button";
+import { buttonVariants } from "./ui/button";
 
 const cache = new Map<string, string>();
 
@@ -29,18 +28,9 @@ export function LLMCopyButton({
 	markdownUrl: string;
 }) {
 	const [isLoading, setLoading] = useState(false);
-	const plausible = usePlausible();
 	const [checked, onClick] = useCopyButton(async () => {
 		const cached = cache.get(markdownUrl);
-		if (cached) {
-			plausible("Copy Markdown", {
-				props: {
-					source: "cached",
-					url: markdownUrl,
-				},
-			});
-			return navigator.clipboard.writeText(cached);
-		}
+		if (cached) return navigator.clipboard.writeText(cached);
 
 		setLoading(true);
 
@@ -50,13 +40,6 @@ export function LLMCopyButton({
 					"text/plain": fetch(markdownUrl).then(async (res) => {
 						const content = await res.text();
 						cache.set(markdownUrl, content);
-
-						plausible("Copy Markdown", {
-							props: {
-								source: "fetched",
-								url: markdownUrl,
-							},
-						});
 
 						return content;
 					}),
@@ -73,6 +56,7 @@ export function LLMCopyButton({
 			disabled={isLoading}
 			className={cn(
 				buttonVariants({
+					color: "secondary",
 					size: "sm",
 					className: "gap-2 [&_svg]:size-3.5 [&_svg]:text-fd-muted-foreground",
 				}),
@@ -103,7 +87,6 @@ export function ViewOptions({
 	 */
 	githubUrl: string;
 }) {
-	const plausible = usePlausible();
 	const items = useMemo(() => {
 		const fullMarkdownUrl =
 			typeof window !== "undefined"
@@ -236,6 +219,7 @@ export function ViewOptions({
 			<PopoverTrigger
 				className={cn(
 					buttonVariants({
+						color: "secondary",
 						size: "sm",
 						className: "gap-2",
 					}),
@@ -252,14 +236,6 @@ export function ViewOptions({
 						rel="noreferrer noopener"
 						target="_blank"
 						className={cn(optionVariants())}
-						onClick={() => {
-							plausible("External Tool Click", {
-								props: {
-									tool: item.title.replace("Open in ", ""),
-									from_page: markdownUrl,
-								},
-							});
-						}}
 					>
 						{item.icon}
 						{item.title}
