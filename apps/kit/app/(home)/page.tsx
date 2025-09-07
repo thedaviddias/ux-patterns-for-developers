@@ -17,6 +17,7 @@ import {
 	Zap,
 } from "lucide-react";
 import Link from "next/link";
+import { NewsletterForm } from "@/components/newsletter";
 
 export default function HomePage() {
 	return (
@@ -141,6 +142,11 @@ export default function HomePage() {
 						</CardHeader>
 					</Card>
 				</div>
+			</section>
+
+			{/* Newsletter Section */}
+			<section className="container mx-auto px-4 py-16">
+				<NewsletterForm />
 			</section>
 
 			{/* Getting Started */}
