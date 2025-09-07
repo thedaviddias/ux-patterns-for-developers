@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-with-keyboard-shortcut
+ * @title Keyboard Shortcut Button
+ * @type registry:block
+ * @description Button with keyboard shortcut display
+ * @categories ["buttons", "keyboard", "shortcuts"]
+ * @tags ["keyboard", "shortcuts", "kbd", "accessibility", "power-user", "mac"]
+ * @registryDependencies ["button"]
+ */
 import { Button } from "@/ui/button";
 
 export default function ButtonWithKeyboardShortcut() {

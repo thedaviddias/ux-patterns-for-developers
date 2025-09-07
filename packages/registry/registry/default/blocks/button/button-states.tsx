@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-states
+ * @title Interactive Button States
+ * @type registry:block
+ * @description Button component showcasing different interactive states
+ * @categories ["buttons", "states", "interactive"]
+ * @tags ["states", "interactive", "idle", "loading", "success", "error", "disabled", "dynamic"]
+ * @dependencies ["react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { useState } from "react";

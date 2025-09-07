@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-payment
+ * @title Payment & Checkout Buttons
+ * @type registry:block
+ * @description Payment buttons with brand colors and checkout flows
+ * @categories ["buttons", "payment", "e-commerce"]
+ * @tags ["payment", "e-commerce", "checkout", "brands", "stripe", "paypal", "apple-pay", "lucide"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { Clock, CreditCard, ShoppingCart } from "lucide-react";
 import { Button } from "@/ui/button";
 

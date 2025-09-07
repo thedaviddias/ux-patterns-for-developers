@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-loading-states
+ * @title Loading States Button
+ * @type registry:block
+ * @description Button with various loading states and animations
+ * @categories ["buttons", "loading", "states"]
+ * @tags ["loading", "animation", "states", "interactive", "feedback"]
+ * @dependencies ["react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { useState } from "react";

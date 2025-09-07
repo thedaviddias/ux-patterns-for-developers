@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-full-width
+ * @title Full-Width Buttons
+ * @type registry:block
+ * @description Button with full width styling for prominent actions
+ * @categories ["buttons", "layout", "full-width"]
+ * @tags ["full-width", "wide", "layout", "prominent", "mobile"]
+ * @registryDependencies ["button"]
+ */
 import { Button } from "@/ui/button";
 
 export default function ButtonFullWidth() {

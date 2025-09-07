@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-with-sound
+ * @title Sound Effects Buttons
+ * @type registry:block
+ * @description Button with audio feedback and sound effects
+ * @categories ["buttons", "sound", "audio"]
+ * @tags ["sound", "audio", "feedback", "effects", "interactive", "accessibility"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { Button } from "@/ui/button";

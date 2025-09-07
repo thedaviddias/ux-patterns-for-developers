@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-with-haptics
+ * @title Haptic Feedback Buttons
+ * @type registry:block
+ * @description Button with haptic feedback for mobile devices
+ * @categories ["buttons", "haptics", "mobile"]
+ * @tags ["haptics", "mobile", "feedback", "touch", "vibration", "interactive"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { Button } from "@/ui/button";

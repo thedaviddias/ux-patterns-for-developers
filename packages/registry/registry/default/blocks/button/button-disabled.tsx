@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-disabled
+ * @title Disabled Button States
+ * @type registry:block
+ * @description Button in disabled states with different approaches
+ * @categories ["buttons", "states", "accessibility"]
+ * @tags ["disabled", "states", "accessibility", "aria", "interactive"]
+ * @registryDependencies ["button"]
+ */
 import { Button } from "@/ui/button";
 
 export default function ButtonDisabled() {

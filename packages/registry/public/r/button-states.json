@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-states",
   "type": "registry:block",
+  "title": "Interactive Button States",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button component showcasing different interactive states",
   "dependencies": [
     "react"
   ],
@@ -11,11 +14,26 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-states.tsx",
-      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonStates() {\n\tconst [state, setState] = useState<\"idle\" | \"loading\" | \"success\" | \"error\">(\n\t\t\"idle\",\n\t);\n\n\tconst handleClick = async () => {\n\t\tsetState(\"loading\");\n\t\tawait new Promise((resolve) => setTimeout(resolve, 2000));\n\t\tsetState(Math.random() > 0.5 ? \"success\" : \"error\");\n\t\tsetTimeout(() => setState(\"idle\"), 2000);\n\t};\n\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button state=\"idle\">Idle State</Button>\n\t\t\t\t<Button state=\"loading\">Loading State</Button>\n\t\t\t\t<Button state=\"success\">Success State</Button>\n\t\t\t\t<Button state=\"error\">Error State</Button>\n\t\t\t\t<Button state=\"disabled\">Disabled State</Button>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<Button\n\t\t\t\t\tstate={state}\n\t\t\t\t\tonClick={handleClick}\n\t\t\t\t\tloadingText=\"Processing...\"\n\t\t\t\t\tsuccessText=\"Complete!\"\n\t\t\t\t\terrorText=\"Try Again\"\n\t\t\t\t>\n\t\t\t\t\tClick to Test States\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-states\n * @title Interactive Button States\n * @type registry:block\n * @description Button component showcasing different interactive states\n * @categories [\"buttons\", \"states\", \"interactive\"]\n * @tags [\"states\", \"interactive\", \"idle\", \"loading\", \"success\", \"error\", \"disabled\", \"dynamic\"]\n * @dependencies [\"react\"]\n * @registryDependencies [\"button\"]\n */\n\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonStates() {\n\tconst [state, setState] = useState<\"idle\" | \"loading\" | \"success\" | \"error\">(\n\t\t\"idle\",\n\t);\n\n\tconst handleClick = async () => {\n\t\tsetState(\"loading\");\n\t\tawait new Promise((resolve) => setTimeout(resolve, 2000));\n\t\tsetState(Math.random() > 0.5 ? \"success\" : \"error\");\n\t\tsetTimeout(() => setState(\"idle\"), 2000);\n\t};\n\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button state=\"idle\">Idle State</Button>\n\t\t\t\t<Button state=\"loading\">Loading State</Button>\n\t\t\t\t<Button state=\"success\">Success State</Button>\n\t\t\t\t<Button state=\"error\">Error State</Button>\n\t\t\t\t<Button state=\"disabled\">Disabled State</Button>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<Button\n\t\t\t\t\tstate={state}\n\t\t\t\t\tonClick={handleClick}\n\t\t\t\t\tloadingText=\"Processing...\"\n\t\t\t\t\tsuccessText=\"Complete!\"\n\t\t\t\t\terrorText=\"Try Again\"\n\t\t\t\t>\n\t\t\t\t\tClick to Test States\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-states.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "states",
+      "interactive",
+      "idle",
+      "loading",
+      "success",
+      "error",
+      "disabled",
+      "dynamic"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "states",
+    "interactive"
+  ]
 }

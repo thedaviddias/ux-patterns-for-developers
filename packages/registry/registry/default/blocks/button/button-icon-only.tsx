@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-icon-only
+ * @title Icon-Only Buttons
+ * @type registry:block
+ * @description Button with only icons, no text labels
+ * @categories ["buttons", "icons", "compact"]
+ * @tags ["icons", "only", "compact", "minimal", "aria-label", "accessibility"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { Edit, Heart, Save, Settings, Share2, Trash2 } from "lucide-react";
 import { Button } from "@/ui/button";
 

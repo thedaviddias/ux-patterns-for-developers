@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-confirmation
+ * @title Confirmation & Destructive Actions
+ * @type registry:block
+ * @description Button with confirmation patterns and destructive actions
+ * @categories ["buttons", "confirmation", "destructive-actions"]
+ * @tags ["confirmation", "destructive", "safety", "interactive", "haptics", "sound"]
+ * @dependencies ["lucide-react", "react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { AlertTriangle, Check, Trash2, X } from "lucide-react";

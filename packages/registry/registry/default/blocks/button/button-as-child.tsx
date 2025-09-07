@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-as-child
+ * @title Polymorphic Button (asChild)
+ * @type registry:block
+ * @description Button component using the asChild pattern for custom elements
+ * @categories ["buttons", "patterns", "composition"]
+ * @tags ["asChild", "composition", "polymorphic", "links", "navigation"]
+ * @registryDependencies ["button"]
+ */
 import { Button } from "@/ui/button";
 
 export default function ButtonAsChild() {

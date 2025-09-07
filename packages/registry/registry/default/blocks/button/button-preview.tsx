@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-preview
+ * @title Button Features Showcase
+ * @type registry:block
+ * @description Comprehensive button showcase with all features and variants
+ * @categories ["buttons", "showcase", "demo"]
+ * @tags ["showcase", "demo", "comprehensive", "features", "variants", "interactive", "lucide"]
+ * @dependencies ["lucide-react", "react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { ArrowRight, Mail, Settings } from "lucide-react";

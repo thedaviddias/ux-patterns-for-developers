@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-long-press
+ * @title Long Press Buttons
+ * @type registry:block
+ * @description Button with long press gesture support
+ * @categories ["buttons", "gestures", "mobile"]
+ * @tags ["long-press", "gestures", "mobile", "touch", "interactive", "duration"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { Button } from "@/ui/button";

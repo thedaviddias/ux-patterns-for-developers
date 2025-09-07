@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-icon-only",
   "type": "registry:block",
+  "title": "Icon-Only Buttons",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button with only icons, no text labels",
   "dependencies": [
     "lucide-react"
   ],
@@ -11,11 +14,24 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-icon-only.tsx",
-      "content": "import { Edit, Heart, Save, Settings, Share2, Trash2 } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconOnly() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button aria-label=\"Save\">\n\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Delete\">\n\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Edit\">\n\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Settings\" variant=\"outline\">\n\t\t\t\t<Settings className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Share\" variant=\"ghost\">\n\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Favorite\" variant=\"soft\">\n\t\t\t\t<Heart className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-icon-only\n * @title Icon-Only Buttons\n * @type registry:block\n * @description Button with only icons, no text labels\n * @categories [\"buttons\", \"icons\", \"compact\"]\n * @tags [\"icons\", \"only\", \"compact\", \"minimal\", \"aria-label\", \"accessibility\"]\n * @dependencies [\"lucide-react\"]\n * @registryDependencies [\"button\"]\n */\nimport { Edit, Heart, Save, Settings, Share2, Trash2 } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconOnly() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button aria-label=\"Save\">\n\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Delete\">\n\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Edit\">\n\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Settings\" variant=\"outline\">\n\t\t\t\t<Settings className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Share\" variant=\"ghost\">\n\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button aria-label=\"Favorite\" variant=\"soft\">\n\t\t\t\t<Heart className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-icon-only.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "icons",
+      "only",
+      "compact",
+      "minimal",
+      "aria-label",
+      "accessibility"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "icons",
+    "compact"
+  ]
 }

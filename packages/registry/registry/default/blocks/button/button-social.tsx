@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-social
+ * @title Social Media Buttons
+ * @type registry:block
+ * @description Social media buttons with brand colors and icons
+ * @categories ["buttons", "social", "authentication"]
+ * @tags ["social", "brand", "authentication", "external", "icons"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { Facebook, Github, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/ui/button";
 

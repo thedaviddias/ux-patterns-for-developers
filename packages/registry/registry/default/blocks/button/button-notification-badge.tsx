@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-notification-badge
+ * @title Notification Badge Buttons
+ * @type registry:block
+ * @description Button with notification badges and status indicators
+ * @categories ["buttons", "notifications", "badges"]
+ * @tags ["notifications", "badges", "indicators", "status", "lucide", "haptics", "pulsing"]
+ * @dependencies ["lucide-react", "react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { AlertTriangle, Bell } from "lucide-react";

@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-variants
+ * @title Button Variants Showcase
+ * @type registry:block
+ * @description Button component showcasing all available style variants
+ * @categories ["buttons", "variants", "showcase"]
+ * @tags ["variants", "showcase", "solid", "outline", "ghost", "link", "danger", "success", "warning"]
+ * @registryDependencies ["button"]
+ */
 import { Button } from "@/ui/button";
 
 export default function ButtonVariants() {

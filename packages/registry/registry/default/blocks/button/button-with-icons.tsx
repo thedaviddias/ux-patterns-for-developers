@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-with-icons
+ * @title Button Icon Patterns
+ * @type registry:block
+ * @description Button component showcasing various icon positioning patterns
+ * @categories ["buttons", "icons", "patterns"]
+ * @tags ["icons", "patterns", "positioning", "left", "right", "only", "lucide", "accessibility"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import {
 	ChevronRight,
 	Download,

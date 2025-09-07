@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-counter-inline
+ * @title Button with Inline Counters
+ * @type registry:block
+ * @description Button with inline counters and interactive counts
+ * @categories ["buttons", "counters", "interactive"]
+ * @tags ["counters", "inline", "interactive", "social", "engagement", "lucide", "haptics"]
+ * @dependencies ["lucide-react", "react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { Eye, Heart, MessageSquare, Star, ThumbsUp, Users } from "lucide-react";

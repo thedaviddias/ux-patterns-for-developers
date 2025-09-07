@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-double-icon
+ * @title Double Icon Buttons
+ * @type registry:block
+ * @description Button with icons on both left and right sides
+ * @categories ["buttons", "icons", "layout"]
+ * @tags ["double-icon", "icons", "left-right", "layout", "lucide", "complex"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import {
 	ArrowRight,
 	ChevronRight,

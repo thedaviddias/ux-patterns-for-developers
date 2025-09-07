@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-groups
+ * @title Button Groups & Toolbars
+ * @type registry:block
+ * @description Button components arranged in connected groups
+ * @categories ["buttons", "groups", "layout"]
+ * @tags ["groups", "connected", "layout", "segmented", "toolbar", "lucide"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { Edit, Share2, Trash2 } from "lucide-react";
 import { Button } from "@/ui/button";
 

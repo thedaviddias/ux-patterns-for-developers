@@ -2,18 +2,32 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-motion-effects",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Motion Effects Button",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Button with various motion effects and animations",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-motion-effects.tsx",
-      "content": "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonMotionEffects() {\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Click Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Click Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button clickEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button clickEffect=\"scale\">Scale</Button>\n\t\t\t\t\t<Button clickEffect=\"ripple\">Ripple</Button>\n\t\t\t\t\t<Button clickEffect=\"pulse\">Pulse</Button>\n\t\t\t\t\t<Button clickEffect=\"spring\">Spring</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t{/* Hover Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Hover Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button hoverEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button hoverEffect=\"glow\">Glow</Button>\n\t\t\t\t\t<Button hoverEffect=\"shine\">Shine</Button>\n\t\t\t\t\t<Button hoverEffect=\"shimmer\">Shimmer</Button>\n\t\t\t\t\t<Button hoverEffect=\"lift\">Lift</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-motion-effects\n * @title Motion Effects Button\n * @type registry:block\n * @description Button with various motion effects and animations\n * @categories [\"buttons\", \"motion\", \"animation\"]\n * @tags [\"motion\", \"animation\", \"effects\", \"interactive\", \"framer-motion\"]\n * @registryDependencies [\"button\"]\n */\n\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonMotionEffects() {\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Click Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Click Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button clickEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button clickEffect=\"scale\">Scale</Button>\n\t\t\t\t\t<Button clickEffect=\"ripple\">Ripple</Button>\n\t\t\t\t\t<Button clickEffect=\"pulse\">Pulse</Button>\n\t\t\t\t\t<Button clickEffect=\"spring\">Spring</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t{/* Hover Effects */}\n\t\t\t<div>\n\t\t\t\t<h3 className=\"text-sm font-medium mb-2\">Hover Effects</h3>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button hoverEffect=\"none\">No Effect</Button>\n\t\t\t\t\t<Button hoverEffect=\"glow\">Glow</Button>\n\t\t\t\t\t<Button hoverEffect=\"shine\">Shine</Button>\n\t\t\t\t\t<Button hoverEffect=\"shimmer\">Shimmer</Button>\n\t\t\t\t\t<Button hoverEffect=\"lift\">Lift</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-motion-effects.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "motion",
+      "animation",
+      "effects",
+      "interactive",
+      "framer-motion"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "motion",
+    "animation"
+  ]
 }

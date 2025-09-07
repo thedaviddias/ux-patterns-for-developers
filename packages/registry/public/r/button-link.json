@@ -2,18 +2,32 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-link",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Link Button",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Link-styled button variant for navigation",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-link.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonLink() {\n\treturn <Button variant=\"link\">Link</Button>;\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-link\n * @title Link Button\n * @type registry:block\n * @description Link-styled button variant for navigation\n * @categories [\"buttons\", \"variants\", \"navigation\"]\n * @tags [\"link\", \"variant\", \"navigation\", \"text\", \"minimal\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonLink() {\n\treturn <Button variant=\"link\">Link</Button>;\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-link.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "link",
+      "variant",
+      "navigation",
+      "text",
+      "minimal"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "variants",
+    "navigation"
+  ]
 }

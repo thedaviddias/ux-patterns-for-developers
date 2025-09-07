@@ -1,3 +1,13 @@
+/**
+ * @registry
+ * @name button-motion-effects
+ * @title Motion Effects Button
+ * @type registry:block
+ * @description Button with various motion effects and animations
+ * @categories ["buttons", "motion", "animation"]
+ * @tags ["motion", "animation", "effects", "interactive", "framer-motion"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { Button } from "@/ui/button";

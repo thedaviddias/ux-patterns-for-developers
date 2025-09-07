@@ -2,18 +2,32 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-destructive",
   "type": "registry:block",
-  "dependencies": [],
+  "title": "Destructive Button",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "description": "Destructive button variant for dangerous actions",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-destructive.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDestructive() {\n\treturn <Button variant=\"danger\">Delete</Button>;\n}\n",
-      "type": "registry:block"
+      "content": "/**\n * @registry\n * @name button-destructive\n * @title Destructive Button\n * @type registry:block\n * @description Destructive button variant for dangerous actions\n * @categories [\"buttons\", \"destructive-actions\", \"danger\"]\n * @tags [\"destructive\", \"danger\", \"delete\", \"warning\", \"red\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonDestructive() {\n\treturn <Button variant=\"danger\">Delete</Button>;\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/button-destructive.tsx"
     }
   ],
   "meta": {
-    "tags": []
-  }
+    "tags": [
+      "destructive",
+      "danger",
+      "delete",
+      "warning",
+      "red"
+    ]
+  },
+  "categories": [
+    "buttons",
+    "destructive-actions",
+    "danger"
+  ]
 }

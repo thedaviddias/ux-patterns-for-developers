@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-aria-features
+ * @title Accessible Button Features
+ * @type registry:block
+ * @description Button with accessibility features and ARIA attributes
+ * @categories ["buttons", "accessibility", "aria"]
+ * @tags ["accessibility", "aria", "screen-reader", "inclusive", "a11y"]
+ * @dependencies ["lucide-react", "react"]
+ * @registryDependencies ["button"]
+ */
 "use client";
 
 import { Edit, Save, Share2, Trash2 } from "lucide-react";

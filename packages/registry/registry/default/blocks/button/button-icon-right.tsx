@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-icon-right
+ * @title Button with Right Icons
+ * @type registry:block
+ * @description Button with icons positioned on the right side
+ * @categories ["buttons", "icons", "layout"]
+ * @tags ["icons", "right", "layout", "lucide", "positioning", "navigation"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { ArrowRight, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/ui/button";
 

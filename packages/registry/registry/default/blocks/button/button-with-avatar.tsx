@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button-with-avatar
+ * @title Button with Avatars
+ * @type registry:block
+ * @description Button with user avatars and profile information
+ * @categories ["buttons", "avatars", "user-interface"]
+ * @tags ["avatars", "user", "profile", "account", "menu", "lucide", "images"]
+ * @dependencies ["lucide-react"]
+ * @registryDependencies ["button"]
+ */
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/ui/button";
 
