@@ -343,21 +343,15 @@ export async function generateRegistry(): Promise<RegistryItem[]> {
 		{ path: path.join(REGISTRY_DIR, "lib"), type: "registry:lib" },
 	];
 
-	console.log(`[DEBUG] REGISTRY_DIR: ${REGISTRY_DIR}`);
-	console.log(`[DEBUG] Scanning ${directories.length} directories`);
-
 	for (const { path: dirPath, type } of directories) {
-		console.log(`[DEBUG] Scanning directory: ${dirPath} (type: ${type})`);
 		try {
 			const dirItems = await scanDirectory(dirPath, type);
-			console.log(`[DEBUG] Found ${dirItems.length} items in ${dirPath}`);
 			items.push(...dirItems);
 		} catch (error) {
 			console.error(`[DEBUG] Error scanning ${dirPath}:`, error);
 		}
 	}
 
-	console.log(`[DEBUG] Total items found: ${items.length}`);
 	return items;
 }
 
