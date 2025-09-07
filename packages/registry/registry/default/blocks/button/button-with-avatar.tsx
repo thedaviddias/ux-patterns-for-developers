@@ -26,10 +26,10 @@ export default function ButtonWithAvatar() {
 				</span>
 				John Doe
 			</Button>
-			
+
 			{/* Account menu button - common in headers */}
-			<Button 
-				variant="ghost" 
+			<Button
+				variant="ghost"
 				size="sm"
 				aria-label="Account menu"
 				className="gap-1"

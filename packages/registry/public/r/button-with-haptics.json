@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-with-haptics.tsx",
-      "content": "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithHaptics() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button haptics=\"light\">Light Haptic</Button>\n\t\t\t<Button haptics=\"medium\">Medium Haptic</Button>\n\t\t\t<Button haptics=\"heavy\">Heavy Haptic</Button>\n\t\t\t<Button haptics=\"off\">No Haptic</Button>\n\t\t</div>\n\t);\n}",
+      "content": "\"use client\";\n\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithHaptics() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button haptics=\"light\">Light Haptic</Button>\n\t\t\t<Button haptics=\"medium\">Medium Haptic</Button>\n\t\t\t<Button haptics=\"heavy\">Heavy Haptic</Button>\n\t\t\t<Button haptics=\"off\">No Haptic</Button>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

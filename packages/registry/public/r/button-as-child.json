@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-as-child.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonAsChild() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button asChild>\n\t\t\t\t<a href=\"#pricing\" className=\"no-underline\">View Pricing</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" asChild>\n\t\t\t\t<a href=\"#docs\" className=\"no-underline\">Documentation</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"ghost\" asChild>\n\t\t\t\t<a href=\"#about\">About Us</a>\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonAsChild() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button asChild>\n\t\t\t\t<a href=\"#pricing\" className=\"no-underline\">\n\t\t\t\t\tView Pricing\n\t\t\t\t</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" asChild>\n\t\t\t\t<a href=\"#docs\" className=\"no-underline\">\n\t\t\t\t\tDocumentation\n\t\t\t\t</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"ghost\" asChild>\n\t\t\t\t<a href=\"#about\">About Us</a>\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

@@ -1,16 +1,18 @@
 "use client";
 
-import { Star, Heart, MessageSquare, Eye, Users, ThumbsUp } from "lucide-react";
+import { Eye, Heart, MessageSquare, Star, ThumbsUp, Users } from "lucide-react";
+import { useId, useState } from "react";
 import { Button } from "@/ui/button";
-import { useState } from "react";
 
 export default function ButtonCounterInline() {
 	const [starred, setStarred] = useState(false);
 	const [starCount, setStarCount] = useState(234);
 	const [liked, setLiked] = useState(false);
 	const [likeCount, setLikeCount] = useState(42);
+	const commentsCountId = useId();
+	const followerCountId = useId();
 
-	const handleStar = () => {
+	const _handleStar = () => {
 		setStarred(!starred);
 		setStarCount(starred ? starCount - 1 : starCount + 1);
 	};
@@ -24,10 +26,17 @@ export default function ButtonCounterInline() {
 		<div className="flex flex-col gap-4">
 			{/* Basic counters */}
 			<div className="flex flex-wrap gap-2">
-				<Button variant="outline" className="tabular-nums" aria-label="Star this repository, 729 stars">
+				<Button
+					variant="outline"
+					className="tabular-nums"
+					aria-label="Star this repository, 729 stars"
+				>
 					<Star className="h-4 w-4" />
 					Star
-					<span className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium" aria-hidden="true">
+					<span
+						className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium"
+						aria-hidden="true"
+					>
 						729
 					</span>
 				</Button>
@@ -35,14 +44,24 @@ export default function ButtonCounterInline() {
 					<ThumbsUp className="h-4 w-4" />
 					Like
 					<span className="sr-only">, 42 likes</span>
-					<span className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium" aria-hidden="true">
+					<span
+						className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium"
+						aria-hidden="true"
+					>
 						42
 					</span>
 				</Button>
-				<Button variant="soft" className="tabular-nums" aria-describedby="comments-count">
+				<Button
+					variant="soft"
+					className="tabular-nums"
+					aria-describedby={commentsCountId}
+				>
 					<MessageSquare className="h-4 w-4" />
 					Comments
-					<span id="comments-count" className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium">
+					<span
+						id={commentsCountId}
+						className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium"
+					>
 						18
 					</span>
 				</Button>
@@ -73,16 +92,28 @@ export default function ButtonCounterInline() {
 				</Button>
 
 				{/* View count (read-only) */}
-				<Button variant="ghost" disabled className="tabular-nums" aria-label="1,200 views">
+				<Button
+					variant="ghost"
+					disabled
+					className="tabular-nums"
+					aria-label="1,200 views"
+				>
 					<Eye className="h-4 w-4" />
 					<span aria-hidden="true">1.2k</span>
 				</Button>
 
 				{/* Followers */}
-				<Button variant="soft" haptics="light" className="tabular-nums" aria-describedby="follower-count">
+				<Button
+					variant="soft"
+					haptics="light"
+					className="tabular-nums"
+					aria-describedby={followerCountId}
+				>
 					<Users className="h-4 w-4" />
 					Follow
-					<span id="follower-count" className="ml-2 text-xs opacity-60">892 followers</span>
+					<span id={followerCountId} className="ml-2 text-xs opacity-60">
+						892 followers
+					</span>
 				</Button>
 			</div>
 		</div>

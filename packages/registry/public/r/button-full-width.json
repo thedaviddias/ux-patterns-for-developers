@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-full-width.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonFullWidth() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-4\">\n\t\t\t<Button wide>Full Width with Wide Prop</Button>\n\t\t\t<Button wide variant=\"outline\">Full Width Outline</Button>\n\t\t\t<Button wide size=\"lg\">Full Width Large</Button>\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Button wide>Primary Action</Button>\n\t\t\t\t<Button wide variant=\"ghost\">Secondary Action</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonFullWidth() {\n\treturn (\n\t\t<div className=\"w-full max-w-md space-y-4\">\n\t\t\t<Button wide>Full Width with Wide Prop</Button>\n\t\t\t<Button wide variant=\"outline\">\n\t\t\t\tFull Width Outline\n\t\t\t</Button>\n\t\t\t<Button wide size=\"lg\">\n\t\t\t\tFull Width Large\n\t\t\t</Button>\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<Button wide>Primary Action</Button>\n\t\t\t\t<Button wide variant=\"ghost\">\n\t\t\t\t\tSecondary Action\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

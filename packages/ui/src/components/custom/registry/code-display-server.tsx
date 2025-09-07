@@ -1,6 +1,6 @@
+import { Index } from "@ux-patterns/registry/.generated";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import undent from "undent";
-import { Index } from "@ux-patterns/registry/.generated";
 
 interface CodeDisplayServerProps {
 	name: string;
@@ -28,9 +28,9 @@ function formatJSX(jsxCode: string): string {
 		}
 
 		// Count tag changes on this line
-		const openingTags = (trimmed.match(/<[A-Za-z][^>]*>/g) || [] as string[]).filter(
-			(tag: string) => !tag.endsWith("/>"),
-		).length;
+		const openingTags = (
+			trimmed.match(/<[A-Za-z][^>]*>/g) || ([] as string[])
+		).filter((tag: string) => !tag.endsWith("/>")).length;
 		const closingTags = (trimmed.match(/<\/[^>]*>/g) || []).length;
 		const fragments = (trimmed.match(/<>/g) || []).length;
 		const closingFragments = (trimmed.match(/<\/>/g) || []).length;

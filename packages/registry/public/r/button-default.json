@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-default.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDefault() {\n\treturn <Button>Default Button</Button>;\n}",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDefault() {\n\treturn <Button>Default Button</Button>;\n}\n",
       "type": "registry:block"
     }
   ],

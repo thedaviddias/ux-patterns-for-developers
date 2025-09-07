@@ -1,6 +1,7 @@
 "use client";
 
 import { Index } from "@ux-patterns/registry/.generated";
+import { Icons } from "@ux-patterns/ui/components/custom/icons";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
 	Dialog,
@@ -9,10 +10,10 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@ux-patterns/ui/components/shadcn/dialog";
-import { Icons } from "@ux-patterns/ui/components/custom/icons";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
-import { Copy } from "lucide-react";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Copy } from "lucide-react";
+import { usePlausible } from "next-plausible";
 import React from "react";
 
 interface ComponentDocsModalProps {
@@ -23,14 +24,14 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 	const [copied, setCopied] = React.useState<string | null>(null);
 	const [rawContent, setRawContent] = React.useState<string | null>(null);
 	const [loading, setLoading] = React.useState(true);
-
+	const plausible = usePlausible();
 
 	// Commands for each package manager using v4 namespace format
 	const commands = {
 		pnpm: `pnpm dlx shadcn@latest add @upkit/${name}`,
 		npm: `npx shadcn@latest add @upkit/${name}`,
 		yarn: `yarn dlx shadcn@latest add @upkit/${name}`,
-		bun: `bunx shadcn@latest add @upkit/${name}`
+		bun: `bunx shadcn@latest add @upkit/${name}`,
 	};
 
 	const copyToClipboard = async (text: string, type: string) => {
@@ -38,6 +39,22 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 			await navigator.clipboard.writeText(text);
 			setCopied(type);
 			setTimeout(() => setCopied(null), 2000);
+
+			// Track install command copy
+			if (type in commands) {
+				plausible("Install Command Copy", {
+					props: {
+						package_manager: type,
+						component_name: name,
+					},
+				});
+			} else if (type === "raw") {
+				plausible("Component Raw Code Copy", {
+					props: {
+						component_name: name,
+					},
+				});
+			}
 		} catch (err) {
 			console.error("Failed to copy text: ", err);
 		}
@@ -48,13 +65,13 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 		const loadRawContent = () => {
 			try {
 				// If this is a preview component (ends with -preview), get the base component source instead
-				const componentToFetch = name.endsWith('-preview') 
-					? name.replace('-preview', '') 
+				const componentToFetch = name.endsWith("-preview")
+					? name.replace("-preview", "")
 					: name;
-				
+
 				const registryItem = Index[componentToFetch];
 				const fullContent = registryItem?.source;
-				
+
 				if (fullContent) {
 					// Unescape the content from JSON format
 					const unescapedContent = fullContent
@@ -81,6 +98,13 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 					variant="ghost"
 					size="sm"
 					className="h-8 gap-1 rounded-[6px] px-3 text-xs dark:text-white text-black bg:text-white hover:bg-black hover:text-white bg-transparent"
+					onClick={() => {
+						plausible("Component Docs Modal Open", {
+							props: {
+								component_name: name,
+							},
+						});
+					}}
 				>
 					<Icons.code size={16} />
 				</Button>
@@ -94,7 +118,7 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 					{/* Installation Section */}
 					<div className="space-y-3">
 						<h3 className="text-sm font-medium">Package Manager</h3>
-						<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+						<Tabs items={["pnpm", "npm", "yarn", "bun"]}>
 							<Tab value="pnpm">
 								<div className="relative">
 									<pre className="bg-fd-muted p-3 rounded-md text-sm overflow-x-auto">
@@ -104,7 +128,9 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 										variant="ghost"
 										size="sm"
 										className="absolute right-2 top-2 h-6 w-6 p-0"
-										onClick={() => copyToClipboard(commands.pnpm, "install-pnpm")}
+										onClick={() =>
+											copyToClipboard(commands.pnpm, "install-pnpm")
+										}
 									>
 										<Copy className="h-3 w-3" />
 									</Button>
@@ -144,7 +170,9 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 										variant="ghost"
 										size="sm"
 										className="absolute right-2 top-2 h-6 w-6 p-0"
-										onClick={() => copyToClipboard(commands.yarn, "install-yarn")}
+										onClick={() =>
+											copyToClipboard(commands.yarn, "install-yarn")
+										}
 									>
 										<Copy className="h-3 w-3" />
 									</Button>

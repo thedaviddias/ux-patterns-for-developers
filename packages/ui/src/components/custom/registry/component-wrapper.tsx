@@ -25,7 +25,7 @@ export const ComponentWrapper = ({
 	kit = false,
 	pageMetadata,
 }: ComponentWrapperProps) => {
-	const [key, setKey] = React.useState(0);
+	const [key, _setKey] = React.useState(0);
 
 	// Build Kit documentation URL with component name from frontmatter and anchor from variant
 	const kitUrl = React.useMemo(() => {

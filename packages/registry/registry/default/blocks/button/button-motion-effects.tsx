@@ -16,7 +16,7 @@ export default function ButtonMotionEffects() {
 					<Button clickEffect="spring">Spring</Button>
 				</div>
 			</div>
-			
+
 			{/* Hover Effects */}
 			<div>
 				<h3 className="text-sm font-medium mb-2">Hover Effects</h3>

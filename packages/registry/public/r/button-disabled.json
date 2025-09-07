@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-disabled.tsx",
-      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDisabled() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button disabled>Default (ARIA Disabled)</Button>\n\t\t\t<Button disabled forceNativeDisabled>Force Native Disabled</Button>\n\t\t\t<Button state=\"disabled\">State Disabled</Button>\n\t\t\t<Button variant=\"outline\" disabled>Disabled Outline</Button>\n\t\t</div>\n\t);\n}",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDisabled() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button disabled>Default (ARIA Disabled)</Button>\n\t\t\t<Button disabled forceNativeDisabled>\n\t\t\t\tForce Native Disabled\n\t\t\t</Button>\n\t\t\t<Button state=\"disabled\">State Disabled</Button>\n\t\t\t<Button variant=\"outline\" disabled>\n\t\t\t\tDisabled Outline\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

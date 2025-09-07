@@ -7,9 +7,9 @@
       "name": "button",
       "type": "registry:ui",
       "dependencies": [
+        "@radix-ui/react-slot",
         "class-variance-authority",
-        "motion",
-        "@radix-ui/react-slot"
+        "motion"
       ],
       "registryDependencies": [
         "utils"
@@ -28,7 +28,8 @@
       "name": "button-aria-features",
       "type": "registry:block",
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "react"
       ],
       "registryDependencies": [
         "button"
@@ -154,9 +155,7 @@
     {
       "name": "button-double-icon",
       "type": "registry:block",
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": [],
       "registryDependencies": [
         "button"
       ],
@@ -410,8 +409,8 @@
       "name": "button-preview",
       "type": "registry:block",
       "dependencies": [
-        "react",
-        "lucide-react"
+        "lucide-react",
+        "react"
       ],
       "registryDependencies": [
         "button"
@@ -554,9 +553,7 @@
     {
       "name": "button-with-icons",
       "type": "registry:block",
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": [],
       "registryDependencies": [
         "button"
       ],

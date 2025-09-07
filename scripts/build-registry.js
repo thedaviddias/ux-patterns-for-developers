@@ -8,7 +8,10 @@ const REGISTRY_JSON_PATH = path.join(
 	"packages/registry/registry.json",
 );
 const OUTPUT_PATH = path.join(PROJECT_ROOT, "packages/registry/.generated");
-const REGISTRY_PUBLIC_PATH = path.join(PROJECT_ROOT, "packages/registry/public/r");
+const REGISTRY_PUBLIC_PATH = path.join(
+	PROJECT_ROOT,
+	"packages/registry/public/r",
+);
 
 async function buildRegistryIndex() {
 	// Ensure output directory exists
@@ -55,7 +58,9 @@ export const Index: Record<string, ComponentInfo> = {`;
 
 		// Use the actual file path from the registry, removing the file extension
 		const firstFile = component.files?.[0];
-		const componentPath = firstFile ? `../${firstFile.path.replace(/\.(tsx?|jsx?)$/, "")}` : `../registry/default/blocks/${componentName}`;
+		const componentPath = firstFile
+			? `../${firstFile.path.replace(/\.(tsx?|jsx?)$/, "")}`
+			: `../registry/default/blocks/${componentName}`;
 
 		// Try to read the source code from the JSON file
 		let sourceCode = null;
@@ -65,7 +70,10 @@ export const Index: Record<string, ComponentInfo> = {`;
 			const jsonData = JSON.parse(jsonContent);
 			sourceCode = jsonData.files?.[0]?.content || null;
 		} catch (error) {
-			console.warn(`Could not read source for ${componentName}:`, error.message);
+			console.warn(
+				`Could not read source for ${componentName}:`,
+				error.message,
+			);
 		}
 
 		indexContent += `
@@ -88,8 +96,12 @@ export const Index: Record<string, ComponentInfo> = {`;
       const keys = Object.keys(mod);
       const exportName = keys.find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || keys[0];
       return { default: mod.default || (exportName ? mod[exportName] : undefined) }
-    }),${sourceCode ? `
-    source: ${JSON.stringify(sourceCode)},` : ''}
+    }),${
+			sourceCode
+				? `
+    source: ${JSON.stringify(sourceCode)},`
+				: ""
+		}
     meta: ${JSON.stringify(component.meta || {})},
   },`;
 	}

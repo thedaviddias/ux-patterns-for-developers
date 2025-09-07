@@ -23,7 +23,7 @@
 				"MAILERLITE_API_KEY",
 				"MAILERLITE_GROUP_IDS",
 				"PLAUSIBLE_API_KEY",
-        "TURBO_REMOTE_CACHE_SIGNATURE_KEY"
+				"TURBO_REMOTE_CACHE_SIGNATURE_KEY"
 			]
 		},
 		"registry:generate": {
