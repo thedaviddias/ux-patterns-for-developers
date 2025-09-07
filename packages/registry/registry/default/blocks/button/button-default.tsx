@@ -11,5 +11,5 @@
 import { Button } from "@/ui/button";
 
 export default function ButtonDefault() {
-	return <Button>Default Button</Button>;
+	return <Button type="button">Default Button</Button>;
 }

@@ -15,15 +15,15 @@ import { Button } from "@/ui/button";
 export default function ButtonIconRight() {
 	return (
 		<div className="flex flex-wrap gap-2">
-			<Button>
+			<Button type="button">
 				Continue
 				<ChevronRight className="h-4 w-4" />
 			</Button>
-			<Button variant="outline">
+			<Button variant="outline" type="button">
 				Next Step
 				<ArrowRight className="h-4 w-4" />
 			</Button>
-			<Button variant="link">
+			<Button variant="link" type="button">
 				Learn More
 				<ExternalLink className="h-4 w-4" />
 			</Button>

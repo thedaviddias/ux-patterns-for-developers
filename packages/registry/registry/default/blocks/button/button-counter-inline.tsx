@@ -23,11 +23,6 @@ export default function ButtonCounterInline() {
 	const commentsCountId = useId();
 	const followerCountId = useId();
 
-	const _handleStar = () => {
-		setStarred(!starred);
-		setStarCount(starred ? starCount - 1 : starCount + 1);
-	};
-
 	const handleLike = () => {
 		setLiked(!liked);
 		setLikeCount(liked ? likeCount - 1 : likeCount + 1);
@@ -38,20 +33,30 @@ export default function ButtonCounterInline() {
 			{/* Basic counters */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="outline"
 					className="tabular-nums"
-					aria-label="Star this repository, 729 stars"
+					aria-pressed={starred}
+					aria-label={`${starred ? "Unstar" : "Star"} this repository, ${starCount.toLocaleString()} stars`}
+					onClick={() => {
+						setStarred((prev) => {
+							const next = !prev;
+							setStarCount((c) => Math.max(0, c + (next ? 1 : -1)));
+							return next;
+						});
+					}}
 				>
-					<Star className="h-4 w-4" />
-					Star
+					<Star className="h-4 w-4" fill={starred ? "currentColor" : "none"} />
+					<span aria-hidden="true">{starCount.toLocaleString()}</span>
 					<span
 						className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium"
 						aria-hidden="true"
 					>
-						729
+						{/* duplicate visual badge */}
+						{starCount.toLocaleString()}
 					</span>
 				</Button>
-				<Button variant="ghost" className="tabular-nums">
+				<Button variant="ghost" className="tabular-nums" type="button">
 					<ThumbsUp className="h-4 w-4" />
 					Like
 					<span className="sr-only">, 42 likes</span>
@@ -63,6 +68,7 @@ export default function ButtonCounterInline() {
 					</span>
 				</Button>
 				<Button
+					type="button"
 					variant="soft"
 					className="tabular-nums"
 					aria-describedby={commentsCountId}
@@ -82,6 +88,7 @@ export default function ButtonCounterInline() {
 			<div className="flex flex-wrap gap-2">
 				{/* Like with animation */}
 				<Button
+					type="button"
 					variant={liked ? "danger" : "ghost"}
 					onClick={handleLike}
 					haptics={liked ? "medium" : "light"}
@@ -95,15 +102,20 @@ export default function ButtonCounterInline() {
 				</Button>
 
 				{/* Comment count */}
-				<Button variant="ghost" haptics="light" className="tabular-nums">
+				<Button
+					variant="ghost"
+					haptics="light"
+					className="tabular-nums"
+					type="button"
+					aria-label="View 128 comments"
+				>
 					<MessageSquare className="h-4 w-4" />
-					<span className="sr-only">View comments,</span>
-					128
-					<span className="sr-only">comments</span>
+					<span aria-hidden="true">128</span>
 				</Button>
 
 				{/* View count (read-only) */}
 				<Button
+					type="button"
 					variant="ghost"
 					disabled
 					className="tabular-nums"
@@ -115,6 +127,7 @@ export default function ButtonCounterInline() {
 
 				{/* Followers */}
 				<Button
+					type="button"
 					variant="soft"
 					haptics="light"
 					className="tabular-nums"
@@ -123,7 +136,7 @@ export default function ButtonCounterInline() {
 					<Users className="h-4 w-4" />
 					Follow
 					<span id={followerCountId} className="ml-2 text-xs opacity-60">
-						892 followers
+						{Number(892).toLocaleString()} followers
 					</span>
 				</Button>
 			</div>

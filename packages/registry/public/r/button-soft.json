@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-soft.tsx",
-      "content": "/**\n * @registry\n * @name button-soft\n * @title Soft Button\n * @type registry:block\n * @description Soft button variant with subtle background\n * @categories [\"buttons\", \"variants\", \"soft\"]\n * @tags [\"soft\", \"variant\", \"subtle\", \"background\", \"muted\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonSoft() {\n\treturn <Button variant=\"soft\">Soft</Button>;\n}\n",
+      "content": "/**\n * @registry\n * @name button-soft\n * @title Soft Button\n * @type registry:block\n * @description Soft button variant with subtle background\n * @categories [\"buttons\", \"variants\", \"soft\"]\n * @tags [\"soft\", \"variant\", \"subtle\", \"background\", \"muted\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonSoft() {\n\treturn <Button variant=\"soft\" type=\"button\">Soft</Button>;\n}\n",
       "type": "registry:block",
       "target": "components/blocks/button-soft.tsx"
     }

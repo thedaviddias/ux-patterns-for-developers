@@ -23,17 +23,17 @@ interface RegistryItem {
 	title: string;
 	description?: string;
 	author: string;
-	dependencies: string[];
-	devDependencies: string[];
-	registryDependencies: string[];
-	categories: string[];
-	files: Array<{
+	dependencies?: string[];
+	devDependencies?: string[];
+	registryDependencies?: string[];
+	categories?: string[];
+	files?: Array<{
 		path: string;
 		type: string;
 		content: string;
 		target: string;
 	}>;
-	meta: {
+	meta?: {
 		tags: string[];
 	};
 }
@@ -50,33 +50,38 @@ const COMPLETE_REGISTRY_PATH = path.join(REGISTRY_BASE_PATH, "registry.json");
  * Get the appropriate target path based on component type
  */
 function getTargetPath(registryType: string, componentName: string): string {
-	const extension = componentName.includes('.') ? '' : '.tsx';
+	const hasExt = componentName.includes(".");
+	const ensureExt = (name: string, ext: string) =>
+		hasExt || !ext ? name : `${name}${ext}`;
 
 	switch (registryType) {
 		case "registry:ui":
-			return `components/ui/${componentName}${extension}`;
+			return `components/ui/${ensureExt(componentName, ".tsx")}`;
 		case "registry:block":
-			return `components/blocks/${componentName}${extension}`;
+			return `components/blocks/${ensureExt(componentName, ".tsx")}`;
 		case "registry:component":
-			return `components/${componentName}${extension}`;
+			return `components/${ensureExt(componentName, ".tsx")}`;
 		case "registry:hook":
-			return `hooks/${componentName.replace('.tsx', '.ts')}`;
+			return `hooks/${ensureExt(componentName.replace(".tsx", ".ts"), ".ts")}`;
 		case "registry:lib":
-			return `lib/${componentName.replace('.tsx', '.ts')}`;
+			return `lib/${ensureExt(componentName.replace(".tsx", ".ts"), ".ts")}`;
 		case "registry:theme":
-			return `styles/${componentName.replace('.tsx', '.css')}`;
+			return `styles/${ensureExt(componentName.replace(".tsx", ".css"), ".css")}`;
 		case "registry:page":
-			return `app/${componentName}${extension}`;
+			return `app/${ensureExt(componentName, ".tsx")}`;
 		case "registry:style":
-			return `styles/${componentName.replace('.tsx', '.css')}`;
+			return `styles/${ensureExt(componentName.replace(".tsx", ".css"), ".css")}`;
 		case "registry:file":
 			return componentName;
 		default:
-			return `components/${componentName}${extension}`;
+			return `components/${ensureExt(componentName, ".tsx")}`;
 	}
 }
 
-async function writeFileRecursive(filePath: string, data: string): Promise<void> {
+async function writeFileRecursive(
+	filePath: string,
+	data: string,
+): Promise<void> {
 	const dir = path.dirname(filePath);
 
 	try {
@@ -84,6 +89,7 @@ async function writeFileRecursive(filePath: string, data: string): Promise<void>
 		await fs.writeFile(filePath, data, "utf-8");
 	} catch (error) {
 		console.error(`Error writing file ${filePath}:`, error);
+		throw error;
 	}
 }
 
@@ -143,7 +149,10 @@ function extractMetadata(content: string): RegistryMetadata | null {
 /**
  * Analyze imports to auto-detect registry dependencies and npm packages
  */
-function analyzeImports(content: string): { registryDependencies: string[]; dependencies: string[] } {
+function analyzeImports(content: string): {
+	registryDependencies: string[];
+	dependencies: string[];
+} {
 	const registryImports: string[] = [];
 	const packageImports: string[] = [];
 
@@ -154,9 +163,12 @@ function analyzeImports(content: string): { registryDependencies: string[]; depe
 	let match: RegExpExecArray | null;
 	// biome-ignore lint: needed for regex iteration
 	while ((match = registryRegex.exec(content)) !== null) {
-		const [, , componentName] = match;
-		// Extract just the component name without file extension
-		const name = componentName.replace(/\.(tsx?|jsx?)$/, "");
+		const [, , componentPath] = match;
+		const name =
+			componentPath
+				.split("/")
+				.pop()
+				?.replace(/\.(tsx?|jsx?)$/, "") ?? "";
 		registryImports.push(name);
 	}
 
@@ -171,25 +183,23 @@ function analyzeImports(content: string): { registryDependencies: string[]; depe
 		"@ux-patterns/hooks",
 		"@types/react",
 		"@types/react-dom",
-		"typescript"
+		"typescript",
 	];
 
 	// biome-ignore lint: needed for regex iteration
 	while ((match = packageRegex.exec(content)) !== null) {
-		const [, packageName] = match;
-		// Exclude @/ aliases, Node.js built-ins, and common packages
+		const spec = match[1];
+		if (spec.startsWith("@/") || spec.startsWith("node:")) continue;
+		const pkgName = spec.startsWith("@")
+			? spec.split("/").slice(0, 2).join("/")
+			: spec.split("/")[0];
 		if (
-			!packageName.startsWith("@/") &&
-			!packageName.startsWith("node:") &&
-			!packageName.includes("react/") &&
-			!excludedPackages.includes(packageName)
-		) {
-			// Handle scoped packages properly
-			const pkgName = packageName.startsWith("@")
-				? packageName.split("/").slice(0, 2).join("/")
-				: packageName.split("/")[0];
-			packageImports.push(pkgName);
-		}
+			pkgName === "react" ||
+			pkgName === "react-dom" ||
+			excludedPackages.includes(pkgName)
+		)
+			continue;
+		packageImports.push(pkgName);
 	}
 
 	return {
@@ -201,7 +211,10 @@ function analyzeImports(content: string): { registryDependencies: string[]; depe
 /**
  * Scan directory for component files and extract metadata (recursively)
  */
-async function scanDirectory(dirPath: string, type: string): Promise<RegistryItem[]> {
+async function scanDirectory(
+	dirPath: string,
+	type: string,
+): Promise<RegistryItem[]> {
 	const items: RegistryItem[] = [];
 
 	try {
@@ -241,19 +254,22 @@ async function scanDirectory(dirPath: string, type: string): Promise<RegistryIte
 					metadata.registryDependencies = analyzed.registryDependencies;
 				}
 
-				const registryItem: any = {
+				const itemType = metadata.type || type;
+				const fileType = metadata.type || type;
+
+				const registryItem: RegistryItem = {
 					$schema: "https://ui.shadcn.com/schema/registry-item.json",
 					name: metadata.name || componentName,
-					type: metadata.type || type,
+					type: itemType,
 					title: metadata.title || metadata.name || componentName,
 					description: metadata.description,
 					author: metadata.author || "David Dias <hello@thedaviddias.com>",
 					files: [
 						{
 							path: relativePath,
-							type: metadata.type || type,
+							type: fileType,
 							content: content,
-							target: getTargetPath(metadata.type || type, metadata.name || componentName),
+							target: getTargetPath(fileType, metadata.name || componentName),
 						},
 					],
 				};
@@ -265,7 +281,10 @@ async function scanDirectory(dirPath: string, type: string): Promise<RegistryIte
 				if (metadata.devDependencies && metadata.devDependencies.length > 0) {
 					registryItem.devDependencies = metadata.devDependencies;
 				}
-				if (metadata.registryDependencies && metadata.registryDependencies.length > 0) {
+				if (
+					metadata.registryDependencies &&
+					metadata.registryDependencies.length > 0
+				) {
 					registryItem.registryDependencies = metadata.registryDependencies;
 				}
 				if (metadata.categories && metadata.categories.length > 0) {
@@ -280,7 +299,7 @@ async function scanDirectory(dirPath: string, type: string): Promise<RegistryIte
 				// Auto-detect for files without metadata
 				const { registryDependencies, dependencies } = analyzeImports(content);
 
-				const autoRegistryItem: any = {
+				const autoRegistryItem: RegistryItem = {
 					$schema: "https://ui.shadcn.com/schema/registry-item.json",
 					name: componentName,
 					type: type,
@@ -347,6 +366,8 @@ async function main() {
 	} catch {
 		// Folder doesn't exist, that's fine
 	}
+	// Recreate base folder
+	await fs.mkdir(PUBLIC_FOLDER_BASE_PATH, { recursive: true });
 
 	// Generate registry by scanning filesystem
 	const registryItems = await generateRegistry();
@@ -358,13 +379,23 @@ async function main() {
 		homepage: "https://kit.uxpatterns.dev",
 		items: registryItems.map((item) => ({
 			...item,
-			files: item.files.map(({ content, ...file }) => file),
+			files: item.files?.map(({ content, ...file }) => file),
 		})),
 	};
 
 	await writeFileRecursive(
 		COMPLETE_REGISTRY_PATH,
 		JSON.stringify(cleanRegistry, null, 2),
+	);
+
+	// Emit individual public items including file contents
+	await Promise.all(
+		registryItems.map((item) =>
+			writeFileRecursive(
+				path.join(PUBLIC_FOLDER_BASE_PATH, `${item.name}.json`),
+				JSON.stringify(item, null, 2),
+			),
+		),
 	);
 
 	console.log(

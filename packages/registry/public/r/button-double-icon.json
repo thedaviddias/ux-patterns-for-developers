@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-double-icon",
   "type": "registry:block",
-  "title": "Double Icon Buttons",
+  "title": "Double Icon Button",
   "author": "David Dias <hello@thedaviddias.com>",
   "description": "Button with icons on both left and right sides",
   "dependencies": [
@@ -14,7 +14,7 @@
   "files": [
     {
       "path": "registry/default/blocks/button/button-double-icon.tsx",
-      "content": "/**\n * @registry\n * @name button-double-icon\n * @title Double Icon Buttons\n * @type registry:block\n * @description Button with icons on both left and right sides\n * @categories [\"buttons\", \"icons\", \"layout\"]\n * @tags [\"double-icon\", \"icons\", \"left-right\", \"layout\", \"lucide\", \"complex\"]\n * @dependencies [\"lucide-react\"]\n * @registryDependencies [\"button\"]\n */\nimport {\n\tArrowRight,\n\tChevronRight,\n\tDownload,\n\tExternalLink,\n\tLock,\n\tMail,\n} from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonDoubleIcon() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\t<Mail className=\"h-4 w-4\" />\n\t\t\t\tSend Email\n\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\t<Download className=\"h-4 w-4\" />\n\t\t\t\tExport PDF\n\t\t\t\t<ExternalLink className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"soft\">\n\t\t\t\t<Lock className=\"h-4 w-4\" />\n\t\t\t\tView Details\n\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+      "content": "/**\n * @registry\n * @name button-double-icon\n * @title Double Icon Button\n * @type registry:block\n * @description Button with icons on both left and right sides\n * @categories [\"buttons\", \"icons\", \"layout\"]\n * @tags [\"double-icon\", \"icons\", \"left-right\", \"layout\", \"lucide\", \"complex\"]\n * @dependencies [\"lucide-react\"]\n * @registryDependencies [\"button\"]\n */\nimport {\n\tArrowRight,\n\tChevronRight,\n\tDownload,\n\tExternalLink,\n\tLock,\n\tMail,\n} from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonDoubleIcon() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\t<Mail aria-hidden=\"true\" className=\"h-4 w-4\" />\n\t\t\t\tSend Email\n\t\t\t\t<ArrowRight aria-hidden=\"true\" className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\t<Download aria-hidden=\"true\" className=\"h-4 w-4\" />\n\t\t\t\tExport PDF\n\t\t\t\t<ExternalLink aria-hidden=\"true\" className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"soft\">\n\t\t\t\t<Lock aria-hidden=\"true\" className=\"h-4 w-4\" />\n\t\t\t\tView Details\n\t\t\t\t<ChevronRight aria-hidden=\"true\" className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block",
       "target": "components/blocks/button-double-icon.tsx"
     }

@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { generateStaticParamsFor, importPage } from "nextra/pages";
+import type React from "react";
 import { useMDXComponents } from "../../mdx-components";
 
 const SubscribeForm = dynamic(() =>
@@ -213,7 +214,7 @@ export default async function Page(props: PageProps) {
 
 	const { default: MDXContent, toc, metadata } = result;
 	const extendedMetadata = metadata as ExtendedMetadata;
-	const Wrapper = mdxComponents.wrapper;
+	const Wrapper = mdxComponents.wrapper as React.ComponentType<any> | undefined;
 
 	// Determine page type and properties
 	const isHomepage = !params.mdxPath || params.mdxPath.length === 0;
@@ -478,15 +479,22 @@ export default async function Page(props: PageProps) {
 				return <JsonLd key={uniqueKey} data={schema} />;
 			})}
 			<div className="nextra-content">
-				<Wrapper
-					key={pageKey}
-					toc={toc}
-					metadata={metadata}
-					sourceCode={result.sourceCode}
-				>
-					<MDXContent {...props} params={params} />
-					{!isHomepage && <SubscribeForm variant="inline" />}
-				</Wrapper>
+				{Wrapper ? (
+					<Wrapper
+						key={pageKey}
+						toc={toc}
+						metadata={metadata}
+						sourceCode={result.sourceCode}
+					>
+						<MDXContent {...props} params={params} />
+						{!isHomepage && <SubscribeForm variant="inline" />}
+					</Wrapper>
+				) : (
+					<>
+						<MDXContent {...props} params={params} />
+						{!isHomepage && <SubscribeForm variant="inline" />}
+					</>
+				)}
 			</div>
 		</>
 	);

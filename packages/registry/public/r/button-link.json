@@ -4,14 +4,14 @@
   "type": "registry:block",
   "title": "Link Button",
   "author": "David Dias <hello@thedaviddias.com>",
-  "description": "Link-styled button variant for navigation",
+  "description": "Link-styled button variant. For navigation, prefer using asChild with an <a> element to preserve link semantics and accessibility.",
   "registryDependencies": [
     "button"
   ],
   "files": [
     {
       "path": "registry/default/blocks/button/button-link.tsx",
-      "content": "/**\n * @registry\n * @name button-link\n * @title Link Button\n * @type registry:block\n * @description Link-styled button variant for navigation\n * @categories [\"buttons\", \"variants\", \"navigation\"]\n * @tags [\"link\", \"variant\", \"navigation\", \"text\", \"minimal\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonLink() {\n\treturn <Button variant=\"link\">Link</Button>;\n}\n",
+      "content": "/**\n * @registry\n * @name button-link\n * @title Link Button\n * @type registry:block\n * @description Link-styled button variant. For navigation, prefer using asChild with an <a> element to preserve link semantics and accessibility.\n * @categories [\"buttons\", \"variants\", \"navigation\"]\n * @tags [\"link\", \"variant\", \"navigation\", \"text\", \"minimal\"]\n * @registryDependencies [\"button\"]\n */\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonLink() {\n\treturn (\n\t\t<Button variant=\"link\" asChild>\n\t\t\t<a href=\"#\">Link</a>\n\t\t</Button>\n\t);\n}\n",
       "type": "registry:block",
       "target": "components/blocks/button-link.tsx"
     }

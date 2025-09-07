@@ -13,10 +13,10 @@ import { Button } from "@/ui/button";
 export default function ButtonSizes() {
 	return (
 		<div className="flex flex-wrap items-center gap-2">
-			<Button size="xs">Extra Small</Button>
-			<Button size="sm">Small</Button>
-			<Button size="md">Medium</Button>
-			<Button size="lg">Large</Button>
+			<Button size="xs" type="button">Extra Small</Button>
+			<Button size="sm" type="button">Small</Button>
+			<Button size="md" type="button">Medium</Button>
+			<Button size="lg" type="button">Large</Button>
 		</div>
 	);
 }

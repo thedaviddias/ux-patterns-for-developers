@@ -268,7 +268,7 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button-double-icon",
       "type": "registry:block",
-      "title": "Double Icon Buttons",
+      "title": "Double Icon Button",
       "description": "Button with icons on both left and right sides",
       "author": "David Dias <hello@thedaviddias.com>",
       "files": [
@@ -512,7 +512,7 @@
       "name": "button-link",
       "type": "registry:block",
       "title": "Link Button",
-      "description": "Link-styled button variant for navigation",
+      "description": "Link-styled button variant. For navigation, prefer using asChild with an <a> element to preserve link semantics and accessibility.",
       "author": "David Dias <hello@thedaviddias.com>",
       "files": [
         {
@@ -634,8 +634,7 @@
           "motion",
           "animation",
           "effects",
-          "interactive",
-          "framer-motion"
+          "interactive"
         ]
       }
     },
@@ -1144,7 +1143,7 @@
         {
           "path": "registry/default/lib/utils.ts",
           "type": "registry:lib",
-          "target": "lib/utils"
+          "target": "lib/utils.ts"
         }
       ],
       "dependencies": [

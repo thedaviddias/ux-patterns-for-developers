@@ -15,15 +15,15 @@ import { Button } from "@/ui/button";
 export default function ButtonIconLeft() {
 	return (
 		<div className="flex flex-wrap gap-2">
-			<Button>
+			<Button type="button">
 				<Mail className="h-4 w-4" />
 				Send Email
 			</Button>
-			<Button variant="outline">
+			<Button variant="outline" type="button">
 				<Save className="h-4 w-4" />
 				Save Document
 			</Button>
-			<Button variant="soft">
+			<Button variant="soft" type="button">
 				<Upload className="h-4 w-4" />
 				Upload File
 			</Button>

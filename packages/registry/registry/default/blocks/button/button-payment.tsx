@@ -18,6 +18,7 @@ export default function ButtonPayment() {
 			{/* Primary payment methods */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="solid"
 					size="md"
 					hoverEffect="lift"
@@ -28,6 +29,7 @@ export default function ButtonPayment() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="md"
 					hoverEffect="lift"
@@ -52,6 +54,7 @@ export default function ButtonPayment() {
 				</Button>
 
 				<Button
+					type="button"
 					variant="solid"
 					size="md"
 					hoverEffect="lift"
@@ -79,6 +82,7 @@ export default function ButtonPayment() {
 			{/* Checkout button */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="success"
 					size="md"
 					wide
@@ -93,6 +97,7 @@ export default function ButtonPayment() {
 			{/* Modern alternative */}
 			<div className="flex flex-wrap gap-2">
 				<Button
+					type="button"
 					variant="outline"
 					size="md"
 					wide

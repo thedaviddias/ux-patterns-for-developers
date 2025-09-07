@@ -9,7 +9,7 @@ export const registryItemFileSchema = z.object({
 		"registry:component",
 		"registry:block",
 		"registry:page",
-	]),
+	]).optional(),
 	target: z.string().optional(),
 	content: z.string().optional(),
 });
@@ -24,9 +24,12 @@ export const registryItemSchema = z.object({
 		"registry:block",
 		"registry:page",
 	]),
+	title: z.string().optional(),
+	author: z.string().optional(),
 	description: z.string().optional(),
 	dependencies: z.array(z.string()).default([]),
 	registryDependencies: z.array(z.string()).default([]),
+	categories: z.array(z.string()).default([]),
 	files: z.array(registryItemFileSchema),
 	component: z.any().optional(),
 	meta: z

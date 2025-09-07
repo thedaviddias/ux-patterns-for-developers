@@ -15,22 +15,22 @@ import { Button } from "@/ui/button";
 export default function ButtonIconOnly() {
 	return (
 		<div className="flex flex-wrap gap-2">
-			<Button aria-label="Save">
+			<Button aria-label="Save" type="button">
 				<Save className="h-4 w-4" />
 			</Button>
-			<Button aria-label="Delete">
+			<Button aria-label="Delete" type="button">
 				<Trash2 className="h-4 w-4" />
 			</Button>
-			<Button aria-label="Edit">
+			<Button aria-label="Edit" type="button">
 				<Edit className="h-4 w-4" />
 			</Button>
-			<Button aria-label="Settings" variant="outline">
+			<Button aria-label="Settings" variant="outline" type="button">
 				<Settings className="h-4 w-4" />
 			</Button>
-			<Button aria-label="Share" variant="ghost">
+			<Button aria-label="Share" variant="ghost" type="button">
 				<Share2 className="h-4 w-4" />
 			</Button>
-			<Button aria-label="Favorite" variant="soft">
+			<Button aria-label="Favorite" variant="soft" type="button">
 				<Heart className="h-4 w-4" />
 			</Button>
 		</div>

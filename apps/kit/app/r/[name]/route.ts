@@ -1,6 +1,14 @@
 import { readdir, readFile } from "fs/promises";
 import { type NextRequest, NextResponse } from "next/server";
-import { join } from "path";
+import { join, resolve } from "path";
+
+// Validate component name to prevent path traversal and invalid characters
+function validateComponentName(name: string): boolean {
+	// Only allow alphanumeric characters, hyphens, and underscores
+	// No dots, slashes, or other potentially dangerous characters
+	const validNameRegex = /^[a-zA-Z0-9_-]+$/;
+	return validNameRegex.test(name);
+}
 
 type RegistryParams = {
 	params: Promise<{ name: string }>;
@@ -46,6 +54,14 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 		// Remove .json extension to get the component name
 		const componentName = rawName.replace(/\.json$/, "");
 
+		// Validate component name to prevent path traversal
+		if (!validateComponentName(componentName)) {
+			return NextResponse.json(
+				{ error: "Invalid component name. Only alphanumeric characters, hyphens, and underscores are allowed." },
+				{ status: 400 },
+			);
+		}
+
 		// Handle registry index request
 		if (componentName === "registry") {
 			const response: RegistrySchema = {
@@ -56,24 +72,20 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 			};
 
 			// Read all component files from the registry directory
-			const registryDir = join(
-				process.cwd(),
-				"../..",
-				"packages/registry/public/r",
-			);
+			const registryDir =
+				process.env.REGISTRY_DIR ??
+				resolve(process.cwd(), "../..", "packages/registry/public/r");
 
 			try {
 				const files = await readdir(registryDir);
 				const jsonFiles = files.filter((file) => file.endsWith(".json"));
 
-				for (const file of jsonFiles) {
-					try {
+				const results = await Promise.allSettled(
+					jsonFiles.map(async (file) => {
 						const filePath = join(registryDir, file);
 						const content = await readFile(filePath, "utf-8");
 						const componentData = JSON.parse(content);
-
-						// Extract relevant metadata for the registry index
-						response.items.push({
+						return {
 							name: componentData.name,
 							type: componentData.type,
 							title: componentData.title,
@@ -84,17 +96,25 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 							registryDependencies: componentData.registryDependencies,
 							categories: componentData.categories,
 							files:
-								componentData.files?.map((file: any) => ({
-									path: file.path,
-									type: file.type,
-									target: file.target,
+								componentData.files?.map((f: any) => ({
+									path: f.path,
+									type: f.type,
+									target: f.target,
 								})) || [],
 							meta: componentData.meta,
-						});
-					} catch {}
+						};
+					}),
+				);
+				for (const r of results) {
+					if (r.status === "fulfilled") response.items.push(r.value);
+					// optional: console.debug("Skipped registry item:", r.reason);
 				}
 
-				return NextResponse.json(response);
+				return NextResponse.json(response, {
+					headers: {
+						"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
+					},
+				});
 			} catch {
 				return NextResponse.json(
 					{ error: "Failed to read registry directory" },
@@ -115,12 +135,14 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 			const componentData = await readFile(componentPath, "utf-8");
 			const parsedData = JSON.parse(componentData);
 			return NextResponse.json(parsedData);
-		} catch (error) {
-			// File doesn't exist or is invalid JSON
-			return NextResponse.json(
-				{ error: "Component not found" },
-				{ status: 404 },
-			);
+		} catch (error: any) {
+			if (error?.code === "ENOENT") {
+				return NextResponse.json({ error: "Component not found" }, { status: 404 });
+			}
+			if (error instanceof SyntaxError) {
+				return NextResponse.json({ error: "Invalid component JSON" }, { status: 500 });
+			}
+			return NextResponse.json({ error: "Failed to load component" }, { status: 500 });
 		}
 	} catch (error) {
 		console.error("Registry API error:", error);

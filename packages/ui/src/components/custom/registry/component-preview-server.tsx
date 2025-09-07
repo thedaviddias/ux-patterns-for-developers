@@ -4,7 +4,7 @@ import * as React from "react";
 import { CodeDisplayServer } from "./code-display-server";
 import { ComponentWrapper } from "./component-wrapper";
 
-interface ComponentPreviewServerProps
+export interface ComponentPreviewServerProps
 	extends React.HTMLAttributes<HTMLDivElement> {
 	name: string;
 	align?: "center" | "start" | "end";

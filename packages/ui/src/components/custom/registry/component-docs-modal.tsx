@@ -8,7 +8,6 @@ import {
 	DialogContent,
 	DialogHeader,
 	DialogTitle,
-	DialogTrigger,
 } from "@ux-patterns/ui/components/shadcn/dialog";
 import {
 	Tooltip,
@@ -47,19 +46,15 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 			setCopied(type);
 			setTimeout(() => setCopied(null), 2000);
 
-			// Track install command copy
-			if (type in commands) {
+			// Track copy events
+			if (type.startsWith("install-")) {
+				const pm = type.slice("install-".length);
 				plausible("Install Command Copy", {
-					props: {
-						package_manager: type,
-						component_name: name,
-					},
+					props: { package_manager: pm, component_name: name },
 				});
-			} else if (type === "raw") {
+			} else if (type === "code") {
 				plausible("Component Raw Code Copy", {
-					props: {
-						component_name: name,
-					},
+					props: { component_name: name },
 				});
 			}
 		} catch (err) {
@@ -103,11 +98,12 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 			<TooltipProvider delayDuration={0}>
 				<Tooltip>
 					<TooltipTrigger asChild>
-						<Button
-							variant="ghost"
-							size="sm"
-							className="h-8 gap-1 rounded-[6px] px-3 text-xs dark:text-white text-black bg:text-white hover:bg-black hover:text-white bg-transparent cursor-pointer"
-							onClick={() => {
+					<Button
+						variant="ghost"
+						size="sm"
+						className="h-8 gap-1 rounded-[6px] px-3 text-xs text-black dark:text-white hover:bg-black hover:text-white bg-transparent cursor-pointer"
+						aria-label="Open source code"
+						onClick={() => {
 								setOpen(true);
 								plausible("Component Docs Modal Open", {
 									props: {

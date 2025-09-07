@@ -6,7 +6,7 @@
 		"moduleResolution": "bundler",
 		"paths": {
 			"@/registry/*": ["./registry/default/*"],
-			"@/ui/*": ["./registry/default/ui/*"],
+			"@/components/ui/*": ["./registry/default/ui/*"],
 			"@/lib/*": ["./registry/default/lib/*"]
 		}
 	},

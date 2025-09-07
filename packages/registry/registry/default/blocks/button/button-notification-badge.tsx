@@ -23,7 +23,7 @@ export default function ButtonNotificationBadge() {
 		<div className="flex flex-col gap-4">
 			{/* Basic badges */}
 			<div className="flex flex-wrap gap-2">
-				<Button aria-label="Messages, 12 new">
+				<Button aria-label="Messages, 12 new" type="button">
 					Messages
 					<span
 						className="ml-2 inline-flex h-5 select-none items-center justify-center rounded-full bg-primary-foreground/20 px-2 py-0.5 text-xs font-medium text-primary-foreground"
@@ -32,7 +32,7 @@ export default function ButtonNotificationBadge() {
 						12
 					</span>
 				</Button>
-				<Button variant="outline">
+				<Button variant="outline" type="button">
 					Notifications
 					<span className="sr-only">, 3 unread</span>
 					<span
@@ -42,7 +42,7 @@ export default function ButtonNotificationBadge() {
 						3
 					</span>
 				</Button>
-				<Button variant="soft" aria-describedby={updatesNewId}>
+				<Button variant="soft" aria-describedby={updatesNewId} type="button">
 					Updates
 					<span
 						id={updatesNewId}
@@ -57,6 +57,7 @@ export default function ButtonNotificationBadge() {
 			<div className="flex flex-wrap gap-2">
 				{/* Icon with badge */}
 				<Button
+					type="button"
 					variant="outline"
 					size="sm"
 					aria-label={`Notifications${notifications > 0 ? ` (${notifications})` : ""}`}
@@ -65,9 +66,9 @@ export default function ButtonNotificationBadge() {
 					sound="subtle"
 					className="relative h-9 w-9 p-0"
 				>
-					<Bell className="h-4 w-4" />
+					<Bell className="h-4 w-4" aria-hidden="true" />
 					{notifications > 0 && (
-						<span className="absolute -top-2 left-full -translate-x-1/2 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+						<span className="absolute -top-2 left-full -translate-x-1/2 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white" aria-hidden="true">
 							{notifications > 99 ? "99+" : notifications}
 						</span>
 					)}
@@ -75,6 +76,7 @@ export default function ButtonNotificationBadge() {
 
 				{/* Pulsing notification */}
 				<Button
+					type="button"
 					variant="soft"
 					aria-label="Updates available"
 					className="relative"
@@ -87,7 +89,7 @@ export default function ButtonNotificationBadge() {
 				</Button>
 
 				{/* Warning badge */}
-				<Button variant="warning" haptics="medium">
+				<Button variant="warning" haptics="medium" type="button">
 					<AlertTriangle className="h-4 w-4" />
 					Action Required
 					<span className="ml-2 inline-flex h-5 items-center justify-center rounded-full bg-red-500 px-2 text-[10px] font-bold text-white">
