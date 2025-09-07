@@ -79,53 +79,36 @@ This project is built with **Next.js**, using **TypeScript** and **Tailwind CSS*
   </Step>
 
   <Step>
-    ### Install required dependencies
+    ### Install utilities
 
-    Install the icon library and utility packages used by UP Kit components:
+    If the `libs/utils.ts` file is not present in your project, you can install it using the following command:
 
     <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
       <Tab value="pnpm">
         ```bash
-        pnpm add lucide-react clsx tailwind-merge
+        pnpm dlx shadcn@latest add https://kit.uxpatterns.dev/r/utils.json
         ```
       </Tab>
       <Tab value="npm">
         ```bash
-        npm install lucide-react clsx tailwind-merge
+        npx shadcn@latest add https://kit.uxpatterns.dev/r/utils.json
         ```
       </Tab>
       <Tab value="bun">
         ```bash
-        bun add lucide-react clsx tailwind-merge
+        bunx shadcn@latest add https://kit.uxpatterns.dev/r/utils.json
         ```
       </Tab>
       <Tab value="yarn">
         ```bash
-        yarn add lucide-react clsx tailwind-merge
+        yarn dlx shadcn@latest add https://kit.uxpatterns.dev/r/utils.json
         ```
       </Tab>
     </Tabs>
   </Step>
 
   <Step>
-    ### Add the cn utility
-
-    Add this utility function for conditionally applying Tailwind CSS classes:
-
-    ```ts title="lib/utils.ts"
-    import { clsx, type ClassValue } from 'clsx'
-    import { twMerge } from 'tailwind-merge'
-
-    export function cn(...inputs: ClassValue[]) {
-      return twMerge(clsx(inputs))
-    }
-    ```
-
-    This utility is likely already created if you've initialized shadcn/ui.
-  </Step>
-
-  <Step>
-    ### Configure namespaced registries (Optional)
+    ### Configure namespaced registries (Recommended)
 
     For a cleaner installation experience, you can configure namespaced registries in your `components.json` file. This allows you to use `@namespace/component` syntax instead of full URLs.
 
@@ -179,22 +162,22 @@ This project is built with **Next.js**, using **TypeScript** and **Tailwind CSS*
         <Tabs items={['pnpm', 'npm', 'bun', 'yarn']}>
             <Tab value="pnpm">
             ```bash
-            pnpm dlx shadcn@latest add @upkit/button
+            pnpm dlx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
             ```
             </Tab>
             <Tab value="npm">
             ```bash
-            npx shadcn@latest add @upkit/button
+            npx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
             ```
             </Tab>
             <Tab value="bun">
             ```bash
-            bunx shadcn@latest add @upkit/button
+            bunx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
             ```
             </Tab>
             <Tab value="yarn">
             ```bash
-            yarn dlx shadcn@latest add @upkit/button
+            yarn dlx shadcn@latest add https://kit.uxpatterns.dev/r/button.json
             ```
             </Tab>
         </Tabs>
@@ -204,7 +187,7 @@ This project is built with **Next.js**, using **TypeScript** and **Tailwind CSS*
     Then import and use the components in your project:
 
     ```tsx title="app/page.tsx"
-    import { Button } from "@/ui/button"
+    import { Button } from "@component/upkit/button"
 
     export default function HomePage() {
       return (
