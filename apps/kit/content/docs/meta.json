@@ -5,8 +5,11 @@
 		"---Getting Started---",
 		"index",
 		"installation",
-		"cli",
-		"---Components---",
-		"...components"
+		"---Input & Forms---",
+		"../components/button",
+    "---Layout & Navigation---",
+    "../components/load-more",
+    "---Content Management---",
+    "../components/expandable-text"
 	]
 }

@@ -2,12 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-loading-states",
   "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-loading-states.tsx",
-      "content": "\"use client\";\n\nimport { Loader2 } from \"lucide-react\";\nimport { useState } from \"react\";\nimport { Button } from \"../ui/button\";\n\nexport default function ButtonLoadingStates() {\n\tconst [isLoading, setIsLoading] = useState(false);\n\n\tconst handleClick = () => {\n\t\tsetIsLoading(true);\n\t\tsetTimeout(() => setIsLoading(false), 2000);\n\t};\n\n\treturn (\n\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t<Button onClick={handleClick} disabled={isLoading}>\n\t\t\t\t{isLoading && <Loader2 className=\"h-4 w-4 animate-spin\" />}\n\t\t\t\t{isLoading ? \"Saving...\" : \"Save Changes\"}\n\t\t\t</Button>\n\n\t\t\t<Button disabled>\n\t\t\t\t<Loader2 className=\"h-4 w-4 animate-spin\" />\n\t\t\t\tProcessing...\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-loading-states.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonLoadingStates() {\n\tconst [isLoading, setIsLoading] = useState(false);\n\n\tconst handleClick = () => {\n\t\tsetIsLoading(true);\n\t\tsetTimeout(() => setIsLoading(false), 2000);\n\t};\n\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Button \n\t\t\t\t\tstate={isLoading ? \"loading\" : \"idle\"} \n\t\t\t\t\tonClick={handleClick}\n\t\t\t\t\tloadingType=\"spinner\"\n\t\t\t\t>\n\t\t\t\t\tSave Changes\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"loading\" loadingType=\"spinner\">\n\t\t\t\t\tLoading Spinner\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"loading\" loadingType=\"dots\">\n\t\t\t\t\tLoading Dots\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Button state=\"loading\" loadingText=\"Processing...\">\n\t\t\t\t\tCustom Loading Text\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"success\" successText=\"Saved!\">\n\t\t\t\t\tSuccess State\n\t\t\t\t</Button>\n\t\t\t\t<Button state=\"error\" errorText=\"Failed\">\n\t\t\t\t\tError State\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
       "type": "registry:block"
     }
   ],

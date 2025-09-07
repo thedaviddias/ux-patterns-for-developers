@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
+import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 	const params = await props.params;
@@ -21,6 +22,13 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 		<DocsPage toc={page.data.toc} full={page.data.full}>
 			<DocsTitle>{page.data.title}</DocsTitle>
 			<DocsDescription>{page.data.description}</DocsDescription>
+			<div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+				<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+				<ViewOptions
+					markdownUrl={`${page.url}.mdx`}
+					githubUrl={`https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/apps/kit/content/docs/${page.path}`}
+				/>
+			</div>
 			<DocsBody>
 				<MDXContent
 					components={getMDXComponents({

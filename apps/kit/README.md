@@ -60,7 +60,7 @@ registry/
 ### Adding New Components
 
 1. Create your component file in the appropriate directory:
-   - `registry/default/ui/` for base UI components
+   - `registry/default/components/upkit/` for base UI components
    - `registry/default/components/` for complex components
    - `registry/default/blocks/` for page sections
 
@@ -90,7 +90,7 @@ registry/
 Visit `/examples` to see components in action, or use them in your code:
 
 ```tsx
-import { Button } from "@/registry/default/ui/button"
+import { Button } from "@/registry/default/components/upkit/button"
 import InputBasic from "@/registry/default/components/input-basic"
 
 export default function MyPage() {

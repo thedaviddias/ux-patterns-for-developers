@@ -5,7 +5,10 @@
 		"paths": {
 			"@/.source": ["./.source/index.ts"],
 			"@/*": ["./*"],
-			"@ux-patterns/*": ["../../packages/*"]
+			"@ux-patterns/*": ["../../packages/*"],
+			"@/components/upkit/*": ["../../packages/registry/registry/default/ui/*"],
+			"@/registry/*": ["../../packages/registry/registry/default/*"],
+			"@/ui/*": ["../../packages/registry/registry/default/ui/*"]
 		},
 		"skipLibCheck": true
 	},

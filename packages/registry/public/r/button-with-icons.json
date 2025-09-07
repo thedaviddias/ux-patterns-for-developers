@@ -2,12 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-with-icons",
   "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-with-icons.tsx",
-      "content": "import {\n\tChevronRight,\n\tDownload,\n\tEdit,\n\tHeart,\n\tPlus,\n\tShare,\n\tTrash2,\n} from \"lucide-react\";\nimport { Button } from \"../ui/button\";\n\nexport default function ButtonWithIcons() {\n\treturn (\n\t\t<div className=\"space-y-6\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Icon on the Left</span>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button type=\"button\">\n\t\t\t\t\t\t<Plus className=\"h-4 w-4\" />\n\t\t\t\t\t\tAdd Item\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" type=\"button\">\n\t\t\t\t\t\t<Heart className=\"h-4 w-4\" />\n\t\t\t\t\t\tLike\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Icon on the Right</span>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button type=\"button\">\n\t\t\t\t\t\tContinue\n\t\t\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" type=\"button\">\n\t\t\t\t\t\tDownload\n\t\t\t\t\t\t<Download className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<span className=\"text-sm font-medium\">Icon Only</span>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button size=\"icon\" type=\"button\">\n\t\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" size=\"icon\" type=\"button\">\n\t\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"ghost\" size=\"icon\" type=\"button\">\n\t\t\t\t\t\t<Share className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-with-icons.tsx",
+      "content": "import { Plus, Heart, ChevronRight, Download, Edit, Trash, Share2 } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithIcons() {\n\treturn (\n\t\t<div className=\"space-y-6\">\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Icon on the Left</h4>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button>\n\t\t\t\t\t\t<Plus className=\"h-4 w-4\" />\n\t\t\t\t\t\tAdd Item\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\t\t<Heart className=\"h-4 w-4\" />\n\t\t\t\t\t\tLike\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Icon on the Right</h4>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button>\n\t\t\t\t\t\tContinue\n\t\t\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\t\tDownload\n\t\t\t\t\t\t<Download className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div className=\"space-y-2\">\n\t\t\t\t<h4 className=\"text-sm font-medium\">Icon Only</h4>\n\t\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t\t<Button aria-label=\"Edit\">\n\t\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"outline\" aria-label=\"Delete\">\n\t\t\t\t\t\t<Trash className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button variant=\"ghost\" aria-label=\"Share\">\n\t\t\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

@@ -2,12 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-double-icon",
   "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-double-icon.tsx",
-      "content": "import { ArrowRight, Mail } from \"lucide-react\";\nimport { Button } from \"../ui/button\";\n\nexport default function ButtonDoubleIcon() {\n\treturn (\n\t\t<Button>\n\t\t\t<Mail className=\"h-4 w-4\" />\n\t\t\tSend Email\n\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t</Button>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-double-icon.tsx",
+      "content": "import { Mail, ArrowRight, Download, ExternalLink, Lock, ChevronRight } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonDoubleIcon() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\t<Mail className=\"h-4 w-4\" />\n\t\t\t\tSend Email\n\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\t<Download className=\"h-4 w-4\" />\n\t\t\t\tExport PDF\n\t\t\t\t<ExternalLink className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"soft\">\n\t\t\t\t<Lock className=\"h-4 w-4\" />\n\t\t\t\tView Details\n\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
       "type": "registry:block"
     }
   ],

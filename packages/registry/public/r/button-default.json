@@ -3,11 +3,13 @@
   "name": "button-default",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-default.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonDefault() {\n\treturn <Button type=\"button\">Default</Button>;\n}\n",
+      "path": "registry/default/blocks/button/button-default.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonDefault() {\n\treturn <Button>Default Button</Button>;\n}",
       "type": "registry:block"
     }
   ],

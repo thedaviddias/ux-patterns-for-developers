@@ -1,7 +1,7 @@
 "use client";
 
+import { Index } from "@ux-patterns/registry/.generated";
 import { Icons } from "@ux-patterns/ui/components/custom/icons";
-import { buildLocalRegistryUrl } from "@ux-patterns/ui/constants/urls";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import * as React from "react";
 import undent from "undent";
@@ -22,7 +22,9 @@ function formatJSX(jsxCode: string): string {
 	let depth = 0;
 
 	for (let i = 0; i < lines.length; i++) {
-		const trimmed = lines[i].trim();
+		const line = lines[i];
+		if (line === undefined) continue;
+		const trimmed = line.trim();
 
 		if (trimmed === "") {
 			result.push("");
@@ -30,8 +32,8 @@ function formatJSX(jsxCode: string): string {
 		}
 
 		// Count tag changes on this line
-		const openingTags = (trimmed.match(/<[A-Za-z][^>]*>/g) || []).filter(
-			(tag) => !tag.endsWith("/>"),
+		const openingTags = (trimmed.match(/<[A-Za-z][^>]*>/g) || [] as string[]).filter(
+			(tag: string) => !tag.endsWith("/>"),
 		).length;
 		const closingTags = (trimmed.match(/<\/[^>]*>/g) || []).length;
 		const fragments = (trimmed.match(/<>/g) || []).length;
@@ -152,7 +154,7 @@ function extractJSXFromComponent(code: string): string | null {
 		const jsxMatch = content.match(
 			/return\s*(?:\(\s*)?([\s\S]*?)(?:\s*\))?\s*;?\s*}?\s*$/,
 		);
-		if (!jsxMatch) {
+		if (!jsxMatch || !jsxMatch[1]) {
 			return null;
 		}
 
@@ -180,59 +182,51 @@ export function CodeDisplay({
 	const [loading, setLoading] = React.useState(true);
 
 	React.useEffect(() => {
-		const fetchCode = async () => {
+		const loadCode = () => {
 			try {
-				if (showHTML) {
-					// Convert JSX to HTML-like syntax
-					const response = await fetch(buildLocalRegistryUrl(name));
-					if (response.ok) {
-						const registryData = await response.json();
-						const fullContent = registryData.files?.[0]?.content;
-						if (fullContent) {
-							// First extract JSX
+				// Get the source code from the bundled index
+				const registryItem = Index[name];
+				const fullContent = registryItem?.source;
+				
+				if (fullContent) {
+					if (showHTML) {
+						// First extract JSX
+						const jsxContent = extractJSXFromComponent(fullContent);
+
+						if (jsxContent) {
+							// Convert JSX to HTML-like syntax
+							const htmlLike = convertJSXToHTML(jsxContent);
+
+							// Format the HTML
+							const formattedHTML = formatHTML(htmlLike);
+
+							setCodeContent(formattedHTML);
+						} else {
+							setCodeContent(
+								`<!-- Could not extract JSX from component ${name} -->`,
+							);
+						}
+					} else {
+						if (extractJSX) {
+							// Extract only the JSX part
 							const jsxContent = extractJSXFromComponent(fullContent);
-
-							if (jsxContent) {
-								// Convert JSX to HTML-like syntax
-								const htmlLike = convertJSXToHTML(jsxContent);
-
-								// Format the HTML
-								const formattedHTML = formatHTML(htmlLike);
-
-								setCodeContent(formattedHTML);
-							} else {
-								setCodeContent(
-									`<!-- Could not extract JSX from component ${name} -->`,
-								);
-							}
+							setCodeContent(jsxContent || fullContent); // Fallback to full content if extraction fails
+						} else {
+							// Show full component code
+							setCodeContent(fullContent);
 						}
 					}
 				} else {
-					// Show JSX or full component code
-					const response = await fetch(buildLocalRegistryUrl(name));
-					if (response.ok) {
-						const registryData = await response.json();
-						const fullContent = registryData.files?.[0]?.content;
-						if (fullContent) {
-							if (extractJSX) {
-								// Extract only the JSX part
-								const jsxContent = extractJSXFromComponent(fullContent);
-								setCodeContent(jsxContent || fullContent); // Fallback to full content if extraction fails
-							} else {
-								// Show full component code
-								setCodeContent(fullContent);
-							}
-						}
-					}
+					console.error(`No source code found for ${name} in registry index`);
 				}
 			} catch (error) {
-				console.error(`Failed to fetch code for ${name}:`, error);
+				console.error(`Failed to load code for ${name}:`, error);
 			} finally {
 				setLoading(false);
 			}
 		};
 
-		fetchCode();
+		loadCode();
 	}, [name, extractJSX, showHTML]);
 
 	if (loading) {

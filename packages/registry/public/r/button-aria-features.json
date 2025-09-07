@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-aria-features",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/button/button-aria-features.tsx",
+      "content": "\"use client\";\n\nimport { Save, Trash2, Edit, Share2 } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonAriaFeatures() {\n\treturn (\n\t\t<div className=\"space-y-4\">\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-label=\"Save document\">\n\t\t\t\t\t<Save className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Delete item\">\n\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Edit content\">\n\t\t\t\t\t<Edit className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-label=\"Share post\">\n\t\t\t\t\t<Share2 className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-disabled=\"true\">ARIA Disabled</Button>\n\t\t\t\t<Button announceChanges state=\"loading\">\n\t\t\t\t\tWith Screen Reader Announcements\n\t\t\t\t</Button>\n\t\t\t\t<Button aria-busy=\"true\">\n\t\t\t\t\tARIA Busy State\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button \n\t\t\t\t\taria-describedby=\"help-text\"\n\t\t\t\t\ttooltipWhenDisabled=\"Feature coming soon\"\n\t\t\t\t>\n\t\t\t\t\tWith Description\n\t\t\t\t</Button>\n\t\t\t\t<span id=\"help-text\" className=\"sr-only\">\n\t\t\t\t\tThis button saves your current progress\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</div>\n\t);\n}",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

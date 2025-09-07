@@ -146,6 +146,11 @@ end
 - Prevents multiple clicks during loading
 - Typically uses a spinner or progress indicator
 - Add loading text alongside spinners (e.g., "Saving..." vs just a spinner)
+- **Responsive considerations**: When button text is hidden on mobile (icon-only), preserve context through:
+  - Keep the icon visible with an inline spinner overlay
+  - Use `aria-live` regions to announce status changes
+  - Consider tooltips or micro-animations to indicate what's loading
+  - Maintain `aria-label` that includes the action being performed
 
 5. **Visual States**
 
@@ -279,9 +284,18 @@ end
 10. **Loading States**
 
     ```html
+    <!-- Standard loading with text -->
     <button type="button" aria-busy="true">
       <svg class="spinner" aria-hidden="true">...</svg>
       <span>Loading...</span>
+    </button>
+    
+    <!-- Responsive: Icon-only on mobile with preserved context -->
+    <button type="button" aria-busy="true" aria-label="Save document">
+      <svg class="icon-save" aria-hidden="true">...</svg>
+      <span class="text-desktop-only">Save</span>
+      <svg class="spinner-overlay" aria-hidden="true">...</svg>
+      <span class="sr-only">Saving...</span>
     </button>
     ```
 
@@ -390,6 +404,9 @@ Each variation can be combined with different visual styles (primary, secondary,
 - Include loading states for asynchronous actions
 - Don't pass the `disabled` attribute to buttons, instead use `aria-disabled`. You would risk disrupting the keyboard navigation flow as this would reset focus on the button.
 - Use descriptive loading states with both text and visual indicators
+- When buttons become icon-only on mobile, maintain context during loading with `aria-live` announcements
+- Preserve the original icon during loading states for icon-only buttons
+- Use `aria-busy="true"` during async operations to inform assistive technologies
 
 **Don'ts ❌**
 
@@ -423,6 +440,8 @@ Each variation can be combined with different visual styles (primary, secondary,
 - Don't use inconsistent corner radius within button groups
 - Avoid having buttons looking like links or vice versa
 - Don't use spinners without descriptive text
+- Don't replace icon-only buttons entirely with spinners—keep the icon visible for context
+- Don't assume loading indicators alone convey what's happening on mobile devices
 
 ### Mobile & Touch Considerations
 
@@ -432,6 +451,9 @@ Each variation can be combined with different visual styles (primary, secondary,
 - Use full-width buttons for important actions on mobile
 - Implement haptic feedback for touch interactions
 - Maintain sufficient spacing between [touch targets](/glossary/touch-targets) (minimum 8px)
+- For icon-only buttons on mobile, keep the icon visible during loading with inline spinners
+- Provide status feedback through subtle animations or micro-interactions when text is hidden
+- Consider using `aria-live` regions for important state changes in icon-only buttons
 
 **Don'ts ❌**
 

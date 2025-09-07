@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-preview",
+  "type": "registry:block",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/button/button-preview.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Settings, Mail, ArrowRight } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonPreview() {\n\tconst [loadingState, setLoadingState] = useState<\"idle\" | \"loading\" | \"success\" | \"error\">(\"idle\");\n\n\tconst handleAsyncAction = async () => {\n\t\tsetLoadingState(\"loading\");\n\t\tawait new Promise((resolve) => setTimeout(resolve, 1500));\n\t\tsetLoadingState(\"success\");\n\t\tsetTimeout(() => setLoadingState(\"idle\"), 1500);\n\t};\n\n\treturn (\n\t\t<div className=\"grid gap-6\">\n\t\t\t{/* Primary Showcase */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button>Get Started</Button>\n\t\t\t\t<Button variant=\"outline\">Learn More</Button>\n\t\t\t\t<Button variant=\"ghost\">Documentation</Button>\n\t\t\t\t<Button variant=\"soft\">Explore</Button>\n\t\t\t</div>\n\n\t\t\t{/* Interactive States */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\tstate={loadingState}\n\t\t\t\t\tonClick={handleAsyncAction}\n\t\t\t\t\tloadingText=\"Processing...\"\n\t\t\t\t\tsuccessText=\"Done!\"\n\t\t\t\t>\n\t\t\t\t\tTry Me\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"danger\">Delete</Button>\n\t\t\t\t<Button variant=\"success\">Confirm</Button>\n\t\t\t\t<Button disabled>Disabled</Button>\n\t\t\t</div>\n\n\t\t\t{/* Sizes & Effects */}\n\t\t\t<div className=\"flex flex-wrap items-center gap-2\">\n\t\t\t\t<Button size=\"xs\" clickEffect=\"scale\">Extra Small</Button>\n\t\t\t\t<Button size=\"sm\" clickEffect=\"ripple\">Small Ripple</Button>\n\t\t\t\t<Button size=\"md\" variant=\"soft\">Soft</Button>\n\t\t\t\t<Button size=\"lg\" variant=\"outline\">Large Outline</Button>\n\t\t\t</div>\n\n\t\t\t{/* With Icons & Features */}\n\t\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t\t<Button aria-label=\"Settings\">\n\t\t\t\t\t<Settings className=\"h-4 w-4\" />\n\t\t\t\t</Button>\n\t\t\t\t<Button>\n\t\t\t\t\t<Mail className=\"h-4 w-4\" />\n\t\t\t\t\tSend Email\n\t\t\t\t</Button>\n\t\t\t\t<Button asChild variant=\"link\">\n\t\t\t\t\t<a href=\"#features\" className=\"no-underline\">\n\t\t\t\t\t\tView Features\n\t\t\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t\t\t</a>\n\t\t\t\t</Button>\n\t\t\t\t<Button variant=\"outline\">\n\t\t\t\t\tStar\n\t\t\t\t\t<span className=\"ml-2 rounded bg-primary/10 px-1.5 py-0.5 text-xs\">\n\t\t\t\t\t\t2.3k\n\t\t\t\t\t</span>\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

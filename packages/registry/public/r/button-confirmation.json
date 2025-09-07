@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-confirmation",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react",
+    "react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/button/button-confirmation.tsx",
+      "content": "\"use client\";\n\nimport { Trash2, AlertTriangle, Check, X } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\nimport { useState } from \"react\";\n\nexport default function ButtonConfirmation() {\n\tconst [deleteState, setDeleteState] = useState<\"idle\" | \"confirming\">(\"idle\");\n\tconst [archiveState, setArchiveState] = useState<\"idle\" | \"confirming\">(\"idle\");\n\n\treturn (\n\t\t<div className=\"flex flex-col gap-4\">\n\t\t\t{/* Delete with confirmation */}\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t{deleteState === \"idle\" ? (\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"danger\"\n\t\t\t\t\t\tonClick={() => setDeleteState(\"confirming\")}\n\t\t\t\t\t\thaptics=\"medium\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\t\t\tDelete\n\t\t\t\t\t</Button>\n\t\t\t\t) : (\n\t\t\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t\t\t<span className=\"text-sm font-medium\">Are you sure?</span>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"danger\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\t// Perform delete action\n\t\t\t\t\t\t\t\tsetDeleteState(\"idle\");\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t\thaptics=\"heavy\"\n\t\t\t\t\t\t\tsound=\"click\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<Check className=\"h-4 w-4\" />\n\t\t\t\t\t\t\tYes, delete\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => setDeleteState(\"idle\")}\n\t\t\t\t\t\t\thaptics=\"light\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<X className=\"h-4 w-4\" />\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</div>\n\t\t\t\t)}\n\t\t\t</div>\n\n\t\t\t{/* Archive with inline confirmation */}\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t{archiveState === \"idle\" ? (\n\t\t\t\t\t<Button\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tonClick={() => setArchiveState(\"confirming\")}\n\t\t\t\t\t\thaptics=\"light\"\n\t\t\t\t\t>\n\t\t\t\t\t\tArchive Item\n\t\t\t\t\t</Button>\n\t\t\t\t) : (\n\t\t\t\t\t<div className=\"inline-flex rounded-lg border border-amber-200 bg-amber-50 p-1 dark:border-amber-900 dark:bg-amber-950\">\n\t\t\t\t\t\t<span className=\"flex items-center px-2 text-sm text-amber-800 dark:text-amber-200\">\n\t\t\t\t\t\t\t<AlertTriangle className=\"mr-1 h-3 w-3\" />\n\t\t\t\t\t\t\tConfirm archive?\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"warning\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => {\n\t\t\t\t\t\t\t\t// Perform archive action\n\t\t\t\t\t\t\t\tsetArchiveState(\"idle\");\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t\thaptics=\"medium\"\n\t\t\t\t\t\t\tclassName=\"ml-1\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tArchive\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t<Button\n\t\t\t\t\t\t\tvariant=\"ghost\"\n\t\t\t\t\t\t\tsize=\"sm\"\n\t\t\t\t\t\t\tonClick={() => setArchiveState(\"idle\")}\n\t\t\t\t\t\t\thaptics=\"light\"\n\t\t\t\t\t\t\tclassName=\"ml-1\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tCancel\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</div>\n\t\t\t\t)}\n\t\t\t</div>\n\n\t\t\t{/* Long press confirmation */}\n\t\t\t<Button\n\t\t\t\tvariant=\"danger\"\n\t\t\t\tlongPress={{\n\t\t\t\t\tduration: 1000,\n\t\t\t\t\tonLongPress: () => {\n\t\t\t\t\t\tconsole.log(\"Item deleted via long press\");\n\t\t\t\t\t}\n\t\t\t\t}}\n\t\t\t\thaptics=\"heavy\"\n\t\t\t>\n\t\t\t\t<Trash2 className=\"h-4 w-4\" />\n\t\t\t\tHold to Delete\n\t\t\t</Button>\n\n\t\t\t{/* Two-step action */}\n\t\t\t<div className=\"flex items-center gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\tstate=\"idle\"\n\t\t\t\t\tonAction={async () => {\n\t\t\t\t\t\t// Simulate async action\n\t\t\t\t\t\tawait new Promise(resolve => setTimeout(resolve, 1500));\n\t\t\t\t\t}}\n\t\t\t\t\tloadingText=\"Publishing...\"\n\t\t\t\t\tsuccessText=\"Published!\"\n\t\t\t\t\thaptics=\"medium\"\n\t\t\t\t\tsound=\"click\"\n\t\t\t\t>\n\t\t\t\t\tPublish Changes\n\t\t\t\t</Button>\n\t\t\t</div>\n\n\t\t\t<p className=\"text-sm text-muted-foreground\">\n\t\t\t\tNote: For modal confirmations, combine with Dialog component\n\t\t\t</p>\n\t\t</div>\n\t);\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "tags": []
+  }
+}

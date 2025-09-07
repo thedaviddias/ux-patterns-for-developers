@@ -2,12 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-with-avatar",
   "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-with-avatar.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonWithAvatar() {\n\treturn (\n\t\t<Button variant=\"ghost\" className=\"h-auto p-2\">\n\t\t\t<img\n\t\t\t\tsrc=\"https://github.com/shadcn.png\"\n\t\t\t\talt=\"User avatar\"\n\t\t\t\tclassName=\"mr-2 h-6 w-6 rounded-full\"\n\t\t\t/>\n\t\t\t<span className=\"text-sm\">@georgelucas</span>\n\t\t</Button>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-with-avatar.tsx",
+      "content": "import { ChevronDown } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonWithAvatar() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button variant=\"ghost\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://kit.uxpatterns.dev/avatar.jpg\"\n\t\t\t\t\talt=\"User avatar\"\n\t\t\t\t\tclassName=\"h-5 w-5 rounded-full\"\n\t\t\t\t/>\n\t\t\t\t@thedaviddias\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://github.com/vercel.png\"\n\t\t\t\t\talt=\"Team avatar\"\n\t\t\t\t\tclassName=\"h-5 w-5 rounded-full\"\n\t\t\t\t/>\n\t\t\t\tVercel Team\n\t\t\t</Button>\n\t\t\t<Button variant=\"soft\">\n\t\t\t\t<span className=\"flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-xs font-bold text-white\">\n\t\t\t\t\tJD\n\t\t\t\t</span>\n\t\t\t\tJohn Doe\n\t\t\t</Button>\n\t\t\t\n\t\t\t{/* Account menu button - common in headers */}\n\t\t\t<Button \n\t\t\t\tvariant=\"ghost\" \n\t\t\t\tsize=\"sm\"\n\t\t\t\taria-label=\"Account menu\"\n\t\t\t\tclassName=\"gap-1\"\n\t\t\t>\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://kit.uxpatterns.dev/avatar.jpg\"\n\t\t\t\t\talt=\"User avatar\"\n\t\t\t\t\tclassName=\"h-6 w-6 rounded-full\"\n\t\t\t\t/>\n\t\t\t\t<ChevronDown className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
       "type": "registry:block"
     }
   ],

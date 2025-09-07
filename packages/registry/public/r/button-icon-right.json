@@ -2,12 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-icon-right",
   "type": "registry:block",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-icon-right.tsx",
-      "content": "import { ChevronRight } from \"lucide-react\";\nimport { Button } from \"../ui/button\";\n\nexport default function ButtonIconRight() {\n\treturn (\n\t\t<Button>\n\t\t\tContinue\n\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t</Button>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-icon-right.tsx",
+      "content": "import { ChevronRight, ArrowRight, ExternalLink } from \"lucide-react\";\nimport { Button } from \"@/ui/button\";\n\nexport default function ButtonIconRight() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button>\n\t\t\t\tContinue\n\t\t\t\t<ChevronRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\">\n\t\t\t\tNext Step\n\t\t\t\t<ArrowRight className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t\t<Button variant=\"link\">\n\t\t\t\tLearn More\n\t\t\t\t<ExternalLink className=\"h-4 w-4\" />\n\t\t\t</Button>\n\t\t</div>\n\t);\n}",
       "type": "registry:block"
     }
   ],

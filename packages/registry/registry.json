@@ -1,13 +1,19 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "up-kit",
-  "homepage": "https://up-kit.vercel.app",
+  "homepage": "https://kit.uxpatterns.dev",
   "items": [
     {
       "name": "button",
       "type": "registry:ui",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "class-variance-authority",
+        "motion",
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "registry/default/ui/button.tsx",
@@ -19,13 +25,74 @@
       }
     },
     {
+      "name": "button-aria-features",
+      "type": "registry:block",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-aria-features.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
       "name": "button-as-child",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-as-child.tsx",
+          "path": "registry/default/blocks/button/button-as-child.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-confirmation",
+      "type": "registry:block",
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-confirmation.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-counter-inline",
+      "type": "registry:block",
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-counter-inline.tsx",
           "type": "registry:block"
         }
       ],
@@ -37,25 +104,12 @@
       "name": "button-default",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/blocks/button-default.tsx",
-          "type": "registry:block"
-        }
+      "registryDependencies": [
+        "button"
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-demo",
-      "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
       "files": [
         {
-          "path": "registry/default/blocks/button-demo.tsx",
+          "path": "registry/default/blocks/button/button-default.tsx",
           "type": "registry:block"
         }
       ],
@@ -67,25 +121,12 @@
       "name": "button-destructive",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/blocks/button-destructive.tsx",
-          "type": "registry:block"
-        }
+      "registryDependencies": [
+        "button"
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-dialog-footer",
-      "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
       "files": [
         {
-          "path": "registry/default/blocks/button-dialog-footer.tsx",
+          "path": "registry/default/blocks/button/button-destructive.tsx",
           "type": "registry:block"
         }
       ],
@@ -97,10 +138,12 @@
       "name": "button-disabled",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-disabled.tsx",
+          "path": "registry/default/blocks/button/button-disabled.tsx",
           "type": "registry:block"
         }
       ],
@@ -111,26 +154,15 @@
     {
       "name": "button-double-icon",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/blocks/button-double-icon.tsx",
-          "type": "registry:block"
-        }
+      "dependencies": [
+        "lucide-react"
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-form-actions",
-      "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-form-actions.tsx",
+          "path": "registry/default/blocks/button/button-double-icon.tsx",
           "type": "registry:block"
         }
       ],
@@ -142,10 +174,12 @@
       "name": "button-full-width",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-full-width.tsx",
+          "path": "registry/default/blocks/button/button-full-width.tsx",
           "type": "registry:block"
         }
       ],
@@ -157,10 +191,12 @@
       "name": "button-ghost",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-ghost.tsx",
+          "path": "registry/default/blocks/button/button-ghost.tsx",
           "type": "registry:block"
         }
       ],
@@ -171,11 +207,15 @@
     {
       "name": "button-groups",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-groups.tsx",
+          "path": "registry/default/blocks/button/button-groups.tsx",
           "type": "registry:block"
         }
       ],
@@ -186,11 +226,15 @@
     {
       "name": "button-icon-left",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-icon-left.tsx",
+          "path": "registry/default/blocks/button/button-icon-left.tsx",
           "type": "registry:block"
         }
       ],
@@ -201,11 +245,15 @@
     {
       "name": "button-icon-only",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-icon-only.tsx",
+          "path": "registry/default/blocks/button/button-icon-only.tsx",
           "type": "registry:block"
         }
       ],
@@ -216,11 +264,15 @@
     {
       "name": "button-icon-right",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-icon-right.tsx",
+          "path": "registry/default/blocks/button/button-icon-right.tsx",
           "type": "registry:block"
         }
       ],
@@ -232,10 +284,12 @@
       "name": "button-link",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-link.tsx",
+          "path": "registry/default/blocks/button/button-link.tsx",
           "type": "registry:block"
         }
       ],
@@ -246,11 +300,69 @@
     {
       "name": "button-loading-states",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-loading-states.tsx",
+          "path": "registry/default/blocks/button/button-loading-states.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-long-press",
+      "type": "registry:block",
+      "dependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-long-press.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-motion-effects",
+      "type": "registry:block",
+      "dependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-motion-effects.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-notification-badge",
+      "type": "registry:block",
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-notification-badge.tsx",
           "type": "registry:block"
         }
       ],
@@ -262,10 +374,12 @@
       "name": "button-outline",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-outline.tsx",
+          "path": "registry/default/blocks/button/button-outline.tsx",
           "type": "registry:block"
         }
       ],
@@ -274,13 +388,37 @@
       }
     },
     {
-      "name": "button-secondary",
+      "name": "button-payment",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-secondary.tsx",
+          "path": "registry/default/blocks/button/button-payment.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-preview",
+      "type": "registry:block",
+      "dependencies": [
+        "react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-preview.tsx",
           "type": "registry:block"
         }
       ],
@@ -292,10 +430,12 @@
       "name": "button-sizes",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-sizes.tsx",
+          "path": "registry/default/blocks/button/button-sizes.tsx",
           "type": "registry:block"
         }
       ],
@@ -304,13 +444,17 @@
       }
     },
     {
-      "name": "button-social-login",
+      "name": "button-social",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-social-login.tsx",
+          "path": "registry/default/blocks/button/button-social.tsx",
           "type": "registry:block"
         }
       ],
@@ -319,13 +463,34 @@
       }
     },
     {
-      "name": "button-split",
+      "name": "button-soft",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-split.tsx",
+          "path": "registry/default/blocks/button/button-soft.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-states",
+      "type": "registry:block",
+      "dependencies": [
+        "react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-states.tsx",
           "type": "registry:block"
         }
       ],
@@ -337,10 +502,12 @@
       "name": "button-variants",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-variants.tsx",
+          "path": "registry/default/blocks/button/button-variants.tsx",
           "type": "registry:block"
         }
       ],
@@ -351,11 +518,15 @@
     {
       "name": "button-with-avatar",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-with-avatar.tsx",
+          "path": "registry/default/blocks/button/button-with-avatar.tsx",
           "type": "registry:block"
         }
       ],
@@ -364,28 +535,15 @@
       }
     },
     {
-      "name": "button-with-badge",
+      "name": "button-with-haptics",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/blocks/button-with-badge.tsx",
-          "type": "registry:block"
-        }
+      "registryDependencies": [
+        "button"
       ],
-      "meta": {
-        "tags": []
-      }
-    },
-    {
-      "name": "button-with-counter",
-      "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
       "files": [
         {
-          "path": "registry/default/blocks/button-with-counter.tsx",
+          "path": "registry/default/blocks/button/button-with-haptics.tsx",
           "type": "registry:block"
         }
       ],
@@ -396,11 +554,15 @@
     {
       "name": "button-with-icons",
       "type": "registry:block",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-with-icons.tsx",
+          "path": "registry/default/blocks/button/button-with-icons.tsx",
           "type": "registry:block"
         }
       ],
@@ -412,10 +574,29 @@
       "name": "button-with-keyboard-shortcut",
       "type": "registry:block",
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/default/blocks/button-with-keyboard-shortcut.tsx",
+          "path": "registry/default/blocks/button/button-with-keyboard-shortcut.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "tags": []
+      }
+    },
+    {
+      "name": "button-with-sound",
+      "type": "registry:block",
+      "dependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/button/button-with-sound.tsx",
           "type": "registry:block"
         }
       ],
@@ -426,7 +607,10 @@
     {
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": [],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": [],
       "files": [
         {

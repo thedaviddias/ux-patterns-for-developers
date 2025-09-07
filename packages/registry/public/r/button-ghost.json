@@ -3,11 +3,13 @@
   "name": "button-ghost",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-ghost.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonGhost() {\n\treturn <Button variant=\"ghost\">Ghost</Button>;\n}\n",
+      "path": "registry/default/blocks/button/button-ghost.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonGhost() {\n\treturn (\n\t\t<Button type=\"button\" variant=\"ghost\">\n\t\t\tGhost\n\t\t</Button>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

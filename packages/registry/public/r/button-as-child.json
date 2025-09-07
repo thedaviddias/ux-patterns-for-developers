@@ -3,11 +3,13 @@
   "name": "button-as-child",
   "type": "registry:block",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
-      "path": "registry/default/blocks/button-as-child.tsx",
-      "content": "import { Button } from \"../ui/button\";\n\nexport default function ButtonAsChild() {\n\treturn (\n\t\t<Button asChild>\n\t\t\t<a href=\"/login\">Login</a>\n\t\t</Button>\n\t);\n}\n",
+      "path": "registry/default/blocks/button/button-as-child.tsx",
+      "content": "import { Button } from \"@/ui/button\";\n\nexport default function ButtonAsChild() {\n\treturn (\n\t\t<div className=\"flex flex-wrap gap-2\">\n\t\t\t<Button asChild>\n\t\t\t\t<a href=\"#pricing\" className=\"no-underline\">View Pricing</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"outline\" asChild>\n\t\t\t\t<a href=\"#docs\" className=\"no-underline\">Documentation</a>\n\t\t\t</Button>\n\t\t\t<Button variant=\"ghost\" asChild>\n\t\t\t\t<a href=\"#about\">About Us</a>\n\t\t\t</Button>\n\t\t</div>\n\t);\n}\n",
       "type": "registry:block"
     }
   ],

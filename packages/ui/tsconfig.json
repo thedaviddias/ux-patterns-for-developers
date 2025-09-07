@@ -8,7 +8,8 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@ux-patterns/hooks/*": ["../hooks/src/*"],
-			"@ux-patterns/ui/*": ["./src/*"]
+			"@ux-patterns/ui/*": ["./src/*"],
+			"@/ui/*": ["../registry/registry/default/ui/*"]
 		}
 	},
 	"include": ["src/**/*"],
