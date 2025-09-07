@@ -126,6 +126,8 @@ temp/
 # Fumadocs
 .fumadocs
 
+# Generated registry files
+packages/registry/public/r/
 
 .claude
 claude.md

@@ -5,10 +5,12 @@
 	"type": "module",
 	"exports": {
 		"./.generated": "./.generated/index.tsx",
-		"./registry.json": "./registry.json"
+		"./registry.json": "./registry.json",
+		"./lib/registry-generator": "./lib/registry-generator.js"
 	},
 	"scripts": {
 		"dev": "nodemon --watch registry/default --ext tsx,ts,jsx,js --ignore 'registry/default/**/*.d.ts' --ignore '.generated/**' --ignore 'public/**' --exec 'npm run registry:generate'",
+		"check:type": "tsc --noEmit",
 		"registry:generate": "npx tsx scripts/build-registry.ts && shadcn build && rm -f public/r/registry.json",
 		"registry:build": "shadcn build"
 	},

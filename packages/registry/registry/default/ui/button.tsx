@@ -1,3 +1,14 @@
+/**
+ * @registry
+ * @name button
+ * @title Enhanced Button Component
+ * @type registry:ui
+ * @description Advanced button component with motion effects, haptic feedback, and state management
+ * @categories ["buttons", "ui", "interactions"]
+ * @tags ["button", "motion", "haptics", "accessibility", "interactive"]
+ * @dependencies ["@radix-ui/react-slot", "class-variance-authority", "motion"]
+ * @author ux-patterns
+ */
 "use client";
 
 import { Slot } from "@radix-ui/react-slot";
