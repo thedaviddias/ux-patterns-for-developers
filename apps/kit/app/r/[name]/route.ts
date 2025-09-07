@@ -13,31 +13,6 @@ type RegistryParams = {
 	params: Promise<{ name: string }>;
 };
 
-type RegistrySchema = {
-	$schema: "https://ui.shadcn.com/schema/registry.json";
-	name: string;
-	homepage: string;
-	items: Array<{
-		name: string;
-		type: string;
-		title?: string;
-		description?: string;
-		author?: string;
-		dependencies?: string[];
-		devDependencies?: string[];
-		registryDependencies?: string[];
-		categories?: string[];
-		files: Array<{
-			path: string;
-			type: string;
-			target?: string;
-		}>;
-		meta?: {
-			tags: string[];
-		};
-	}>;
-};
-
 export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 	try {
 		const { name: rawName } = await params;
