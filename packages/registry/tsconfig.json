@@ -5,11 +5,27 @@
 		"module": "ESNext",
 		"moduleResolution": "bundler",
 		"paths": {
-			"@/registry/*": ["./registry/default/*"],
-			"@/components/ui/*": ["./registry/default/ui/*"],
-			"@/lib/*": ["./registry/default/lib/*"]
+			"@/registry/*": [
+				"./registry/default/*"
+			],
+			"@/components/ui/*": [
+				"./registry/default/ui/*"
+			],
+			"@/ui/*": [
+				"./registry/default/ui/*"
+			],
+			"@/lib/*": [
+				"./registry/default/lib/*"
+			]
 		}
 	},
-	"include": ["registry/**/*", "scripts/**/*", ".generated/**/*"],
-	"exclude": ["node_modules", "public"]
+	"include": [
+		"registry/**/*",
+		"scripts/**/*",
+		".generated/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"public"
+	]
 }

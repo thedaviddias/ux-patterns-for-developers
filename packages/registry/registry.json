@@ -7,14 +7,14 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button",
       "type": "registry:ui",
-      "title": "button",
-      "description": "Auto-generated button component",
-      "author": "David Dias <hello@thedaviddias.com>",
+      "title": "Enhanced Button Component",
+      "description": "Advanced button component with motion effects, haptic feedback, and state management",
+      "author": "ux-patterns",
       "files": [
         {
           "path": "registry/default/ui/button.tsx",
           "type": "registry:ui",
-          "target": "components/ui/button.tsx"
+          "target": "components/upkit/button.tsx"
         }
       ],
       "dependencies": [
@@ -24,7 +24,21 @@
       ],
       "registryDependencies": [
         "utils"
-      ]
+      ],
+      "categories": [
+        "buttons",
+        "ui",
+        "interactions"
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "motion",
+          "haptics",
+          "accessibility",
+          "interactive"
+        ]
+      }
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",

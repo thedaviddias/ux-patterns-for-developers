@@ -52,6 +52,9 @@
 		"check": {
 			"outputs": []
 		},
+		"check:type": {
+			"outputs": []
+		},
 		"format": {
 			"outputs": []
 		},

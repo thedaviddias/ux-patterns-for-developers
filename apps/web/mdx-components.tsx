@@ -48,7 +48,7 @@ export const useMDXComponents = (
 			| undefined;
 
 		// Remove known non-DOM keys to avoid React warnings
-		const { components, ...domProps } = props;
+		const { components: _, ...domProps } = props;
 
 		// If no wrapper is provided by nextra-theme-docs, use a simple div
 		if (!Wrapper) {

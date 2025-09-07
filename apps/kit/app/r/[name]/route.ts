@@ -1,6 +1,9 @@
-import { readdir, readFile } from "fs/promises";
+import {
+	findRegistryItem,
+	generateRegistry,
+	type RegistryItem,
+} from "@ux-patterns/registry/lib/registry-generator";
 import { type NextRequest, NextResponse } from "next/server";
-import { join, resolve } from "path";
 
 // Validate component name to prevent path traversal and invalid characters
 function validateComponentName(name: string): boolean {
@@ -57,92 +60,76 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 		// Validate component name to prevent path traversal
 		if (!validateComponentName(componentName)) {
 			return NextResponse.json(
-				{ error: "Invalid component name. Only alphanumeric characters, hyphens, and underscores are allowed." },
+				{
+					error:
+						"Invalid component name. Only alphanumeric characters, hyphens, and underscores are allowed.",
+				},
 				{ status: 400 },
 			);
 		}
 
 		// Handle registry index request
 		if (componentName === "registry") {
-			const response: RegistrySchema = {
-				$schema: "https://ui.shadcn.com/schema/registry.json",
-				name: "registry",
-				homepage: "https://kit.uxpatterns.dev",
-				items: [],
-			};
-
-			// Read all component files from the registry directory
-			const registryDir =
-				process.env.REGISTRY_DIR ??
-				resolve(process.cwd(), "../..", "packages/registry/public/r");
-
 			try {
-				const files = await readdir(registryDir);
-				const jsonFiles = files.filter((file) => file.endsWith(".json"));
-
-				const results = await Promise.allSettled(
-					jsonFiles.map(async (file) => {
-						const filePath = join(registryDir, file);
-						const content = await readFile(filePath, "utf-8");
-						const componentData = JSON.parse(content);
-						return {
-							name: componentData.name,
-							type: componentData.type,
-							title: componentData.title,
-							description: componentData.description,
-							author: componentData.author,
-							dependencies: componentData.dependencies,
-							devDependencies: componentData.devDependencies,
-							registryDependencies: componentData.registryDependencies,
-							categories: componentData.categories,
-							files:
-								componentData.files?.map((f: any) => ({
-									path: f.path,
-									type: f.type,
-									target: f.target,
-								})) || [],
-							meta: componentData.meta,
-						};
-					}),
-				);
-				for (const r of results) {
-					if (r.status === "fulfilled") response.items.push(r.value);
-					// optional: console.debug("Skipped registry item:", r.reason);
-				}
+				const registryItems = await generateRegistry();
+				const response: RegistrySchema = {
+					$schema: "https://ui.shadcn.com/schema/registry.json",
+					name: "upkit",
+					homepage: "https://kit.uxpatterns.dev",
+					items: registryItems.map((item: RegistryItem) => ({
+						name: item.name,
+						type: item.type,
+						title: item.title,
+						description: item.description,
+						author: item.author,
+						dependencies: item.dependencies,
+						devDependencies: item.devDependencies,
+						registryDependencies: item.registryDependencies,
+						categories: item.categories,
+						files:
+							item.files?.map((f) => ({
+								path: f.path,
+								type: f.type,
+								target: f.target,
+							})) || [],
+						meta: item.meta,
+					})),
+				};
 
 				return NextResponse.json(response, {
 					headers: {
 						"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
 					},
 				});
-			} catch {
+			} catch (error) {
+				console.error("Failed to generate registry:", error);
 				return NextResponse.json(
-					{ error: "Failed to read registry directory" },
+					{ error: "Failed to generate registry" },
 					{ status: 500 },
 				);
 			}
 		}
 
 		// Handle individual component requests
-		const componentPath = join(
-			process.cwd(),
-			"../..",
-			"packages/registry/public/r",
-			`${componentName}.json`,
-		);
-
 		try {
-			const componentData = await readFile(componentPath, "utf-8");
-			const parsedData = JSON.parse(componentData);
-			return NextResponse.json(parsedData);
-		} catch (error: any) {
-			if (error?.code === "ENOENT") {
-				return NextResponse.json({ error: "Component not found" }, { status: 404 });
+			const componentData = await findRegistryItem(componentName);
+			if (!componentData) {
+				return NextResponse.json(
+					{ error: "Component not found" },
+					{ status: 404 },
+				);
 			}
-			if (error instanceof SyntaxError) {
-				return NextResponse.json({ error: "Invalid component JSON" }, { status: 500 });
-			}
-			return NextResponse.json({ error: "Failed to load component" }, { status: 500 });
+			return NextResponse.json(componentData, {
+				headers: {
+					"Cache-Control": "s-maxage=300, stale-while-revalidate=300",
+				},
+			});
+		} catch (error) {
+			console.error("Failed to generate component:", error);
+			return NextResponse.json(
+				{ error: "Failed to load component" },
+				{ status: 500 },
+			);
 		}
 	} catch (error) {
 		console.error("Registry API error:", error);

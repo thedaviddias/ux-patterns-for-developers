@@ -15,6 +15,7 @@
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
 		"check": "biome check .",
+		"check:type": "tsc --noEmit",
 		"generate": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts",
 		"postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
 		"start": "next start",

@@ -6,24 +6,12 @@
 		"strictNullChecks": true,
 		"noUncheckedIndexedAccess": true,
 		"paths": {
-			"@/*": [
-				"./*"
-			],
-			"@app/*": [
-				"./app/*"
-			],
-			"@ux-patterns/ui/*": [
-				"../../packages/ui/src/*"
-			],
-			"@ux-patterns/hooks/*": [
-				"../../packages/hooks/src/*"
-			],
-			"@/ui/*": [
-				"../../packages/registry/registry/default/ui/*"
-			],
-			"@/lib/*": [
-				"../../packages/registry/registry/default/lib/*"
-			]
+			"@/*": ["./*"],
+			"@app/*": ["./app/*"],
+			"@ux-patterns/ui/*": ["../../packages/ui/src/*"],
+			"@ux-patterns/hooks/*": ["../../packages/hooks/src/*"],
+			"@/ui/*": ["../../packages/registry/registry/default/ui/*"],
+			"@/lib/*": ["../../packages/registry/registry/default/lib/*"]
 		}
 	},
 	"include": [
@@ -37,8 +25,5 @@
 		"*.tsx",
 		".next/types/**/*.ts"
 	],
-	"exclude": [
-		"node_modules",
-		".next"
-	]
+	"exclude": ["node_modules", ".next"]
 }
