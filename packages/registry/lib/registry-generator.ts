@@ -44,15 +44,6 @@ const __dirname = path.dirname(__filename);
 const REGISTRY_BASE_PATH = path.dirname(__dirname);
 const REGISTRY_DIR = path.join(REGISTRY_BASE_PATH, "registry/default");
 
-// In-process cache to avoid repeated filesystem scans
-let registryCache: RegistryItem[] | Promise<RegistryItem[]> | null = null;
-
-/**
- * Clear the registry cache to force a fresh filesystem scan
- */
-export function clearRegistryCache(): void {
-	registryCache = null;
-}
 
 /**
  * Get the appropriate target path based on component type
