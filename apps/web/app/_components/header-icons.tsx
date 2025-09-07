@@ -1,6 +1,6 @@
 "use client";
 
-import { siInstagram, siReddit } from "simple-icons";
+import { siDiscord, siInstagram, siX } from "simple-icons";
 import { SimpleIconComponent } from "./browser-support";
 
 type SocialIconLink = {
@@ -11,14 +11,19 @@ type SocialIconLink = {
 
 const socialLinks: SocialIconLink[] = [
 	{
+		label: "Discord",
+		href: "https://discord.gg/8fsJFcCGbq",
+		icon: siDiscord,
+	},
+	{
+		label: "X",
+		href: "https://x.com/thedaviddias",
+		icon: siX,
+	},
+	{
 		label: "Instagram",
 		href: "https://www.instagram.com/uxpatternsfordevs",
 		icon: siInstagram,
-	},
-	{
-		label: "Reddit",
-		href: "https://www.reddit.com/r/UXPatterns/",
-		icon: siReddit,
 	},
 ];
 
@@ -28,7 +33,7 @@ export const HeaderIcons = () => {
 	};
 
 	return (
-		<div className="flex items-center gap-3">
+		<div className="hidden md:flex items-center gap-3">
 			{socialLinks.map((link) => (
 				<button
 					key={link.label}

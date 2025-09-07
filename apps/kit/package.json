@@ -32,10 +32,12 @@
 		"remark-mdx": "^3.1.0",
 		"require-in-the-middle": "^7.5.1",
 		"shiki": "^3.12.2",
+		"simple-icons": "^14.6.0",
 		"tailwind-merge": "^3.0.1",
 		"tailwindcss-animate": "^1.0.7",
 		"tailwindcss-motion": "^1.1.1",
-		"ts-morph": "^26.0.0"
+		"ts-morph": "^26.0.0",
+		"zod": "^4.1.5"
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4.1.12",
