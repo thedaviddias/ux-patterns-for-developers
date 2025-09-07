@@ -94,7 +94,7 @@ const playSound = (type: "off" | "subtle" | "click") => {
 
 		oscillator.start();
 		oscillator.stop(audioContext.currentTime + config.duration);
-		
+
 		const teardown = () => {
 			try {
 				gainNode.disconnect();
@@ -419,12 +419,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 		/* ========== Event Handlers ========== */
 		const handleClick = async (
-			e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>
+			e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
 		) => {
 			// Check disabled/loading state BEFORE calling onClick
 			if (effectiveDisabled || state === "loading") return;
 			if (preventDoubleClick && isClicking) return;
-			
+
 			onClick?.(e as any);
 			if (e.defaultPrevented) return;
 
@@ -454,7 +454,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			// Interactive feedback
 			triggerHaptics(hapticPref);
 			playSound(soundPref);
-			
+
 			// Only trigger ripple for pointer events with valid coordinates
 			if (clickEffect === "ripple" && "clientX" in e && "clientY" in e) {
 				triggerRipple(e as MouseEvent<HTMLButtonElement>);
@@ -472,7 +472,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
 			onKeyDown?.(e);
 			if (e.defaultPrevented) return;
-			
+
 			// Enter and Space should activate the button
 			if (e.key === "Enter" || e.key === " ") {
 				e.preventDefault(); // Prevent default scrolling for Space
@@ -505,7 +505,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		/* ========== AsChild Pattern Handling ========== */
 		if (asChild) {
 			const child = Children.only(children) as ReactElement<any>;
-			
+
 			return cloneElement(child, {
 				className: cn(
 					buttonVariants({ variant, size, clickEffect, hoverEffect, wide }),
@@ -555,17 +555,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				ref: (element: any) => {
 					// Update btnRef for useImperativeHandle
 					btnRef.current = element;
-					
+
 					// Forward ref to both the internal ref and the external ref
 					if (ref) {
-						if (typeof ref === 'function') {
+						if (typeof ref === "function") {
 							ref(element);
 						} else {
 							ref.current = element;
 						}
 					}
 					if (child.props.ref) {
-						if (typeof child.props.ref === 'function') {
+						if (typeof child.props.ref === "function") {
 							child.props.ref(element);
 						} else {
 							child.props.ref.current = element;
@@ -632,7 +632,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				{...getMotionProps(clickEffect, hoverEffect)}
 				{...props}
 			>
-
 				{/* Pulse effect */}
 				{isPulsing && clickEffect === "pulse" && (
 					<>

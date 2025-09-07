@@ -37,6 +37,10 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./registry/default"),
+			"@/registry": path.resolve(__dirname, "./registry/default"),
+			"@/components/ui": path.resolve(__dirname, "./registry/default/ui"),
+			"@/ui": path.resolve(__dirname, "./registry/default/ui"),
+			"@/lib": path.resolve(__dirname, "./registry/default/lib"),
 		},
 	},
 });

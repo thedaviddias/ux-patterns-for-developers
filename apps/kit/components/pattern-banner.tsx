@@ -18,13 +18,18 @@ export const PatternBanner = ({
 	className,
 }: PatternBannerProps) => {
 	const plausible = usePlausible();
-	const patternUrl = `${getWebAppUrl()}${patternPath}`;
+	const base = getWebAppUrl();
+	const normalizedPath = patternPath.startsWith("/")
+		? patternPath
+		: `/${patternPath}`;
+	const patternUrl = new URL(normalizedPath, base).toString();
 
 	return (
 		<Link
 			href={patternUrl}
 			target="_blank"
-			rel="noopener"
+			rel="noopener noreferrer"
+			prefetch={false}
 			className={cn(
 				"not-prose group relative mb-8 flex items-center justify-between rounded-lg",
 				"border border-border/50 bg-gradient-to-r from-muted/30 to-muted/10",
