@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom";
+import "vitest-axe/extend-expect";
 import { vi } from "vitest";
 
 // Mock window.matchMedia
@@ -17,15 +18,22 @@ Object.defineProperty(window, "matchMedia", {
 });
 
 // Mock IntersectionObserver
-global.IntersectionObserver = vi.fn().mockImplementation(() => ({
-	observe: vi.fn(),
-	unobserve: vi.fn(),
-	disconnect: vi.fn(),
-}));
+class MockIntersectionObserver implements IntersectionObserver {
+	readonly root = null;
+	readonly rootMargin = "";
+	readonly thresholds = [];
+	constructor(_: IntersectionObserverCallback, __?: IntersectionObserverInit) {}
+	observe = vi.fn();
+	unobserve = vi.fn();
+	disconnect = vi.fn();
+	takeRecords = vi.fn(() => []);
+}
+vi.stubGlobal("IntersectionObserver", MockIntersectionObserver as any);
 
 // Mock ResizeObserver
-global.ResizeObserver = vi.fn().mockImplementation(() => ({
-	observe: vi.fn(),
-	unobserve: vi.fn(),
-	disconnect: vi.fn(),
-}));
+class MockResizeObserver implements ResizeObserver {
+	observe = vi.fn();
+	unobserve = vi.fn();
+	disconnect = vi.fn();
+}
+vi.stubGlobal("ResizeObserver", MockResizeObserver as any);

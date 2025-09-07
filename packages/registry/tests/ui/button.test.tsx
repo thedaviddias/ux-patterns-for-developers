@@ -3,13 +3,10 @@
  */
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { axe, toHaveNoViolations } from "jest-axe";
 import React from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { Button } from "../../registry/default/ui/button";
-
-// Extend matchers
-expect.extend(toHaveNoViolations);
 
 // Mock navigator.vibrate for haptics testing
 const mockVibrate = vi.fn();
@@ -19,19 +16,27 @@ Object.defineProperty(navigator, "vibrate", {
 });
 
 // Mock AudioContext for sound testing
+const mockOscillator = {
+	connect: vi.fn(),
+	start: vi.fn(),
+	stop: vi.fn(),
+	disconnect: vi.fn(),
+	frequency: { value: 0 },
+	addEventListener: vi.fn(),
+};
+
+const mockGainNode = {
+	connect: vi.fn(),
+	disconnect: vi.fn(),
+	gain: { value: 0 },
+};
+
 const mockAudioContext = {
-	createOscillator: vi.fn(() => ({
-		connect: vi.fn(),
-		start: vi.fn(),
-		stop: vi.fn(),
-		frequency: { value: 0 },
-	})),
-	createGain: vi.fn(() => ({
-		connect: vi.fn(),
-		gain: { value: 0 },
-	})),
+	createOscillator: vi.fn(() => mockOscillator),
+	createGain: vi.fn(() => mockGainNode),
 	destination: {},
 	currentTime: 0,
+	close: vi.fn().mockResolvedValue(undefined),
 };
 
 global.AudioContext = vi.fn(() => mockAudioContext) as any;
@@ -447,7 +452,7 @@ describe("Button Component", () => {
 		it("applies ripple click effect", () => {
 			render(<Button clickEffect="ripple">Ripple</Button>);
 			const button = screen.getByRole("button");
-			expect(button).toHaveClass("relative", "overflow-hidden");
+			expect(button).toHaveStyle({ position: "relative", overflow: "hidden" });
 		});
 
 		it("triggers ripple animation on click", async () => {
@@ -461,6 +466,30 @@ describe("Button Component", () => {
 					button.querySelector(".absolute.rounded-full"),
 				).toBeInTheDocument();
 			});
+		});
+
+		it("does not trigger ripple on keyboard events to prevent invalid coordinates", async () => {
+			// Mock console.error to catch any coordinate errors
+			const consoleSpy = vi
+				.spyOn(console, "error")
+				.mockImplementation(() => {});
+
+			render(<Button clickEffect="ripple">Ripple</Button>);
+			const button = screen.getByRole("button");
+
+			// Trigger keyboard events that should not cause ripple
+			fireEvent.keyDown(button, { key: "Enter" });
+			fireEvent.keyDown(button, { key: " " });
+
+			// Should not have thrown any errors about invalid coordinates
+			expect(consoleSpy).not.toHaveBeenCalled();
+
+			// Verify no ripple elements were created from keyboard events
+			expect(
+				button.querySelector(".absolute.rounded-full"),
+			).not.toBeInTheDocument();
+
+			consoleSpy.mockRestore();
 		});
 
 		it("applies pulse click effect", async () => {
@@ -549,6 +578,38 @@ describe("Button Component", () => {
 			render(<Button sound="off">No Sound</Button>);
 			await userEvent.click(screen.getByRole("button"));
 			expect(global.AudioContext).not.toHaveBeenCalled();
+		});
+
+		it("properly cleans up AudioContext to prevent memory leaks", () => {
+			render(<Button sound="click">Sound</Button>);
+			const button = screen.getByRole("button");
+
+			// Click to trigger sound
+			fireEvent.click(button);
+
+			// Verify AudioContext and nodes were created
+			expect(mockAudioContext.createOscillator).toHaveBeenCalled();
+			expect(mockAudioContext.createGain).toHaveBeenCalled();
+
+			// Verify that the cleanup event listener was registered
+			expect(mockOscillator.addEventListener).toHaveBeenCalledWith(
+				"ended",
+				expect.any(Function),
+			);
+
+			// Simulate the ended event to trigger cleanup
+			const endedEventCall = mockOscillator.addEventListener.mock.calls.find(
+				(call) => call[0] === "ended",
+			);
+			if (endedEventCall) {
+				const cleanupCallback = endedEventCall[1];
+				cleanupCallback(); // This should trigger the cleanup
+			}
+
+			// Verify cleanup methods were called
+			expect(mockGainNode.disconnect).toHaveBeenCalled();
+			expect(mockOscillator.disconnect).toHaveBeenCalled();
+			expect(mockAudioContext.close).toHaveBeenCalled();
 		});
 	});
 
@@ -693,6 +754,8 @@ describe("Button Component", () => {
 
 	describe("Long Press", () => {
 		it("triggers long press after duration", async () => {
+			vi.useFakeTimers();
+
 			const onLongPress = vi.fn();
 			render(
 				<Button longPress={{ duration: 100, onLongPress }}>Long Press</Button>,
@@ -701,12 +764,18 @@ describe("Button Component", () => {
 			const button = screen.getByRole("button");
 			fireEvent.mouseDown(button);
 
-			await waitFor(() => expect(onLongPress).toHaveBeenCalled(), {
-				timeout: 200,
-			});
+			// Advance timers to trigger long press
+			vi.advanceTimersByTime(110); // duration + small margin
+			await Promise.resolve(); // flush microtasks
+
+			expect(onLongPress).toHaveBeenCalled();
+
+			vi.useRealTimers();
 		});
 
 		it("cancels long press on mouse up", async () => {
+			vi.useFakeTimers();
+
 			const onLongPress = vi.fn();
 			render(
 				<Button longPress={{ duration: 500, onLongPress }}>Long Press</Button>,
@@ -716,11 +785,18 @@ describe("Button Component", () => {
 			fireEvent.mouseDown(button);
 			fireEvent.mouseUp(button);
 
-			await new Promise((resolve) => setTimeout(resolve, 600));
+			// Advance timers past the duration to ensure it would have triggered
+			vi.advanceTimersByTime(600);
+			await Promise.resolve(); // flush microtasks
+
 			expect(onLongPress).not.toHaveBeenCalled();
+
+			vi.useRealTimers();
 		});
 
 		it("triggers long press with keyboard", async () => {
+			vi.useFakeTimers();
+
 			const onLongPress = vi.fn();
 			render(
 				<Button longPress={{ duration: 100, onLongPress }}>Long Press</Button>,
@@ -729,12 +805,18 @@ describe("Button Component", () => {
 			const button = screen.getByRole("button");
 			fireEvent.keyDown(button, { key: "Enter" });
 
-			await waitFor(() => expect(onLongPress).toHaveBeenCalled(), {
-				timeout: 200,
-			});
+			// Advance timers to trigger long press
+			vi.advanceTimersByTime(110); // duration + small margin
+			await Promise.resolve(); // flush microtasks
+
+			expect(onLongPress).toHaveBeenCalled();
+
+			vi.useRealTimers();
 		});
 
 		it("cancels long press on key up", async () => {
+			vi.useFakeTimers();
+
 			const onLongPress = vi.fn();
 			render(
 				<Button longPress={{ duration: 500, onLongPress }}>Long Press</Button>,
@@ -744,8 +826,13 @@ describe("Button Component", () => {
 			fireEvent.keyDown(button, { key: " " });
 			fireEvent.keyUp(button, { key: " " });
 
-			await new Promise((resolve) => setTimeout(resolve, 600));
+			// Advance timers past the duration to ensure it would have triggered
+			vi.advanceTimersByTime(600);
+			await Promise.resolve(); // flush microtasks
+
 			expect(onLongPress).not.toHaveBeenCalled();
+
+			vi.useRealTimers();
 		});
 	});
 
@@ -759,6 +846,9 @@ describe("Button Component", () => {
 
 			const button = screen.getByRole("button");
 
+			// Fire pointer event to trigger width capture
+			fireEvent.mouseDown(button);
+
 			rerender(
 				<Button preserveWidth state="loading" loadingText="Much longer text">
 					Short
@@ -766,7 +856,7 @@ describe("Button Component", () => {
 			);
 
 			// Width should be preserved via minWidth style
-			expect(button.style.minWidth).toBeDefined();
+			expect(button.style.minWidth).not.toBe("");
 		});
 	});
 
@@ -791,7 +881,7 @@ describe("Button Component", () => {
 			// Check multiple class combinations
 			expect(button).toHaveClass("bg-red-600"); // danger variant
 			expect(button).toHaveClass("h-12"); // lg size
-			expect(button).toHaveClass("overflow-hidden"); // ripple effect
+			expect(button).toHaveStyle({ overflow: "hidden" }); // ripple effect (inline style)
 			expect(button).toHaveClass("w-full"); // wide
 			expect(button).toHaveClass("rounded-full"); // pill rounded
 			expect(button).toHaveClass("shadow-lg", "shadow-red-500/25"); // colored shadow for danger
@@ -973,6 +1063,38 @@ describe("Button Component", () => {
 			expect(buttons[0]).toHaveAttribute("aria-pressed", "true");
 			expect(buttons[1]).toHaveAttribute("aria-pressed", "false");
 			expect(buttons[2]).toHaveAttribute("aria-pressed", "false");
+		});
+	});
+
+	describe("Test Setup Regression Tests", () => {
+		it("has properly mocked IntersectionObserver to prevent TypeScript issues", () => {
+			// Verify IntersectionObserver is available and properly typed
+			expect(global.IntersectionObserver).toBeDefined();
+
+			// Should be able to create new instance without TypeScript errors
+			const observer = new IntersectionObserver(() => {});
+			expect(observer).toBeDefined();
+			expect(observer.observe).toBeDefined();
+			expect(observer.unobserve).toBeDefined();
+			expect(observer.disconnect).toBeDefined();
+			expect(observer.takeRecords).toBeDefined();
+
+			// Should have proper readonly properties
+			expect(observer.root).toBe(null);
+			expect(observer.rootMargin).toBe("");
+			expect(Array.isArray(observer.thresholds)).toBe(true);
+		});
+
+		it("has properly mocked ResizeObserver to prevent TypeScript issues", () => {
+			// Verify ResizeObserver is available and properly typed
+			expect(global.ResizeObserver).toBeDefined();
+
+			// Should be able to create new instance without TypeScript errors
+			const observer = new ResizeObserver(() => {});
+			expect(observer).toBeDefined();
+			expect(observer.observe).toBeDefined();
+			expect(observer.unobserve).toBeDefined();
+			expect(observer.disconnect).toBeDefined();
 		});
 	});
 });

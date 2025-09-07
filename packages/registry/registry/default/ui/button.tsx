@@ -94,6 +94,18 @@ const playSound = (type: "off" | "subtle" | "click") => {
 
 		oscillator.start();
 		oscillator.stop(audioContext.currentTime + config.duration);
+		
+		const teardown = () => {
+			try {
+				gainNode.disconnect();
+				oscillator.disconnect();
+				audioContext.close().catch(() => {});
+			} catch {}
+		};
+		// OscillatorNode emits "ended" when it stops
+		(oscillator as any).addEventListener?.("ended", teardown);
+		// Fallback in case the event isn't supported
+		setTimeout(teardown, (config.duration + 0.05) * 1000);
 	} catch {
 		// Silently fail if Web Audio API is not available
 	}
@@ -406,12 +418,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		}, [preserveWidth]);
 
 		/* ========== Event Handlers ========== */
-		const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
+		const handleClick = async (
+			e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>
+		) => {
 			// Check disabled/loading state BEFORE calling onClick
 			if (effectiveDisabled || state === "loading") return;
 			if (preventDoubleClick && isClicking) return;
 			
-			onClick?.(e);
+			onClick?.(e as any);
 			if (e.defaultPrevented) return;
 
 			// Trigger pulse animation
@@ -440,7 +454,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			// Interactive feedback
 			triggerHaptics(hapticPref);
 			playSound(soundPref);
-			triggerRipple(e);
+			
+			// Only trigger ripple for pointer events with valid coordinates
+			if (clickEffect === "ripple" && "clientX" in e && "clientY" in e) {
+				triggerRipple(e as MouseEvent<HTMLButtonElement>);
+			}
 
 			if (onAction) await onAction();
 		};

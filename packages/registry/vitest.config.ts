@@ -23,8 +23,8 @@ export default defineConfig({
 				"public/**",
 			],
 			include: [
-				"registry/default/ui/*.{ts,tsx}",
-				"registry/default/lib/*.{ts,tsx}",
+				"registry/default/ui/**/*.{ts,tsx}",
+				"registry/default/lib/**/*.{ts,tsx}",
 			],
 			thresholds: {
 				branches: 80,
