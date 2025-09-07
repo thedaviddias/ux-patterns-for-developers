@@ -1,5 +1,5 @@
-import registryData from "@ux-patterns/registry/registry.json";
 import { useMemo } from "react";
+import registryData from "@/public/r/registry.json";
 
 export type StatCount = {
 	components: number;

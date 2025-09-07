@@ -1,7 +1,5 @@
 "use client";
 
-import { StarIcon } from "lucide-react";
-
 type StarsProps = {
 	variant?: "default" | "small";
 	starsCount: number;
@@ -27,10 +25,6 @@ export const Stars = ({
 				<span className="hidden lg:inline">Star on GitHub</span>
 			)}
 			<span className="inline-flex items-center px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100">
-				<StarIcon
-					className={`${variant === "small" ? "w-2.5 h-2.5" : "w-4 h-4"} mr-1`}
-					aria-hidden="true"
-				/>
 				{starsCount}
 			</span>
 		</>

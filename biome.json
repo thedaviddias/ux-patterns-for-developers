@@ -17,9 +17,9 @@
 			"!**/node_modules",
 			"!**/.source",
 			"!**/packages/registry/.generated",
-			"!**/packages/registry/registry.json",
+			"!**/apps/kit/public/r/registry.json",
 			"!**/packages/registry/registry",
-			"!**/packages/registry/public/r",
+			"!**/apps/kit/public/r/",
 			"!**/coverage",
 			"!**/.turbo"
 		]

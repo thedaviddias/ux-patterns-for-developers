@@ -5,13 +5,10 @@ const path = require("node:path");
 const PROJECT_ROOT = path.dirname(__dirname);
 const REGISTRY_JSON_PATH = path.join(
 	PROJECT_ROOT,
-	"packages/registry/registry.json",
+	"apps/kit/public/r/registry.json",
 );
 const OUTPUT_PATH = path.join(PROJECT_ROOT, "packages/registry/.generated");
-const REGISTRY_PUBLIC_PATH = path.join(
-	PROJECT_ROOT,
-	"packages/registry/public/r",
-);
+const REGISTRY_PUBLIC_PATH = path.join(PROJECT_ROOT, "apps/kit/public/r");
 
 async function buildRegistryIndex() {
 	// Ensure output directory exists

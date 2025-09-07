@@ -7,8 +7,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const REGISTRY_BASE_PATH = path.dirname(__dirname);
-const PUBLIC_FOLDER_BASE_PATH = path.join(REGISTRY_BASE_PATH, "public/r");
-const COMPLETE_REGISTRY_PATH = path.join(REGISTRY_BASE_PATH, "registry.json");
+// Output directly to apps/kit/public/r for static serving
+const PUBLIC_FOLDER_BASE_PATH = path.join(
+	REGISTRY_BASE_PATH,
+	"../../apps/kit/public/r",
+);
+const COMPLETE_REGISTRY_PATH = path.join(
+	REGISTRY_BASE_PATH,
+	"../../apps/kit/public/r/registry.json",
+);
 
 async function writeFileRecursive(
 	filePath: string,
