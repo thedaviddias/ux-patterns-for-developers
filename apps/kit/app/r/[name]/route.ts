@@ -71,7 +71,9 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 		// Handle registry index request
 		if (componentName === "registry") {
 			try {
+				console.log("[DEBUG] Registry index endpoint called");
 				const registryItems = await generateRegistry();
+				console.log(`[DEBUG] Registry index got ${registryItems.length} items`);
 				const response: RegistrySchema = {
 					$schema: "https://ui.shadcn.com/schema/registry.json",
 					name: "upkit",
@@ -114,23 +116,25 @@ export const GET = async (_: NextRequest, { params }: RegistryParams) => {
 		try {
 			// Debug: Log what we're looking for
 			console.log(`Looking for component: ${componentName}`);
-			
+
 			const allItems = await generateRegistry();
 			console.log(`Total registry items found: ${allItems.length}`);
-			console.log(`Available components: ${allItems.map(i => i.name).join(', ')}`);
-			
+			console.log(
+				`Available components: ${allItems.map((i) => i.name).join(", ")}`,
+			);
+
 			const componentData = await findRegistryItem(componentName);
 			console.log(`Component data found: ${!!componentData}`);
-			
+
 			if (!componentData) {
 				return NextResponse.json(
-					{ 
+					{
 						error: "Component not found",
 						debug: {
 							searchedFor: componentName,
 							totalItems: allItems.length,
-							availableComponents: allItems.map(i => i.name)
-						}
+							availableComponents: allItems.map((i) => i.name),
+						},
 					},
 					{ status: 404 },
 				);
