@@ -333,43 +333,22 @@ async function scanDirectory(
  * Generate the complete registry by scanning filesystem
  */
 export async function generateRegistry(): Promise<RegistryItem[]> {
-	// Return cached result if available
-	if (registryCache) {
-		return Array.isArray(registryCache) ? registryCache : registryCache;
+	const items: RegistryItem[] = [];
+
+	// Scan all directories
+	const directories = [
+		{ path: path.join(REGISTRY_DIR, "ui"), type: "registry:ui" },
+		{ path: path.join(REGISTRY_DIR, "blocks"), type: "registry:block" },
+		{ path: path.join(REGISTRY_DIR, "hooks"), type: "registry:hook" },
+		{ path: path.join(REGISTRY_DIR, "lib"), type: "registry:lib" },
+	];
+
+	for (const { path: dirPath, type } of directories) {
+		const dirItems = await scanDirectory(dirPath, type);
+		items.push(...dirItems);
 	}
 
-	// Create a promise for the scanning operation to handle concurrent callers
-	const scanningPromise = (async () => {
-		try {
-			const items: RegistryItem[] = [];
-
-			// Scan all directories
-			const directories = [
-				{ path: path.join(REGISTRY_DIR, "ui"), type: "registry:ui" },
-				{ path: path.join(REGISTRY_DIR, "blocks"), type: "registry:block" },
-				{ path: path.join(REGISTRY_DIR, "hooks"), type: "registry:hook" },
-				{ path: path.join(REGISTRY_DIR, "lib"), type: "registry:lib" },
-			];
-
-			for (const { path: dirPath, type } of directories) {
-				const dirItems = await scanDirectory(dirPath, type);
-				items.push(...dirItems);
-			}
-
-			// Store the result in cache
-			registryCache = items;
-			return items;
-		} catch (error) {
-			// Clear cache on error to avoid stale promise
-			registryCache = null;
-			throw error;
-		}
-	})();
-
-	// Store the promise in cache for concurrent callers
-	registryCache = scanningPromise;
-
-	return scanningPromise;
+	return items;
 }
 
 /**
