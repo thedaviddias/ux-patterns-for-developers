@@ -21,10 +21,12 @@ async function buildRegistryIndex() {
 	const registryContent = await fs.readFile(REGISTRY_JSON_PATH, "utf-8");
 	const registry = JSON.parse(registryContent);
 
-	// Filter for blocks that should be shown as examples
-	// Exclude .d files which are TypeScript declaration files
+	// Filter for components that should be shown as examples
+	// Include both blocks and UI components, exclude .d files which are TypeScript declaration files
 	const blockComponents = registry.items.filter(
-		(item) => item.type === "registry:block" && !item.name.endsWith(".d"),
+		(item) =>
+			(item.type === "registry:block" || item.type === "registry:ui") &&
+			!item.name.endsWith(".d"),
 	);
 
 	// Generate index content
@@ -60,7 +62,9 @@ export const Index: Record<string, ComponentInfo> = {`;
 		const firstFile = component.files?.[0];
 		const componentPath = firstFile
 			? `../${firstFile.path.replace(/\.(tsx?|jsx?)$/, "")}`
-			: `../registry/default/blocks/${componentName}`;
+			: component.type === "registry:ui"
+				? `../registry/default/ui/${componentName}`
+				: `../registry/default/blocks/${componentName}`;
 
 		// Try to read the source code from the JSON file
 		let sourceCode = null;
@@ -84,10 +88,14 @@ export const Index: Record<string, ComponentInfo> = {`;
     registryDependencies: ${JSON.stringify(component.registryDependencies || [])},
     files: [${component.files
 			?.map((file) => {
+				const targetPath =
+					component.type === "registry:ui"
+						? `components/upkit/${componentName}.tsx`
+						: `components/blocks/${componentName}.tsx`;
 				return `{
         path: "${file.path}",
         type: "${file.type}",
-        target: "components/blocks/${componentName}.tsx"
+        target: "${targetPath}"
       }`;
 			})
 			.join(", ")}],
