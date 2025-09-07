@@ -44,16 +44,6 @@ const __dirname = path.dirname(__filename);
 const REGISTRY_BASE_PATH = path.dirname(__dirname);
 const REGISTRY_DIR = path.join(REGISTRY_BASE_PATH, "registry/default");
 
-// In-process cache to avoid repeated filesystem scans
-let registryCache: RegistryItem[] | Promise<RegistryItem[]> | null = null;
-
-/**
- * Clear the registry cache to force a fresh filesystem scan
- */
-export function clearRegistryCache(): void {
-	registryCache = null;
-}
-
 /**
  * Get the appropriate target path based on component type
  */
@@ -333,43 +323,32 @@ async function scanDirectory(
  * Generate the complete registry by scanning filesystem
  */
 export async function generateRegistry(): Promise<RegistryItem[]> {
-	// Return cached result if available
-	if (registryCache) {
-		return Array.isArray(registryCache) ? registryCache : registryCache;
+	const items: RegistryItem[] = [];
+
+	// Scan all directories
+	const directories = [
+		{ path: path.join(REGISTRY_DIR, "ui"), type: "registry:ui" },
+		{ path: path.join(REGISTRY_DIR, "blocks"), type: "registry:block" },
+		{ path: path.join(REGISTRY_DIR, "hooks"), type: "registry:hook" },
+		{ path: path.join(REGISTRY_DIR, "lib"), type: "registry:lib" },
+	];
+
+	console.log(`[DEBUG] REGISTRY_DIR: ${REGISTRY_DIR}`);
+	console.log(`[DEBUG] Scanning ${directories.length} directories`);
+
+	for (const { path: dirPath, type } of directories) {
+		console.log(`[DEBUG] Scanning directory: ${dirPath} (type: ${type})`);
+		try {
+			const dirItems = await scanDirectory(dirPath, type);
+			console.log(`[DEBUG] Found ${dirItems.length} items in ${dirPath}`);
+			items.push(...dirItems);
+		} catch (error) {
+			console.error(`[DEBUG] Error scanning ${dirPath}:`, error);
+		}
 	}
 
-	// Create a promise for the scanning operation to handle concurrent callers
-	const scanningPromise = (async () => {
-		try {
-			const items: RegistryItem[] = [];
-
-			// Scan all directories
-			const directories = [
-				{ path: path.join(REGISTRY_DIR, "ui"), type: "registry:ui" },
-				{ path: path.join(REGISTRY_DIR, "blocks"), type: "registry:block" },
-				{ path: path.join(REGISTRY_DIR, "hooks"), type: "registry:hook" },
-				{ path: path.join(REGISTRY_DIR, "lib"), type: "registry:lib" },
-			];
-
-			for (const { path: dirPath, type } of directories) {
-				const dirItems = await scanDirectory(dirPath, type);
-				items.push(...dirItems);
-			}
-
-			// Store the result in cache
-			registryCache = items;
-			return items;
-		} catch (error) {
-			// Clear cache on error to avoid stale promise
-			registryCache = null;
-			throw error;
-		}
-	})();
-
-	// Store the promise in cache for concurrent callers
-	registryCache = scanningPromise;
-
-	return scanningPromise;
+	console.log(`[DEBUG] Total items found: ${items.length}`);
+	return items;
 }
 
 /**
