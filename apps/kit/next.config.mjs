@@ -12,6 +12,11 @@ const config = {
 				hostname: "www.google.com",
 				pathname: "/s2/favicons",
 			},
+			{
+				protocol: "https",
+				hostname: "images.unsplash.com",
+				pathname: "/**",
+			},
 		],
 	},
 	async rewrites() {

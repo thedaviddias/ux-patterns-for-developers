@@ -1,0 +1,13 @@
+{
+	"title": "User Feedback",
+	"description": "User feedback and status indicators",
+	"icon": "MessageCircle",
+	"pages": [
+		"cookie-consent",
+		"empty-states",
+		"loading-indicator",
+		"notification",
+		"progress-indicator",
+		"skeleton"
+	]
+}

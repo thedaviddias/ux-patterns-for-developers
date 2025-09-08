@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BASE_URL } from "./_constants/project";
+import { BASE_URL } from "@/constants/project";
 
 export const metadataSEO: Metadata = {
 	title: {

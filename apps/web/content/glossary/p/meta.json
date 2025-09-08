@@ -1,0 +1,5 @@
+{
+	"title": "P",
+	"pages": ["pagination", "progressive-loading"],
+	"defaultOpen": true
+}

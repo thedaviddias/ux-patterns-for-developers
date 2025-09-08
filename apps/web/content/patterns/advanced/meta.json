@@ -1,0 +1,6 @@
+{
+	"title": "Advanced",
+	"description": "Advanced and complex UI patterns",
+	"icon": "Zap",
+	"pages": ["command-palette", "search-results", "wizard"]
+}

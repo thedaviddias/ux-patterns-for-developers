@@ -1,0 +1,19 @@
+{
+	"title": "Data Display",
+	"description": "Data visualization and display components",
+	"icon": "ChartBar",
+	"pages": [
+		"calendar",
+		"card-grid",
+		"chart",
+		"comparison-table",
+		"dashboard",
+		"filter-panel",
+		"kanban-board",
+		"list-view",
+		"statistics",
+		"table",
+		"timeline",
+		"tree-view"
+	]
+}

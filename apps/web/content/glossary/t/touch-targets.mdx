@@ -1,0 +1,178 @@
+---
+title: "Touch Targets"
+description: "Interactive UI elements sized and spaced appropriately for touch interaction on mobile devices"
+category: ["Mobile", "Accessibility", "UX"]
+related_patterns: ["/patterns/navigation/pagination", "/patterns/navigation/tabs", "/patterns/forms/buttons"]
+status: published
+---
+
+import { GlossaryStructuredData } from "@/components/glossary/structured-data";
+
+<GlossaryStructuredData
+  term="Touch Targets"
+  definition="The area of a user interface element that responds to touch input, which must be large enough for accurate finger interaction on touchscreen devices."
+  category={["Mobile", "Accessibility", "UX"]}
+/>
+
+Touch targets are the areas of a user interface that respond to touch input. They must be appropriately sized and spaced to accommodate human finger interaction, ensuring users can accurately and comfortably interact with touchscreen interfaces without frustration or errors.
+
+## Recommended Sizes
+
+### Platform Guidelines
+
+**iOS Human Interface Guidelines:**
+- Minimum: 44×44 pts (points)
+- Comfortable: 48×48 pts or larger
+
+**Material Design (Android):**
+- Minimum: 48×48 dp (density-independent pixels)
+- Recommended: 56×56 dp for primary actions
+
+**WCAG 2.5.5 (Level AAA):**
+- Minimum: 44×44 CSS pixels
+- Exception for inline text links
+
+**WCAG 2.2 (Level AA):**
+- Minimum: 24×24 CSS pixels with adequate spacing (exceptions apply for controls in certain authoring contexts or when adequate spacing cannot be applied)
+
+## Common Problems
+
+### Fat Finger Problem
+When touch targets are too small, users accidentally tap adjacent elements, leading to errors and frustration.
+
+### Edge Positioning
+Targets too close to screen edges are hard to reach, especially with one-handed use or protective cases.
+
+### Overlapping Hit Areas
+Invisible touch areas that overlap cause mispresses even when visual elements appear separated.
+
+## Implementation Best Practices
+
+### Minimum Spacing
+```css
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  margin: 8px; /* Minimum spacing between targets */
+}
+```
+
+### Expanding Hit Areas
+Make touch areas larger than visual elements:
+```css
+.button {
+  position: relative;
+  padding: 12px 16px;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+}
+
+/* Note: Pseudo-elements don't expand the element's CSS box; they proxy events to the parent but can be brittle. Consider using padding or min-size for more robust hit areas. */
+```
+
+### Thumb-Friendly Zones
+Place primary actions in easy-to-reach areas:
+- **Bottom third of screen** for one-handed use
+- **Center areas** for tablets
+- **Avoid top corners** on large phones
+
+## Accessibility Considerations
+
+### Motor Impairments
+Users with motor disabilities need larger targets:
+- Tremors require extra spacing
+- Limited dexterity needs bigger targets
+- Consider alternative input methods
+
+### Age Factors
+- **Children:** Need larger targets due to developing motor skills
+- **Elderly:** Benefit from increased size and spacing
+
+### Assistive Technology
+- Screen readers may require different interaction patterns
+- Switch controls need clear target boundaries
+- Voice control benefits from visible labels
+
+## Testing Methods
+
+### Device Testing
+- Test on actual devices, not just simulators
+- Use different hand positions and grips
+- Test with and without cases
+
+### Heat Map Analysis
+- Track tap locations to identify problem areas
+- Look for clusters indicating missed targets
+- Measure error rates
+
+### User Testing
+- Observe real users interacting with your interface
+- Note hesitation or multiple attempts
+- Ask about difficulty hitting targets
+
+## Common Patterns
+
+### Button Groups
+Space buttons adequately in toolbars and action sheets:
+```css
+.button-group > * + * {
+  margin-left: 16px; /* Sufficient spacing */
+}
+```
+
+### List Items
+Make entire rows tappable:
+```css
+.list-item {
+  display: block;
+  padding: 16px;
+  min-height: 56px;
+}
+```
+
+### Icon Buttons
+Ensure adequate hit areas for small icons:
+```css
+.icon-button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+```
+
+## Related Patterns
+
+Touch target considerations apply to:
+- [Pagination](/patterns/navigation/pagination) - Page number buttons
+- [Tabs](/patterns/navigation/tabs) - Tab selection areas
+- [Buttons](/patterns/forms/buttons) - All interactive buttons
+
+## Tools & Resources
+
+- **Chrome DevTools:** Device mode for testing
+- **Accessibility Inspector:** iOS/macOS testing tool
+- **Touch Target Guidelines:** Platform-specific documentation
+- **Figma/Sketch plugins:** Touch target validators
+
+## Key Takeaways
+
+1. **44×44px minimum** for comfortable interaction (Apple HIG; Material Design recommends 48×48dp)
+2. **8px minimum spacing** between targets
+3. **Expand hit areas** beyond visual boundaries
+4. **Consider context** - one-handed use, device size
+5. **Test on real devices** with real users
+6. **Account for accessibility** needs

@@ -1,0 +1,181 @@
+---
+title: "Screen Reader"
+description: "Assistive technology that converts digital text and interface elements into speech or braille output for users with visual impairments"
+category: ["Accessibility", "Assistive Technology"]
+related_patterns: ["/patterns/navigation/pagination", "/patterns/forms/button", "/patterns/content-management/modal"]
+status: published
+---
+
+import { GlossaryStructuredData } from "@/components/glossary/structured-data";
+
+<GlossaryStructuredData
+  term="Screen Reader"
+  definition="Software that interprets and vocalizes text, images, and other on-screen elements, enabling users with visual impairments to navigate and interact with digital content."
+  category={["Accessibility", "Assistive Technology"]}
+/>
+
+A screen reader is assistive technology software that interprets what's displayed on a computer screen and converts it to speech (text-to-speech) or braille output. Screen readers enable people who are blind, have low vision, or have reading difficulties to use computers and access digital content.
+
+## How Screen Readers Work
+
+Screen readers analyze the Document Object Model (DOM) and accessibility tree to understand page structure and content. They then:
+1. Convert text to synthesized speech
+2. Announce interactive elements and their states
+3. Provide navigation shortcuts
+4. Communicate visual information through audio cues
+
+## Popular Screen Readers
+
+### Desktop
+- **NVDA** (Windows) - Free, open-source
+- **JAWS** (Windows) - Commercial, widely used in enterprise
+- **VoiceOver** (macOS/iOS) - Built into Apple devices
+- **Narrator** (Windows) - Built into Windows
+
+### Mobile
+- **VoiceOver** (iOS) - Native iOS screen reader
+- **TalkBack** (Android) - Native Android screen reader
+- **Voice Assistant** (Samsung devices)
+
+## Key Features
+
+### Navigation Modes
+- **Browse Mode**: Read content linearly
+- **Focus Mode**: Interact with forms and controls
+- **Table Mode**: Navigate data tables cell by cell
+- **Scan Mode**: Quick navigation in Windows
+
+### Shortcuts & Commands
+Screen readers provide keyboard shortcuts for:
+- Jumping between headings (H key)
+- Moving between landmarks (D key)
+- Listing all links (Insert + F7 in NVDA)
+- Finding specific text
+- Reading from current position
+
+## Web Development Considerations
+
+### Semantic HTML
+Use proper HTML elements to convey meaning:
+```html
+<!-- Good -->
+<button>Submit</button>
+<nav>...</nav>
+<h1>Page Title</h1>
+
+<!-- Bad -->
+<div onclick="submit()">Submit</div>
+<div class="navigation">...</div>
+<div class="big-text">Page Title</div>
+```
+
+### ARIA Labels and Descriptions
+Provide context when visual cues aren't enough:
+```html
+<button aria-label="Close dialog">×</button>
+<input aria-describedby="password-help">
+<p id="password-help">Must be at least 8 characters</p>
+```
+
+### Alternative Text
+Describe images meaningfully:
+```html
+<!-- Informative image -->
+<img src="chart.png" alt="Sales increased 25% in Q4">
+
+<!-- Decorative image -->
+<img src="divider.png" alt="" role="presentation">
+```
+
+### Focus Management
+Ensure logical tab order and visible focus indicators:
+```css
+:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Show focus ring only when appropriate */
+:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+```
+
+## Testing with Screen Readers
+
+### Quick Testing
+1. **Enable screen reader** (Cmd+F5 for VoiceOver on Mac)
+2. **Navigate with keyboard only** - no mouse
+3. **Listen to content** - does it make sense?
+4. **Check announcements** - are states and changes announced?
+5. **Test forms** - can you complete them?
+
+### Common Issues to Check
+- Missing labels on form fields
+- Buttons without accessible names
+- Images without alt text
+- Dynamic content changes not announced
+- Complex widgets lacking ARIA attributes
+- Illogical heading hierarchy
+
+## Screen Reader Usage Statistics
+
+According to WebAIM's Screen Reader User Survey:
+- **JAWS**: 53.7% (Windows)
+- **NVDA**: 30.7% (Windows)
+- **VoiceOver**: 6.5% (macOS)
+- **VoiceOver iOS**: 6.1% (Mobile)
+
+## Best Practices
+
+### Do's ✅
+- Test with real screen readers, not just automated tools
+- Use semantic HTML before adding ARIA
+- Provide skip links for repetitive content
+- Ensure all interactive elements are keyboard accessible
+- Announce dynamic content changes with live regions
+- Write descriptive link text ("Read more about pricing" not "Click here")
+
+### Don'ts ❌
+- Don't rely solely on color to convey information
+- Avoid using placeholder text as labels
+- Don't auto-play media with sound
+- Never trap keyboard focus (except in modals)
+- Don't use ARIA to fix bad HTML
+
+## Common Announcements
+
+Understanding what screen readers announce helps design better interfaces:
+
+| Element | Typical Announcement |
+|---------|---------------------|
+| `<button>` | "Submit, button" |
+| `<a href>` | "Contact us, link" |
+| `<h1>` | "Heading level 1, Welcome" |
+| `<nav>` | "Navigation landmark" |
+| `aria-expanded="false"` | "collapsed" |
+| `aria-live="polite"` | Announces changes |
+| `disabled` | "dimmed" or "disabled" |
+
+## Related Concepts
+
+- [Keyboard Navigation](/glossary/keyboard-navigation) - Essential for screen reader users
+- [ARIA Attributes](/glossary/aria-attributes) - Enhance screen reader experience
+- [Live Regions](/glossary/live-regions) - Announce dynamic changes
+- [Semantic HTML](/glossary/semantic-html) - Foundation for screen reader compatibility
+
+## Resources
+
+- [WebAIM Screen Reader Testing](https://webaim.org/articles/screenreader_testing/)
+- [NVDA Download](https://www.nvaccess.org/)
+- [VoiceOver Guide](https://support.apple.com/guide/voiceover/welcome/mac)
+- [Screen Reader User Survey](https://webaim.org/projects/screenreadersurvey9/)
+
+## Key Takeaways
+
+- Screen readers are essential for many users to access web content
+- Semantic HTML is the foundation of screen reader accessibility
+- Test with actual screen readers, not just automated tools
+- Consider screen reader users in every design decision
+- Small improvements can make huge differences in user experience

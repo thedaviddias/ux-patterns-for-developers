@@ -5,6 +5,7 @@ import {
 	metaSchema,
 } from "fumadocs-mdx/config";
 import { createGenerator, remarkAutoTypeTable } from "fumadocs-typescript";
+import { z } from "zod";
 
 const generator = createGenerator({
 	cache: false, // Disable caching to avoid ENOENT errors in CI
@@ -14,7 +15,11 @@ const generator = createGenerator({
 // see https://fumadocs.dev/docs/mdx/collections#define-docs
 export const docs: ReturnType<typeof defineDocs> = defineDocs({
 	docs: {
-		schema: frontmatterSchema,
+		schema: frontmatterSchema.extend({
+			date: z.string().optional(),
+			tags: z.array(z.string()).optional(),
+			version: z.string().optional(),
+		}),
 	},
 	meta: {
 		schema: metaSchema,
@@ -25,7 +30,9 @@ export const docs: ReturnType<typeof defineDocs> = defineDocs({
 export type Docs = typeof docs;
 
 export default defineConfig({
+	lastModifiedTime: "git",
 	mdxOptions: {
 		remarkPlugins: [[remarkAutoTypeTable, { generator }]],
+		providerImportSource: "@/mdx-components",
 	},
 });

@@ -1,0 +1,6 @@
+{
+	"title": "Social",
+	"description": "Social interaction and engagement patterns",
+	"icon": "Users",
+	"pages": ["activity-feed", "comment-system", "like-button", "share-dialog"]
+}

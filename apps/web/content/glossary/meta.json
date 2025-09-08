@@ -1,0 +1,7 @@
+{
+	"title": "Glossary",
+	"description": "UX/UI terminology definitions",
+	"icon": "BookOpen",
+	"root": true,
+	"pages": ["index", "a", "c", "d", "k", "l", "p", "s", "t", "v"]
+}

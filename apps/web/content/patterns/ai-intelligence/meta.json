@@ -1,0 +1,17 @@
+{
+	"title": "AI Intelligence",
+	"description": "AI-powered interface patterns",
+	"icon": "Brain",
+	"pages": [
+		"ai-chat",
+		"ai-error-states",
+		"ai-loading-states",
+		"ai-suggestions",
+		"context-window",
+		"model-selector",
+		"prompt-input",
+		"response-feedback",
+		"streaming-response",
+		"token-counter"
+	]
+}

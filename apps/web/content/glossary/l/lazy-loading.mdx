@@ -1,0 +1,342 @@
+---
+title: "Lazy Loading"
+description: "A performance optimization technique that delays loading of non-critical resources until they are needed"
+category: ["Performance", "Optimization", "Web Development"]
+related_patterns: ["/patterns/navigation/infinite-scroll", "/patterns/navigation/load-more", "/patterns/data-display/table"]
+status: published
+---
+
+import { GlossaryStructuredData } from "@/components/glossary/structured-data";
+
+<GlossaryStructuredData
+  term="Lazy Loading"
+  definition="A design pattern that defers the initialization or loading of resources until they are actually needed, improving initial page load time and reducing bandwidth usage."
+  category={["Performance", "Optimization", "Web Development"]}
+/>
+
+Lazy loading is a performance optimization strategy that delays the loading of resources (images, videos, scripts, components) until they are actually needed. Instead of loading everything upfront, content is loaded on-demand as users interact with the page, significantly improving initial page load times and reducing bandwidth consumption.
+
+## Why Use Lazy Loading?
+
+### Performance Benefits
+- **Faster initial page load** - Only critical content loads first
+- **Reduced bandwidth usage** - Only requested resources download
+- **Lower server load** - Fewer simultaneous requests
+- **Improved Core Web Vitals** - Better LCP and INP scores
+- **Better mobile experience** - Crucial for slower connections
+
+## Types of Lazy Loading
+
+### Image Lazy Loading
+```html
+<!-- Native lazy loading (modern browsers) -->
+<img src="image.jpg" loading="lazy" alt="Description">
+
+<!-- With placeholder -->
+<img
+  src="placeholder.jpg"
+  data-src="full-image.jpg"
+  loading="lazy"
+  alt="Description"
+>
+```
+
+### Intersection Observer API
+```javascript
+// Modern approach using Intersection Observer
+const images = document.querySelectorAll('img[data-src]');
+
+const imageObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      observer.unobserve(img);
+    }
+  });
+}, {
+  rootMargin: '50px 0px', // Start loading 50px before visible
+  threshold: 0.01
+});
+
+images.forEach(img => imageObserver.observe(img));
+```
+
+### Component Lazy Loading (React)
+```jsx
+import { lazy, Suspense } from 'react';
+
+// Lazy load component
+const HeavyComponent = lazy(() => import('./HeavyComponent'));
+
+function App() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HeavyComponent />
+    </Suspense>
+  );
+}
+
+// Route-based lazy loading
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const Settings = lazy(() => import('./pages/Settings'));
+```
+
+### JavaScript Module Loading
+```javascript
+// Dynamic import
+button.addEventListener('click', async () => {
+  const module = await import('./heavy-module.js');
+  module.doSomething();
+});
+
+// Conditional loading
+if (userNeedsFeature) {
+  import('./feature.js').then(module => {
+    module.initialize();
+  });
+}
+```
+
+## Implementation Strategies
+
+### Progressive Image Loading
+```html
+<!-- Low quality placeholder to high quality -->
+<div class="progressive-image">
+  <img
+    class="placeholder"
+    src="tiny-blurred.jpg"
+    alt="Description"
+  >
+  <img
+    class="full"
+    data-src="full-resolution.jpg"
+    alt="Description"
+  >
+</div>
+
+<style>
+.progressive-image {
+  position: relative;
+}
+
+.placeholder {
+  filter: blur(5px);
+  transition: opacity 0.3s;
+}
+
+.full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.full.loaded {
+  opacity: 1;
+}
+</style>
+```
+
+### Infinite Scroll with Lazy Loading
+```javascript
+const content = document.querySelector('.content');
+const loader = document.querySelector('.loader');
+
+const loadMoreContent = async () => {
+  const response = await fetch(`/api/content?page=${nextPage}`);
+  const newContent = await response.json();
+  renderContent(newContent);
+  nextPage++;
+};
+
+// Observe loader element
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    loadMoreContent();
+  }
+});
+
+observer.observe(loader);
+```
+
+### Lazy Loading with Fallbacks
+```javascript
+// Query DOM for images that need lazy loading
+const images = document.querySelectorAll('img[data-src]');
+
+// Check for native lazy loading support
+if ('loading' in HTMLImageElement.prototype && images.length > 0) {
+  // Native lazy loading supported - convert NodeList to array for forEach
+  Array.from(images).forEach(img => {
+    img.loading = 'lazy';
+  });
+} else if (images.length > 0) {
+  // Fallback to Intersection Observer or library
+  const script = document.createElement('script');
+  script.src = '/lazy-loading-polyfill.js';
+  document.body.appendChild(script);
+}
+```
+
+## Best Practices
+
+### Do's ✅
+
+1. **Set dimensions** to prevent layout shift
+```html
+<img
+  src="placeholder.jpg"
+  data-src="image.jpg"
+  width="800"
+  height="600"
+  loading="lazy"
+>
+```
+
+2. **Use appropriate loading thresholds**
+```javascript
+// Load images just before they enter viewport
+rootMargin: '100px 0px'
+```
+
+3. **Provide meaningful placeholders**
+- Blurred thumbnails
+- Skeleton screens
+- Solid colors
+- SVG placeholders
+
+4. **Prioritize above-the-fold content**
+```html
+<!-- Critical images load immediately -->
+<img src="hero.jpg" loading="eager" fetchpriority="high">
+
+<!-- Below-fold images lazy load -->
+<img src="footer.jpg" loading="lazy">
+```
+
+### Don'ts ❌
+
+1. **Don't lazy load critical content**
+- Hero images
+- Logo
+- Above-the-fold content
+- LCP elements
+
+2. **Don't remove accessibility**
+```html
+<!-- Always include alt text -->
+<img data-src="image.jpg" alt="Description" loading="lazy">
+```
+
+3. **Don't lazy load tiny resources**
+- Small icons
+- CSS files
+- Critical JavaScript
+
+## Performance Metrics
+
+### Impact on Core Web Vitals
+
+**Largest Contentful Paint (LCP)**
+- Improves by reducing initial load
+- Be careful not to lazy load LCP element
+
+**Interaction to Next Paint (INP)**
+- Better interactivity with less initial JavaScript
+- Fewer resources competing for main thread
+
+**Cumulative Layout Shift (CLS)**
+- Can worsen if dimensions not specified
+- Always reserve space for lazy loaded content
+
+## Common Libraries
+
+### Vanilla JavaScript
+- **lazysizes** - High performance, no dependencies
+- **vanilla-lazyload** - Lightweight, IntersectionObserver-based
+- **lozad.js** - Simple, modern, lightweight
+
+### React
+- **react-lazyload** - Component lazy loading
+- **react-intersection-observer** - Hook-based
+- **react-lazy-load-image-component** - Image specific
+
+### Vue
+- **vue-lazyload** - Directive-based
+- **v-lazy-image** - Simple image lazy loading
+
+## Accessibility Considerations
+
+```html
+<!-- Provide context for screen readers -->
+<img
+  class="progressive"
+  src="placeholder.jpg"
+  data-src="full-image.jpg"
+  alt="Product photo"
+  loading="lazy"
+  decoding="async"
+/>
+
+<script>
+  const img = document.querySelector('img.progressive');
+  const swapSrc = (el) => {
+    const full = el.getAttribute('data-src');
+    if (full) el.src = full;
+  };
+  if (img.complete) swapSrc(img);
+  else img.addEventListener('load', () => swapSrc(img), { once: true });
+</script>
+```
+
+## SEO Implications
+
+### Considerations
+- Search engines now execute JavaScript
+- Google supports lazy loading
+- Ensure content is discoverable
+- Use native `loading="lazy"` when possible
+
+### Implementation for SEO
+```html
+<!-- Structured data for lazy loaded images -->
+<script type="application/ld+json">
+{
+  "@type": "ImageObject",
+  "contentUrl": "https://example.com/image.jpg",
+  "description": "Image description"
+}
+</script>
+```
+
+## Testing Lazy Loading
+
+### Browser DevTools
+1. Network tab - Check when resources load
+2. Performance tab - Measure impact
+3. Coverage tab - See unused JavaScript/CSS
+
+### Tools
+- Lighthouse - Performance audit
+- WebPageTest - Waterfall analysis
+- Chrome User Experience Report
+
+## Related Concepts
+
+- [Skeleton Screen](/glossary/skeleton-screen) - Shows while lazy loading
+- [Viewport](/glossary/viewport) - Triggers lazy loading
+- [DOM](/glossary/dom) - Manipulated during lazy loading
+- Progressive Enhancement - Core principle
+
+## Key Takeaways
+
+- Lazy loading significantly improves initial page load
+- Use native browser APIs when available
+- Always specify dimensions to prevent layout shift
+- Don't lazy load critical above-the-fold content
+- Provide meaningful placeholders during loading
+- Test impact on Core Web Vitals

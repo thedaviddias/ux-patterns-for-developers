@@ -1,10 +1,10 @@
 {
   "search.exclude": {
     ".git": true,
-    "node_modules": true,
+    "**/node_modules": true,
     "package.lock": true,
     "pnpm-lock.yaml": true,
-    ".next": true,
+    "**/.next": true,
     "coverage": true,
     "public": true,
     "CHANGELOG": true,
@@ -12,7 +12,8 @@
     "CONTRIBUTING": true,
     "LICENSE": true,
     ".lycheecache": true,
-    "lychee-out.md": true
+    "lychee-out.md": true,
+    "../.source": true
   },
   "javascript.format.enable": true,
   "javascript.validate.enable": false,

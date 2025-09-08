@@ -1,0 +1,14 @@
+{
+	"title": "Pattern Guides",
+	"description": "Decision guides for patterns",
+	"icon": "Compass",
+	"root": true,
+	"pages": [
+		"---Introduction---",
+		"index",
+		"---Guides---",
+		"choosing-input-types",
+		"input-selection-guide",
+		"pagination-vs-infinite-scroll"
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"title": "Patterns",
+	"description": "UI/UX patterns and components",
+	"icon": "Layers",
+	"root": true,
+	"pages": [
+		"---Introduction---",
+		"getting-started",
+		"when-to-use-what",
+		"books",
+		"---Pattern Guide---",
+		"forms",
+		"navigation",
+		"data-display",
+		"content-management",
+		"user-feedback",
+		"authentication",
+		"e-commerce",
+		"media",
+		"social",
+		"ai-intelligence",
+		"advanced"
+	]
+}
