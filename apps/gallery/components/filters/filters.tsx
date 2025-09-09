@@ -1,6 +1,5 @@
 "use client";
 
-import * as Select from "@radix-ui/react-select";
 import {
 	CheckCircle,
 	Filter,
@@ -8,10 +7,21 @@ import {
 	Smartphone,
 	XCircle,
 } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { parseAsString, parseAsStringEnum, useQueryStates } from "nuqs";
+import { ROUTES } from "@/lib/routes";
+import { useSearch } from "@/lib/search-context";
+import { getCategoryForPattern, PATTERN_CATEGORIES } from "@/lib/url-utils";
 import { cn } from "@/lib/utils";
-import { FilterChip } from "./filter-chip";
+import { FilterDropdown } from "./filter-dropdown";
+
+// Convert pattern ID to display name
+const getPatternDisplayName = (patternId: string): string => {
+	return patternId
+		.split("-")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ");
+};
 
 interface FiltersProps {
 	patterns: string[];
@@ -25,40 +35,70 @@ export function Filters({
 	variant = "search",
 }: FiltersProps) {
 	const pathname = usePathname();
+	const router = useRouter();
+	const { openSearch } = useSearch();
 
-	// Detect current platform, quality, and pattern from URL path
-	const getCurrentPlatform = () => {
-		if (pathname.startsWith("/explore/web")) return "web";
-		if (pathname.startsWith("/explore/mobile")) return "mobile";
-		return "all";
-	};
+	// Parse current filters from URL
+	const getCurrentFilters = () => {
+		const searchParams =
+			typeof window !== "undefined"
+				? new URLSearchParams(window.location.search)
+				: new URLSearchParams();
+		const pathParts = pathname.split("/").filter(Boolean);
 
-	const getCurrentQuality = () => {
-		const pathParts = pathname.split("/");
-		if (pathParts.length >= 4 && ["do", "dont"].includes(pathParts[3])) {
-			return pathParts[3];
+		// Platform from path
+		let platform: "all" | "web" | "mobile" = "all";
+		if (pathParts[0] === "web") platform = "web";
+		else if (pathParts[0] === "mobile") platform = "mobile";
+
+		// Category from path (if exists)
+		let category = "";
+		if (
+			pathParts[1] &&
+			Object.keys(PATTERN_CATEGORIES).includes(pathParts[1])
+		) {
+			category = pathParts[1];
 		}
-		return "all";
-	};
 
-	const getCurrentPattern = () => {
-		const pathParts = pathname.split("/");
-		if (pathParts.length >= 5 && pathParts[4]) {
-			return pathParts[4];
+		// Pattern from path
+		let pattern = "";
+		if (pathParts[2] && !["do", "dont"].includes(pathParts[2])) {
+			pattern = pathParts[2];
+		} else if (
+			pathParts[1] &&
+			!Object.keys(PATTERN_CATEGORIES).includes(pathParts[1]) &&
+			!["do", "dont"].includes(pathParts[1])
+		) {
+			// Direct pattern without category
+			pattern = pathParts[1];
 		}
-		return "";
+
+		// Quality from path or query params
+		let quality: "all" | "do" | "dont" = "all";
+		const lastPart = pathParts[pathParts.length - 1];
+		if (["do", "dont"].includes(lastPart)) {
+			quality = lastPart as "do" | "dont";
+		} else if (searchParams.get("quality")) {
+			const queryQuality = searchParams.get("quality");
+			if (queryQuality && ["do", "dont"].includes(queryQuality)) {
+				quality = queryQuality as "do" | "dont";
+			}
+		}
+
+		return { platform, category, pattern, quality };
 	};
 
-	const [filters, setFilters] = useQueryStates({
+	const currentFilters = getCurrentFilters();
+
+	const [filters, _setFilters] = useQueryStates({
 		platform: parseAsStringEnum(["all", "web", "mobile"]).withDefault(
-			getCurrentPlatform(), // Use URL-based platform detection for all pages
+			currentFilters.platform,
 		),
-		type: parseAsStringEnum(["all", "do", "dont"]).withDefault(
-			getCurrentQuality(), // Use URL-based quality detection
+		quality: parseAsStringEnum(["all", "do", "dont"]).withDefault(
+			currentFilters.quality,
 		),
-		pattern: parseAsString.withDefault(
-			getCurrentPattern(), // Use URL-based pattern detection
-		),
+		category: parseAsString.withDefault(currentFilters.category),
+		pattern: parseAsString.withDefault(currentFilters.pattern),
 		search: parseAsString.withDefault(""),
 		view: parseAsString.withDefault(""), // For modal state
 	});
@@ -71,21 +111,9 @@ export function Filters({
 			)}
 		>
 			<div className="container-responsive">
-				{/* Active Filter Chips - Only show on search pages, exclude platform and quality */}
-				{variant === "search" && filters.pattern && (
-					<div className="mb-4 flex flex-wrap gap-2">
-						{filters.pattern && (
-							<FilterChip
-								label={filters.pattern}
-								onRemove={() => setFilters({ pattern: "" })}
-							/>
-						)}
-					</div>
-				)}
-
-				<div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+				<div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
 					<div className="flex flex-wrap gap-3 items-center">
-						{/* Platform Selection - Radio button behavior for clean URLs */}
+						{/* Platform Selection */}
 						<fieldset className="flex items-center gap-1 bg-fd-muted rounded-lg p-1">
 							<legend className="sr-only">Select platform to view</legend>
 							<label className="cursor-pointer">
@@ -95,7 +123,7 @@ export function Filters({
 									value="all"
 									checked={filters.platform === "all"}
 									onChange={() => {
-										window.location.href = "/";
+										router.push(ROUTES.HOME);
 									}}
 									className="sr-only"
 								/>
@@ -119,7 +147,7 @@ export function Filters({
 									value="web"
 									checked={filters.platform === "web"}
 									onChange={() => {
-										window.location.href = "/explore/web";
+										router.push(ROUTES.WEB);
 									}}
 									className="sr-only"
 								/>
@@ -144,7 +172,7 @@ export function Filters({
 									value="mobile"
 									checked={filters.platform === "mobile"}
 									onChange={() => {
-										window.location.href = "/explore/mobile";
+										router.push(ROUTES.MOBILE);
 									}}
 									className="sr-only"
 								/>
@@ -163,157 +191,348 @@ export function Filters({
 							</label>
 						</fieldset>
 
-						{/* Quality Selection - Only show on search pages */}
-						{variant === "search" && (
-							<fieldset className="flex items-center gap-1 bg-fd-muted rounded-lg p-1">
-								<legend className="sr-only">Select quality to view</legend>
-								<label className="cursor-pointer">
-									<input
-										type="radio"
-										name="quality"
-										value="all"
-										checked={filters.type === "all"}
-										onChange={() => {
-											const currentPlatform = getCurrentPlatform();
-											const currentPattern = getCurrentPattern();
-											if (currentPattern) {
-												window.location.href = `/explore/${currentPlatform}/all/${currentPattern}`;
-											} else {
-												window.location.href = `/explore/${currentPlatform}`;
-											}
-										}}
-										className="sr-only"
-									/>
-									<div
-										className={cn(
-											"flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all",
-											"focus-within:outline-none focus-within:ring-2 focus-within:ring-fd-primary",
-											filters.type === "all"
-												? "bg-fd-card text-fd-foreground shadow-sm"
-												: "text-fd-muted-foreground hover:text-fd-foreground",
-										)}
-									>
-										All
-									</div>
-								</label>
+						{/* Quality Selection - Always show */}
+						<fieldset className="flex items-center gap-1 bg-fd-muted rounded-lg p-1">
+							<legend className="sr-only">Select quality to view</legend>
+							<label className="cursor-pointer">
+								<input
+									type="radio"
+									name="quality"
+									value="all"
+									checked={filters.quality === "all"}
+									onChange={() => {
+										const platform = currentFilters.platform;
+										const category = currentFilters.category;
+										const pattern = currentFilters.pattern;
 
-								<label className="cursor-pointer">
-									<input
-										type="radio"
-										name="quality"
-										value="do"
-										checked={filters.type === "do"}
-										onChange={() => {
-											const currentPlatform = getCurrentPlatform();
-											const currentPattern = getCurrentPattern();
-											if (currentPattern) {
-												window.location.href = `/explore/${currentPlatform}/do/${currentPattern}`;
-											} else {
-												window.location.href = `/explore/${currentPlatform}/do`;
-											}
-										}}
-										className="sr-only"
-									/>
-									<div
-										className={cn(
-											"flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all",
-											"focus-within:outline-none focus-within:ring-2 focus-within:ring-fd-primary",
-											filters.type === "do"
-												? "bg-fd-card text-fd-foreground shadow-sm"
-												: "text-fd-muted-foreground hover:text-fd-foreground",
-										)}
-									>
-										<CheckCircle className="w-4 h-4 text-green-600" />
-										Do
-									</div>
-								</label>
-
-								<label className="cursor-pointer">
-									<input
-										type="radio"
-										name="quality"
-										value="dont"
-										checked={filters.type === "dont"}
-										onChange={() => {
-											const currentPlatform = getCurrentPlatform();
-											const currentPattern = getCurrentPattern();
-											if (currentPattern) {
-												window.location.href = `/explore/${currentPlatform}/dont/${currentPattern}`;
-											} else {
-												window.location.href = `/explore/${currentPlatform}/dont`;
-											}
-										}}
-										className="sr-only"
-									/>
-									<div
-										className={cn(
-											"flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all",
-											"focus-within:outline-none focus-within:ring-2 focus-within:ring-fd-primary",
-											filters.type === "dont"
-												? "bg-fd-card text-fd-foreground shadow-sm"
-												: "text-fd-muted-foreground hover:text-fd-foreground",
-										)}
-									>
-										<XCircle className="w-4 h-4 text-red-600" />
-										Don't
-									</div>
-								</label>
-							</fieldset>
-						)}
-
-						{/* Pattern Select - Only show on search pages */}
-						{variant === "search" && (
-							<Select.Root
-								value={filters.pattern || ""}
-								onValueChange={(value) => {
-									const currentPlatform = getCurrentPlatform();
-									const currentQuality = getCurrentQuality();
-									if (value === "all") {
-										// Remove pattern from URL
-										if (currentQuality !== "all") {
-											window.location.href = `/explore/${currentPlatform}/${currentQuality}`;
+										if (pattern && category) {
+											router.push(
+												platform === "all"
+													? ROUTES.pattern("web", category, pattern)
+													: ROUTES.pattern(platform, category, pattern),
+											);
+										} else if (category) {
+											router.push(
+												platform === "all"
+													? ROUTES.category("web", category)
+													: ROUTES.category(platform, category),
+											);
 										} else {
-											window.location.href = `/explore/${currentPlatform}`;
+											router.push(
+												platform === "all"
+													? ROUTES.HOME
+													: ROUTES.platform(platform),
+											);
+										}
+									}}
+									className="sr-only"
+								/>
+								<div
+									className={cn(
+										"flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all",
+										"focus-within:outline-none focus-within:ring-2 focus-within:ring-fd-primary",
+										filters.quality === "all"
+											? "bg-fd-card text-fd-foreground shadow-sm"
+											: "text-fd-muted-foreground hover:text-fd-foreground",
+									)}
+								>
+									All
+								</div>
+							</label>
+
+							<label className="cursor-pointer">
+								<input
+									type="radio"
+									name="quality"
+									value="do"
+									checked={filters.quality === "do"}
+									onChange={() => {
+										const platform = currentFilters.platform;
+										const category = currentFilters.category;
+										const pattern = currentFilters.pattern;
+
+										if (pattern && category) {
+											router.push(
+												platform === "all"
+													? ROUTES.quality("web", category, pattern, "do")
+													: ROUTES.quality(platform, category, pattern, "do"),
+											);
+										} else if (category) {
+											router.push(
+												platform === "all"
+													? ROUTES.withQuality(
+															ROUTES.category("web", category),
+															"do",
+														)
+													: ROUTES.withQuality(
+															ROUTES.category(platform, category),
+															"do",
+														),
+											);
+										} else {
+											router.push(
+												platform === "all"
+													? ROUTES.withQuality(ROUTES.HOME, "do")
+													: ROUTES.withQuality(ROUTES.platform(platform), "do"),
+											);
+										}
+									}}
+									className="sr-only"
+								/>
+								<div
+									className={cn(
+										"flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all",
+										"focus-within:outline-none focus-within:ring-2 focus-within:ring-fd-primary",
+										filters.quality === "do"
+											? "bg-fd-card text-fd-foreground shadow-sm"
+											: "text-fd-muted-foreground hover:text-fd-foreground",
+									)}
+								>
+									<CheckCircle className="w-4 h-4 text-green-600" />
+									Do
+								</div>
+							</label>
+
+							<label className="cursor-pointer">
+								<input
+									type="radio"
+									name="quality"
+									value="dont"
+									checked={filters.quality === "dont"}
+									onChange={() => {
+										const platform = currentFilters.platform;
+										const category = currentFilters.category;
+										const pattern = currentFilters.pattern;
+
+										if (pattern && category) {
+											router.push(
+												platform === "all"
+													? ROUTES.quality("web", category, pattern, "dont")
+													: ROUTES.quality(platform, category, pattern, "dont"),
+											);
+										} else if (category) {
+											router.push(
+												platform === "all"
+													? ROUTES.withQuality(
+															ROUTES.category("web", category),
+															"dont",
+														)
+													: ROUTES.withQuality(
+															ROUTES.category(platform, category),
+															"dont",
+														),
+											);
+										} else {
+											router.push(
+												platform === "all"
+													? ROUTES.withQuality(ROUTES.HOME, "dont")
+													: ROUTES.withQuality(
+															ROUTES.platform(platform),
+															"dont",
+														),
+											);
+										}
+									}}
+									className="sr-only"
+								/>
+								<div
+									className={cn(
+										"flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all",
+										"focus-within:outline-none focus-within:ring-2 focus-within:ring-fd-primary",
+										filters.quality === "dont"
+											? "bg-fd-card text-fd-foreground shadow-sm"
+											: "text-fd-muted-foreground hover:text-fd-foreground",
+									)}
+								>
+									<XCircle className="w-4 h-4 text-red-600" />
+									Don't
+								</div>
+							</label>
+						</fieldset>
+
+						{/* Category Select */}
+						<FilterDropdown
+							value={filters.category || ""}
+							onValueChange={(value) => {
+								const platform = currentFilters.platform;
+								const quality = currentFilters.quality;
+
+								if (value && value !== "all") {
+									const basePlatform = platform === "all" ? "web" : platform;
+
+									if (quality !== "all") {
+										router.push(
+											ROUTES.withQuality(
+												ROUTES.category(basePlatform, value),
+												quality,
+											),
+										);
+									} else {
+										router.push(ROUTES.category(basePlatform, value));
+									}
+								} else {
+									// Clear category
+									const pattern = currentFilters.pattern;
+									if (pattern) {
+										// Remove both category and pattern
+										if (platform === "all") {
+											router.push(
+												quality !== "all"
+													? ROUTES.withQuality(ROUTES.HOME, quality)
+													: ROUTES.HOME,
+											);
+										} else {
+											router.push(
+												quality !== "all"
+													? ROUTES.withQuality(
+															ROUTES.platform(platform),
+															quality,
+														)
+													: ROUTES.platform(platform),
+											);
 										}
 									} else {
-										// Add pattern to URL
-										if (currentQuality !== "all") {
-											window.location.href = `/explore/${currentPlatform}/${currentQuality}/${value}`;
+										// Just removing category
+										if (platform === "all") {
+											router.push(
+												quality !== "all"
+													? ROUTES.withQuality(ROUTES.HOME, quality)
+													: ROUTES.HOME,
+											);
 										} else {
-											window.location.href = `/explore/${currentPlatform}/all/${value}`;
+											router.push(
+												quality !== "all"
+													? ROUTES.withQuality(
+															ROUTES.platform(platform),
+															quality,
+														)
+													: ROUTES.platform(platform),
+											);
 										}
 									}
-								}}
-							>
-								<Select.Trigger className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
-									<Filter className="w-4 h-4" />
-									<Select.Value placeholder="All Patterns" />
-								</Select.Trigger>
+								}
+							}}
+							placeholder="All Categories"
+							label="Category"
+							displayValue={
+								filters.category
+									? `Category: ${getPatternDisplayName(filters.category)}`
+									: undefined
+							}
+							items={[
+								{ value: "all", label: "All Categories" },
+								...Object.keys(PATTERN_CATEGORIES).map((category) => ({
+									value: category,
+									label: getPatternDisplayName(category),
+								})),
+							]}
+						/>
 
-								<Select.Portal>
-									<Select.Content className="bg-white border border-gray-200 rounded-lg shadow-lg z-[1]">
-										<Select.Viewport className="p-1">
-											<Select.Item
-												value="all"
-												className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 cursor-pointer focus:bg-gray-100 focus:outline-none"
-											>
-												<Select.ItemText>All Patterns</Select.ItemText>
-											</Select.Item>
-											{patterns.map((pattern) => (
-												<Select.Item
-													key={pattern}
-													value={pattern}
-													className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 cursor-pointer focus:bg-gray-100 focus:outline-none"
-												>
-													<Select.ItemText>{pattern}</Select.ItemText>
-												</Select.Item>
-											))}
-										</Select.Viewport>
-									</Select.Content>
-								</Select.Portal>
-							</Select.Root>
-						)}
+						{/* Pattern Select */}
+						<FilterDropdown
+							value={filters.pattern || ""}
+							onValueChange={(value) => {
+								const platform = currentFilters.platform;
+								const quality = currentFilters.quality;
+								const category = currentFilters.category;
+
+								if (value && value !== "all") {
+									const basePlatform = platform === "all" ? "web" : platform;
+
+									// If category is selected, use it in the URL
+									if (category) {
+										if (quality !== "all") {
+											router.push(
+												ROUTES.quality(basePlatform, category, value, quality),
+											);
+										} else {
+											router.push(
+												ROUTES.pattern(basePlatform, category, value),
+											);
+										}
+									} else {
+										// If no category, try to find the category for this pattern
+										const patternCategory = getCategoryForPattern(value);
+										if (patternCategory) {
+											if (quality !== "all") {
+												router.push(
+													ROUTES.quality(
+														basePlatform,
+														patternCategory,
+														value,
+														quality,
+													),
+												);
+											} else {
+												router.push(
+													ROUTES.pattern(basePlatform, patternCategory, value),
+												);
+											}
+										}
+									}
+								} else {
+									// Clear pattern
+									if (category) {
+										router.push(
+											quality !== "all"
+												? ROUTES.withQuality(
+														ROUTES.category(
+															platform as "web" | "mobile",
+															category,
+														),
+														quality,
+													)
+												: ROUTES.category(
+														platform as "web" | "mobile",
+														category,
+													),
+										);
+									} else if (platform === "all") {
+										router.push(
+											quality !== "all"
+												? ROUTES.withQuality(ROUTES.HOME, quality)
+												: ROUTES.HOME,
+										);
+									} else {
+										router.push(
+											quality !== "all"
+												? ROUTES.withQuality(ROUTES.platform(platform), quality)
+												: ROUTES.platform(platform),
+										);
+									}
+								}
+							}}
+							placeholder="All Patterns"
+							label="Pattern"
+							displayValue={
+								filters.pattern
+									? `Pattern: ${getPatternDisplayName(filters.pattern)}`
+									: undefined
+							}
+							items={[
+								{ value: "all", label: "All Patterns" },
+								...(filters.category
+									? PATTERN_CATEGORIES[
+											filters.category as keyof typeof PATTERN_CATEGORIES
+										] || []
+									: Object.values(PATTERN_CATEGORIES).flat()
+								).map((pattern) => ({
+									value: pattern,
+									label: getPatternDisplayName(pattern),
+								})),
+							]}
+						/>
 					</div>
+
+					{/* Filter Button */}
+					<button
+						type="button"
+						onClick={openSearch}
+						className="flex items-center gap-2 px-3 py-1.5 bg-fd-card text-fd-foreground rounded-md text-sm font-medium shadow-sm hover:bg-fd-muted focus:outline-none focus:ring-2 focus:ring-fd-primary transition-all"
+					>
+						<Filter className="w-4 h-4" />
+						Filter
+					</button>
 				</div>
 			</div>
 		</div>

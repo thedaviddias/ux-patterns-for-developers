@@ -1,14 +1,17 @@
 import { Suspense } from "react";
-import { GalleryClient } from "@/components/common/gallery-client";
 import { Filters } from "@/components/filters/filters";
-import { getUniquePatterns, loadEntries } from "@/lib/loadEntries";
+import EntriesGrid from "@/components/sections/entries-grid";
+import Hero from "@/components/sections/hero";
+import { loadEntries } from "@/lib/loadEntries";
+import { getAllPatternsFromWebApp } from "@/lib/pattern-utils";
 import { searchEntries } from "@/lib/search";
 
 interface SearchParams {
 	platform?: string;
-	type?: string;
+	quality?: string;
 	pattern?: string;
 	search?: string;
+	[key: string]: string | string[] | undefined;
 }
 
 interface HomePageProps {
@@ -18,38 +21,31 @@ interface HomePageProps {
 export default async function HomePage({ searchParams }: HomePageProps) {
 	const searchParamsResolved = await searchParams;
 	const allEntries = await loadEntries();
-	const patterns = getUniquePatterns(allEntries);
+	const patterns = await getAllPatternsFromWebApp();
 
 	// Apply filters - default to "all" platform on homepage
 	const filteredEntries = searchEntries(
 		allEntries,
-		searchParamsResolved.search || "",
+		Array.isArray(searchParamsResolved.search)
+			? searchParamsResolved.search[0] || ""
+			: searchParamsResolved.search || "",
 		{
-			platform: searchParamsResolved.platform || "all", // Default to all on homepage
-			type: searchParamsResolved.type,
-			pattern: searchParamsResolved.pattern,
+			platform: Array.isArray(searchParamsResolved.platform)
+				? searchParamsResolved.platform[0] || "all"
+				: searchParamsResolved.platform || "all", // Default to all on homepage
+			type: Array.isArray(searchParamsResolved.quality)
+				? searchParamsResolved.quality[0] || undefined
+				: searchParamsResolved.quality || undefined,
+			pattern: Array.isArray(searchParamsResolved.pattern)
+				? searchParamsResolved.pattern[0] || null
+				: searchParamsResolved.pattern || null,
 		},
 	);
 
 	return (
 		<div className="min-h-screen">
 			{/* Hero Section */}
-			<div className="bg-fd-card border-b border-fd-border">
-				<div className="container-responsive py-12 text-center">
-					<h1 className="text-4xl font-bold text-fd-foreground mb-4">
-						UX Patterns Gallery
-					</h1>
-					<p className="text-xl text-fd-muted-foreground max-w-2xl mx-auto">
-						Visual examples of UX patterns in the wild. Learn from real
-						implementations—both good and bad.
-					</p>
-					<div className="mt-6 flex justify-center gap-8 text-sm text-fd-muted-foreground">
-						<span>{allEntries.length} examples</span>
-						<span>{patterns.length} patterns</span>
-						<span>Educational use</span>
-					</div>
-				</div>
-			</div>
+			<Hero />
 
 			{/* Filters */}
 			<Suspense
@@ -59,31 +55,10 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 			</Suspense>
 
 			{/* Results */}
-			<div className="container-responsive py-8">
-				{filteredEntries.length === 0 ? (
-					<div className="text-center py-12">
-						<p className="text-fd-muted-foreground text-lg">
-							No examples found matching your filters.
-						</p>
-						<p className="text-fd-muted-foreground/60 text-sm mt-2">
-							Try adjusting your search or filter criteria.
-						</p>
-					</div>
-				) : (
-					<>
-						<div className="flex items-center justify-between mb-6">
-							<h2 className="text-lg font-semibold text-fd-foreground">
-								{filteredEntries.length}{" "}
-								{filteredEntries.length === 1 ? "example" : "examples"}
-								{searchParamsResolved.pattern &&
-									` for ${searchParamsResolved.pattern}`}
-							</h2>
-						</div>
-
-						<GalleryClient entries={filteredEntries} />
-					</>
-				)}
-			</div>
+			<EntriesGrid
+				filteredEntries={filteredEntries}
+				searchParamsResolved={searchParamsResolved}
+			/>
 		</div>
 	);
 }

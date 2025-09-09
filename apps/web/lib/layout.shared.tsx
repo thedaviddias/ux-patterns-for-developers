@@ -1,5 +1,5 @@
 import type { BaseLayoutProps, LinkItemType } from "fumadocs-ui/layouts/shared";
-import { StarsWrapper } from "@/components/stars-wrapper";
+import { StarsWrapper } from "@/components/stars/stars-wrapper";
 
 export const linkItems: LinkItemType[] = [
 	// see https://fumadocs.dev/docs/ui/navigation/links

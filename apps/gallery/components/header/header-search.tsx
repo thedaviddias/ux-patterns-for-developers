@@ -2,7 +2,7 @@
 
 import { SearchButton } from "@ux-patterns/ui/components/custom/search-button";
 import { SearchModal } from "@ux-patterns/ui/components/custom/search-modal";
-import { useState } from "react";
+import { useSearch } from "@/lib/search-context";
 import type { Entry } from "@/lib/types";
 
 interface HeaderSearchProps {
@@ -11,21 +11,21 @@ interface HeaderSearchProps {
 }
 
 export function HeaderSearch({ entries, patterns }: HeaderSearchProps) {
-	const [isSearchOpen, setIsSearchOpen] = useState(false);
+	const { isSearchOpen, openSearch, closeSearch } = useSearch();
 
 	const handleSearchClick = () => {
-		setIsSearchOpen(true);
+		openSearch();
 	};
 
 	return (
 		<>
 			<SearchButton
 				onClick={handleSearchClick}
-				placeholder="Search patterns, websites, or keywords..."
+				placeholder="Search patterns, examples, websites, or keywords..."
 			/>
 			<SearchModal
 				isOpen={isSearchOpen}
-				onClose={() => setIsSearchOpen(false)}
+				onClose={closeSearch}
 				entries={entries}
 				patterns={patterns}
 			/>

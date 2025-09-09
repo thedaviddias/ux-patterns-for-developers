@@ -2,81 +2,54 @@
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
 
-/* Override any conflicting z-index values */
-[data-fumadocs-modal] {
-  z-index: 9999 !important;
-}
+@source '../node_modules/fumadocs-ui/dist/**/*.js';
+@source '../../../__registry__/**/*.{js,ts,tsx}';
+@source '../../../packages/registry/registry/default/**/*.{js,ts,tsx}';
+@source '../../../packages/ui/src/**/*.{js,ts,tsx}';
 
 /* Gallery-style responsive container padding */
 :root {
-  --container-x-padding: 20px;
+	--container-x-padding: 20px;
 
-  /* Modal insets for gallery */
-  --modal-inset: 28px;
-  --modal-max-height: calc(100dvh - var(--modal-inset));
+	/* Modal insets for gallery */
+	--modal-inset: 28px;
+	--modal-max-height: calc(100dvh - var(--modal-inset));
 }
 
 @media (min-width: 720px) {
-  :root {
-    --container-x-padding: 24px;
-    --modal-inset: 24px;
-    --modal-max-height: max(min(calc(100dvh - var(--modal-inset) * 2), 1080px), 75vh);
-  }
+	:root {
+		--container-x-padding: 24px;
+		--modal-inset: 24px;
+		--modal-max-height: max(
+			min(calc(100dvh - var(--modal-inset) * 2), 1080px),
+			75vh
+		);
+	}
 }
 
 @media (min-width: 1280px) {
-  :root {
-    --container-x-padding: 32px;
-    --modal-inset: 32px;
-  }
+	:root {
+		--container-x-padding: 32px;
+		--modal-inset: 32px;
+	}
 }
 
 @media (min-width: 1536px) {
-  :root {
-    --container-x-padding: 80px;
-    --modal-inset: 40px;
-  }
+	:root {
+		--container-x-padding: 80px;
+		--modal-inset: 40px;
+	}
 }
 
 @media (min-width: 1920px) {
-  :root {
-    --modal-inset: 64px;
-  }
+	:root {
+		--modal-inset: 64px;
+	}
 }
 
 .container-responsive {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-x-padding);
-  padding-right: var(--container-x-padding);
-}
-
-/* Ensure modals appear above everything */
-.modal-overlay {
-  z-index: 9999 !important;
-}
-
-/* Ensure Radix UI Dialog appears above all other content */
-[data-radix-dialog-content] {
-  z-index: 99999 !important;
-  position: fixed !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  max-width: 90vw !important;
-  max-height: 90vh !important;
-}
-
-[data-radix-dialog-overlay] {
-  z-index: 99998 !important;
-}
-
-/* Force all dialog elements to highest z-index */
-[data-radix-dialog-portal] {
-  z-index: 99999 !important;
-}
-
-/* Ensure proper centering for custom dialogs */
-[data-radix-dialog-content] {
-  margin: auto !important;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--container-x-padding);
+	padding-right: var(--container-x-padding);
 }

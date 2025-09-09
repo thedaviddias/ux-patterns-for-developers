@@ -10,7 +10,7 @@ export interface Entry {
 		src: string;
 	};
 	tags?: string[];
-	notes: string;
+	content: string;
 	source?: {
 		url: string;
 		capturedAt: string;
@@ -18,6 +18,7 @@ export interface Entry {
 	// Internal fields for content processing
 	slug: string;
 	filePath: string;
+	body?: any; // MDX compiled body for rendering
 }
 
 export interface SearchIndex {
@@ -28,7 +29,7 @@ export interface SearchIndex {
 	type: string;
 	website: string;
 	tags: string[];
-	notes: string;
+	content: string;
 	slug: string;
 }
 

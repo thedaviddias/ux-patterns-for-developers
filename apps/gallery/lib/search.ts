@@ -9,7 +9,7 @@ export function createSearchIndex(entries: Entry[]): SearchIndex[] {
 		type: entry.type,
 		website: entry.website,
 		tags: entry.tags || [],
-		notes: entry.notes,
+		content: entry.content,
 		slug: entry.slug,
 	}));
 }
@@ -41,6 +41,11 @@ export function searchEntries(
 			if (entry.pattern.toLowerCase() === normalizedPattern) {
 				return true;
 			}
+			// Check if pattern matches when converted to slug format (spaces to hyphens)
+			const patternSlug = entry.pattern.toLowerCase().replace(/\s+/g, "-");
+			if (patternSlug === normalizedPattern) {
+				return true;
+			}
 			// Check if any tag matches the pattern filter
 			if (entry.tags?.some((tag) => tag.toLowerCase() === normalizedPattern)) {
 				return true;
@@ -57,7 +62,7 @@ export function searchEntries(
 				entry.title,
 				entry.pattern,
 				entry.website,
-				entry.notes,
+				entry.content,
 				...(entry.tags || []),
 			]
 				.join(" ")
@@ -96,7 +101,7 @@ export function fuzzySearch(entries: Entry[], query: string): Entry[] {
 		}
 
 		// Notes and tags get lower score
-		if (entry.notes.toLowerCase().includes(searchTerm)) {
+		if (entry.content.toLowerCase().includes(searchTerm)) {
 			score += 3;
 		}
 

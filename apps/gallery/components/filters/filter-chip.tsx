@@ -19,6 +19,7 @@ export function FilterChip({ label, onRemove, className }: FilterChipProps) {
 		>
 			<span>{label}</span>
 			<button
+				type="button"
 				onClick={onRemove}
 				className="hover:bg-fd-background/20 rounded-full p-0.5 transition-colors"
 				aria-label={`Remove ${label} filter`}

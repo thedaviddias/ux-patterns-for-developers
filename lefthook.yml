@@ -10,3 +10,10 @@ pre-commit:
     organize-imports:
       glob: "*.{js,jsx,ts,tsx}"
       run: npx @biomejs/biome check --write {staged_files}
+    sync-gallery-metadata:
+      glob: "apps/gallery/content/entries/**/*.mdx"
+      run: |
+        cd apps/gallery && 
+        pnpm tsx scripts/sync-websites-metadata.ts && 
+        pnpm tsx scripts/extract-favicon-colors.ts &&
+        git add data/websites.json

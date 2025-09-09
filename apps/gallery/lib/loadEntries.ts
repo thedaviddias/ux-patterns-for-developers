@@ -1,55 +1,35 @@
-import { readdir, readFile } from "node:fs/promises";
-import { join } from "node:path";
-// @ts-expect-error
-import matter from "gray-matter";
+import { generateConsistentId } from "./id-generator";
+import { entriesSource } from "./source";
 import type { Entry } from "./types";
 
 export async function loadEntries(): Promise<Entry[]> {
-	const entries: Entry[] = [];
-	const entriesDir = join(process.cwd(), "content/entries");
+	// Get all pages from the entriesSource
+	const pages = entriesSource.getPages();
 
-	try {
-		// Get all pattern directories
-		const patternDirs = await readdir(entriesDir);
+	const entries: Entry[] = pages.map((page) => {
+		const data = page.data;
+		const _normalizedPattern = data.pattern.toLowerCase().replace(/\s+/g, "-");
 
-		for (const patternDir of patternDirs) {
-			const patternPath = join(entriesDir, patternDir);
+		// Generate consistent ID based on website and image src
+		const consistentId = generateConsistentId(data.website, data.media.src);
 
-			try {
-				const files = await readdir(patternPath);
-				const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
-
-				for (const file of mdxFiles) {
-					const filePath = join(patternPath, file);
-					const content = await readFile(filePath, "utf-8");
-					const { data: frontmatter } = matter(content);
-
-					const fileName = file.replace(".mdx", "");
-
-					const entry: Entry = {
-						id: frontmatter.id || fileName,
-						title: frontmatter.title || "",
-						pattern: frontmatter.pattern || patternDir,
-						platform: frontmatter.platform || "web",
-						type: frontmatter.type || "do",
-						website: frontmatter.website || "",
-						media: frontmatter.media || { type: "image", src: "" },
-						tags: frontmatter.tags || [],
-						notes: frontmatter.notes || "",
-						source: frontmatter.source,
-						slug: fileName,
-						filePath: `${patternDir}/${file}`,
-					};
-
-					entries.push(entry);
-				}
-			} catch (error) {
-				console.warn(`Failed to read pattern directory: ${patternDir}`, error);
-			}
-		}
-	} catch (error) {
-		console.warn("Failed to read entries directory", error);
-	}
+		return {
+			id: consistentId, // Use generated consistent ID instead of frontmatter ID
+			title: data.title || "",
+			pattern: data.pattern,
+			platform: data.platform,
+			type: data.type,
+			website: data.website,
+			media: data.media,
+			tags: data.tags || [],
+			content: data.description || "", // Use description field for the content
+			source: data.source,
+			slug: page.slugs.join("/"), // Use slugs from page
+			filePath: page.file.path,
+			// Don't pass body function to client components
+			// body: page.data.body,
+		};
+	});
 
 	// Sort by captured date (newest first) or fallback to title
 	return entries.sort((a, b) => {
@@ -75,6 +55,38 @@ export async function getEntryBySlug(
 				entry.slug === slug,
 		) || null
 	);
+}
+
+// Get entry with MDX body for server-side rendering
+export function getEntryWithBody(id: string): (Entry & { body: any }) | null {
+	const pages = entriesSource.getPages();
+
+	// Find page by matching the generated consistent ID
+	const page = pages.find((p) => {
+		const consistentId = generateConsistentId(p.data.website, p.data.media.src);
+		return consistentId === id;
+	});
+
+	if (!page) return null;
+
+	const data = page.data;
+	const consistentId = generateConsistentId(data.website, data.media.src);
+
+	return {
+		id: consistentId, // Use generated consistent ID
+		title: data.title || "",
+		pattern: data.pattern,
+		platform: data.platform,
+		type: data.type,
+		website: data.website,
+		media: data.media,
+		tags: data.tags || [],
+		content: data.description || "",
+		source: data.source,
+		slug: page.slugs.join("/"),
+		filePath: page.file.path,
+		body: page.data.body, // Include MDX body for server rendering
+	};
 }
 
 export async function getEntriesByPattern(pattern: string): Promise<Entry[]> {
