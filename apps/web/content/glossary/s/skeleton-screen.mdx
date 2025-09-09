@@ -1,0 +1,332 @@
+---
+title: "Skeleton Screen"
+description: "A loading state UI pattern that displays placeholder content shapes while actual content is being fetched"
+category: ["UX Pattern", "Performance", "Loading States"]
+related_patterns: ["/patterns/navigation/infinite-scroll", "/patterns/navigation/load-more"]
+status: published
+---
+
+import { GlossaryStructuredData } from "@/components/glossary/structured-data";
+
+<GlossaryStructuredData
+  term="Skeleton Screen"
+  definition="A user interface loading pattern that shows a simplified, gray-box version of content layout before the actual content loads, providing users with a visual indication of incoming content structure."
+  category={["UX Pattern", "Performance", "Loading States"]}
+/>
+
+A skeleton screen (also called skeleton loader or ghost element) is a version of the UI that doesn't contain actual content but instead shows placeholder shapes that mimic the page's layout. These placeholders are displayed while the real content is loading, giving users a sense of progress and reducing perceived loading time.
+
+## Why Use Skeleton Screens?
+
+### Benefits Over Traditional Loading
+- **Reduced perceived wait time** - Users feel the app is faster
+- **Progressive content reveal** - Content appears gradually
+- **Maintained layout stability** - Prevents content jumping
+- **Better than spinners** - Shows what's coming, not just "loading"
+- **Improved user experience** - Less jarring than blank screens
+
+## Anatomy of a Skeleton Screen
+
+```css
+/* Basic skeleton component */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background-position: 0 0;
+    transition: none;
+  }
+}
+
+/* Shape variations */
+.skeleton-text {
+  height: 16px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 60%;
+}
+
+.skeleton-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+```
+
+## Implementation Examples
+
+### Card Skeleton
+```html
+<div class="card-skeleton">
+  <div class="skeleton skeleton-image"></div>
+  <div class="card-body">
+    <div class="skeleton skeleton-title"></div>
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text" style="width: 80%"></div>
+  </div>
+</div>
+```
+
+### List Item Skeleton
+```html
+<div class="list-item-skeleton">
+  <div class="skeleton skeleton-avatar"></div>
+  <div class="content">
+    <div class="skeleton skeleton-text" style="width: 40%"></div>
+    <div class="skeleton skeleton-text" style="width: 60%"></div>
+  </div>
+</div>
+```
+
+### React Component
+```jsx
+function SkeletonCard({ isLoading, children }) {
+  if (isLoading) {
+    return (
+      <div className="card">
+        <div className="skeleton skeleton-image" />
+        <div className="skeleton skeleton-title" />
+        <div className="skeleton skeleton-text" />
+      </div>
+    );
+  }
+
+  return children;
+}
+
+// Usage
+<SkeletonCard isLoading={!data}>
+  {data && <Card data={data} />}
+</SkeletonCard>
+```
+
+## Design Principles
+
+### Match Content Structure
+The skeleton should closely resemble the actual content layout:
+```html
+<!-- Skeleton matches real content structure -->
+<!-- Skeleton -->
+<div class="skeleton-post">
+  <div class="skeleton skeleton-avatar"></div>
+  <div class="skeleton skeleton-text" style="width: 150px"></div>
+  <div class="skeleton skeleton-image"></div>
+  <div class="skeleton skeleton-text"></div>
+</div>
+
+<!-- Real Content -->
+<div class="post">
+  <img class="avatar" src="user.jpg" />
+  <h3 class="username">John Doe</h3>
+  <img class="post-image" src="photo.jpg" />
+  <p class="caption">Beautiful sunset!</p>
+</div>
+```
+
+### Animation Types
+
+#### Shimmer Effect (Most Common)
+```css
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  animation: shimmer 1.5s infinite;
+}
+```
+
+#### Pulse Effect
+```css
+.skeleton-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+```
+
+#### Wave Effect
+```css
+.skeleton-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-wave::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+  100% { transform: translateX(100%); }
+}
+```
+
+## When to Use Skeleton Screens
+
+### Good Use Cases ✅
+- **Initial page load** - First meaningful paint
+- **Lazy-loaded content** - Images, videos, embeds
+- **Dynamic content updates** - Search results, filtered lists
+- **Infinite scroll** - New items loading
+- **Dashboard widgets** - Multiple data sources
+- **Card-based layouts** - Consistent, repeatable structures
+
+### Poor Use Cases ❌
+- **Very fast loads** (< 300ms) - Can cause flashing
+- **Unpredictable layouts** - When structure varies greatly
+- **Error states** - Use error messages instead
+- **Small UI elements** - Buttons, badges, icons
+- **Critical actions** - Payment forms, urgent alerts
+
+## Performance Considerations
+
+### Prevent Layout Shift
+```css
+/* Define dimensions to prevent CLS */
+.skeleton-container {
+  min-height: 200px; /* Matches loaded content */
+}
+
+.skeleton-image {
+  aspect-ratio: 16 / 9; /* Maintains ratio */
+}
+```
+
+### Progressive Loading
+```javascript
+// Load critical content first
+async function loadContent() {
+  // Show skeleton
+  showSkeleton();
+
+  // Load in priority order
+  const critical = await fetchCriticalData();
+  renderCritical(critical);
+
+  const secondary = await fetchSecondaryData();
+  renderSecondary(secondary);
+
+  // Hide skeleton
+  hideSkeleton();
+}
+```
+
+## Accessibility
+
+### Screen Reader Considerations
+```html
+<!-- Announce loading state -->
+<div role="status" aria-live="polite" aria-label="Loading content" aria-busy="true">
+  <div class="skeleton-card">
+    <!-- Skeleton elements -->
+  </div>
+</div>
+
+<!-- Hide decorative skeletons -->
+<div class="skeleton" aria-hidden="true"></div>
+```
+
+### Provide Loading Context
+```html
+<div class="loading-container">
+  <span class="visually-hidden">Loading posts...</span>
+  <div class="skeleton-list">
+    <!-- Skeleton items -->
+  </div>
+</div>
+```
+
+## Common Libraries
+
+### React
+- **react-loading-skeleton** - Automatic skeleton generation
+- **react-content-loader** - SVG-based skeletons
+- **react-placeholders** - Ready-made placeholder components
+
+### Vue
+- **vue-loading-skeleton** - Vue skeleton components
+- **vue-content-loader** - SVG placeholder loader
+
+### CSS Frameworks
+- **Bootstrap** - `.placeholder` classes
+- **Tailwind CSS** - `animate-pulse` utility
+- **Material-UI** - `<Skeleton>` component
+
+## Best Practices
+
+### Do's ✅
+- Match the skeleton to actual content layout
+- Use smooth, subtle animations
+- Keep skeleton colors low contrast
+- Define dimensions to prevent layout shift
+- Remove skeletons once content loads
+- Consider showing partial real content as it arrives
+
+### Don'ts ❌
+- Don't use skeletons for very fast loads
+- Avoid overly complex skeleton layouts
+- Don't animate too aggressively
+- Never show skeletons indefinitely
+- Don't use for error or empty states
+
+## Alternative Loading Patterns
+
+- **Spinners** - Simple, doesn't show structure
+- **Progress bars** - Shows completion percentage
+- **Lazy loading** - Load content as needed
+- **Progressive image loading** - Blur to sharp
+- **Optimistic UI** - Show expected result immediately
+
+## Key Takeaways
+
+- Skeleton screens reduce perceived loading time
+- They should match the structure of actual content
+- Use subtle animations like shimmer or pulse
+- Prevent layout shift by defining dimensions
+- Consider accessibility with proper ARIA labels
+- Not suitable for all loading scenarios

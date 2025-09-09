@@ -1,117 +1,45 @@
-import fs from "node:fs";
-import path from "node:path";
-import matter from "gray-matter";
-import { NextResponse } from "next/server";
-import { BASE_URL } from "../_constants/project";
+import { source } from "@/lib/source";
 
-const contentDirectory = path.join(process.cwd(), "content/patterns");
+export const revalidate = false;
 
-interface Pattern {
-	category: string;
-	title: string;
-	summary: string;
-	status: string;
-	slug: string;
-}
+export async function GET() {
+	const scanned: string[] = [];
+	scanned.push("# UX Patterns for Developers");
+	const map = new Map<string, string[]>();
 
-interface PatternsByCategory {
-	[category: string]: Pattern[];
-}
-
-function getAllPatterns(): PatternsByCategory {
-	// Get all directories under patterns
-	const categories = fs.readdirSync(contentDirectory);
-
-	const allPatterns: PatternsByCategory = {};
-
-	for (const category of categories) {
-		const categoryPath = path.join(contentDirectory, category);
-
-		// Skip if not a directory
-		if (!fs.statSync(categoryPath).isDirectory()) continue;
-
-		// Read all MDX files in the category
-		const files = fs
-			.readdirSync(categoryPath)
-			.filter((file) => file.endsWith(".mdx"));
-
-		const categoryPatterns = files.flatMap((file) => {
-			const fullPath = path.join(categoryPath, file);
-			const fileContents = fs.readFileSync(fullPath, "utf8");
-			const { data } = matter(fileContents);
-
-			// Skip draft or hidden entries
-			if (data?.draft || data?.hidden) return [];
-
-			const slug = file.replace(".mdx", "");
-
-			return [
-				{
-					category,
-					title: data.title || slug,
-					summary: data.summary || "",
-					status: data.status || "coming soon",
-					slug,
-				},
-			];
-		});
-
-		allPatterns[category] = categoryPatterns;
-	}
-
-	return allPatterns;
-}
-
-export async function GET(_request: Request) {
-	try {
-		const patterns = getAllPatterns();
-
-		// Get base URL
-		const baseUrl =
-			process.env.NODE_ENV === "development"
-				? "http://localhost:3060"
-				: BASE_URL;
-
-		// Generate the text content
-		let content = `# UX Patterns for Developers
-
-## Overview
-This is an automatically generated overview of all UX patterns documented in this project.
-
-## Pattern Categories\n`;
-
-		// Add patterns by category
-		for (const [category, categoryPatterns] of Object.entries(patterns)) {
-			content += `\n### ${category.charAt(0).toUpperCase() + category.slice(1)}\n`;
-			for (const pattern of categoryPatterns) {
-				const patternUrl = new URL(
-					`/patterns/${category}/${pattern.slug}`,
-					baseUrl,
-				).toString();
-				content += `- [${pattern.title}](${patternUrl})${pattern.summary ? `: ${pattern.summary}` : ""} [${pattern.status}]\n`;
-			}
+	for (const page of source.getPages()) {
+		// Filter out blog and pages sections
+		if (page.slugs[0] === "blog" || page.slugs[0] === "pages") {
+			continue;
 		}
 
-		content += `\n## Additional Resources
-- [Blog posts and articles about UX patterns](${new URL("/blog", baseUrl).toString()})
-- [Comprehensive glossary of UX terms](${new URL("/glossary", baseUrl).toString()})
-
-## Technical Implementation
-- Built with Next.js and TypeScript
-- MDX-based pattern documentation
-- Accessibility-first approach
-- Comprehensive testing guidelines`;
-
-		return new NextResponse(content, {
-			headers: {
-				"Content-Type": "text/plain",
-			},
-		});
-	} catch (error) {
-		console.error("Error generating content:", error);
-		return NextResponse.json(
-			{ error: "Internal Server Error" },
-			{ status: 500 },
-		);
+		const dir = page.slugs[0];
+		const list = map.get(dir) ?? [];
+		list.push(`- [${page.data.title}](${page.url}): ${page.data.description}`);
+		map.set(dir, list);
 	}
+
+	// Define the order we want sections to appear
+	const sectionOrder = ["pattern-guide", "patterns", "glossary"];
+
+	// Add sections in the specified order
+	for (const key of sectionOrder) {
+		if (map.has(key)) {
+			scanned.push(`## ${key}`);
+			const content = map.get(key)?.join("\n");
+			if (content) {
+				scanned.push(content);
+			}
+		}
+	}
+
+	// Add any remaining sections that weren't in the predefined order
+	for (const [key, value] of map) {
+		if (!sectionOrder.includes(key)) {
+			scanned.push(`## ${key}`);
+			scanned.push(value.join("\n"));
+		}
+	}
+
+	return new Response(scanned.join("\n\n"));
 }

@@ -1,0 +1,6 @@
+{
+	"title": "E-commerce",
+	"description": "E-commerce and shopping patterns",
+	"icon": "ShoppingCart",
+	"pages": ["checkout", "product-card", "shopping-cart"]
+}

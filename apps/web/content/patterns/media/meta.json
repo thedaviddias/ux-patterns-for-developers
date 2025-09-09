@@ -1,0 +1,6 @@
+{
+	"title": "Media",
+	"description": "Media handling and display patterns",
+	"icon": "Image",
+	"pages": ["image-gallery", "image-upload", "video-player"]
+}

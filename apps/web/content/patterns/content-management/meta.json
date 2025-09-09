@@ -1,0 +1,14 @@
+{
+	"title": "Content Management",
+	"description": "Content organization and management patterns",
+	"icon": "LayoutGrid",
+	"pages": [
+		"accordion",
+		"carousel",
+		"drag-and-drop",
+		"expandable-text",
+		"modal",
+		"popover",
+		"tooltip"
+	]
+}

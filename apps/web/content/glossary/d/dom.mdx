@@ -1,0 +1,281 @@
+---
+title: "DOM (Document Object Model)"
+description: "A programming interface that represents HTML and XML documents as a tree structure, allowing JavaScript to interact with and modify page content"
+category: ["Web Development", "JavaScript", "Browser API"]
+related_patterns: ["/patterns/content-management/modal", "/patterns/navigation/infinite-scroll"]
+status: published
+---
+
+import { GlossaryStructuredData } from "@/components/glossary/structured-data";
+
+<GlossaryStructuredData
+  term="DOM (Document Object Model)"
+  definition="A tree-like representation of HTML or XML documents that allows programming languages to access and manipulate page content, structure, and styles dynamically."
+  category={["Web Development", "JavaScript", "Browser API"]}
+/>
+
+The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of HTML and XML documents as a tree of objects, where each node represents part of the document (elements, attributes, text). JavaScript can interact with this tree to dynamically change content, structure, and styling.
+
+## How the DOM Works
+
+When a browser loads a web page:
+1. **Parses HTML** into a tree structure
+2. **Creates DOM nodes** for each element
+3. **Builds the DOM tree** with parent-child relationships
+4. **Provides API** for JavaScript interaction
+
+```html
+<!-- HTML -->
+<div id="container">
+  <h1>Title</h1>
+  <p>Content</p>
+</div>
+```
+
+Becomes this DOM tree:
+```
+document
+  └── html
+      └── body
+          └── div#container
+              ├── h1
+              │   └── "Title" (text node)
+              └── p
+                  └── "Content" (text node)
+```
+
+## DOM Nodes
+
+### Node Types
+- **Element nodes** - HTML tags (`<div>`, `<p>`, `<button>`)
+- **Text nodes** - Text content inside elements
+- **Attribute nodes** - Element attributes (id, class, href)
+- **Comment nodes** - HTML comments
+- **Document node** - Root of the DOM tree
+
+### Node Relationships
+```javascript
+// Parent/Child relationships
+element.parentNode        // Parent element
+element.childNodes        // All child nodes
+element.firstChild        // First child node
+element.lastChild         // Last child node
+
+// Sibling relationships
+element.previousSibling   // Previous node
+element.nextSibling      // Next node
+
+// Element-only relationships (skip text nodes)
+element.children          // Element children only
+element.firstElementChild // First element child
+element.nextElementSibling // Next element sibling
+```
+
+## DOM Manipulation
+
+### Selecting Elements
+```javascript
+// Single element selectors
+document.getElementById('header')          // By ID
+document.querySelector('.class')          // CSS selector (first match)
+document.querySelector('[data-id="123"]') // Attribute selector
+
+// Multiple element selectors
+document.getElementsByClassName('item')    // By class (live collection)
+document.getElementsByTagName('div')      // By tag (live collection)
+document.querySelectorAll('.item')        // CSS selector (static NodeList)
+```
+
+### Creating Elements
+```javascript
+// Create new elements
+const div = document.createElement('div');
+const text = document.createTextNode('Hello');
+
+// Set attributes and content
+div.className = 'container';
+div.id = 'main';
+div.textContent = 'Hello World';
+div.innerHTML = '<span>HTML content</span>';
+
+// Add to DOM
+document.body.appendChild(div);
+parentElement.insertBefore(div, referenceNode);
+```
+
+### Modifying Elements
+```javascript
+// Content
+element.textContent = 'Plain text';        // Text only
+element.innerHTML = '<b>HTML</b>';         // HTML content (avoid with untrusted input to prevent XSS)
+
+// Attributes
+element.setAttribute('data-id', '123');
+element.getAttribute('data-id');
+element.removeAttribute('data-id');
+element.id = 'newId';
+element.className = 'class1 class2';
+
+// Styles
+element.style.color = 'red';
+element.style.display = 'none';
+element.classList.add('active');
+element.classList.remove('active');
+element.classList.toggle('active');
+```
+
+### Removing Elements
+```javascript
+// Remove from DOM
+element.remove();                   // Modern way
+parent.removeChild(child);         // Legacy way
+element.innerHTML = '';            // Clear content
+```
+
+## DOM Events
+
+The DOM provides an event system for handling user interactions:
+
+```javascript
+// Adding event listeners
+element.addEventListener('click', handleClick);
+element.addEventListener('submit', (e) => {
+  e.preventDefault();
+  // Handle form submission
+});
+
+// For scroll/touch events, consider passive listeners:
+// window.addEventListener('scroll', onScroll, { passive: true });
+
+// Event delegation
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.button')) {
+    // Handle button click
+  }
+});
+
+// Removing event listeners
+element.removeEventListener('click', handleClick);
+```
+
+## DOM Performance
+
+### Reflow and Repaint
+DOM changes can trigger:
+- **Reflow**: Recalculating element positions and geometry
+- **Repaint**: Updating visual appearance
+
+### Performance Tips
+```javascript
+// Bad: Multiple DOM updates
+for (let i = 0; i < 1000; i++) {
+  document.body.innerHTML += '<div>' + i + '</div>';
+}
+
+// Good: Batch updates
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+  const div = document.createElement('div');
+  div.textContent = i;
+  fragment.appendChild(div);
+}
+document.body.appendChild(fragment);
+
+// Good: Use CSS classes instead of inline styles
+element.classList.add('hidden');  // Better
+element.style.display = 'none';   // Causes reflow
+```
+
+## Virtual DOM
+
+Some frameworks use a Virtual DOM - a JavaScript representation of the real DOM:
+- **React, Vue**: Compare virtual DOM trees and update only changes
+- **Benefits**: Batched updates, predictable performance
+- **Trade-off**: Memory overhead, additional complexity
+
+## DOM vs HTML
+
+| HTML | DOM |
+|------|-----|
+| Static markup language | Dynamic object model |
+| Text-based source code | In-memory tree structure |
+| What you write | What the browser creates |
+| Cannot be manipulated | Can be manipulated via JavaScript |
+
+## Common DOM Methods
+
+### Traversal
+```javascript
+// Find elements
+element.closest('.parent')           // Nearest parent matching selector
+element.contains(otherElement)       // Check if contains element
+element.matches('.selector')          // Check if matches selector
+```
+
+### Dimensions & Position
+```javascript
+// Size
+element.offsetWidth / offsetHeight   // Including borders
+element.clientWidth / clientHeight   // Including padding
+element.scrollWidth / scrollHeight   // Including overflow
+
+// Position
+element.offsetTop / offsetLeft       // Position relative to offsetParent
+element.getBoundingClientRect()      // Position relative to viewport
+```
+
+## Browser Compatibility
+
+Modern DOM APIs with good support:
+- `querySelector/querySelectorAll` - All modern browsers
+- `classList` - All modern browsers
+- `Element.remove()` - All modern browsers
+- `Element.closest()` - All modern browsers
+
+Legacy alternatives still needed for:
+- Very old browsers (IE11 and below)
+- Some mobile browsers
+
+## Common Pitfalls
+
+### Live vs Static Collections
+```javascript
+// Live collection (updates automatically)
+const divs = document.getElementsByTagName('div');
+console.log(divs.length); // 5
+document.body.appendChild(document.createElement('div'));
+console.log(divs.length); // 6
+
+// Static collection (snapshot)
+const divs2 = document.querySelectorAll('div');
+console.log(divs2.length); // 5
+document.body.appendChild(document.createElement('div'));
+console.log(divs2.length); // Still 5
+```
+
+### Memory Leaks
+```javascript
+// Potential leak: event listener holds reference
+element.addEventListener('click', () => {
+  // This closure keeps element in memory
+});
+
+// Clean up when removing elements
+element.removeEventListener('click', handler);
+element.remove();
+```
+
+## Related Concepts
+
+- [Screen Reader](/glossary/screen-reader) - Interprets DOM for accessibility
+- [Live Regions](/glossary/live-regions) - DOM areas that announce changes
+- Shadow DOM - Encapsulated DOM trees
+- CSSOM - CSS Object Model
+
+## Key Takeaways
+
+- The DOM is a tree representation of HTML documents
+- JavaScript manipulates web pages through the DOM API
+- DOM operations can be expensive - batch updates when possible
+- Understanding DOM relationships helps write better selectors
+- Modern frameworks abstract DOM manipulation but understanding it is still crucial

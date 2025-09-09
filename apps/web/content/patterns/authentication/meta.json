@@ -1,0 +1,14 @@
+{
+	"title": "Authentication",
+	"description": "Authentication and user management patterns",
+	"icon": "Shield",
+	"pages": [
+		"account-settings",
+		"login",
+		"password-reset",
+		"signup",
+		"social-login",
+		"two-factor",
+		"user-profile"
+	]
+}

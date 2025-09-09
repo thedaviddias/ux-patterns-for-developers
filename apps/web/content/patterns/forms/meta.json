@@ -1,0 +1,33 @@
+{
+	"title": "Forms",
+	"description": "Form components and input patterns",
+	"icon": "FileText",
+	"pages": [
+		"autocomplete",
+		"button",
+		"checkbox",
+		"code-confirmation",
+		"color-picker",
+		"currency-input",
+		"date-input",
+		"date-picker",
+		"date-range",
+		"file-input",
+		"form-validation",
+		"multi-select-input",
+		"password",
+		"phone-number",
+		"radio",
+		"rating-input",
+		"rich-text-editor",
+		"search-field",
+		"selection-input",
+		"signature-pad",
+		"slider",
+		"tag-input",
+		"text-field",
+		"textarea",
+		"time-input",
+		"toggle"
+	]
+}

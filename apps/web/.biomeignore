@@ -1,7 +1,0 @@
-node_modules/
-.next/
-out/
-public/_pagefind/
-.vercel/
-*.min.js
-*.min.css

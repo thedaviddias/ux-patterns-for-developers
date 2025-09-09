@@ -1,0 +1,36 @@
+---
+title: "ARIA Attributes"
+description: "HTML attributes that provide accessibility information to assistive technologies"
+---
+
+ARIA (Accessible Rich Internet Applications) attributes are HTML attributes that provide additional information about web content and UI components to assistive technologies, such as screen readers. They help make web applications more accessible to users with disabilities.
+
+## Common ARIA Attributes
+
+- `aria-label`: Provides a text label for elements
+- `aria-current`: Indicates the current item in a set
+- `aria-expanded`: Shows if an expandable element is open
+- `aria-hidden`: Hides elements from assistive technologies
+- `aria-live`: Announces dynamic content changes
+
+## Best Practices
+
+- Use semantic HTML elements when possible
+- Only add ARIA attributes when necessary
+- Test with screen readers
+- Keep labels clear and concise
+
+## Implementation Examples
+
+```html
+<!-- Navigation with ARIA -->
+<nav aria-label="Pagination">
+  <button aria-label="Previous page">Previous</button>
+  <button aria-current="page">1</button>
+  <button aria-label="Next page">Next</button>
+</nav>
+```
+
+## Related Patterns
+
+- [Pagination](/patterns/navigation/pagination)

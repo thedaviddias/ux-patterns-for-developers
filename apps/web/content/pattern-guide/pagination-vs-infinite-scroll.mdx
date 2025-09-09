@@ -1,26 +1,21 @@
 ---
-summary: "Choose the right content loading pattern based on your user needs and content type"
-description: "Compare pagination and infinite scroll patterns to choose the best option based on content type and user behavior."
+title: "Pagination vs Infinite Scroll"
+description: "Choose the right content loading pattern based on your user needs and content type"
 icon: Split
 ---
 
-import { DecisionFlow } from "@app/_components/decision-flow";
+import { DecisionFlow } from "@/components/decision-flow";
 import {
   edges,
   nodes,
-} from "@app/_components/decision-flow/data/navigation-patterns";
-import { ComparisonGrid } from "@app/_components/pattern-comparison/comparison-grid";
-import { ComparisonHero } from "@app/_components/pattern-comparison/comparison-hero";
-import { DecisionFlowSection } from "@app/_components/pattern-comparison/decision-flow-section";
-import { ExamplesGrid } from "@app/_components/pattern-comparison/examples-grid";
-import { PatternNextSteps } from "@app/_components/pattern-comparison/pattern-next-steps";
-import { PerformanceComparison } from "@app/_components/pattern-comparison/performance-comparison";
+} from "@/components/decision-flow/data/navigation-patterns";
+import { ComparisonGrid } from "@/components/pattern-comparison/comparison-grid";
+import { ComparisonHero } from "@/components/pattern-comparison/comparison-hero";
+import { DecisionFlowSection } from "@/components/pattern-comparison/decision-flow-section";
+import { ExamplesGrid } from "@/components/pattern-comparison/examples-grid";
+import { PerformanceComparison } from "@/components/pattern-comparison/performance-comparison";
 
 <div>
-  <ComparisonHero
-    title="Pagination vs Infinite Scroll"
-    description="Choose the right content loading pattern based on your user needs and content type"
-  />
 
   <div className="prose dark:prose-invert mb-10 space-y-4">
     Choosing between pagination and infinite scroll is a crucial decision that
@@ -38,7 +33,6 @@ import { PerformanceComparison } from "@app/_components/pattern-comparison/perfo
   <ComparisonGrid patterns={comparisonData.patterns} />
   <PerformanceComparison patterns={performanceData.patterns} />
   <ExamplesGrid examples={examplesData.examples} />
-  <PatternNextSteps patterns={nextStepsData.patterns} />
 </div>
 
 export const comparisonData = {
@@ -136,17 +130,15 @@ export const examplesData = {
   ],
 };
 
-export const nextStepsData = {
-  patterns: [
-    {
-      title: "Pagination Pattern",
-      description: "Implementation details and best practices",
-      href: "/patterns/navigation/pagination",
-    },
-    {
-      title: "Infinite Scroll Pattern",
-      description: "Implementation details and best practices",
-      href: "/patterns/navigation/infinite-scroll",
-    },
-  ],
-};
+## Next steps
+
+Ready to implement your chosen pattern? Check out our detailed implementation guides:
+
+<Cards>
+  <Card title="Pagination Pattern" href="/patterns/navigation/pagination">
+    Implementation details and best practices
+  </Card>
+  <Card title="Infinite Scroll Pattern" href="/patterns/navigation/infinite-scroll">
+    Implementation details and best practices
+  </Card>
+</Cards>

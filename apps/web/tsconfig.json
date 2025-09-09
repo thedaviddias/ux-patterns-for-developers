@@ -1,29 +1,30 @@
 {
-	"extends": "@thedaviddias/config-typescript/nextjs.json",
 	"compilerOptions": {
-		"baseUrl": "./",
-		"strict": false,
-		"strictNullChecks": true,
-		"noUncheckedIndexedAccess": true,
+		"baseUrl": ".",
+		"target": "ESNext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
 		"paths": {
-			"@/*": ["./*"],
-			"@app/*": ["./app/*"],
-			"@ux-patterns/ui/*": ["../../packages/ui/src/*"],
-			"@ux-patterns/hooks/*": ["../../packages/hooks/src/*"],
-			"@/ui/*": ["../../packages/registry/registry/default/ui/*"],
-			"@/lib/*": ["../../packages/registry/registry/default/lib/*"]
-		}
+			"@/.source": ["./.source/index.ts"],
+			"@/*": ["./*"]
+		},
+		"plugins": [
+			{
+				"name": "next"
+			}
+		]
 	},
-	"include": [
-		"next-env.d.ts",
-		"app/**/*.ts",
-		"app/**/*.tsx",
-		"content/**/*.ts",
-		"content/**/*.tsx",
-		"styles/**/*.ts",
-		"*.ts",
-		"*.tsx",
-		".next/types/**/*.ts"
-	],
-	"exclude": ["node_modules", ".next"]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["node_modules"]
 }
