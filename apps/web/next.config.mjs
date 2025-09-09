@@ -44,6 +44,11 @@ const config = {
 				destination: "/patterns/getting-started",
 				permanent: true,
 			},
+			{
+				source: "/en/:path*",
+				destination: "/:path*",
+				permanent: true,
+			},
 		];
 	},
 };
