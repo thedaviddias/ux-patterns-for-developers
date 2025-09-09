@@ -6,7 +6,7 @@ import {
 	getTrackingClass,
 	TRACKING_EVENTS,
 	trackNewsletterEvent,
-} from "@/utils/tracking";
+} from "@/lib/tracking";
 
 interface SubscribeFormProps {
 	variant?: "default" | "inline";

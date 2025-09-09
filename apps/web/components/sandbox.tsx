@@ -28,7 +28,7 @@ import {
 	useState,
 } from "react";
 import { cn } from "@/lib/cn";
-import { TRACKING_EVENTS } from "@/utils/tracking";
+import { TRACKING_EVENTS } from "@/lib/tracking";
 
 export type SandboxProviderProps = SandpackProviderProps;
 

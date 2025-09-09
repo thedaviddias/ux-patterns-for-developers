@@ -6,7 +6,7 @@ import { ComponentPreviewWithMetadata } from "@/components/component-preview-wra
 import { FaqStructuredData } from "@/components/faq-structured-data";
 import { KitBanner } from "@/components/kit-banner";
 import { LinkCustom } from "@/components/link-custom";
-import { Mermaid } from "@/components/mdx/mermaid";
+import { LazyMermaid } from "@/components/mdx/lazy-mermaid";
 import { PatternComparison } from "@/components/pattern-comparison";
 import { PatternGuideList } from "@/components/pattern-guide-list";
 import { PatternPreview } from "@/components/pattern-preview";
@@ -17,7 +17,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 	return {
 		...defaultMdxComponents,
 		a: LinkCustom,
-		Mermaid,
+		Mermaid: LazyMermaid,
 		ComponentPreview: ComponentPreviewWithMetadata,
 		ComponentPreviewServer: (_props: any) => <></>,
 		// ComponentPreviewServer: (props: ComponentPreviewServerProps) => (

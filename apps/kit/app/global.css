@@ -5,7 +5,7 @@
 @plugin 'tailwindcss-animate';
 @plugin "tailwindcss-motion";
 
-@source '../node_modules/fumadocs-ui/dist/**/*.js';
+/* @source '../node_modules/fumadocs-ui/dist*.js'; */
 @source '../../../__registry__/**/*.{js,ts,tsx}';
 @source '../../../packages/registry/registry/default/**/*.{js,ts,tsx}';
 @source '../../../packages/ui/src/**/*.{js,ts,tsx}';

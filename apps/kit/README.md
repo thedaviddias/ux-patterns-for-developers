@@ -1,4 +1,4 @@
-# UP Kit
+# UX Patterns Kit
 
 A component registry for UX patterns and UI components, compatible with shadcn/ui CLI.
 

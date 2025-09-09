@@ -4,7 +4,7 @@ import { Panel, useReactFlow } from "@xyflow/react";
 import { toPng } from "html-to-image";
 import { Download } from "lucide-react";
 import { usePlausible } from "next-plausible";
-import { TRACKING_EVENTS } from "@/utils/tracking";
+import { TRACKING_EVENTS } from "@/lib/tracking";
 
 interface DownloadButtonProps {
 	title?: string;

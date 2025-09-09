@@ -28,7 +28,10 @@
 			]
 		},
 		"registry:generate": {
-			"outputs": ["registry.json", "public/r/**"],
+			"outputs": [
+				"../../apps/kit/public/r/**",
+				"../../apps/kit/public/registry.json"
+			],
 			"env": [
 				"NODE_ENV",
 				"SENTRY_*",

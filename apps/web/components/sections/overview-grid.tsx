@@ -16,10 +16,10 @@ export const OverviewGrid = async () => {
 			{categories.map((category) => (
 				<div key={category.name}>
 					<div className="mb-5">
-						<h2 className="mb-2 text-5xl font-bold leading-[1.2] tracking-tighter text-foreground">
+						<h2 className="mb-2 text-4xl md:text-5xl font-bold leading-[1.2] tracking-tighter text-foreground">
 							{category.name}
 						</h2>
-						<p className="mt-2 text-muted-foreground text-sm">
+						<p className="mt-2 text-xl text-muted-foreground">
 							{category.description}
 						</p>
 					</div>

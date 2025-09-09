@@ -4,7 +4,7 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import { PROJECT } from "@ux-patterns/constants/author";
 import { StarIcon } from "lucide-react";
 import { usePlausible } from "next-plausible";
-import { TRACKING_EVENTS } from "@/utils/tracking";
+import { TRACKING_EVENTS } from "@/lib/tracking";
 
 type StarsProps = {
 	variant?: "default" | "small";
