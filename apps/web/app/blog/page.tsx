@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { BlogCard } from "@/components/blog/blog-card";
 import { TagFilter } from "@/components/tag-filter";
@@ -117,3 +118,31 @@ export default async function HomePage({
 		</div>
 	);
 }
+
+export const metadata: Metadata = {
+	title: "Blog | UX Patterns for Devs",
+	description: "Latest news and updates from UX Patterns for Developers.",
+	openGraph: {
+		title: "Blog | UX Patterns for Devs",
+		description: "Latest news and updates from UX Patterns for Developers.",
+		url: "https://uxpatterns.dev/blog",
+		images: [
+			{
+				url: "/og/opengraph-image.png",
+				width: 1200,
+				height: 630,
+				type: "image/png",
+			},
+		],
+	},
+	twitter: {
+		title: "Blog | UX Patterns for Devs",
+		description: "Latest news and updates from UX Patterns for Developers.",
+		images: [
+			{
+				url: "/og/opengraph-image.png",
+				alt: "Blog - UX Patterns for Developers",
+			},
+		],
+	},
+};
