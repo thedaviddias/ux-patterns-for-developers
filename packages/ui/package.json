@@ -7,7 +7,7 @@
 		"./lib/utils": "./src/lib/utils.ts",
 		"./components/shadcn/*": "./src/components/shadcn/*.tsx",
 		"./components/magicui/*": "./src/components/magicui/*.tsx",
-		"./components/custom/*": "./src/components/custom/*",
+		"./components/custom/*": "./src/components/custom/*.tsx",
 		"./components/fumadocs/*": "./src/components/fumadocs/*.tsx",
 		"./constants/urls": "./src/constants/urls.ts",
 		"./styles/globals.css": "./src/styles/globals.css"
