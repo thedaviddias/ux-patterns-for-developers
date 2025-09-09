@@ -28,7 +28,10 @@ function cachePromise<T>(
 export const BrowserSupport = ({ features }: BrowserSupportProps) => {
 	// Dynamically import the browser compat data
 	const { default: bcd } = use(
-		cachePromise("browser-compat-data", () => import("@mdn/browser-compat-data"))
+		cachePromise(
+			"browser-compat-data",
+			() => import("@mdn/browser-compat-data"),
+		),
 	);
 
 	const getCompatData = (path: string) => {

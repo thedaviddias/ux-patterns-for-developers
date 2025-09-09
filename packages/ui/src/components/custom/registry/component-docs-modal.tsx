@@ -98,12 +98,12 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 			<TooltipProvider delayDuration={0}>
 				<Tooltip>
 					<TooltipTrigger asChild>
-					<Button
-						variant="ghost"
-						size="sm"
-						className="h-8 gap-1 rounded-[6px] px-3 text-xs text-black dark:text-white hover:bg-black hover:text-white bg-transparent cursor-pointer"
-						aria-label="Open source code"
-						onClick={() => {
+						<Button
+							variant="ghost"
+							size="sm"
+							className="h-8 gap-1 rounded-[6px] px-3 text-xs text-black dark:text-white hover:bg-black hover:text-white bg-transparent cursor-pointer"
+							aria-label="Open source code"
+							onClick={() => {
 								setOpen(true);
 								plausible("Component Docs Modal Open", {
 									props: {

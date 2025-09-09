@@ -15,25 +15,33 @@ interface TagFilterProps {
 	tagCounts?: Record<string, number>;
 }
 
-export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
-	const router = useRouter();
-	const pathname = usePathname();
+interface DesktopTagFilterProps {
+	tags: string[];
+	selectedTag: string;
+	tagCounts?: Record<string, number>;
+	onTagClick: (tag: string) => void;
+}
 
-	const handleTagClick = (tag: string) => {
-		const params = new URLSearchParams();
-		if (tag !== "All") {
-			params.set("tag", tag);
-		}
-		router.push(`${pathname}?${params.toString()}`);
-	};
+interface MobileTagFilterProps {
+	tags: string[];
+	selectedTag: string;
+	tagCounts?: Record<string, number>;
+	onTagClick: (tag: string) => void;
+}
 
-	const DesktopTagFilter = () => (
+function DesktopTagFilter({
+	tags,
+	selectedTag,
+	tagCounts,
+	onTagClick,
+}: DesktopTagFilterProps) {
+	return (
 		<div className="hidden md:flex flex-wrap gap-2">
 			{tags.map((tag) => (
 				<button
 					type="button"
 					key={tag}
-					onClick={() => handleTagClick(tag)}
+					onClick={() => onTagClick(tag)}
 					className={`h-8 flex items-center px-1 pl-3 rounded-lg cursor-pointer border text-sm transition-colors ${
 						selectedTag === tag
 							? "border-primary bg-primary text-primary-foreground"
@@ -56,8 +64,15 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
 			))}
 		</div>
 	);
+}
 
-	const MobileTagFilter = () => (
+function MobileTagFilter({
+	tags,
+	selectedTag,
+	tagCounts,
+	onTagClick,
+}: MobileTagFilterProps) {
+	return (
 		<Drawer>
 			<DrawerTrigger className="md:hidden w-full flex items-center justify-between px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors">
 				<span className="capitalize text-sm font-medium">{selectedTag}</span>
@@ -75,7 +90,7 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
 							<button
 								type="button"
 								key={tag}
-								onClick={() => handleTagClick(tag)}
+								onClick={() => onTagClick(tag)}
 								className="w-full flex items-center justify-between font-medium cursor-pointer text-sm transition-colors"
 							>
 								<span
@@ -99,11 +114,34 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
 			</DrawerContent>
 		</Drawer>
 	);
+}
+
+export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
+	const router = useRouter();
+	const pathname = usePathname();
+
+	const handleTagClick = (tag: string) => {
+		const params = new URLSearchParams();
+		if (tag !== "All") {
+			params.set("tag", tag);
+		}
+		router.push(`${pathname}?${params.toString()}`);
+	};
 
 	return (
 		<>
-			<DesktopTagFilter />
-			<MobileTagFilter />
+			<DesktopTagFilter
+				tags={tags}
+				selectedTag={selectedTag}
+				tagCounts={tagCounts}
+				onTagClick={handleTagClick}
+			/>
+			<MobileTagFilter
+				tags={tags}
+				selectedTag={selectedTag}
+				tagCounts={tagCounts}
+				onTagClick={handleTagClick}
+			/>
 		</>
 	);
 }

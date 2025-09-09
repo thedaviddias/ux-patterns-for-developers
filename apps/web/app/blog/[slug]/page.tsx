@@ -1,9 +1,11 @@
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import { DocsBody } from "fumadocs-ui/page";
 import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { metadataSEO } from "@/app/metadata";
 import { AuthorCard } from "@/components/blog/author-card";
 import { HashScrollHandler } from "@/components/blog/hash-scroll-handler";
 import { MobileTableOfContents } from "@/components/blog/mobile-toc";
@@ -119,4 +121,61 @@ export default async function BlogPost({ params }: PageProps) {
 			<MobileTableOfContents />
 		</div>
 	);
+}
+
+export async function generateMetadata({
+	params,
+}: PageProps): Promise<Metadata> {
+	const { slug } = await params;
+
+	if (!slug || slug.length === 0) {
+		return metadataSEO;
+	}
+
+	const page = source.getPage(["blog", slug]);
+
+	if (!page) {
+		return metadataSEO;
+	}
+
+	const title = page.data.title || "Blog Post";
+	const description =
+		page.data.description || "A blog post from UX Patterns for Developers.";
+	const url = `https://uxpatterns.dev/blog/${slug}`;
+
+	return {
+		...metadataSEO,
+		title,
+		description,
+		openGraph: {
+			...metadataSEO.openGraph,
+			title,
+			description,
+			url,
+			images: page.data.thumbnail
+				? [
+						{
+							url: page.data.thumbnail,
+							width: 1200,
+							height: 630,
+							type: "image/jpeg",
+							alt: title,
+						},
+					]
+				: metadataSEO.openGraph?.images,
+		},
+		twitter: {
+			...metadataSEO.twitter,
+			title,
+			description,
+			images: page.data.thumbnail
+				? [
+						{
+							url: page.data.thumbnail,
+							alt: title,
+						},
+					]
+				: metadataSEO.twitter?.images,
+		},
+	};
 }

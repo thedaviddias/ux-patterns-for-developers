@@ -22,7 +22,6 @@ class MockIntersectionObserver implements IntersectionObserver {
 	readonly root = null;
 	readonly rootMargin = "";
 	readonly thresholds = [];
-	constructor(_: IntersectionObserverCallback, __?: IntersectionObserverInit) {}
 	observe = vi.fn();
 	unobserve = vi.fn();
 	disconnect = vi.fn();

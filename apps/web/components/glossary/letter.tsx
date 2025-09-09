@@ -34,6 +34,7 @@ export function Letter({ letter, hasContent = true }: LetterProps) {
 
 	return (
 		<button
+			type="button"
 			onClick={handleClick}
 			className={cn(
 				"px-3 py-2 rounded-md text-sm font-medium transition-colors",

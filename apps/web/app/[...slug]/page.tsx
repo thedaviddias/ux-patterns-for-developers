@@ -22,6 +22,13 @@ export default async function Page(props: {
 	params: Promise<{ slug: string[] }>;
 }) {
 	const params = await props.params;
+
+	// Exclude blog posts from this catch-all route - they should be handled by blog/[slug]
+	const isBlogPost = params.slug[0] === "blog" && params.slug.length > 1;
+	if (isBlogPost) {
+		notFound();
+	}
+
 	const page = source.getPage(params.slug);
 	if (!page) notFound();
 
@@ -29,7 +36,6 @@ export default async function Page(props: {
 
 	// Determine page type and properties
 	const isHomepage = !params.slug || params.slug.length === 0;
-	const isBlogPost = params.slug[0] === "blog" && params.slug.length > 1;
 	const isBlogListing = params.slug[0] === "blog" && params.slug.length === 1;
 	const isPatternPage = params.slug[0] === "patterns" && params.slug.length > 2;
 	const isPatternCategory =

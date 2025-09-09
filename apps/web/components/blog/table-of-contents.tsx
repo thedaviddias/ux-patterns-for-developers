@@ -168,6 +168,7 @@ export function TableOfContents({ className }: TableOfContentsProps) {
 					{headings.map((heading) => (
 						<li key={heading.id}>
 							<button
+								type="button"
 								onClick={() => handleClick(heading.id)}
 								className={cn(
 									"block w-full text-left text-sm transition-colors hover:text-foreground text-muted-foreground",
