@@ -219,6 +219,9 @@ importers:
       html-to-image:
         specifier: ^1.11.13
         version: 1.11.13
+      import-in-the-middle:
+        specifier: ^1.14.2
+        version: 1.14.2
       lucide-react:
         specifier: ^0.468.0
         version: 0.468.0(react@19.1.1)
@@ -267,6 +270,9 @@ importers:
       remove-markdown:
         specifier: ^0.6.0
         version: 0.6.2
+      require-in-the-middle:
+        specifier: ^7.5.1
+        version: 7.5.2
       shiki:
         specifier: ^3.12.2
         version: 3.12.2

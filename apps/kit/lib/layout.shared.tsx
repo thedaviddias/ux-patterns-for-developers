@@ -1,15 +1,33 @@
-import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import type { BaseLayoutProps, LinkItemType } from "fumadocs-ui/layouts/shared";
 import { siDiscord, siInstagram, siX } from "simple-icons";
 import { SimpleIconComponent } from "../components/simple-icon";
 import { StarsWrapper } from "../components/stars-wrapper";
 
-/**
- * Shared layout configurations
- *
- * you can customise layouts individually from:
- * Home Layout: app/(home)/layout.tsx
- * Docs Layout: app/docs/layout.tsx
- */
+export const linkItems: LinkItemType[] = [
+	// see https://fumadocs.dev/docs/ui/navigation/links
+	{
+		text: "Changelog",
+		url: "/changelog",
+		active: "nested-url",
+	},
+	{
+		text: "UX Patterns",
+		url: "https://uxpatterns.dev",
+		external: false,
+	},
+	{
+		type: "icon",
+		url: "https://github.com/thedaviddias/ux-patterns-for-developers",
+		text: "GitHub Stars",
+		icon: (
+			<div className="scale-90 -mx-2">
+				<StarsWrapper variant="small" />
+			</div>
+		),
+		external: true,
+	},
+];
+
 export function baseOptions(): BaseLayoutProps {
 	return {
 		nav: {

@@ -31,7 +31,7 @@ export function NotFoundComponent() {
 							The page you are looking for does not exist.
 						</p>
 					</div>
-					<Button asChild>
+					<Button asChild className="w-full rounded-lg h-9 drop-shadow-lg">
 						<Link prefetch={false} href="/">
 							Return to Home
 						</Link>

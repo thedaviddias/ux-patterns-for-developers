@@ -14,11 +14,14 @@ const config = {
 		remotePatterns: [
 			{
 				protocol: "https",
+				hostname: "**",
+			},
+			{
+				protocol: "https",
 				hostname: "covers.openlibrary.org",
-				port: "",
-				pathname: "/**",
 			},
 		],
+		formats: ["image/webp", "image/avif"],
 	},
 	logging: {
 		fetches: {
