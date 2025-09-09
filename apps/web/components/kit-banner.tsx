@@ -21,34 +21,34 @@ export const KitBanner = ({ className, componentUrl }: KitBannerProps) => {
 				className,
 			)}
 		>
-			<Link
-				href={href}
-				target="_blank"
-				rel="noopener"
-				className="group flex items-center justify-between hover:no-underline"
-				onClick={() => {
-					plausible("UP Kit Banner Click", {
-						props: {
-							source: "pattern_page",
-						},
-					});
-				}}
-			>
-				<div className="flex items-center gap-3">
-					<div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-100 dark:bg-blue-900">
-						<Package2 className="h-4 w-4 text-blue-600 dark:text-blue-300" />
-					</div>
-					<div className="flex flex-col items-start">
+			<div className="flex items-center gap-3">
+				<div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-100 dark:bg-blue-900">
+					<Package2 className="h-4 w-4 text-blue-600 dark:text-blue-300" />
+				</div>
+				<div className="flex flex-col items-start">
+					<Link
+						href={href}
+						target="_blank"
+						rel="noopener"
+						className="group flex items-center justify-between hover:no-underline"
+						onClick={() => {
+							plausible("UP Kit Banner Click", {
+								props: {
+									source: "pattern_page",
+								},
+							});
+						}}
+					>
 						<span className="text-lg font-semibold tracking-tight">
 							UP Kit Component
 						</span>
-						<p className="text-sm text-gray-600 dark:text-gray-300">
-							Get ready-to-use React components for this pattern
-						</p>
-					</div>
+					</Link>
+					<p className="text-sm text-gray-600 dark:text-gray-300">
+						Get ready-to-use React components for this pattern
+					</p>
 				</div>
-				<ArrowRight className="h-5 w-5 text-gray-400 dark:text-gray-500 transition-transform group-hover:translate-x-1" />
-			</Link>
+			</div>
+			<ArrowRight className="h-5 w-5 text-gray-400 dark:text-gray-500 transition-transform group-hover:translate-x-1" />
 		</div>
 	);
 };
