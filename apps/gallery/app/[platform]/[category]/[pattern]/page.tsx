@@ -22,8 +22,7 @@ interface PageProps {
 export async function generateMetadata({
 	params,
 }: PageProps): Promise<Metadata> {
-	const { platform, pattern } = await params;
-
+	const { platform, category, pattern } = await params;
 	const patternName = slugToPattern(pattern);
 	const platformName = platform === "web" ? "Web" : "Mobile";
 
@@ -32,12 +31,27 @@ export async function generateMetadata({
 			absolute: `${patternName} Pattern for ${platformName} | UX Patterns Gallery`,
 		},
 		description: `Examples and best practices for ${patternName.toLowerCase()} in ${platformName.toLowerCase()} applications.`,
+		alternates: {
+			canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${platform}/${category}/${pattern}`,
+		},
+		openGraph: {
+			title: `${patternName} Pattern for ${platformName} | UX Patterns Gallery`,
+			description: `Examples and best practices for ${patternName.toLowerCase()} in ${platformName.toLowerCase()} applications.`,
+			url: `${process.env.NEXT_PUBLIC_SITE_URL}/${platform}/${category}/${pattern}`,
+			type: "article",
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: `${patternName} Pattern for ${platformName} | UX Patterns Gallery`,
+			description: `Examples and best practices for ${patternName.toLowerCase()} in ${platformName.toLowerCase()} applications.`,
+		},
+		robots: { index: true, follow: true },
 	};
 }
 
 export default async function PatternPage({ params, searchParams }: PageProps) {
 	const { platform, category, pattern } = await params;
-	const searchParamsResolved = await searchParams;
+	const searchParamsResolved = (await searchParams) ?? {};
 
 	if (!["web", "mobile"].includes(platform)) notFound();
 	if (!isCategorySlug(category)) notFound();
@@ -48,7 +62,19 @@ export default async function PatternPage({ params, searchParams }: PageProps) {
 
 	const filters = parseUrlToFilters(
 		`/${platform}/${category}/${pattern}`,
-		new URLSearchParams(searchParamsResolved as any),
+		(() => {
+			const p = new URLSearchParams();
+			for (const [k, v] of Object.entries(searchParamsResolved ?? {})) {
+				if (Array.isArray(v)) {
+					for (const vv of v) {
+						p.append(k, vv);
+					}
+				} else if (typeof v === "string") {
+					p.set(k, v);
+				}
+			}
+			return p;
+		})(),
 	);
 
 	const entries = await loadEntries();
@@ -72,9 +98,9 @@ export default async function PatternPage({ params, searchParams }: PageProps) {
 	const patternName = slugToPattern(pattern);
 	const categoryName = slugToPattern(category);
 
-	// Count do's and don'ts
-	const _doCount = patternEntries.filter((e) => e.type === "do").length;
-	const _dontCount = patternEntries.filter((e) => e.type === "dont").length;
+	// (optional) Add a small summary badge using these counts, or remove them if not needed.
+	// const doCount = patternEntries.filter((e) => e.type === "do").length;
+	// const dontCount = patternEntries.filter((e) => e.type === "dont").length;
 
 	return (
 		<div className="min-h-screen">
@@ -101,15 +127,17 @@ export default async function PatternPage({ params, searchParams }: PageProps) {
 						Examples and best practices for {patternName.toLowerCase()} in{" "}
 						{platform} applications
 					</p>
-					<a
-						href={`${process.env.NEXT_PUBLIC_DOCS_URL}/patterns/${category}/${pattern}`}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-fd-card text-fd-foreground rounded-lg text-sm font-medium shadow-sm hover:bg-fd-muted focus:outline-none focus:ring-2 focus:ring-fd-primary transition-all border border-fd-border"
-					>
-						View Pattern
-						<ExternalLink className="w-4 h-4" />
-					</a>
+					{process.env.NEXT_PUBLIC_DOCS_URL ? (
+						<a
+							href={`${process.env.NEXT_PUBLIC_DOCS_URL}/patterns/${category}/${pattern}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-fd-card text-fd-foreground rounded-lg text-sm font-medium shadow-sm hover:bg-fd-muted focus:outline-none focus:ring-2 focus:ring-fd-primary transition-all border border-fd-border"
+						>
+							View Pattern
+							<ExternalLink className="w-4 h-4" />
+						</a>
+					) : null}
 				</div>
 			</div>
 
