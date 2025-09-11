@@ -45,6 +45,7 @@ export function ShareButton({ title, text }: ShareButtonProps) {
 
 	return (
 		<button
+			type="button"
 			onClick={handleShare}
 			className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-fd-muted-foreground hover:text-fd-foreground hover:bg-fd-muted rounded-lg transition-colors"
 			aria-label="Share this page"

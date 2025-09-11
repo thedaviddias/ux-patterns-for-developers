@@ -27,7 +27,9 @@ export async function generateMetadata({
 	const platformName = platform === "web" ? "Web" : "Mobile";
 
 	return {
-		title: `${patternName} Pattern for ${platformName} - UX Gallery`,
+		title: {
+			absolute: `${patternName} Pattern for ${platformName} | UX Patterns Gallery`,
+		},
 		description: `Examples and best practices for ${patternName.toLowerCase()} in ${platformName.toLowerCase()} applications.`,
 	};
 }
@@ -98,6 +100,15 @@ export default async function PatternPage({ params, searchParams }: PageProps) {
 						Examples and best practices for {patternName.toLowerCase()} in{" "}
 						{platform} applications
 					</p>
+					<a
+						href={`${process.env.NEXT_PUBLIC_DOCS_URL}/patterns/${category}/${pattern}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-fd-card text-fd-foreground rounded-lg text-sm font-medium shadow-sm hover:bg-fd-muted focus:outline-none focus:ring-2 focus:ring-fd-primary transition-all border border-fd-border"
+					>
+						<ExternalLink className="w-4 h-4" />
+						View Documentation
+					</a>
 				</div>
 			</div>
 

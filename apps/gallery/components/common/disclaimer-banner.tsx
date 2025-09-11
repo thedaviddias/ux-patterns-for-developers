@@ -1,3 +1,4 @@
+import { Info } from "lucide-react";
 import Link from "next/link";
 
 interface DisclaimerBannerProps {
@@ -11,20 +12,7 @@ export function DisclaimerBanner({ className = "" }: DisclaimerBannerProps) {
 		>
 			<div className="flex items-start gap-3">
 				<div className="flex-shrink-0 w-5 h-5 mt-0.5">
-					<svg
-						className="w-5 h-5 text-fd-muted-foreground"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-						/>
-					</svg>
+					<Info className="w-5 h-5 text-fd-muted-foreground" />
 				</div>
 				<div className="flex-1 min-w-0">
 					<p className="text-sm text-fd-muted-foreground">

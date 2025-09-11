@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Filters } from "@/components/filters/filters";
 import EntriesGrid from "@/components/sections/entries-grid";
@@ -5,6 +6,10 @@ import Hero from "@/components/sections/hero";
 import { loadEntries } from "@/lib/loadEntries";
 import { getAllPatternsFromWebApp } from "@/lib/pattern-utils";
 import { searchEntries } from "@/lib/search";
+
+export const metadata: Metadata = {
+	title: "UX Patterns Gallery",
+};
 
 interface SearchParams {
 	platform?: string;

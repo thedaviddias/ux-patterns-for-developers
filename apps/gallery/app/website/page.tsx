@@ -70,6 +70,7 @@ export default async function WebsitePage() {
 												getWebsiteBackgroundColor(website) || undefined,
 										}}
 									>
+										{/* biome-ignore lint/performance/noImgElement: favicon from external URL */}
 										<img
 											src={getFaviconUrl(website)}
 											alt={`${getWebsiteName(website)} logo`}

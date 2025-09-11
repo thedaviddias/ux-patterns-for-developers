@@ -34,7 +34,9 @@ export async function generateMetadata({
 	const qualityName = quality === "do" ? "Do" : "Don't";
 
 	return {
-		title: `${qualityName} ${patternName} Examples for ${platformName} - UX Gallery`,
+		title: {
+			absolute: `${qualityName} ${patternName} Examples for ${platformName} | UX Patterns Gallery`,
+		},
 		description: `Browse ${qualityName.toLowerCase()} examples of ${patternName.toLowerCase()} patterns for ${platformName.toLowerCase()} applications.`,
 	};
 }

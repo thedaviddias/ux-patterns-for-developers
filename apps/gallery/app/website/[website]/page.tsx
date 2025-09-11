@@ -65,6 +65,7 @@ export default async function WebsiteDetailPage({ params }: WebsitePageProps) {
 				<div className="container-responsive py-8">
 					<div className="mb-6">
 						<div className="flex items-center gap-4 mb-2">
+							{/* biome-ignore lint/performance/noImgElement: favicon from external URL */}
 							<img
 								src={getFaviconUrl(websiteUrl)}
 								alt={`${websiteName} favicon`}

@@ -10,33 +10,14 @@ import { Header } from "@/components/common/header";
 import { KeyboardShortcuts } from "@/components/common/keyboard-shortcuts";
 import { FooterCopyright } from "@/components/footer/footer-copyright";
 import { SearchProvider } from "@/lib/search-context";
+import { metadataSEO } from "./metadata";
 
 const inter = Inter({
 	subsets: ["latin"],
 	variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-	title: "UX Patterns Gallery",
-	description:
-		"Visual examples of UX patterns - good and bad implementations from real websites for educational purposes",
-	keywords: [
-		"UX patterns",
-		"UI design",
-		"user experience",
-		"educational",
-		"design examples",
-	],
-	robots: {
-		index: true,
-		follow: true,
-	},
-	openGraph: {
-		title: "UX Patterns Gallery",
-		description: "Educational examples of UX patterns from real websites",
-		type: "website",
-	},
-};
+export const metadata: Metadata = metadataSEO;
 
 interface LayoutProps {
 	children: React.ReactNode;

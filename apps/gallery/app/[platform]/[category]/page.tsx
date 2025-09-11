@@ -27,7 +27,9 @@ export async function generateMetadata({
 	const platformName = platform === "web" ? "Web" : "Mobile";
 
 	return {
-		title: `${categoryName} Patterns for ${platformName} - UX Gallery`,
+		title: {
+			absolute: `${categoryName} Patterns for ${platformName} | UX Patterns Gallery`,
+		},
 		description: `Browse ${categoryName.toLowerCase()} patterns and examples for ${platformName.toLowerCase()} applications.`,
 	};
 }

@@ -21,7 +21,7 @@ export function ImageWithVerdict({
 }: ImageWithVerdictProps) {
 	const isDo = type === "do";
 	// Use getImagePath if entry is provided, otherwise use src directly
-	const imageSrc = entry ? getImagePath(entry) : src!;
+	const imageSrc = entry ? getImagePath(entry) : src || "";
 
 	return (
 		<div className={cn("relative", className)}>
