@@ -233,7 +233,7 @@ export default async function PatternDetailPage({ params }: PageProps) {
 								<a
 									href={entry.source.url}
 									target="_blank"
-									rel="noopener noreferrer"
+									rel="noopener noreferrer nofollow"
 									className="inline-flex items-center gap-2 px-4 py-2 bg-fd-primary text-fd-primary-foreground rounded-lg hover:bg-fd-primary/90 transition-colors ml-auto"
 								>
 									<span>View on {entry.website}</span>

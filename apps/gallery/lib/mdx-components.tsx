@@ -17,9 +17,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 				);
 			}
 
-			// Default link behavior
+			// Check if it's an external link (not your own domains)
+			const isExternal =
+				href &&
+				typeof href === "string" &&
+				(href.startsWith("http://") || href.startsWith("https://")) &&
+				!href.includes("uxpatterns.dev") &&
+				!href.includes("kit.uxpatterns.dev") &&
+				!href.includes("thedaviddias.com");
+
+			// Add nofollow to external links
+			const rel = isExternal ? "nofollow" : undefined;
+
 			return (
-				<a href={href} {...props}>
+				<a href={href} rel={rel} {...props}>
 					{children}
 				</a>
 			);

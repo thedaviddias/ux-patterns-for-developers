@@ -92,7 +92,7 @@ export function EntryModal({
 								<a
 									href={`https://${entry.website}`}
 									target="_blank"
-									rel="noopener noreferrer"
+									rel="noopener noreferrer nofollow"
 									className="inline-block hover:opacity-80 transition-opacity"
 								>
 									<WebsitePill

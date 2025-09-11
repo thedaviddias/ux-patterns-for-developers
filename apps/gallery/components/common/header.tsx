@@ -64,7 +64,7 @@ export function Header() {
 									key={social.label}
 									href={social.link}
 									target="_blank"
-									rel="noopener noreferrer"
+									rel="noopener noreferrer nofollow"
 									className={`text-fd-muted-foreground hover:text-fd-foreground transition-colors ${TRACKING_CLASSES.FOOTER_SOCIAL_CLICK}`}
 								>
 									{social.icon}

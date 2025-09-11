@@ -45,7 +45,7 @@ export const Stars = ({
 				<a
 					href="https://github.com/thedaviddias/ux-patterns-for-developers"
 					target="_blank"
-					rel="noopener noreferrer"
+					rel="noopener noreferrer nofollow"
 					onClick={() => plausible(GALLERY_TRACKING_EVENTS.GITHUB_STAR_CLICK)}
 					className={className}
 					aria-label="Star on GitHub"
