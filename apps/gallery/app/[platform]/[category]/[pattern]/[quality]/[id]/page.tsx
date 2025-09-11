@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -29,6 +30,49 @@ interface PageProps {
 	}>;
 }
 
+export async function generateMetadata({
+	params,
+}: PageProps): Promise<Metadata> {
+	const { platform, category, pattern, quality, id } = await params;
+
+	// Get the specific entry
+	const entry = getEntryWithBody(id);
+	if (!entry) {
+		return {
+			title: "Pattern Not Found",
+		};
+	}
+
+	const qualityText = quality === "do" ? "Good" : "Bad";
+	const title = entry.title;
+	const description = `${qualityText} example of ${entry.pattern} pattern from ${entry.website}. Educational UX pattern example for developers.`;
+	const url = `https://gallery.uxpatterns.dev/${platform}/${category}/${pattern}/${quality}/${id}`;
+	const imageUrl = `https://gallery.uxpatterns.dev${getImagePath(entry)}`;
+
+	return {
+		title,
+		description,
+		openGraph: {
+			title,
+			description,
+			url,
+			images: [
+				{
+					url: imageUrl,
+					width: 1200,
+					height: 800,
+					alt: entry.title,
+				},
+			],
+		},
+		twitter: {
+			title,
+			description,
+			images: [imageUrl],
+		},
+	};
+}
+
 export default async function PatternDetailPage({ params }: PageProps) {
 	const { platform, category, pattern, quality, id } = await params;
 
@@ -41,6 +85,9 @@ export default async function PatternDetailPage({ params }: PageProps) {
 		notFound();
 	}
 	const entry = entryWithBody; // Use entry with body
+
+	// Initialize MDX components at top level
+	const mdxComponents = useMDXComponents({});
 
 	// Validate URL matches entry properties
 	const normalizedPattern = entry.pattern.toLowerCase().replace(/\s+/g, "-");
@@ -202,7 +249,7 @@ export default async function PatternDetailPage({ params }: PageProps) {
 							<h2>Analysis</h2>
 							{entry.body ? (
 								<div className="prose-content">
-									<entry.body components={useMDXComponents({})} />
+									<entry.body components={mdxComponents} />
 								</div>
 							) : (
 								<p>{entry.content}</p>

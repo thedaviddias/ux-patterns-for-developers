@@ -24,12 +24,10 @@ export function EntryCard({ entry, className }: EntryCardProps) {
 	const href = `/${entry.platform}/${category}/${normalizedPattern}/${entry.type}/${entry.id}`;
 
 	return (
-		<Link
-			href={href}
+		<div
 			className={cn(
-				"group block rounded-2xl bg-fd-card border border-fd-border overflow-hidden",
+				"group relative rounded-2xl bg-fd-card border border-fd-border overflow-hidden",
 				"hover:border-fd-border/80 hover:shadow-lg transition-all duration-200",
-				"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-primary focus-visible:ring-offset-2",
 				className,
 			)}
 		>
@@ -78,13 +76,18 @@ export function EntryCard({ entry, className }: EntryCardProps) {
 				</div>
 
 				{/* Title */}
-				<h3 className="font-medium text-fd-foreground leading-tight line-clamp-2 text-base group-hover:text-fd-primary transition-colors">
-					{entry.title}
+				<h3 className="font-medium text-fd-foreground leading-tight line-clamp-2 text-base">
+					<Link
+						href={href}
+						className="group-hover:text-fd-primary transition-colors before:absolute before:inset-0 before:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-primary focus-visible:ring-offset-2"
+					>
+						{entry.title}
+					</Link>
 				</h3>
 
 				{/* Website */}
 				<WebsitePill website={entry.website} platform={entry.platform} />
 			</div>
-		</Link>
+		</div>
 	);
 }

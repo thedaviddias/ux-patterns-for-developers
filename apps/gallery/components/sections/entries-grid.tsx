@@ -1,4 +1,3 @@
-import type { SearchParams } from "next/dist/server/request/search-params";
 import { Suspense } from "react";
 import type { Entry } from "@/lib/types";
 import { EmptyState } from "../common/empty-state";
@@ -6,13 +5,16 @@ import { GalleryClient } from "../common/gallery-client";
 
 type EntriesGridProps = {
 	filteredEntries: Entry[];
-	searchParamsResolved: SearchParams;
+	searchParamsResolved?: {
+		platform?: string;
+		quality?: string;
+		pattern?: string;
+		search?: string;
+		[key: string]: string | string[] | undefined;
+	};
 };
 
-export default function EntriesGrid({
-	filteredEntries,
-	searchParamsResolved,
-}: EntriesGridProps) {
+export default function EntriesGrid({ filteredEntries, searchParamsResolved }: EntriesGridProps) {
 	return (
 		<div className="container-responsive py-8">
 			{filteredEntries.length === 0 ? (

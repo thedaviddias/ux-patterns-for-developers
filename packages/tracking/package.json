@@ -1,0 +1,19 @@
+{
+	"name": "@ux-patterns/tracking",
+	"version": "0.1.0",
+	"description": "Unified tracking utilities for UX Patterns monorepo",
+	"type": "module",
+	"exports": {
+		"./*": "./src/*.ts"
+	},
+	"files": [
+		"src/**"
+	],
+	"devDependencies": {
+		"next-plausible": "^3.12.4",
+		"typescript": "^5.9.2"
+	},
+	"peerDependencies": {
+		"next-plausible": "^3.0.0"
+	}
+}

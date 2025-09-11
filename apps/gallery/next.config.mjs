@@ -1,4 +1,5 @@
 import { createMDX } from "fumadocs-mdx/next";
+import { withPlausibleProxy } from "next-plausible";
 
 const withMDX = createMDX();
 
@@ -7,4 +8,4 @@ const config = {
 	reactStrictMode: true,
 };
 
-export default withMDX(config);
+export default withPlausibleProxy()(withMDX(config));

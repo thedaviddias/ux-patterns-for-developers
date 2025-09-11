@@ -24,16 +24,12 @@ const getPatternDisplayName = (patternId: string): string => {
 };
 
 interface FiltersProps {
-	patterns: string[];
 	className?: string;
-	variant?: "homepage" | "search";
+	patterns: string[];
+	variant: "homepage" | "search";
 }
 
-export function Filters({
-	patterns,
-	className,
-	variant = "search",
-}: FiltersProps) {
+export function Filters({ className, patterns, variant }: FiltersProps) {
 	const pathname = usePathname();
 	const router = useRouter();
 	const { openSearch } = useSearch();

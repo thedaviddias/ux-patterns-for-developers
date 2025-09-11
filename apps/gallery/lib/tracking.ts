@@ -1,95 +1,154 @@
 /**
- * Centralized Plausible tracking utilities for UP Kit
- * This file contains all event names and tracking functions for consistent analytics
+ * Gallery-specific tracking utilities
+ * Uses shared tracking package for common events, adds gallery-specific ones
  */
 
-// Event Names - Centralized list of all tracked events
-export const TRACKING_EVENTS = {
-	GITHUB_LINK_CLICK: "GitHub Link Click",
-	MAIN_SITE_LINK_CLICK: "Main Site Link Click",
+import { SHARED_TRACKING_EVENTS } from "@ux-patterns/tracking/events";
 
-	GITHUB_STAR_CLICK: "GitHub Star Click",
+// Gallery-specific events (in addition to shared ones)
+export const GALLERY_TRACKING_EVENTS = {
+	// Import shared events
+	...SHARED_TRACKING_EVENTS,
 
-	// Search & Discovery
-	COMPONENT_SEARCH: "Component Search",
-
-	// Navigation Events
-	COMPONENT_PAGE_VIEW: "Component Page View",
-
-	// Footer Events
-	FOOTER_LINK_CLICK: "Footer Link Click",
-	FOOTER_SOCIAL_CLICK: "Footer Social Click",
+	// Gallery-specific events
+	GALLERY_SEARCH_OPEN: "Gallery Search Open",
+	GALLERY_SEARCH_QUERY: "Gallery Search Query",
+	GALLERY_FILTER_CHANGE: "Gallery Filter Change",
+	GALLERY_PATTERN_VIEW: "Gallery Pattern View",
+	GALLERY_IMAGE_MODAL_OPEN: "Gallery Image Modal Open",
+	GALLERY_SHARE_CLICK: "Gallery Share Click",
+	GALLERY_ENTRY_CLICK: "Gallery Entry Click",
 } as const;
 
-// Helper function to convert event name to Plausible class
-export const asPlausibleClass = (eventName: string): string => {
-	const encoded = encodeURIComponent(eventName).replace(/%20/g, "+");
-	return `plausible-event-name=${encoded}`;
-};
+// Import shared helpers and types
+import {
+	asPlausibleClass,
+	getSharedTrackingClasses,
+	trackComponentPageView as sharedTrackComponentPageView,
+	trackFooterClick as sharedTrackFooterClick,
+	trackNavigationEvent as sharedTrackNavigationEvent,
+	trackComponentSearch,
+	trackGitHubStarClick,
+} from "@ux-patterns/tracking/helpers";
 
-// CSS Class Names for auto-tracking (plausible-event-name)
-export const TRACKING_CLASSES = {
-	GITHUB_LINK_CLICK: asPlausibleClass(TRACKING_EVENTS.GITHUB_LINK_CLICK),
+import type { PlausibleTracker } from "@ux-patterns/tracking/types";
 
-	MAIN_SITE_LINK_CLICK: asPlausibleClass(TRACKING_EVENTS.MAIN_SITE_LINK_CLICK),
+// Export shared functions with same names for backward compatibility
+export {
+	asPlausibleClass,
+	trackComponentSearch,
+	trackGitHubStarClick,
+} from "@ux-patterns/tracking/helpers";
+export type { PlausibleTracker } from "@ux-patterns/tracking/types";
 
-	GITHUB_STAR_CLICK: asPlausibleClass(TRACKING_EVENTS.GITHUB_STAR_CLICK),
-} as const;
-
-// Type for Plausible tracking function
-type EventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
-export type PlausibleTracker = (
-	event: EventName | string,
-	options?: { props?: Record<string, string | number> },
-) => void;
-
-// Helper function to track navigation events
+// Wrapper functions that use shared helpers but maintain gallery API
 export const trackNavigationEvent = (
 	plausible: PlausibleTracker,
 	type: "github" | "main_site",
 	url: string,
 	label?: string,
 ) => {
-	const eventMap = {
-		github: TRACKING_EVENTS.GITHUB_LINK_CLICK,
-		main_site: TRACKING_EVENTS.MAIN_SITE_LINK_CLICK,
-	};
-
-	plausible(eventMap[type], {
-		props: {
-			url,
-			...(label && { label }),
-		},
-	});
+	sharedTrackNavigationEvent(plausible, type, url, label);
 };
 
-// Helper function to track component page views
 export const trackComponentPageView = (
 	plausible: PlausibleTracker,
 	componentName: string,
 ) => {
-	plausible(TRACKING_EVENTS.COMPONENT_PAGE_VIEW, {
-		props: {
-			component_name: componentName,
-		},
-	});
+	sharedTrackComponentPageView(plausible, componentName);
 };
 
-// Helper function to track footer clicks
 export const trackFooterClick = (
 	plausible: PlausibleTracker,
 	linkType: "general" | "resource" | "social",
 	linkLabel: string,
 ) => {
-	const eventName =
-		linkType === "social"
-			? TRACKING_EVENTS.FOOTER_SOCIAL_CLICK
-			: TRACKING_EVENTS.FOOTER_LINK_CLICK;
+	sharedTrackFooterClick(plausible, linkType, linkLabel);
+};
 
-	plausible(eventName, {
+// CSS Classes - combine shared + gallery-specific
+const sharedClasses = getSharedTrackingClasses();
+export const TRACKING_CLASSES = {
+	...sharedClasses,
+
+	// Gallery-specific CSS classes
+	GALLERY_SEARCH_OPEN: asPlausibleClass(
+		GALLERY_TRACKING_EVENTS.GALLERY_SEARCH_OPEN,
+	),
+	GALLERY_SHARE_CLICK: asPlausibleClass(
+		GALLERY_TRACKING_EVENTS.GALLERY_SHARE_CLICK,
+	),
+	GALLERY_ENTRY_CLICK: asPlausibleClass(
+		GALLERY_TRACKING_EVENTS.GALLERY_ENTRY_CLICK,
+	),
+} as const;
+
+// Helper function to track gallery-specific search events
+export const trackGallerySearch = (
+	plausible: PlausibleTracker,
+	action: "open" | "query",
+	query?: string,
+	resultsCount?: number,
+) => {
+	if (action === "open") {
+		plausible(GALLERY_TRACKING_EVENTS.GALLERY_SEARCH_OPEN);
+	} else if (action === "query" && query) {
+		plausible(GALLERY_TRACKING_EVENTS.GALLERY_SEARCH_QUERY, {
+			props: {
+				query: query.toLowerCase(),
+				query_length: query.length,
+				...(typeof resultsCount === "number" && {
+					results_count: resultsCount,
+				}),
+			},
+		});
+	}
+};
+
+// Helper function to track gallery interactions
+export const trackGalleryEvent = (
+	plausible: PlausibleTracker,
+	action: "pattern_view" | "filter_change" | "image_modal_open" | "entry_click",
+	data?: {
+		patternName?: string;
+		filterType?: string;
+		filterValue?: string;
+		entryId?: string;
+		platform?: string;
+	},
+) => {
+	const eventMap = {
+		pattern_view: GALLERY_TRACKING_EVENTS.GALLERY_PATTERN_VIEW,
+		filter_change: GALLERY_TRACKING_EVENTS.GALLERY_FILTER_CHANGE,
+		image_modal_open: GALLERY_TRACKING_EVENTS.GALLERY_IMAGE_MODAL_OPEN,
+		entry_click: GALLERY_TRACKING_EVENTS.GALLERY_ENTRY_CLICK,
+	};
+
+	const props: Record<string, string | number> = {};
+
+	if (data?.patternName) props.pattern_name = data.patternName;
+	if (data?.filterType) props.filter_type = data.filterType;
+	if (data?.filterValue) props.filter_value = data.filterValue;
+	if (data?.entryId) props.entry_id = data.entryId;
+	if (data?.platform) props.platform = data.platform;
+
+	plausible(eventMap[action], { props });
+};
+
+// Helper function to track share events
+export const trackShareEvent = (
+	plausible: PlausibleTracker,
+	shareType: "native" | "clipboard",
+	context?: {
+		pageType?: "pattern" | "entry" | "website";
+		patternName?: string;
+	},
+) => {
+	plausible(GALLERY_TRACKING_EVENTS.GALLERY_SHARE_CLICK, {
 		props: {
-			link_type: linkType,
-			link_label: linkLabel,
+			share_type: shareType,
+			...(context?.pageType && { page_type: context.pageType }),
+			...(context?.patternName && { pattern_name: context.patternName }),
 		},
 	});
 };

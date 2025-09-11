@@ -38,6 +38,9 @@ importers:
       '@ux-patterns/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@ux-patterns/tracking':
+        specifier: workspace:*
+        version: link:../../packages/tracking
       '@ux-patterns/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -129,6 +132,9 @@ importers:
       '@ux-patterns/registry':
         specifier: workspace:*
         version: link:../../packages/registry
+      '@ux-patterns/tracking':
+        specifier: workspace:*
+        version: link:../../packages/tracking
       '@ux-patterns/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -280,6 +286,9 @@ importers:
       '@sentry/nextjs':
         specifier: ^10.8.0
         version: 10.8.0(@opentelemetry/context-async-hooks@2.0.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@2.0.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.0.1(@opentelemetry/api@1.9.0))(next@15.5.2(@opentelemetry/api@1.9.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)(webpack@5.101.3)
+      '@ux-patterns/tracking':
+        specifier: workspace:*
+        version: link:../../packages/tracking
       '@ux-patterns/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -544,6 +553,15 @@ importers:
       zod:
         specifier: ^4.1.5
         version: 4.1.5
+
+  packages/tracking:
+    devDependencies:
+      next-plausible:
+        specifier: ^3.12.4
+        version: 3.12.4(next@15.5.2(@opentelemetry/api@1.9.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
 
   packages/ui:
     dependencies:
