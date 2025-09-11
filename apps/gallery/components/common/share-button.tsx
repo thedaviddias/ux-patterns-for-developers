@@ -1,7 +1,9 @@
 "use client";
 
 import { Check, Copy } from "lucide-react";
+import { usePlausible } from "next-plausible";
 import { useState } from "react";
+import { trackShareEvent } from "@/lib/tracking";
 
 interface ShareButtonProps {
 	title: string;
@@ -10,6 +12,7 @@ interface ShareButtonProps {
 
 export function ShareButton({ title, text }: ShareButtonProps) {
 	const [copied, setCopied] = useState(false);
+	const plausible = usePlausible();
 
 	const handleShare = async () => {
 		const url = window.location.href;
@@ -25,6 +28,7 @@ export function ShareButton({ title, text }: ShareButtonProps) {
 					text: text || title,
 					url,
 				});
+				trackShareEvent(plausible, "native");
 			} catch (err) {
 				// User cancelled or error occurred
 				if (err instanceof Error && err.name !== "AbortError") {
@@ -37,6 +41,7 @@ export function ShareButton({ title, text }: ShareButtonProps) {
 				await navigator.clipboard.writeText(url);
 				setCopied(true);
 				setTimeout(() => setCopied(false), 2000);
+				trackShareEvent(plausible, "clipboard");
 			} catch (err) {
 				console.error("Failed to copy:", err);
 			}

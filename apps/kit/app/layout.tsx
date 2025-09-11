@@ -26,23 +26,23 @@ export const metadata = {
 export default function Layout({ children }: LayoutProps<"/">) {
 	return (
 		<html lang="en" className={inter.className} suppressHydrationWarning>
-			<head>
+			<head />
+			<body className="flex flex-col min-h-screen">
 				<PlausibleProvider
 					domain="kit.uxpatterns.dev"
 					trackOutboundLinks={true}
 					taggedEvents={true}
-				/>
-			</head>
-			<body className="flex flex-col min-h-screen">
-				<RootProvider
-					search={{
-						options: {
-							type: "static",
-						},
-					}}
 				>
-					{children}
-				</RootProvider>
+					<RootProvider
+						search={{
+							options: {
+								type: "static",
+							},
+						}}
+					>
+						{children}
+					</RootProvider>
+				</PlausibleProvider>
 			</body>
 		</html>
 	);

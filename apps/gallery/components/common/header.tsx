@@ -2,6 +2,7 @@ import { SOCIAL_LINKS } from "@ux-patterns/constants/social";
 import { ExternalLinkIcon } from "lucide-react";
 import Link from "next/link";
 import { HeaderSearchWrapper } from "@/components/header/header-search-wrapper";
+import { TRACKING_CLASSES } from "@/lib/tracking";
 import { StarsWrapper } from "../stars/stars-wrapper";
 
 export function Header() {
@@ -36,7 +37,7 @@ export function Header() {
 						<nav className="hidden md:flex items-center space-x-6">
 							<Link
 								href="https://uxpatterns.dev"
-								className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+								className={`text-fd-muted-foreground hover:text-fd-foreground transition-colors ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
 							>
 								Patterns
 								<span className="ml-1 inline-flex items-center">
@@ -45,7 +46,7 @@ export function Header() {
 							</Link>
 							<Link
 								href="https://kit.uxpatterns.dev"
-								className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+								className={`text-fd-muted-foreground hover:text-fd-foreground transition-colors ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
 							>
 								Kit
 								<span className="ml-1 inline-flex items-center">
@@ -64,7 +65,7 @@ export function Header() {
 									href={social.link}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+									className={`text-fd-muted-foreground hover:text-fd-foreground transition-colors ${TRACKING_CLASSES.FOOTER_SOCIAL_CLICK}`}
 								>
 									{social.icon}
 									<span className="sr-only">{social.label}</span>

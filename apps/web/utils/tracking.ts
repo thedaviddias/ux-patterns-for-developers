@@ -1,32 +1,22 @@
 /**
- * Centralized Plausible tracking utilities
- * This file contains all event names and tracking functions for consistent analytics
+ * Web app tracking utilities
+ * Uses shared tracking package for common events, adds web-specific ones
  */
 
-// Event Names - Centralized list of all tracked events
-export const TRACKING_EVENTS = {
-	// Newsletter Events
-	NEWSLETTER_SUBSCRIBE_SUCCESS: "Newsletter Subscribe Success",
-	NEWSLETTER_SUBSCRIBE_SUCCESS_INLINE: "Newsletter Subscribe Success Inline",
-	NEWSLETTER_SUBSCRIBE_ERROR: "Newsletter Subscribe Error",
-	NEWSLETTER_SUBSCRIBE_ERROR_INLINE: "Newsletter Subscribe Error Inline",
-	NEWSLETTER_INLINE_INPUT_FOCUS: "Newsletter Inline Input Focus",
-	NEWSLETTER_INPUT_FOCUS: "Newsletter Input Focus",
-	NEWSLETTER_INLINE_BUTTON_CLICK: "Newsletter Inline Button Click",
-	NEWSLETTER_BUTTON_CLICK: "Newsletter Button Click",
+import { SHARED_TRACKING_EVENTS } from "@ux-patterns/tracking/events";
 
-	// Navigation Events
-	GITHUB_STAR_CLICK: "GitHub Star Click",
+// Web app tracking events (shared + web-specific)
+export const TRACKING_EVENTS = {
+	// Import shared events
+	...SHARED_TRACKING_EVENTS,
+
+	// Web-specific navigation events
 	SUGGEST_PATTERN_CLICK: "Suggest Pattern Click",
 	VIEW_PATTERN_CLICK: "View Pattern Click",
 	GET_STARTED_CLICK: "Get Started Click",
 	VIEW_GITHUB_CLICK: "View GitHub Click",
 	PATTERN_GUIDE_CLICK: "Pattern Guide Click",
 	EXPLORE_UI_KIT_CLICK: "Explore UI Kit Click",
-
-	// Footer Events
-	FOOTER_LINK_CLICK: "Footer Link Click",
-	FOOTER_SOCIAL_CLICK: "Footer Social Click",
 
 	// Sandbox Events
 	SANDBOX_TAB_SWITCH: "Sandbox Tab Switch",
@@ -48,11 +38,23 @@ export const TRACKING_EVENTS = {
 	TEXT_TO_SOCIAL_IMAGE_DOWNLOAD: "Text to Social Image Download",
 } as const;
 
-// Helper function to convert event name to Plausible class
-export const asPlausibleClass = (eventName: string): string => {
-	const encoded = encodeURIComponent(eventName).replace(/%20/g, "+");
-	return `plausible-event-name=${encoded}`;
-};
+// Import shared helpers
+import {
+	asPlausibleClass,
+	getNewsletterTrackingClasses,
+	trackFooterClick as sharedTrackFooterClick,
+	trackNewsletterEvent as sharedTrackNewsletterEvent,
+	trackGitHubStarClick,
+} from "@ux-patterns/tracking/helpers";
+
+import type { PlausibleTracker } from "@ux-patterns/tracking/types";
+
+// Re-export shared utilities
+export {
+	asPlausibleClass,
+	trackGitHubStarClick,
+} from "@ux-patterns/tracking/helpers";
+export type { PlausibleTracker } from "@ux-patterns/tracking/types";
 
 // CSS Class Names for auto-tracking (plausible-event-name)
 export const TRACKING_CLASSES = {
@@ -112,48 +114,21 @@ export const TRACKING_CLASSES = {
 	),
 } as const;
 
-// Type for Plausible tracking function
-type EventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
-export type PlausibleTracker = (
-	event: EventName | string,
-	options?: { props?: Record<string, string | number> },
-) => void;
-
-// Helper function to track newsletter events
+// Use shared helper functions with web app API compatibility
 export const trackNewsletterEvent = (
 	plausible: PlausibleTracker,
 	type: "success" | "error",
 	variant: "default" | "inline" = "default",
 ) => {
-	const eventKey =
-		variant === "inline"
-			? type === "success"
-				? "NEWSLETTER_SUBSCRIBE_SUCCESS_INLINE"
-				: "NEWSLETTER_SUBSCRIBE_ERROR_INLINE"
-			: type === "success"
-				? "NEWSLETTER_SUBSCRIBE_SUCCESS"
-				: "NEWSLETTER_SUBSCRIBE_ERROR";
-
-	plausible(TRACKING_EVENTS[eventKey]);
+	sharedTrackNewsletterEvent(plausible, type, variant);
 };
 
-// Helper function to track footer clicks
 export const trackFooterClick = (
 	plausible: PlausibleTracker,
 	linkType: "general" | "resource" | "social",
 	linkLabel: string,
 ) => {
-	const eventName =
-		linkType === "social"
-			? TRACKING_EVENTS.FOOTER_SOCIAL_CLICK
-			: TRACKING_EVENTS.FOOTER_LINK_CLICK;
-
-	plausible(eventName, {
-		props: {
-			link_type: linkType,
-			link_label: linkLabel,
-		},
-	});
+	sharedTrackFooterClick(plausible, linkType, linkLabel);
 };
 
 // Helper function to track sandbox interactions
@@ -266,17 +241,7 @@ export const trackTextToSocialEvent = (
 	}
 };
 
-// Helper function to get CSS class for tracking
+// Helper function to get CSS class for tracking - use shared implementation
 export const getTrackingClass = (variant?: "default" | "inline") => {
-	return {
-		newsletterInputFocus:
-			variant === "inline"
-				? asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS)
-				: asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INPUT_FOCUS),
-
-		newsletterButtonClick:
-			variant === "inline"
-				? asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_INLINE_BUTTON_CLICK)
-				: asPlausibleClass(TRACKING_EVENTS.NEWSLETTER_BUTTON_CLICK),
-	};
+	return getNewsletterTrackingClasses(variant);
 };

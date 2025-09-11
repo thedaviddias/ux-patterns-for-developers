@@ -28,23 +28,23 @@ export default function Layout({ children }: LayoutProps<"/">) {
 			className={`${geist.variable} ${mono.variable}`}
 			suppressHydrationWarning
 		>
-			<head>
+			<head />
+			<Body>
 				<PlausibleProvider
 					domain="uxpatterns.dev"
 					trackOutboundLinks={true}
 					taggedEvents={true}
-				/>
-			</head>
-			<Body>
-				<RootProvider
-					search={{
-						SearchDialog: DefaultSearchDialog,
-					}}
 				>
-					{children}
-					<TextSelectionHandler />
-				</RootProvider>
-				<Footer />
+					<RootProvider
+						search={{
+							SearchDialog: DefaultSearchDialog,
+						}}
+					>
+						{children}
+						<TextSelectionHandler />
+					</RootProvider>
+					<Footer />
+				</PlausibleProvider>
 			</Body>
 		</html>
 	);

@@ -30,65 +30,64 @@ export default function RootLayout({ children }: LayoutProps) {
 			className={`${inter.variable} ${inter.className}`}
 			suppressHydrationWarning
 		>
-			<head>
+			<head />
+			<body className="flex flex-col min-h-screen">
 				<PlausibleProvider
 					domain="gallery.uxpatterns.dev"
 					trackOutboundLinks={true}
 					taggedEvents={true}
-				/>
-			</head>
-			<body className="flex flex-col min-h-screen">
-				{" "}
-				<RootProvider
-					search={{
-						enabled: false,
-					}}
 				>
-					<NuqsAdapter>
-						<SearchProvider>
-							<KeyboardShortcuts />
-							<div className="min-h-screen bg-fd-background">
-								{/* Header */}
-								<Header />
+					<RootProvider
+						search={{
+							enabled: false,
+						}}
+					>
+						<NuqsAdapter>
+							<SearchProvider>
+								<KeyboardShortcuts />
+								<div className="min-h-screen bg-fd-background">
+									{/* Header */}
+									<Header />
 
-								{/* Main content */}
-								<main className="flex-1">{children}</main>
+									{/* Main content */}
+									<main className="flex-1">{children}</main>
 
-								{/* Footer */}
-								<footer className="bg-fd-card border-t border-fd-border mt-16">
-									<div className="container-responsive py-8">
-										<div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-											<div className="flex items-center gap-6 text-sm">
-												<Link
-													href="/disclaimer"
-													className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
-												>
-													Disclaimer
-												</Link>
-												<Link
-													href="/privacy-policy"
-													className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
-												>
-													Privacy
-												</Link>
-												<a
-													href="https://uxpatterns.dev"
-													className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													UX Patterns
-												</a>
+									{/* Footer */}
+									<footer className="bg-fd-card border-t border-fd-border mt-16">
+										<div className="container-responsive py-8">
+											<div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+												<div className="flex items-center gap-6 text-sm">
+													<Link
+														href="/disclaimer"
+														className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+													>
+														Disclaimer
+													</Link>
+													<Link
+														href="/privacy-policy"
+														className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+													>
+														Privacy
+													</Link>
+													<a
+														href="https://uxpatterns.dev"
+														className="text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														UX Patterns
+													</a>
+												</div>
 											</div>
+											{/* Copyright Section */}
+											<FooterCopyright />
 										</div>
-										{/* Copyright Section */}
-										<FooterCopyright />
-									</div>
-								</footer>
-							</div>
-						</SearchProvider>
-					</NuqsAdapter>
-				</RootProvider>
+									</footer>
+								</div>
+							</SearchProvider>
+						</NuqsAdapter>
+					</RootProvider>
+				</PlausibleProvider>
 			</body>
 		</html>
 	);

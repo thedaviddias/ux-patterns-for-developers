@@ -1,5 +1,6 @@
 import createBundleAnalyzer from "@next/bundle-analyzer";
 import { createMDX } from "fumadocs-mdx/next";
+import { withPlausibleProxy } from "next-plausible";
 
 const withMDX = createMDX();
 
@@ -163,4 +164,4 @@ const config = {
 	},
 };
 
-export default withAnalyzer(withMDX(config));
+export default withPlausibleProxy()(withAnalyzer(withMDX(config)));
