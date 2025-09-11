@@ -5,6 +5,7 @@
 	"scripts": {
 		"analyze": "export ANALYZE=true && next build",
 		"build": "next build",
+		"check": "tsc --noEmit",
 		"dev": "next dev --turbo -p 3062",
 		"start": "next start",
 		"postinstall": "fumadocs-mdx"

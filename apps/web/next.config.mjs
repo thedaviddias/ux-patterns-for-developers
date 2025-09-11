@@ -21,7 +21,7 @@ const config = {
 				hostname: "covers.openlibrary.org",
 			},
 		],
-		formats: ["image/webp", "image/avif"],
+		formats: ["image/webp"],
 	},
 	logging: {
 		fetches: {
