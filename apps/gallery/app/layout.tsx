@@ -4,6 +4,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import PlausibleProvider from "next-plausible";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Header } from "@/components/common/header";
 import { KeyboardShortcuts } from "@/components/common/keyboard-shortcuts";
@@ -48,7 +49,15 @@ export default function RootLayout({ children }: LayoutProps) {
 			className={`${inter.variable} ${inter.className}`}
 			suppressHydrationWarning
 		>
+			<head>
+				<PlausibleProvider
+					domain="gallery.uxpatterns.dev"
+					trackOutboundLinks={true}
+					taggedEvents={true}
+				/>
+			</head>
 			<body className="flex flex-col min-h-screen">
+				{" "}
 				<RootProvider
 					search={{
 						enabled: false,
