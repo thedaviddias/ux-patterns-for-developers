@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"build": "pnpm build:registry && next build",
+		"check": "tsc --noEmit",
 		"build:registry": "node ../../scripts/build-registry.js",
 		"check:type": "tsc --noEmit",
 		"dev": "pnpm build:registry && pnpm --filter=@ux-patterns/registry registry:generate && next dev -p 3065 --turbo",

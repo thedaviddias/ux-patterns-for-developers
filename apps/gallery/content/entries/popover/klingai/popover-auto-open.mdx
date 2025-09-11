@@ -1,0 +1,25 @@
+---
+id: popover-auto-open-001
+title: "Auto-opening popover with poor keyboard support"
+pattern: Popover
+platform: web
+type: dont
+website: klingai.com
+media:
+  type: image
+  src: "001.png"
+tags: [accessibility, keyboard-navigation, dismiss-behavior]
+source:
+  url: "https://app.klingai.com"
+  capturedAt: "2025-09-11"
+---
+
+This popover automatically opens on page load, lacks ESC key dismissal, and prevents keyboard navigation.
+
+## The issue
+
+Violates accessibility best practices by forcing users to dismiss the popover before accessing content. Missing required ARIA attributes and proper focus management.
+
+## Learn more
+
+See the [Popover pattern documentation](/patterns/content-management/popover#best-practices) for proper trigger behavior, [ARIA attributes](/patterns/content-management/popover#aria-attributes), and [keyboard interaction patterns](/patterns/content-management/popover#keyboard-interaction-pattern).

@@ -1,5 +1,6 @@
 import { remarkMdxMermaid } from "fumadocs-core/mdx-plugins";
 import {
+	defineCollections,
 	defineConfig,
 	defineDocs,
 	frontmatterSchema,
@@ -53,6 +54,15 @@ export const docs = defineDocs({
 			pages: z.array(z.string()),
 		}),
 	},
+});
+
+export const blog = defineCollections({
+	type: "doc",
+	dir: "content/blog",
+	schema: frontmatterSchema.extend({
+		author: z.string(),
+		date: z.string().date().or(z.date()),
+	}),
 });
 
 export default defineConfig({

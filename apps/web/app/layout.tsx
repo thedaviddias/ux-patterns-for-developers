@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import PlausibleProvider from "next-plausible";
 import { Footer } from "@/components/footer/footer";
 import { DefaultSearchDialog } from "@/components/search";
+import { TextSelectionHandler } from "@/components/text-to-social/text-selection-handler";
 import { Body } from "./layout.client";
 import { metadataSEO } from "./metadata";
 
@@ -41,6 +42,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
 					}}
 				>
 					{children}
+					<TextSelectionHandler />
 				</RootProvider>
 				<Footer />
 			</Body>

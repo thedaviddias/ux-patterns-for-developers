@@ -1,7 +1,7 @@
 "use client";
 
 import { ImageIcon } from "lucide-react";
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/utils";
 
 interface ImagePlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {
 	title?: string;

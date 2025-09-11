@@ -1,0 +1,23 @@
+{
+	"name": "@ux-patterns/constants",
+	"version": "0.1.0",
+	"description": "Shared React constants for UX Patterns applications",
+	"type": "module",
+	"exports": {
+		"./social": "./src/social.tsx",
+		"./patterns": "./src/patterns.ts"
+	},
+	"scripts": {
+		"check": "tsc --noEmit",
+		"check:type": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@icons-pack/react-simple-icons": "^13.7.0",
+		"react": "^19.1.1"
+	},
+	"devDependencies": {
+		"@thedaviddias/config-typescript": "workspace:*",
+		"@types/react": "^19.1.12",
+		"typescript": "^5.9.2"
+	}
+}

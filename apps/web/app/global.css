@@ -1,3 +1,27 @@
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
+
+/* Custom text selection highlight color */
+::selection {
+  background-color: theme(colors.yellow.200);
+  color: theme(colors.gray.900);
+}
+
+::-moz-selection {
+  background-color: theme(colors.yellow.200);
+  color: theme(colors.gray.900);
+}
+
+/* Dark mode selection */
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: theme(colors.yellow.400);
+    color: theme(colors.gray.900);
+  }
+
+  ::-moz-selection {
+    background-color: theme(colors.yellow.400);
+    color: theme(colors.gray.900);
+  }
+}

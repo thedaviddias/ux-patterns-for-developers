@@ -11,6 +11,7 @@
 		"dev": "nodemon --watch registry/default --ext tsx,ts,jsx,js --ignore 'registry/default/**/*.d.ts' --ignore '.generated/**' --ignore 'public/**' --exec 'npm run registry:generate'",
 		"check:type": "tsc --noEmit",
 		"registry:generate": "npx tsx scripts/build-registry.ts && shadcn build ../../apps/kit/public/r/registry.json --output ../../apps/kit/public/r",
+		"check": "tsc --noEmit",
 		"registry:build": "shadcn build",
 		"test": "vitest",
 		"test:ui": "vitest --ui",

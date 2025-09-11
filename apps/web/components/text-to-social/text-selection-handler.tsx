@@ -99,7 +99,7 @@ function SelectionPopover({
 		<div
 			ref={popoverRef}
 			className={cn(
-				"absolute z-50 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-2",
+				"absolute z-50 bg-fd-background rounded-lg shadow-lg border border-fd-border p-2",
 				"animate-in fade-in-0 zoom-in-95 duration-100",
 			)}
 			style={{
@@ -114,7 +114,7 @@ function SelectionPopover({
 					type="button"
 					onClick={() => generateImage("instagram")}
 					disabled={isGenerating}
-					className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors disabled:opacity-50"
+					className="p-2 hover:bg-fd-muted rounded transition-colors disabled:opacity-50"
 					title="Share as Instagram post"
 				>
 					<Instagram className="w-4 h-4" />
@@ -123,7 +123,7 @@ function SelectionPopover({
 					type="button"
 					onClick={() => generateImage("twitter")}
 					disabled={isGenerating}
-					className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors disabled:opacity-50"
+					className="p-2 hover:bg-fd-muted rounded transition-colors disabled:opacity-50"
 					title="Share as Twitter/X post"
 				>
 					<Twitter className="w-4 h-4" />
@@ -132,14 +132,14 @@ function SelectionPopover({
 					type="button"
 					onClick={() => generateImage("linkedin")}
 					disabled={isGenerating}
-					className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors disabled:opacity-50"
+					className="p-2 hover:bg-fd-muted rounded transition-colors disabled:opacity-50"
 					title="Share as LinkedIn post"
 				>
 					<Linkedin className="w-4 h-4" />
 				</button>
 			</div>
 			{isGenerating && (
-				<div className="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">
+				<div className="text-xs text-fd-muted-foreground mt-1 text-center">
 					Generating...
 				</div>
 			)}

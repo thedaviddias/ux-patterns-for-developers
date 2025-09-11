@@ -1,15 +1,14 @@
-import { unstable_cache } from "next/cache";
+import { NextResponse } from "next/server";
 
 interface GitHubRepoResponse {
 	stargazers_count: number;
 	full_name: string;
 }
 
-const fetchGitHubStars = async (): Promise<number> => {
+export async function GET() {
 	// Only fetch GitHub stars if we have a token or are in development
-	// This prevents rate limiting during build
 	if (!process.env.GITHUB_TOKEN && process.env.NODE_ENV === "production") {
-		return 0;
+		return NextResponse.json({ stars: 0 });
 	}
 
 	try {
@@ -33,20 +32,9 @@ const fetchGitHubStars = async (): Promise<number> => {
 		}
 
 		const data: GitHubRepoResponse = await response.json();
-		return data.stargazers_count;
+		return NextResponse.json({ stars: data.stargazers_count });
 	} catch (error) {
 		console.error("Failed to fetch GitHub stars:", error);
-		// Return 0 instead of throwing to prevent build failures
-		return 0;
+		return NextResponse.json({ stars: 0 });
 	}
-};
-
-// Cache the GitHub stars fetch for 1 hour to avoid rate limits
-export const getGitHubStars = unstable_cache(
-	fetchGitHubStars,
-	["github-stars"],
-	{
-		revalidate: 3600, // 1 hour
-		tags: ["github-stars"],
-	},
-);
+}
