@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -106,8 +107,8 @@ export default async function PatternPage({ params, searchParams }: PageProps) {
 						rel="noopener noreferrer"
 						className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-fd-card text-fd-foreground rounded-lg text-sm font-medium shadow-sm hover:bg-fd-muted focus:outline-none focus:ring-2 focus:ring-fd-primary transition-all border border-fd-border"
 					>
+						View Pattern
 						<ExternalLink className="w-4 h-4" />
-						View Documentation
 					</a>
 				</div>
 			</div>
@@ -115,7 +116,7 @@ export default async function PatternPage({ params, searchParams }: PageProps) {
 			<Suspense
 				fallback={<div className="h-20 bg-fd-card border-b border-fd-border" />}
 			>
-				<Filters patterns={[]} variant="search" />
+				<Filters />
 			</Suspense>
 
 			<div className="container-responsive py-8">
