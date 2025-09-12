@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
 [![GitHub Stars](https://img.shields.io/github/stars/thedaviddias/ux-patterns-for-developers?style=social)](https://github.com/thedaviddias/ux-patterns-for-developers)
-[![Twitter Follow](https://img.shields.io/twitter/follow/thedaviddias?style=social)](https://twitter.com/thedaviddias)
+[![Twitter Follow](https://img.shields.io/twitter/follow/thedaviddias?style=social)](https://x.com/thedaviddias)
 
 [View Documentation](https://uxpatterns.dev) · [Report Bug](https://github.com/thedaviddias/ux-patterns-for-developers/issues) · [Request Pattern](https://github.com/thedaviddias/ux-patterns-for-developers/issues/new)
 

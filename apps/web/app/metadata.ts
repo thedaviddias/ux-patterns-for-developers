@@ -4,7 +4,7 @@ import { BASE_URL } from "@/constants/project";
 // Create a metadata generator instance
 export const metadataGenerator = new MetadataGenerator({
 	site: {
-		name: "UX Patterns for Devs",
+		name: "UX Patterns for Developers",
 		description:
 			"Comprehensive collection of UX patterns, best practices, and implementation guides for developers building accessible, effective, and user-friendly UI components.",
 		url: BASE_URL,
@@ -78,8 +78,5 @@ metadataSEO.keywords = [
 ];
 metadataSEO.category = "ux";
 metadataSEO.appleWebApp = {
-	title: "UX Patterns for Devs",
-};
-metadataSEO.other = {
-	"msapplication-TileColor": "#fff",
+	title: "UX Patterns for Developers",
 };

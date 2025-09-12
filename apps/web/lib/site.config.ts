@@ -57,11 +57,11 @@ export const siteConfig = {
 	author: {
 		name: "David Dias",
 		twitter: "@thedaviddias",
-		url: "https://twitter.com/thedaviddias",
+		url: "https://x.com/thedaviddias",
 	},
 
 	links: {
 		github: "https://github.com/thedaviddias/ux-patterns-for-developers",
-		twitter: "https://twitter.com/thedaviddias",
+		twitter: "https://x.com/thedaviddias",
 	},
 };

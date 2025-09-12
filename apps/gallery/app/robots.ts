@@ -1,9 +1,8 @@
 import { createSEORobots } from "@ux-patterns/seo/robots";
-
-const baseUrl = "https://gallery.uxpatterns.dev";
+import { siteConfig } from "@/lib/site.config";
 
 export default function robots() {
-	return createSEORobots(baseUrl, {
+	return createSEORobots(siteConfig.url, {
 		disallowPaths: ["/404", "/500", "/api/*"],
 		blockBadBots: true,
 	});

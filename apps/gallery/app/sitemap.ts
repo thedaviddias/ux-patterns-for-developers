@@ -4,6 +4,7 @@ import {
 	SitemapBuilder,
 } from "@ux-patterns/seo/sitemap";
 import { getUniqueWebsites, loadEntries } from "@/lib/loadEntries";
+import { siteConfig } from "@/lib/site.config";
 import {
 	getCategoryForPattern,
 	PATTERN_CATEGORIES,
@@ -12,8 +13,7 @@ import {
 
 export default async function sitemap() {
 	const entries = await loadEntries();
-	const baseUrl = "https://gallery.uxpatterns.dev";
-	const builder = new SitemapBuilder(baseUrl);
+	const builder = new SitemapBuilder(siteConfig.url);
 
 	// Configure priority calculator
 	const priorityCalc = new PriorityCalculator()
