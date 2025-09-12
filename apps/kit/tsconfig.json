@@ -5,10 +5,10 @@
 		"paths": {
 			"@/.source": ["./.source/index.ts"],
 			"@/*": ["./*"],
-			"@ux-patterns/*": ["../../packages/*"],
 			"@/registry/*": ["../../packages/registry/registry/default/*"],
 			"@/ui/*": ["../../packages/registry/registry/default/ui/*"]
 		},
+		"moduleResolution": "bundler",
 		"skipLibCheck": true
 	},
 	"include": [

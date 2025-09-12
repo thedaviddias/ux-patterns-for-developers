@@ -1,8 +1,10 @@
+import { AUTHOR, PROJECT } from "@ux-patterns/constants/author";
+
 export const siteConfig = {
 	name: "UX Patterns Kit",
 	description:
 		"Ship better UX than most design teams. Production-ready React components with TypeScript, Tailwind CSS, and WCAG 2.2 compliance.",
-	url: "https://kit.uxpatterns.dev",
+	url: PROJECT.urls.kit,
 	ogImage: "/og/opengraph-image.png",
 	logo: "/logo.png",
 	installCommand: "npx shadcn@latest add @upkit/button",
@@ -46,14 +48,14 @@ export const siteConfig = {
 	},
 
 	author: {
-		name: "David Dias",
-		twitter: "@thedaviddias",
-		url: "https://twitter.com/thedaviddias",
+		name: AUTHOR.name,
+		twitter: AUTHOR.social.twitter,
+		url: AUTHOR.social.twitterUrl,
 	},
 
 	links: {
-		github: "https://github.com/thedaviddias/ux-patterns-for-developers",
-		mainSite: "https://uxpatterns.dev",
+		github: PROJECT.repository.url,
+		mainSite: PROJECT.urls.main,
 	},
 
 	// Advanced meta tags

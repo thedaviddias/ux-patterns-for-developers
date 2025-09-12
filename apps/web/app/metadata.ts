@@ -1,16 +1,17 @@
+import { AUTHOR, PROJECT } from "@ux-patterns/constants/author";
 import { MetadataGenerator } from "@ux-patterns/seo/metadata";
 import { BASE_URL } from "@/constants/project";
 
 // Create a metadata generator instance
 export const metadataGenerator = new MetadataGenerator({
 	site: {
-		name: "UX Patterns for Developers",
+		name: PROJECT.name,
 		description:
 			"Comprehensive collection of UX patterns, best practices, and implementation guides for developers building accessible, effective, and user-friendly UI components.",
 		url: BASE_URL,
-		author: "David Dias",
+		author: AUTHOR.name,
 		social: {
-			twitter: "@thedaviddias",
+			twitter: AUTHOR.social.twitter,
 		},
 	},
 	defaults: {
@@ -36,12 +37,12 @@ export const metadataGenerator = new MetadataGenerator({
 		},
 		twitter: {
 			card: "summary_large_image",
-			creator: "@thedaviddias",
-			site: "@thedaviddias",
+			creator: AUTHOR.social.twitter,
+			site: AUTHOR.social.twitter,
 			images: [
 				{
 					url: "/og/opengraph-image.png",
-					alt: "UX Patterns for Developers - A collection of UX patterns for building effective UI components",
+					alt: `${PROJECT.name} - A collection of UX patterns for building effective UI components`,
 				},
 			],
 		},
@@ -78,5 +79,5 @@ metadataSEO.keywords = [
 ];
 metadataSEO.category = "ux";
 metadataSEO.appleWebApp = {
-	title: "UX Patterns for Developers",
+	title: PROJECT.name,
 };

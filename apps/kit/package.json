@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@radix-ui/react-icons": "^1.3.2",
 		"@sentry/nextjs": "^10.8.0",
+		"@ux-patterns/constants": "workspace:*",
 		"@ux-patterns/registry": "workspace:*",
 		"@ux-patterns/seo": "workspace:*",
 		"@ux-patterns/tracking": "workspace:*",

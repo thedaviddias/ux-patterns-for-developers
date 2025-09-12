@@ -1,8 +1,10 @@
+import { PROJECT } from "@ux-patterns/constants/author";
+
 export const siteConfig = {
 	name: "UX Patterns Gallery",
 	description:
 		"Browse 1000+ real UX patterns from top sites. See how Netflix, Spotify & others solve design challenges. Filter by quality & platform.",
-	url: "https://gallery.uxpatterns.dev",
+	url: PROJECT.urls.gallery,
 	ogImage: "/og/opengraph-image.png",
 	logo: "/logo.png",
 
@@ -50,8 +52,8 @@ export const siteConfig = {
 	},
 
 	links: {
-		github: "https://github.com/thedaviddias/ux-patterns-for-developers",
-		mainSite: "https://uxpatterns.dev",
+		github: PROJECT.repository.url,
+		mainSite: PROJECT.urls.main,
 	},
 
 	// Advanced meta tags

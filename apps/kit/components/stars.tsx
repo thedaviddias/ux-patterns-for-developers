@@ -1,5 +1,7 @@
 "use client";
 
+import { PROJECT } from "@ux-patterns/constants/author";
+
 type StarsProps = {
 	variant?: "default" | "small";
 	starsCount: number;
@@ -39,7 +41,7 @@ export const Stars = ({
 		<div className="flex items-center justify-center gap-2">
 			{asLink ? (
 				<a
-					href="https://github.com/thedaviddias/ux-patterns-for-developers"
+					href={PROJECT.repository.url}
 					target="_blank"
 					rel="noopener noreferrer"
 					className={className}

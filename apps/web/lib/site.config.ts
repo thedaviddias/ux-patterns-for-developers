@@ -1,9 +1,11 @@
+import { AUTHOR, PROJECT } from "@ux-patterns/constants/author";
+
 export const siteConfig = {
-	name: "UX Patterns for Developers",
-	shortName: "UX Patterns",
+	name: PROJECT.name,
+	shortName: PROJECT.shortName,
 	description:
 		"Master UX patterns with clear guides. Learn when to use modals vs forms, implement accessible designs, and make better UI decisions.",
-	url: "https://uxpatterns.dev",
+	url: PROJECT.urls.main,
 	ogImage: "/og/opengraph-image.png",
 	logo: "/logo.png",
 
@@ -55,13 +57,13 @@ export const siteConfig = {
 	},
 
 	author: {
-		name: "David Dias",
-		twitter: "@thedaviddias",
-		url: "https://x.com/thedaviddias",
+		name: AUTHOR.name,
+		twitter: AUTHOR.social.twitter,
+		url: AUTHOR.social.twitterUrl,
 	},
 
 	links: {
-		github: "https://github.com/thedaviddias/ux-patterns-for-developers",
-		twitter: "https://x.com/thedaviddias",
+		github: PROJECT.repository.url,
+		twitter: AUTHOR.social.twitterUrl,
 	},
 };
