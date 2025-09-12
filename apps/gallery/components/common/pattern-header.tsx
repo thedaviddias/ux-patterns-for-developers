@@ -34,10 +34,10 @@ export function PatternHeader({
 	const getPatternUrl = () => {
 		const patternSlug = pattern.toLowerCase().replace(/\s+/g, "-");
 		if (category && categoryToFolderMap[category]) {
-			return `http://localhost:3062/patterns/${categoryToFolderMap[category]}/${patternSlug}`;
+			return `http://localhost:3060/patterns/${categoryToFolderMap[category]}/${patternSlug}`;
 		}
 		// Fallback to pattern name only if category mapping not found
-		return `http://localhost:3062/patterns/${patternSlug}`;
+		return `http://localhost:3060/patterns/${patternSlug}`;
 	};
 
 	return (
