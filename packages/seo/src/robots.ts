@@ -249,7 +249,7 @@ export function createSEORobots(
 
 	// Block known bad bots if requested
 	if (options.blockBadBots) {
-		const badBots = ["AhrefsBot", "SemrushBot", "DotBot", "MJ12bot", "BlexBot"];
+		const badBots = ["DotBot", "MJ12bot", "BlexBot"];
 
 		for (const bot of badBots) {
 			builder.addRule({
@@ -280,6 +280,33 @@ export function createSEORobots(
 			"/private",
 			...(options.disallowPaths || []),
 		],
+	});
+
+	// SEO tool bots - Allow with reasonable restrictions
+	builder.addRule({
+		userAgent: "AhrefsBot",
+		allow: ["/"],
+		disallow: [
+			"/api/*",
+			"!/api/og/*",
+			"/private",
+			"/admin",
+			...(options.disallowPaths || []),
+		],
+		crawlDelay: 2, // Slightly higher delay for SEO bots
+	});
+
+	builder.addRule({
+		userAgent: "SemrushBot",
+		allow: ["/"],
+		disallow: [
+			"/api/*",
+			"!/api/og/*",
+			"/private",
+			"/admin",
+			...(options.disallowPaths || []),
+		],
+		crawlDelay: 2, // Slightly higher delay for SEO bots
 	});
 
 	// General rule for all other bots
