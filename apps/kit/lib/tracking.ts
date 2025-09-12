@@ -28,6 +28,9 @@ export const TRACKING_EVENTS = {
 
 	// Documentation Events
 	COPY_CODE_BLOCK: "Copy Code Block",
+
+	// Search Events
+	SEARCH_OPEN: "Search Open",
 	VIEW_API_REFERENCE: "View API Reference",
 
 	GET_STARTED_CLICK: "Get Started Click",

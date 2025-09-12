@@ -28,6 +28,9 @@ export const TRACKING_EVENTS = {
 	// External Links
 	CANIUSE_LINK_CLICK: "CanIUse Link Click",
 
+	// Search Events
+	SEARCH_OPEN: "Search Open",
+
 	// Pattern Navigation
 	PATTERN_NEXT_CLICK: "Pattern Next Click",
 	PATTERN_PREV_CLICK: "Pattern Previous Click",
