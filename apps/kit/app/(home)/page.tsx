@@ -29,9 +29,13 @@ export const metadata: Metadata = {
 	title: `${siteConfig.name} - ${siteConfig.pages.home.title}`,
 	description: siteConfig.pages.home.description,
 	keywords: siteConfig.keywords,
+	alternates: {
+		canonical: siteConfig.url,
+	},
 	openGraph: {
 		title: `${siteConfig.name} - ${siteConfig.pages.home.title}`,
 		description: siteConfig.pages.home.description,
+		url: siteConfig.url,
 	},
 };
 
@@ -62,8 +66,11 @@ export default function HomePage() {
 
 	return (
 		<>
-			{schemas.map((schema) => (
-				<JsonLd key={schema["@type"]} data={schema} />
+			{schemas.map((schema, index) => (
+				<JsonLd
+					key={`${Array.isArray(schema["@type"]) ? schema["@type"].join("-") : schema["@type"]}-${index}`}
+					data={schema}
+				/>
 			))}
 			<main className="flex flex-1 flex-col">
 				{/* Hero Section */}

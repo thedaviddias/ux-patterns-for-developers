@@ -16,9 +16,13 @@ export const metadata: Metadata = {
 	title: `${siteConfig.name} - ${siteConfig.pages.home.title}`,
 	description: siteConfig.pages.home.description,
 	keywords: siteConfig.keywords,
+	alternates: {
+		canonical: siteConfig.url,
+	},
 	openGraph: {
 		title: siteConfig.name,
 		description: siteConfig.pages.home.description,
+		url: siteConfig.url,
 	},
 };
 
@@ -83,8 +87,11 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
 	return (
 		<>
-			{schemas.map((schema) => (
-				<JsonLd key={schema["@type"]} data={schema} />
+			{schemas.map((schema, index) => (
+				<JsonLd
+					key={`${Array.isArray(schema["@type"]) ? schema["@type"].join("-") : schema["@type"]}-${index}`}
+					data={schema}
+				/>
 			))}
 			<div className="min-h-screen">
 				{/* Hero Section */}

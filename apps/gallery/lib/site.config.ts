@@ -1,7 +1,7 @@
 export const siteConfig = {
 	name: "UX Patterns Gallery",
 	description:
-		"Explore thousands of real-world UX pattern implementations from top websites. Browse by platform, pattern type, and quality.",
+		"Browse 1000+ real UX patterns from top sites. See how Netflix, Spotify & others solve design challenges. Filter by quality & platform.",
 	url: "https://gallery.uxpatterns.dev",
 	ogImage: "/og/opengraph-image.png",
 	logo: "/logo.png",
@@ -30,20 +30,22 @@ export const siteConfig = {
 		home: {
 			title: "Real-World UI Examples",
 			description:
-				"Explore thousands of real-world UX pattern implementations from top websites. Find design inspiration for your next project.",
+				"Browse 1000+ real UX patterns from top sites. See how Netflix, Spotify & others solve design challenges. Find your inspiration.",
 		},
 		search: {
 			title: "Search Patterns",
 			description:
-				"Search and filter through our collection of UX pattern examples.",
+				"Find the perfect UX pattern example. Search by platform, quality, or pattern type from our curated collection.",
 		},
 		privacyPolicy: {
 			title: "Privacy Policy",
-			description: "Privacy policy for UX Patterns Gallery.",
+			description:
+				"Your privacy matters. Learn how we handle data and protect your information at UX Patterns Gallery.",
 		},
 		disclaimer: {
 			title: "Disclaimer",
-			description: "Disclaimer and terms of use for UX Patterns Gallery.",
+			description:
+				"Usage guidelines and legal information for UX Patterns Gallery. Understand our terms before browsing.",
 		},
 	},
 

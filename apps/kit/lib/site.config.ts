@@ -35,12 +35,13 @@ export const siteConfig = {
 		},
 		changelog: {
 			title: "Changelog",
-			description: "Latest updates and improvements to UP Kit components.",
+			description:
+				"Track new components, features, and improvements. See what's new in UP Kit's evolving component library.",
 		},
 		docs: {
 			title: "Documentation",
 			description:
-				"Learn how to use UP Kit components in your React applications.",
+				"Quick start guides and API references for UP Kit components. Copy, paste, and ship production-ready React UIs.",
 		},
 	},
 

@@ -125,6 +125,9 @@ export const metadata: Metadata = {
 	title: `${siteConfig.pages.blog.title} | ${siteConfig.shortName}`,
 	description: siteConfig.pages.blog.description,
 	keywords: siteConfig.pages.blog.keywords,
+	alternates: {
+		canonical: `${siteConfig.url}/blog`,
+	},
 	openGraph: {
 		title: `${siteConfig.pages.blog.title} | ${siteConfig.shortName}`,
 		description: siteConfig.pages.blog.description,

@@ -14,6 +14,7 @@ import {
 	ORGANIZATION_SCHEMA,
 } from "@/components/json-ld";
 import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
+import { siteConfig } from "@/lib/site.config";
 import { source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
@@ -187,11 +188,11 @@ export default async function Page(props: {
 			"@type": "DefinedTerm",
 			name: page.data.title,
 			description: page.data.description,
-			url: `https://uxpatterns.dev${page.url}`,
+			url: `${siteConfig.url}${page.url}`,
 			inDefinedTermSet: {
 				"@type": "DefinedTermSet",
 				name: "UX Patterns Glossary",
-				url: "https://uxpatterns.dev/glossary",
+				url: `${siteConfig.url}/glossary`,
 			},
 			...(page.data.category &&
 				Array.isArray(page.data.category) &&
@@ -297,11 +298,14 @@ export async function generateMetadata(props: {
 		...metadataSEO,
 		title: titleWithContext,
 		description,
+		alternates: {
+			canonical: `${siteConfig.url}${path}`,
+		},
 		openGraph: {
 			...metadataSEO.openGraph,
 			title: titleWithContext,
 			description,
-			url: `https://uxpatterns.dev${path}`,
+			url: `${siteConfig.url}${path}`,
 			images: [
 				{
 					url: ogImageUrl,

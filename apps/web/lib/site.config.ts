@@ -2,7 +2,7 @@ export const siteConfig = {
 	name: "UX Patterns for Developers",
 	shortName: "UX Patterns",
 	description:
-		"Comprehensive documentation of UX patterns and best practices. Learn when to use forms vs modals, pagination vs infinite scroll, and master accessibility guidelines.",
+		"Master UX patterns with clear guides. Learn when to use modals vs forms, implement accessible designs, and make better UI decisions.",
 	url: "https://uxpatterns.dev",
 	ogImage: "/og/opengraph-image.png",
 	logo: "/logo.png",
@@ -30,12 +30,12 @@ export const siteConfig = {
 		home: {
 			title: "Documentation & Guides",
 			description:
-				"Comprehensive documentation of UX patterns and best practices. Learn when to use forms vs modals, pagination vs infinite scroll, and master accessibility guidelines.",
+				"Master UX patterns with clear guides. Learn when to use modals vs forms, implement accessible designs, and make better UI decisions.",
 		},
 		blog: {
 			title: "Blog",
 			description:
-				"Latest articles on UX design patterns, accessibility best practices, and implementation guides. Learn from real-world examples and expert insights.",
+				"Expert insights on UX patterns, accessibility, and implementation. Real-world examples to help you build better user interfaces.",
 			keywords: [
 				"ux blog",
 				"design patterns articles",
@@ -50,7 +50,7 @@ export const siteConfig = {
 		about: {
 			title: "About",
 			description:
-				"Learn about UX Patterns for Developers and our mission to help developers build better user experiences.",
+				"Bridging design and development. Our mission to help developers create exceptional user experiences through proven UX patterns.",
 		},
 	},
 
