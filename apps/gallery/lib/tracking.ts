@@ -27,8 +27,6 @@ import {
 	trackComponentPageView as sharedTrackComponentPageView,
 	trackFooterClick as sharedTrackFooterClick,
 	trackNavigationEvent as sharedTrackNavigationEvent,
-	trackComponentSearch,
-	trackGitHubStarClick,
 } from "@ux-patterns/tracking/helpers";
 
 import type { PlausibleTracker } from "@ux-patterns/tracking/types";

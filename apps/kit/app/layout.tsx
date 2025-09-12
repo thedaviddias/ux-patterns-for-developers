@@ -1,6 +1,6 @@
 import "@/app/global.css";
+import { MetadataGenerator } from "@ux-patterns/seo/metadata";
 import { RootProvider } from "fumadocs-ui/provider";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import PlausibleProvider from "next-plausible";
 
@@ -8,20 +8,28 @@ const inter = Inter({
 	subsets: ["latin"],
 });
 
-export const metadata = {
-	title: {
-		template: "%s | UP Kit",
-		default: "UP Kit",
+const metadataGenerator = new MetadataGenerator({
+	site: {
+		name: "UP Kit",
+		description:
+			"UP Kit is a React component library that provides a set of reusable components for building web applications.",
+		url: "https://kit.uxpatterns.dev",
+		author: "David Dias",
 	},
-	description:
-		"UP Kit is a React component library that provides a set of reusable components for building web applications.",
-	authors: [
-		{
-			name: "UP Kit",
-			url: "https://kit.uxpatterns.dev",
+	defaults: {
+		openGraph: {
+			images: [
+				{
+					url: "/og-image.png",
+					width: 1200,
+					height: 630,
+				},
+			],
 		},
-	],
-} satisfies Metadata;
+	},
+});
+
+export const metadata = metadataGenerator.getBase();
 
 export default function Layout({ children }: LayoutProps<"/">) {
 	return (

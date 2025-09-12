@@ -21,7 +21,8 @@
 			"!**/packages/registry/registry",
 			"!**/apps/kit/public/r/",
 			"!**/coverage",
-			"!**/.turbo"
+			"!**/.turbo",
+			"!**/*.css"
 		]
 	},
 	"linter": {

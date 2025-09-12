@@ -1,0 +1,16 @@
+{
+	"name": "@ux-patterns/seo",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./*": "./src/*.ts"
+	},
+	"dependencies": {
+		"next": "^15.5.2"
+	},
+	"devDependencies": {
+		"@types/node": "24.3.0",
+		"typescript": "^5.9.2"
+	}
+}

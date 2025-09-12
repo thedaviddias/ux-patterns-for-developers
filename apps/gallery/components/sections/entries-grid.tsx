@@ -5,16 +5,9 @@ import { GalleryClient } from "../common/gallery-client";
 
 type EntriesGridProps = {
 	filteredEntries: Entry[];
-	searchParamsResolved?: {
-		platform?: string;
-		quality?: string;
-		pattern?: string;
-		search?: string;
-		[key: string]: string | string[] | undefined;
-	};
 };
 
-export default function EntriesGrid({ filteredEntries, searchParamsResolved }: EntriesGridProps) {
+export default function EntriesGrid({ filteredEntries }: EntriesGridProps) {
 	return (
 		<div className="container-responsive py-8">
 			{filteredEntries.length === 0 ? (

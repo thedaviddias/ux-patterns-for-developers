@@ -1,3 +1,7 @@
+import {
+	renderJsonLd,
+	StructuredDataGenerator,
+} from "@ux-patterns/seo/structured-data";
 import { BASE_URL } from "@/constants/project";
 import { siteConfig } from "@/lib/site";
 
@@ -12,16 +16,20 @@ const absoluteUrl = (url?: string) =>
 // Stable author ID for entity de-duplication
 const AUTHOR_ID = `${BASE_URL}/about#author`;
 
+// Create structured data generator instance
+export const structuredDataGenerator = new StructuredDataGenerator({
+	baseUrl: BASE_URL,
+	organizationName: siteConfig.name,
+	organizationLogo: "/img/ux-logo.png",
+	authorName: siteConfig.author,
+	authorUrl: siteConfig.authorUrl,
+});
+
 export function JsonLd({ data }: JsonLdProps) {
-	// Serialize and escape characters to prevent script injection and JS parser issues
-	const serializedData = JSON.stringify(data)
-		.replace(/</g, "\\u003c")
-		.replace(/\u2028/g, "\\u2028")
-		.replace(/\u2029/g, "\\u2029");
 	return (
 		<script
 			type="application/ld+json"
-			dangerouslySetInnerHTML={{ __html: serializedData }}
+			dangerouslySetInnerHTML={renderJsonLd(data)}
 		/>
 	);
 }

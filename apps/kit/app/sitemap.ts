@@ -1,9 +1,13 @@
-import type { MetadataRoute } from "next";
+import { SitemapBuilder } from "@ux-patterns/seo/sitemap";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-	const home = {
-		url: "https://kit.uxpatterns.dev",
-	};
+export default function sitemap() {
+	const builder = new SitemapBuilder("https://kit.uxpatterns.dev");
 
-	return [home];
+	// Add static pages
+	builder.addStaticPages([
+		"", // Homepage
+		"changelog",
+	]);
+
+	return builder.build();
 }
