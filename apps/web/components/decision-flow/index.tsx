@@ -5,6 +5,7 @@ import {
 	ConnectionMode,
 	Controls,
 	type Edge,
+	MarkerType,
 	type Node,
 	ReactFlow,
 	useEdgesState,
@@ -28,13 +29,13 @@ const nodeTypes = {
 
 // Custom edge style
 const edgeStyles = {
-	stroke: "var(--edge-stroke)",
+	stroke: "#6b7280", // gray-500
 	strokeWidth: 2,
 };
 
 // Custom edge label style
 const edgeLabelStyles = {
-	fill: "var(--edge-label-text)",
+	fill: "#374151", // gray-700
 	fontWeight: 500,
 	fontSize: 12,
 };
@@ -91,13 +92,20 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
 		style: edgeStyles,
 		labelStyle: edgeLabelStyles,
 		labelBgStyle: {
-			fill: "var(--edge-label-bg)",
+			fill: "#ffffff", // white background for labels
 			rx: 4, // rounded corners
 			ry: 4,
 		},
 		labelBgPadding: [8, 4],
 		labelBgBorderRadius: 4,
 		type: "default", // Use smooth default edges instead of smoothstep
+		// Add markerEnd configuration for arrows
+		markerEnd: {
+			type: MarkerType.ArrowClosed,
+			width: 20,
+			height: 20,
+			color: "#6b7280", // gray-500 - same as edge stroke
+		},
 	})) as Edge[];
 
 	return { nodes: layoutedNodes, edges: styledEdges };
@@ -138,7 +146,7 @@ export function DecisionFlow({
 				defaultViewport={{ x: 0, y: 0, zoom: 0.7 }}
 				attributionPosition="bottom-left"
 			>
-				<Background color="var(--flow-background-dots)" gap={16} />
+				<Background color="#9ca3af" gap={16} />
 				<Controls className="bg-white dark:bg-gray-800" />
 				<DownloadButton title={title} />
 			</ReactFlow>
