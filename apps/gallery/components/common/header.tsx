@@ -3,6 +3,7 @@ import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-sta
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { HeaderSearchWrapper } from "@/components/header/header-search-wrapper";
+import { MobileSocialDropdown } from "./mobile-social-dropdown";
 import { GALLERY_TRACKING_EVENTS, TRACKING_CLASSES } from "@/lib/tracking";
 
 export function Header() {
@@ -44,12 +45,13 @@ export function Header() {
 						</nav>
 					</div>
 
-					{/* Search */}
-					<div className="flex-1 max-w-md mx-6">
+					{/* Search - responsive width */}
+					<div className="flex-1 max-w-md mx-3 md:mx-6">
 						<HeaderSearchWrapper />
 					</div>
 
-					<div className="flex items-center gap-2">
+					{/* Desktop: All social icons visible */}
+					<div className="hidden md:flex items-center gap-2">
 						<div className="scale-90 -mx-2">
 							<GitHubStarsWrapper
 								variant="small"
@@ -72,6 +74,9 @@ export function Header() {
 							),
 						)}
 					</div>
+
+					{/* Mobile: GitHub stars + dropdown */}
+					<MobileSocialDropdown />
 				</div>
 			</div>
 		</header>
