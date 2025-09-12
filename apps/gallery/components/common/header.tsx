@@ -1,9 +1,8 @@
 import { SOCIAL_LINKS } from "@ux-patterns/constants/social";
-import { ExternalLinkIcon } from "lucide-react";
+import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
 import Link from "next/link";
 import { HeaderSearchWrapper } from "@/components/header/header-search-wrapper";
-import { TRACKING_CLASSES } from "@/lib/tracking";
-import { StarsWrapper } from "../stars/stars-wrapper";
+import { GALLERY_TRACKING_EVENTS, TRACKING_CLASSES } from "@/lib/tracking";
 
 export function Header() {
 	return (
@@ -11,12 +10,21 @@ export function Header() {
 			<div className="container-responsive">
 				<div className="flex items-center justify-between h-16">
 					<div className="flex items-center space-x-6">
-						<Link
-							href="/"
-							className="text-xl font-bold text-fd-foreground hover:text-fd-primary transition-colors"
-						>
-							UX Patterns Gallery
-						</Link>
+						<div className="flex items-center">
+							<Link
+								href="https://uxpatterns.dev"
+								className="text-xl font-bold text-fd-foreground hover:text-fd-primary transition-colors"
+							>
+								UX Patterns
+							</Link>
+							<span className="mx-2 text-fd-muted-foreground">/</span>
+							<Link
+								href="/"
+								className="text-xl font-bold text-fd-primary hover:text-fd-primary/90 transition-colors"
+							>
+								Gallery
+							</Link>
+						</div>
 
 						<nav className="hidden md:flex items-center space-x-6">
 							<Link
@@ -34,29 +42,26 @@ export function Header() {
 					</div>
 
 					<div className="flex items-center gap-2">
-						<nav className="hidden md:flex items-center space-x-6">
+						<nav className="hidden md:flex items-center space-x-1 mr-4">
 							<Link
 								href="https://uxpatterns.dev"
-								className={`text-fd-muted-foreground hover:text-fd-foreground transition-colors ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
+								className={`px-3 py-1 rounded-md text-fd-muted-foreground hover:text-fd-foreground hover:bg-fd-muted/50 transition-all ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
 							>
 								Patterns
-								<span className="ml-1 inline-flex items-center">
-									<ExternalLinkIcon className="w-4 h-4" />
-								</span>
 							</Link>
 							<Link
 								href="https://kit.uxpatterns.dev"
-								className={`text-fd-muted-foreground hover:text-fd-foreground transition-colors ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
+								className={`px-3 py-1 rounded-md text-fd-muted-foreground hover:text-fd-foreground hover:bg-fd-muted/50 transition-all ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
 							>
 								Kit
-								<span className="ml-1 inline-flex items-center">
-									<ExternalLinkIcon className="w-4 h-4" />
-								</span>
 							</Link>
 						</nav>
 
 						<div className="scale-90 -mx-2">
-							<StarsWrapper variant="small" />
+							<GitHubStarsWrapper
+								variant="small"
+								trackingEvent={GALLERY_TRACKING_EVENTS.GITHUB_STAR_CLICK}
+							/>
 						</div>
 						{SOCIAL_LINKS.filter((social) => social.label !== "GitHub").map(
 							(social) => (

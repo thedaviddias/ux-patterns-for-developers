@@ -1,6 +1,7 @@
 import { PROJECT } from "@ux-patterns/constants/author";
+import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
 import type { BaseLayoutProps, LinkItemType } from "fumadocs-ui/layouts/shared";
-import { StarsWrapper } from "@/components/stars/stars-wrapper";
+import { TRACKING_EVENTS } from "@/lib/tracking";
 
 export const linkItems: LinkItemType[] = [
 	// see https://fumadocs.dev/docs/ui/navigation/links
@@ -20,7 +21,10 @@ export const linkItems: LinkItemType[] = [
 		text: "GitHub Stars",
 		icon: (
 			<div className="scale-90 -mx-2">
-				<StarsWrapper variant="small" />
+				<GitHubStarsWrapper
+					variant="small"
+					trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
+				/>
 			</div>
 		),
 		external: true,
