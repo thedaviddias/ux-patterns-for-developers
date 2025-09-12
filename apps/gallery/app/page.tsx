@@ -56,14 +56,11 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 			<Suspense
 				fallback={<div className="h-20 bg-fd-card border-b border-fd-border" />}
 			>
-				<Filters patterns={patterns} variant="homepage" />
+				<Filters />
 			</Suspense>
 
 			{/* Results */}
-			<EntriesGrid
-				filteredEntries={filteredEntries}
-				searchParamsResolved={searchParamsResolved}
-			/>
+			<EntriesGrid filteredEntries={filteredEntries} />
 		</div>
 	);
 }

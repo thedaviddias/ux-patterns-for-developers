@@ -107,7 +107,7 @@ export default async function CategoryPage({
 			<Suspense
 				fallback={<div className="h-20 bg-fd-card border-b border-fd-border" />}
 			>
-				<Filters patterns={[]} variant="search" />
+				<Filters />
 			</Suspense>
 
 			<div className="container-responsive py-8">
