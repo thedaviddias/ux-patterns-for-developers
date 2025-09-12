@@ -10,9 +10,9 @@ const inter = Inter({
 
 const metadataGenerator = new MetadataGenerator({
 	site: {
-		name: "UP Kit",
+		name: "UX Patterns Kit",
 		description:
-			"UP Kit is a React component library that provides a set of reusable components for building web applications.",
+			"UX Patterns (UP) Kit is a React component library that provides a set of reusable components for building web applications.",
 		url: "https://kit.uxpatterns.dev",
 		author: "David Dias",
 	},
