@@ -1,11 +1,41 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { useMDXComponents } from "@/lib/mdx-components";
+import { siteConfig } from "@/lib/site.config";
 import { pagesSource } from "@/lib/source";
 
 export const metadata: Metadata = {
-	title: "Disclaimer - UX Patterns Gallery",
-	description: "Educational disclaimer for UX pattern analysis and examples",
+	title: `${siteConfig.pages.disclaimer.title} - ${siteConfig.name}`,
+	description: siteConfig.pages.disclaimer.description,
+	alternates: {
+		canonical: `${siteConfig.url}/disclaimer`,
+	},
+	openGraph: {
+		title: `${siteConfig.pages.disclaimer.title} - ${siteConfig.name}`,
+		description: siteConfig.pages.disclaimer.description,
+		url: `${siteConfig.url}/disclaimer`,
+		type: "website",
+		images: [
+			{
+				url: siteConfig.ogImage,
+				width: 1200,
+				height: 630,
+				type: "image/png",
+				alt: `${siteConfig.pages.disclaimer.title} - ${siteConfig.name}`,
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: `${siteConfig.pages.disclaimer.title} - ${siteConfig.name}`,
+		description: siteConfig.pages.disclaimer.description,
+		images: [
+			{
+				url: siteConfig.ogImage,
+				alt: `${siteConfig.pages.disclaimer.title} - ${siteConfig.name}`,
+			},
+		],
+	},
 };
 
 export default function DisclaimerPage() {

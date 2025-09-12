@@ -44,7 +44,6 @@ import {
 	getNewsletterTrackingClasses,
 	trackFooterClick as sharedTrackFooterClick,
 	trackNewsletterEvent as sharedTrackNewsletterEvent,
-	trackGitHubStarClick,
 } from "@ux-patterns/tracking/helpers";
 
 import type { PlausibleTracker } from "@ux-patterns/tracking/types";

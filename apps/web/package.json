@@ -25,6 +25,8 @@
 		"@radix-ui/react-scroll-area": "^1.2.10",
 		"@radix-ui/react-slot": "^1.2.3",
 		"@sentry/nextjs": "^10.8.0",
+		"@ux-patterns/constants": "workspace:*",
+		"@ux-patterns/seo": "workspace:*",
 		"@ux-patterns/tracking": "workspace:*",
 		"@ux-patterns/ui": "workspace:*",
 		"@xyflow/react": "^12.8.4",

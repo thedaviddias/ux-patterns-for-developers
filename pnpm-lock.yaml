@@ -38,6 +38,9 @@ importers:
       '@ux-patterns/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@ux-patterns/seo':
+        specifier: workspace:*
+        version: link:../../packages/seo
       '@ux-patterns/tracking':
         specifier: workspace:*
         version: link:../../packages/tracking
@@ -129,9 +132,15 @@ importers:
       '@sentry/nextjs':
         specifier: ^10.8.0
         version: 10.8.0(@opentelemetry/context-async-hooks@2.0.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@2.0.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.0.1(@opentelemetry/api@1.9.0))(next@15.5.2(@opentelemetry/api@1.9.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)(webpack@5.101.3)
+      '@ux-patterns/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
       '@ux-patterns/registry':
         specifier: workspace:*
         version: link:../../packages/registry
+      '@ux-patterns/seo':
+        specifier: workspace:*
+        version: link:../../packages/seo
       '@ux-patterns/tracking':
         specifier: workspace:*
         version: link:../../packages/tracking
@@ -286,6 +295,12 @@ importers:
       '@sentry/nextjs':
         specifier: ^10.8.0
         version: 10.8.0(@opentelemetry/context-async-hooks@2.0.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@2.0.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.0.1(@opentelemetry/api@1.9.0))(next@15.5.2(@opentelemetry/api@1.9.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)(webpack@5.101.3)
+      '@ux-patterns/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
+      '@ux-patterns/seo':
+        specifier: workspace:*
+        version: link:../../packages/seo
       '@ux-patterns/tracking':
         specifier: workspace:*
         version: link:../../packages/tracking
@@ -553,6 +568,19 @@ importers:
       zod:
         specifier: ^4.1.5
         version: 4.1.5
+
+  packages/seo:
+    dependencies:
+      next:
+        specifier: ^15.5.2
+        version: 15.5.2(@opentelemetry/api@1.9.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+    devDependencies:
+      '@types/node':
+        specifier: 24.3.0
+        version: 24.3.0
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
 
   packages/tracking:
     devDependencies:

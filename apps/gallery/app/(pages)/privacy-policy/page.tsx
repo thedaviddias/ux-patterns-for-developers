@@ -1,11 +1,41 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { useMDXComponents } from "@/lib/mdx-components";
+import { siteConfig } from "@/lib/site.config";
 import { pagesSource } from "@/lib/source";
 
 export const metadata: Metadata = {
-	title: "Privacy Policy - UX Patterns Gallery",
-	description: "Privacy policy for UX Patterns Gallery",
+	title: `${siteConfig.pages.privacyPolicy.title} - ${siteConfig.name}`,
+	description: siteConfig.pages.privacyPolicy.description,
+	alternates: {
+		canonical: `${siteConfig.url}/privacy-policy`,
+	},
+	openGraph: {
+		title: `${siteConfig.pages.privacyPolicy.title} - ${siteConfig.name}`,
+		description: siteConfig.pages.privacyPolicy.description,
+		url: `${siteConfig.url}/privacy-policy`,
+		type: "website",
+		images: [
+			{
+				url: siteConfig.ogImage,
+				width: 1200,
+				height: 630,
+				type: "image/png",
+				alt: `${siteConfig.pages.privacyPolicy.title} - ${siteConfig.name}`,
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: `${siteConfig.pages.privacyPolicy.title} - ${siteConfig.name}`,
+		description: siteConfig.pages.privacyPolicy.description,
+		images: [
+			{
+				url: siteConfig.ogImage,
+				alt: `${siteConfig.pages.privacyPolicy.title} - ${siteConfig.name}`,
+			},
+		],
+	},
 };
 
 export default function PrivacyPolicyPage() {

@@ -1,5 +1,6 @@
 "use client";
 
+import { AUTHOR } from "@ux-patterns/constants/author";
 import { usePlausible } from "next-plausible";
 import { trackFooterClick } from "@/lib/tracking";
 
@@ -7,7 +8,7 @@ export const FooterCopyright = () => {
 	const plausible = usePlausible();
 
 	const handleAuthorClick = () => {
-		trackFooterClick(plausible, "social", "David Dias");
+		trackFooterClick(plausible, "social", AUTHOR.name);
 	};
 
 	return (
@@ -20,13 +21,13 @@ export const FooterCopyright = () => {
 				</span>{" "}
 				by{" "}
 				<a
-					href="https://thedaviddias.com"
+					href={AUTHOR.website}
 					target="_blank"
 					rel="noopener noreferrer"
 					onClick={handleAuthorClick}
 					className="font-semibold hover:underline"
 				>
-					David Dias
+					{AUTHOR.name}
 				</a>{" "}
 				for the Open-Source Community.
 			</p>

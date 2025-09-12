@@ -42,7 +42,7 @@ export default async function PlatformPage({
 		new URLSearchParams(searchParamsResolved as any),
 	);
 	const entries = await loadEntries();
-	const patterns = await getAllPatternsFromWebApp();
+	const _patterns = await getAllPatternsFromWebApp();
 
 	// Apply search and filters
 	const filteredEntries = searchEntries(entries, filters.search || "", {
@@ -97,7 +97,7 @@ export default async function PlatformPage({
 			<Suspense
 				fallback={<div className="h-20 bg-fd-card border-b border-fd-border" />}
 			>
-				<Filters patterns={patterns} variant="search" />
+				<Filters />
 			</Suspense>
 
 			<div className="container-responsive py-8">

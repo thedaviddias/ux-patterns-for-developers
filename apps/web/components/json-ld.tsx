@@ -1,5 +1,9 @@
+import { AUTHOR, PROJECT } from "@ux-patterns/constants/author";
+import {
+	renderJsonLd,
+	StructuredDataGenerator,
+} from "@ux-patterns/seo/structured-data";
 import { BASE_URL } from "@/constants/project";
-import { siteConfig } from "@/lib/site";
 
 interface JsonLdProps {
 	data: Record<string, unknown> | Record<string, unknown>[];
@@ -12,16 +16,20 @@ const absoluteUrl = (url?: string) =>
 // Stable author ID for entity de-duplication
 const AUTHOR_ID = `${BASE_URL}/about#author`;
 
+// Create structured data generator instance
+export const structuredDataGenerator = new StructuredDataGenerator({
+	baseUrl: BASE_URL,
+	organizationName: PROJECT.name,
+	organizationLogo: "/img/ux-logo.png",
+	authorName: AUTHOR.name,
+	authorUrl: AUTHOR.website,
+});
+
 export function JsonLd({ data }: JsonLdProps) {
-	// Serialize and escape characters to prevent script injection and JS parser issues
-	const serializedData = JSON.stringify(data)
-		.replace(/</g, "\\u003c")
-		.replace(/\u2028/g, "\\u2028")
-		.replace(/\u2029/g, "\\u2029");
 	return (
 		<script
 			type="application/ld+json"
-			dangerouslySetInnerHTML={{ __html: serializedData }}
+			dangerouslySetInnerHTML={renderJsonLd(data)}
 		/>
 	);
 }
@@ -30,7 +38,7 @@ export function JsonLd({ data }: JsonLdProps) {
 export const ORGANIZATION_SCHEMA = {
 	"@type": "Organization",
 	"@id": `${BASE_URL}/#organization`,
-	name: siteConfig.name,
+	name: PROJECT.name,
 	url: BASE_URL,
 	logo: {
 		"@type": "ImageObject",
@@ -38,15 +46,12 @@ export const ORGANIZATION_SCHEMA = {
 		width: 512,
 		height: 512,
 	},
-	sameAs: [
-		"https://github.com/thedaviddias/ux-patterns-for-developers",
-		"https://www.reddit.com/r/UXPatterns/",
-	],
+	sameAs: [PROJECT.repository.url, PROJECT.social.reddit],
 	founder: {
 		"@id": AUTHOR_ID,
 		"@type": "Person",
-		name: siteConfig.author,
-		url: siteConfig.authorUrl,
+		name: AUTHOR.name,
+		url: AUTHOR.website,
 	},
 };
 
@@ -57,12 +62,13 @@ export function generateWebSiteSchema() {
 		"@type": "WebSite",
 		"@id": `${BASE_URL}/#website`,
 		url: BASE_URL,
-		name: siteConfig.name,
-		description: siteConfig.description,
+		name: PROJECT.name,
+		description:
+			"Comprehensive collection of UX patterns, best practices, and implementation guides for developers building accessible, effective, and user-friendly UI components.",
 		publisher: {
 			"@id": `${BASE_URL}/#organization`,
 			"@type": "Organization",
-			name: siteConfig.name,
+			name: PROJECT.name,
 			url: BASE_URL,
 		},
 		inLanguage: "en-US",
@@ -101,13 +107,13 @@ export function generateArticleSchema(
 		author: {
 			"@id": AUTHOR_ID,
 			"@type": "Person",
-			name: siteConfig.author,
-			url: siteConfig.authorUrl,
+			name: AUTHOR.name,
+			url: AUTHOR.website,
 		},
 		publisher: {
 			"@id": `${BASE_URL}/#organization`,
 			"@type": "Organization",
-			name: siteConfig.name,
+			name: PROJECT.name,
 			url: BASE_URL,
 		},
 		mainEntityOfPage: {
@@ -150,13 +156,13 @@ export function generateBlogPostingSchema(
 		author: {
 			"@id": AUTHOR_ID,
 			"@type": "Person",
-			name: siteConfig.author,
-			url: siteConfig.authorUrl,
+			name: AUTHOR.name,
+			url: AUTHOR.website,
 		},
 		publisher: {
 			"@id": `${BASE_URL}/#organization`,
 			"@type": "Organization",
-			name: siteConfig.name,
+			name: PROJECT.name,
 			url: BASE_URL,
 		},
 		mainEntityOfPage: {
@@ -213,13 +219,13 @@ export function generateHowToSchema(
 		author: {
 			"@id": AUTHOR_ID,
 			"@type": "Person",
-			name: siteConfig.author,
-			url: siteConfig.authorUrl,
+			name: AUTHOR.name,
+			url: AUTHOR.website,
 		},
 		publisher: {
 			"@id": `${BASE_URL}/#organization`,
 			"@type": "Organization",
-			name: siteConfig.name,
+			name: PROJECT.name,
 			url: BASE_URL,
 		},
 		mainEntityOfPage: {
@@ -289,13 +295,13 @@ export function generateCollectionPageSchema(
 			author: {
 				"@id": AUTHOR_ID,
 				"@type": "Person",
-				name: siteConfig.author,
-				url: siteConfig.authorUrl,
+				name: AUTHOR.name,
+				url: AUTHOR.website,
 			},
 			publisher: {
 				"@id": `${BASE_URL}/#organization`,
 				"@type": "Organization",
-				name: siteConfig.name,
+				name: PROJECT.name,
 				url: BASE_URL,
 			},
 		})),
@@ -308,7 +314,7 @@ export function generateCollectionPageSchema(
 			publisher: {
 				"@id": `${BASE_URL}/#organization`,
 				"@type": "Organization",
-				name: siteConfig.name,
+				name: PROJECT.name,
 				url: BASE_URL,
 			},
 		},
@@ -337,13 +343,13 @@ export function generateSoftwareSourceCodeSchema(
 		author: {
 			"@id": AUTHOR_ID,
 			"@type": "Person",
-			name: siteConfig.author,
-			url: siteConfig.authorUrl,
+			name: AUTHOR.name,
+			url: AUTHOR.website,
 		},
 		publisher: {
 			"@id": `${BASE_URL}/#organization`,
 			"@type": "Organization",
-			name: siteConfig.name,
+			name: PROJECT.name,
 			url: BASE_URL,
 		},
 	};
@@ -367,14 +373,14 @@ export function generateCourseSchema(
 		provider: {
 			"@id": `${BASE_URL}/#organization`,
 			"@type": "Organization",
-			name: siteConfig.name,
+			name: PROJECT.name,
 			url: BASE_URL,
 		},
 		author: {
 			"@id": AUTHOR_ID,
 			"@type": "Person",
-			name: siteConfig.author,
-			url: siteConfig.authorUrl,
+			name: AUTHOR.name,
+			url: AUTHOR.website,
 		},
 		isAccessibleForFree: true,
 		...(educationalLevel && { educationalLevel }),
@@ -402,15 +408,21 @@ export function generatePersonSchema() {
 		"@context": "https://schema.org",
 		"@type": "Person",
 		"@id": AUTHOR_ID,
-		name: siteConfig.author,
-		url: siteConfig.authorUrl,
+		name: AUTHOR.name,
+		url: AUTHOR.website,
 		image: {
 			"@type": "ImageObject",
-			url: "https://thedaviddias.com/_next/image?url=%2Fimages%2Fdavid-dias-round.jpg&w=256&q=75",
+			url: `${AUTHOR.website}/_next/image?url=%2Fimages%2Fdavid-dias-round.jpg&w=256&q=75`,
 		},
-		jobTitle: siteConfig.authorPosition,
-		description: siteConfig.authorDescription,
-		sameAs: siteConfig.authorSameAs,
+		jobTitle: "Frontend Developer & UX Enthusiast",
+		description:
+			"Creator of UX Patterns for Developers, helping developers build better user experiences.",
+		sameAs: [
+			PROJECT.social.reddit,
+			AUTHOR.social.twitterUrl,
+			AUTHOR.social.githubUrl,
+			"https://linkedin.com/in/thedaviddias",
+		],
 		knowsAbout: [
 			"User Experience Design",
 			"Frontend Development",
@@ -421,7 +433,7 @@ export function generatePersonSchema() {
 		],
 		worksFor: {
 			"@type": "Organization",
-			name: siteConfig.name,
+			name: PROJECT.name,
 			url: BASE_URL,
 		},
 	};

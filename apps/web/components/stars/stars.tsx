@@ -1,6 +1,7 @@
 "use client";
 
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { PROJECT } from "@ux-patterns/constants/author";
 import { StarIcon } from "lucide-react";
 import { usePlausible } from "next-plausible";
 import { TRACKING_EVENTS } from "@/utils/tracking";
@@ -43,7 +44,7 @@ export const Stars = ({
 		<div className="flex items-center justify-center gap-2">
 			{asLink ? (
 				<a
-					href="https://github.com/thedaviddias/ux-patterns-for-developers"
+					href={PROJECT.repository.url}
 					target="_blank"
 					rel="noopener noreferrer"
 					onClick={() => plausible(TRACKING_EVENTS.GITHUB_STAR_CLICK)}

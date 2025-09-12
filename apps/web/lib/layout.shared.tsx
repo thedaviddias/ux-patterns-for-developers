@@ -1,3 +1,4 @@
+import { PROJECT } from "@ux-patterns/constants/author";
 import type { BaseLayoutProps, LinkItemType } from "fumadocs-ui/layouts/shared";
 import { StarsWrapper } from "@/components/stars/stars-wrapper";
 
@@ -15,7 +16,7 @@ export const linkItems: LinkItemType[] = [
 	},
 	{
 		type: "icon",
-		url: "https://github.com/thedaviddias/ux-patterns-for-developers",
+		url: PROJECT.repository.url,
 		text: "GitHub Stars",
 		icon: (
 			<div className="scale-90 -mx-2">
@@ -33,7 +34,7 @@ export const linkItems: LinkItemType[] = [
 
 export function baseOptions(): BaseLayoutProps {
 	return {
-		// githubUrl: "https://github.com/thedaviddias/ux-patterns-for-developers",
+		// githubUrl: PROJECT.repository.url,
 		nav: {
 			title: (
 				<>

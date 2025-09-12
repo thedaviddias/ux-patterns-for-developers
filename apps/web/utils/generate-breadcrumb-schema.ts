@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/constants/project";
+import { siteConfig } from "@/lib/site.config";
 
 interface BreadcrumbItem {
 	name: string;
@@ -13,7 +13,7 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 			"@type": "ListItem",
 			position: index + 1,
 			name: item.name,
-			item: `${BASE_URL}${item.url}`,
+			item: `${siteConfig.url}${item.url}`,
 		})),
 	};
 }

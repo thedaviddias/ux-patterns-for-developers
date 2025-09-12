@@ -1,5 +1,6 @@
 "use client";
 
+import { PROJECT } from "@ux-patterns/constants/author";
 import { useId } from "react";
 
 import { TRACKING_CLASSES } from "@/utils/tracking";
@@ -23,7 +24,7 @@ export const SuggestPattern = () => {
 				Let us know, and we&apos;ll add it!
 			</p>
 			<LinkCustom
-				href={`https://github.com/thedaviddias/ux-patterns-for-developers/discussions/new?category=suggestions`}
+				href={`${PROJECT.repository.url}/discussions/new?category=suggestions`}
 				aria-label="Suggest a pattern on GitHub"
 				className={TRACKING_CLASSES.SUGGEST_PATTERN_CLICK}
 				variant="outline"

@@ -10,8 +10,7 @@
 		"jsx": "preserve",
 		"noEmit": true,
 		"paths": {
-			"@/*": ["./*"],
-			"@thedaviddias/*": ["../../packages/*"]
+			"@/*": ["./*"]
 		}
 	},
 	"exclude": ["node_modules"]

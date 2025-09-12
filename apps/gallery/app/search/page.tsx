@@ -21,7 +21,7 @@ interface SearchPageProps {
 export default async function SearchPage({ searchParams }: SearchPageProps) {
 	const searchParamsResolved = await searchParams;
 	const allEntries = await loadEntries();
-	const patterns = await getAllPatternsFromWebApp();
+	const _patterns = await getAllPatternsFromWebApp();
 
 	// Apply filters
 	const filteredEntries = searchEntries(
@@ -54,7 +54,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 			<Suspense
 				fallback={<div className="h-20 bg-fd-card border-b border-fd-border" />}
 			>
-				<Filters patterns={patterns} variant="search" />
+				<Filters />
 			</Suspense>
 
 			{/* Results */}

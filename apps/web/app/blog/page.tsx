@@ -119,16 +119,22 @@ export default async function HomePage({
 	);
 }
 
+import { siteConfig } from "@/lib/site.config";
+
 export const metadata: Metadata = {
-	title: "Blog | UX Patterns for Devs",
-	description: "Latest news and updates from UX Patterns for Developers.",
+	title: `${siteConfig.pages.blog.title} | ${siteConfig.shortName}`,
+	description: siteConfig.pages.blog.description,
+	keywords: siteConfig.pages.blog.keywords,
+	alternates: {
+		canonical: `${siteConfig.url}/blog`,
+	},
 	openGraph: {
-		title: "Blog | UX Patterns for Devs",
-		description: "Latest news and updates from UX Patterns for Developers.",
-		url: "https://uxpatterns.dev/blog",
+		title: `${siteConfig.pages.blog.title} | ${siteConfig.shortName}`,
+		description: siteConfig.pages.blog.description,
+		url: `${siteConfig.url}/blog`,
 		images: [
 			{
-				url: "/og/opengraph-image.png",
+				url: siteConfig.ogImage,
 				width: 1200,
 				height: 630,
 				type: "image/png",
@@ -136,12 +142,12 @@ export const metadata: Metadata = {
 		],
 	},
 	twitter: {
-		title: "Blog | UX Patterns for Devs",
-		description: "Latest news and updates from UX Patterns for Developers.",
+		title: `${siteConfig.pages.blog.title} | ${siteConfig.shortName}`,
+		description: siteConfig.pages.blog.description,
 		images: [
 			{
-				url: "/og/opengraph-image.png",
-				alt: "Blog - UX Patterns for Developers",
+				url: siteConfig.ogImage,
+				alt: `${siteConfig.pages.blog.title} - ${siteConfig.name}`,
 			},
 		],
 	},

@@ -1,3 +1,4 @@
+import { PROJECT } from "@ux-patterns/constants/author";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import {
 	DocsBody,
@@ -26,7 +27,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 				<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
 				<ViewOptions
 					markdownUrl={`${page.url}.mdx`}
-					githubUrl={`https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/apps/kit/content/docs/${page.path}`}
+					githubUrl={`${PROJECT.repository.url}/blob/main/apps/kit/content/docs/${page.path}`}
 				/>
 			</div>
 			<DocsBody>

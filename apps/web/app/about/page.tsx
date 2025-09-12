@@ -5,6 +5,7 @@ import { metadataSEO } from "@/app/metadata";
 import { MobileTableOfContents } from "@/components/blog/mobile-toc";
 import { TableOfContents } from "@/components/blog/table-of-contents";
 import { generateArticleSchema, JsonLd } from "@/components/json-ld";
+import { siteConfig } from "@/lib/site.config";
 import { source } from "@/lib/source";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
 
@@ -101,11 +102,14 @@ export async function generateMetadata(): Promise<Metadata> {
 		...metadataSEO,
 		title,
 		description,
+		alternates: {
+			canonical: `${siteConfig.url}/about`,
+		},
 		openGraph: {
 			...metadataSEO.openGraph,
 			title,
 			description,
-			url: "https://uxpatterns.dev/about",
+			url: `${siteConfig.url}/about`,
 			images: [
 				{
 					url: "/og/opengraph-image.png",

@@ -1,13 +1,9 @@
-import type { MetadataRoute } from "next";
+import { createSEORobots } from "@ux-patterns/seo/robots";
 import { BASE_URL } from "@/constants/project";
 
-export default function robots(): MetadataRoute.Robots {
-	return {
-		rules: {
-			userAgent: "*",
-			allow: ["/"],
-			disallow: ["/404", "/500", "/api/*", "!/api/og/*"],
-		},
-		sitemap: [`${BASE_URL}/sitemap.xml`],
-	};
+export default function robots() {
+	return createSEORobots(BASE_URL, {
+		disallowPaths: ["/404", "/500", "/api/*", "!/api/og/*"],
+		blockBadBots: true,
+	});
 }

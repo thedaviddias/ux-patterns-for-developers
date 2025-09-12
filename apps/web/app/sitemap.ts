@@ -1,6 +1,10 @@
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
-import type { MetadataRoute } from "next";
+import {
+	ChangeFrequencyCalculator,
+	PriorityCalculator,
+	SitemapBuilder,
+} from "@ux-patterns/seo/sitemap";
 import { BASE_URL } from "@/constants/project";
 
 interface MetaConfig {
@@ -109,8 +113,26 @@ function getContentPages(dir: string, baseDir: string = ""): string[] {
 	return pages;
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-	const routes: MetadataRoute.Sitemap = [];
+export default function sitemap() {
+	const builder = new SitemapBuilder(BASE_URL);
+
+	// Configure priority calculator
+	const priorityCalc = new PriorityCalculator()
+		.addRule("", 1.0) // Homepage
+		.addRule("patterns/getting-started", 0.9)
+		.addRule("patterns/", 0.8)
+		.addRule("pattern-guide/", 0.7)
+		.addRule("glossary/", 0.6)
+		.addRule("blog/", 0.6)
+		.setDefault(0.5);
+
+	// Configure change frequency calculator
+	const frequencyCalc = new ChangeFrequencyCalculator()
+		.addRule("patterns/", "daily")
+		.addRule("pattern-guide/", "weekly")
+		.addRule("glossary/", "monthly")
+		.addRule("blog/", "weekly")
+		.setDefault("monthly");
 
 	// Generate routes for content
 	const contentDir = join(process.cwd(), "content");
@@ -124,47 +146,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		"blog",
 	];
 
-	staticRoutes.forEach((route) => {
-		routes.push({
-			url: `${BASE_URL}${route ? `/${route}` : ""}`,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: route === "" ? 1.0 : 0.7,
-		});
-	});
+	builder.addStaticPages(staticRoutes);
 
 	// Add content routes
-	pages.forEach((page) => {
-		// Skip if already added as static route
-		if (staticRoutes.includes(page)) return;
+	const contentPages = pages.filter((page) => !staticRoutes.includes(page));
+	builder.addDynamicPages(
+		contentPages,
+		(path) => priorityCalc.calculate(path),
+		(path) => frequencyCalc.calculate(path),
+	);
 
-		routes.push({
-			url: `${BASE_URL}/${page}`,
-			lastModified: new Date(),
-			changeFrequency: getChangeFrequency(page),
-			priority: getPriority(page),
-		});
-	});
-
-	return routes;
-}
-
-function getPriority(path: string): number {
-	if (!path) return 1.0; // Homepage
-	if (path === "patterns/getting-started") return 0.9;
-	if (path.startsWith("patterns/")) return 0.8;
-	if (path.startsWith("pattern-guide/")) return 0.7;
-	if (path.startsWith("glossary/")) return 0.6;
-	if (path.startsWith("blog/")) return 0.6;
-	return 0.5; // Other pages
-}
-
-function getChangeFrequency(
-	path: string,
-): "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never" {
-	if (path.startsWith("patterns/")) return "daily";
-	if (path.startsWith("pattern-guide/")) return "weekly";
-	if (path.startsWith("glossary/")) return "monthly";
-	if (path.startsWith("blog/")) return "weekly";
-	return "monthly";
+	return builder.sort().build();
 }

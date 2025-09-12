@@ -1,6 +1,7 @@
 {
-	"name": "MyWebSite",
-	"short_name": "MySite",
+	"name": "UX Patterns Kit",
+	"short_name": "UP Kit",
+	"description": "Ship better UX than most design teams. Production-ready React components.",
 	"icons": [
 		{
 			"src": "/web-app-manifest-192x192.png",
@@ -15,7 +16,9 @@
 			"purpose": "maskable"
 		}
 	],
-	"theme_color": "#ffffff",
-	"background_color": "#ffffff",
-	"display": "standalone"
+	"theme_color": "#09090b",
+	"background_color": "#09090b",
+	"display": "standalone",
+	"start_url": "/",
+	"scope": "/"
 }
