@@ -1,0 +1,44 @@
+/* React Flow Controls Icon Fix */
+.react-flow__controls {
+  background: white !important;
+  border: 1px solid #d1d5db !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
+  z-index: 10 !important;
+}
+
+.dark .react-flow__controls {
+  background: #1f2937 !important;
+  border: 1px solid #4b5563 !important;
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  color: #374151 !important;
+  fill: #374151 !important;
+}
+
+.dark .react-flow__controls-button {
+  border-bottom: 1px solid #4b5563 !important;
+  color: #d1d5db !important;
+  fill: #d1d5db !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #f3f4f6 !important;
+}
+
+.dark .react-flow__controls-button:hover {
+  background: #374151 !important;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor !important;
+  max-width: 12px;
+  max-height: 12px;
+}
+
+/* Ensure last button has no border */
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}

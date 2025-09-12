@@ -14,6 +14,7 @@ import {
 import dagre from "dagre";
 import { useCallback } from "react";
 import "@xyflow/react/dist/style.css";
+import "./flow-controls.css";
 
 import DownloadButton from "./download-button";
 import { ConsiderationNode } from "./nodes/ConsiderationNode";
@@ -147,7 +148,10 @@ export function DecisionFlow({
 				attributionPosition="bottom-left"
 			>
 				<Background color="#9ca3af" gap={16} />
-				<Controls className="bg-white dark:bg-gray-800" />
+				<Controls 
+					className="!bg-white !border-gray-300 dark:!bg-gray-800 dark:!border-gray-600"
+					showInteractive={false}
+				/>
 				<DownloadButton title={title} />
 			</ReactFlow>
 		</div>
