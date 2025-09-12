@@ -1,5 +1,6 @@
 import { SOCIAL_LINKS } from "@ux-patterns/constants/social";
 import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { HeaderSearchWrapper } from "@/components/header/header-search-wrapper";
 import { GALLERY_TRACKING_EVENTS, TRACKING_CLASSES } from "@/lib/tracking";
@@ -11,13 +12,20 @@ export function Header() {
 				<div className="flex items-center justify-between h-16">
 					<div className="flex items-center space-x-6">
 						<div className="flex items-center">
+							{/* Desktop: Full breadcrumb */}
 							<Link
 								href="https://uxpatterns.dev"
-								className="text-xl font-bold text-fd-foreground hover:text-fd-primary transition-colors"
+								className="hidden md:flex items-center gap-1 text-xl font-bold text-fd-muted-foreground hover:text-fd-primary transition-colors group"
+								title="Go to UX Patterns main site"
 							>
 								UX Patterns
+								<ArrowUpRight className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" />
 							</Link>
-							<span className="mx-2 text-fd-muted-foreground">/</span>
+							<span className="hidden md:block mx-2 text-fd-muted-foreground">
+								/
+							</span>
+
+							{/* Both mobile and desktop: Gallery links to homepage */}
 							<Link
 								href="/"
 								className="text-xl font-bold text-fd-primary hover:text-fd-primary/90 transition-colors"
