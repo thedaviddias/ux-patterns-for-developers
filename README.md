@@ -1,19 +1,17 @@
-<div align="center">
+<a href="https://uxpatterns.dev/">
+  <img src="https://raw.githubusercontent.com/thedaviddias/ux-patterns-for-developers/refs/heads/main/banner.png" alt="">
+  </br>
+  </br>
+</a>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
+
+---
 
 # UX Patterns for Devs
 
 🎨 A comprehensive collection of UX patterns for developers who want to build effective, accessible, and usable UI components.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
-[![GitHub Stars](https://img.shields.io/github/stars/thedaviddias/ux-patterns-for-developers?style=social)](https://github.com/thedaviddias/ux-patterns-for-developers)
-[![Twitter Follow](https://img.shields.io/twitter/follow/thedaviddias?style=social)](https://x.com/thedaviddias)
-
-[View Documentation](https://uxpatterns.dev) · [Report Bug](https://github.com/thedaviddias/ux-patterns-for-developers/issues) · [Request Pattern](https://github.com/thedaviddias/ux-patterns-for-developers/issues/new)
-
-![Screenshot of the homepage of UX Patterns for Devs](https://raw.githubusercontent.com/thedaviddias/ux-patterns-for-developers/refs/heads/main/ux-patterns-developers-2.jpeg)
-
-</div>
 
 ## ✨ Features
 

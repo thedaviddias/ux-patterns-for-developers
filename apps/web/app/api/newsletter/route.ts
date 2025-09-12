@@ -1,6 +1,13 @@
-import { NextResponse } from "next/server";
 import { KitProvider } from "@ux-patterns/newsletter/kit-provider";
-import { type KitConfig, subscribeSchema } from "@ux-patterns/newsletter/schema";
+import {
+	checkRateLimit,
+	getRateLimitKey,
+} from "@ux-patterns/newsletter/rate-limiter";
+import {
+	type KitConfig,
+	subscribeSchema,
+} from "@ux-patterns/newsletter/schema";
+import { NextResponse } from "next/server";
 
 // POST handler for newsletter subscription
 export async function POST(request: Request) {
@@ -22,6 +29,18 @@ export async function POST(request: Request) {
 			return NextResponse.json(
 				{ success: false, message: "Invalid submission detected." },
 				{ status: 400 },
+			);
+		}
+
+		// Server-side rate limiting based on IP address
+		const rateLimitKey = getRateLimitKey(request);
+		if (!checkRateLimit(rateLimitKey)) {
+			return NextResponse.json(
+				{
+					success: false,
+					message: "Too many requests. Please try again in a minute.",
+				},
+				{ status: 429 },
 			);
 		}
 
