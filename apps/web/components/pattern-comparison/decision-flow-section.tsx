@@ -1,6 +1,6 @@
 "use client";
 
-import { DecisionFlow } from "@/components/decision-flow";
+import { LazyDecisionFlow } from "@/components/decision-flow/lazy-decision-flow";
 import type {
 	DecisionEdge,
 	DecisionNode,
@@ -21,7 +21,7 @@ export function DecisionFlowSection({
 		<div className="mb-16">
 			<h2 className="text-2xl font-bold mb-6">Interactive Decision Flow</h2>
 			<div className="relative rounded-xl border border-neutral-200 dark:border-neutral-800 p-8">
-				<DecisionFlow
+				<LazyDecisionFlow
 					nodes={nodes}
 					edges={edges}
 					className="rounded-xl"

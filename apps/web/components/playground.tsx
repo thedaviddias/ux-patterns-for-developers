@@ -10,7 +10,7 @@ import {
 	SandboxTabsContent,
 	SandboxTabsList,
 	SandboxTabsTrigger,
-} from "@/components/sandbox";
+} from "@/components/lazy-sandbox";
 import { examples } from "@/examples/patterns";
 
 export const Playground = ({

@@ -4,7 +4,7 @@ import {
 	SiSafari,
 } from "@icons-pack/react-simple-icons";
 import { use } from "react";
-import { TRACKING_CLASSES } from "@/utils/tracking";
+import { TRACKING_CLASSES } from "@/lib/tracking";
 
 interface BrowserSupportProps {
 	features: string[]; // e.g. ['html.elements.button', 'api.HTMLButtonElement']

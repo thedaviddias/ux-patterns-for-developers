@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { useMemo } from "react";
+import { metadataSEO } from "@/app/metadata";
 import { source } from "@/lib/source";
 import { formatDate } from "@/utils/date";
 
@@ -102,3 +104,22 @@ export default function ChangelogPage() {
 		</div>
 	);
 }
+
+export const metadata: Metadata = {
+	...metadataSEO,
+	title: "Changelog",
+	description: "Latest updates and changes to UP Kit components and features.",
+	openGraph: {
+		...metadataSEO.openGraph,
+		title: "Changelog",
+		description:
+			"Latest updates and changes to UP Kit components and features.",
+		url: "https://kit.uxpatterns.dev/changelog",
+	},
+	twitter: {
+		...metadataSEO.twitter,
+		title: "Changelog",
+		description:
+			"Latest updates and changes to UP Kit components and features.",
+	},
+};

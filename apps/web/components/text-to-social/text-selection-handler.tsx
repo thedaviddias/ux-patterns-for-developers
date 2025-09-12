@@ -4,7 +4,7 @@ import { Instagram, Linkedin, Twitter } from "lucide-react";
 import { usePlausible } from "next-plausible";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
-import { trackTextToSocialEvent } from "@/utils/tracking";
+import { trackTextToSocialEvent } from "@/lib/tracking";
 
 interface SelectionPopoverProps {
 	selectedText: string;

@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { usePlausible } from "next-plausible";
 import { trackFooterClick } from "@/lib/tracking";
-import { LinkCustom } from "../link-custom";
 
 interface FooterLinkProps {
 	label: string;
@@ -29,13 +29,13 @@ export const FooterLink = ({
 	const mergedRel = rel ? `${rel} noopener noreferrer` : undefined;
 
 	return (
-		<LinkCustom
+		<Link
 			href={path || shortlink || "#"}
 			rel={mergedRel}
 			onClick={handleClick}
 			className="text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white hover:underline transition-colors text-sm"
 		>
 			{label}
-		</LinkCustom>
+		</Link>
 	);
 };

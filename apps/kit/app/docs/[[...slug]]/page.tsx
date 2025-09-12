@@ -8,6 +8,7 @@ import {
 } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { metadataSEO } from "@/app/metadata";
 import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
 import { source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
@@ -53,8 +54,25 @@ export async function generateMetadata(
 	const page = source.getPage(params.slug);
 	if (!page) notFound();
 
+	const title = page.data.title || "Documentation";
+	const description =
+		page.data.description || "UP Kit documentation and component guides.";
+	const url = `https://kit.uxpatterns.dev/docs/${params.slug?.join("/") || ""}`;
+
 	return {
-		title: page.data.title,
-		description: page.data.description,
+		...metadataSEO,
+		title,
+		description,
+		openGraph: {
+			...metadataSEO.openGraph,
+			title,
+			description,
+			url,
+		},
+		twitter: {
+			...metadataSEO.twitter,
+			title,
+			description,
+		},
 	};
 }

@@ -33,6 +33,20 @@ const config = {
 		ignoreDuringBuilds: true,
 	},
 	serverExternalPackages: ["ts-morph", "typescript", "twoslash", "shiki"],
+	experimental: {
+		optimizePackageImports: [
+			"@radix-ui/react-accordion",
+			"@radix-ui/react-aspect-ratio",
+			"@radix-ui/react-collapsible",
+			"@radix-ui/react-dialog",
+			"@radix-ui/react-navigation-menu",
+			"@radix-ui/react-popover",
+			"@radix-ui/react-presence",
+			"@radix-ui/react-scroll-area",
+			"@radix-ui/react-slot",
+			"lucide-react",
+		],
+	},
 	async rewrites() {
 		return [
 			{

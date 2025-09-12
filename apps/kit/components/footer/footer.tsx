@@ -67,7 +67,7 @@ const FooterSocialIcons = () => (
 					key={label}
 					href={link}
 					aria-label={label}
-					rel={rel ? rel : "noopener noreferrer"}
+					rel={rel ? `${rel} noopener noreferrer` : "noopener noreferrer"}
 					target="_blank"
 					className="inline-flex"
 				>
@@ -97,12 +97,11 @@ const FooterContent = () => {
 						{/* Brand Section */}
 						<div className="md:col-span-1">
 							<span className="mb-3 block text-xl font-bold">
-								UX Patterns for Devs
+								UX Patterns Kit
 							</span>
 							<p className="text-sm text-fd-muted-foreground">
-								UX Patterns for Developers is a collection of UX patterns for
-								everyone but specially towards developers who want to understand
-								how to build effective UI components accessible and usable.
+								UP Kit is a React component library that provides a set of
+								reusable components for building web applications.
 							</p>
 							<FooterSocialIcons />
 						</div>

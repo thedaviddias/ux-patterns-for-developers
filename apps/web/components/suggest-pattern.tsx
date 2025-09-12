@@ -3,7 +3,7 @@
 import { PROJECT } from "@ux-patterns/constants/author";
 import { useId } from "react";
 
-import { TRACKING_CLASSES } from "@/utils/tracking";
+import { TRACKING_CLASSES } from "@/lib/tracking";
 import { LinkCustom } from "./link-custom";
 
 export const SuggestPattern = () => {

@@ -29,6 +29,13 @@ export const TRACKING_EVENTS = {
 	// Documentation Events
 	COPY_CODE_BLOCK: "Copy Code Block",
 	VIEW_API_REFERENCE: "View API Reference",
+
+	GET_STARTED_CLICK: "Get Started Click",
+	VIEW_COMPONENT_CLICK: "View Component Click",
+
+	// Footer Events
+	FOOTER_LINK_CLICK: "Footer Link Click",
+	FOOTER_SOCIAL_CLICK: "Footer Social Click",
 } as const;
 
 // Import shared helpers and types
@@ -59,6 +66,9 @@ export const TRACKING_CLASSES = {
 	OPEN_IN_V0: asPlausibleClass(TRACKING_EVENTS.OPEN_IN_V0),
 	OPEN_IN_KIT: asPlausibleClass(TRACKING_EVENTS.OPEN_IN_KIT),
 	COPY_CODE_BLOCK: asPlausibleClass(TRACKING_EVENTS.COPY_CODE_BLOCK),
+
+	GET_STARTED_CLICK: asPlausibleClass(TRACKING_EVENTS.GET_STARTED_CLICK),
+	VIEW_COMPONENT_CLICK: asPlausibleClass(TRACKING_EVENTS.VIEW_COMPONENT_CLICK),
 } as const;
 
 // Helper function to track component interactions
@@ -143,4 +153,22 @@ export const trackComponentPageView = (
 	componentName: string,
 ) => {
 	sharedTrackComponentPageView(plausible, componentName);
+};
+
+export const trackFooterClick = (
+	plausible: PlausibleTracker,
+	linkType: "general" | "resource" | "social",
+	linkLabel: string,
+) => {
+	const eventName =
+		linkType === "social"
+			? TRACKING_EVENTS.FOOTER_SOCIAL_CLICK
+			: TRACKING_EVENTS.FOOTER_LINK_CLICK;
+
+	plausible(eventName, {
+		props: {
+			link_type: linkType,
+			link_label: linkLabel,
+		},
+	});
 };
