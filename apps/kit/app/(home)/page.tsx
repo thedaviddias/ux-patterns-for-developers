@@ -2,7 +2,7 @@ import {
 	JsonLd,
 	StructuredDataGenerator,
 } from "@ux-patterns/seo/structured-data";
-
+import { NewsletterForm } from "@ux-patterns/ui/components/custom/newsletter";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
 	Card,
@@ -21,7 +21,6 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { NewsletterForm } from "@/components/newsletter";
 import Hero from "@/components/sections/hero";
 import { siteConfig } from "@/lib/site.config";
 

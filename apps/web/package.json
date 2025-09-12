@@ -26,6 +26,7 @@
 		"@radix-ui/react-slot": "^1.2.3",
 		"@sentry/nextjs": "^10.8.0",
 		"@ux-patterns/constants": "workspace:*",
+		"@ux-patterns/newsletter": "workspace:*",
 		"@ux-patterns/seo": "workspace:*",
 		"@ux-patterns/tracking": "workspace:*",
 		"@ux-patterns/ui": "workspace:*",

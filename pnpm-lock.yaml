@@ -38,6 +38,9 @@ importers:
       '@ux-patterns/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@ux-patterns/newsletter':
+        specifier: workspace:*
+        version: link:../../packages/newsletter
       '@ux-patterns/seo':
         specifier: workspace:*
         version: link:../../packages/seo
@@ -135,6 +138,9 @@ importers:
       '@ux-patterns/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@ux-patterns/newsletter':
+        specifier: workspace:*
+        version: link:../../packages/newsletter
       '@ux-patterns/registry':
         specifier: workspace:*
         version: link:../../packages/registry
@@ -298,6 +304,9 @@ importers:
       '@ux-patterns/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@ux-patterns/newsletter':
+        specifier: workspace:*
+        version: link:../../packages/newsletter
       '@ux-patterns/seo':
         specifier: workspace:*
         version: link:../../packages/seo
@@ -480,6 +489,22 @@ importers:
       '@types/react':
         specifier: ^19.1.12
         version: 19.1.12
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
+
+  packages/newsletter:
+    dependencies:
+      zod:
+        specifier: ^4.1.5
+        version: 4.1.5
+    devDependencies:
+      '@thedaviddias/config-typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
+      '@types/node':
+        specifier: 24.3.0
+        version: 24.3.0
       typescript:
         specifier: ^5.9.2
         version: 5.9.2

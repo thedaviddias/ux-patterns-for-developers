@@ -11,9 +11,9 @@ interface NewsletterFormProps {
 const FORM_CLASSES = "w-full max-w-md mx-auto";
 const SECTION_CLASSES = {
 	inline:
-		"mt-12 mb-8 py-6 px-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-center",
+		"mt-12 mb-8 py-6 px-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-center",
 	default:
-		"flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600 rounded-xl",
+		"flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600",
 };
 
 export const NewsletterForm = ({
@@ -122,7 +122,7 @@ export const NewsletterForm = ({
 						id={subscribeTitleId}
 						className="text-lg font-semibold mb-2 text-foreground"
 					>
-						Stay updated with UP Kit
+						Stay updated with UX Patterns for Devs
 					</h3>
 					<p className="text-sm text-muted-foreground mb-4">
 						Get notified when new components and patterns are added.
@@ -132,13 +132,13 @@ export const NewsletterForm = ({
 				<>
 					<h2
 						id={subscribeTitleId}
-						className="text-2xl font-bold mb-5 text-foreground"
+						className="mb-2 text-3xl font-bold leading-[1.2] tracking-tighter text-foreground"
 					>
-						Get notified when new components are added!
+						Get notified when new patterns are added!
 					</h2>
 					<p className="text-muted-foreground max-w-xl mx-auto mb-5">
-						Subscribe to the UP Kit newsletter for the latest updates, new
-						component releases, and UX pattern insights.
+						Subscribe to our newsletter for the latest updates, new component
+						releases, and UX pattern insights.
 					</p>
 				</>
 			)}
