@@ -53,4 +53,11 @@ export const siteConfig = {
 		github: "https://github.com/thedaviddias/ux-patterns-for-developers",
 		mainSite: "https://uxpatterns.dev",
 	},
+
+	// Advanced meta tags
+	other: {
+		"theme-color": "#09090b",
+		"color-scheme": "dark light",
+		"msapplication-TileColor": "#09090b",
+	},
 };

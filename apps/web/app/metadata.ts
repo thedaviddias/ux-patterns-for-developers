@@ -51,6 +51,13 @@ export const metadataGenerator = new MetadataGenerator({
 // Export base metadata for backward compatibility
 export const metadataSEO = metadataGenerator.getBase();
 
+// Add advanced meta tags
+metadataSEO.other = {
+	"theme-color": "#09090b",
+	"color-scheme": "dark light",
+	"msapplication-TileColor": "#09090b",
+};
+
 // Add additional metadata fields
 metadataSEO.keywords = [
 	"ux patterns",
