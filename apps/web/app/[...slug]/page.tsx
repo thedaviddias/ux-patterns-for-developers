@@ -1,3 +1,4 @@
+import { PROJECT } from "@ux-patterns/constants/author";
 import { DocsBody, DocsPage, DocsTitle } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -244,7 +245,7 @@ export default async function Page(props: {
 					<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
 					<ViewOptions
 						markdownUrl={`${page.url}.mdx`}
-						githubUrl={`https://github.com/thedaviddias/ux-patterns-for-developers/blob/dev/apps/web/content/${page.path}`}
+						githubUrl={`${PROJECT.repository.url}/blob/dev/apps/web/content/${page.path}`}
 					/>
 				</div>
 				<DocsBody>

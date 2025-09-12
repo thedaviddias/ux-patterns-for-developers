@@ -27,6 +27,9 @@ export const PROJECT = {
 		url: "https://github.com/thedaviddias/ux-patterns-for-developers",
 	},
 	discord: "https://discord.gg/8fsJFcCGbq",
+	social: {
+		reddit: "https://www.reddit.com/r/UXPatterns/",
+	},
 	urls: {
 		main: "https://uxpatterns.dev",
 		kit: "https://kit.uxpatterns.dev",

@@ -1,5 +1,10 @@
 import { cn } from "@ux-patterns/ui/lib/utils";
-import type { Author } from "@/lib/authors";
+
+interface Author {
+	name: string;
+	position: string;
+	avatar: string;
+}
 
 interface AuthorCardProps {
 	author: Author;

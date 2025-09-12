@@ -2,8 +2,8 @@ import {
 	FOOTER_GENERAL_LINKS,
 	FOOTER_OPENSOURCE_LINKS,
 	FOOTER_RESOURCES_LINKS,
+	SOCIAL_LINKS,
 } from "@/constants/footer";
-import { SOCIAL_LINKS } from "../social";
 import { FooterCopyright } from "./footer-copyright";
 import { FooterLink } from "./footer-link";
 

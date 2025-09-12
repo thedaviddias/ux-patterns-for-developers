@@ -1,17 +1,18 @@
+import { AUTHOR, PROJECT } from "@ux-patterns/constants/author";
 import { MetadataGenerator } from "@ux-patterns/seo/metadata";
 
-const GALLERY_BASE_URL = "https://gallery.uxpatterns.dev";
+const GALLERY_BASE_URL = PROJECT.urls.gallery;
 
 // Create a metadata generator instance
 export const metadataGenerator = new MetadataGenerator({
 	site: {
 		name: "UX Patterns Gallery",
 		description:
-			"Visual examples of UX patterns - good and bad implementations from real websites for educational purposes",
+			"Visual examples of UX patterns - do and don't implementations from real websites",
 		url: GALLERY_BASE_URL,
-		author: "David Dias",
+		author: AUTHOR.name,
 		social: {
-			twitter: "@thedaviddias",
+			twitter: AUTHOR.social.twitter,
 		},
 	},
 	defaults: {
@@ -37,12 +38,12 @@ export const metadataGenerator = new MetadataGenerator({
 		},
 		twitter: {
 			card: "summary_large_image",
-			creator: "@thedaviddias",
-			site: "@thedaviddias",
+			creator: AUTHOR.social.twitter,
+			site: AUTHOR.social.twitter,
 			images: [
 				{
 					url: "/og-image.png",
-					alt: "UX Patterns Gallery - Visual examples of good and bad UX patterns from real websites",
+					alt: "UX Patterns Gallery - Visual examples of do and don't UX patterns from real websites",
 				},
 			],
 		},

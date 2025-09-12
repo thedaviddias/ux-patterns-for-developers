@@ -1,3 +1,4 @@
+import { AUTHOR } from "@ux-patterns/constants/author";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import { DocsBody } from "fumadocs-ui/page";
 import { ArrowLeft } from "lucide-react";
@@ -12,7 +13,6 @@ import { MobileTableOfContents } from "@/components/blog/mobile-toc";
 import { ReadMoreSection } from "@/components/blog/read-more-section";
 import { TableOfContents } from "@/components/blog/table-of-contents";
 import { generateBlogPostingSchema, JsonLd } from "@/components/json-ld";
-import { getAuthor, isValidAuthor } from "@/lib/authors";
 import { siteConfig } from "@/lib/site.config";
 import { source } from "@/lib/source";
 import { formatDate } from "@/utils/date";
@@ -148,9 +148,13 @@ export default async function BlogPost({ params }: PageProps) {
 
 					<aside className="hidden lg:block w-[350px] flex-shrink-0 p-6 lg:p-10 bg-muted/60 dark:bg-muted/20">
 						<div className="sticky top-20 space-y-8">
-							{page.data.author && isValidAuthor(page.data.author) && (
-								<AuthorCard author={getAuthor(page.data.author)} />
-							)}
+							<AuthorCard
+								author={{
+									name: AUTHOR.name,
+									position: "UX Patterns for Developers Creator",
+									avatar: "/authors/thedaviddias.webp",
+								}}
+							/>
 							<div className="border border-border rounded-lg p-6 bg-card">
 								<TableOfContents />
 							</div>

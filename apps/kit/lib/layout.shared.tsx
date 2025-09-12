@@ -1,3 +1,4 @@
+import { PROJECT } from "@ux-patterns/constants/author";
 import type { BaseLayoutProps, LinkItemType } from "fumadocs-ui/layouts/shared";
 import { siDiscord, siInstagram, siX } from "simple-icons";
 import { SimpleIconComponent } from "../components/simple-icon";
@@ -17,7 +18,7 @@ export const linkItems: LinkItemType[] = [
 	},
 	{
 		type: "icon",
-		url: "https://github.com/thedaviddias/ux-patterns-for-developers",
+		url: PROJECT.repository.url,
 		text: "GitHub Stars",
 		icon: (
 			<div className="scale-90 -mx-2">
@@ -91,7 +92,7 @@ export function baseOptions(): BaseLayoutProps {
 			},
 			{
 				type: "icon",
-				url: "https://github.com/thedaviddias/ux-patterns-for-developers",
+				url: PROJECT.repository.url,
 				text: "GitHub Stars",
 				icon: (
 					<div className="scale-90 -mx-2">
