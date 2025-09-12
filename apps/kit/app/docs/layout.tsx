@@ -1,4 +1,4 @@
-import { DocsLayout } from "fumadocs-ui/layouts/notebook";
+import { DocsLayout } from "@ux-patterns/ui/components/custom/layout-notebook";
 import { baseOptions, linkItems } from "@/lib/layout.shared";
 import { source } from "@/lib/source";
 
@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps<"/docs">) {
 			tabMode="navbar"
 			tree={source.pageTree}
 			links={linkItems}
-			themeSwitch={{ enabled: true, mode: "light-dark" }}
+			themeSwitch={{ enabled: false }}
 		>
 			{children}
 		</DocsLayout>

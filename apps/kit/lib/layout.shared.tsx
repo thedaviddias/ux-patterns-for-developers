@@ -1,87 +1,63 @@
+import { SOCIAL_LINKS } from "@ux-patterns/constants/social";
 import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
-import type { BaseLayoutProps, LinkItemType } from "fumadocs-ui/layouts/shared";
-import { siDiscord, siInstagram, siX } from "simple-icons";
+import type { HomeLayoutProps } from "@ux-patterns/ui/components/custom/header";
+import type { LinkItemType } from "fumadocs-ui/layouts/shared";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { TRACKING_EVENTS } from "@/lib/tracking";
-import { SimpleIconComponent } from "../components/simple-icon";
 
 export const linkItems: LinkItemType[] = [
 	// see https://fumadocs.dev/docs/ui/navigation/links
+	{
+		text: "Docs",
+		url: "/docs",
+		active: "nested-url",
+	},
 	{
 		text: "Changelog",
 		url: "/changelog",
 		active: "nested-url",
 	},
-	{
-		text: "UX Patterns",
-		url: "https://uxpatterns.dev",
-		external: false,
-	},
-	{
-		type: "icon",
-		url: "https://github.com/thedaviddias/ux-patterns-for-developers",
-		text: "GitHub Stars",
-		icon: (
-			<div className="scale-90 -mx-2">
-				<GitHubStarsWrapper
-					variant="small"
-					trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
-				/>
-			</div>
-		),
-		external: true,
-	},
 ];
 
-export function baseOptions(): BaseLayoutProps {
+export function baseOptions(): HomeLayoutProps {
 	return {
+		wide: true,
 		nav: {
 			title: (
 				<>
-					<svg
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
-						aria-label="UP Kit Logo"
-						className="text-primary"
-					>
-						<title>UP Kit Logo</title>
-						{/* UX/UI focused icon - layers representing patterns */}
-						<rect
-							x="3"
-							y="4"
-							width="18"
-							height="3"
-							rx="1.5"
-							fill="currentColor"
-							opacity="0.9"
-						/>
-						<rect
-							x="3"
-							y="10"
-							width="12"
-							height="3"
-							rx="1.5"
-							fill="currentColor"
-							opacity="0.7"
-						/>
-						<rect
-							x="3"
-							y="16"
-							width="15"
-							height="3"
-							rx="1.5"
-							fill="currentColor"
-							opacity="0.5"
-						/>
-					</svg>
-					<span className="font-bold">UP Kit</span>
-					<div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
-						Alpha
+					<div className="inline-flex items-center">
+						<Link
+							href="https://uxpatterns.dev"
+							className="hidden md:flex items-center gap-1 text-xl font-bold text-fd-muted-foreground hover:text-fd-primary transition-colors group"
+							title="Go to UX Patterns main site"
+						>
+							UX Patterns
+							<ArrowUpRight className="w-3 h-3" />
+						</Link>
+						<span className="hidden md:block mx-2 text-fd-muted-foreground">
+							/
+						</span>
+						<Link
+							href="/"
+							className="text-xl font-bold text-fd-primary hover:text-fd-primary/90 transition-colors"
+						>
+							Kit
+						</Link>
+						<div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
+							Alpha
+						</div>
 					</div>
 				</>
 			),
 		},
+		githubStars: (
+			<GitHubStarsWrapper
+				variant="small"
+				asLink={true}
+				trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
+			/>
+		),
 		links: [
 			{
 				text: "Docs",
@@ -94,40 +70,18 @@ export function baseOptions(): BaseLayoutProps {
 				active: "nested-url",
 			},
 			{
-				type: "icon",
-				url: "https://github.com/thedaviddias/ux-patterns-for-developers",
-				text: "GitHub Stars",
-				icon: (
-					<div className="scale-90 -mx-2">
-						<GitHubStarsWrapper
-							variant="small"
-							trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
-						/>
-					</div>
-				),
-				external: true,
+				text: "Changelog",
+				url: "/changelog",
+				active: "nested-url",
 			},
-			{
-				type: "icon",
-				url: "https://discord.gg/8fsJFcCGbq",
-				text: "Discord",
-				icon: <SimpleIconComponent icon={siDiscord} className="w-5 h-5" />,
+			...SOCIAL_LINKS.map((social) => ({
+				type: "icon" as const,
+				label: social.label,
+				icon: social.icon,
+				text: social.label,
+				url: social.link,
 				external: true,
-			},
-			{
-				type: "icon",
-				url: "https://x.com/thedaviddias",
-				text: "X",
-				icon: <SimpleIconComponent icon={siX} className="w-5 h-5" />,
-				external: true,
-			},
-			{
-				type: "icon",
-				url: "https://www.instagram.com/uxpatternsfordevs",
-				text: "Instagram",
-				icon: <SimpleIconComponent icon={siInstagram} className="w-5 h-5" />,
-				external: true,
-			},
+			})),
 		],
 	};
 }
