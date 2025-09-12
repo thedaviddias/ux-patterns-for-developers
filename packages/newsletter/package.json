@@ -1,0 +1,17 @@
+{
+	"name": "@ux-patterns/newsletter",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./*": "./src/*.ts"
+	},
+	"dependencies": {
+		"zod": "^4.1.5"
+	},
+	"devDependencies": {
+		"@thedaviddias/config-typescript": "workspace:*",
+		"@types/node": "24.3.0",
+		"typescript": "^5.9.2"
+	}
+}

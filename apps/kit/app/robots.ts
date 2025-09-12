@@ -3,7 +3,6 @@ import { BASE_URL } from "@/constants/project";
 
 export default function robots() {
 	return createSEORobots(BASE_URL, {
-		disallowPaths: ["/404", "/500", "/api/*", "!/api/og/*"],
 		blockBadBots: true,
 	});
 }

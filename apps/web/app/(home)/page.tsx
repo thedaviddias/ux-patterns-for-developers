@@ -2,6 +2,7 @@ import {
 	JsonLd,
 	StructuredDataGenerator,
 } from "@ux-patterns/seo/structured-data";
+import { NewsletterForm } from "@ux-patterns/ui/components/custom/newsletter";
 import type { Metadata } from "next";
 import Hero from "@/components/sections/hero";
 import { OverviewGrid } from "@/components/sections/overview-grid";
@@ -54,6 +55,7 @@ export default function HomePage() {
 			<main className="flex flex-1 flex-col">
 				<Hero />
 				<OverviewGrid />
+				<NewsletterForm />
 			</main>
 		</>
 	);

@@ -1,95 +1,8 @@
 import { NextResponse } from "next/server";
-import { z } from "zod";
+import { KitProvider } from "@ux-patterns/newsletter/kit-provider";
+import { type KitConfig, subscribeSchema } from "@ux-patterns/newsletter/schema";
 
-const subscribeSchema = z.object({
-	email: z
-		.string()
-		.trim()
-		.min(1, "Email is required")
-		.email("Invalid email address"),
-	groups: z.array(z.string().trim()).optional(),
-	honeypot: z.string().optional(), // Hidden field for bot detection
-	timestamp: z.number().optional(), // Deprecated - kept for backwards compatibility
-});
-
-// Simple in-memory rate limiter (consider using Redis/Upstash in production)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-
-// Clean up expired entries every 5 minutes
-setInterval(
-	() => {
-		const now = Date.now();
-		const keysToDelete: string[] = [];
-		rateLimitMap.forEach((value, key) => {
-			if (value.resetTime < now) {
-				keysToDelete.push(key);
-			}
-		});
-		keysToDelete.forEach((key) => {
-			rateLimitMap.delete(key);
-		});
-	},
-	5 * 60 * 1000,
-);
-
-function getRateLimitKey(request: Request): string {
-	// Get client IP from headers (works with Vercel/Cloudflare)
-	const forwardedFor = request.headers.get("x-forwarded-for");
-	const realIp = request.headers.get("x-real-ip");
-	const cfConnectingIp = request.headers.get("cf-connecting-ip");
-
-	const clientIp =
-		forwardedFor?.split(",")[0] || realIp || cfConnectingIp || "unknown";
-	return `newsletter:${clientIp}`;
-}
-
-function checkRateLimit(
-	key: string,
-	maxRequests: number = 3,
-	windowMs: number = 60000,
-): boolean {
-	const now = Date.now();
-	const record = rateLimitMap.get(key);
-
-	if (!record || record.resetTime < now) {
-		// Create new record or reset expired one
-		rateLimitMap.set(key, { count: 1, resetTime: now + windowMs });
-		return true;
-	}
-
-	if (record.count >= maxRequests) {
-		return false; // Rate limit exceeded
-	}
-
-	record.count++;
-	return true;
-}
-
-const API_BASE = "https://connect.mailerlite.com/api";
-
-interface MailerliteSubscriber {
-	email: string;
-	groups?: string[];
-}
-
-interface MailerliteErrorResponse {
-	errors?: {
-		email?: string[];
-		[key: string]: string[] | undefined;
-	};
-	message?: string;
-}
-
-interface MailerliteSuccessResponse {
-	data?: {
-		id: string;
-		email: string;
-		status: string;
-		created_at: string;
-		updated_at: string;
-	};
-}
-
+// POST handler for newsletter subscription
 export async function POST(request: Request) {
 	try {
 		const body = await request.json();
@@ -112,20 +25,26 @@ export async function POST(request: Request) {
 			);
 		}
 
-		// Server-side rate limiting based on IP address
-		const rateLimitKey = getRateLimitKey(request);
-		if (!checkRateLimit(rateLimitKey)) {
-			return NextResponse.json(
-				{
-					success: false,
-					message: "Too many requests. Please try again in a minute.",
-				},
-				{ status: 429 },
-			);
-		}
+		// Initialize Kit provider
+		const kitConfig: KitConfig = {
+			provider: "kit",
+			apiKey: process.env.KIT_API_KEY as string,
+			formId: process.env.KIT_FORM_ID as string,
+			defaultTagIds: process.env.KIT_DEFAULT_TAG_IDS?.split(",")
+				.map((id) => Number(id.trim()))
+				.filter((id) => !Number.isNaN(id)),
+			logger: {
+				debug: (message: string, options?: any) =>
+					console.debug(message, options),
+				warn: (message: string, options?: any) =>
+					console.warn(message, options),
+				error: (message: string, options?: any) =>
+					console.error(message, options),
+			},
+		};
 
-		if (!process.env.MAILERLITE_API_KEY) {
-			console.error("MAILERLITE_API_KEY is not configured");
+		if (!kitConfig.apiKey || !kitConfig.formId) {
+			console.error("ConvertKit configuration missing");
 			return NextResponse.json(
 				{
 					success: false,
@@ -135,154 +54,16 @@ export async function POST(request: Request) {
 			);
 		}
 
-		const requestBody: MailerliteSubscriber = { email };
+		const provider = new KitProvider(kitConfig);
+		const result = await provider.subscribe({ email, groups });
 
-		// Use default group IDs from environment or provided groups
-		const envGroupIds = process.env.MAILERLITE_GROUP_IDS?.split(",")
-			.map((id) => id.trim())
-			.filter((v, i, a) => a.indexOf(v) === i)
-			.filter(Boolean);
-		const groupIds =
-			Array.isArray(groups) && groups.length > 0 ? groups : envGroupIds;
-		if (groupIds && groupIds.length > 0) {
-			requestBody.groups = groupIds;
+		if (result.success) {
+			return NextResponse.json(result, { status: 200 });
+		} else {
+			return NextResponse.json(result, { status: 400 });
 		}
-
-		const controller = new AbortController();
-		const timeout = setTimeout(() => controller.abort(), 10_000);
-
-		let response: Response;
-		try {
-			response = await fetch(`${API_BASE}/subscribers`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					Accept: "application/json",
-					Authorization: `Bearer ${process.env.MAILERLITE_API_KEY}`,
-				},
-				body: JSON.stringify(requestBody),
-				signal: controller.signal,
-			});
-		} catch (error) {
-			clearTimeout(timeout);
-
-			// Handle abort/timeout specifically
-			if (error instanceof Error && error.name === "AbortError") {
-				return NextResponse.json(
-					{ success: false, message: "Request timeout. Please try again." },
-					{ status: 504 },
-				);
-			}
-
-			// Re-throw other errors to be handled by outer catch
-			throw error;
-		}
-
-		clearTimeout(timeout);
-
-		// Check if it's a successful response (200 or 201)
-		if (response.ok) {
-			const result = (await response.json()) as MailerliteSuccessResponse;
-
-			return NextResponse.json(
-				{
-					success: true,
-					message:
-						"Successfully subscribed to the newsletter! Check your email for confirmation.",
-					subscriber: {
-						id: result.data?.id || "",
-						email: result.data?.email || email,
-						status: result.data?.status || "active",
-						createdAt: result.data?.created_at || new Date().toISOString(),
-						updatedAt: result.data?.updated_at || new Date().toISOString(),
-					},
-				},
-				{ status: response.status },
-			);
-		}
-
-		// Handle error responses
-		const errorText = await response.text();
-		let errorMessage = "Failed to subscribe to newsletter. Please try again.";
-
-		if (response.status === 422) {
-			try {
-				const errorData = JSON.parse(errorText) as MailerliteErrorResponse;
-
-				// Check for specific error messages
-				const emailErrors = errorData.errors?.email;
-				if (emailErrors && emailErrors.length > 0 && emailErrors[0]) {
-					const firstError = emailErrors[0];
-					const errorString = firstError.toLowerCase();
-
-					if (errorString.includes("unsubscribed")) {
-						errorMessage =
-							"This email was previously unsubscribed. Please contact support to reactivate.";
-					} else if (
-						errorString.includes("already exists") ||
-						errorString.includes("already subscribed")
-					) {
-						errorMessage =
-							"You're already subscribed! Check your inbox for our newsletters.";
-					} else if (errorString.includes("invalid")) {
-						errorMessage = "Please enter a valid email address.";
-					} else {
-						errorMessage = firstError; // Use the actual error message from API
-					}
-				}
-			} catch (parseError) {
-				console.error("Failed to parse Mailerlite error:", parseError);
-			}
-		} else if (response.status === 409) {
-			errorMessage =
-				"You're already subscribed! Check your inbox for our newsletters.";
-		} else if (response.status === 401) {
-			console.error("Invalid Mailerlite API key");
-			errorMessage =
-				"Newsletter service configuration error. Please contact support.";
-		} else if (response.status === 429) {
-			errorMessage = "Too many requests. Please try again in a few minutes.";
-		}
-
-		try {
-			const parsed = JSON.parse(errorText);
-			console.error("Mailerlite API error:", {
-				status: response.status,
-				message: parsed?.message,
-				errors: parsed?.errors ? Object.keys(parsed.errors) : undefined,
-			});
-		} catch {
-			console.error("Mailerlite API error (unparsed):", {
-				status: response.status,
-			});
-		}
-
-		return NextResponse.json(
-			{ success: false, message: errorMessage },
-			{ status: response.status === 422 ? 400 : response.status },
-		);
 	} catch (error) {
 		console.error("Newsletter subscription error:", error);
-
-		// Network/abort errors
-		if ((error as Error).name === "AbortError") {
-			return NextResponse.json(
-				{
-					success: false,
-					message: "Newsletter service timed out. Please try again.",
-				},
-				{ status: 504 },
-			);
-		}
-		if (error instanceof TypeError) {
-			return NextResponse.json(
-				{
-					success: false,
-					message: "Network error. Please check your connection and try again.",
-				},
-				{ status: 503 },
-			);
-		}
 
 		return NextResponse.json(
 			{
