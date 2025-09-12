@@ -19,7 +19,7 @@ export function Header() {
 								title="Go to UX Patterns main site"
 							>
 								UX Patterns
-								<ArrowUpRight className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" />
+								<ArrowUpRight className="w-3 h-3" />
 							</Link>
 							<span className="hidden md:block mx-2 text-fd-muted-foreground">
 								/
