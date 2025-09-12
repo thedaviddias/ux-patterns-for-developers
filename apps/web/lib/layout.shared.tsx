@@ -1,10 +1,27 @@
-import { PROJECT } from "@ux-patterns/constants/author";
+import { SOCIAL_LINKS } from "@ux-patterns/constants/social";
 import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
-import type { BaseLayoutProps, LinkItemType } from "fumadocs-ui/layouts/shared";
-import { TRACKING_EVENTS } from "@/lib/tracking";
+import type { HomeLayoutProps } from "@ux-patterns/ui/components/custom/header";
+import type { LinkItemType } from "fumadocs-ui/layouts/shared";
+import Link from "next/link";
+import { TRACKING_EVENTS } from "./tracking";
 
 export const linkItems: LinkItemType[] = [
 	// see https://fumadocs.dev/docs/ui/navigation/links
+	{
+		text: "Patterns",
+		url: "/patterns/getting-started",
+		active: "nested-url",
+	},
+	{
+		text: "Patterns Guide",
+		url: "/pattern-guide",
+		active: "nested-url",
+	},
+	{
+		text: "Glossary",
+		url: "/glossary",
+		active: "nested-url",
+	},
 	{
 		text: "Blog",
 		url: "/blog",
@@ -13,32 +30,26 @@ export const linkItems: LinkItemType[] = [
 	{
 		text: "Kit",
 		url: "https://kit.uxpatterns.dev",
-		external: true,
+		external: false,
 	},
 	{
-		type: "icon",
-		url: PROJECT.repository.url,
-		text: "GitHub Stars",
-		icon: (
-			<div className="scale-90 -mx-2">
-				<GitHubStarsWrapper
-					variant="small"
-					trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
-				/>
-			</div>
-		),
-		external: true,
+		text: "Gallery",
+		url: "https://gallery.uxpatterns.dev",
+		external: false,
 	},
-	// {
-	// 	text: "Gallery",
-	// 	url: "https://gallery.uxpatterns.dev",
-	// 	external: true,
-	// },
+	...SOCIAL_LINKS.map((social) => ({
+		type: "icon" as const,
+		label: social.label,
+		icon: social.icon,
+		text: social.label,
+		url: social.link,
+		external: true,
+	})),
 ];
 
-export function baseOptions(): BaseLayoutProps {
+export function baseOptions(): HomeLayoutProps {
 	return {
-		// githubUrl: PROJECT.repository.url,
+		wide: true,
 		nav: {
 			title: (
 				<>
@@ -48,10 +59,26 @@ export function baseOptions(): BaseLayoutProps {
 						alt="UX Patterns for Devs"
 						className="w-6 h-6 rounded-full"
 					/>
-					UX Patterns for Devs
+					<div className="inline-flex items-center">
+						{/* Desktop: Full breadcrumb */}
+						<Link
+							href="/"
+							className="flex items-center gap-1 text-xl font-bold text-fd-primary hover:text-fd-primary/90 transition-colors"
+						>
+							UX Patterns
+						</Link>
+					</div>
 				</>
 			),
 			transparentMode: "top",
 		},
+		githubStars: (
+			<GitHubStarsWrapper
+				variant="small"
+				asLink={true}
+				trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
+			/>
+		),
+		links: linkItems,
 	};
 }

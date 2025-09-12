@@ -1,14 +1,16 @@
 import "@/app/global.css";
 
+import { HomeLayout } from "@ux-patterns/ui/components/custom/header";
 import { RootProvider } from "fumadocs-ui/provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import PlausibleProvider from "next-plausible";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { Header } from "@/components/common/header";
 import { KeyboardShortcuts } from "@/components/common/keyboard-shortcuts";
 import { FooterCopyright } from "@/components/footer/footer-copyright";
+import { HeaderSearchDialog } from "@/components/header/header-search-wrapper";
+import { baseOptions } from "@/lib/layout.shared";
 import { SearchProvider } from "@/lib/search-context";
 import { metadataSEO } from "./metadata";
 
@@ -45,12 +47,10 @@ export default function RootLayout({ children }: LayoutProps) {
 						<NuqsAdapter>
 							<SearchProvider>
 								<KeyboardShortcuts />
+								<HeaderSearchDialog />
 								<div className="min-h-screen bg-fd-background">
 									{/* Header */}
-									<Header />
-
-									{/* Main content */}
-									<main className="flex-1">{children}</main>
+									<HomeLayout {...baseOptions()}>{children}</HomeLayout>
 
 									{/* Footer */}
 									<footer className="bg-fd-card border-t border-fd-border mt-16">
