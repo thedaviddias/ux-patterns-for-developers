@@ -1,16 +1,30 @@
-import { getGitHubStars } from "./github-stars";
-import { Stars } from "./stars";
+import { GitHubStars } from "./github-stars";
+import { getGitHubStars } from "./github-stars-utils";
 
-type StarsWrapperProps = {
+type GitHubStarsWrapperProps = {
 	variant?: "default" | "small";
+	asLink?: boolean;
+	onClick?: () => void;
+	trackingEvent?: string;
 };
 
-export const StarsWrapper = async ({
+export const GitHubStarsWrapper = async ({
 	variant = "default",
-}: StarsWrapperProps) => {
+	asLink = false,
+	onClick,
+	trackingEvent,
+}: GitHubStarsWrapperProps) => {
 	try {
 		const starsCount = await getGitHubStars();
-		return <Stars variant={variant} starsCount={starsCount} />;
+		return (
+			<GitHubStars
+				variant={variant}
+				starsCount={starsCount}
+				asLink={asLink}
+				onClick={onClick}
+				trackingEvent={trackingEvent}
+			/>
+		);
 	} catch (error) {
 		// Fallback to a loading state or error state
 		console.error("Failed to load GitHub stars:", error);

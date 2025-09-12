@@ -43,6 +43,7 @@
 		"@radix-ui/react-tooltip": "^1.2.8",
 		"@radix-ui/react-use-controllable-state": "^1.2.2",
 		"@shikijs/transformers": "^3.12.2",
+		"@ux-patterns/constants": "workspace:*",
 		"@ux-patterns/hooks": "workspace:*",
 		"@ux-patterns/registry": "workspace:^",
 		"class-variance-authority": "^0.7.1",
