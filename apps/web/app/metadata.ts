@@ -6,7 +6,7 @@ export const metadataGenerator = new MetadataGenerator({
 	site: {
 		name: "UX Patterns for Devs",
 		description:
-			"UX Patterns for Developers is a collection of UX Patterns for Devs to use in their projects.",
+			"Comprehensive collection of UX patterns, best practices, and implementation guides for developers building accessible, effective, and user-friendly UI components.",
 		url: BASE_URL,
 		author: "David Dias",
 		social: {
@@ -53,11 +53,21 @@ export const metadataSEO = metadataGenerator.getBase();
 
 // Add additional metadata fields
 metadataSEO.keywords = [
-	"ux",
 	"ux patterns",
-	"ux for devs",
-	"ux design",
-	"ux design patterns",
+	"ui components",
+	"user experience",
+	"web development",
+	"accessibility",
+	"design patterns",
+	"frontend development",
+	"react components",
+	"interface design",
+	"usability",
+	"best practices",
+	"developer guide",
+	"ui/ux design",
+	"component library",
+	"design system",
 ];
 metadataSEO.category = "ux";
 metadataSEO.appleWebApp = {

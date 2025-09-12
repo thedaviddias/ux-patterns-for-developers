@@ -42,7 +42,7 @@ export default async function PlatformPage({
 		new URLSearchParams(searchParamsResolved as any),
 	);
 	const entries = await loadEntries();
-	const patterns = await getAllPatternsFromWebApp();
+	const _patterns = await getAllPatternsFromWebApp();
 
 	// Apply search and filters
 	const filteredEntries = searchEntries(entries, filters.search || "", {

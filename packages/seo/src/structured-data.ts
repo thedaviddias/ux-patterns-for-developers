@@ -17,7 +17,6 @@ export {
  * Main StructuredDataGenerator class that combines all schema generators
  */
 export class StructuredDataGenerator {
-	private config: StructuredDataConfig;
 	private organizationSchema: OrganizationSchema;
 	private articleSchema: ArticleSchema;
 	private breadcrumbSchema: BreadcrumbSchema;
@@ -26,7 +25,6 @@ export class StructuredDataGenerator {
 	private courseSchema: CourseSchema;
 
 	constructor(config: StructuredDataConfig) {
-		this.config = config;
 		this.organizationSchema = new OrganizationSchema(config);
 		this.articleSchema = new ArticleSchema(config);
 		this.breadcrumbSchema = new BreadcrumbSchema(config);
@@ -46,6 +44,12 @@ export class StructuredDataGenerator {
 
 	person(options: Parameters<OrganizationSchema["person"]>[0]) {
 		return this.organizationSchema.person(options);
+	}
+
+	softwareApplication(
+		options: Parameters<OrganizationSchema["softwareApplication"]>[0],
+	) {
+		return this.organizationSchema.softwareApplication(options);
 	}
 
 	// Article schemas

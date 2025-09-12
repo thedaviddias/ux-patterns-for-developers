@@ -137,6 +137,7 @@ export type SchemaType =
 	| "ItemList"
 	| "CollectionPage"
 	| "SoftwareSourceCode"
+	| "SoftwareApplication"
 	| "Course"
 	| "BreadcrumbList"
 	| "FAQPage"

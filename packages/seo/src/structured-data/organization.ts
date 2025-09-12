@@ -100,4 +100,46 @@ export class OrganizationSchema extends StructuredDataGenerator {
 			...(options.knowsAbout && { knowsAbout: options.knowsAbout }),
 		};
 	}
+
+	/**
+	 * Generate SoftwareApplication schema
+	 */
+	softwareApplication(options: {
+		name: string;
+		description?: string;
+		applicationCategory?: string;
+		operatingSystem?: string;
+		offers?: {
+			price: string;
+			priceCurrency: string;
+		};
+		screenshot?: string;
+		downloadUrl?: string;
+		featureList?: string[];
+	}): SchemaOrgBase & Record<string, any> {
+		return {
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			name: options.name,
+			...(options.description && { description: options.description }),
+			...(options.applicationCategory && {
+				applicationCategory: options.applicationCategory,
+			}),
+			...(options.operatingSystem && {
+				operatingSystem: options.operatingSystem,
+			}),
+			...(options.offers && {
+				offers: {
+					"@type": "Offer",
+					price: options.offers.price,
+					priceCurrency: options.offers.priceCurrency,
+				},
+			}),
+			...(options.screenshot && {
+				screenshot: this.absoluteUrl(options.screenshot),
+			}),
+			...(options.downloadUrl && { downloadUrl: options.downloadUrl }),
+			...(options.featureList && { featureList: options.featureList }),
+		};
+	}
 }
