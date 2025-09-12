@@ -22,7 +22,7 @@ pnpm install
 pnpm dev
 ```
 
-The registry will be available at `http://localhost:3065`
+The registry will be available at `http://localhost:3061`
 
 ### Using Components with shadcn CLI
 
@@ -30,7 +30,7 @@ You can install components from this registry using the shadcn CLI:
 
 ```bash
 # Install the button component
-npx shadcn@latest add http://localhost:3065/r/button.json
+npx shadcn@latest add http://localhost:3061/r/button.json
 ```
 
 ### API Endpoints

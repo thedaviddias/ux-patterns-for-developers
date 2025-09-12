@@ -5,7 +5,7 @@
 	"scripts": {
 		"build": "pnpm validate-patterns && next build",
 		"check": "tsc --noEmit",
-		"dev": "next dev --turbo --port 3063",
+		"dev": "next dev --turbo --port 3062",
 		"start": "next start",
 		"postinstall": "fumadocs-mdx",
 		"validate-patterns": "tsx scripts/validate-patterns.ts"
