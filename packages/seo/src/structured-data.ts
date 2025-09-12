@@ -17,6 +17,7 @@ export {
  * Main StructuredDataGenerator class that combines all schema generators
  */
 export class StructuredDataGenerator {
+	private config: StructuredDataConfig;
 	private organizationSchema: OrganizationSchema;
 	private articleSchema: ArticleSchema;
 	private breadcrumbSchema: BreadcrumbSchema;
