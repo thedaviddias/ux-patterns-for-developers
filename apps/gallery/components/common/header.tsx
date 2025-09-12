@@ -50,21 +50,6 @@ export function Header() {
 					</div>
 
 					<div className="flex items-center gap-2">
-						<nav className="hidden md:flex items-center space-x-1 mr-4">
-							<Link
-								href="https://uxpatterns.dev"
-								className={`px-3 py-1 rounded-md text-fd-muted-foreground hover:text-fd-foreground hover:bg-fd-muted/50 transition-all ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
-							>
-								Patterns
-							</Link>
-							<Link
-								href="https://kit.uxpatterns.dev"
-								className={`px-3 py-1 rounded-md text-fd-muted-foreground hover:text-fd-foreground hover:bg-fd-muted/50 transition-all ${TRACKING_CLASSES.MAIN_SITE_LINK_CLICK}`}
-							>
-								Kit
-							</Link>
-						</nav>
-
 						<div className="scale-90 -mx-2">
 							<GitHubStarsWrapper
 								variant="small"
