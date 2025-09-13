@@ -14,9 +14,19 @@ export const linkItems: LinkItemType[] = [
 		active: "nested-url",
 	},
 	{
+		text: "Components",
+		url: "/docs/components/button",
+		active: "nested-url",
+	},
+	{
 		text: "Changelog",
 		url: "/changelog",
 		active: "nested-url",
+	},
+	{
+		text: "Gallery",
+		url: "https://gallery.uxpatterns.dev",
+		external: false,
 	},
 ];
 

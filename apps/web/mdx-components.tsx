@@ -4,6 +4,7 @@ import { BrowserSupport } from "@/components/browser-support";
 import { BuildEffort } from "@/components/build-effort";
 import { ComponentPreviewWithMetadata } from "@/components/component-preview-wrapper";
 import { FaqStructuredData } from "@/components/faq-structured-data";
+import { GalleryBanner } from "@/components/gallery-banner";
 import { KitBanner } from "@/components/kit-banner";
 import { LinkCustom } from "@/components/link-custom";
 import { LazyMermaid } from "@/components/mdx/lazy-mermaid";
@@ -32,6 +33,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 		RelatedPatternsCard,
 		PatternGuideList,
 		KitBanner,
+		GalleryBanner,
 		...components,
 	};
 }
