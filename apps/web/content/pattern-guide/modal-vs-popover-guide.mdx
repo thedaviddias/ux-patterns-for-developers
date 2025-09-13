@@ -1,0 +1,70 @@
+---
+title: "Modal vs Popover vs Drawer vs Tooltip: When to Use Each (2025 Guide)"
+description: An interactive guide to help you choose the right overlay pattern for your use case
+icon: Layers
+---
+
+import { DecisionFlowSection } from '@/components/pattern-comparison/decision-flow-section';
+import { ComparisonGrid } from '@/components/pattern-comparison/comparison-grid';
+import { nodes, edges } from '@/components/decision-flow/data/overlay-patterns';
+
+<div>
+  <div className="prose dark:prose-invert mb-10 space-y-4">
+    Choosing the right overlay pattern impacts user experience. Each pattern serves different interaction needs and contexts.
+    
+    Use our interactive decision flow below to guide your choice based on interaction criticality, content complexity, and user context.
+  </div>
+
+  <DecisionFlowSection 
+    title="Modal vs Drawer vs Popover vs Tooltip Decision Flow"
+    nodes={nodes}
+    edges={edges}
+  />
+  
+  <ComparisonGrid patterns={comparisonData.patterns} />
+</div>
+
+export const comparisonData = {
+  patterns: [
+    {
+      title: "Modal",
+      href: "/patterns/content-management/modal",
+      criteria: [
+        "Blocks all interactions",
+        "Complex forms & wizards",
+        "Critical confirmations",
+        "Full mobile takeover",
+      ],
+    },
+    {
+      title: "Drawer",
+      href: "/patterns/navigation/sidebar",
+      criteria: [
+        "Maintains page context",
+        "Filters & settings panels",
+        "Mobile-friendly slide-in",
+        "Semi-persistent content",
+      ],
+    },
+    {
+      title: "Popover",
+      href: "/patterns/content-management/popover",
+      criteria: [
+        "Contextual to element",
+        "Menus & quick options",
+        "Non-blocking interactions",
+        "Dismissible on outside click",
+      ],
+    },
+    {
+      title: "Tooltip",
+      href: "/patterns/content-management/tooltip",
+      criteria: [
+        "Brief help text only",
+        "Hover/focus triggered",
+        "Non-interactive content",
+        "Minimal visual disruption",
+      ],
+    },
+  ],
+};

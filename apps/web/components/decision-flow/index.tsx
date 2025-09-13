@@ -148,7 +148,7 @@ export function DecisionFlow({
 				attributionPosition="bottom-left"
 			>
 				<Background color="#9ca3af" gap={16} />
-				<Controls 
+				<Controls
 					className="!bg-white !border-gray-300 dark:!bg-gray-800 dark:!border-gray-600"
 					showInteractive={false}
 				/>

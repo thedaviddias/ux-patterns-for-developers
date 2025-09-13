@@ -36,7 +36,7 @@ export const PatternComparison = ({
 								<Link
 									key={alt.name}
 									href={alt.path}
-									className="inline-flex items-center gap-1 no-underline after:content-[''] after:absolute after:inset-0"
+									className="inline-flex items-center gap-1 no-underline after:content-[''] after:absolute after:inset-0 text-xl"
 								>
 									{alt.name}
 									<ArrowRight className="w-4 h-4" />
