@@ -28,6 +28,10 @@ export const SHARED_TRACKING_EVENTS = {
 	COMPONENT_PAGE_VIEW: "Component Page View",
 	COMPONENT_SEARCH: "Component Search",
 	PATTERN_LINK_CLICK: "Pattern Link Click",
+
+	// Feedback Events - Common across apps
+	DOCS_FEEDBACK_GOOD: "Docs Feedback Good",
+	DOCS_FEEDBACK_BAD: "Docs Feedback Bad",
 } as const;
 
 // App-specific event types for type safety

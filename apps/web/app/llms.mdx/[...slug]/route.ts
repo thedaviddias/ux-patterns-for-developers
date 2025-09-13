@@ -7,9 +7,9 @@ export const revalidate = false;
 
 export async function GET(
 	_req: NextRequest,
-	{ params }: RouteContext<"/llms.txt/[...slug]">,
+	{ params }: { params: Promise<{ slug: string[] }> },
 ) {
-	const slug = (await params).slug as string[];
+	const slug = (await params).slug;
 	const page = source.getPage(slug);
 	if (!page) notFound();
 

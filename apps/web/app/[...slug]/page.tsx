@@ -3,6 +3,7 @@ import { DocsBody, DocsPage, DocsTitle } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { metadataSEO } from "@/app/metadata";
+import { FeedbackWrapper } from "@/components/feedback-wrapper";
 import {
 	generateArticleSchema,
 	generateBlogPostingSchema,
@@ -251,6 +252,7 @@ export default async function Page(props: {
 				<DocsBody>
 					<MDX components={getMDXComponents()} />
 				</DocsBody>
+				<FeedbackWrapper />
 			</DocsPage>
 		</>
 	);

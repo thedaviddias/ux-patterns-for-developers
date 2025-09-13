@@ -112,6 +112,31 @@ export const trackComponentSearch = (
 	plausible(SHARED_TRACKING_EVENTS.COMPONENT_SEARCH, { props });
 };
 
+// Helper function to track docs feedback - standardized across all apps
+export const trackDocsFeedback = (
+	plausible: PlausibleTracker,
+	opinion: "good" | "bad",
+	url: string,
+	message?: string,
+) => {
+	// Plausible doesn't support arbitrary custom properties
+	// We'll track separate events for good/bad feedback
+	const eventName =
+		opinion === "good"
+			? SHARED_TRACKING_EVENTS.DOCS_FEEDBACK_GOOD
+			: SHARED_TRACKING_EVENTS.DOCS_FEEDBACK_BAD;
+
+	const props: Record<string, string | number> = {
+		url,
+	};
+
+	if (message) {
+		props.message_length = message.length;
+	}
+
+	plausible(eventName, { props });
+};
+
 // Helper function to get CSS classes for auto-tracking
 export const getSharedTrackingClasses = () => ({
 	GITHUB_LINK_CLICK: asPlausibleClass(SHARED_TRACKING_EVENTS.GITHUB_LINK_CLICK),
