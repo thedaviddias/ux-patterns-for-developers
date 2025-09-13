@@ -199,7 +199,11 @@ export const LEGACY_EVENTS = {
 // Helper function to track text-to-social events
 export const trackTextToSocialEvent = (
 	plausible: PlausibleTracker,
-	action: "popover_shown" | "image_generated" | "image_download",
+	action:
+		| "popover_shown"
+		| "image_generated"
+		| "image_download"
+		| "button_clicked",
 	options?: {
 		platform?: "instagram" | "twitter" | "linkedin";
 		textLength?: number;

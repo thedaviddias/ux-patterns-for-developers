@@ -40,6 +40,15 @@ function SelectionPopover({
 	) => {
 		setIsGenerating(true);
 
+		// Track button click
+		trackTextToSocialEvent(plausible, "button_clicked", {
+			platform,
+			textLength: selectedText.length,
+			patternName: document.title
+				.replace(" | UX Patterns for Developers", "")
+				.replace(" - UX Patterns for Developers", ""),
+		});
+
 		try {
 			// Get the page title from the document
 			const pageTitle = document.title
@@ -115,7 +124,7 @@ function SelectionPopover({
 					onClick={() => generateImage("instagram")}
 					disabled={isGenerating}
 					className="p-2 hover:bg-fd-muted rounded transition-colors disabled:opacity-50"
-					title="Share as Instagram post"
+					title="Generate Instagram image"
 				>
 					<Instagram className="w-4 h-4" />
 				</button>
@@ -124,7 +133,7 @@ function SelectionPopover({
 					onClick={() => generateImage("twitter")}
 					disabled={isGenerating}
 					className="p-2 hover:bg-fd-muted rounded transition-colors disabled:opacity-50"
-					title="Share as Twitter/X post"
+					title="Generate Twitter/X image"
 				>
 					<Twitter className="w-4 h-4" />
 				</button>
@@ -133,7 +142,7 @@ function SelectionPopover({
 					onClick={() => generateImage("linkedin")}
 					disabled={isGenerating}
 					className="p-2 hover:bg-fd-muted rounded transition-colors disabled:opacity-50"
-					title="Share as LinkedIn post"
+					title="Generate LinkedIn image"
 				>
 					<Linkedin className="w-4 h-4" />
 				</button>
@@ -183,6 +192,12 @@ export function TextSelectionHandler() {
 			"footer", // Navigation/chrome
 			"a", // Links (text without context)
 			"time", // Timestamps
+			"h1",
+			"h2",
+			"h3",
+			"h4",
+			"h5",
+			"h6", // Headings
 			'[role="navigation"]', // ARIA navigation
 			'[role="button"]', // ARIA buttons
 			'[role="tab"]', // Tabs

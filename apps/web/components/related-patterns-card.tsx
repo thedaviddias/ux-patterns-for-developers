@@ -167,7 +167,9 @@ export const RelatedPatternsCard = ({
 
 	return (
 		<div className={cn("mt-6", className)}>
-			<h3 className="text-lg font-semibold mb-4">Explore Related Patterns</h3>
+			<h3 className="text-xl font-semibold mb-4 text-foreground">
+				Explore Related Patterns
+			</h3>
 
 			<div className="grid gap-3 sm:grid-cols-2">
 				{displayPatterns.map((pattern) => (
@@ -175,23 +177,24 @@ export const RelatedPatternsCard = ({
 						key={pattern.path}
 						href={pattern.path}
 						className={cn(
-							"group block p-3 rounded-lg border border-neutral-200 dark:border-neutral-800",
-							"bg-white dark:bg-neutral-900",
-							"transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-700",
+							"group block p-4 rounded-lg border border-border",
+							"bg-card hover:bg-secondary/50",
+							"transition-all duration-200",
+							"hover:shadow-sm dark:hover:shadow-none",
 						)}
 					>
 						<div className="flex items-start justify-between">
 							<div>
-								<h4 className="font-medium text-sm group-hover:text-gray-700 dark:group-hover:text-gray-200">
+								<h4 className="font-medium text-base text-card-foreground group-hover:text-primary">
 									{pattern.title}
 								</h4>
 								{pattern.description && (
-									<p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+									<p className="text-sm text-muted-foreground mt-1">
 										{pattern.description}
 									</p>
 								)}
 							</div>
-							<ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 flex-shrink-0 ml-2" />
+							<ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary flex-shrink-0 ml-2 transition-transform group-hover:translate-x-0.5" />
 						</div>
 					</Link>
 				))}
