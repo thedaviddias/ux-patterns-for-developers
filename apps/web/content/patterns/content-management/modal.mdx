@@ -7,6 +7,7 @@ status: complete
 ---
 
 import { Playground } from "@/components/playground";
+import { GuidesBanner } from "@/components/guides-banner";
 
 **_(Also called dialog, dialog box, overlay, popup)_**
 
@@ -25,6 +26,12 @@ Modals display important information, request user input, or confirm actions in 
 <BuildEffort
   level="medium"
   description="Requires focus trapping, keyboard accessibility (`Escape` key to close), and handling of background page interactions. Proper ARIA roles are needed to ensure accessibility."
+/>
+
+<GuidesBanner 
+  title="Modal vs Popover vs Drawer?"
+  description="Compare all overlay patterns to make the right choice"
+  guidePath="/pattern-guide/modal-vs-popover-guide"
 />
 
 ## Use Cases

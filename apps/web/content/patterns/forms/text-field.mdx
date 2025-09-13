@@ -7,6 +7,7 @@ status: complete
 ---
 
 import { Playground } from "@/components/playground";
+import { GuidesBanner } from "@/components/guides-banner";
 
 <PatternStats
   popularity="high"
@@ -23,6 +24,12 @@ Text fields can accept single-line or multi-line input and may include additiona
 <BuildEffort
   level="low"
   description="Requires basic HTML input handling, validation, keyboard navigation, and optional accessibility attributes."
+/>
+
+<GuidesBanner 
+  title="Text vs Number vs Email Input?"
+  description="Compare input types to make the right choice"
+  guidePath="/pattern-guide/choosing-input-types"
 />
 
 ## Use Cases

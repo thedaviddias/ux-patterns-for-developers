@@ -7,6 +7,7 @@ status: complete
 ---
 
 import { Playground } from "@/components/playground";
+import { GuidesBanner } from "@/components/guides-banner";
 
 **_(Also called hover hint, info bubble)_**
 
@@ -24,6 +25,12 @@ Tooltips should be used to enhance understanding without overwhelming the user i
 <BuildEffort
   level="low"
   description="Simple hover/focus effect. Requires ARIA attributes (`aria-describedby`) for accessibility but no complex state management."
+/>
+
+<GuidesBanner 
+  title="Tooltip vs Popover vs Modal?"
+  description="Compare all overlay patterns to make the right choice"
+  guidePath="/pattern-guide/modal-vs-popover-guide"
 />
 
 ## Use Cases

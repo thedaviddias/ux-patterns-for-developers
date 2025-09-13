@@ -6,6 +6,8 @@ icon: MessageSquare
 status: complete
 ---
 
+import { GuidesBanner } from "@/components/guides-banner";
+
 <GalleryBanner
   title="View Popover Examples"
   description="Discover what to do (and avoid) from real implementations"
@@ -23,6 +25,12 @@ Unlike modals blocking page interaction, popovers deliver contextual help or sho
 <BuildEffort
   level="medium"
   description="Requires positioning logic, dismissal handling, focus management, and ARIA attributes (`aria-haspopup`, `aria-expanded`)."
+/>
+
+<GuidesBanner 
+  title="Popover vs Modal vs Drawer?"
+  description="Compare all overlay patterns to make the right choice"
+  guidePath="/pattern-guide/modal-vs-popover-guide"
 />
 
 ## Use Cases
