@@ -53,17 +53,11 @@ export function baseOptions(): HomeLayoutProps {
 		nav: {
 			title: (
 				<>
-					{/** biome-ignore lint/performance/noImgElement: logo image */}
-					<img
-						src="/img/ux-logo.png"
-						alt="UX Patterns for Devs"
-						className="w-6 h-6 rounded-full"
-					/>
 					<div className="inline-flex items-center">
 						{/* Desktop: Full breadcrumb */}
 						<Link
 							href="/"
-							className="flex items-center gap-1 text-xl font-bold text-fd-primary hover:text-fd-primary/90 transition-colors"
+							className="flex items-center gap-1 text-lg sm:text-xl font-bold text-fd-primary hover:text-fd-primary/90 transition-colors"
 						>
 							UX Patterns
 						</Link>

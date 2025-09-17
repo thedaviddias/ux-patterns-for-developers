@@ -157,7 +157,10 @@ export async function handleFeedbackRate(
 		return {
 			githubUrl: discussion.url,
 		};
-	} catch (_error) {
+	} catch (error) {
+		// Log the error for debugging
+		console.error("GitHub App integration failed:", error);
+
 		// Fallback: return a manual GitHub Discussion URL
 		const title = `Feedback for ${url}`;
 		const body = `[${feedback.opinion}] ${feedback.message}\n\n> Forwarded from user feedback.`;

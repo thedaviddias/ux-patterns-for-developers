@@ -35,7 +35,7 @@ export const GitHubStars = ({
 				value={starsCount}
 				className="inline-flex items-center px-2 py-0.5 rounded text-neutral-900 dark:text-neutral-100"
 			/>
-			<StarIcon className="size-4 xs:hidden text-gray-500 transition-all duration-300 text-yellow-300" />
+			<StarIcon className="size-4 hidden text-gray-500 transition-all duration-300 text-yellow-300" />
 		</>
 	);
 
