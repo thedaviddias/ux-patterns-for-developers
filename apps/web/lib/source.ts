@@ -1,3 +1,4 @@
+import { shouldShowInNav } from "@ux-patterns/ui/utils/pattern-status";
 import {
 	type InferMetaType,
 	type InferPageType,
@@ -13,7 +14,12 @@ import { blog as blogPosts, docs } from "@/.source";
 export const source = loader({
 	// it assigns a URL to your pages
 	baseUrl: "/",
-	source: docs.toFumadocsSource(),
+	source: docs.toFumadocsSource({
+		filter: (page) => {
+			// Filter out draft pages from source
+			return page.data.status !== "draft";
+		},
+	}),
 	icon: (name: string | undefined) => {
 		if (!name) return null;
 		// Convert icon name to Lucide React component
@@ -23,6 +29,22 @@ export const source = loader({
 		return IconComponent
 			? createElement(IconComponent, { className: "h-4 w-4" })
 			: null;
+	},
+	pageTree: {
+		transformers: [
+			{
+				file(node, file) {
+					// Filter out draft pages from navigation tree
+					if (file && this.storage.read(file)) {
+						const page = this.storage.read(file);
+						if (page?.data?.status === "draft") {
+							return null; // Remove from tree
+						}
+					}
+					return node;
+				},
+			},
+		],
 	},
 });
 

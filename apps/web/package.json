@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"analyze": "export ANALYZE=true && next build",
+		"prebuild": "node scripts/generate-pattern-dates.js",
 		"build": "next build",
 		"check": "tsc --noEmit",
 		"dev": "next dev --turbo -p 3060",

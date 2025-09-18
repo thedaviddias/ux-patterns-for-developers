@@ -1,5 +1,7 @@
 "use client";
 
+import { PatternBadge } from "@ux-patterns/ui/components/custom/pattern-badge";
+import { getBadgeType } from "@ux-patterns/ui/utils/pattern-status";
 import type { LucideIcon } from "lucide-react";
 import * as Icons from "lucide-react";
 import { ArrowRight } from "lucide-react";
@@ -70,9 +72,46 @@ export const RelatedPatternsCard = ({
 										) : null;
 									})()}
 								<div className="flex-1">
-									<h4 className="font-medium text-base text-card-foreground group-hover:text-primary mt-0">
-										{pattern.title}
-									</h4>
+									<div className="flex items-start gap-2">
+										<h4 className="font-medium text-base text-card-foreground group-hover:text-primary mt-0">
+											{pattern.title}
+										</h4>
+										{(() => {
+											// Extract slug from pattern path
+											const slug = pattern.path
+												.replace(/^\/patterns\//, "")
+												.replace(/\/$/, "");
+
+											// Try to get git dates (this will work at build time)
+											let gitDates = null;
+											if (typeof window === "undefined") {
+												// Server-side only
+												try {
+													const {
+														getPatternDatesBySlug,
+													} = require("../lib/pattern-dates");
+													gitDates = getPatternDatesBySlug(slug);
+												} catch {}
+											}
+
+											const badgeType = getBadgeType({
+												status: (pattern as any).status || "complete",
+												gitCreatedAt: gitDates?.created,
+												gitUpdatedAt: gitDates?.updated,
+												isMajorUpdate: gitDates?.isMajorUpdate,
+												createdAt: (pattern as any).createdAt,
+												updatedAt: (pattern as any).updatedAt,
+												publishedAt: (pattern as any).publishedAt,
+												lastMajorUpdate: (pattern as any).lastMajorUpdate,
+											});
+											return badgeType ? (
+												<PatternBadge
+													variant={badgeType}
+													className="flex-shrink-0"
+												/>
+											) : null;
+										})()}
+									</div>
 									{pattern.description && (
 										<p className="text-sm text-muted-foreground mt-1 mb-0">
 											{pattern.description}
