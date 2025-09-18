@@ -5,6 +5,7 @@
 	"type": "module",
 	"exports": {
 		"./lib/utils": "./src/lib/utils.ts",
+		"./utils/*": "./src/utils/*.ts",
 		"./components/shadcn/*": "./src/components/shadcn/*.tsx",
 		"./components/magicui/*": "./src/components/magicui/*.tsx",
 		"./components/custom/*": "./src/components/custom/*.tsx",

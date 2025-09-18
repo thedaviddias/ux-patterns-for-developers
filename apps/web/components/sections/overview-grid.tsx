@@ -37,7 +37,7 @@ export const OverviewGrid = async () => {
 export const PatternWrapper = ({ pattern }: PatternWrapperProps) => {
 	const wrapperClasses = cn(
 		"relative rounded-xl border border-neutral-200 dark:border-neutral-800",
-		pattern.status !== "coming-soon" &&
+		pattern.status !== "draft" &&
 			"border-neutral-400 dark:border-neutral-600 hover:bg-neutral-100 hover:border-neutral-200 dark:hover:bg-neutral-900 dark:hover:border-neutral-400 hover:scale-105 transition-all duration-100 ease-in-out",
 	);
 
@@ -45,7 +45,7 @@ export const PatternWrapper = ({ pattern }: PatternWrapperProps) => {
 
 	return (
 		<div className={wrapperClasses}>
-			{pattern.status !== "coming-soon" ? (
+			{pattern.status !== "draft" ? (
 				<LinkCustom
 					href={pattern.href}
 					className="!no-underline w-full"
@@ -64,21 +64,16 @@ const PatternContent = ({ pattern }: PatternWrapperProps) => (
 	<div
 		className={cn(
 			"relative flex flex-col gap-4 overflow-hidden rounded-xl p-5 transition-all duration-300",
-			pattern.status !== "coming-soon"
+			pattern.status !== "draft"
 				? "hover:animate-card-hover cursor-pointer"
 				: "opacity-60 cursor-not-allowed",
 		)}
 	>
 		<div className="flex items-center justify-between">
 			{pattern.icon && <pattern.icon className="h-8 w-8 text-primary" />}
-			{pattern.status === "coming-soon" && (
-				<Badge variant="outline">
-					<span className="text-[10px]">Coming soon</span>
-				</Badge>
-			)}
 			{pattern.status === "draft" && (
 				<Badge variant="outline">
-					<span className="text-[10px]">Draft</span>
+					<span className="text-[10px]">Coming soon</span>
 				</Badge>
 			)}
 		</div>

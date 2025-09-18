@@ -29,6 +29,9 @@ export const docs = defineDocs({
 			keywords: z.array(z.string()).optional(),
 			category: z.array(z.string()).optional(),
 			wordCount: z.number().optional(),
+			hideFromNav: z.boolean().optional(),
+			publishedAt: z.union([z.string(), z.date()]).optional(),
+			lastMajorUpdate: z.union([z.string(), z.date()]).optional(),
 			steps: z
 				.array(
 					z.object({
