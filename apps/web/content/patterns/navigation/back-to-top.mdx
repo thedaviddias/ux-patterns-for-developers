@@ -496,7 +496,47 @@ Implement clear visual states for all interactions including hover, focus, activ
 - **Device Breakdown:** Usage patterns across desktop vs mobile
 - **Page Type Performance:** Which content types benefit most from the feature
 
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize the Back to Top experience:
+
+- 📉 **Low Usage Rate?**
+  → Users might not be scrolling far enough to see the button. Consider lowering the scroll threshold or making the button more visually prominent.
+
+- ⏱️ **High Time to Engagement?**
+  → Users might be hesitant to use the button. Consider adding a tooltip or making the button more discoverable through visual cues.
+
+- 📱 **Mobile vs Desktop Usage Differences?**
+  → Mobile users might prefer different positioning or sizing. Test button placement and touch target size for mobile optimization.
+
+- 📊 **Low Scroll Depth at Use?**
+  → Users might be clicking too early, suggesting the button appears too soon. Consider increasing the scroll threshold.
+
+- 🎯 **Page Type Performance Variations?**
+  → Some content types might not benefit from the button. Consider removing it from short pages or pages where users don't scroll significantly.
+
+- 🔄 **High Keyboard Activation Rate?**
+  → Indicates good accessibility implementation. Ensure keyboard users have the same experience as mouse users.
+
+By continuously monitoring these metrics, we can refine the Back to Top button's effectiveness and improve overall user experience.
+
+### RTL (Right-to-Left) Considerations
+
+- Position button on bottom-left for RTL languages
+- Mirror any directional icons appropriately
+- Adjust animation directions for RTL context
+
+### Cultural Considerations
+
+- **Icon choice:** Up arrow is universally understood
+- **Position:** Bottom-right is standard in LTR, bottom-left in RTL
+- **Color significance:** Avoid colors with negative cultural connotations
+
 ## Localization
+
+The Back to Top component contains several interactive elements that require localization. This includes visible labels for buttons and controls, as well as ARIA labels for screen readers. The following JSON structure provides a comprehensive set of strings that should be translated for each supported language.
+
+Note that for right-to-left (RTL) languages, you may need to adjust the button position from bottom-right to bottom-left accordingly.
 
 ```json
 {
@@ -516,18 +556,6 @@ Implement clear visual states for all interactions including hover, focus, activ
   }
 }
 ```
-
-### RTL (Right-to-Left) Considerations
-
-- Position button on bottom-left for RTL languages
-- Mirror any directional icons appropriately
-- Adjust animation directions for RTL context
-
-### Cultural Considerations
-
-- **Icon choice:** Up arrow is universally understood
-- **Position:** Bottom-right is standard in LTR, bottom-left in RTL
-- **Color significance:** Avoid colors with negative cultural connotations
 
 ## Performance
 
