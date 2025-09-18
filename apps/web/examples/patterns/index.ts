@@ -8,6 +8,8 @@ import { basicTableExample } from "./data-display/table/basic";
 import { filterableTableExample } from "./data-display/table/filterable";
 import { paginatedTableExample } from "./data-display/table/paginated";
 import { sortableTableExample } from "./data-display/table/sortable";
+import { advancedCheckboxExample } from "./forms/checkbox/advanced";
+import { basicCheckboxExample } from "./forms/checkbox/basic";
 import {
 	basicTextFieldExample,
 	characterCounterTextFieldExample,
@@ -47,6 +49,10 @@ export const examples = {
 		},
 	},
 	forms: {
+		checkbox: {
+			basic: basicCheckboxExample,
+			advanced: advancedCheckboxExample,
+		},
 		"text-field": {
 			basic: basicTextFieldExample,
 			validation: validationTextFieldExample,

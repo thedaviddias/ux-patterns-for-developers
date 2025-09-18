@@ -221,12 +221,16 @@ No feedback during async operations leaves users confused.
 **How to Fix It?**
 Always show loading indicators for operations taking >500ms.
 
+---
+
 ### **Poor Error Handling**
 **The Problem:**
 Generic error messages don't help users recover.
 
 **How to Fix It?**
 Provide specific, actionable error messages with recovery options.
+
+---
 
 ### **Ignoring Edge Cases**
 **The Problem:**
@@ -413,44 +417,59 @@ The following table outlines the standard keyboard interactions for {{name}} com
 
 **Should ✓**
 
-- [ ] Pattern initializes without errors
-- [ ] All interactive elements respond correctly
-- [ ] State changes are reflected in UI
-- [ ] Error states display appropriately
-- [ ] Loading states work as expected
-- [ ] Pattern works across breakpoints
-- [ ] Keyboard navigation functions properly
-- [ ] Screen readers announce correctly
+- [ ] Pattern **initializes without errors** and renders correctly.
+- [ ] All interactive elements **respond correctly** to user input.
+- [ ] State changes are **reflected in the UI** immediately.
+- [ ] Error states **display appropriately** with clear messaging.
+- [ ] Loading states **work as expected** during async operations.
+- [ ] Pattern **works across all breakpoints** and screen sizes.
+- [ ] Keyboard navigation **functions properly** for all interactive elements.
+- [ ] Screen readers **announce state changes** correctly.
 
-### Unit Tests
+### Accessibility Testing
 
-```javascript
-describe('{{name}}', () => {
-  it('should render correctly', () => {
-    // Test implementation
-  });
+**Should ✓**
 
-  it('should handle user interaction', () => {
-    // Test implementation
-  });
-});
-```
+- [ ] Ensure pattern is **keyboard accessible** with proper tab order.
+- [ ] Verify that all elements are **announced by screen readers** appropriately.
+- [ ] Confirm **ARIA attributes** are correctly implemented.
+- [ ] Check that **focus indicators are clearly visible**.
+- [ ] Ensure **sufficient color contrast** meets WCAG guidelines.
+- [ ] Test with screen readers (NVDA, JAWS, VoiceOver) for **proper announcements**.
+- [ ] Validate **semantic HTML structure** is maintained.
+- [ ] Test with voice control software for **proper activation**.
 
-### E2E Tests
+### Visual Testing
 
-```javascript
-test('{{name}} user flow', async ({ page }) => {
-  // Navigate to component
-  // Interact with component
-  // Assert expected behavior
-});
-```
+**Should ✓**
 
-### Visual Regression Testing
+- [ ] Confirm pattern elements are **legible across all screen sizes**.
+- [ ] Validate **proper spacing and alignment** of all components.
+- [ ] Test animations for **smooth transitions** and performance.
+- [ ] Ensure pattern **does not overlap or interfere** with other elements.
+- [ ] Verify **visual consistency** across different browsers.
+- [ ] Test **responsive behavior** at all breakpoints.
+- [ ] Validate **touch target sizes** meet minimum requirements.
 
-- Capture baseline screenshots
-- Test different states and variations
-- Check responsive breakpoints
+### Performance Testing
+
+**Should ✓**
+
+- [ ] Measure pattern performance to **avoid jank or slow responses**.
+- [ ] Ensure pattern **renders efficiently** without performance degradation.
+- [ ] Optimize animations to **use efficient CSS properties**.
+- [ ] Test for **efficient event handling** to prevent performance issues.
+- [ ] Validate that pattern **doesn't impact overall page performance**.
+
+### Cross-Browser Testing
+
+**Should ✓**
+
+- [ ] Test pattern functionality **across all supported browsers**.
+- [ ] Verify styling **renders consistently** across different browsers.
+- [ ] Ensure **keyboard navigation works** in all target browsers.
+- [ ] Test **touch interactions** on mobile devices and tablets.
+- [ ] Validate **screen reader compatibility** across different assistive technologies.
 
 <!--
   OPTIONAL SECTION
@@ -540,11 +559,7 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 -->
 ## Related Patterns
 
-Consider these related patterns when implementing {{name}}:
-
-- [Pattern 1](/patterns/category/pattern-1) - Use when you need similar functionality
-- [Pattern 2](/patterns/category/pattern-2) - Complements this pattern for complex flows
-- [Pattern 3](/patterns/category/pattern-3) - Alternative approach for different context
+<RelatedPatternsCard category="{{category}}" />
 
 <!--
   OPTIONAL SECTION
