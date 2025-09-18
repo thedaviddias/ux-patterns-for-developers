@@ -72,6 +72,8 @@
 	--color-3: 262 83% 58%;
 	--color-4: 221 83% 53%;
 	--color-5: 142 76% 73%;
+
+  --color-fd-primary: #0092b3;
 }
 
 .dark {
@@ -106,6 +108,8 @@
 	--sidebar-accent-foreground: 0 0% 98%;
 	--sidebar-border: 0 0% 14.9%;
 	--sidebar-ring: 0 0% 83.1%;
+
+  --color-fd-primary: #3ad1ff;
 }
 
 @theme inline {

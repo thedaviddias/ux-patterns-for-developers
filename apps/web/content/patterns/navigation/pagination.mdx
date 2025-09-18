@@ -31,7 +31,7 @@ Pagination works well, but consider alternatives like [infinite scroll](/pattern
   description="Requires page navigation logic, active state management, keyboard accessibility, and ARIA attributes (`aria-current`, `aria-label`)."
 />
 
-<GuidesBanner 
+<GuidesBanner
   title="Pagination vs Infinite Scroll?"
   description="Compare content loading patterns to make the right choice"
   guidePath="/pattern-guide/pagination-vs-infinite-scroll"
@@ -107,14 +107,12 @@ Pagination helps users navigate large information sets without getting overwhelm
 
 ```mermaid
 flowchart TB
-  subgraph Pagination[Pagination Component]
-    A[Pagination Container] --> B[First Page Button - Optional]
-    A --> C[Previous Button]
-    A --> D[Pagination Items]
-    A --> E[Ellipsis - Optional]
-    A --> F[Next Button]
-    A --> G[Last Page Button - Optional]
-  end
+A[Pagination Container] --> B[First Page Button - Optional]
+A --> C[Previous Button]
+A --> D[Pagination Items]
+A --> E[Ellipsis - Optional]
+A --> F[Next Button]
+A --> G[Last Page Button - Optional]
 ```
 
 ### Component Structure

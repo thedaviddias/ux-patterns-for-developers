@@ -25,7 +25,7 @@ This pattern is commonly used in **social media feeds, search results, and conte
   description="Needs lazy loading, API handling, memory management, and edge cases like scrolling position retention."
 />
 
-<GuidesBanner 
+<GuidesBanner
   title="Infinite Scroll vs Pagination?"
   description="Compare content loading patterns to make the right choice"
   guidePath="/pattern-guide/pagination-vs-infinite-scroll"
@@ -98,12 +98,10 @@ Use Infinite Scroll when you need to dynamically load more content as users scro
 
 ```mermaid
 flowchart TB
-    subgraph InfiniteScroll[Infinite Scroll Component]
-        A[Content Container] --> B[Trigger Point]
-        B --> C[Loading Indicator]
-        C --> D[Newly Loaded Content]
-        D --> E[Next Trigger Point - Optional]
-    end
+A[Content Container] --> B[Trigger Point]
+B --> C[Loading Indicator]
+C --> D[Newly Loaded Content]
+D --> E[Next Trigger Point - Optional]
 ```
 
 ### Component Structure

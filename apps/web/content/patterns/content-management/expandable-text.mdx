@@ -61,15 +61,10 @@ Use **Expandable Text** when you need to **manage lengthy content while keeping 
 
 ```mermaid
 flowchart TB
-    subgraph ExpandableText[Expandable Text Component]
-        A[Trigger Button] -->|Collapsed| B[Label + Icon ▾]
-        A -->|Expanded| C[Label + Icon ▴]
-        A -.->|Toggles State| D[Updates aria-expanded]
-
-        subgraph ContentSection[Content Section]
-            E[Hidden Content] -->|Expands| F[Visible Content]
-        end
-    end
+A[Trigger Button] -->|Collapsed| B[Label + Icon ▾]
+A -->|Expanded| C[Label + Icon ▴]
+A -.->|Toggles State| D[Updates aria-expanded]
+E[Hidden Content] -->|Expands| F[Visible Content]
 ```
 
 ### Component Structure

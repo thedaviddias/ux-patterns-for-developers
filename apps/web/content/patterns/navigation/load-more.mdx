@@ -95,13 +95,11 @@ For better usability, make sure the Load More button gets **removed when all con
 
 ```mermaid
 flowchart TB
-    subgraph LoadMore[Load More Component]
-        A[Container] --> B[Initial Content List]
-        B --> C[Load More Button]
-        C --> D[Loading Indicator - Optional]
-        C --> E[Additional Content]
-        E --> F[Another Load More Button - Optional]
-    end
+A[Container] --> B[Initial Content List]
+B --> C[Load More Button]
+C --> D[Loading Indicator - Optional]
+C --> E[Additional Content]
+E --> F[Another Load More Button - Optional]
 ```
 
 ### Component Structure

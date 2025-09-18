@@ -18,6 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 			tabMode="none"
 			tree={source.pageTree}
 			links={linkItems}
+			sidebar={{ defaultOpenLevel: 2 }}
 			themeSwitch={{ enabled: false }}
 			searchToggle={{
 				enabled: true,

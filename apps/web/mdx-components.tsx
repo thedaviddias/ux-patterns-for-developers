@@ -5,6 +5,7 @@ import { BuildEffort } from "@/components/build-effort";
 import { ComponentPreviewWithMetadata } from "@/components/component-preview-wrapper";
 import { FaqStructuredData } from "@/components/faq-structured-data";
 import { GalleryBanner } from "@/components/gallery-banner";
+import { GalleryImage } from "@/components/gallery-image";
 import { KitBanner } from "@/components/kit-banner";
 import { LinkCustom } from "@/components/link-custom";
 import { LazyMermaid } from "@/components/mdx/lazy-mermaid";
@@ -12,7 +13,7 @@ import { PatternComparison } from "@/components/pattern-comparison";
 import { PatternGuideList } from "@/components/pattern-guide-list";
 import { PatternPreview } from "@/components/pattern-preview";
 import { PatternStats } from "@/components/pattern-stats";
-import { RelatedPatternsCard } from "@/components/related-patterns-card";
+import { RelatedPatternsCardServer } from "@/components/related-patterns-card-server";
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
 	return {
@@ -30,10 +31,11 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 		PatternPreview,
 		PatternStats,
 		PatternComparison,
-		RelatedPatternsCard,
+		RelatedPatternsCard: RelatedPatternsCardServer,
 		PatternGuideList,
 		KitBanner,
 		GalleryBanner,
+		GalleryImage,
 		...components,
 	};
 }

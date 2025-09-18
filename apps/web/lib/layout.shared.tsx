@@ -57,7 +57,7 @@ export function baseOptions(): HomeLayoutProps {
 						{/* Desktop: Full breadcrumb */}
 						<Link
 							href="/"
-							className="flex items-center gap-1 text-lg sm:text-xl font-bold text-fd-primary hover:text-fd-primary/90 transition-colors"
+							className="flex items-center gap-1 text-lg sm:text-xl font-bold transition-colors"
 						>
 							UX Patterns
 						</Link>

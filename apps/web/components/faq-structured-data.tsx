@@ -28,13 +28,13 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
 
 	return (
 		<>
-			<div className="space-y-8 pt-8">
-				<dl className="space-y-6">
-					{items.map((item, index) => (
-						<div
-							key={`faq-item-${item.question}-${index}`}
-							className="group rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6"
-						>
+			<div className="space-y-6">
+				{items.map((item, index) => (
+					<div
+						key={`faq-item-${item.question}-${index}`}
+						className="group rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-card"
+					>
+						<dl className="!m-0">
 							<dt className="text-lg font-semibold leading-snug text-neutral-900 dark:text-neutral-100 mt-0">
 								{item.question}
 							</dt>
@@ -59,9 +59,9 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
 									{item.answer}
 								</ReactMarkdown>
 							</dd>
-						</div>
-					))}
-				</dl>
+						</dl>
+					</div>
+				))}
 			</div>
 
 			<script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

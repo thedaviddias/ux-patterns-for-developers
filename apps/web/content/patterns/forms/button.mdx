@@ -97,15 +97,10 @@ component: button
 
 ```mermaid
 flowchart TB
-subgraph Button
 Container[Container Element] -->|contains| Content[Content Area]
 Content --> Icon[Icon <optional>]
 Content --> Label[Label Text]
 Content --> LoadingSpinner[Loading Spinner <optional>]
-
-classDef container stroke:#666,stroke-width:2px
-class Button container
-end
 ```
 
 ### Component Structure
