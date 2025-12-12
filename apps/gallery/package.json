@@ -28,7 +28,7 @@
 		"gray-matter": "^4.0.3",
 		"lucide-react": "^0.468.0",
 		"nanoid": "^5.1.5",
-		"next": "^15.5.2",
+		"next": "^15.5.9",
 		"next-plausible": "^3.12.4",
 		"nuqs": "^2.6.0",
 		"react": "^19.1.1",

@@ -7,7 +7,7 @@
     "./*": "./src/*.ts"
   },
   "dependencies": {
-    "next": "15.5.7"
+    "next": "15.5.9"
   },
   "devDependencies": {
     "@types/node": "24.3.0",
