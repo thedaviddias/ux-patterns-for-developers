@@ -7,11 +7,11 @@
 		"./*": "./src/*.ts"
 	},
 	"dependencies": {
-		"zod": "^4.1.5"
+		"zod": "^4.3.5"
 	},
 	"devDependencies": {
 		"@thedaviddias/config-typescript": "workspace:*",
-		"@types/node": "24.3.0",
-		"typescript": "^5.9.2"
+		"@types/node": "25.0.5",
+		"typescript": "^5.9.3"
 	}
 }

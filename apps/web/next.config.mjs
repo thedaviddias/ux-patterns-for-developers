@@ -29,9 +29,6 @@ const config = {
 			fullUrl: true,
 		},
 	},
-	eslint: {
-		ignoreDuringBuilds: true,
-	},
 	serverExternalPackages: ["ts-morph", "typescript", "twoslash", "shiki"],
 	experimental: {
 		optimizePackageImports: [

@@ -20,13 +20,16 @@ export const Blog: FC<{ lang: string }> = async ({ lang }) => {
 
 	// Sort by date (newest first)
 	const sortedPages = blogPages.sort((a, b) => {
-		const dateA = new Date(a.data.date || 0).getTime();
-		const dateB = new Date(b.data.date || 0).getTime();
+		const aData = a.data as any;
+		const bData = b.data as any;
+		const dateA = new Date(aData.date || 0).getTime();
+		const dateB = new Date(bData.date || 0).getTime();
 		return dateB - dateA;
 	});
 
 	return sortedPages.map((page) => {
-		const { title, description, date } = page.data;
+		const pageData = page.data as any;
+		const { title, description, date } = pageData;
 
 		return (
 			<div key={page.url} className="mt-12">

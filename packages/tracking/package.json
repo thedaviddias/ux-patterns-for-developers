@@ -10,8 +10,8 @@
 		"src/**"
 	],
 	"devDependencies": {
-		"next-plausible": "^3.12.4",
-		"typescript": "^5.9.2"
+		"next-plausible": "^3.12.5",
+		"typescript": "^5.9.3"
 	},
 	"peerDependencies": {
 		"next-plausible": "^3.0.0"

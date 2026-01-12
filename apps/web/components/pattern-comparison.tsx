@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRight, CheckCircle, XCircle } from "lucide-react";
 import Link from "next/link";
 import { cn } from "../lib/cn";

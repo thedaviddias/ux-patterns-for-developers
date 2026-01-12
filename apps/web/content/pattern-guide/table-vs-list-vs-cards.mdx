@@ -4,10 +4,6 @@ description: Choose the right data display pattern based on your content type, u
 icon: LayoutGrid
 ---
 
-import { DecisionFlowSection } from '@/components/pattern-comparison/decision-flow-section';
-import { ComparisonGrid } from '@/components/pattern-comparison/comparison-grid';
-import { nodes, edges } from '@/components/decision-flow/data/data-display-patterns';
-
 <div>
   <div className="prose dark:prose-invert mb-10 space-y-4">
     Choosing the right data display pattern is crucial for user experience. Tables, lists, and cards each excel in different scenarios.
@@ -17,54 +13,9 @@ import { nodes, edges } from '@/components/decision-flow/data/data-display-patte
 
   <DecisionFlowSection 
     title="Table vs List vs Cards Data Display Decision Flow"
-    nodes={nodes}
-    edges={edges}
+    nodes={dataDisplayNodes}
+    edges={dataDisplayEdges}
   />
   
-  <ComparisonGrid patterns={comparisonData.patterns} />
+  <ComparisonGrid patterns={tableComparisonData.patterns} />
 </div>
-
-export const comparisonData = {
-  patterns: [
-    {
-      title: "Table",
-      href: "/patterns/data-display/table",
-      criteria: [
-        "Data comparison is critical",
-        "Many columns of data needed",
-        "Sorting and filtering required",
-        "Desktop-first application",
-      ],
-    },
-    {
-      title: "List View",
-      href: "/patterns/data-display/list-view",
-      criteria: [
-        "Simple, scannable content",
-        "Single primary action per item",
-        "Mobile-optimized layout",
-        "Chronological or priority order",
-      ],
-    },
-    {
-      title: "Card Grid",
-      href: "/patterns/data-display/card-grid",
-      criteria: [
-        "Visual content is important",
-        "Each item is self-contained",
-        "Browsing over comparison",
-        "Responsive across devices",
-      ],
-    },
-    {
-      title: "Dashboard",
-      href: "/patterns/data-display/dashboard",
-      criteria: [
-        "Multiple data types displayed",
-        "High-level overview needed",
-        "Real-time metrics important",
-        "Executive summary view",
-      ],
-    },
-  ],
-};

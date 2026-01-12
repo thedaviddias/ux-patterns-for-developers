@@ -1,4 +1,3 @@
-import { DocsBody } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { metadataSEO } from "@/app/metadata";
@@ -25,12 +24,14 @@ export default async function PageRoute(props: {
 		notFound();
 	}
 
-	const MDX = page.data.body;
+	// Cast to any to access custom frontmatter fields
+	const pageData = page.data as any;
+	const MDX = pageData.body;
 	const title =
-		page.data.title ||
+		pageData.title ||
 		params.pageName.charAt(0).toUpperCase() +
 			params.pageName.slice(1).replace(/-/g, " ");
-	const description = page.data.description || `Information about ${title}`;
+	const description = pageData.description || `Information about ${title}`;
 
 	// Generate schemas
 	const schemas = [
@@ -39,14 +40,14 @@ export default async function PageRoute(props: {
 			description,
 			`/pages/${params.pageName}`,
 			undefined, // image
-			page.data.datePublished instanceof Date
-				? page.data.datePublished.toISOString()
-				: page.data.datePublished,
-			page.data.dateModified instanceof Date
-				? page.data.dateModified.toISOString()
-				: page.data.dateModified,
+			pageData.datePublished instanceof Date
+				? pageData.datePublished.toISOString()
+				: pageData.datePublished,
+			pageData.dateModified instanceof Date
+				? pageData.dateModified.toISOString()
+				: pageData.dateModified,
 			"Page",
-			page.data.wordCount,
+			pageData.wordCount,
 		),
 		generateBreadcrumbSchema([
 			{ name: "Home", url: "/" },
@@ -84,9 +85,7 @@ export default async function PageRoute(props: {
 					<main className="w-full p-0 overflow-hidden">
 						<div className="p-6 lg:p-10">
 							<div className="prose dark:prose-invert max-w-none prose-headings:scroll-mt-8 prose-headings:font-semibold prose-a:no-underline prose-headings:tracking-tight prose-headings:text-balance prose-p:tracking-tight prose-p:text-balance prose-lg">
-								<DocsBody>
-									<MDX />
-								</DocsBody>
+								<MDX />
 							</div>
 						</div>
 					</main>

@@ -1,21 +1,575 @@
 ---
-title: "Radio"
+title: "Radio Button"
 summary: "Select a single option from a group"
 description: "Implement accessible radio button groups in your web applications. Learn best practices for single-choice selection controls, keyboard navigation, and ARIA attributes."
 icon: CircleDot
-status: draft
+status: complete
 ---
 
 import { GuidesBanner } from "@/components/guides-banner";
-
-<Callout type="warning">
-  This page is empty for now. Please help us by
-  [contributing](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
-  to add content.
-</Callout>
+import { PatternStats } from "@/components/pattern-stats";
+import { BuildEffort } from "@/components/build-effort";
+import { Playground } from "@/components/playground";
+import { BrowserSupport } from "@/components/browser-support";
+import { FaqStructuredData } from "@/components/faq-structured-data";
 
 <GuidesBanner
   title="Radio vs Checkbox vs Dropdown?"
   description="Compare selection patterns to make the right choice"
   guidePath="/pattern-guide/input-selection-guide"
+/>
+
+<PatternStats
+  complexity="Low"
+  effort="1-2 hours"
+  maintenance="Low"
+  performance="Excellent"
+/>
+
+<BuildEffort
+  level="low"
+  description="Native HTML radio inputs with optional styling enhancements. Requires proper fieldset/legend structure, keyboard navigation with arrow keys, and ARIA attributes for accessibility."
+/>
+
+## Overview
+
+Radio buttons are form controls that allow users to select **exactly one option** from a set of mutually exclusive choices. Unlike checkboxes, radio buttons work in groups where selecting one automatically deselects all others in the same group.
+
+Radio buttons are essential for forms where users must make a single choice from multiple options, such as selecting a payment method, choosing a size, or picking a delivery option.
+
+### Key Characteristics
+
+- **Mutually Exclusive**: Only one option can be selected at a time
+- **Grouped Behavior**: All radio buttons with the same `name` attribute work together
+- **Keyboard Accessible**: Navigate with arrow keys, select with Space
+- **Screen Reader Friendly**: Properly announced with current selection state
+- **Visual Feedback**: Clear indication of selected vs unselected states
+
+## Use Cases
+
+### ✅ **Do Use Radio Buttons For:**
+
+- **Single Selection**: When users must choose exactly one option from multiple choices
+- **Mutually Exclusive Options**: When selecting one option should deselect all others
+- **Form Controls**: Payment methods, shipping options, size selection
+- **Settings**: Theme selection, language preference, notification frequency
+- **Surveys**: Rating scales, preference questions, demographic selections
+
+### ❌ **Don't Use Radio Buttons For:**
+
+- **Multiple Selections**: Use checkboxes instead
+- **Binary On/Off States**: Use toggle switches instead
+- **Actions**: Use buttons instead
+- **Navigation**: Use tabs or navigation menus instead
+- **Large Option Lists**: Use dropdowns or select components instead
+
+## Anatomy
+
+<Mermaid
+  graph="
+    graph TD
+      A[Radio Button Group] --> B[Fieldset Container]
+      A --> C[Legend Label]
+      B --> D[Radio Button 1]
+      B --> E[Radio Button 2]
+      B --> F[Radio Button 3]
+      D --> G[Input Element]
+      D --> H[Visual Indicator]
+      D --> I[Label Text]
+      E --> J[Input Element]
+      E --> K[Visual Indicator]
+      E --> L[Label Text]
+      F --> M[Input Element]
+      F --> N[Visual Indicator]
+      F --> O[Label Text]
+  "
+/>
+
+### Core Components
+
+1. **Fieldset Container**: Groups related radio buttons semantically
+2. **Legend**: Provides context for the entire group
+3. **Radio Input**: The actual form control (hidden from view)
+4. **Visual Indicator**: Custom styled circle that shows selection state
+5. **Label**: Text that describes the option and is clickable
+
+## Best Practices
+
+### **Grouping & Structure**
+
+- **Use Fieldsets**: Always wrap radio button groups in `<fieldset>` elements
+- **Provide Legends**: Include descriptive `<legend>` text for the group
+- **Consistent Naming**: Use the same `name` attribute for all buttons in a group
+- **Logical Ordering**: Arrange options in a logical sequence (alphabetical, by frequency, etc.)
+
+### **Accessibility**
+
+- **Proper Labels**: Associate each radio button with a descriptive label
+- **Keyboard Navigation**: Ensure arrow keys work for navigation within the group
+- **Screen Reader Support**: Use proper ARIA attributes and semantic HTML
+- **Focus Management**: Provide clear visual focus indicators
+
+### **Visual Design**
+
+- **Clear States**: Distinguish between selected, unselected, and disabled states
+- **Adequate Spacing**: Provide enough space between options for easy selection
+- **Touch Targets**: Ensure minimum 44x44px touch targets on mobile
+- **Color Contrast**: Meet WCAG contrast requirements for all states
+
+### **User Experience**
+
+- **Default Selection**: Consider pre-selecting the most common option
+- **Clear Labels**: Use descriptive, unambiguous option labels
+- **Logical Grouping**: Group related options together visually
+- **Error Handling**: Provide clear feedback for validation errors
+
+## Examples
+
+<Playground
+  patternType="forms"
+  pattern="radio"
+  example="basic"
+/>
+
+This basic example shows:
+- Proper fieldset and legend structure
+- Accessible labeling
+- Keyboard navigation
+- Basic styling
+
+<Playground
+  patternType="forms"
+  pattern="radio"
+  example="advanced"
+/>
+
+This advanced example shows:
+- Custom styling with animations
+- Form validation
+- Dynamic option management
+- Error handling
+
+### Basic Implementation
+
+```html
+<!-- Basic radio button group -->
+<fieldset>
+  <legend>Choose your preferred contact method</legend>
+  <div class="radio-group">
+    <label class="radio-item">
+      <input type="radio" name="contact" value="email" checked>
+      <span class="radio-indicator"></span>
+      <span class="radio-label">Email</span>
+    </label>
+
+    <label class="radio-item">
+      <input type="radio" name="contact" value="phone">
+      <span class="radio-indicator"></span>
+      <span class="radio-label">Phone</span>
+    </label>
+
+    <label class="radio-item">
+      <input type="radio" name="contact" value="sms">
+      <span class="radio-indicator"></span>
+      <span class="radio-label">SMS</span>
+    </label>
+  </div>
+</fieldset>
+```
+
+## Common Mistakes & Anti-Patterns 🚫
+
+### **Using Radio Buttons for Multiple Selection**
+**The Problem:**
+Using radio buttons when users need to select multiple options confuses the interaction model.
+
+**How to Fix It?**
+Use checkboxes for multiple selections, radio buttons only for single selection.
+
+---
+
+### **Missing Fieldset Structure**
+**The Problem:**
+Radio buttons without proper fieldset grouping are inaccessible and confusing.
+
+**How to Fix It?**
+Always wrap radio button groups in fieldsets with descriptive legends.
+
+---
+
+### **Inconsistent Grouping**
+**The Problem:**
+Radio buttons with different names scattered throughout a form creates confusion.
+
+**How to Fix It?**
+Use the same `name` attribute for all radio buttons in a logical group.
+
+---
+
+### **Poor Label Association**
+**The Problem:**
+Radio buttons without proper labels are inaccessible and confusing for users.
+
+**How to Fix It?**
+Always associate labels using `for` attribute or wrap the input in a label element.
+
+---
+
+### **Too Many Options**
+**The Problem:**
+Presenting 10+ radio button options at once overwhelms users and causes decision fatigue.
+
+**How to Fix It?**
+Limit to 7-10 options, use progressive disclosure, or consider alternative patterns like dropdowns.
+
+---
+
+### **Inadequate Touch Targets**
+**The Problem:**
+Radio buttons smaller than 44x44px are difficult to tap on mobile devices.
+
+**How to Fix It?**
+Ensure minimum touch target size and consider expanding the clickable area beyond the visual indicator.
+
+## Accessibility
+
+### **Keyboard Navigation**
+
+- **Tab Key**: Move focus to the radio button group
+- **Arrow Keys**: Navigate between options within the group
+- **Space Key**: Select the focused option
+- **Tab Again**: Move to the next form element
+
+### **Screen Reader Support**
+
+- **Semantic HTML**: Use proper fieldset and legend structure
+- **ARIA Attributes**: Ensure proper labeling and state announcements
+- **Group Context**: Screen readers announce the group context and current selection
+- **State Changes**: Selection changes are announced immediately
+
+### **Visual Accessibility**
+
+- **Color Contrast**: Meet WCAG AA standards (4.5:1 ratio)
+- **Focus Indicators**: Clear visual focus indicators for keyboard users
+- **Size Requirements**: Minimum 44x44px touch targets
+- **State Distinction**: Clear visual difference between selected and unselected states
+
+## Performance
+
+### Performance Metrics
+
+**Target Metrics:**
+- **Render Time**: < 16ms for radio button state changes
+- **Bundle Size**: < 2KB for basic radio button implementation
+- **Memory Usage**: Minimal impact for standard radio button groups
+- **Accessibility**: 100% keyboard navigable, screen reader compatible
+
+**Optimization Strategies:**
+- **Event Delegation**: Use single event listener for radio button groups
+- **Lazy Rendering**: Only render visible radio buttons in long lists
+- **Debounced Updates**: Prevent excessive re-renders during rapid selection
+- **Virtual Scrolling**: For very large radio button lists (100+ items)
+
+**Mobile Performance:**
+- **Touch Optimization**: 44x44px minimum touch targets
+- **Reduced Motion**: Respect `prefers-reduced-motion` for animations
+- **Progressive Enhancement**: Core functionality works without JavaScript
+
+## Tracking
+
+Tracking radio button interactions helps measure their effectiveness, determine whether users find them useful, and identify potential usability issues. By analyzing radio button engagement, we can assess whether radio buttons enhance form completion or if users find them confusing.
+
+### Key Tracking Points
+
+Each radio button interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**             | **Description**                                                       | **Why Track It?**                                   |
+| -------------------------- | --------------------------------------------------------------------- | --------------------------------------------------- |
+| `radio.select`             | When a user selects a radio button option.                            | Determines which options are most popular.          |
+| `radio.change`             | When a user changes from one radio button to another.                 | Helps identify user preference changes.             |
+| `radio.group_complete`     | When a user completes a radio button group selection.                | Measures form completion rates.                     |
+| `radio.validation_error`   | When a user submits a form with missing required radio buttons.       | Identifies validation issues and UX problems.       |
+| `radio.abandon`            | When a user leaves a form without completing radio button sections.   | Tracks where users drop off in multi-step forms.    |
+| `radio.interaction_time`   | The time a user spends on radio button sections before proceeding.    | Helps determine if radio button groups are too complex. |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here's a recommended event format:
+
+```json
+{
+  "event": "radio.select",
+  "properties": {
+    "radio_id": "payment_method",
+    "radio_group": "payment_options",
+    "form_id": "checkout_form",
+    "interaction_time": 1.2 // in seconds
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- Radio Button Selection Rate → Percentage of users who select each radio button option.
+- Group Completion Rate → Percentage of users who complete radio button groups.
+- Validation Error Rate → Frequency of required radio button validation failures.
+- Abandonment Rate → Where users stop in forms with radio button sections.
+- Average Interaction Time → How long users spend on radio button groups.
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize radio button behavior:
+
+- 🚨 **Low Selection Rates?**
+  → Users might not understand the radio button options or find them unnecessary.
+  **Optimization:** Improve label clarity, add helpful descriptions, or remove unused options.
+
+- ⏳ **High Abandonment Rate?**
+  → Radio button groups might be overwhelming or confusing users.
+  **Optimization:** Simplify options, use progressive disclosure, or break large groups into smaller sections.
+
+- 📉 **High Validation Error Rate?**
+  → Required radio buttons might not be clearly indicated or users don't understand requirements.
+  **Optimization:** Improve required field indicators, add clearer instructions, or reconsider which fields are truly required.
+
+- 🎯 **Long Interaction Times?**
+  → Radio button groups might be too complex or have too many options.
+  **Optimization:** Reduce the number of options, improve grouping, or add search/filter functionality.
+
+- 🔄 **Frequent Changes?**
+  → Users might be selecting options by mistake or changing their minds.
+  **Optimization:** Improve option clarity, add confirmation for important selections, or provide better default states.
+
+By continuously monitoring these metrics, we can refine radio button usability and ensure they provide **real value** rather than unnecessary friction.
+
+## Localization
+
+### Text Direction (RTL/LTR)
+- **Layout Mirroring**: Flip radio button alignment for RTL languages
+- **Label Positioning**: Adjust label placement based on language direction
+- **Group Alignment**: Ensure radio button groups align properly in RTL layouts
+
+### Content Considerations
+- **Text Expansion**: Allow 30-50% extra space for translations
+- **Character Sets**: Support Unicode for all languages
+- **Font Selection**: Use system fonts that support target languages
+
+### Dynamic Content
+- **Number Formatting**: Respect locale-specific number formats
+- **Date/Time**: Use locale-appropriate date formatting
+- **Currency**: Display currency symbols correctly by locale
+
+## SEO
+
+### **Form Structure**
+- **Semantic HTML**: Use proper form elements and structure
+- **Label Content**: Include relevant keywords in radio button labels
+- **Schema Markup**: Use structured data for form elements when appropriate
+- **Progressive Enhancement**: Ensure core functionality works without JavaScript
+
+## Testing Guidelines
+
+### Functional Testing
+
+**Should ✓**
+
+- [ ] Radio buttons **toggle correctly on click, tap, and keyboard interaction**.
+- [ ] Only one option can be selected **at a time within each group**.
+- [ ] Form submission **includes the selected radio button value** in the correct format.
+- [ ] Validation works properly for **required radio button groups**.
+- [ ] Disabled state **prevents all interaction** and is visually distinct.
+- [ ] Radio button groups **maintain proper state consistency**.
+- [ ] Custom styling **doesn't break core functionality**.
+
+### Accessibility Testing
+
+**Should ✓**
+
+- [ ] Ensure radio buttons are **keyboard accessible** (arrow keys navigate, Space selects).
+- [ ] Verify that radio buttons are **announced by screen readers** with current state.
+- [ ] Confirm `aria-describedby` **correctly links labels to radio buttons**.
+- [ ] Check that radio button groups have **proper fieldset and legend structure**.
+- [ ] Ensure **sufficient color contrast** between radio button elements and background.
+- [ ] Test with screen readers (NVDA, JAWS, VoiceOver) for **proper announcements**.
+- [ ] Validate that **focus indicators are clearly visible**.
+- [ ] Test with voice control software for **proper activation**.
+
+### Visual Testing
+
+**Should ✓**
+
+- [ ] Confirm radio button labels are **legible across all screen sizes**.
+- [ ] Validate **proper spacing and alignment** of radio button groups.
+- [ ] Test radio button animations for **smooth state transitions**.
+- [ ] Ensure radio buttons **do not overlap or interfere with other elements**.
+- [ ] Verify radio buttons **align properly with their labels**.
+- [ ] Test custom styling **maintains visual consistency** across browsers.
+- [ ] Validate **touch target sizes meet minimum requirements** (44x44px).
+
+### Performance Testing
+
+**Should ✓**
+
+- [ ] Measure radio button interaction performance to **avoid jank or slow responses**.
+- [ ] Ensure large radio button groups **render efficiently** without performance degradation.
+- [ ] Optimize radio button animations to **use efficient CSS properties**.
+- [ ] Test for **efficient event handling** in radio button groups with many items.
+- [ ] Validate that **form submission performance** isn't impacted by radio button count.
+
+### Cross-Browser Testing
+
+**Should ✓**
+
+- [ ] Test radio button functionality **across all supported browsers**.
+- [ ] Verify custom styling **renders consistently** across different browsers.
+- [ ] Ensure **keyboard navigation works** in all target browsers.
+- [ ] Test **touch interactions** on mobile devices and tablets.
+- [ ] Validate **screen reader compatibility** across different assistive technologies.
+
+## Browser Support
+
+<BrowserSupport
+  features={[
+    "html.forms.radio",
+    "css.selectors.checked",
+    "css.properties.appearance"
+  ]}
+/>
+
+**Polyfills Required:**
+- Custom styling for older browsers
+- Focus management for complex interactions
+
+## Design Tokens
+
+These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+
+```json
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "radio": {
+    "size": {
+      "sm": {
+        "value": "16px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "20px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "24px",
+        "type": "dimension"
+      }
+    },
+    "color": {
+      "background": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{color.gray.300}",
+        "type": "color"
+      },
+      "border-selected": {
+        "value": "{color.primary.500}",
+        "type": "color"
+      },
+      "dot": {
+        "value": "{color.primary.500}",
+        "type": "color"
+      }
+    },
+    "spacing": {
+      "gap": {
+        "value": "8px",
+        "type": "dimension"
+      },
+      "padding": {
+        "value": "4px",
+        "type": "dimension"
+      }
+    }
+  }
+}
+```
+
+## Related Patterns
+
+<RelatedPatternsCard
+  patterns={[
+    {
+      title: "Checkbox",
+      path: "/patterns/forms/checkbox",
+      description: "Use for multiple selections from a group of options",
+    },
+    {
+      title: "Toggle Switch",
+      path: "/patterns/forms/toggle",
+      description: "Use for binary on/off states with immediate effect",
+    },
+    {
+      title: "Selection Input",
+      path: "/patterns/forms/selection-input",
+      description: "Use when space is limited and many options need to be presented",
+    },
+    {
+      title: "Form Validation",
+      path: "/patterns/forms/form-validation",
+      description: "Use to ensure radio button selections meet requirements",
+    },
+  ]}
+/>
+
+## Resources
+
+### Libraries & Frameworks
+
+#### React Components
+- [React Hook Form](https://react-hook-form.com/) – Performant forms with easy validation
+- [Formik](https://formik.org/) – Popular form library with radio button support
+
+#### Vue Components
+- [VeeValidate](https://vee-validate.logaretm.com/) – Form validation for Vue.js
+- [Vue Formulate](https://vueformulate.com/) – Form building for Vue.js
+
+#### Vanilla JavaScript
+- [Choices.js](https://github.com/Choices-js/Choices) – Lightweight select/multi-select library
+
+### Articles
+
+- [Radio Buttons vs. Checkboxes](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/) by Nielsen Norman Group
+- [Designing Efficient Web Forms: On Structure, Inputs, Labels And Actions](https://www.smashingmagazine.com/2017/06/designing-efficient-web-forms/) by Smashing Magazine
+
+### Documentation
+
+- [MDN Radio Input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+    {
+      question: "When should I use radio buttons vs checkboxes?",
+      answer: "Use radio buttons when users must select exactly one option from multiple choices. Use checkboxes when users can select multiple options or when dealing with binary on/off states.",
+    },
+    {
+      question: "How many radio button options should I provide?",
+      answer: "Limit radio button groups to 7-10 options maximum. For more options, consider using a dropdown, select component, or breaking the group into smaller sections.",
+    },
+    {
+      question: "Should I pre-select a radio button option?",
+      answer: "Only pre-select options when you're confident most users want that selection. Always allow users to easily change pre-selected options and be transparent about what's selected by default.",
+    },
+    {
+      question: "How do I make radio buttons accessible?",
+      answer: "Use proper fieldset and legend structure, ensure keyboard navigation works with arrow keys, provide clear labels, and test with screen readers to ensure proper announcements.",
+    },
+    {
+      question: "Can I style radio buttons to match my design?",
+      answer: "Yes, you can hide the default radio button and create custom styled indicators. Ensure your custom styling maintains accessibility and provides clear visual feedback for all states.",
+    },
+  ]}
 />

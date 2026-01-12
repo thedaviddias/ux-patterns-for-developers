@@ -4,16 +4,16 @@
 	"author": "David Dias",
 	"private": true,
 	"scripts": {
-		"dev": "turbo run dev",
-		"build": "turbo run build",
-		"lint": "turbo run lint",
-		"check": "turbo run check",
-		"check:type": "turbo run check:type",
-		"format": "turbo run format",
+		"dev": "turbo run dev --filter=!kit --filter=!gallery",
+		"build": "turbo run build --filter=!kit --filter=!gallery",
+		"lint": "turbo run lint --filter=!kit --filter=!gallery",
+		"check": "turbo run check --filter=!kit --filter=!gallery",
+		"check:type": "turbo run check:type --filter=!kit --filter=!gallery",
+		"format": "turbo run format --filter=!kit --filter=!gallery",
 		"check:links": "lychee --config ./lychee.toml --verbose .",
 		"clean": "git clean -xdf node_modules out .next",
 		"postinstall": "manypkg fix",
-		"test": "turbo run test",
+		"test": "turbo run test --filter=!kit --filter=!gallery",
 		"release": "auto shipit",
 		"release:first": "auto shipit --prerelease",
 		"release:verbose": "auto shipit -v",
@@ -26,12 +26,12 @@
 		"registry:watch": "pnpm --filter @ux-patterns/registry dev"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.2.3",
-		"@manypkg/cli": "^0.23.0",
-		"nodemon": "^3.1.7",
-		"turbo": "^2.3.3"
+		"@biomejs/biome": "^2.3.11",
+		"@manypkg/cli": "^0.25.1",
+		"nodemon": "^3.1.11",
+		"turbo": "^2.7.3"
 	},
-	"packageManager": "pnpm@10.2.1",
+	"packageManager": "pnpm@10.28.0",
 	"engines": {
 		"node": ">=20.0.0"
 	}

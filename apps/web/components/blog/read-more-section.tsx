@@ -28,21 +28,22 @@ export function ReadMoreSection({
 	currentSlug,
 	currentTags = [],
 }: ReadMoreSectionProps) {
-	const allPages = source.getPages() as BlogPage[];
+	const allPages = source.getPages() as any[];
 
 	const currentUrl = `/blog/${currentSlug.join("/")}`;
 
 	const otherPosts = allPages
 		.filter((page) => page.url !== currentUrl && page.slugs[0] === "blog")
 		.map((page) => {
+			const pageData = page.data as any;
 			const tagOverlap = currentTags.filter((tag) =>
-				page.data.tags?.includes(tag),
+				pageData.tags?.includes(tag),
 			).length;
 
 			return {
 				...page,
 				relevanceScore: tagOverlap,
-				date: new Date(page.data.date),
+				date: new Date(pageData.date),
 			};
 		})
 		.sort((a, b) => {

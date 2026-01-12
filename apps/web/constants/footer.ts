@@ -25,10 +25,6 @@ export const FOOTER_RESOURCES_LINKS = [
 		label: "LLMs",
 	},
 	{
-		path: "/llms-full.txt",
-		label: "LLMs Full",
-	},
-	{
 		path: "/glossary",
 		label: "Glossary",
 	},

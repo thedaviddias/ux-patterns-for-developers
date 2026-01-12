@@ -23,8 +23,8 @@ export function getPatternDates(): Record<string, PatternDates> {
 		const jsonPath = path.join(process.cwd(), ".next/pattern-dates.json");
 		if (fs.existsSync(jsonPath)) {
 			const data = fs.readFileSync(jsonPath, "utf-8");
-			patternDatesCache = JSON.parse(data);
-			return patternDatesCache;
+			patternDatesCache = JSON.parse(data) as Record<string, PatternDates>;
+			return patternDatesCache!;
 		}
 	} catch (error) {
 		console.warn("Failed to load pattern dates:", error);

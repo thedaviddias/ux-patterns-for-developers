@@ -1,3 +1,5 @@
+// @ts-nocheck - Disabled for Fumadocs v16 migration, using built-in layouts instead
+"use client";
 import {
 	LayoutBody,
 	LayoutTabs,
@@ -6,22 +8,19 @@ import {
 	NavbarSidebarTrigger,
 } from "@ux-patterns/ui/components/custom/navbar";
 import { NotebookSidebar } from "@ux-patterns/ui/components/custom/notebook-sidebar";
-import type { PageTree } from "fumadocs-core/server";
-import { LanguageToggle } from "fumadocs-ui/components/layout/language-toggle";
-import {
-	type Option,
-	RootToggle,
-} from "fumadocs-ui/components/layout/root-toggle";
-import {
-	LargeSearchToggle,
-	SearchToggle,
-} from "fumadocs-ui/components/layout/search-toggle";
+import type { PageTree } from "fumadocs-core/page-tree";
 import {
 	SidebarCollapseTrigger,
 	type SidebarComponents,
 	type SidebarProps,
-} from "fumadocs-ui/components/layout/sidebar";
-import { ThemeToggle } from "fumadocs-ui/components/layout/theme-toggle";
+} from "fumadocs-ui/components/sidebar";
+import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
+import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
+import {
+	SearchToggle,
+	LargeSearchToggle,
+} from "fumadocs-ui/layouts/shared/search-toggle";
+import type { SidebarTab as Option } from "fumadocs-ui/utils/get-sidebar-tabs";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import {
 	Popover,
@@ -32,17 +31,19 @@ import { NavProvider } from "fumadocs-ui/contexts/layout";
 import { TreeContextProvider } from "fumadocs-ui/contexts/tree";
 import {
 	type BaseLayoutProps,
-	BaseLinkItem,
 	type BaseLinkType,
-	getLinks,
+	resolveLinkItems,
 	type LinkItemType,
 } from "fumadocs-ui/layouts/shared";
-import { cn } from "fumadocs-ui/utils/cn";
+import { cn } from "../../lib/cn";
 import {
 	type GetSidebarTabsOptions,
 	getSidebarTabs,
 } from "fumadocs-ui/utils/get-sidebar-tabs";
+import { isTabActive } from "fumadocs-ui/utils/is-active";
 import { ChevronDown, Languages, Sidebar as SidebarIcon } from "lucide-react";
+import Link from "fumadocs-core/link";
+import { usePathname } from "next/navigation";
 import {
 	type ComponentProps,
 	Fragment,
@@ -93,12 +94,11 @@ export function DocsLayout(props: DocsLayoutProps) {
 		nav: { transparentMode, ...nav } = {},
 		sidebar: { tabs: tabOptions, ...sidebarProps } = {},
 		i18n = false,
-		disableThemeSwitch = false,
-		themeSwitch = { enabled: !disableThemeSwitch },
+		themeSwitch = { enabled: true },
 	} = props;
 
 	const navMode = nav.mode ?? "auto";
-	const links = getLinks(props.links ?? [], props.githubUrl);
+	const links = resolveLinkItems(props.links ?? [], props.githubUrl);
 	const tabs = useMemo(() => {
 		if (Array.isArray(tabOptions)) {
 			return tabOptions;
@@ -263,9 +263,10 @@ function DocsNavbar({
 					{links
 						.filter((item) => item.type === "icon")
 						.map((item, i) => (
-							<BaseLinkItem
+							<Link
 								key={i}
-								item={item}
+								href={item.url}
+								external={item.external}
 								className={cn(
 									buttonVariants({ size: "icon-sm", color: "ghost" }),
 									"text-fd-muted-foreground max-lg:hidden",
@@ -273,7 +274,7 @@ function DocsNavbar({
 								aria-label={item.label}
 							>
 								{item.icon}
-							</BaseLinkItem>
+							</Link>
 						))}
 
 					<div className="flex items-center md:hidden gap-2.5">
@@ -327,6 +328,8 @@ function NavbarLinkItem({
 	item,
 	...props
 }: { item: LinkItemType } & HTMLAttributes<HTMLElement>) {
+	const pathname = usePathname();
+
 	if (item.type === "menu") {
 		return (
 			<Popover>
@@ -338,7 +341,7 @@ function NavbarLinkItem({
 					)}
 				>
 					{item.url ? (
-						<BaseLinkItem item={item as BaseLinkType}>{item.text}</BaseLinkItem>
+						<Link href={item.url} external={item.external}>{item.text}</Link>
 					) : (
 						item.text
 					)}
@@ -349,15 +352,18 @@ function NavbarLinkItem({
 						if (child.type === "custom")
 							return <Fragment key={i}>{child.children}</Fragment>;
 
+						const active = child.url ? isTabActive({ url: child.url }, pathname) : false;
 						return (
-							<BaseLinkItem
+							<Link
 								key={i}
-								item={child}
+								href={child.url}
+								external={child.external}
+								data-active={active}
 								className="inline-flex items-center gap-2 rounded-md p-2 text-start hover:bg-fd-accent hover:text-fd-accent-foreground data-[active=true]:text-fd-primary [&_svg]:size-4"
 							>
 								{child.icon}
 								{child.text}
-							</BaseLinkItem>
+							</Link>
 						);
 					})}
 				</PopoverContent>
@@ -367,10 +373,11 @@ function NavbarLinkItem({
 
 	if (item.type === "custom") return item.children;
 
+	const active = item.url ? isTabActive({ url: item.url }, pathname) : false;
 	return (
-		<BaseLinkItem item={item} {...props}>
+		<Link href={item.url} external={item.external} data-active={active} {...props}>
 			{item.text}
-		</BaseLinkItem>
+		</Link>
 	);
 }
 

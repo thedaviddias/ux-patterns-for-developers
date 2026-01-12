@@ -5,16 +5,18 @@ function getPatternFromSource(path: string) {
 	const page = source.getPage(path.split("/").filter(Boolean));
 	if (!page) return null;
 
-	const iconName = page.data.icon as string;
+	// Cast to any to access custom frontmatter fields
+	const pageData = page.data as any;
+	const iconName = pageData.icon as string;
 	return {
-		title: page.data.title as string,
-		description: page.data.description as string,
+		title: pageData.title as string,
+		description: pageData.description as string,
 		icon: iconName || undefined,
-		status: page.data.status as string | undefined,
-		publishedAt: page.data.publishedAt as string | undefined,
-		lastMajorUpdate: page.data.lastMajorUpdate as string | undefined,
-		createdAt: page.data.createdAt as string | undefined,
-		updatedAt: page.data.updatedAt as string | undefined,
+		status: pageData.status as string | undefined,
+		publishedAt: pageData.publishedAt as string | undefined,
+		lastMajorUpdate: pageData.lastMajorUpdate as string | undefined,
+		createdAt: pageData.createdAt as string | undefined,
+		updatedAt: pageData.updatedAt as string | undefined,
 	};
 }
 

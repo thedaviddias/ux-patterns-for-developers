@@ -1,7 +1,22 @@
-import BaseHome from "@/components/layout/base-home";
+import { Header } from "@/components/layout/header";
+import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
+import { SearchToggle } from "@/components/search";
+import { TRACKING_EVENTS } from "@/lib/tracking";
 
-export default function Layout({ children }: LayoutProps<"/">) {
+export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<BaseHome params={Promise.resolve({ slug: "/" })}>{children}</BaseHome>
+		<>
+			<Header
+				githubStars={
+					<GitHubStarsWrapper
+						variant="small"
+						asLink={true}
+						trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
+					/>
+				}
+				searchToggle={<SearchToggle />}
+			/>
+			{children}
+		</>
 	);
 }

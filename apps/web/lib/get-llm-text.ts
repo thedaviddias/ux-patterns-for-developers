@@ -26,6 +26,10 @@ export async function getLLMText(
 	const category =
 		categoryMap[page.slugs[0] as keyof typeof categoryMap] ?? page.slugs[0];
 
+	if (!page.absolutePath) {
+		throw new Error(`No absolute path for page: ${page.url}`);
+	}
+
 	const processed = await processor.process({
 		path: page.absolutePath,
 		value: await fs.readFile(page.absolutePath),

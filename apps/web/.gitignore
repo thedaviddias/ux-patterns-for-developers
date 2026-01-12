@@ -5,6 +5,7 @@
 .contentlayer
 .content-collections
 .source
+.velite
 
 # test & build
 /coverage

@@ -4,12 +4,7 @@ import {
 	frontmatterSchema,
 	metaSchema,
 } from "fumadocs-mdx/config";
-import { createGenerator, remarkAutoTypeTable } from "fumadocs-typescript";
 import { z } from "zod";
-
-const generator = createGenerator({
-	cache: false, // Disable caching to avoid ENOENT errors in CI
-});
 
 // You can customise Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.dev/docs/mdx/collections#define-docs
@@ -32,7 +27,7 @@ export type Docs = typeof docs;
 export default defineConfig({
 	lastModifiedTime: "git",
 	mdxOptions: {
-		remarkPlugins: [[remarkAutoTypeTable, { generator }]],
+		remarkPlugins: [],
 		providerImportSource: "@/mdx-components",
 	},
 });
