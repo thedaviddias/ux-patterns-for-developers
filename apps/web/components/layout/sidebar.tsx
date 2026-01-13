@@ -191,7 +191,7 @@ interface SidebarFolderProps {
 }
 
 function SidebarFolder({ folder, level }: SidebarFolderProps) {
-	const { expandedPaths, togglePath, expandPath } = useSidebar();
+	const { expandedPaths, togglePath, expandPath, defaultOpenLevel } = useSidebar();
 	const pathname = usePathname();
 	const folderPath = folder.index?.url || folder.name;
 	const isExpanded = expandedPaths.has(folderPath);
@@ -209,10 +209,10 @@ function SidebarFolder({ folder, level }: SidebarFolderProps) {
 	});
 
 	// Auto-expand on first render:
-	// - Level 0 folders are expanded by default
+	// - Folders within defaultOpenLevel are expanded by default
 	// - Any folder containing the active page is expanded
 	useEffect(() => {
-		const shouldAutoExpand = level === 0 || isActive || hasActiveChild;
+		const shouldAutoExpand = level < defaultOpenLevel || isActive || hasActiveChild;
 		if (shouldAutoExpand) {
 			expandPath(folderPath);
 		}

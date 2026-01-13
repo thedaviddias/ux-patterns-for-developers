@@ -37,8 +37,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 					<ThemeProvider>
 						{children}
 						<TextSelectionHandler />
+						<Footer />
 					</ThemeProvider>
-					<Footer />
 				</PlausibleProvider>
 			</Body>
 		</html>

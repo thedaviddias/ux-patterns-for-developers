@@ -1,4 +1,4 @@
-// @ts-nocheck - Disabled for Fumadocs v16 migration, using built-in layouts instead
+// TODO: Remove @ts-expect-error comments after fumadocs v16 migration is complete
 import Link from "fumadocs-core/link";
 import {
 	Sidebar,
@@ -25,7 +25,32 @@ import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
 import { cn } from "../../lib/cn";
 import { Languages, Sidebar as SidebarIcon, X } from "lucide-react";
-import type { ComponentProps, ReactNode } from "react";
+import {
+	Children,
+	type ComponentProps,
+	type ElementType,
+	isValidElement,
+	type ReactNode,
+} from "react";
+
+/**
+ * HideIfEmpty - Conditionally renders a wrapper element only if it has non-empty children
+ * This prevents empty wrapper elements from appearing in the DOM
+ */
+function HideIfEmpty<T extends ElementType = "div">({
+	as,
+	children,
+	...props
+}: { as?: T; children?: ReactNode } & ComponentProps<T>): ReactNode {
+	const Component = as || "div";
+	const childArray = Children.toArray(children).filter(
+		(child) => isValidElement(child) || (typeof child === "string" && child.trim())
+	);
+
+	if (childArray.length === 0) return null;
+
+	return <Component {...props}>{children}</Component>;
+}
 
 export interface NotebookSidebarProps
 	extends ComponentProps<"aside">,

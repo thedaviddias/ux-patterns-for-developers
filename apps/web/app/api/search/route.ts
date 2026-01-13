@@ -2,9 +2,8 @@ import { unstable_cache } from "next/cache";
 import { NextResponse } from "next/server";
 import { type SearchDocumentType, searchDocs } from "@/lib/search";
 
-// Force static generation with ISR
-export const dynamic = "force-static";
-export const revalidate = 3600; // Revalidate every hour
+// Dynamic route - reads query parameters at runtime
+export const dynamic = "force-dynamic";
 
 // Cache search results for 1 hour
 const getCachedSearchResults = unstable_cache(

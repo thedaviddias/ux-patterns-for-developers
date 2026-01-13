@@ -84,9 +84,9 @@ const getPlausibleStats = unstable_cache(
 	},
 );
 
-// Force static generation with ISR
-export const dynamic = "force-static";
-export const revalidate = 86400; // Revalidate every 24 hours
+// Dynamic route - reads query parameters at runtime
+// Caching is handled by unstable_cache and Cache-Control header
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;

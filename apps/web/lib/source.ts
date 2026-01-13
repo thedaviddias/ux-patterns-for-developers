@@ -9,11 +9,25 @@ import * as Icons from "lucide-react";
 import { createElement } from "react";
 import { blog as blogPosts, docs } from "@/.source/server";
 
+// Get the raw source and filter out drafts
+const rawSource = docs.toFumadocsSource();
+
+// Filter source files to exclude drafts from navigation
+const filteredSource = {
+	...rawSource,
+	files: rawSource.files.filter((file) => {
+		// Check if the file data has a draft status
+		const data = file.data as { status?: string } | undefined;
+		// Pass object matching PatternMetadata interface
+		return shouldShowInNav({ status: data?.status as "draft" | "published" | "complete" | undefined });
+	}),
+};
+
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
 export const source = loader({
 	// it assigns a URL to your pages
 	baseUrl: "/",
-	source: docs.toFumadocsSource(),
+	source: filteredSource,
 	icon: (name: string | undefined) => {
 		if (!name) return null;
 		// Convert icon name to Lucide React component
@@ -24,23 +38,6 @@ export const source = loader({
 			? createElement(IconComponent, { className: "h-4 w-4" })
 			: null;
 	},
-	// TODO: Re-implement draft filtering with v16 API
-	// pageTree: {
-	// 	transformers: [
-	// 		{
-	// 			file(node, file) {
-	// 				// Filter out draft pages from navigation tree
-	// 				if (file && this.storage.read(file)) {
-	// 					const page = this.storage.read(file);
-	// 					if ((page?.data as any)?.status === "draft") {
-	// 						return undefined; // Remove from tree
-	// 					}
-	// 				}
-	// 				return node;
-	// 			},
-	// 		},
-	// 	],
-	// },
 });
 
 // TODO: Fix blog loader for v16 - blog posts collection doesn't have toFumadocsSource

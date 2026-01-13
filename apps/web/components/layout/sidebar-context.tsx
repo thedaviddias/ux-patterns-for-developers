@@ -21,6 +21,8 @@ interface SidebarContextValue {
 	/** Scroll position memory */
 	scrollPosition: number;
 	setScrollPosition: (position: number) => void;
+	/** Default level to auto-expand folders */
+	defaultOpenLevel: number;
 }
 
 const SidebarContext = createContext<SidebarContextValue | null>(null);
@@ -139,6 +141,7 @@ export function SidebarProvider({
 				expandPath,
 				scrollPosition,
 				setScrollPosition,
+				defaultOpenLevel,
 			}}
 		>
 			{children}

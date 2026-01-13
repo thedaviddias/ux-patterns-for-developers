@@ -122,6 +122,10 @@ export async function createSearchIndex(): Promise<Orama<typeof searchSchema>> {
 
 	// Index blog posts
 	for (const post of blog) {
+		// Skip drafts and coming-soon (if status field exists)
+		const status = (post as { status?: string }).status;
+		if (status === "draft" || status === "coming-soon") continue;
+
 		await insert(db, {
 			id: `blog/${post.slug}`,
 			title: post.title,
@@ -216,6 +220,10 @@ export function createQuickSearchData(): Array<{
 
 	// Add blog posts
 	for (const post of blog) {
+		// Skip drafts and coming-soon (if status field exists)
+		const status = (post as { status?: string }).status;
+		if (status === "draft" || status === "coming-soon") continue;
+
 		results.push({
 			title: post.title,
 			url: post.url,
