@@ -34,12 +34,12 @@ const fetchGitHubStars = async (): Promise<number> => {
 	}
 };
 
-// Cache the GitHub stars fetch for 1 hour to avoid rate limits
+// Cache the GitHub stars fetch for 1 week to avoid rate limits
 export const getGitHubStars = unstable_cache(
 	fetchGitHubStars,
 	["github-stars"],
 	{
-		revalidate: 3600, // 1 hour
+		revalidate: 604800, // 1 week
 		tags: ["github-stars"],
 	},
 );

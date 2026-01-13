@@ -11,20 +11,7 @@
 
 # UX Patterns for Developers
 
-A comprehensive ecosystem for learning, building, and showcasing UX patterns with developer-focused documentation and ready-to-use components.
-
-## 🏗️ The Ecosystem
-
-UX Patterns consists of three interconnected projects:
-
-### 📚 [Web](https://uxpatterns.dev)
-**Learn & Reference** - Comprehensive documentation for UX patterns with best practices, accessibility guidelines, and implementation details.
-
-### 🧩 [Kit](https://kit.uxpatterns.dev)
-**Build & Install** - Ready-to-use component library compatible with shadcn/ui. Copy, paste, and customize components for your projects.
-
-### 🖼️ [Gallery](https://gallery.uxpatterns.dev)
-**Explore & Inspire** - Real-world examples and implementations of UX patterns from popular applications.
+Comprehensive documentation for UX patterns with best practices, accessibility guidelines, and implementation details.
 
 ## 🚀 Getting Started
 
@@ -48,20 +35,11 @@ pnpm dev
 
 This will start:
 - Web → http://localhost:3060
-- Kit → http://localhost:3061
-- Gallery → http://localhost:3062
 
-### Running Individual Projects
+### Running the Web Project
 
 ```bash
-# Run only the documentation site
 pnpm dev:web
-
-# Run only the component kit
-pnpm dev:kit
-
-# Run only the gallery
-pnpm dev:gallery
 ```
 
 ## 📦 Project Structure
@@ -71,9 +49,7 @@ This is a monorepo managed with Turbo and pnpm workspaces:
 ```
 ux-patterns-for-developers/
 ├── apps/
-│   ├── web/        # Documentation site
-│   ├── kit/        # Component library
-│   └── gallery/    # Visual examples
+│   └── web/        # Documentation site
 ├── packages/
 │   ├── ui/         # Shared UI components
 │   ├── constants/  # Shared constants
