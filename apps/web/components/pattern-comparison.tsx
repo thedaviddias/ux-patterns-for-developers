@@ -36,8 +36,8 @@ export const PatternComparison = ({
 						<div className="mb-2">
 							<div className="text-base font-medium inline-flex items-center gap-1">
 								<Link
-									key={alt.name}
 									href={alt.path}
+									data-card
 									className="inline-flex items-center gap-1 no-underline after:content-[''] after:absolute after:inset-0 text-xl"
 								>
 									{alt.name}

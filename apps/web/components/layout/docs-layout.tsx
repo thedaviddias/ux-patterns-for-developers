@@ -4,7 +4,6 @@ import { cn } from "@/lib/cn";
 import type { PageTreeNode, TocItem } from "@/lib/content";
 import { SidebarProvider } from "./sidebar-context";
 import { Sidebar, SidebarTrigger } from "./sidebar";
-import { Toc, TocWrapper } from "./toc";
 import { Header } from "./header";
 import { Badge } from "@ux-patterns/ui/components/shadcn/badge";
 import type { ReactNode } from "react";
@@ -77,7 +76,6 @@ export function DocsLayout({
 		<SidebarProvider defaultOpenLevel={defaultOpenLevel}>
 			<DocsLayoutInner
 				tree={tree}
-				toc={toc}
 				sidebarHeader={sidebarHeader}
 				sidebarFooter={sidebarFooter}
 				githubStars={githubStars}
@@ -91,13 +89,12 @@ export function DocsLayout({
 
 function DocsLayoutInner({
 	tree,
-	toc,
 	children,
 	sidebarHeader,
 	sidebarFooter,
 	githubStars,
 	searchToggle,
-}: Omit<DocsLayoutProps, "defaultOpenLevel">) {
+}: Omit<DocsLayoutProps, "defaultOpenLevel" | "toc">) {
 	return (
 		<div className="relative min-h-screen flex flex-col">
 			{/* Fixed Header */}
@@ -167,7 +164,12 @@ export function DocsBreadcrumb({
 								{item.label}
 							</a>
 						) : (
-							<span className="text-foreground">{item.label}</span>
+							<span
+								className="text-foreground"
+								aria-current={index === items.length - 1 ? "page" : undefined}
+							>
+								{item.label}
+							</span>
 						)}
 					</li>
 				))}
@@ -197,7 +199,7 @@ export function DocsPageHeader({
 	popularity?: "low" | "medium" | "high" | "trending";
 }) {
 	return (
-		<header className="mb-8 pb-8 border-b">
+		<header className="mb-4">
 			{category && (
 				<p className="text-sm font-medium text-primary mb-2">{category}</p>
 			)}
@@ -232,7 +234,11 @@ export function DocsPageHeader({
 				<div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
 					{readTime && <span>{readTime}</span>}
 					{lastUpdated && (
-						<span>Last updated: {new Date(lastUpdated).toLocaleDateString()}</span>
+						<span>Last updated: {new Date(lastUpdated).toLocaleDateString("en-US", {
+							year: "numeric",
+							month: "short",
+							day: "numeric",
+						})}</span>
 					)}
 				</div>
 			)}

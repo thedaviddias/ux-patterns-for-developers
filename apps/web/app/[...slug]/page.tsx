@@ -40,9 +40,6 @@ export default async function Page(props: {
 	const page = getPage(params.slug);
 	if (!page) notFound();
 
-	// Page data from Velite (metadata only)
-	const pageData = page;
-
 	// Compile MDX content from raw file using next-mdx-remote
 	const { content: mdxContent } = await compileMDXContent(
 		page.slug,
@@ -61,8 +58,8 @@ export default async function Page(props: {
 		params.slug[0] === "glossary" && params.slug.length > 1;
 	const isPatternGuide = params.slug[0] === "pattern-guide";
 
-	const title = pageData.title || "UX Patterns for Devs";
-	const description = pageData.description || "";
+	const title = page.title || "UX Patterns for Devs";
+	const description = page.description || "";
 	const path = `/${params.slug?.join("/") || ""}`;
 
 	// Generate appropriate schemas based on page type
@@ -74,10 +71,10 @@ export default async function Page(props: {
 		schemas.push({ "@context": "https://schema.org", ...ORGANIZATION_SCHEMA });
 	} else if (isBlogPost) {
 		// Blog posts get BlogPosting schema
-		const datePublished = pageData.date || pageData.datePublished;
+		const datePublished = page.date || page.datePublished;
 		const dateModified =
-			pageData.lastModified || pageData.dateModified || datePublished;
-		const tags = pageData.tags || pageData.keywords || [];
+			page.lastModified || page.dateModified || datePublished;
+		const tags = page.tags || page.keywords || [];
 
 		schemas.push(
 			generateBlogPostingSchema(
@@ -85,10 +82,10 @@ export default async function Page(props: {
 				description,
 				path,
 				undefined, // image
-				datePublished || undefined,
-				dateModified || undefined,
+				datePublished,
+				dateModified,
 				tags,
-				pageData.metadata?.wordCount,
+				page.metadata?.wordCount,
 			),
 		);
 	} else if (isBlogListing) {
@@ -113,7 +110,7 @@ export default async function Page(props: {
 		const category = params.slug[1];
 
 		// Generate HowTo steps from metadata or default steps
-		const steps = pageData.steps || [
+		const steps = page.steps || [
 			{
 				name: "Understand the pattern",
 				text: `Learn when and why to use the ${title} pattern in your application.`,
@@ -138,7 +135,7 @@ export default async function Page(props: {
 				description,
 				path,
 				steps,
-				pageData.totalTime || "PT30M",
+				page.totalTime || "PT30M",
 				undefined, // image
 			),
 		);
@@ -150,10 +147,10 @@ export default async function Page(props: {
 				description,
 				path,
 				undefined, // image
-				pageData.datePublished || undefined,
-				pageData.dateModified || undefined,
+				page.datePublished || undefined,
+				page.dateModified || undefined,
 				category,
-				pageData.metadata?.wordCount,
+				page.metadata?.wordCount,
 			),
 		);
 	} else if (isPatternCategory || isPatternsIndex) {
@@ -178,9 +175,9 @@ export default async function Page(props: {
 				title,
 				description,
 				path,
-				pageData.educationalLevel,
-				pageData.timeRequired,
-				pageData.prerequisites,
+				page.educationalLevel,
+				page.timeRequired,
+				page.prerequisites,
 			),
 		);
 	} else if (isGlossaryPage) {
@@ -188,18 +185,18 @@ export default async function Page(props: {
 		const jsonLdData = {
 			"@context": "https://schema.org",
 			"@type": "DefinedTerm",
-			name: pageData.title,
-			description: pageData.description,
+			name: page.title,
+			description: page.description,
 			url: `${siteConfig.url}${page.url}`,
 			inDefinedTermSet: {
 				"@type": "DefinedTermSet",
 				name: "UX Patterns Glossary",
 				url: `${siteConfig.url}/glossary`,
 			},
-			...(pageData.category &&
-				Array.isArray(pageData.category) &&
-				pageData.category.length > 0 && {
-					termCode: pageData.category.join(","),
+			...(page.category &&
+				Array.isArray(page.category) &&
+				page.category.length > 0 && {
+					termCode: page.category.join(","),
 				}),
 		};
 		schemas.push(jsonLdData);
@@ -232,14 +229,14 @@ export default async function Page(props: {
 
 			<article>
 				<DocsPageHeader
-					title={pageData.title}
-					description={pageData.description}
-					readTime={pageData.readTime}
-					lastUpdated={pageData.dateModified || pageData.lastModified}
-					aliases={pageData.aliases}
-					popularity={pageData.popularity}
+					title={page.title}
+					description={page.description}
+					readTime={page.readTime}
+					lastUpdated={page.dateModified || page.lastModified}
+					aliases={page.aliases}
+					popularity={page.popularity}
 				/>
-				<div className="flex flex-row gap-2 items-center border-b pt-2 pb-6 mb-8">
+				<div className="flex w-full flex-row gap-2 items-center justify-end py-4 mb-8">
 					<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
 					<ViewOptions
 						markdownUrl={`${page.url}.mdx`}
@@ -279,9 +276,6 @@ export async function generateMetadata(props: {
 	const page = getPage(params.slug);
 	if (!page) notFound();
 
-	// Page data from Velite
-	const pageData = page;
-
 	// Determine page type and properties
 	const isHomepage = !params.slug || params.slug.length === 0;
 	const isBlogPost = params.slug[0] === "blog" && params.slug.length > 1;
@@ -289,8 +283,8 @@ export async function generateMetadata(props: {
 	const isGlossaryPage =
 		params.slug[0] === "glossary" && params.slug.length > 1;
 
-	const title = pageData.title || "UX Patterns for Devs";
-	const description = pageData.description || "";
+	const title = page.title || "UX Patterns for Devs";
+	const description = page.description || "";
 	const path = `/${params.slug?.join("/") || ""}`;
 
 	// Enhanced title with context
@@ -333,10 +327,10 @@ export async function generateMetadata(props: {
 			],
 			...(isBlogPost && {
 				type: "article",
-				publishedTime: pageData.date || pageData.datePublished,
-				modifiedTime: pageData.lastModified || pageData.dateModified,
+				publishedTime: page.date || page.datePublished,
+				modifiedTime: page.lastModified || page.dateModified,
 				authors: ["David Dias"],
-				tags: pageData.tags || pageData.keywords || [],
+				tags: page.tags || page.keywords || [],
 			}),
 		},
 		twitter: {

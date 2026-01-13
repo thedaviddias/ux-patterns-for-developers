@@ -53,7 +53,7 @@ export function Features() {
 					{FEATURES.map((feature) => (
 						<div
 							key={feature.title}
-							className="group relative rounded-xl border border-border bg-card p-6 transition-colors hover:border-foreground/20 hover:bg-muted/30"
+							className="relative rounded-xl border border-border bg-card p-6"
 						>
 							<div className="flex items-start gap-4">
 								{/* Icon */}

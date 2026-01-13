@@ -14,6 +14,7 @@ export const TRACKING_EVENTS = {
 	SUGGEST_PATTERN_CLICK: "Suggest Pattern Click",
 	VIEW_PATTERN_CLICK: "View Pattern Click",
 	GET_STARTED_CLICK: "Get Started Click",
+	BROWSE_PATTERNS_CLICK: "Browse Patterns Click",
 	VIEW_GITHUB_CLICK: "View GitHub Click",
 	PATTERN_GUIDE_CLICK: "Pattern Guide Click",
 	EXPLORE_UI_KIT_CLICK: "Explore UI Kit Click",
@@ -30,6 +31,8 @@ export const TRACKING_EVENTS = {
 
 	// Search Events
 	SEARCH_OPEN: "Search Open",
+	SEARCH_QUERY: "Search Query",
+	SEARCH_RESULT_CLICK: "Search Result Click",
 
 	// Pattern Navigation
 	PATTERN_NEXT_CLICK: "Pattern Next Click",
@@ -37,6 +40,7 @@ export const TRACKING_EVENTS = {
 
 	// Text-to-Social Events
 	TEXT_TO_SOCIAL_POPOVER_SHOWN: "Text to Social Popover Shown",
+	TEXT_TO_SOCIAL_BUTTON_CLICK: "Text to Social Button Click",
 	TEXT_TO_SOCIAL_IMAGE_GENERATED: "Text to Social Image Generated",
 	TEXT_TO_SOCIAL_IMAGE_DOWNLOAD: "Text to Social Image Download",
 } as const;
@@ -84,6 +88,9 @@ export const TRACKING_CLASSES = {
 	VIEW_GITHUB_CLICK: asPlausibleClass(TRACKING_EVENTS.VIEW_GITHUB_CLICK),
 	PATTERN_GUIDE_CLICK: asPlausibleClass(TRACKING_EVENTS.PATTERN_GUIDE_CLICK),
 	EXPLORE_UI_KIT_CLICK: asPlausibleClass(TRACKING_EVENTS.EXPLORE_UI_KIT_CLICK),
+	BROWSE_PATTERNS_CLICK: asPlausibleClass(
+		TRACKING_EVENTS.BROWSE_PATTERNS_CLICK,
+	),
 
 	// Footer
 	FOOTER_LINK_CLICK: asPlausibleClass(TRACKING_EVENTS.FOOTER_LINK_CLICK),
@@ -107,6 +114,9 @@ export const TRACKING_CLASSES = {
 	// Text-to-Social
 	TEXT_TO_SOCIAL_POPOVER_SHOWN: asPlausibleClass(
 		TRACKING_EVENTS.TEXT_TO_SOCIAL_POPOVER_SHOWN,
+	),
+	TEXT_TO_SOCIAL_BUTTON_CLICK: asPlausibleClass(
+		TRACKING_EVENTS.TEXT_TO_SOCIAL_BUTTON_CLICK,
 	),
 	TEXT_TO_SOCIAL_IMAGE_GENERATED: asPlausibleClass(
 		TRACKING_EVENTS.TEXT_TO_SOCIAL_IMAGE_GENERATED,
@@ -180,6 +190,10 @@ export const trackExternalLink = (
 				props: { url },
 			});
 			break;
+		default: {
+			const _exhaustiveCheck: never = linkType;
+			return _exhaustiveCheck;
+		}
 	}
 };
 
@@ -244,10 +258,67 @@ export const trackTextToSocialEvent = (
 		case "image_download":
 			plausible(TRACKING_EVENTS.TEXT_TO_SOCIAL_IMAGE_DOWNLOAD, { props });
 			break;
+		case "button_clicked":
+			plausible(TRACKING_EVENTS.TEXT_TO_SOCIAL_BUTTON_CLICK, { props });
+			break;
+		default: {
+			const _exhaustiveCheck: never = action;
+			return _exhaustiveCheck;
+		}
 	}
 };
 
 // Helper function to get CSS class for tracking - use shared implementation
 export const getTrackingClass = (variant?: "default" | "inline") => {
 	return getNewsletterTrackingClasses(variant);
+};
+
+// Helper function to track search events
+export const trackSearchEvent = (
+	plausible: PlausibleTracker,
+	action: "open" | "query" | "result_click",
+	options?: {
+		query?: string;
+		resultsCount?: number;
+		resultTitle?: string;
+		resultType?: string;
+		resultPosition?: number;
+		resultUrl?: string;
+	},
+) => {
+	switch (action) {
+		case "open":
+			plausible(TRACKING_EVENTS.SEARCH_OPEN);
+			break;
+		case "query":
+			if (options?.query) {
+				const props: Record<string, string | number> = {
+					query: options.query.toLowerCase(),
+					query_length: options.query.length,
+				};
+				if (typeof options.resultsCount === "number") {
+					props.results_count = options.resultsCount;
+				}
+				plausible(TRACKING_EVENTS.SEARCH_QUERY, { props });
+			}
+			break;
+		case "result_click":
+			if (options?.resultTitle) {
+				const props: Record<string, string | number> = {
+					result_title: options.resultTitle,
+				};
+				if (options.resultType) props.result_type = options.resultType;
+				if (typeof options.resultPosition === "number") {
+					props.result_position = options.resultPosition;
+				}
+				if (options.resultUrl) props.result_url = options.resultUrl;
+				if (options.query) props.query = options.query.toLowerCase();
+				plausible(TRACKING_EVENTS.SEARCH_RESULT_CLICK, { props });
+			}
+			break;
+		default: {
+			const _exhaustiveCheck: never = action;
+			return _exhaustiveCheck;
+		}
+	}
 };

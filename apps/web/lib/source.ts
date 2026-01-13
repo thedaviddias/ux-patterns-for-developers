@@ -1,4 +1,3 @@
-import { shouldShowInNav } from "@ux-patterns/ui/utils/pattern-status";
 import {
 	type InferMetaType,
 	type InferPageType,
@@ -7,7 +6,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import * as Icons from "lucide-react";
 import { createElement } from "react";
-import { blog as blogPosts, docs } from "@/.source/server";
+import { docs } from "@/.source/server";
 
 // Get the raw source and filter out drafts
 const rawSource = docs.toFumadocsSource();
@@ -16,10 +15,15 @@ const rawSource = docs.toFumadocsSource();
 const filteredSource = {
 	...rawSource,
 	files: rawSource.files.filter((file) => {
-		// Check if the file data has a draft status
-		const data = file.data as { status?: string } | undefined;
-		// Pass object matching PatternMetadata interface
-		return shouldShowInNav({ status: data?.status as "draft" | "published" | "complete" | undefined });
+		const data = file.data as {
+			status?: "draft" | "published" | "complete" | "coming-soon";
+			hideFromNav?: boolean;
+		} | undefined;
+		// Only hide items that are explicitly drafts/coming-soon or have hideFromNav: true
+		// Show everything else by default (including blog posts without status)
+		if (data?.hideFromNav === true) return false;
+		if (data?.status === "draft" || data?.status === "coming-soon") return false;
+		return true;
 	}),
 };
 

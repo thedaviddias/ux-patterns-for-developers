@@ -23,11 +23,13 @@ export const GuidesBanner = ({
 	return (
 		<Link
 			href={guidePath}
+			data-card
 			className={cn(
 				"not-prose group relative mt-8 mb-8 flex items-center justify-between rounded-lg",
 				"border border-border/50 overflow-hidden",
 				"px-4 py-3 transition-all duration-200",
 				"hover:border-emerald-500/30 hover:shadow-md",
+				"no-underline hover:no-underline",
 				className,
 			)}
 			onClick={() => {

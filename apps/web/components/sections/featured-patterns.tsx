@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { TRACKING_CLASSES } from "@/lib/tracking";
 import type { Pattern, PatternCategory } from "@/utils/get-pattern-categories";
 
 interface FeaturedPatternsProps {
@@ -23,7 +24,7 @@ function PatternCard({ pattern }: PatternCardProps) {
 	return (
 		<Link
 			href={pattern.href}
-			className="group block rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:border-foreground/20 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+			className={`${TRACKING_CLASSES.VIEW_PATTERN_CLICK} group block rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:border-foreground/20 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`}
 		>
 			{pattern.icon && (
 				<pattern.icon
@@ -102,7 +103,7 @@ export function FeaturedPatterns({ categories }: FeaturedPatternsProps) {
 					</div>
 					<Link
 						href="/patterns"
-						className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+						className={`${TRACKING_CLASSES.VIEW_PATTERN_CLICK} hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors`}
 					>
 						View all {totalPatternCount}+ patterns
 						<ArrowRight className="h-4 w-4" />
@@ -120,7 +121,7 @@ export function FeaturedPatterns({ categories }: FeaturedPatternsProps) {
 				<div className="mt-8 text-center sm:hidden">
 					<Link
 						href="/patterns"
-						className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+						className={`${TRACKING_CLASSES.VIEW_PATTERN_CLICK} inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors`}
 					>
 						View all {totalPatternCount}+ patterns
 						<ArrowRight className="h-4 w-4" />

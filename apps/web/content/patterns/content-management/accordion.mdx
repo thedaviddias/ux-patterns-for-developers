@@ -4,9 +4,8 @@ summary: "Expand and collapse content sections"
 description: "Create effective accordion components for your web applications. Learn best practices for implementing expandable content sections with proper accessibility and keyboard support."
 icon: ChevronDown
 status: complete
+aliases: ["collapsible panels"]
 ---
-
-**_(Also called collapsible panels)_**
 
 <PatternStats
   popularity="high"
@@ -177,7 +176,7 @@ graph TD
   </div>
 
   <div class="accordion-item">
-    <h3 id="accordion2heading">When should I use an accordion?</h3>
+    <h3 id="accordion2-heading">When should I use an accordion?</h3>
     <button
       class="accordion-trigger"
       aria-expanded="false"
@@ -329,7 +328,7 @@ This approach leverages **native browser behavior** without requiring JavaScript
 - No aria-expanded state by default—some screen readers may not properly announce expansion.
 - All items can be expanded at once—doesn't support "only one section open" behavior.
 
-### When to use a tabbed carousel vs grouped carousel?
+### When to use Button + ARIA vs Native `<details>` Accordion?
 
 Use the **decision tree** below to determine the right method:
 
@@ -537,7 +536,7 @@ By continuously monitoring these metrics, we can refine accordion usability, ens
   </div>
 
   <div class="accordion-item">
-    <h3 id="accordion2heading">When should I use an accordion?</h3>
+    <h3 id="accordion2-heading">When should I use an accordion?</h3>
     <button
       class="accordion-trigger"
       aria-expanded="false"
@@ -689,7 +688,7 @@ This approach leverages **native browser behavior** without requiring JavaScript
 - No aria-expanded state by default—some screen readers may not properly announce expansion.
 - All items can be expanded at once—doesn't support "only one section open" behavior.
 
-### When to use a tabbed carousel vs grouped carousel?
+### When to use Button + ARIA vs Native `<details>` Accordion?
 
 Use the **decision tree** below to determine the right method:
 
@@ -869,8 +868,6 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 
 ### Documentation
 
--[Accordion Pattern | WAI](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/)
+- [Accordion Pattern | WAI](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/)
 
 ### Libraries
-
-- [Accordion - Origin UI](https://originui.com/accordion)

@@ -1,13 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/cn";
-import { createQuickSearchData } from "@/lib/search";
-import type { SearchResult } from "@/lib/search";
-import {
-	Dialog,
-	DialogContent,
-	DialogTitle,
-} from "@ux-patterns/ui/components/shadcn/dialog";
 import {
 	Command,
 	CommandEmpty,
@@ -17,15 +9,24 @@ import {
 	CommandList,
 } from "@ux-patterns/ui/components/shadcn/command";
 import {
-	FileText,
+	Dialog,
+	DialogContent,
+	DialogTitle,
+} from "@ux-patterns/ui/components/shadcn/dialog";
+import {
 	Book,
 	BookOpen,
+	FileText,
+	Loader2,
 	Newspaper,
 	Search,
-	Loader2,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { usePlausible } from "next-plausible";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { SearchResult } from "@/lib/search";
+import { createQuickSearchData } from "@/lib/search";
+import { trackSearchEvent } from "@/lib/tracking";
 
 interface SearchDialogProps {
 	open: boolean;
@@ -52,9 +53,11 @@ const typeIcons = {
  */
 export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 	const router = useRouter();
+	const plausible = usePlausible();
 	const [query, setQuery] = useState("");
 	const [results, setResults] = useState<SearchResult[]>([]);
 	const [isSearching, setIsSearching] = useState(false);
+	const lastTrackedQuery = useRef<string>("");
 
 	// Quick search data (titles only, for instant results)
 	const quickSearchData = useMemo(() => createQuickSearchData(), []);
@@ -88,7 +91,17 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 				const searchUrl = `/api/search?q=${encodeURIComponent(query)}&limit=10`;
 				const response = await fetch(searchUrl);
 				const data = await response.json();
-				setResults(data.results || []);
+				const searchResults = data.results || [];
+				setResults(searchResults);
+
+				// Track search query (only if query changed to avoid duplicate events)
+				if (query !== lastTrackedQuery.current) {
+					lastTrackedQuery.current = query;
+					trackSearchEvent(plausible, "query", {
+						query,
+						resultsCount: searchResults.length,
+					});
+				}
 			} catch (error) {
 				console.error("Search failed:", error);
 			} finally {
@@ -97,7 +110,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 		}, 300);
 
 		return () => clearTimeout(timeout);
-	}, [query]);
+	}, [query, plausible]);
 
 	// Combine quick results with full results
 	const displayResults = useMemo(() => {
@@ -119,12 +132,19 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 
 	// Handle selection
 	const handleSelect = useCallback(
-		(url: string) => {
-			router.push(url);
+		(result: SearchResult, position: number) => {
+			trackSearchEvent(plausible, "result_click", {
+				query,
+				resultTitle: result.title,
+				resultType: result.type,
+				resultPosition: position,
+				resultUrl: result.url,
+			});
+			router.push(result.url);
 			onOpenChange(false);
 			setQuery("");
 		},
-		[router, onOpenChange]
+		[router, onOpenChange, plausible, query],
 	);
 
 	// Keyboard shortcut to open
@@ -182,11 +202,11 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 								typeIcons[type as keyof typeof typeIcons] || FileText;
 							return (
 								<CommandGroup key={type} heading={typeLabels[type] || type}>
-									{items.map((result) => (
+									{items.map((result, index) => (
 										<CommandItem
 											key={result.id}
 											value={result.url}
-											onSelect={() => handleSelect(result.url)}
+											onSelect={() => handleSelect(result, index + 1)}
 											className="cursor-pointer"
 										>
 											<Icon className="mr-2 h-4 w-4 text-muted-foreground" />
@@ -216,9 +236,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 					</CommandList>
 					<div className="flex items-center justify-between border-t px-3 py-2 text-xs text-muted-foreground">
 						<div className="flex gap-2">
-							<kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">
-								↑↓
-							</kbd>
+							<kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">↑↓</kbd>
 							<span>Navigate</span>
 						</div>
 						<div className="flex gap-2">

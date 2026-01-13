@@ -39,12 +39,14 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
 
-	// Restore scroll position on mount
+	// Restore scroll position on mount only
+	// Using ref to capture initial value to avoid dependency on scrollPosition
+	const initialScrollPosition = useRef(scrollPosition);
 	useEffect(() => {
-		if (scrollRef.current && scrollPosition > 0) {
-			scrollRef.current.scrollTop = scrollPosition;
+		if (scrollRef.current && initialScrollPosition.current > 0) {
+			scrollRef.current.scrollTop = initialScrollPosition.current;
 		}
-	}, [scrollPosition]);
+	}, []);
 
 	// Save scroll position on scroll
 	const handleScroll = useCallback(() => {
@@ -191,10 +193,9 @@ interface SidebarFolderProps {
 }
 
 function SidebarFolder({ folder, level }: SidebarFolderProps) {
-	const { expandedPaths, togglePath, expandPath, defaultOpenLevel } = useSidebar();
+	const { expandedPaths, togglePath, expandPath, defaultOpenLevel, hasHydrated, hadStoredData } = useSidebar();
 	const pathname = usePathname();
 	const folderPath = folder.index?.url || folder.name;
-	const isExpanded = expandedPaths.has(folderPath);
 	const buttonRef = useRef<HTMLButtonElement>(null);
 
 	// Auto-expand if current path is within this folder
@@ -208,17 +209,22 @@ function SidebarFolder({ folder, level }: SidebarFolderProps) {
 		return false;
 	});
 
-	// Auto-expand on first render:
-	// - Folders within defaultOpenLevel are expanded by default
-	// - Any folder containing the active page is expanded
+	// Determine if folder should be auto-expanded by default
+	const shouldDefaultExpand = level < defaultOpenLevel || isActive || hasActiveChild;
+
+	// Compute expanded state:
+	// - Before hydration OR first visit (no stored data): show defaults
+	// - After hydration with stored data: use localStorage state (user preferences)
+	const isExpanded = hasHydrated && hadStoredData
+		? expandedPaths.has(folderPath)
+		: shouldDefaultExpand;
+
+	// After hydration, if this is a first visit, persist default-expanded folders to state
 	useEffect(() => {
-		const shouldAutoExpand = level < defaultOpenLevel || isActive || hasActiveChild;
-		if (shouldAutoExpand) {
+		if (hasHydrated && !hadStoredData && shouldDefaultExpand && !expandedPaths.has(folderPath)) {
 			expandPath(folderPath);
 		}
-	// Only run on mount
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [hasHydrated, hadStoredData, shouldDefaultExpand, expandedPaths, folderPath, expandPath]);
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
 		switch (e.key) {
@@ -303,6 +309,8 @@ function SidebarItem({ item, level }: SidebarItemProps) {
 				ref={linkRef}
 				href={item.url}
 				onKeyDown={handleKeyDown}
+				target={item.external ? "_blank" : undefined}
+				rel={item.external ? "noopener noreferrer" : undefined}
 				className={cn(
 					"flex items-start gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
 					"hover:bg-accent hover:text-accent-foreground",

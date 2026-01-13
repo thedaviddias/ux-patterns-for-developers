@@ -101,6 +101,15 @@ export function Header({
 	);
 
 	// Handle nav.title which can be ReactNode or render function
+	// Render functions are not supported - warn in development
+	if (process.env.NODE_ENV === "development") {
+		if (typeof nav.title === "function") {
+			console.warn("Header: nav.title as a render function is not supported. Pass a ReactNode instead.");
+		}
+		if (typeof nav.children === "function") {
+			console.warn("Header: nav.children as a render function is not supported. Pass a ReactNode instead.");
+		}
+	}
 	const navTitle = typeof nav.title === "function" ? null : nav.title;
 	const navChildren = typeof nav.children === "function" ? null : nav.children;
 

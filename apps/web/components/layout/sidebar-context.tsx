@@ -23,6 +23,10 @@ interface SidebarContextValue {
 	setScrollPosition: (position: number) => void;
 	/** Default level to auto-expand folders */
 	defaultOpenLevel: number;
+	/** Whether client-side hydration has completed (localStorage loaded) */
+	hasHydrated: boolean;
+	/** Whether localStorage had stored expanded paths (vs first visit) */
+	hadStoredData: boolean;
 }
 
 const SidebarContext = createContext<SidebarContextValue | null>(null);
@@ -43,18 +47,18 @@ interface SidebarProviderProps {
  * - Expanded folder paths with localStorage persistence
  * - Scroll position memory
  */
-// Helper to load expanded paths from localStorage synchronously
-function getInitialExpandedPaths(): Set<string> {
-	if (typeof window === "undefined") return new Set();
+// Helper to load expanded paths from localStorage (client-side only)
+function getStoredExpandedPaths(): Set<string> | null {
+	if (typeof window === "undefined") return null;
 	try {
 		const saved = localStorage.getItem(STORAGE_KEY_EXPANDED);
-		if (saved) {
+		if (saved !== null) {
 			return new Set(JSON.parse(saved));
 		}
 	} catch {
 		// Ignore localStorage errors
 	}
-	return new Set();
+	return null;
 }
 
 // Helper to load scroll position from localStorage synchronously
@@ -76,14 +80,27 @@ export function SidebarProvider({
 	defaultOpenLevel = 1,
 }: SidebarProviderProps) {
 	const [open, setOpen] = useState(false);
-	// Initialize from localStorage synchronously to avoid flicker
-	const [expandedPaths, setExpandedPaths] = useState<Set<string>>(getInitialExpandedPaths);
-	const [scrollPosition, setScrollPosition] = useState(getInitialScrollPosition);
-	const [initialized, setInitialized] = useState(true);
+	// Start with empty set - defaults are computed in SidebarFolder during render
+	// This ensures SSR and initial client render show expanded defaults (no flash)
+	const [expandedPaths, setExpandedPaths] = useState<Set<string>>(new Set());
+	const [scrollPosition, setScrollPosition] = useState(0);
+	const [hasHydrated, setHasHydrated] = useState(false);
+	const [hadStoredData, setHadStoredData] = useState(false);
 
-	// Persist expanded paths
+	// After mount, load from localStorage (if any)
 	useEffect(() => {
-		if (!initialized || typeof window === "undefined") return;
+		const storedPaths = getStoredExpandedPaths();
+		if (storedPaths !== null) {
+			setExpandedPaths(storedPaths);
+			setHadStoredData(true);
+		}
+		setScrollPosition(getInitialScrollPosition());
+		setHasHydrated(true);
+	}, []);
+
+	// Persist expanded paths (only after hydration to avoid overwriting with empty set)
+	useEffect(() => {
+		if (!hasHydrated || typeof window === "undefined") return;
 		try {
 			localStorage.setItem(
 				STORAGE_KEY_EXPANDED,
@@ -92,11 +109,11 @@ export function SidebarProvider({
 		} catch {
 			// Ignore localStorage errors
 		}
-	}, [expandedPaths, initialized]);
+	}, [expandedPaths, hasHydrated]);
 
-	// Persist scroll position (debounced)
+	// Persist scroll position (debounced, only after hydration)
 	useEffect(() => {
-		if (!initialized || typeof window === "undefined") return;
+		if (!hasHydrated || typeof window === "undefined") return;
 		const timeout = setTimeout(() => {
 			try {
 				localStorage.setItem(
@@ -108,7 +125,7 @@ export function SidebarProvider({
 			}
 		}, 100);
 		return () => clearTimeout(timeout);
-	}, [scrollPosition, initialized]);
+	}, [scrollPosition, hasHydrated]);
 
 	const togglePath = useCallback((path: string) => {
 		setExpandedPaths((prev) => {
@@ -142,6 +159,8 @@ export function SidebarProvider({
 				scrollPosition,
 				setScrollPosition,
 				defaultOpenLevel,
+				hasHydrated,
+				hadStoredData,
 			}}
 		>
 			{children}
