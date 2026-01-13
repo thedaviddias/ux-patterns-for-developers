@@ -1,5 +1,4 @@
 import { PROJECT } from "@ux-patterns/constants/author";
-import { DocsBody, DocsPage, DocsTitle } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { metadataSEO } from "@/app/metadata";
@@ -15,9 +14,15 @@ import {
 	JsonLd,
 	ORGANIZATION_SCHEMA,
 } from "@/components/json-ld";
+import { DocsPageHeader, Toc, TocWrapper } from "@/components/layout";
 import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
+import {
+	generateStaticParams as generateContentParams,
+	getPage,
+	getPages,
+} from "@/lib/content";
+import { compileMDXContent } from "@/lib/mdx";
 import { siteConfig } from "@/lib/site.config";
-import { source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
 
@@ -32,10 +37,14 @@ export default async function Page(props: {
 		notFound();
 	}
 
-	const page = source.getPage(params.slug);
+	const page = getPage(params.slug);
 	if (!page) notFound();
 
-	const MDX = page.data.body;
+	// Compile MDX content from raw file using next-mdx-remote
+	const { content: mdxContent } = await compileMDXContent(
+		page.slug,
+		getMDXComponents(),
+	);
 
 	// Determine page type and properties
 	const isHomepage = !params.slug || params.slug.length === 0;
@@ -49,8 +58,8 @@ export default async function Page(props: {
 		params.slug[0] === "glossary" && params.slug.length > 1;
 	const isPatternGuide = params.slug[0] === "pattern-guide";
 
-	const title = page.data.title || "UX Patterns for Devs";
-	const description = page.data.description || "";
+	const title = page.title || "UX Patterns for Devs";
+	const description = page.description || "";
 	const path = `/${params.slug?.join("/") || ""}`;
 
 	// Generate appropriate schemas based on page type
@@ -62,10 +71,10 @@ export default async function Page(props: {
 		schemas.push({ "@context": "https://schema.org", ...ORGANIZATION_SCHEMA });
 	} else if (isBlogPost) {
 		// Blog posts get BlogPosting schema
-		const datePublished = page.data.date || page.data.datePublished;
+		const datePublished = page.date || page.datePublished;
 		const dateModified =
-			page.data.lastModified || page.data.dateModified || datePublished;
-		const tags = page.data.tags || page.data.keywords || [];
+			page.lastModified || page.dateModified || datePublished;
+		const tags = page.tags || page.keywords || [];
 
 		schemas.push(
 			generateBlogPostingSchema(
@@ -73,35 +82,27 @@ export default async function Page(props: {
 				description,
 				path,
 				undefined, // image
-				datePublished instanceof Date
-					? datePublished.toISOString()
-					: datePublished,
-				dateModified instanceof Date
-					? dateModified.toISOString()
-					: dateModified,
+				datePublished,
+				dateModified,
 				tags,
-				page.data.wordCount,
+				page.metadata?.wordCount,
 			),
 		);
 	} else if (isBlogListing) {
 		// Blog listing gets CollectionPage schema
-		const allPages = source.getPages();
+		const allPages = getPages();
 		const blogPages = allPages.filter(
-			(p) => p.slugs[0] === "blog" && p.slugs.length > 1,
+			(p) => p.slugAsParams[0] === "blog" && p.slugAsParams.length > 1,
 		);
 
-		const items = blogPages.map((p) => ({
-			name: p.data.title || "",
-			url: p.url,
-			datePublished:
-				p.data.date instanceof Date
-					? p.data.date.toISOString()
-					: p.data.date ||
-						(p.data.datePublished instanceof Date
-							? p.data.datePublished.toISOString()
-							: p.data.datePublished),
-			description: p.data.description || "",
-		}));
+		const items = blogPages.map((p) => {
+			return {
+				name: p.title || "",
+				url: p.url,
+				datePublished: p.date || p.datePublished || undefined,
+				description: p.description || "",
+			};
+		});
 
 		schemas.push(generateCollectionPageSchema(title, description, path, items));
 	} else if (isPatternPage) {
@@ -109,7 +110,7 @@ export default async function Page(props: {
 		const category = params.slug[1];
 
 		// Generate HowTo steps from metadata or default steps
-		const steps = page.data.steps || [
+		const steps = page.steps || [
 			{
 				name: "Understand the pattern",
 				text: `Learn when and why to use the ${title} pattern in your application.`,
@@ -134,7 +135,7 @@ export default async function Page(props: {
 				description,
 				path,
 				steps,
-				page.data.totalTime || "PT30M",
+				page.totalTime || "PT30M",
 				undefined, // image
 			),
 		);
@@ -146,27 +147,23 @@ export default async function Page(props: {
 				description,
 				path,
 				undefined, // image
-				page.data.datePublished instanceof Date
-					? page.data.datePublished.toISOString()
-					: page.data.datePublished,
-				page.data.dateModified instanceof Date
-					? page.data.dateModified.toISOString()
-					: page.data.dateModified,
+				page.datePublished || undefined,
+				page.dateModified || undefined,
 				category,
-				page.data.wordCount,
+				page.metadata?.wordCount,
 			),
 		);
 	} else if (isPatternCategory || isPatternsIndex) {
 		// Pattern category/listing pages get ItemList schema
-		const allPages = source.getPages();
+		const allPages = getPages();
 		const patternPages = allPages.filter(
-			(p) => p.slugs[0] === "patterns" && p.slugs.length > 1,
+			(p) => p.slugAsParams[0] === "patterns" && p.slugAsParams.length > 1,
 		);
 
 		const items = patternPages.map((p, index) => ({
-			name: p.data.title || "",
+			name: p.title || "",
 			url: p.url,
-			description: p.data.description || "",
+			description: p.description || "",
 			position: index + 1,
 		}));
 
@@ -178,9 +175,9 @@ export default async function Page(props: {
 				title,
 				description,
 				path,
-				page.data.educationalLevel,
-				page.data.timeRequired,
-				page.data.prerequisites,
+				page.educationalLevel,
+				page.timeRequired,
+				page.prerequisites,
 			),
 		);
 	} else if (isGlossaryPage) {
@@ -188,18 +185,18 @@ export default async function Page(props: {
 		const jsonLdData = {
 			"@context": "https://schema.org",
 			"@type": "DefinedTerm",
-			name: page.data.title,
-			description: page.data.description,
+			name: page.title,
+			description: page.description,
 			url: `${siteConfig.url}${page.url}`,
 			inDefinedTermSet: {
 				"@type": "DefinedTermSet",
 				name: "UX Patterns Glossary",
 				url: `${siteConfig.url}/glossary`,
 			},
-			...(page.data.category &&
-				Array.isArray(page.data.category) &&
-				page.data.category.length > 0 && {
-					termCode: page.data.category.join(","),
+			...(page.category &&
+				Array.isArray(page.category) &&
+				page.category.length > 0 && {
+					termCode: page.category.join(","),
 				}),
 		};
 		schemas.push(jsonLdData);
@@ -230,43 +227,53 @@ export default async function Page(props: {
 				/>
 			))}
 
-			<DocsPage
-				tableOfContent={{
-					style: "clerk",
-					enabled: !isPatternGuide,
-				}}
-				toc={page.data.toc}
-				full={page.data.full}
-			>
-				<DocsTitle>{page.data.title}</DocsTitle>
-				<p className="text-lg text-fd-muted-foreground">
-					{page.data.description}
-				</p>
-				<div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+			<article>
+				<DocsPageHeader
+					title={page.title}
+					description={page.description}
+					readTime={page.readTime}
+					lastUpdated={page.dateModified || page.lastModified}
+					aliases={page.aliases}
+					popularity={page.popularity}
+				/>
+				<div className="flex w-full flex-row gap-2 items-center justify-end py-4 mb-8">
 					<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
 					<ViewOptions
 						markdownUrl={`${page.url}.mdx`}
-						githubUrl={`${PROJECT.repository.url}/blob/dev/apps/web/content/${page.path}`}
+						githubUrl={`${PROJECT.repository.url}/blob/dev/apps/web/content/${page.slug}.mdx`}
 					/>
 				</div>
-				<DocsBody>
-					<MDX components={getMDXComponents()} />
-				</DocsBody>
+
+				{/* Content + TOC flex container */}
+				<div className="flex gap-8">
+					{/* Main content */}
+					<div className="prose prose-slate dark:prose-invert max-w-none min-w-0 flex-1">
+						{mdxContent}
+					</div>
+
+					{/* Table of Contents (desktop only) - hidden for pattern guides */}
+					{!isPatternGuide && page.toc && page.toc.length > 0 && (
+						<TocWrapper>
+							<Toc items={page.toc} />
+						</TocWrapper>
+					)}
+				</div>
+
 				<FeedbackWrapper />
-			</DocsPage>
+			</article>
 		</>
 	);
 }
 
 export async function generateStaticParams() {
-	return source.generateParams();
+	return generateContentParams();
 }
 
 export async function generateMetadata(props: {
 	params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
 	const params = await props.params;
-	const page = source.getPage(params.slug);
+	const page = getPage(params.slug);
 	if (!page) notFound();
 
 	// Determine page type and properties
@@ -276,8 +283,8 @@ export async function generateMetadata(props: {
 	const isGlossaryPage =
 		params.slug[0] === "glossary" && params.slug.length > 1;
 
-	const title = page.data.title || "UX Patterns for Devs";
-	const description = page.data.description || "";
+	const title = page.title || "UX Patterns for Devs";
+	const description = page.description || "";
 	const path = `/${params.slug?.join("/") || ""}`;
 
 	// Enhanced title with context
@@ -320,10 +327,10 @@ export async function generateMetadata(props: {
 			],
 			...(isBlogPost && {
 				type: "article",
-				publishedTime: page.data.date || page.data.datePublished,
-				modifiedTime: page.data.lastModified || page.data.dateModified,
+				publishedTime: page.date || page.datePublished,
+				modifiedTime: page.lastModified || page.dateModified,
 				authors: ["David Dias"],
-				tags: page.data.tags || page.data.keywords || [],
+				tags: page.tags || page.keywords || [],
 			}),
 		},
 		twitter: {

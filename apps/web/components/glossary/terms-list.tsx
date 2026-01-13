@@ -1,6 +1,6 @@
 "use client";
 
-import defaultMdxComponents from "fumadocs-ui/mdx";
+import { Cards } from "@/components/mdx";
 import { AlphabetNav } from "./alphabet-nav";
 import { TermCard } from "./term-card";
 
@@ -42,8 +42,6 @@ export function TermsList({ terms }: TermsListProps) {
 		return <p>No glossary terms found.</p>;
 	}
 
-	const Cards = defaultMdxComponents.Cards;
-
 	return (
 		<div className="space-y-12">
 			<AlphabetNav availableLetters={sortedLetters} />
@@ -53,7 +51,7 @@ export function TermsList({ terms }: TermsListProps) {
 
 				return (
 					<section key={letter} id={letter.toLowerCase()}>
-						<h2 className="text-2xl font-bold mb-6 text-fd-foreground scroll-mt-20">
+						<h2 className="text-2xl font-bold mb-6 text-foreground scroll-mt-20">
 							{letter}
 						</h2>
 						<Cards className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

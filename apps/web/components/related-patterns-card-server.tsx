@@ -1,3 +1,5 @@
+"use client";
+
 import { enrichPatternsWithIcons } from "../utils/enrich-patterns-with-icons";
 import { RelatedPatternsCard } from "./related-patterns-card";
 

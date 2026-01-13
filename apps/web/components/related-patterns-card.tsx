@@ -55,11 +55,12 @@ export const RelatedPatternsCard = ({
 					<Link
 						key={pattern.path}
 						href={pattern.path}
+						data-card
 						className={cn(
 							"group block p-4 rounded-lg border border-border",
 							"bg-card hover:bg-secondary/50",
 							"transition-all duration-200",
-							"hover:shadow-sm dark:hover:shadow-none no-underline",
+							"hover:shadow-sm dark:hover:shadow-none",
 						)}
 					>
 						<div className="flex items-start justify-between">

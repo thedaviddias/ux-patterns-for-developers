@@ -29,7 +29,7 @@ const fetchGitHubStars = async (): Promise<number> => {
 		const data: GitHubRepoResponse = await response.json();
 		return data.stargazers_count;
 	} catch (error) {
-		console.error("Failed to fetch GitHub stars:", error);
+		// Silently fail - network errors during build are expected
 		throw error;
 	}
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import { Badge } from "@ux-patterns/ui/components/shadcn/badge";
 import { Gauge, Rocket, Zap } from "lucide-react";
 import { cn } from "@/lib/cn";

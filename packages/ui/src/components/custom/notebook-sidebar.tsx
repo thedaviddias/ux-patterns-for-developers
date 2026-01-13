@@ -1,10 +1,5 @@
-import { HideIfEmpty } from "fumadocs-core/hide-if-empty";
+// TODO: Remove @ts-expect-error comments after fumadocs v16 migration is complete
 import Link from "fumadocs-core/link";
-import { LanguageToggle } from "fumadocs-ui/components/layout/language-toggle";
-import {
-	type Option,
-	RootToggle,
-} from "fumadocs-ui/components/layout/root-toggle";
 import {
 	Sidebar,
 	SidebarCollapseTrigger,
@@ -22,13 +17,40 @@ import {
 	type SidebarProps,
 	SidebarTrigger,
 	SidebarViewport,
-} from "fumadocs-ui/components/layout/sidebar";
-import { ThemeToggle } from "fumadocs-ui/components/layout/theme-toggle";
+} from "fumadocs-ui/components/sidebar";
+import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
+import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
+import { SidebarTabsDropdown, type SidebarTab as Option } from "fumadocs-ui/components/sidebar/tabs/dropdown";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
-import { BaseLinkItem, type LinkItemType } from "fumadocs-ui/layouts/shared";
-import { cn } from "fumadocs-ui/utils/cn";
+import type { LinkItemType } from "fumadocs-ui/layouts/shared";
+import { cn } from "../../lib/cn";
 import { Languages, Sidebar as SidebarIcon, X } from "lucide-react";
-import type { ComponentProps, ReactNode } from "react";
+import {
+	Children,
+	type ComponentProps,
+	type ElementType,
+	isValidElement,
+	type ReactNode,
+} from "react";
+
+/**
+ * HideIfEmpty - Conditionally renders a wrapper element only if it has non-empty children
+ * This prevents empty wrapper elements from appearing in the DOM
+ */
+function HideIfEmpty<T extends ElementType = "div">({
+	as,
+	children,
+	...props
+}: { as?: T; children?: ReactNode } & ComponentProps<T>): ReactNode {
+	const Component = as || "div";
+	const childArray = Children.toArray(children).filter(
+		(child) => isValidElement(child) || (typeof child === "string" && child.trim())
+	);
+
+	if (childArray.length === 0) return null;
+
+	return <Component {...props}>{children}</Component>;
+}
 
 export interface NotebookSidebarProps
 	extends ComponentProps<"aside">,
@@ -85,10 +107,10 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 			{tabMode !== "none" && (
 				<>
 					{tabMode === "sidebar" && tabs.length > 0 && (
-						<RootToggle className="mb-2" options={tabs} />
+						<SidebarTabsDropdown className="mb-2" options={tabs} />
 					)}
 					{tabMode === "navbar" && tabs.length > 0 && (
-						<RootToggle options={tabs} className="lg:hidden" />
+						<SidebarTabsDropdown options={tabs} className="lg:hidden" />
 					)}
 				</>
 			)}
@@ -159,9 +181,10 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 				{iconLinks.map((item, i) => {
 					if (item.type !== "icon") return null;
 					return (
-						<BaseLinkItem
+						<Link
 							key={i}
-							item={item}
+							href={item.url}
+							external={item.external}
 							className={cn(
 								buttonVariants({
 									size: "icon-sm",
@@ -172,7 +195,7 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 							aria-label={item.label}
 						>
 							{item.icon}
-						</BaseLinkItem>
+						</Link>
 					);
 				})}
 				{footer}
@@ -205,9 +228,10 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 				{iconLinks.map((item, i) => {
 					if (item.type !== "icon") return null;
 					return (
-						<BaseLinkItem
+						<Link
 							key={i}
-							item={item}
+							href={item.url}
+							external={item.external}
 							className={cn(
 								buttonVariants({
 									size: "icon-sm",
@@ -219,7 +243,7 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 							aria-label={item.label}
 						>
 							{item.icon}
-						</BaseLinkItem>
+						</Link>
 					);
 				})}
 				{i18n ? (

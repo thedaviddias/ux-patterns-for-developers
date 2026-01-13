@@ -1,13 +1,98 @@
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
-
-/* @source '../node_modules/fumadocs-ui/dist*.js'; */
+@source '../components/**/*.{js,ts,tsx}';
 @source '../../../__registry__/**/*.{js,ts,tsx}';
 @source '../../../packages/registry/registry/default/**/*.{js,ts,tsx}';
 @source '../../../packages/ui/src/**/*.{js,ts,tsx}';
 
 @custom-variant dark (&:is(.dark *));
+
+/* Shiki code block styling - ONLY element with background */
+.shiki {
+  position: relative;
+  padding: 2.75rem 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  border: 1px solid;
+  margin: 0;
+}
+
+/* Reset code styling inside code blocks - override Code component's inline styles */
+pre.shiki code,
+.code-block pre code {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  background: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  position: static !important;
+}
+
+/* Reset line spans inside code blocks */
+pre.shiki code span,
+.code-block pre code span {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Language badge from data-language attribute */
+.shiki[data-language]::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0.625rem;
+  left: 0.875rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Light mode code blocks */
+html:not(.dark) .shiki {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--muted)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+html:not(.dark) .shiki[data-language]::before {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: hsl(var(--muted-foreground));
+}
+
+html:not(.dark) .shiki span {
+  color: var(--shiki-light) !important;
+  background-color: transparent !important;
+}
+
+/* Dark mode code blocks */
+html.dark .shiki,
+.dark .shiki {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--muted)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+html.dark .shiki[data-language]::before,
+.dark .shiki[data-language]::before {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: hsl(var(--muted-foreground));
+}
+
+html.dark .shiki span,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: transparent !important;
+}
 
 /* Custom text selection highlight color */
 ::selection {
@@ -72,8 +157,6 @@
 	--color-3: 262 83% 58%;
 	--color-4: 221 83% 53%;
 	--color-5: 142 76% 73%;
-
-  --color-fd-primary: #0092b3;
 }
 
 .dark {
@@ -108,8 +191,68 @@
 	--sidebar-accent-foreground: 0 0% 98%;
 	--sidebar-border: 0 0% 14.9%;
 	--sidebar-ring: 0 0% 83.1%;
+}
 
-  --color-fd-primary: #3ad1ff;
+/* Custom scrollbar - hidden by default, visible on hover */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.sidebar-scroll:hover {
+  scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+}
+
+/* WebKit browsers */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.sidebar-scroll:hover::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+
+/* Prose link styling */
+.prose a:not([data-card]) {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: #3b82f6;
+  text-underline-offset: 3.5px;
+  text-decoration-thickness: 1.5px;
+  transition: opacity 0.2s, text-decoration-color 0.2s;
+}
+
+.prose a:not([data-card]):hover {
+  opacity: 0.8;
+}
+
+/* Anchor link styling */
+.prose .anchor {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* Reset prose spacing inside callouts */
+.prose [role="note"] p {
+  margin: 0 !important;
+}
+
+.prose [role="note"] p + p {
+  margin-top: 0.5rem !important;
 }
 
 @theme inline {
@@ -150,4 +293,14 @@
 	--color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
 	--color-sidebar-border: hsl(var(--sidebar-border));
 	--color-sidebar-ring: hsl(var(--sidebar-ring));
+	
+	/* Text sizes for headings */
+	--text-4xl: 2.25rem;
+	--text-4xl--line-height: 2.5rem;
+	--text-3xl: 1.875rem;
+	--text-3xl--line-height: 2.25rem;
+	--text-2xl: 1.5rem;
+	--text-2xl--line-height: 2rem;
+	--text-xl: 1.25rem;
+	--text-xl--line-height: 1.75rem;
 }

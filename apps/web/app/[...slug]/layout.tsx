@@ -1,38 +1,51 @@
-import { DocsLayout } from "@ux-patterns/ui/components/custom/layout-notebook";
-import {
-	TrackedLargeSearchToggle,
-	TrackedSearchToggle,
-} from "@ux-patterns/ui/components/custom/tracked-search-toggle";
 import type { ReactNode } from "react";
-import { baseOptions, linkItems } from "@/lib/layout.shared";
-import { source } from "@/lib/source";
+import { DocsLayout } from "@/components/layout";
+import { SearchToggle } from "@/components/search";
+import {
+	getPatternsPageTree,
+	getPatternGuidePageTree,
+	getGlossaryPageTree,
+} from "@/lib/content";
+import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
 import { TRACKING_EVENTS } from "@/lib/tracking";
 
-export default function Layout({ children }: { children: ReactNode }) {
-	const { nav, ...base } = baseOptions();
+interface LayoutProps {
+	children: ReactNode;
+	params: Promise<{ slug: string[] }>;
+}
+
+export default async function Layout({ children, params }: LayoutProps) {
+	const { slug } = await params;
+	const section = slug[0];
+
+	// Get section-specific page tree
+	let tree;
+	switch (section) {
+		case "patterns":
+			tree = getPatternsPageTree();
+			break;
+		case "pattern-guide":
+			tree = getPatternGuidePageTree();
+			break;
+		case "glossary":
+			tree = getGlossaryPageTree();
+			break;
+		default:
+			tree = getPatternsPageTree();
+	}
 
 	return (
 		<DocsLayout
-			{...base}
-			nav={{ ...nav, mode: "top" }}
-			tabMode="none"
-			tree={source.pageTree}
-			links={linkItems}
-			sidebar={{ defaultOpenLevel: 2 }}
-			themeSwitch={{ enabled: false }}
-			searchToggle={{
-				enabled: true,
-				components: {
-					lg: (
-						<TrackedLargeSearchToggle
-							trackingEvent={TRACKING_EVENTS.SEARCH_OPEN}
-						/>
-					),
-					sm: (
-						<TrackedSearchToggle trackingEvent={TRACKING_EVENTS.SEARCH_OPEN} />
-					),
-				},
-			}}
+			tree={tree}
+			githubStars={
+				<GitHubStarsWrapper
+					variant="small"
+					asLink={true}
+					trackingEvent={TRACKING_EVENTS.GITHUB_STAR_CLICK}
+				/>
+			}
+			searchToggle={<SearchToggle />}
+			defaultOpenLevel={2}
 		>
 			{children}
 		</DocsLayout>

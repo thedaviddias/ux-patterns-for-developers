@@ -84,6 +84,10 @@ const getPlausibleStats = unstable_cache(
 	},
 );
 
+// Dynamic route - reads query parameters at runtime
+// Caching is handled by unstable_cache and Cache-Control header
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;
 	const page = searchParams.get("page");
@@ -97,5 +101,9 @@ export async function GET(request: NextRequest) {
 
 	const stats = await getPlausibleStats(page);
 
-	return NextResponse.json(stats);
+	return NextResponse.json(stats, {
+		headers: {
+			"Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
+		},
+	});
 }

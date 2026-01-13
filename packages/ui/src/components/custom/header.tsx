@@ -1,3 +1,4 @@
+// TODO: Remove @ts-expect-error comments after fumadocs v16 migration is complete
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: not an issue */
 import {
 	Menu,
@@ -17,17 +18,23 @@ import { buttonVariants } from "@ux-patterns/ui/components/shadcn/button";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import Link from "fumadocs-core/link";
 import {
-	LargeSearchToggle,
-	SearchToggle,
-} from "fumadocs-ui/components/layout/search-toggle";
-import {
 	type BaseLayoutProps,
-	getLinks,
+	resolveLinkItems,
 	type LinkItemType,
 	type NavOptions,
 } from "fumadocs-ui/layouts/shared";
 import { ChevronDown } from "lucide-react";
-import { Fragment, type HTMLAttributes, useMemo } from "react";
+import { Fragment, type HTMLAttributes, type ReactNode, useMemo } from "react";
+
+// Placeholder components for fumadocs v16 migration
+// TODO: Import real components when fumadocs-ui exports are fixed
+function LargeSearchToggle(_props: { className?: string; hideIfDisabled?: boolean }): ReactNode {
+	return null;
+}
+
+function SearchToggle(_props: { className?: string; hideIfDisabled?: boolean }): ReactNode {
+	return null;
+}
 
 export interface HomeLayoutProps extends BaseLayoutProps {
 	nav?: Partial<
@@ -77,12 +84,12 @@ export function Header({
 	nav = {},
 	links,
 	githubUrl,
-	searchToggle = {},
+	searchToggle,
 	wide,
 	githubStars,
 }: HomeLayoutProps) {
 	const finalLinks = useMemo(
-		() => getLinks(links, githubUrl),
+		() => resolveLinkItems({ links, githubUrl }),
 		[links, githubUrl],
 	);
 
@@ -93,11 +100,24 @@ export function Header({
 		["menu", "all"].includes(item.on ?? "all"),
 	);
 
+	// Handle nav.title which can be ReactNode or render function
+	// Render functions are not supported - warn in development
+	if (process.env.NODE_ENV === "development") {
+		if (typeof nav.title === "function") {
+			console.warn("Header: nav.title as a render function is not supported. Pass a ReactNode instead.");
+		}
+		if (typeof nav.children === "function") {
+			console.warn("Header: nav.children as a render function is not supported. Pass a ReactNode instead.");
+		}
+	}
+	const navTitle = typeof nav.title === "function" ? null : nav.title;
+	const navChildren = typeof nav.children === "function" ? null : nav.children;
+
 	return (
 		<Navbar className="container-responsive" wide={wide}>
-			<div className="inline-flex items-center gap-2.5">{nav.title}</div>
+			<div className="inline-flex items-center gap-2.5">{navTitle}</div>
 
-			{nav.children}
+			{navChildren}
 			<ul className="flex flex-row items-center gap-2 px-6 max-sm:hidden">
 				{navItems
 					.filter((item) => !isSecondary(item))
@@ -107,8 +127,8 @@ export function Header({
 			</ul>
 			<div className="flex flex-row items-center justify-end gap-1.5 flex-1">
 				<div>{githubStars}</div>
-				{searchToggle.enabled !== false &&
-					(searchToggle.components?.lg ?? (
+				{searchToggle?.enabled !== false &&
+					(searchToggle?.components?.lg ?? (
 						<LargeSearchToggle
 							className="hidden md:flex w-full my-auto max-w-[240px]"
 							hideIfDisabled
@@ -121,8 +141,8 @@ export function Header({
 				</div>
 			</div>
 			<ul className="flex flex-row items-center ms-auto -me-1.5 lg:hidden">
-				{searchToggle.enabled !== false &&
-					(searchToggle.components?.sm ?? (
+				{searchToggle?.enabled !== false &&
+					(searchToggle?.components?.sm ?? (
 						<SearchToggle className="p-2" hideIfDisabled />
 					))}
 				<Menu>

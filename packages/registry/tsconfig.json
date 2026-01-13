@@ -4,7 +4,7 @@
 		"baseUrl": ".",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
-		"types": ["vitest/globals", "@testing-library/jest-dom", "vitest-axe"],
+		"types": ["node", "vitest/globals", "@testing-library/jest-dom", "vitest-axe"],
 		"paths": {
 			"@": ["./registry/default"],
 			"@/*": ["./registry/default/*"],

@@ -1,4 +1,8 @@
-import { remarkMdxMermaid } from "fumadocs-core/mdx-plugins";
+import {
+	remarkMdxMermaid,
+	remarkStructure,
+	remarkHeading,
+} from "fumadocs-core/mdx-plugins";
 import {
 	defineCollections,
 	defineConfig,
@@ -6,6 +10,7 @@ import {
 	frontmatterSchema,
 	metaSchema,
 } from "fumadocs-mdx/config";
+import remarkGfm from "remark-gfm";
 import { z } from "zod";
 
 // You can customise Zod schemas for frontmatter and `meta.json` here
@@ -69,9 +74,14 @@ export const blog = defineCollections({
 });
 
 export default defineConfig({
-	lastModifiedTime: "git",
 	mdxOptions: {
-		remarkPlugins: [remarkMdxMermaid],
+		// Override default plugins to exclude remark-image which fails on external URLs
+		remarkPlugins: [
+			remarkGfm,
+			remarkMdxMermaid,
+			remarkHeading,
+			remarkStructure,
+		],
 		providerImportSource: "@/mdx-components",
 	},
 });

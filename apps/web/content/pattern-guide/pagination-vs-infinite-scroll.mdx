@@ -4,17 +4,6 @@ description: "Choose the right content loading pattern based on your user needs 
 icon: Split
 ---
 
-import { LazyDecisionFlow } from "@/components/decision-flow/lazy-decision-flow";
-import {
-  edges,
-  nodes,
-} from "@/components/decision-flow/data/navigation-patterns";
-import { ComparisonGrid } from "@/components/pattern-comparison/comparison-grid";
-import { ComparisonHero } from "@/components/pattern-comparison/comparison-hero";
-import { DecisionFlowSection } from "@/components/pattern-comparison/decision-flow-section";
-import { ExamplesGrid } from "@/components/pattern-comparison/examples-grid";
-import { PerformanceComparison } from "@/components/pattern-comparison/performance-comparison";
-
 <div>
 
   <div className="prose dark:prose-invert mb-10 space-y-4">
@@ -29,106 +18,11 @@ import { PerformanceComparison } from "@/components/pattern-comparison/performan
 
   </div>
 
-  <DecisionFlowSection nodes={nodes} edges={edges} title="Pagination vs Infinite Scroll Decision Flow" />
-  <ComparisonGrid patterns={comparisonData.patterns} />
-  <PerformanceComparison patterns={performanceData.patterns} />
-  <ExamplesGrid examples={examplesData.examples} />
+  <DecisionFlowSection nodes={navigationNodes} edges={navigationEdges} title="Pagination vs Infinite Scroll Decision Flow" />
+  <ComparisonGrid patterns={paginationComparisonData.patterns} />
+  <PerformanceComparison patterns={paginationPerformanceData.patterns} />
+  <ExamplesGrid examples={paginationExamplesData.examples} />
 </div>
-
-export const comparisonData = {
-  patterns: [
-    {
-      title: "Pagination",
-      href: "/patterns/navigation/pagination",
-      criteria: [
-        "SEO is critical",
-        "Users need to bookmark specific pages",
-        "Content is structured and searchable",
-        "Memory usage is a concern",
-      ],
-    },
-    {
-      title: "Infinite Scroll",
-      href: "/patterns/navigation/infinite-scroll",
-      criteria: [
-        "Content is discovery-focused",
-        "Mobile is the primary platform",
-        "User engagement is key",
-        "Content flow should be seamless",
-      ],
-    },
-  ],
-};
-
-export const performanceData = {
-  patterns: [
-    {
-      pattern: "Pagination",
-      initialLoad: {
-        label: "Initial Load",
-        value: 80,
-        status: "green",
-        description: "Faster",
-      },
-      memoryUsage: {
-        label: "Memory Usage",
-        value: 90,
-        status: "green",
-        description: "Efficient",
-      },
-    },
-    {
-      pattern: "Infinite Scroll",
-      initialLoad: {
-        label: "Initial Load",
-        value: 60,
-        status: "yellow",
-        description: "Moderate",
-      },
-      memoryUsage: {
-        label: "Memory Usage",
-        value: 40,
-        status: "red",
-        description: "Heavy",
-      },
-    },
-  ],
-};
-
-export const examplesData = {
-  examples: [
-    {
-      pattern: "Pagination",
-      examples: [
-        {
-          title: "Google Search Results",
-          description: "Classic pagination for search results",
-          imageUrl: "/examples/google-search-pagination.webp",
-        },
-        {
-          title: "Amazon Product Listings",
-          description: "E-commerce product navigation",
-          imageUrl: "/examples/amazon-pagination.webp",
-        },
-      ],
-    },
-    {
-      pattern: "Infinite Scroll",
-      examples: [
-        // {
-        //   title: "Instagram Feed",
-        //   description: "Social media content stream",
-        //   imageUrl: "/examples/instagram-infinite.webp",
-        // },
-        {
-          title: "Pinterest Board",
-          description: "Visual content discovery",
-          imageUrl: "/examples/pinterest-infinite.gif",
-        },
-      ],
-    },
-  ],
-};
 
 ## Next steps
 

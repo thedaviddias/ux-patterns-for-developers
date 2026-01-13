@@ -4,16 +4,12 @@ summary: "Display focused content or actions"
 description: "Build accessible modal dialogs with proper focus management, keyboard interactions, and user experience best practices."
 icon: Maximize2
 status: complete
+aliases: ["dialog", "dialog box", "overlay", "popup"]
+popularity: high
 ---
 
 import { Playground } from "@/components/playground";
 import { GuidesBanner } from "@/components/guides-banner";
-
-**_(Also called dialog, dialog box, overlay, popup)_**
-
-<PatternStats
-  popularity="high"
-/>
 
 <PatternPreview />
 
@@ -28,7 +24,7 @@ Modals display important information, request user input, or confirm actions in 
   description="Requires focus trapping, keyboard accessibility (`Escape` key to close), and handling of background page interactions. Proper ARIA roles are needed to ensure accessibility."
 />
 
-<GuidesBanner 
+<GuidesBanner
   title="Modal vs Popover vs Drawer?"
   description="Compare all overlay patterns to make the right choice"
   guidePath="/pattern-guide/modal-vs-popover-guide"
@@ -659,5 +655,4 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 ### Libraries
 
 - [Dialog - shadcn/ui](https://ui.shadcn.com/docs/components/dialog)
-- [Diaglo - OriginUI](https://originui.com/dialogs)
 - [React Aria - Modal](https://react-spectrum.adobe.com/react-aria/Modal.html)

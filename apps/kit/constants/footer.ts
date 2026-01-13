@@ -18,10 +18,6 @@ export const FOOTER_RESOURCES_LINKS = [
 		path: "/llms.txt",
 		label: "LLMs",
 	},
-	{
-		path: "/llms-full.txt",
-		label: "LLMs Full",
-	},
 ];
 
 export const FOOTER_OPENSOURCE_LINKS = [

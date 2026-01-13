@@ -1,10 +1,9 @@
 import "@/app/global.css";
-import { RootProvider } from "fumadocs-ui/provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import PlausibleProvider from "next-plausible";
 import { Footer } from "@/components/footer/footer";
-import { DefaultSearchDialog } from "@/components/search";
+import { ThemeProvider } from "@/components/layout/theme-provider";
 import { TextSelectionHandler } from "@/components/text-to-social/text-selection-handler";
 import { Body } from "./layout.client";
 import { metadataSEO } from "./metadata";
@@ -21,7 +20,7 @@ const mono = Geist_Mono({
 
 export const metadata: Metadata = metadataSEO;
 
-export default function Layout({ children }: LayoutProps<"/">) {
+export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<html
 			lang="en"
@@ -35,15 +34,11 @@ export default function Layout({ children }: LayoutProps<"/">) {
 					trackOutboundLinks={true}
 					taggedEvents={true}
 				>
-					<RootProvider
-						search={{
-							SearchDialog: DefaultSearchDialog,
-						}}
-					>
+					<ThemeProvider>
 						{children}
 						<TextSelectionHandler />
-					</RootProvider>
-					<Footer />
+						<Footer />
+					</ThemeProvider>
 				</PlausibleProvider>
 			</Body>
 		</html>

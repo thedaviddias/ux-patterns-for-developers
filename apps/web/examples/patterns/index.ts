@@ -10,6 +10,8 @@ import { paginatedTableExample } from "./data-display/table/paginated";
 import { sortableTableExample } from "./data-display/table/sortable";
 import { advancedCheckboxExample } from "./forms/checkbox/advanced";
 import { basicCheckboxExample } from "./forms/checkbox/basic";
+import { advancedRadioExample } from "./forms/radio/advanced";
+import { basicRadioExample } from "./forms/radio/basic";
 import {
 	basicTextFieldExample,
 	characterCounterTextFieldExample,
@@ -52,6 +54,10 @@ export const examples = {
 		checkbox: {
 			basic: basicCheckboxExample,
 			advanced: advancedCheckboxExample,
+		},
+		radio: {
+			basic: basicRadioExample,
+			advanced: advancedRadioExample,
 		},
 		"text-field": {
 			basic: basicTextFieldExample,

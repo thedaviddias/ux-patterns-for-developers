@@ -21,12 +21,12 @@ export const FOOTER_GENERAL_LINKS = [
 
 export const FOOTER_RESOURCES_LINKS = [
 	{
-		path: "/llms.txt",
-		label: "LLMs",
+		path: "/pattern-guide",
+		label: "Patterns Guide",
 	},
 	{
-		path: "/llms-full.txt",
-		label: "LLMs Full",
+		path: "/llms.txt",
+		label: "LLMs",
 	},
 	{
 		path: "/glossary",

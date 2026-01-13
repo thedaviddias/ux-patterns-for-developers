@@ -1,6 +1,6 @@
 "use client";
 
-import defaultMdxComponents from "fumadocs-ui/mdx";
+import { Card } from "@/components/mdx";
 
 interface TermCardProps {
 	title: string;
@@ -10,12 +10,10 @@ interface TermCardProps {
 }
 
 export function TermCard({ title, description, category, url }: TermCardProps) {
-	const Card = defaultMdxComponents.Card;
-
 	return (
 		<Card title={title} href={url}>
 			<div className="flex flex-col gap-2">
-				<p className="text-sm text-fd-muted-foreground line-clamp-2">
+				<p className="text-sm text-muted-foreground line-clamp-2">
 					{description}
 				</p>
 				{category.length > 0 && (
@@ -23,7 +21,7 @@ export function TermCard({ title, description, category, url }: TermCardProps) {
 						{category.map((cat) => (
 							<span
 								key={cat}
-								className="px-2 py-1 text-xs rounded-full bg-fd-accent text-fd-accent-foreground"
+								className="px-2 py-1 text-xs rounded-full bg-accent text-accent-foreground"
 							>
 								{cat}
 							</span>

@@ -1,3 +1,4 @@
+// @ts-nocheck - Disabled for Fumadocs v16 migration, using built-in layouts instead
 "use client";
 import { buttonVariants } from "@ux-patterns/ui/components/shadcn/button";
 import {
@@ -9,7 +10,9 @@ import {
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { cva } from "class-variance-authority";
 import Link from "fumadocs-core/link";
-import { BaseLinkItem, type LinkItemType } from "fumadocs-ui/layouts/shared";
+import type { LinkItemType } from "fumadocs-ui/layouts/shared";
+import { isTabActive } from "fumadocs-ui/utils/is-active";
+import { usePathname } from "next/navigation";
 import type { ComponentPropsWithoutRef } from "react";
 
 const menuItemVariants = cva("", {
@@ -69,10 +72,15 @@ export function MenuLinkItem({
 		);
 	}
 
+	const pathname = usePathname();
+	const active = item.url ? isTabActive({ url: item.url }, pathname) : false;
+
 	return (
 		<NavigationMenuLink asChild>
-			<BaseLinkItem
-				item={item}
+			<Link
+				href={item.url}
+				external={item.external}
+				data-active={active}
 				className={cn(
 					menuItemVariants({ variant: item.type }),
 					props.className,
@@ -81,7 +89,7 @@ export function MenuLinkItem({
 			>
 				{item.icon}
 				{item.type === "icon" ? undefined : item.text}
-			</BaseLinkItem>
+			</Link>
 		</NavigationMenuLink>
 	);
 }

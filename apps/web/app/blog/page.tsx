@@ -28,7 +28,7 @@ export default async function HomePage({
 	searchParams: Promise<{ tag?: string }>;
 }) {
 	const resolvedSearchParams = await searchParams;
-	const allPages = source.getPages() as BlogPage[];
+	const allPages = source.getPages() as any[];
 	const sortedBlogs = allPages.filter(
 		(page) => page.url.startsWith("/blog/") && page.url !== "/blog",
 	);
@@ -66,7 +66,7 @@ export default async function HomePage({
 	);
 
 	return (
-		<div className="min-h-screen bg-background relative">
+		<div className="min-h-screen relative">
 			<div className="p-6 border-b border-border flex flex-col gap-6 min-h-[200px] justify-center relative z-10">
 				<div className="max-w-7xl mx-auto w-full">
 					<div className="flex flex-col gap-2">

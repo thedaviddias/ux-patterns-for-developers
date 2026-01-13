@@ -1,6 +1,5 @@
 import { AUTHOR } from "@ux-patterns/constants/author";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
-import { DocsBody } from "fumadocs-ui/page";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -13,10 +12,12 @@ import { MobileTableOfContents } from "@/components/blog/mobile-toc";
 import { ReadMoreSection } from "@/components/blog/read-more-section";
 import { TableOfContents } from "@/components/blog/table-of-contents";
 import { generateBlogPostingSchema, JsonLd } from "@/components/json-ld";
+import { getBlogPost } from "@/lib/content";
+import { compileMDXContent } from "@/lib/mdx";
 import { siteConfig } from "@/lib/site.config";
-import { source } from "@/lib/source";
 import { formatDate } from "@/utils/date";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
+import { getMDXComponents } from "@/mdx-components";
 
 interface PageProps {
 	params: Promise<{ slug: string }>;
@@ -29,42 +30,40 @@ export default async function BlogPost({ params }: PageProps) {
 		notFound();
 	}
 
-	const page = source.getPage(["blog", slug]);
+	const page = getBlogPost(slug);
 
 	if (!page) {
 		notFound();
 	}
 
-	const MDX = page.data.body;
-	const date = new Date(page.data.date || Date.now());
+	// Page data from Velite
+	const pageData = page;
+
+	// Compile MDX content from raw file
+	const { content: mdxContent } = await compileMDXContent(
+		`blog/${slug}`,
+		getMDXComponents()
+	);
+
+	const date = new Date(pageData.date || Date.now());
 	const formattedDate = formatDate(date);
 
 	// Generate schemas
 	const schemas = [
 		generateBlogPostingSchema(
-			page.data.title || "Blog Post",
-			page.data.description || "",
+			pageData.title || "Blog Post",
+			pageData.description || "",
 			`/blog/${slug}`,
-			page.data.thumbnail,
-			page.data.date instanceof Date
-				? page.data.date.toISOString()
-				: page.data.date ||
-						(page.data.datePublished instanceof Date
-							? page.data.datePublished.toISOString()
-							: page.data.datePublished),
-			page.data.lastModified instanceof Date
-				? page.data.lastModified.toISOString()
-				: page.data.lastModified ||
-						(page.data.dateModified instanceof Date
-							? page.data.dateModified.toISOString()
-							: page.data.dateModified),
-			page.data.tags || page.data.keywords || [],
-			page.data.wordCount,
+			pageData.image,
+			pageData.date,
+			pageData.date, // Use date for both published and modified
+			pageData.tags || [],
+			pageData.metadata?.wordCount,
 		),
 		generateBreadcrumbSchema([
 			{ name: "Home", url: "/" },
 			{ name: "Blog", url: "/blog" },
-			{ name: page.data.title || "Article", url: `/blog/${slug}` },
+			{ name: pageData.title || "Article", url: `/blog/${slug}` },
 		]),
 	];
 
@@ -77,7 +76,7 @@ export default async function BlogPost({ params }: PageProps) {
 					data={schema}
 				/>
 			))}
-			<div className="min-h-screen bg-background relative">
+			<div className="min-h-screen relative">
 				<HashScrollHandler />
 
 				<div className="space-y-4 border-b border-border relative z-10">
@@ -89,9 +88,9 @@ export default async function BlogPost({ params }: PageProps) {
 									<span className="sr-only">Back to all articles</span>
 								</Link>
 							</Button>
-							{page.data.tags && page.data.tags.length > 0 && (
+							{pageData.tags && pageData.tags.length > 0 && (
 								<div className="flex flex-wrap gap-3 text-muted-foreground">
-									{page.data.tags.map((tag: string) => (
+									{pageData.tags.map((tag: string) => (
 										<span
 											key={tag}
 											className="h-6 w-fit px-3 text-sm font-medium bg-muted text-muted-foreground rounded-md border flex items-center justify-center"
@@ -107,12 +106,12 @@ export default async function BlogPost({ params }: PageProps) {
 						</div>
 
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance">
-							{page.data.title}
+							{pageData.title}
 						</h1>
 
-						{page.data.description && (
+						{pageData.description && (
 							<p className="text-muted-foreground max-w-4xl md:text-lg md:text-balance">
-								{page.data.description}
+								{pageData.description}
 							</p>
 						)}
 					</div>
@@ -120,11 +119,11 @@ export default async function BlogPost({ params }: PageProps) {
 				<div className="flex divide-x divide-border relative max-w-7xl mx-auto px-4 md:px-0 z-10">
 					<div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full border-x border-border p-0 pointer-events-none" />
 					<main className="w-full p-0 overflow-hidden">
-						{page.data.thumbnail && (
+						{pageData.image && (
 							<div className="relative w-full h-[500px] overflow-hidden object-cover border border-transparent">
 								<Image
-									src={page.data.thumbnail}
-									alt={page.data.title || ""}
+									src={pageData.image}
+									alt={pageData.title || ""}
 									fill
 									className="object-cover"
 									priority
@@ -133,15 +132,13 @@ export default async function BlogPost({ params }: PageProps) {
 						)}
 						<div className="p-6 lg:p-10">
 							<div className="prose dark:prose-invert max-w-none prose-headings:scroll-mt-8 prose-headings:font-semibold prose-a:no-underline prose-headings:tracking-tight prose-headings:text-balance prose-p:tracking-tight prose-p:text-balance prose-lg">
-								<DocsBody>
-									<MDX />
-								</DocsBody>
+								{mdxContent}
 							</div>
 						</div>
 						<div className="mt-10">
 							<ReadMoreSection
 								currentSlug={[slug]}
-								currentTags={page.data.tags}
+								currentTags={pageData.tags}
 							/>
 						</div>
 					</main>
@@ -177,24 +174,26 @@ export async function generateMetadata({
 		return metadataSEO;
 	}
 
-	const page = source.getPage(["blog", slug]);
+	const page = getBlogPost(slug);
 
 	if (!page) {
 		return metadataSEO;
 	}
 
-	const title = page.data.title || "Blog Post";
+	// Page data from Velite
+	const pageData = page;
+	const title = pageData.title || "Blog Post";
 	const description =
-		page.data.description || "A blog post from UX Patterns for Developers.";
+		pageData.description || "A blog post from UX Patterns for Developers.";
 	const url = `${siteConfig.url}/blog/${slug}`;
 
 	return {
 		...metadataSEO,
 		title,
 		description,
-		keywords: page.data.tags || page.data.keywords || metadataSEO.keywords,
-		authors: page.data.author
-			? [{ name: page.data.author }]
+		keywords: pageData.tags || metadataSEO.keywords,
+		authors: pageData.author
+			? [{ name: pageData.author }]
 			: [{ name: "David Dias" }],
 		alternates: {
 			canonical: url,
@@ -205,26 +204,14 @@ export async function generateMetadata({
 			title,
 			description,
 			url,
-			publishedTime:
-				page.data.date instanceof Date
-					? page.data.date.toISOString()
-					: page.data.date ||
-						(page.data.datePublished instanceof Date
-							? page.data.datePublished.toISOString()
-							: page.data.datePublished),
-			modifiedTime:
-				page.data.lastModified instanceof Date
-					? page.data.lastModified.toISOString()
-					: page.data.lastModified ||
-						(page.data.dateModified instanceof Date
-							? page.data.dateModified.toISOString()
-							: page.data.dateModified),
-			authors: page.data.author ? [page.data.author] : ["David Dias"],
-			tags: page.data.tags || page.data.keywords || [],
-			images: page.data.thumbnail
+			publishedTime: pageData.date,
+			modifiedTime: pageData.date,
+			authors: pageData.author ? [pageData.author] : ["David Dias"],
+			tags: pageData.tags || [],
+			images: pageData.image
 				? [
 						{
-							url: page.data.thumbnail,
+							url: pageData.image,
 							width: 1200,
 							height: 630,
 							type: "image/jpeg",
@@ -237,10 +224,10 @@ export async function generateMetadata({
 			...metadataSEO.twitter,
 			title,
 			description,
-			images: page.data.thumbnail
+			images: pageData.image
 				? [
 						{
-							url: page.data.thumbnail,
+							url: pageData.image,
 							alt: title,
 						},
 					]
