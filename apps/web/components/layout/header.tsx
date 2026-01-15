@@ -17,6 +17,7 @@ const navItems: NavItem[] = [
 	{ label: "Patterns", href: "/patterns/getting-started" },
 	{ label: "Patterns Guide", href: "/pattern-guide" },
 	{ label: "Glossary", href: "/glossary" },
+	{ label: "MCP", href: "/mcp" },
 	{ label: "Blog", href: "/blog" },
 ];
 

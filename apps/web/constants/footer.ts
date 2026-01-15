@@ -40,6 +40,10 @@ export const FOOTER_RESOURCES_LINKS = [
 
 export const FOOTER_OPENSOURCE_LINKS = [
 	{
+		path: "/mcp",
+		label: "MCP Server",
+	},
+	{
 		path: "https://llmstxthub.com/",
 		label: "LLMs.txt Hub",
 		rel: "noopener noreferrer",
