@@ -10,6 +10,7 @@ import { FeaturedPatterns } from "@/components/sections/featured-patterns";
 import { Features } from "@/components/sections/features";
 import { FinalCTA } from "@/components/sections/final-cta";
 import Hero from "@/components/sections/hero";
+import { MCPPromo } from "@/components/sections/mcp-promo";
 import { StatsBar } from "@/components/sections/stats-bar";
 import { siteConfig } from "@/lib/site.config";
 import { getPatternCategories } from "@/utils/get-pattern-categories";
@@ -86,10 +87,13 @@ export default async function HomePage() {
 				{/* Block 5: Coming Soon - Show roadmap/upcoming patterns */}
 				<ComingSoonPatterns categories={categories} />
 
-				{/* Block 6: FAQ - Address objections */}
+				{/* Block 6: MCP Promo - AI integration highlight */}
+				<MCPPromo />
+
+				{/* Block 7: FAQ - Address objections */}
 				<FAQ />
 
-				{/* Block 6: Final CTA - Clear next action */}
+				{/* Block 8: Final CTA - Clear next action */}
 				<FinalCTA />
 
 				{/* Newsletter - Less prominent, at the end */}
