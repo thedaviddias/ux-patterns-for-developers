@@ -21,6 +21,12 @@ function createTermPattern(term: string): RegExp {
 /**
  * Link glossary terms in markdown content
  * Replaces term occurrences with markdown links
+ *
+ * @security This function assumes glossaryTerms come from a trusted source
+ * (the curated glossary data). Terms are used to construct regex patterns.
+ * While regex special characters are escaped, this is for correctness, not
+ * security. Do NOT pass untrusted user input as glossary terms - maliciously
+ * crafted patterns could cause ReDoS (Regular Expression Denial of Service).
  */
 export function linkGlossaryTerms(
   content: string,
@@ -77,7 +83,19 @@ export function linkGlossaryTerms(
 }
 
 /**
+ * Create a non-global regex pattern for existence checks
+ * (avoids lastIndex state issues with global regex and test())
+ */
+function createTermPatternNonGlobal(term: string): RegExp {
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return new RegExp(`\\b(${escaped})\\b`, 'i') // No 'g' flag
+}
+
+/**
  * Extract glossary terms mentioned in content
+ *
+ * @security This function assumes glossaryTerms come from a trusted source.
+ * See linkGlossaryTerms for security considerations regarding regex patterns.
  */
 export function findMentionedTerms(
   content: string,
@@ -86,7 +104,8 @@ export function findMentionedTerms(
   const mentioned: GlossaryTerm[] = []
 
   for (const term of glossaryTerms) {
-    const pattern = createTermPattern(term.term)
+    // Use non-global regex for existence check to avoid lastIndex issues
+    const pattern = createTermPatternNonGlobal(term.term)
     if (pattern.test(content)) {
       mentioned.push(term)
     }

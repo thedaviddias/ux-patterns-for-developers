@@ -74,11 +74,12 @@ const wcagChecks: Array<{
     },
   },
   // 1.4.3 Contrast Minimum (Level AA)
+  // Note: This is a heuristic check that flags color usage for manual review.
+  // Actual contrast ratio calculation requires runtime color value resolution.
   {
     criterion: '1.4.3',
     level: 'AA',
     check: (code) => {
-      // Check for potentially problematic color combinations
       if (/color:\s*#[a-f0-9]{3,6}/i.test(code) && /background(-color)?:\s*#[a-f0-9]{3,6}/i.test(code)) {
         return {
           criterion: '1.4.3',
@@ -228,14 +229,19 @@ const patternChecks: Record<
       criterion: '3.3.1',
       level: 'A',
       check: (code) => {
-        if (/required/i.test(code) && !/aria-required|aria-invalid/i.test(code)) {
+        // Check for error message patterns that indicate validation errors are displayed
+        const hasErrorMessage = /error|invalid|validation/i.test(code) &&
+          (/class="[^"]*error[^"]*"|className="[^"]*error[^"]*"|role="alert"/i.test(code))
+
+        // If showing error states but not using aria-invalid or aria-describedby
+        if (hasErrorMessage && !/aria-invalid/i.test(code)) {
           return {
             criterion: '3.3.1',
             level: 'A',
             pattern: 'form',
-            message: 'Required fields should indicate errors accessibly',
+            message: 'Form validation errors should be indicated accessibly',
             impact: 'moderate',
-            fix: 'Use aria-required="true" and aria-invalid="true" with aria-describedby for errors',
+            fix: 'Set aria-invalid="true" on fields with errors and use aria-describedby to reference error messages. Note: aria-required is redundant when the native required attribute is present.',
           }
         }
         return null
@@ -249,8 +255,12 @@ const levelOrder: Record<string, number> = { A: 0, AA: 1, AAA: 2 }
 export async function checkAccessibility(
   args: Record<string, unknown>
 ): Promise<CheckAccessibilityResponse> {
-  const params = args as unknown as CheckAccessibilityParams
-  const { code, patternType, wcagLevel = 'AA' } = params
+  // Validate inputs explicitly for runtime safety
+  const code = typeof args.code === 'string' ? args.code : ''
+  const patternType = typeof args.patternType === 'string' ? args.patternType : undefined
+  const wcagLevel = (args.wcagLevel === 'A' || args.wcagLevel === 'AA' || args.wcagLevel === 'AAA')
+    ? args.wcagLevel
+    : 'AA'
 
   if (!code || code.trim().length === 0) {
     return { issues: [], passed: [] }
@@ -279,6 +289,9 @@ export async function checkAccessibility(
         const issue = check.check(code)
         if (issue) {
           issues.push(issue)
+        } else {
+          // Record successful pattern-specific check (same format as general WCAG checks)
+          passed.push(`${check.criterion} (Level ${check.level}) - ${patternType}`)
         }
       }
     }

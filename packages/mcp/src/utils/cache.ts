@@ -59,6 +59,10 @@ export class LRUCache<T = unknown> {
     })
   }
 
+  /**
+   * Check if a key exists and is not expired.
+   * Note: This updates the entry's recency in the LRU ordering.
+   */
   has(key: string): boolean {
     const entry = this.cache.get(key)
     if (!entry) {

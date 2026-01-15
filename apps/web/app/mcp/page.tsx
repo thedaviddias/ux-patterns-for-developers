@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { LucideIcon } from "lucide-react";
 import { metadataSEO } from "@/app/metadata";
 import { generateArticleSchema, JsonLd } from "@/components/json-ld";
 import { SetupTabs } from "@/components/mcp";
@@ -21,15 +22,36 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+// Type definitions for better type safety
+interface ClientConfig {
+	id: string;
+	title: string;
+	description: string;
+	config: string;
+}
+
+type ToolType = "reactive" | "proactive" | "advanced";
+
+interface McpTool {
+	name: string;
+	description: string;
+	icon: LucideIcon;
+	type: ToolType;
+}
+
 const title = "MCP Server";
 const description =
 	"Integrate UX Patterns directly into Claude, Cursor, and other AI-powered development tools using the Model Context Protocol.";
 
-// MCP Server URL
-const MCP_SERVER_URL = "https://mcp.uxpatterns.dev";
+// Page publication date - update when content changes significantly
+const PAGE_PUBLISHED_DATE = "2025-01-15T00:00:00.000Z";
+
+// MCP Server URL (can be overridden via environment variable)
+const MCP_SERVER_URL =
+	process.env.NEXT_PUBLIC_MCP_SERVER_URL ?? "https://mcp.uxpatterns.dev";
 
 // Client configuration snippets
-const CLIENT_CONFIGS = [
+const CLIENT_CONFIGS: ClientConfig[] = [
 	{
 		id: "cursor",
 		title: "Cursor",
@@ -124,7 +146,7 @@ function getCursorInstallUrl() {
 }
 
 // MCP Tools data
-const mcpTools = [
+const mcpTools: McpTool[] = [
 	{
 		name: "list_categories",
 		description: "List all UX pattern categories with pattern counts",
@@ -202,8 +224,8 @@ export default function MCPPage() {
 			description,
 			"/mcp",
 			undefined,
-			"2026-01-15T00:00:00.000Z",
-			"2026-01-15T00:00:00.000Z",
+			PAGE_PUBLISHED_DATE,
+			PAGE_PUBLISHED_DATE,
 			"Page",
 		),
 		generateBreadcrumbSchema([

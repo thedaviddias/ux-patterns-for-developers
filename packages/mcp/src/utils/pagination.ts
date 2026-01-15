@@ -2,16 +2,13 @@
  * Cursor-based pagination utilities
  */
 
+import type { PaginatedResult } from '../types'
+
+export type { PaginatedResult }
+
 export interface PaginationParams {
   cursor?: string
   limit?: number
-}
-
-export interface PaginatedResult<T> {
-  items: T[]
-  nextCursor?: string
-  hasMore: boolean
-  total: number
 }
 
 const DEFAULT_LIMIT = 20

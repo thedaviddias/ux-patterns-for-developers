@@ -7,8 +7,37 @@ import { getPatternBySlug, getPatterns, getGlossaryEntries } from '../data'
 import { getRelatedPatterns } from '../data/relationships'
 import { findBestMatches } from '../utils'
 import { mdxToMarkdown, truncateContent } from '../utils/mdx-to-markdown'
-import { findMentionedTerms } from '../utils/glossary-linker'
+import { findMentionedTerms, type GlossaryTerm } from '../utils/glossary-linker'
 import type { GetPatternParams, GetPatternResponse, MCPError } from '../types'
+
+// Cache for transformed glossary terms (aligns with loadDocs' 60s TTL)
+let cachedGlossaryTerms: GlossaryTerm[] | null = null
+let glossaryTermsCacheTime = 0
+const GLOSSARY_CACHE_TTL = 60 * 1000 // 60 seconds, matches loadDocs TTL
+
+/**
+ * Get cached glossary terms for findMentionedTerms
+ * Caches the transformed result to avoid re-mapping on every call
+ */
+function getCachedGlossaryTerms(): GlossaryTerm[] {
+  const now = Date.now()
+
+  // Return cached if still valid
+  if (cachedGlossaryTerms && now - glossaryTermsCacheTime < GLOSSARY_CACHE_TTL) {
+    return cachedGlossaryTerms
+  }
+
+  // Transform and cache glossary entries
+  const glossaryEntries = getGlossaryEntries()
+  cachedGlossaryTerms = glossaryEntries.map((e) => ({
+    term: e.term,
+    slug: e.slug,
+    definition: e.definition,
+  }))
+  glossaryTermsCacheTime = now
+
+  return cachedGlossaryTerms
+}
 
 export const getPatternDefinition = {
   name: 'get_pattern',
@@ -84,13 +113,8 @@ export async function getPattern(
     })
     .filter(Boolean) as { slug: string; title: string; relationship: 'related' }[]
 
-  // Find glossary terms mentioned in the content
-  const glossaryEntries = getGlossaryEntries()
-  const glossaryTermsData = glossaryEntries.map((e) => ({
-    term: e.term,
-    slug: e.slug,
-    definition: e.definition,
-  }))
+  // Find glossary terms mentioned in the content (uses cached transformed data)
+  const glossaryTermsData = getCachedGlossaryTerms()
   const mentionedTerms = findMentionedTerms(pattern.body, glossaryTermsData)
 
   // Convert MDX body to plain markdown
@@ -101,7 +125,7 @@ export async function getPattern(
     title: pattern.title,
     summary: pattern.summary || truncateContent(pattern.description, 200),
     description: pattern.description,
-    category: [pattern.category],
+    category: pattern.category,
     tags: pattern.tags || [],
     status: pattern.status as 'complete' | 'published',
     body: plainBody,

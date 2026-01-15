@@ -171,11 +171,20 @@ export class UXPatternsMCPServer {
 		params?: Record<string, unknown>
 	}): Promise<{
 		jsonrpc: string
-		id: string | number
+		id: string | number | null
 		result?: unknown
 		error?: { code: number; message: string }
 	}> {
 		const { jsonrpc, id, method, params } = request
+
+		// Validate request id is present
+		if (id === undefined || id === null) {
+			return {
+				jsonrpc: "2.0",
+				id: null,
+				error: { code: -32600, message: "Missing request id" },
+			}
+		}
 
 		if (jsonrpc !== "2.0") {
 			return {

@@ -8,15 +8,31 @@ import { createServer, UXPatternsMCPServer } from '@ux-patterns/mcp'
 import { registerAllTools } from '@ux-patterns/mcp/tools'
 import { checkRateLimit, getClientIdentifier } from '@ux-patterns/mcp/utils'
 
-// Create and configure the MCP server
+// Create and configure the MCP server with race-safe initialization
 let server: UXPatternsMCPServer | null = null
+let serverInit: Promise<UXPatternsMCPServer> | null = null
 
-function getServer(): UXPatternsMCPServer {
-  if (!server) {
-    server = createServer()
-    registerAllTools(server)
+async function getServer(): Promise<UXPatternsMCPServer> {
+  // Return existing server if already initialized
+  if (server) {
+    return server
   }
-  return server
+
+  // If initialization is in progress, wait for it
+  if (serverInit) {
+    return serverInit
+  }
+
+  // Start initialization and store the promise to prevent concurrent initializers
+  serverInit = (async () => {
+    const serverInstance = createServer()
+    registerAllTools(serverInstance) // Synchronous - no await needed
+    server = serverInstance
+    serverInit = null // Clear the init promise once done
+    return server
+  })()
+
+  return serverInit
 }
 
 // Max request size (100KB)
@@ -29,7 +45,7 @@ const MAX_BATCH_SIZE = 10
  * GET /api/mcp - Server info endpoint
  */
 export async function GET() {
-  const mcpServer = getServer()
+  const mcpServer = await getServer()
   const info = mcpServer.getServerInfo()
 
   return NextResponse.json(info, {
@@ -104,7 +120,7 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const mcpServer = getServer()
+  const mcpServer = await getServer()
 
   // Handle batch requests
   if (Array.isArray(body)) {
@@ -119,8 +135,24 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Process each request independently - one failure shouldn't abort others
     const results = await Promise.all(
-      body.map((req) => mcpServer.handleRequest(req as Parameters<typeof mcpServer.handleRequest>[0]))
+      body.map(async (req) => {
+        try {
+          return await mcpServer.handleRequest(req as Parameters<typeof mcpServer.handleRequest>[0])
+        } catch (error) {
+          // Return JSON-RPC error response for this specific request
+          const requestId = (req as { id?: string | number })?.id ?? null
+          return {
+            jsonrpc: '2.0',
+            id: requestId,
+            error: {
+              code: -32603,
+              message: error instanceof Error ? error.message : 'Internal error',
+            },
+          }
+        }
+      })
     )
 
     return NextResponse.json(results, {
@@ -133,15 +165,37 @@ export async function POST(request: NextRequest) {
   }
 
   // Handle single request
-  const result = await mcpServer.handleRequest(body as Parameters<typeof mcpServer.handleRequest>[0])
+  try {
+    const result = await mcpServer.handleRequest(body as Parameters<typeof mcpServer.handleRequest>[0])
 
-  return NextResponse.json(result, {
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      ...rateLimit.headers,
-    },
-  })
+    return NextResponse.json(result, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        ...rateLimit.headers,
+      },
+    })
+  } catch (error) {
+    // Return JSON-RPC error response for consistency with batch handling
+    const requestId = (body as { id?: string | number })?.id ?? null
+    return NextResponse.json(
+      {
+        jsonrpc: '2.0',
+        id: requestId,
+        error: {
+          code: -32603,
+          message: error instanceof Error ? error.message : 'Internal error',
+        },
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          ...rateLimit.headers,
+        },
+      }
+    )
+  }
 }
 
 /**

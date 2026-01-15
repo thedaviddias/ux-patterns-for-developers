@@ -4,7 +4,7 @@
  */
 
 import { getPatterns } from '../data'
-import type { GetQuickReferenceParams, GetQuickReferenceResponse } from '../types'
+import type { GetQuickReferenceResponse } from '../types'
 
 export const getQuickReferenceDefinition = {
   name: 'get_quick_reference',
@@ -34,10 +34,13 @@ export const getQuickReferenceDefinition = {
 export async function getQuickReference(
   args: Record<string, unknown> = {}
 ): Promise<GetQuickReferenceResponse> {
-  const params = args as unknown as GetQuickReferenceParams
-  const { category, limit = 50, includeRelated = false } = params
+  // Runtime validation for robustness against malformed input
+  const category = typeof args.category === 'string' ? args.category : undefined
+  const limit = typeof args.limit === 'number' && Number.isFinite(args.limit) ? args.limit : 50
+  const includeRelated = typeof args.includeRelated === 'boolean' ? args.includeRelated : false
 
-  let patterns = getPatterns()
+  const allPatterns = getPatterns()
+  let patterns = allPatterns
 
   // Filter by category if specified
   if (category) {
@@ -49,14 +52,35 @@ export async function getQuickReference(
   // Limit results
   const limited = patterns.slice(0, limit)
 
-  return {
-    patterns: limited.map((p) => ({
+  // Build response with optional related patterns
+  const responsePatterns = limited.map((p) => {
+    const base = {
       slug: p.slug,
       title: p.title,
-      summary: p.summary || p.description.slice(0, 100),
+      summary: p.summary || p.description?.slice(0, 100) || '',
       category: p.category,
       tags: p.tags || [],
-    })),
+    }
+
+    if (includeRelated) {
+      // Find related patterns by category (same category, different pattern)
+      const related = allPatterns
+        .filter(
+          (other) =>
+            other.slug !== p.slug &&
+            other.category.toLowerCase() === p.category.toLowerCase()
+        )
+        .slice(0, 3)
+        .map((r) => r.slug)
+
+      return { ...base, related }
+    }
+
+    return base
+  })
+
+  return {
+    patterns: responsePatterns,
     total: patterns.length,
   }
 }

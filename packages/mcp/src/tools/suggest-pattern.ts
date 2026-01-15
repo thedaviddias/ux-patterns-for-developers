@@ -4,7 +4,6 @@
  */
 
 import { getPatterns } from '../data'
-import { similarityRatio } from '../utils'
 import type { SuggestPatternParams, SuggestPatternResponse } from '../types'
 
 export const suggestPatternDefinition = {
@@ -66,8 +65,11 @@ interface ScoredSuggestion {
 export async function suggestPattern(
   args: Record<string, unknown>
 ): Promise<SuggestPatternResponse> {
-  const params = args as unknown as SuggestPatternParams
-  const { context, category, limit = 5 } = params
+  // Validate inputs explicitly for runtime safety
+  const context = typeof args.context === 'string' ? args.context : ''
+  const category = typeof args.category === 'string' ? args.category : undefined
+  const rawLimit = typeof args.limit === 'number' ? args.limit : 5
+  const limit = Math.min(Math.max(Math.floor(rawLimit), 1), 20)
 
   if (!context || context.trim().length === 0) {
     return { suggestions: [] }
@@ -129,7 +131,10 @@ export async function suggestPattern(
         pattern: pattern.slug,
         title: pattern.title,
         relevance,
-        reason: reasons.length > 0 ? reasons[0] : 'May be relevant to your context',
+        // Include up to 3 reasons to provide more context
+        reason: reasons.length > 0
+          ? reasons.slice(0, 3).join('; ')
+          : 'May be relevant to your context',
         category: pattern.category,
       }
     })
