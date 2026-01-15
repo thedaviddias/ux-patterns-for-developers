@@ -71,19 +71,28 @@ export async function listPatterns(
     patterns = patterns.filter((p) => p.status === params.status)
   }
 
+  // Validate and normalize limit (default: 20, max: 100, min: 1)
+  const DEFAULT_LIMIT = 20
+  const MAX_LIMIT = 100
+  let validatedLimit = DEFAULT_LIMIT
+  if (typeof params.limit === 'number' && Number.isFinite(params.limit)) {
+    validatedLimit = Math.min(Math.max(Math.floor(params.limit), 1), MAX_LIMIT)
+  }
+
   // Paginate results
   const paginated = paginate(patterns, {
     cursor: params.cursor,
-    limit: params.limit,
+    limit: validatedLimit,
   })
 
   return {
+    // Note: getPatterns() only returns 'complete' or 'published' patterns (drafts are filtered)
     patterns: paginated.items.map((p) => ({
       slug: p.slug,
       title: p.title,
       summary: p.summary || p.description.slice(0, 150),
-      category: [p.category],
-      status: p.status,
+      category: p.category,
+      status: p.status as 'complete' | 'published',
     })),
     total: paginated.total,
     cursor: paginated.nextCursor,

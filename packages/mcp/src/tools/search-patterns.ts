@@ -5,7 +5,7 @@
 
 import { getPatterns } from '../data'
 import { paginate, similarityRatio } from '../utils'
-import type { SearchPatternsParams, SearchPatternsResponse } from '../types'
+import type { SearchPatternsResponse } from '../types'
 
 export const searchPatternsDefinition = {
   name: 'search_patterns',
@@ -44,16 +44,32 @@ interface ScoredPattern {
   slug: string
   title: string
   summary: string
-  category: string[]
+  category: string
   tags: string[]
   score: number
 }
 
+// Limit validation constants
+const DEFAULT_LIMIT = 20
+const MAX_LIMIT = 100
+
 export async function searchPatterns(
   args: Record<string, unknown>
 ): Promise<SearchPatternsResponse> {
-  const params = args as unknown as SearchPatternsParams
-  const { query, category, tags, limit = 20, cursor } = params
+  // Runtime validation for robustness against malformed input
+  const query = typeof args.query === 'string' ? args.query : ''
+  const category = typeof args.category === 'string' ? args.category : undefined
+  const tags = Array.isArray(args.tags) && args.tags.every((t) => typeof t === 'string')
+    ? (args.tags as string[])
+    : undefined
+  const rawLimit = args.limit
+  const cursor = typeof args.cursor === 'string' ? args.cursor : undefined
+
+  // Validate and normalize limit (default: 20, max: 100, min: 1)
+  let limit = DEFAULT_LIMIT
+  if (typeof rawLimit === 'number' && Number.isFinite(rawLimit)) {
+    limit = Math.min(Math.max(Math.floor(rawLimit), 1), MAX_LIMIT)
+  }
 
   if (!query || query.trim().length === 0) {
     return {
@@ -125,7 +141,7 @@ export async function searchPatterns(
         slug: pattern.slug,
         title: pattern.title,
         summary: pattern.summary || pattern.description.slice(0, 150),
-        category: [pattern.category],
+        category: pattern.category,
         tags: pattern.tags || [],
         score,
       }

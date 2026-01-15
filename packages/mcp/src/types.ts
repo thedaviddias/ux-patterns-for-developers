@@ -93,7 +93,7 @@ export interface GetPatternResponse {
 	title: string
 	summary: string
 	description: string
-	category: string[]
+	category: string
 	tags: string[]
 	status: "complete" | "published"
 	body: string
@@ -120,7 +120,7 @@ export interface SearchPatternsResponse {
 		slug: string
 		title: string
 		summary: string
-		category: string[]
+		category: string
 		tags: string[]
 		score: number
 	}[]
@@ -142,8 +142,8 @@ export interface ListPatternsResponse {
 		slug: string
 		title: string
 		summary: string
-		category: string[]
-		status: string
+		category: string
+		status: "complete" | "published"
 	}[]
 	total: number
 	cursor?: string
@@ -241,6 +241,7 @@ export interface GetQuickReferenceResponse {
 		summary: string
 		category: string
 		tags: string[]
+		related?: string[]
 	}[]
 	total: number
 }
