@@ -3,8 +3,8 @@
  * Full-text search across patterns
  */
 
-import { searchPatterns as searchPatternsData, getPatterns } from '../data'
-import { paginate, fuzzySearch, similarityRatio } from '../utils'
+import { getPatterns } from '../data'
+import { paginate, similarityRatio } from '../utils'
 import type { SearchPatternsParams, SearchPatternsResponse } from '../types'
 
 export const searchPatternsDefinition = {
@@ -73,11 +73,11 @@ export async function searchPatterns(
     )
   }
 
-  // Apply tag filter
+  // Apply tag filter (AND logic - pattern must have ALL specified tags)
   if (tags && tags.length > 0) {
     const tagsLower = tags.map((t) => t.toLowerCase())
     patterns = patterns.filter((p) =>
-      p.tags?.some((t) => tagsLower.includes(t.toLowerCase()))
+      tagsLower.every((tag) => p.tags?.some((t) => t.toLowerCase() === tag))
     )
   }
 

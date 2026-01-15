@@ -24,9 +24,13 @@ export function SetupTabs({ configs, cursorInstallUrl }: SetupTabsProps) {
 
 	const handleCopy = async () => {
 		if (!activeConfig) return;
-		await navigator.clipboard.writeText(activeConfig.config);
-		setCopied(true);
-		setTimeout(() => setCopied(false), 2000);
+		try {
+			await navigator.clipboard.writeText(activeConfig.config);
+			setCopied(true);
+			setTimeout(() => setCopied(false), 2000);
+		} catch (err) {
+			console.error("Failed to copy to clipboard:", err);
+		}
 	};
 
 	return (

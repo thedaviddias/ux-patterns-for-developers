@@ -3,7 +3,6 @@
  * Analyzes UI code against UX pattern best practices
  */
 
-import { getPatterns } from '../data'
 import type { ReviewCodeParams, ReviewCodeResponse } from '../types'
 
 export const reviewCodeDefinition = {
@@ -213,8 +212,8 @@ export async function reviewCode(
     )
   }
 
-  // Filter by minimum priority
-  const minPriorityLevel = priorityOrder[minPriority]
+  // Filter by minimum priority (fallback to 'low' if invalid)
+  const minPriorityLevel = priorityOrder[minPriority as keyof typeof priorityOrder] ?? priorityOrder.low
   filteredIssues = filteredIssues.filter((issue) => {
     const issuePriority = severityToPriority[issue.severity]
     return priorityOrder[issuePriority] >= minPriorityLevel

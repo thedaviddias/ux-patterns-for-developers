@@ -60,8 +60,18 @@ export class LRUCache<T = unknown> {
   }
 
   has(key: string): boolean {
-    const value = this.get(key)
-    return value !== undefined
+    const entry = this.cache.get(key)
+    if (!entry) {
+      return false
+    }
+    if (Date.now() > entry.expiresAt) {
+      this.cache.delete(key)
+      return false
+    }
+    // Move to end (most recently used)
+    this.cache.delete(key)
+    this.cache.set(key, entry)
+    return true
   }
 
   delete(key: string): boolean {

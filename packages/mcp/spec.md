@@ -518,7 +518,7 @@ packages/mcp/
 
 ### Location
 
-`apps/web/src/app/api/mcp/route.ts`
+`apps/web/app/api/mcp/route.ts`
 
 ### Endpoints
 
@@ -627,7 +627,7 @@ For Claude Code local integration, add to `.mcp.json`:
 
 ## Data Flow
 
-```
+```text
 ┌─────────────────────────────────────────────────────────┐
 │  Content Source                                         │
 │  /apps/web/content/patterns/**/*.mdx                   │
@@ -804,7 +804,7 @@ interface SemanticSearchParams {
    - `get_implementation_checklist`
 
 8. **API route**
-   - `apps/web/src/app/api/mcp/route.ts`
+   - `apps/web/app/api/mcp/route.ts`
    - CORS, rate limiting, caching
 
 9. **Deployment**

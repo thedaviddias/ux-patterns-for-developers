@@ -5,7 +5,6 @@
 
 import { getGlossaryEntry, getGlossaryEntries, getPatterns } from '../data'
 import { findBestMatches } from '../utils'
-import { mdxToMarkdown } from '../utils/mdx-to-markdown'
 import type { GetGlossaryTermParams, GetGlossaryTermResponse, MCPError } from '../types'
 
 export const getGlossaryTermDefinition = {
@@ -26,8 +25,8 @@ export const getGlossaryTermDefinition = {
 export async function getGlossaryTerm(
   args: Record<string, unknown>
 ): Promise<GetGlossaryTermResponse | MCPError> {
-  const params = args as unknown as GetGlossaryTermParams
-  const { term } = params
+  // Validate input with runtime checks
+  const term = typeof args.term === 'string' ? args.term : ''
 
   if (!term || term.trim().length === 0) {
     return {
@@ -36,12 +35,13 @@ export async function getGlossaryTerm(
     }
   }
 
+  // Get all entries once for both suggestions and related terms lookup
+  const entries = getGlossaryEntries()
+
   // Try to find the glossary entry
   const entry = getGlossaryEntry(term)
 
   if (!entry) {
-    // Get all terms for suggestions
-    const entries = getGlossaryEntries()
     const allTerms = entries.map((e) => e.term)
     const suggestions = findBestMatches(term, allTerms, { maxResults: 3 })
 
@@ -65,8 +65,7 @@ export async function getGlossaryTerm(
     .slice(0, 5)
     .map((p) => p.slug)
 
-  // Find related glossary terms
-  const entries = getGlossaryEntries()
+  // Find related glossary terms (reusing entries from above)
   const relatedTerms = entries
     .filter((e) => {
       if (e.slug === entry.slug) return false

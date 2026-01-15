@@ -3,8 +3,8 @@
  * Context-based pattern recommendations
  */
 
-import { getPatterns, getCategories } from '../data'
-import { fuzzySearch, similarityRatio } from '../utils'
+import { getPatterns } from '../data'
+import { similarityRatio } from '../utils'
 import type { SuggestPatternParams, SuggestPatternResponse } from '../types'
 
 export const suggestPatternDefinition = {
