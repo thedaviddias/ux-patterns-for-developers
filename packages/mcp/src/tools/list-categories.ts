@@ -23,7 +23,6 @@ export async function listCategories(): Promise<ListCategoriesResponse> {
     categories: categories.map((cat) => ({
       slug: cat.slug,
       name: cat.name,
-      description: cat.description,
       patternCount: cat.patternCount,
     })),
   }

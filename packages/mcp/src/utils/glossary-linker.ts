@@ -51,15 +51,15 @@ export function linkGlossaryTerms(
     const pattern = createTermPattern(term)
     let matchCount = 0
 
-    result = result.replace(pattern, (match) => {
+    result = result.replace(pattern, (match, _p1, offset, originalString) => {
       // Don't link if we're already at the max
       if (matchCount + currentCount >= maxLinksPerTerm) {
         return match
       }
 
       // Don't link if we're inside a markdown link already
-      // This is a simplified check - could be improved
-      const beforeMatch = result.slice(0, result.indexOf(match))
+      // Use the offset parameter to get correct position in original string
+      const beforeMatch = originalString.slice(0, offset)
       const openBrackets = (beforeMatch.match(/\[/g) || []).length
       const closeBrackets = (beforeMatch.match(/\]/g) || []).length
       if (openBrackets > closeBrackets) {
@@ -84,7 +84,6 @@ export function findMentionedTerms(
   glossaryTerms: GlossaryTerm[]
 ): GlossaryTerm[] {
   const mentioned: GlossaryTerm[] = []
-  const contentLower = content.toLowerCase()
 
   for (const term of glossaryTerms) {
     const pattern = createTermPattern(term.term)

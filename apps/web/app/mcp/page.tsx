@@ -202,10 +202,9 @@ export default function MCPPage() {
 			description,
 			"/mcp",
 			undefined,
-			new Date().toISOString(),
-			new Date().toISOString(),
+			"2026-01-15T00:00:00.000Z",
+			"2026-01-15T00:00:00.000Z",
 			"Page",
-			1500,
 		),
 		generateBreadcrumbSchema([
 			{ name: "Home", url: "/" },
@@ -217,7 +216,7 @@ export default function MCPPage() {
 		<>
 			{schemas.map((schema, index) => (
 				<JsonLd
-					key={`schema-${JSON.stringify(schema).slice(0, 50)}-${index}`}
+					key={`mcp-schema-${index}`}
 					data={schema}
 				/>
 			))}

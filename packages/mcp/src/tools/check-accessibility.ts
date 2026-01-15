@@ -30,14 +30,8 @@ export const checkAccessibilityDefinition = {
   },
 }
 
-interface A11yIssue {
-  criterion: string
-  level: 'A' | 'AA' | 'AAA'
-  pattern?: string
-  message: string
-  impact: 'critical' | 'serious' | 'moderate' | 'minor'
-  fix: string
-}
+// Derive type from response to avoid duplication
+type A11yIssue = CheckAccessibilityResponse['issues'][number]
 
 // WCAG criterion checks
 const wcagChecks: Array<{
@@ -67,7 +61,7 @@ const wcagChecks: Array<{
     criterion: '1.3.1',
     level: 'A',
     check: (code) => {
-      if (/<input[^>]*>/i.test(code) && !/<label/i.test(code) && !/aria-label/i.test(code)) {
+      if (/<input[^>]*>/i.test(code) && !/<label/i.test(code) && !/aria-label/i.test(code) && !/aria-labelledby/i.test(code)) {
         return {
           criterion: '1.3.1',
           level: 'A',

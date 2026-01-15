@@ -40,11 +40,11 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@modelcontextprotocol/sdk": "^1.0.0"
+		"@modelcontextprotocol/sdk": "^1.25.2"
 	},
 	"devDependencies": {
 		"@thedaviddias/config-typescript": "workspace:*",
-		"@types/node": "25.0.5",
+		"@types/node": "25.0.8",
 		"tsup": "^8.4.0",
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.16"

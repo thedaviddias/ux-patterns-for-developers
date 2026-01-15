@@ -49,9 +49,15 @@ function loadDocs(): VeliteDoc[] {
   }
 
   const path = getVelitePath()
-  const content = readFileSync(path, 'utf-8')
-  cachedDocs = JSON.parse(content) as VeliteDoc[]
-  lastLoadTime = now
+  try {
+    const content = readFileSync(path, 'utf-8')
+    cachedDocs = JSON.parse(content) as VeliteDoc[]
+    lastLoadTime = now
+  } catch (error) {
+    throw new Error(
+      `Failed to load Velite docs from ${path}: ${error instanceof Error ? error.message : String(error)}`
+    )
+  }
 
   return cachedDocs
 }

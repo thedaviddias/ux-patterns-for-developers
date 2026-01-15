@@ -61,7 +61,7 @@ export async function listPatterns(
           total: 0,
           hasMore: false,
           suggestions: suggestions.map((s) => `Did you mean "${s}"?`),
-        } as ListPatternsResponse & { suggestions: string[] }
+        }
       }
     }
   }

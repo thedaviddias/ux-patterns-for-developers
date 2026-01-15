@@ -148,6 +148,7 @@ export interface ListPatternsResponse {
 	total: number
 	cursor?: string
 	hasMore: boolean
+	suggestions?: string[]
 }
 
 // list_categories
@@ -349,7 +350,7 @@ export interface PaginationOptions {
 export interface PaginatedResult<T> {
 	items: T[]
 	total: number
-	cursor?: string
+	nextCursor?: string
 	hasMore: boolean
 }
 

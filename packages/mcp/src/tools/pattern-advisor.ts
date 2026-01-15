@@ -3,7 +3,7 @@
  * Interactive recommendation system for pattern selection
  */
 
-import { getPatterns, getCategories } from '../data'
+import { getPatterns } from '../data'
 import type {
   PatternAdvisorParams,
   PatternAdvisorInteractiveResponse,
@@ -67,14 +67,29 @@ const questions = [
   },
 ]
 
+// Session TTL in milliseconds (30 minutes)
+const SESSION_TTL_MS = 30 * 60 * 1000
+const MAX_SESSIONS = 1000
+
 // Simple session storage (in production, use proper session management)
 const sessions = new Map<
   string,
   {
     answers: Record<string, string>
     currentQuestion: number
+    createdAt: number
   }
 >()
+
+// Cleanup expired sessions periodically
+function cleanupExpiredSessions(): void {
+  const now = Date.now()
+  for (const [sessionId, session] of sessions) {
+    if (now - session.createdAt > SESSION_TTL_MS) {
+      sessions.delete(sessionId)
+    }
+  }
+}
 
 function generateSessionId(): string {
   return `advisor_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`
@@ -210,9 +225,21 @@ export async function patternAdvisor(
   let session = sessionId ? sessions.get(sessionId) : null
 
   if (!session) {
+    // Cleanup expired sessions before creating new one
+    cleanupExpiredSessions()
+
+    // Enforce max sessions limit
+    if (sessions.size >= MAX_SESSIONS) {
+      // Remove oldest session
+      const oldestKey = sessions.keys().next().value
+      if (oldestKey) {
+        sessions.delete(oldestKey)
+      }
+    }
+
     // Start new session
     const newSessionId = generateSessionId()
-    session = { answers: {}, currentQuestion: 0 }
+    session = { answers: {}, currentQuestion: 0, createdAt: Date.now() }
     sessions.set(newSessionId, session)
 
     return {

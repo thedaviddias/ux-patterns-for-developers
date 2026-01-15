@@ -44,9 +44,23 @@ export async function GET() {
  * POST /api/mcp - JSON-RPC 2.0 handler
  */
 export async function POST(request: NextRequest) {
-  // Check content length
-  const contentLength = request.headers.get('content-length')
-  if (contentLength && parseInt(contentLength) > MAX_REQUEST_SIZE) {
+  // Parse request body first to validate actual size (headers can be spoofed)
+  let text: string
+  try {
+    text = await request.text()
+  } catch {
+    return NextResponse.json(
+      {
+        jsonrpc: '2.0',
+        id: null,
+        error: { code: -32700, message: 'Failed to read request body' },
+      },
+      { status: 400 }
+    )
+  }
+
+  // Validate actual body size
+  if (text.length > MAX_REQUEST_SIZE) {
     return NextResponse.json(
       {
         jsonrpc: '2.0',
@@ -75,10 +89,10 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // Parse request body
+  // Parse JSON from the already-read text
   let body: unknown
   try {
-    body = await request.json()
+    body = JSON.parse(text)
   } catch {
     return NextResponse.json(
       {
@@ -139,7 +153,7 @@ export async function OPTIONS() {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Max-Age': '86400',
     },
   })

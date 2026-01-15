@@ -48,7 +48,8 @@ export function paginate<T>(
   params: PaginationParams
 ): PaginatedResult<T> {
   const offset = params.cursor ? decodeCursor(params.cursor) : 0
-  const limit = Math.min(params.limit ?? DEFAULT_LIMIT, MAX_LIMIT)
+  // Ensure limit is between 1 and MAX_LIMIT (handles negative values)
+  const limit = Math.min(Math.max(params.limit ?? DEFAULT_LIMIT, 1), MAX_LIMIT)
 
   const paginatedItems = items.slice(offset, offset + limit)
   const hasMore = offset + limit < items.length
@@ -69,7 +70,8 @@ export function getPaginationMeta(
   params: PaginationParams
 ): { offset: number; limit: number; hasMore: boolean } {
   const offset = params.cursor ? decodeCursor(params.cursor) : 0
-  const limit = Math.min(params.limit ?? DEFAULT_LIMIT, MAX_LIMIT)
+  // Ensure limit is between 1 and MAX_LIMIT (handles negative values)
+  const limit = Math.min(Math.max(params.limit ?? DEFAULT_LIMIT, 1), MAX_LIMIT)
 
   return {
     offset,

@@ -165,11 +165,12 @@ export function getRelatedPatterns(patternSlug: string): string[] {
   const relationships = getPatternRelationships(patternSlug)
   if (!relationships) return []
 
-  return [
+  // Deduplicate results since same pattern can appear in multiple arrays
+  return [...new Set([
     ...relationships.related,
     ...relationships.complementary,
     ...relationships.alternatives,
-  ]
+  ])]
 }
 
 /**

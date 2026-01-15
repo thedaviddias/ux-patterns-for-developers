@@ -3,8 +3,7 @@
  * Returns token-efficient summaries of patterns
  */
 
-import { getPatterns, getCategories } from '../data'
-import { paginate } from '../utils'
+import { getPatterns } from '../data'
 import type { GetQuickReferenceParams, GetQuickReferenceResponse } from '../types'
 
 export const getQuickReferenceDefinition = {

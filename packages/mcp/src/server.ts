@@ -12,8 +12,10 @@ import {
 } from "@modelcontextprotocol/sdk/types.js"
 import type { MCPError, ErrorCode } from "./types"
 
-// Tool handlers will be imported from ./tools/index.ts
-// For now, we define the structure
+// Server constants
+const SERVER_NAME = "ux-patterns-mcp"
+const SERVER_VERSION = "1.0.0"
+const PROTOCOL_VERSION = "2025-11-25"
 
 export interface ToolHandler {
 	name: string
@@ -29,8 +31,8 @@ export class UXPatternsMCPServer {
 	constructor() {
 		this.server = new Server(
 			{
-				name: "ux-patterns-mcp",
-				version: "1.0.0",
+				name: SERVER_NAME,
+				version: SERVER_VERSION,
 			},
 			{
 				capabilities: {
@@ -144,9 +146,9 @@ export class UXPatternsMCPServer {
 		serverInfo: { name: string; version: string }
 	} {
 		return {
-			name: "ux-patterns-mcp",
-			version: "1.0.0",
-			protocolVersion: "2024-11-05",
+			name: SERVER_NAME,
+			version: SERVER_VERSION,
+			protocolVersion: PROTOCOL_VERSION,
 			capabilities: {
 				tools: {
 					listChanged: false,
@@ -154,7 +156,7 @@ export class UXPatternsMCPServer {
 			},
 			serverInfo: {
 				name: "UX Patterns MCP Server",
-				version: "1.0.0",
+				version: SERVER_VERSION,
 			},
 		}
 	}
@@ -211,7 +213,7 @@ export class UXPatternsMCPServer {
 					return {
 						jsonrpc: "2.0",
 						id,
-						error: { code: -32602, message: `Tool "${toolName}" not found` },
+						error: { code: -32601, message: `Tool "${toolName}" not found` },
 					}
 				}
 

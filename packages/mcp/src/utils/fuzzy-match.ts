@@ -45,7 +45,9 @@ export function levenshteinDistance(a: string, b: string): number {
  * Calculate similarity ratio between two strings (0 to 1)
  */
 export function similarityRatio(a: string, b: string): number {
-  const maxLen = Math.max(a.length, b.length)
+  // Use lowercased lengths for consistency with levenshteinDistance
+  // (handles Unicode case conversion edge cases)
+  const maxLen = Math.max(a.toLowerCase().length, b.toLowerCase().length)
   if (maxLen === 0) return 1
   const distance = levenshteinDistance(a, b)
   return 1 - distance / maxLen

@@ -78,7 +78,9 @@ export async function getImplementationChecklist(
   }
 
   for (const item of checklistItems) {
-    phases[item.category].push(item)
+    if (phases[item.category]) {
+      phases[item.category].push(item)
+    }
   }
 
   // Build response checklist
@@ -96,7 +98,6 @@ export async function getImplementationChecklist(
 
   // Estimate time based on checklist complexity
   const requiredCount = checklistItems.filter((i) => i.priority === 'required').length
-  const recommendedCount = checklistItems.filter((i) => i.priority === 'recommended').length
   const estimatedTime =
     requiredCount <= 5
       ? '30 minutes - 1 hour'
