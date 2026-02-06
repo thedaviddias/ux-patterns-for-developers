@@ -1,5 +1,6 @@
 "use server";
 
+import { checkBotId } from "botid/server";
 import type { Octokit } from "octokit";
 import { App } from "octokit";
 import type { ActionResponse, Feedback } from "@/components/feedback";
@@ -99,6 +100,12 @@ export async function handleFeedbackRate(
 	url: string,
 	feedback: Feedback,
 ): Promise<ActionResponse> {
+	// BotID verification - blocks automated bots
+	const verification = await checkBotId();
+	if (verification.isBot) {
+		throw new Error("Access denied");
+	}
+
 	try {
 		const octokit = await getOctokit();
 		const destination = await getFeedbackDestination();

@@ -7,11 +7,21 @@ import {
 	type KitConfig,
 	subscribeSchema,
 } from "@ux-patterns/newsletter/schema";
+import { checkBotId } from "botid/server";
 import { NextResponse } from "next/server";
 
 // POST handler for newsletter subscription
 export async function POST(request: Request) {
 	try {
+		// BotID verification - blocks automated bots
+		const verification = await checkBotId();
+		if (verification.isBot) {
+			return NextResponse.json(
+				{ success: false, message: "Access denied" },
+				{ status: 403 },
+			);
+		}
+
 		const body = await request.json();
 		const validationResult = subscribeSchema.safeParse(body);
 

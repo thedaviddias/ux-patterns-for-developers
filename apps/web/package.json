@@ -34,6 +34,7 @@
     "@ux-patterns/tracking": "workspace:*",
     "@ux-patterns/ui": "workspace:*",
     "@xyflow/react": "^12.10.0",
+    "botid": "^1.5.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dagre": "^0.8.5",
