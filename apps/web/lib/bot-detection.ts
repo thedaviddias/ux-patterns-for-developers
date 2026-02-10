@@ -1,7 +1,8 @@
 import type { NextRequest } from "next/server";
 
 // Good bots — aligned with robots.ts createSEORobots allowlist
-const GOOD_BOTS = /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|Lighthouse|PageSpeed|AhrefsBot|SemrushBot/i;
+const GOOD_BOTS =
+	/Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|Lighthouse|PageSpeed|AhrefsBot|SemrushBot/i;
 
 // Bad bots — from robots.ts (DotBot, MJ12bot, BlexBot) + AI scrapers + headless + scanners
 const BAD_BOTS =
@@ -50,10 +51,7 @@ export function getClientIP(request: NextRequest): string {
 	const cfConnectingIp = request.headers.get("cf-connecting-ip");
 
 	return (
-		forwardedFor?.split(",")[0]?.trim() ||
-		realIp ||
-		cfConnectingIp ||
-		"unknown"
+		forwardedFor?.split(",")[0]?.trim() || realIp || cfConnectingIp || "unknown"
 	);
 }
 
