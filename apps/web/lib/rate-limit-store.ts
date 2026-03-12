@@ -1,7 +1,29 @@
 const DEFAULT_WINDOW_MS = 60_000;
 const DEFAULT_RATE_LIMIT_STORE_TIMEOUT_MS = 2_000;
 const LOCAL_DEV_RATE_LIMIT_WARNING =
-	"UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN are not configured. Falling back to an in-memory rate limiter in development only.";
+	"Neither UPSTASH_REDIS_REST_URL/UPSTASH_REDIS_REST_TOKEN nor KV_REST_API_URL/KV_REST_API_TOKEN are configured. Falling back to an in-memory rate limiter in development.";
+const PROD_RATE_LIMIT_WARNING =
+	"Neither UPSTASH_REDIS_REST_URL/UPSTASH_REDIS_REST_TOKEN nor KV_REST_API_URL/KV_REST_API_TOKEN are configured in production. Falling back to per-instance in-memory rate limiting.";
+const PRIMARY_STORE_FAILURE_WARNING =
+	"Primary rate-limit store failed. Falling back to per-instance in-memory rate limiting for this runtime.";
+
+function resolveRateLimitEnv() {
+	const directUrl = process.env.UPSTASH_REDIS_REST_URL;
+	const directToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+	if (directUrl && directToken) {
+		return { url: directUrl, token: directToken };
+	}
+
+	const vercelKvUrl = process.env.KV_REST_API_URL;
+	const vercelKvToken = process.env.KV_REST_API_TOKEN;
+
+	if (vercelKvUrl && vercelKvToken) {
+		return { url: vercelKvUrl, token: vercelKvToken };
+	}
+
+	return { url: null, token: null };
+}
 
 export interface DistributedRateLimitStore {
 	increment(
@@ -141,64 +163,110 @@ class UpstashRateLimitStore implements DistributedRateLimitStore {
 	}
 }
 
-let cachedRateLimitStore: DistributedRateLimitStore | null | undefined;
+const fallbackRateLimitStore = new InMemoryRateLimitStore();
+const emittedWarnings = new Set<string>();
 
-export function getRateLimitStore(): DistributedRateLimitStore | null {
-	if (cachedRateLimitStore !== undefined) {
+let cachedRateLimitStore: DistributedRateLimitStore | undefined;
+
+function logRateLimitMessageOnce(
+	level: "warn" | "error",
+	message: string,
+	context?: Record<string, unknown>,
+) {
+	if (emittedWarnings.has(message)) {
+		return;
+	}
+
+	emittedWarnings.add(message);
+	if (context) {
+		console[level](message, context);
+		return;
+	}
+
+	console[level](message);
+}
+
+async function evaluateRateLimit(
+	store: DistributedRateLimitStore,
+	key: string,
+	maxRequests: number,
+	windowMs: number,
+): Promise<RateLimitCheckResult> {
+	const { count, retryAfterSeconds } = await store.increment(key, windowMs);
+	return {
+		allowed: count <= maxRequests,
+		retryAfterSeconds,
+	};
+}
+
+export function getRateLimitStore(): DistributedRateLimitStore {
+	if (cachedRateLimitStore) {
 		return cachedRateLimitStore;
 	}
 
-	const url = process.env.UPSTASH_REDIS_REST_URL;
-	const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+	const { url, token } = resolveRateLimitEnv();
 
 	if (url && token) {
 		cachedRateLimitStore = new UpstashRateLimitStore(url, token);
 		return cachedRateLimitStore;
 	}
 
-	if (process.env.NODE_ENV === "development") {
-		console.warn(LOCAL_DEV_RATE_LIMIT_WARNING);
-		cachedRateLimitStore = new InMemoryRateLimitStore();
-		return cachedRateLimitStore;
-	}
-
-	cachedRateLimitStore = null;
+	logRateLimitMessageOnce(
+		"warn",
+		process.env.NODE_ENV === "development"
+			? LOCAL_DEV_RATE_LIMIT_WARNING
+			: PROD_RATE_LIMIT_WARNING,
+	);
+	cachedRateLimitStore = fallbackRateLimitStore;
 	return cachedRateLimitStore;
 }
 
 export async function checkRateLimit(
-	store: DistributedRateLimitStore | null,
+	store: DistributedRateLimitStore,
 	key: string,
 	maxRequests: number,
 	windowMs: number = DEFAULT_WINDOW_MS,
 ): Promise<RateLimitCheckResult> {
-	if (!store) {
-		console.error(
-			"Rate-limit store unavailable; allowing request to avoid fail-closed outage.",
-			{ key, maxRequests, windowMs, defaultWindowMs: DEFAULT_WINDOW_MS },
-		);
-		return {
-			allowed: true,
-			retryAfterSeconds: 0,
-		};
-	}
-
 	try {
-		const { count, retryAfterSeconds } = await store.increment(key, windowMs);
-		return {
-			allowed: count <= maxRequests,
-			retryAfterSeconds,
-		};
+		return await evaluateRateLimit(store, key, maxRequests, windowMs);
 	} catch (error) {
-		console.error("Rate-limit store request failed; allowing request.", {
+		logRateLimitMessageOnce("error", PRIMARY_STORE_FAILURE_WARNING, {
 			key,
 			maxRequests,
 			windowMs,
+			defaultWindowMs: DEFAULT_WINDOW_MS,
 			error,
 		});
-		return {
-			allowed: true,
-			retryAfterSeconds: 0,
-		};
+
+		if (store === fallbackRateLimitStore) {
+			return {
+				allowed: true,
+				retryAfterSeconds: 0,
+			};
+		}
+
+		try {
+			return await evaluateRateLimit(
+				fallbackRateLimitStore,
+				key,
+				maxRequests,
+				windowMs,
+			);
+		} catch (fallbackError) {
+			console.error(
+				"In-memory rate-limit fallback failed; allowing request to avoid fail-closed outage.",
+				{
+					key,
+					maxRequests,
+					windowMs,
+					defaultWindowMs: DEFAULT_WINDOW_MS,
+					error: fallbackError,
+				},
+			);
+			return {
+				allowed: true,
+				retryAfterSeconds: 0,
+			};
+		}
 	}
 }
