@@ -225,6 +225,21 @@ test("targeted generation updates touched files and full generation cleans stale
 	);
 });
 
+test("generatePatternSkills preserves generatedAt across regenerations", async () => {
+	const repoRoot = await createTempRepo();
+	const patternPath = path.join(
+		repoRoot,
+		"apps/web/content/patterns/navigation/tabs.mdx",
+	);
+
+	await fs.writeFile(patternPath, SAMPLE_PATTERN);
+
+	const firstManifest = await generatePatternSkills({ repoRoot });
+	const secondManifest = await generatePatternSkills({ repoRoot });
+
+	assert.equal(secondManifest.generatedAt, firstManifest.generatedAt);
+});
+
 test("llms text builders include the full index pointer and skill metadata", () => {
 	const indexText = buildLlmsIndexText([
 		{

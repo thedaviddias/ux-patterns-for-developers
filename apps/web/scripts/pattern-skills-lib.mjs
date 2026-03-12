@@ -597,9 +597,10 @@ export async function generatePatternSkills(options = {}) {
 		referencePath: `skills/${PATTERN_SKILLS_GLOBAL_SLUG}/references/categories.md`,
 		installCommand: getSkillInstallCommand(PATTERN_SKILLS_GLOBAL_SLUG),
 	};
+	const generatedAt = existingManifest?.generatedAt ?? new Date().toISOString();
 
 	const manifest = {
-		generatedAt: new Date().toISOString(),
+		generatedAt,
 		installSource: PATTERN_SKILLS_INSTALL_SOURCE,
 		globalSkill,
 		patterns: patterns.map((pattern) => ({
