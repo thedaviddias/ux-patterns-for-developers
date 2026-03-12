@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"analyze": "export ANALYZE=true && next build",
-		"prebuild": "node scripts/generate-pattern-skills.mjs && velite build && node scripts/generate-pattern-dates.mjs",
+		"prebuild": "velite build && node scripts/generate-pattern-dates.mjs",
 		"build": "next build",
 		"check": "tsc --noEmit",
 		"dev": "portless run next dev --turbo -p 3060",
