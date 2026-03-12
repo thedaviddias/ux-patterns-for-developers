@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 			);
 		}
 
-		const { email, honeypot, brand, source_domain, language, product } =
+		const { email, honeypot, source_domain, language, product } =
 			validationResult.data;
 
 		// Bot detection: if honeypot field is filled, reject the request
@@ -74,7 +74,6 @@ export async function POST(request: Request) {
 		const provider = new ResendProvider(resendConfig);
 		const result = await provider.subscribe({
 			email,
-			brand,
 			source_domain,
 			language,
 			product,

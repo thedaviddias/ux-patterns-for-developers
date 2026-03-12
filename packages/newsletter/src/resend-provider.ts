@@ -6,6 +6,8 @@ import type {
 	SubscribeResponse,
 } from "./schema";
 
+const RESEND_BRAND = "uxpatterns";
+
 export class ResendProvider {
 	private resend: Resend;
 	private config: ResendConfig;
@@ -28,12 +30,12 @@ export class ResendProvider {
 			this.config.logger?.debug("Resend: Adding contact", {
 				email: data.email,
 				product: data.product,
-				brand: data.brand,
+				brand: RESEND_BRAND,
 			});
 
 			// Build custom properties from metadata fields
 			const properties: Record<string, string | number | null> = {};
-			if (data.brand) properties.brand = data.brand;
+			properties.brand = RESEND_BRAND;
 			if (data.source_domain) properties.source_domain = data.source_domain;
 			if (data.language) properties.language = data.language;
 			if (data.product) properties.product = data.product;

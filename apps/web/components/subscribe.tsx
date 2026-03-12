@@ -72,7 +72,7 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 				body: JSON.stringify({
 					email: trimmedEmail,
 					honeypot: honeypot || "",
-					brand: "ux-patterns",
+					brand: "uxpatterns",
 					source_domain: "uxpatterns.dev",
 					language: "en",
 					product: "newsletter",

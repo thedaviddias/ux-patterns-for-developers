@@ -119,7 +119,7 @@ export const ChecklistDownload = ({ patternSlug }: ChecklistDownloadProps) => {
 				body: JSON.stringify({
 					email: emailToUse,
 					honeypot: "",
-					brand: "ux-patterns",
+					brand: "uxpatterns",
 					source_domain: "uxpatterns.dev",
 					language: "en",
 					product: "testing-guidelines",
