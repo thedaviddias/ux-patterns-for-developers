@@ -1,24 +1,17 @@
----
-title: "File Input"
-summary: "Upload and handle files"
-description: "Create user-friendly file upload components for your web applications. Learn best practices for file selection, drag-and-drop, progress indicators, and validation."
-icon: FileUp
-status: complete
-popularity: high
----
+# File Input
 
-<PatternPreview />
+> Create user-friendly file upload components for your web applications. Learn best practices for file selection, drag-and-drop, progress indicators, and validation.
+
+**URL:** https://uxpatterns.dev/patterns/forms/file-input
+**Source:** apps/web/content/patterns/forms/file-input.mdx
+
+---
 
 ## Overview
 
 A **File Input** is a form component that allows users to select one or more files from their device's file system and upload them to a server. It ranges from the native `<input type="file">` control to enhanced drop zones with drag-and-drop, file previews, upload progress indicators, and validation feedback.
 
 File inputs appear in document management, profile photo upload, e-commerce product imagery, form attachment flows, and media-rich applications.
-
-<BuildEffort
-  level="medium"
-  description="Native file input is low effort. Drag-and-drop zone, file previews, progress indicators, and multi-file management require custom JavaScript and careful accessibility attention."
-/>
 
 ## Use Cases
 
@@ -36,33 +29,6 @@ File inputs appear in document management, profile photo upload, e-commerce prod
 - **Cloud file selection** – Google Drive or Dropbox pickers require their own SDKs.
 - **Very large files** – Consider chunked upload APIs rather than a standard form file input.
 - **Real-time streaming content** – Not appropriate for live audio/video streams.
-
-<PatternComparison
-  current="File Input"
-  alternatives={[
-    {
-      name: "Camera Capture Input",
-      path: "/patterns/forms/text-field",
-      when: "user should take a new photo rather than select an existing file",
-      pros: ["Direct camera access", "No file browsing needed"],
-      cons: ["Mobile-only", "No existing file selection"]
-    },
-    {
-      name: "URL Input",
-      path: "/patterns/forms/text-field",
-      when: "users can link to an existing online resource instead of uploading",
-      pros: ["No upload needed", "Instant", "No file size limit"],
-      cons: ["Requires user to have a public URL", "External dependency", "No preview of private files"]
-    },
-    {
-      name: "Paste / Clipboard",
-      path: "/patterns/forms/text-field",
-      when: "users frequently paste screenshots or copied images",
-      pros: ["Fast for screenshots", "No file picker needed"],
-      cons: ["Limited to clipboard content", "Browser support varies"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -450,7 +416,7 @@ function isValidFileType(file, accept) {
 
 ```python
 # Server-side check (security-critical) — Python example
-import magic  # python-magic library
+
 allowed_types = ['image/jpeg', 'image/png', 'application/pdf']
 mime_type = magic.from_buffer(file_bytes, mime=True)
 if mime_type not in allowed_types:
@@ -749,39 +715,7 @@ When a form with a file input fails server-side validation (e.g., a required tex
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "How do I style the native file input to match my design system?",
-      answer:
-        "The most reliable approach is to visually hide the native input with `opacity: 0; position: absolute;` (not `display: none`, which breaks keyboard access) and create a custom-styled button or drop zone that programmatically triggers the input via `.click()`. Keep the native input in the DOM and accessible by keyboard.",
-    },
-    {
-      question: "How do I implement drag-and-drop file upload?",
-      answer:
-        "Listen for `dragover` (call `e.preventDefault()` to enable drop), `dragleave`, and `drop` events on your drop zone element. On `drop`, access the files via `e.dataTransfer.files` and pass them to the same handler you use for the native input's `change` event. Always provide a click-to-browse fallback.",
-    },
-    {
-      question: "Should I validate file type by extension or MIME type?",
-      answer:
-        "Use both. The `accept` attribute uses extensions and MIME types for the file picker filter. Client-side, check `file.type` (MIME type). Server-side, read the file's magic bytes using a library like `python-magic` or `file-type` (Node.js) — never trust the extension or the MIME type claimed by the client alone.",
-    },
-    {
-      question: "How do I show upload progress?",
-      answer:
-        "Use `XMLHttpRequest` with `xhr.upload.addEventListener('progress', handler)` or the Fetch API with a `ReadableStream`. Update a `role='progressbar'` element's `aria-valuenow` and `style.width` on each progress event. For Fetch, the ReadableStream approach is more complex; many teams continue to use XHR specifically for progress tracking.",
-    },
-    {
-      question: "What happens when a user submits a form and validation fails — does the file input reset?",
-      answer:
-        "Yes, browser security restrictions prevent pre-populating a file input's value after page reload or form reset. To solve this, upload files immediately on selection (AJAX upload) and store a reference (temporary token or ID) in a hidden input. On form resubmission, the file is already on the server and referenced by the hidden token.",
-    },
-  ]}
-/>
-
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 

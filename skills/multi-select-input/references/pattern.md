@@ -1,24 +1,17 @@
----
-title: "Multi-select Input"
-summary: "Choose multiple items from a list"
-description: "Implement multi-select components for multiple item selection in your web applications. Learn best practices for list management, keyboard navigation, and accessibility."
-icon: List
-status: complete
-popularity: high
----
+# Multi-select Input
 
-<PatternPreview />
+> Implement multi-select components for multiple item selection in your web applications. Learn best practices for list management, keyboard navigation, and accessibility.
+
+**URL:** https://uxpatterns.dev/patterns/forms/multi-select-input
+**Source:** apps/web/content/patterns/forms/multi-select-input.mdx
+
+---
 
 ## Overview
 
 A **Multi-select Input** is a form component that allows users to select multiple items from a predefined set of options. It differs from an autocomplete (which suggests options for freeform entry) by working with a **bounded, known list of options** — users can only select what exists in the list.
 
 The most common visual implementation is a **tag/chip-based selector**: selected items appear as removable tags inside the input field, and remaining options are shown in a dropdown. Additional patterns include checkbox lists, dual listboxes, and native `<select multiple>`.
-
-<BuildEffort
-  level="medium"
-  description="Tag-based multi-select requires dropdown management, chip rendering, keyboard navigation (Space to select, Backspace to remove last tag), search/filter within options, and select-all behavior."
-/>
 
 ## Use Cases
 
@@ -36,33 +29,6 @@ The most common visual implementation is a **tag/chip-based selector**: selected
 - **Single selection from a small list** – Use a [Select/Dropdown](/patterns/forms/selection-input) or [Radio](/patterns/forms/radio) group.
 - **Binary choices** – Use [Checkboxes](/patterns/forms/checkbox).
 - **Very large option sets (> 1000 items)** – Use a virtualized list or search-first approach.
-
-<PatternComparison
-  current="Multi-select Input"
-  alternatives={[
-    {
-      name: "Checkbox List",
-      path: "/patterns/forms/checkbox",
-      when: "the number of options is small (< 10) and all should be visible at once",
-      pros: ["All options visible", "Native accessible", "No dropdown needed"],
-      cons: ["Space-intensive", "Poor for many options", "No tag visualization"]
-    },
-    {
-      name: "Autocomplete",
-      path: "/patterns/forms/autocomplete",
-      when: "users need to search through a large dataset and can also create new values",
-      pros: ["Handles large datasets", "Supports freeform entry", "Fuzzy search"],
-      cons: ["Open-ended — options aren't bounded", "More complex", "Can suggest wrong items"]
-    },
-    {
-      name: "Native Select Multiple",
-      path: "/patterns/forms/selection-input",
-      when: "simplicity is critical and the number of items is small",
-      pros: ["Zero implementation cost", "Accessible by default"],
-      cons: ["Notoriously bad UX", "Non-intuitive Ctrl+click", "Inconsistent styling"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -694,39 +660,7 @@ function focusOption(optionElement) {
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "What is the difference between a multi-select and an autocomplete?",
-      answer:
-        "A multi-select works with a bounded, predefined list of options — users can only select from what exists. An autocomplete suggests options from a dataset as the user types and may also allow creating new values. Use multi-select when the option list is fixed and known; use autocomplete when users need to search a large dataset or enter freeform values.",
-    },
-    {
-      question: "Should I use checkboxes or tags for multi-select?",
-      answer:
-        "Use a tag-based UI when you want to show selected items compactly inside the input field and allow inline removal. Use a checkbox list when the number of options is small (< 10) and all options should always be visible without a dropdown. For reporting filters and analytics dashboards, tags with a dropdown are typically preferred.",
-    },
-    {
-      question: "How do I implement keyboard navigation for a custom multi-select?",
-      answer:
-        "Follow the ARIA Combobox pattern: `role='combobox'` on the input with `aria-haspopup='listbox'` and `aria-expanded`. Use `role='listbox'` on the dropdown with `aria-multiselectable='true'`, and `role='option'` on each item with `aria-selected`. Handle Arrow keys to navigate, Enter/Space to toggle, Escape to close, and Backspace to remove the last tag when the input is empty.",
-    },
-    {
-      question: "How do I handle a very large list of options (500+)?",
-      answer:
-        "Always provide a search/filter input. Implement virtual rendering (render only visible options in the DOM) to maintain performance. Consider lazy-loading options from an API as the user types rather than loading all options upfront. Limit the maximum visible options in the dropdown to 8–10 and allow scrolling within the list.",
-    },
-    {
-      question: "How should a multi-select behave when the form has a minimum selection requirement?",
-      answer:
-        "Allow the user to deselect items freely, but show a validation error when the form is submitted with fewer than the required minimum. Do not prevent removal of items in real-time as it blocks correction workflows. Announce the minimum requirement in the helper text (e.g., 'Select at least 2 skills') and show it as an error on submit.",
-    },
-  ]}
-/>
-
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 

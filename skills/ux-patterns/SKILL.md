@@ -10,7 +10,7 @@ metadata:
 
 # UX Patterns Global
 
-This skill aggregates 32 UX patterns across the site and helps choose the right implementation path without guessing from memory.
+This skill aggregates 40 UX patterns across the site and helps choose the right implementation path without guessing from memory.
 
 ## Workflow
 
@@ -25,7 +25,7 @@ This skill aggregates 32 UX patterns across the site and helps choose the right 
 - authentication: 7 patterns
 - content-management: 6 patterns
 - data-display: 1 patterns
-- forms: 7 patterns
+- forms: 15 patterns
 - navigation: 11 patterns
 
 ---

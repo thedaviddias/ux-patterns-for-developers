@@ -1,13 +1,11 @@
----
-title: "Code Confirmation"
-summary: "Verify codes with segmented input"
-description: "Implement user-friendly code confirmation inputs for verification codes and OTPs. Learn best practices for segmented inputs, auto-focus behavior, and accessibility."
-icon: KeyRound
-status: complete
-popularity: medium
----
+# Code Confirmation
 
-<PatternPreview />
+> Implement user-friendly code confirmation inputs for verification codes and OTPs. Learn best practices for segmented inputs, auto-focus behavior, and accessibility.
+
+**URL:** https://uxpatterns.dev/patterns/forms/code-confirmation
+**Source:** apps/web/content/patterns/forms/code-confirmation.mdx
+
+---
 
 ## Overview
 
@@ -17,11 +15,6 @@ The defining characteristic is the **segmented layout**: each character occupies
 
 ![2FA Code Confirmation](/patterns/code-confirmation/do/paypal.jpg)
 _Good example of a 2FA code confirmation screen from PayPal_
-
-<BuildEffort
-  level="medium"
-  description="Requires coordinated focus management across multiple inputs, paste handling, auto-advance logic, and screen reader announcements."
-/>
 
 ## Use Cases
 
@@ -39,33 +32,6 @@ _Good example of a 2FA code confirmation screen from PayPal_
 - **Free-form text entry** – Use a text field instead.
 - **When the code length is unknown or variable** – Use a standard single-line input.
 - **Codes longer than 8 digits** – Cognitive load increases significantly; consider a text field with masking.
-
-<PatternComparison
-  current="Code Confirmation"
-  alternatives={[
-    {
-      name: "Text Field",
-      path: "/patterns/forms/text-field",
-      when: "entering free-form text, long codes, or alphanumeric strings of variable length",
-      pros: ["Simpler implementation", "Works for any length", "Familiar to users"],
-      cons: ["No auto-advance", "Less guided entry", "No per-digit validation"]
-    },
-    {
-      name: "PIN Entry",
-      path: "/patterns/forms/text-field",
-      when: "entering a short numeric PIN (typically 4–6 digits) for device unlock or payment confirmation",
-      pros: ["Simple masked numeric input", "Familiar mobile pattern"],
-      cons: ["No segmented visualization", "Less guidance per digit"]
-    },
-    {
-      name: "Password Field",
-      path: "/patterns/forms/text-field",
-      when: "users enter a long secret they know by heart (not one sent to them)",
-      pros: ["Supports any length", "Masking by default", "Browser autocomplete"],
-      cons: ["No visual structure for short codes", "Not designed for OTPs"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -644,39 +610,12 @@ lastInput.addEventListener('input', () => {
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "Should I use a single text input or multiple segmented inputs for an OTP?",
-      answer:
-        "Segmented inputs provide stronger visual guidance and auto-advance behavior that users find intuitive for short codes. However, a single input with `autocomplete='one-time-code'` is simpler to implement and still benefits from SMS autofill. For codes up to 8 digits, segmented inputs generally perform better in usability tests.",
-    },
-    {
-      question: "How do I support SMS autofill (one-time code) in browsers?",
-      answer:
-        "Set `autocomplete='one-time-code'` on the first digit input. On iOS Safari and Android Chrome, the OS will offer the code from a received SMS as a keyboard suggestion. Your JavaScript paste handler then distributes it across all digit inputs.",
-    },
-    {
-      question: "What input type should I use for digit boxes?",
-      answer:
-        "Use `type='text'` with `inputmode='numeric'` and `pattern='[0-9]'`. Avoid `type='number'` because it accepts non-digit characters like 'e' and '+', shows spinner arrows in some browsers, and returns unexpected values for invalid input.",
-    },
-    {
-      question: "How should I handle the resend code flow?",
-      answer:
-        "After code delivery, disable the resend button for 30–60 seconds using a countdown timer. Show the remaining time with `aria-live='polite'` so screen reader users are informed. Re-enable after the timer expires. Track resend attempts server-side to prevent abuse.",
-    },
-    {
-      question: "How do I make a code confirmation component accessible to screen reader users?",
-      answer:
-        "Wrap the inputs in a `<fieldset>` with a `<legend>` describing the code. Give each input a unique `aria-label` indicating its position (e.g., 'Digit 3 of 6'). Add an `aria-live='polite'` region that announces progress and errors. Ensure error messages use `aria-live` and are associated with the group via `aria-describedby`.",
+` with a `<legend>` describing the code. Give each input a unique `aria-label` indicating its position (e.g., 'Digit 3 of 6'). Add an `aria-live='polite'` region that announces progress and errors. Ensure error messages use `aria-live` and are associated with the group via `aria-describedby`.",
     },
   ]}
 />
 
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 

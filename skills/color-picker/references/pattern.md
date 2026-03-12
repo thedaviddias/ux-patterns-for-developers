@@ -1,24 +1,17 @@
----
-title: "Color Picker"
-summary: "Select colors with visual feedback"
-description: "Select colors with visual feedback"
-icon: Palette
-status: complete
-popularity: medium
----
+# Color Picker
 
-<PatternPreview />
+> Select colors with visual feedback
+
+**URL:** https://uxpatterns.dev/patterns/forms/color-picker
+**Source:** apps/web/content/patterns/forms/color-picker.mdx
+
+---
 
 ## Overview
 
 A **Color Picker** is a form input component that allows users to select a color value through visual interaction. It may be implemented as a native browser control (`<input type="color">`), a custom swatch palette, a hex/RGB/HSL text input, a gradient spectrum canvas, or an eyedropper tool — or any combination of these.
 
 Color pickers are used wherever users need to choose or define colors: theme customization, design tools, annotation systems, data visualization category assignment, and product personalization.
-
-<BuildEffort
-  level="high"
-  description="Full custom implementation requires canvas-based hue/saturation pickers, hex/RGB parsing, eyedropper API integration, and accessible keyboard navigation through swatches."
-/>
 
 ## Use Cases
 
@@ -36,33 +29,6 @@ Color pickers are used wherever users need to choose or define colors: theme cus
 - **When the exact color value doesn't matter to the user** – A simpler categorical selector ("Red", "Blue", "Green") reduces cognitive load.
 - **In mobile-primary, simple forms** – Native `<input type="color">` may be sufficient; avoid heavy custom UIs on small screens.
 - **When accessibility is paramount** – Custom color pickers require significant a11y investment; evaluate whether simpler alternatives meet the need.
-
-<PatternComparison
-  current="Color Picker"
-  alternatives={[
-    {
-      name: "Swatch Selector",
-      path: "/patterns/forms/selection-input",
-      when: "colors are predefined from a fixed palette",
-      pros: ["Simple", "Fast selection", "Brand-consistent", "Accessible"],
-      cons: ["No custom colors", "Limited variety", "Requires predefined values"]
-    },
-    {
-      name: "Text Field",
-      path: "/patterns/forms/text-field",
-      when: "users enter exact hex or RGB values directly",
-      pros: ["Precise input", "Simple implementation", "Keyboard-friendly"],
-      cons: ["No visual feedback", "Requires color knowledge", "Error-prone entry"]
-    },
-    {
-      name: "Dropdown / Select",
-      path: "/patterns/forms/selection-input",
-      when: "choosing from a small named set of colors (< 10 options)",
-      pros: ["Accessible by default", "Simple", "Named options are clear"],
-      cons: ["No visual preview in most implementations", "Not for large palettes"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -683,10 +649,7 @@ If users only need to choose from 8 brand colors, launching a full color wheel i
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "Should I use `<input type='color'>` or build a custom color picker?",
+` or build a custom color picker?",
       answer:
         "Use the native `<input type='color'>` when you need a quick, zero-dependency implementation and don't require brand consistency across browsers. Build a custom picker when you need a specific set of swatches, hex input, opacity control, or consistent cross-browser UI.",
     },
@@ -714,8 +677,6 @@ If users only need to choose from 8 brand colors, launching a full color wheel i
 />
 
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 

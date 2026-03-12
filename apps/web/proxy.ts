@@ -44,7 +44,12 @@ export async function proxy(request: NextRequest) {
 		);
 	}
 
-	const rateLimitKey = `${rateLimitIdentifier}:${category}`;
+	// Public page traffic is naturally bursty across route navigations and RSC fetches.
+	// Scope page limits to the pathname to avoid cross-page contention for legitimate users.
+	const rateLimitKey =
+		category === "page"
+			? `${rateLimitIdentifier}:${category}:${pathname}`
+			: `${rateLimitIdentifier}:${category}`;
 	const rateLimitResult = await checkRateLimit(
 		getRateLimitStore(),
 		rateLimitKey,

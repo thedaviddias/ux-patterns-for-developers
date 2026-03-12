@@ -1,24 +1,17 @@
----
-title: "Date Input"
-summary: "Enter dates in a structured text format"
-description: "Build date input fields with validation, formatting, and localization features."
-icon: Calendar
-status: complete
-popularity: medium
----
+# Date Input
 
-<PatternPreview />
+> Build date input fields with validation, formatting, and localization features.
+
+**URL:** https://uxpatterns.dev/patterns/forms/date-input
+**Source:** apps/web/content/patterns/forms/date-input.mdx
+
+---
 
 ## Overview
 
 A **Date Input** is a form field specifically designed for entering date values. It encompasses two primary implementation approaches: the native `<input type="date">` control (which renders the browser's built-in date picker), and structured text inputs using masked or segmented fields (e.g., MM/DD/YYYY format with auto-advance between day, month, and year segments).
 
 Date Input is distinct from a **Date Picker** in that it focuses on direct keyboard entry of a date value rather than calendar-based visual selection. It is the preferred approach for entering known dates (birth dates, expiry dates) where a calendar view adds unnecessary complexity.
-
-<BuildEffort
-  level="medium"
-  description="Native date input is low effort. Masked/segmented date input requires format parsing, auto-advance logic, locale-aware ordering, and validation."
-/>
 
 ## Use Cases
 
@@ -36,33 +29,6 @@ Date Input is distinct from a **Date Picker** in that it focuses on direct keybo
 - **Relative date selection** – "Next Monday", "In 3 weeks" — use natural language or a date picker.
 - **Date ranges** – Use a [Date Range](/patterns/forms/date-range) component instead.
 - **When users need to see surrounding dates** – Calendar view is more helpful.
-
-<PatternComparison
-  current="Date Input"
-  alternatives={[
-    {
-      name: "Date Picker",
-      path: "/patterns/forms/date-picker",
-      when: "users need to select a date visually or see surrounding context (scheduling, availability)",
-      pros: ["Visual calendar context", "Shows day-of-week", "Good for relative date selection"],
-      cons: ["Slower for known dates", "More complex", "Calendar navigation overhead"]
-    },
-    {
-      name: "Text Field",
-      path: "/patterns/forms/text-field",
-      when: "collecting free-form date-like text with no strict validation required",
-      pros: ["Simple", "No format constraints"],
-      cons: ["No date validation", "Ambiguous formats", "No locale awareness"]
-    },
-    {
-      name: "Date Range",
-      path: "/patterns/forms/date-range",
-      when: "users need to enter both a start and end date",
-      pros: ["Designed for ranges", "Range validation built-in"],
-      cons: ["Overkill for a single date", "More complex UI"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -634,10 +600,7 @@ Always use `Intl.DateTimeFormat` to determine the correct display order for the 
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "Should I use `<input type='date'>` or a custom segmented input?",
+` or a custom segmented input?",
       answer:
         "Use `<input type='date'>` for most cases — it provides a mobile-native date picker, accessibility features, and ISO 8601 value storage for free. Build a custom segmented input when you need full control over formatting, when browser inconsistency is unacceptable for your design system, or when you need three-segment auto-advance behavior.",
     },
@@ -665,8 +628,6 @@ Always use `Intl.DateTimeFormat` to determine the correct display order for the 
 />
 
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 

@@ -1,24 +1,17 @@
----
-title: "Date Picker"
-summary: "Select dates from a calendar interface"
-description: "Create user-friendly date pickers with calendar interfaces and keyboard navigation."
-icon: CalendarDays
-status: complete
-popularity: high
----
+# Date Picker
 
-<PatternPreview />
+> Create user-friendly date pickers with calendar interfaces and keyboard navigation.
+
+**URL:** https://uxpatterns.dev/patterns/forms/date-picker
+**Source:** apps/web/content/patterns/forms/date-picker.mdx
+
+---
 
 ## Overview
 
 A **Date Picker** is a form component that combines a text input (showing the selected date) with a **calendar overlay** that allows users to visually browse and select a date. The calendar provides context about surrounding dates, days of the week, and time-relative positioning that a plain text input cannot offer.
 
 Unlike a [Date Input](/patterns/forms/date-input) (which is optimized for direct keyboard entry of known dates), a Date Picker is designed for situations where the user benefits from seeing the calendar — scheduling appointments, choosing a future delivery date, or selecting from a constrained set of available days.
-
-<BuildEffort
-  level="high"
-  description="Requires calendar grid rendering, month navigation, keyboard arrow-key navigation, focus management within the popup, min/max disabled date handling, and today highlighting."
-/>
 
 ## Use Cases
 
@@ -36,33 +29,6 @@ Unlike a [Date Input](/patterns/forms/date-input) (which is optimized for direct
 - **Date ranges** – Use a [Date Range](/patterns/forms/date-range) component instead.
 - **Mobile-only contexts** – The native `<input type="date">` opens the platform's native picker; a custom calendar may be redundant.
 - **Very distant dates** – Navigating 80+ years in a calendar is impractical; use a text date input with year input.
-
-<PatternComparison
-  current="Date Picker"
-  alternatives={[
-    {
-      name: "Date Input",
-      path: "/patterns/forms/date-input",
-      when: "users know the exact date and don't need visual calendar context",
-      pros: ["Faster for known dates", "Compact", "No calendar overlay needed"],
-      cons: ["No visual context", "Format confusion possible", "No availability visibility"]
-    },
-    {
-      name: "Date Range",
-      path: "/patterns/forms/date-range",
-      when: "users need to select both a start and end date",
-      pros: ["Designed for ranges", "Range validation built-in", "Visual range highlight"],
-      cons: ["More complex", "Overkill for single date"]
-    },
-    {
-      name: "Text Field",
-      path: "/patterns/forms/text-field",
-      when: "collecting an approximate or relative date description",
-      pros: ["Maximum flexibility", "Simple"],
-      cons: ["No validation", "No calendar context", "Ambiguous formats"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -712,39 +678,12 @@ Always use `Intl.Locale` or a locale database to determine the correct first day
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "When should I use a date picker instead of a date input?",
-      answer:
-        "Use a date picker when users benefit from seeing surrounding dates for context — scheduling appointments, booking travel, selecting delivery dates, or choosing from constrained availability. Use a date input (text-based) when users know the exact date without needing calendar context, such as for birth dates or historical records.",
-    },
-    {
-      question: "How do I make a date picker accessible to keyboard users?",
-      answer:
-        "Implement the ARIA Calendar Grid pattern: use `role='grid'` on the table, `role='gridcell'` on cells, and support Arrow key navigation (left/right for days, up/down for weeks), Page Up/Down for months, Home/End for week start/end, and Escape to close. Announce the month via `aria-live` when navigating, and trap focus inside the calendar dialog while it's open.",
-    },
-    {
-      question: "Should I build a custom date picker or use a library?",
-      answer:
-        "For most production use cases, use a well-tested library (React DayPicker, Flatpickr, or a design system component) rather than building from scratch. The ARIA requirements, keyboard navigation, and cross-browser issues are substantial. Build custom only when you have a unique UX requirement or design constraint that libraries cannot meet.",
-    },
-    {
-      question: "How do I handle disabled dates (e.g., weekends, past dates)?",
-      answer:
-        "Render disabled day cells with `aria-disabled='true'` and `disabled` on the day button. Prevent keyboard focus from landing on disabled cells by skipping them in arrow-key navigation. Provide descriptive text explaining why dates are unavailable when helpful.",
-    },
-    {
-      question: "How should date pickers behave on mobile?",
-      answer:
-        "Consider using the native `<input type='date'>` on mobile as it opens the platform's native picker, which is optimized for touch. If you must use a custom picker on mobile, render the calendar in a bottom sheet (full-width, slides up from the bottom) rather than a floating popup, and ensure day cells are at least 44×44px.",
+` on mobile as it opens the platform's native picker, which is optimized for touch. If you must use a custom picker on mobile, render the calendar in a bottom sheet (full-width, slides up from the bottom) rather than a floating popup, and ensure day cells are at least 44×44px.",
     },
   ]}
 />
 
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 

@@ -21,6 +21,8 @@ export interface BotDetectionResult {
 }
 
 const TRUSTED_CLIENT_IP_HEADERS = [
+	"x-vercel-forwarded-for",
+	"x-forwarded-for",
 	"cf-connecting-ip",
 	"x-real-ip",
 	"fly-client-ip",
@@ -31,11 +33,16 @@ function getTrustedHeaderValue(
 	headerName: (typeof TRUSTED_CLIENT_IP_HEADERS)[number],
 ): string | null {
 	const value = request.headers.get(headerName)?.trim();
-	if (!value || value.includes(",")) {
+	if (!value) {
 		return null;
 	}
 
-	return value;
+	const firstValue = value
+		.split(",")
+		.map((part) => part.trim())
+		.find(Boolean);
+
+	return firstValue ?? null;
 }
 
 export function detectBot(

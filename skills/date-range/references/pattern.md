@@ -1,13 +1,11 @@
----
-title: "Date Range"
-summary: "Select a range between two dates"
-description: "Build date range selection with calendar interfaces and validation features."
-icon: CalendarRange
-status: complete
-popularity: medium
----
+# Date Range
 
-<PatternPreview />
+> Build date range selection with calendar interfaces and validation features.
+
+**URL:** https://uxpatterns.dev/patterns/forms/date-range
+**Source:** apps/web/content/patterns/forms/date-range.mdx
+
+---
 
 ## Overview
 
@@ -15,9 +13,7 @@ A **Date Range** component allows users to select both a **start date** and an *
 
 Date Range is commonly implemented as either a **dual input pair** (two separate date fields with connected validation) or a **single calendar panel/dual-panel UI** with visual range highlighting as the user selects.
 
-<BuildEffort
-  level="high"
-  description="Requires range visualization logic, hover preview of potential ranges, validation that end > start, minimum/maximum range enforcement, and accessible announcement of both selected dates."
+ start, minimum/maximum range enforcement, and accessible announcement of both selected dates."
 />
 
 ## Use Cases
@@ -36,33 +32,6 @@ Date Range is commonly implemented as either a **dual input pair** (two separate
 - **Open-ended filters** – "From date only" or "To date only" — use two independent date inputs.
 - **Very long date ranges** – Multi-year ranges are better served by month/year selectors.
 - **When start and end can be the same day** – Clarify this explicitly in UX copy.
-
-<PatternComparison
-  current="Date Range"
-  alternatives={[
-    {
-      name: "Date Picker",
-      path: "/patterns/forms/date-picker",
-      when: "only a single date needs to be selected",
-      pros: ["Simpler interaction", "Single selection", "Smaller UI footprint"],
-      cons: ["Can't select ranges", "No range validation"]
-    },
-    {
-      name: "Two Date Inputs",
-      path: "/patterns/forms/date-input",
-      when: "start and end dates are logically separate and not visually related",
-      pros: ["Simple", "Independent validation", "Compact"],
-      cons: ["No range visualization", "No calendar context", "Manual range validation needed"]
-    },
-    {
-      name: "Preset Selector",
-      path: "/patterns/forms/selection-input",
-      when: "users choose from fixed ranges (Today, Last 7 days, This month, This quarter)",
-      pros: ["Fast selection", "No calendar needed", "No format confusion"],
-      cons: ["No custom ranges", "Limited to predefined options"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -658,39 +627,12 @@ A single calendar panel for a date range picker forces users to navigate months 
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "Should I use a single calendar panel or dual calendar panels for date range selection?",
-      answer:
-        "Use dual panels on desktop to show both the start and end month simultaneously, reducing navigation. Use a single panel on mobile or when horizontal space is limited. Single-panel pickers require more month navigation to select ranges that span across months.",
-    },
-    {
-      question: "How do I handle the case where the user selects an end date before the start date?",
-      answer:
-        "The most forgiving approach is to swap the dates automatically (treating the earlier selection as the start and the later as the end). An alternative is to clear the end date and prompt the user to reselect. Always announce the error or swap via aria-live so keyboard and screen reader users are informed.",
-    },
-    {
-      question: "What is the best way to implement preset date ranges?",
-      answer:
-        "Render preset options as a group of buttons above or beside the calendar, using `role='group'` with `aria-label='Preset date ranges'`. Each button should apply the range immediately when clicked and update both the calendar grid and the text inputs. Track which presets users select most to optimize the list.",
-    },
-    {
-      question: "How do I show range progress — which date are we selecting next?",
-      answer:
-        "Use an instructional text element with `aria-live='polite'` that reads 'Select a start date' when nothing is selected, and 'Start date selected: March 12. Now select an end date.' after the first click. This guides both sighted and screen reader users through the two-step selection.",
-    },
-    {
-      question: "How should a date range picker behave on mobile?",
-      answer:
-        "Use a full-width bottom sheet or modal on mobile. Show a single calendar panel rather than dual panels. Ensure day cells are at least 44×44px. Consider using native `<input type='date'>` inputs for start and end dates on mobile as a lighter alternative to a custom range picker.",
+` inputs for start and end dates on mobile as a lighter alternative to a custom range picker.",
     },
   ]}
 />
 
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 

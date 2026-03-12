@@ -365,6 +365,147 @@
       ]
     },
     {
+      "skillSlug": "code-confirmation",
+      "patternSlug": "patterns/forms/code-confirmation",
+      "category": "forms",
+      "title": "Code Confirmation",
+      "summary": "Verify codes with segmented input",
+      "description": "Implement user-friendly code confirmation inputs for verification codes and OTPs. Learn best practices for segmented inputs, auto-focus behavior, and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/code-confirmation",
+      "sourcePath": "apps/web/content/patterns/forms/code-confirmation.mdx",
+      "referencePath": "skills/code-confirmation/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill code-confirmation",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/code-confirmation/do",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "color-picker",
+      "patternSlug": "patterns/forms/color-picker",
+      "category": "forms",
+      "title": "Color Picker",
+      "summary": "Select colors with visual feedback",
+      "description": "Select colors with visual feedback",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/color-picker",
+      "sourcePath": "apps/web/content/patterns/forms/color-picker.mdx",
+      "referencePath": "skills/color-picker/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill color-picker",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/selection-input",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "currency-input",
+      "patternSlug": "patterns/forms/currency-input",
+      "category": "forms",
+      "title": "Currency Input",
+      "summary": "Enter and format monetary values",
+      "description": "Create currency input fields with number formatting and international currency handling.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/currency-input",
+      "sourcePath": "apps/web/content/patterns/forms/currency-input.mdx",
+      "referencePath": "skills/currency-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill currency-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "date-input",
+      "patternSlug": "patterns/forms/date-input",
+      "category": "forms",
+      "title": "Date Input",
+      "summary": "Enter dates in a structured text format",
+      "description": "Build date input fields with validation, formatting, and localization features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/date-input",
+      "sourcePath": "apps/web/content/patterns/forms/date-input.mdx",
+      "referencePath": "skills/date-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/date-picker",
+        "https://uxpatterns.dev/patterns/forms/date-range",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "date-picker",
+      "patternSlug": "patterns/forms/date-picker",
+      "category": "forms",
+      "title": "Date Picker",
+      "summary": "Select dates from a calendar interface",
+      "description": "Create user-friendly date pickers with calendar interfaces and keyboard navigation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/date-picker",
+      "sourcePath": "apps/web/content/patterns/forms/date-picker.mdx",
+      "referencePath": "skills/date-picker/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-picker",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/dialog-modal/examples",
+        "https://uxpatterns.dev/patterns/forms/date-input",
+        "https://uxpatterns.dev/patterns/forms/date-range",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "date-range",
+      "patternSlug": "patterns/forms/date-range",
+      "category": "forms",
+      "title": "Date Range",
+      "summary": "Select a range between two dates",
+      "description": "Build date range selection with calendar interfaces and validation features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/date-range",
+      "sourcePath": "apps/web/content/patterns/forms/date-range.mdx",
+      "referencePath": "skills/date-range/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-range",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/dialog-modal/examples",
+        "https://uxpatterns.dev/patterns/forms/date-input",
+        "https://uxpatterns.dev/patterns/forms/date-picker",
+        "https://uxpatterns.dev/patterns/forms/selection-input"
+      ]
+    },
+    {
+      "skillSlug": "file-input",
+      "patternSlug": "patterns/forms/file-input",
+      "category": "forms",
+      "title": "File Input",
+      "summary": "Upload and handle files",
+      "description": "Create user-friendly file upload components for your web applications. Learn best practices for file selection, drag-and-drop, progress indicators, and validation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/file-input",
+      "sourcePath": "apps/web/content/patterns/forms/file-input.mdx",
+      "referencePath": "skills/file-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill file-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "multi-select-input",
+      "patternSlug": "patterns/forms/multi-select-input",
+      "category": "forms",
+      "title": "Multi-select Input",
+      "summary": "Choose multiple items from a list",
+      "description": "Implement multi-select components for multiple item selection in your web applications. Learn best practices for list management, keyboard navigation, and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/multi-select-input",
+      "sourcePath": "apps/web/content/patterns/forms/multi-select-input.mdx",
+      "referencePath": "skills/multi-select-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill multi-select-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/autocomplete",
+        "https://uxpatterns.dev/patterns/forms/checkbox",
+        "https://uxpatterns.dev/patterns/forms/radio",
+        "https://uxpatterns.dev/patterns/forms/selection-input"
+      ]
+    },
+    {
       "skillSlug": "password",
       "patternSlug": "patterns/forms/password",
       "category": "forms",

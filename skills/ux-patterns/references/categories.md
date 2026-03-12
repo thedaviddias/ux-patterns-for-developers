@@ -81,6 +81,38 @@ This category index maps installable pattern skills back to their canonical docs
   - URL: https://uxpatterns.dev/patterns/forms/checkbox
   - Skill: checkbox
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill checkbox`
+- **Code Confirmation**
+  - URL: https://uxpatterns.dev/patterns/forms/code-confirmation
+  - Skill: code-confirmation
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill code-confirmation`
+- **Color Picker**
+  - URL: https://uxpatterns.dev/patterns/forms/color-picker
+  - Skill: color-picker
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill color-picker`
+- **Currency Input**
+  - URL: https://uxpatterns.dev/patterns/forms/currency-input
+  - Skill: currency-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill currency-input`
+- **Date Input**
+  - URL: https://uxpatterns.dev/patterns/forms/date-input
+  - Skill: date-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-input`
+- **Date Picker**
+  - URL: https://uxpatterns.dev/patterns/forms/date-picker
+  - Skill: date-picker
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-picker`
+- **Date Range**
+  - URL: https://uxpatterns.dev/patterns/forms/date-range
+  - Skill: date-range
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-range`
+- **File Input**
+  - URL: https://uxpatterns.dev/patterns/forms/file-input
+  - Skill: file-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill file-input`
+- **Multi-select Input**
+  - URL: https://uxpatterns.dev/patterns/forms/multi-select-input
+  - Skill: multi-select-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill multi-select-input`
 - **Password**
   - URL: https://uxpatterns.dev/patterns/forms/password
   - Skill: password

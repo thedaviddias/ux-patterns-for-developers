@@ -1,24 +1,17 @@
----
-title: "Currency Input"
-summary: "Enter and format monetary values"
-description: "Create currency input fields with number formatting and international currency handling."
-icon: DollarSign
-status: complete
-popularity: medium
----
+# Currency Input
 
-<PatternPreview />
+> Create currency input fields with number formatting and international currency handling.
+
+**URL:** https://uxpatterns.dev/patterns/forms/currency-input
+**Source:** apps/web/content/patterns/forms/currency-input.mdx
+
+---
 
 ## Overview
 
 A **Currency Input** is a specialized numeric form field for entering monetary values. It combines the raw numeric input behavior of a number field with locale-aware formatting, currency symbol display, and financial validation constraints.
 
 Unlike a generic number input, a currency input formats the value as the user types (e.g., displaying `$1,299.99` instead of `1299.99`), handles decimal precision based on the currency (USD uses 2 decimal places, JPY uses 0), and positions the currency symbol or code according to locale conventions.
-
-<BuildEffort
-  level="medium"
-  description="Requires Intl.NumberFormat for locale-aware formatting, decimal/thousand separator handling, and optional currency selector integration."
-/>
 
 ## Use Cases
 
@@ -36,33 +29,6 @@ Unlike a generic number input, a currency input formats the value as the user ty
 - **Quantities without monetary meaning** – Use a number input instead.
 - **Very large or very small scientific values** – Use a standard number input with appropriate notation.
 - **When the currency is irrelevant** – A plain number input is simpler.
-
-<PatternComparison
-  current="Currency Input"
-  alternatives={[
-    {
-      name: "Text Field",
-      path: "/patterns/forms/text-field",
-      when: "entering financial values without formatting requirements",
-      pros: ["Simple implementation", "No formatting complexity"],
-      cons: ["No locale-aware formatting", "No currency symbol", "Prone to format errors"]
-    },
-    {
-      name: "Number Input",
-      path: "/patterns/forms/text-field",
-      when: "entering numeric quantities without monetary context",
-      pros: ["Built-in numeric validation", "Simple implementation"],
-      cons: ["No currency formatting", "No locale support", "Shows spinners"]
-    },
-    {
-      name: "Slider Input",
-      path: "/patterns/forms/text-field",
-      when: "selecting a value within a known bounded range (e.g., budget up to $500)",
-      pros: ["Visual range feedback", "Prevents out-of-range input"],
-      cons: ["Imprecise for exact values", "Not suitable for open-ended amounts"]
-    }
-  ]}
-/>
 
 ## Benefits
 
@@ -645,39 +611,7 @@ new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(am
 
 ## Frequently Asked Questions
 
-<FaqStructuredData
-  items={[
-    {
-      question: "Why should I use `type='text'` instead of `type='number'` for currency inputs?",
-      answer:
-        "The `type='number'` input rejects commas used as thousands separators in many locales, shows browser spinner arrows inappropriate for currency, and has inconsistent decimal handling. Using `type='text'` with `inputmode='decimal'` gives mobile users the right keyboard while avoiding these issues.",
-    },
-    {
-      question: "How do I format currency values correctly for different locales?",
-      answer:
-        "Use the built-in `Intl.NumberFormat` API with explicit locale and currency options: `new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount)`. Always pass an explicit locale rather than relying on the browser default to ensure consistent formatting across environments.",
-    },
-    {
-      question: "Should I format the currency value while the user is typing?",
-      answer:
-        "No. Formatting while typing moves the cursor unpredictably, especially when inserting thousands separators. Instead, allow raw numeric input during typing and apply formatting when the field loses focus (on `blur`).",
-    },
-    {
-      question: "How do I submit the correct numeric value to my server?",
-      answer:
-        "Strip all formatting characters before submission. Use a hidden input field to store the parsed numeric value, or strip and parse the displayed value in a form submit handler. Never send the user-visible formatted string directly to the server.",
-    },
-    {
-      question: "How should I handle currencies with different decimal places like JPY or KWD?",
-      answer:
-        "Use the `minimumFractionDigits` and `maximumFractionDigits` from `Intl.NumberFormat` for the selected currency. For JPY, these are both 0; for KWD, both are 3. Adjust the input's `step` and validation accordingly, and update these when the user changes currencies.",
-    },
-  ]}
-/>
-
 ## Related Patterns
-
-<RelatedPatternsCard category="forms" />
 
 ## Resources
 
