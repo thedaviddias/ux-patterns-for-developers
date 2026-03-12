@@ -7,6 +7,8 @@ status: complete
 popularity: medium
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -161,6 +163,8 @@ graph TD
 ### Dual Input with Popup
 
 Standard date range with two labeled inputs that trigger a dual-panel calendar.
+
+<Playground patternType="forms" pattern="date-range" example="basic" presentation="hidden-code" />
 
 ```html
 <div class="date-range" aria-describedby="date-range-summary">
@@ -654,6 +658,8 @@ A single calendar panel for a date range picker forces users to navigate months 
 - [ ] Leap year February 29 is selectable in range.
 - [ ] Range crossing a year boundary (Dec 28 – Jan 5) works correctly.
 - [ ] Preset "This month" on the last day of the month produces a 1-day range if allowed.
+
+<ChecklistDownload patternSlug="date-range" />
 
 ## Frequently Asked Questions
 

@@ -7,6 +7,8 @@ status: complete
 popularity: medium
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -150,6 +152,8 @@ graph TD
 ### 4-Digit Numeric OTP
 
 Standard SMS verification code for account confirmation.
+
+<Playground patternType="forms" pattern="code-confirmation" example="basic" presentation="hidden-code" />
 
 ```html
 <fieldset class="otp-field">
@@ -640,6 +644,8 @@ lastInput.addEventListener('input', () => {
 - [ ] Multiple rapid paste attempts do not corrupt the input state.
 - [ ] After a failed attempt, individual digits can be corrected without clearing all boxes.
 - [ ] Codes with leading zeros are handled correctly (not parsed as integers).
+
+<ChecklistDownload patternSlug="code-confirmation" />
 
 ## Frequently Asked Questions
 

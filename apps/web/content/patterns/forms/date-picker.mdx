@@ -7,6 +7,8 @@ status: complete
 popularity: high
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -167,6 +169,8 @@ graph TD
 ### Basic Date Picker
 
 Standard single-date selection with calendar popup.
+
+<Playground patternType="forms" pattern="date-picker" example="basic" presentation="hidden-code" />
 
 ```html
 <div class="date-picker">
@@ -708,6 +712,8 @@ Always use `Intl.Locale` or a locale database to determine the correct first day
 - [ ] All days of a month falling within a min/max range are selectable.
 - [ ] Selected date outside min/max (e.g., from a previous form state) is handled gracefully.
 - [ ] The calendar shows correct first-day-of-week for the user's locale.
+
+<ChecklistDownload patternSlug="date-picker" />
 
 ## Frequently Asked Questions
 

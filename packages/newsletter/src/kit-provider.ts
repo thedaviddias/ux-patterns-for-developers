@@ -1,3 +1,7 @@
+/**
+ * @deprecated KitProvider is deprecated. Use ResendProvider instead.
+ * Kept for rollback safety — do not use in new code.
+ */
 import type {
 	KitConfig,
 	NewsletterSubscriber,

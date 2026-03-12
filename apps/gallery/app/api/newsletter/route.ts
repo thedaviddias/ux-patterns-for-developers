@@ -1,10 +1,10 @@
-import { KitProvider } from "@ux-patterns/newsletter/kit-provider";
 import {
 	checkRateLimit,
 	getRateLimitKey,
 } from "@ux-patterns/newsletter/rate-limiter";
+import { ResendProvider } from "@ux-patterns/newsletter/resend-provider";
 import {
-	type KitConfig,
+	type ResendConfig,
 	subscribeSchema,
 } from "@ux-patterns/newsletter/schema";
 import { NextResponse } from "next/server";
@@ -22,7 +22,8 @@ export async function POST(request: Request) {
 			);
 		}
 
-		const { email, groups, honeypot } = validationResult.data;
+		const { email, honeypot, brand, source_domain, language, product } =
+			validationResult.data;
 
 		// Bot detection: if honeypot field is filled, reject the request
 		if (honeypot && honeypot.trim() !== "") {
@@ -44,14 +45,11 @@ export async function POST(request: Request) {
 			);
 		}
 
-		// Initialize Kit provider
-		const kitConfig: KitConfig = {
-			provider: "kit",
-			apiKey: process.env.KIT_API_KEY as string,
-			formId: process.env.KIT_FORM_ID as string,
-			defaultTagIds: process.env.KIT_DEFAULT_TAG_IDS?.split(",")
-				.map((id) => Number(id.trim()))
-				.filter((id) => !Number.isNaN(id)),
+		// Initialize Resend provider
+		const resendConfig: ResendConfig = {
+			provider: "resend",
+			apiKey: process.env.RESEND_API_KEY as string,
+			audienceId: process.env.RESEND_AUDIENCE_ID as string,
 			logger: {
 				debug: (message: string, options?: any) =>
 					console.debug(message, options),
@@ -62,8 +60,8 @@ export async function POST(request: Request) {
 			},
 		};
 
-		if (!kitConfig.apiKey || !kitConfig.formId) {
-			console.error("ConvertKit configuration missing");
+		if (!resendConfig.apiKey || !resendConfig.audienceId) {
+			console.error("Resend configuration missing");
 			return NextResponse.json(
 				{
 					success: false,
@@ -73,8 +71,14 @@ export async function POST(request: Request) {
 			);
 		}
 
-		const provider = new KitProvider(kitConfig);
-		const result = await provider.subscribe({ email, groups });
+		const provider = new ResendProvider(resendConfig);
+		const result = await provider.subscribe({
+			email,
+			brand,
+			source_domain,
+			language,
+			product,
+		});
 
 		if (result.success) {
 			return NextResponse.json(result, { status: 200 });

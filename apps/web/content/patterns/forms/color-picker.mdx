@@ -7,6 +7,8 @@ status: complete
 popularity: medium
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -164,6 +166,8 @@ graph TD
 ### Native Color Input
 
 Simplest implementation using the browser's built-in color picker.
+
+<Playground patternType="forms" pattern="color-picker" example="basic" presentation="hidden-code" />
 
 ```html
 <div class="color-picker">
@@ -679,6 +683,8 @@ If users only need to choose from 8 brand colors, launching a full color wheel i
 - [ ] Three-character shorthand hex (`#rgb`) is expanded to six characters.
 - [ ] Fully transparent color (alpha = 0) is handled and displayed correctly.
 - [ ] Browser without EyeDropper API renders gracefully without the eyedropper button.
+
+<ChecklistDownload patternSlug="color-picker" />
 
 ## Frequently Asked Questions
 

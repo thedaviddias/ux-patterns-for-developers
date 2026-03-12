@@ -7,6 +7,8 @@ status: complete
 popularity: medium
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -145,6 +147,8 @@ graph TD
 ### Native Date Input
 
 Simplest implementation using the browser's built-in date input.
+
+<Playground patternType="forms" pattern="date-input" example="basic" presentation="hidden-code" />
 
 ```html
 <div class="date-input">
@@ -630,6 +634,8 @@ Always use `Intl.DateTimeFormat` to determine the correct display order for the 
 - [ ] User entering year "0" or negative year is rejected.
 - [ ] Partial date entry shows appropriate error, not a JavaScript exception.
 - [ ] Pasting a full date string into the first segment distributes correctly.
+
+<ChecklistDownload patternSlug="date-input" />
 
 ## Frequently Asked Questions
 

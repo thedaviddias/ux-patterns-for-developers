@@ -7,6 +7,8 @@ status: complete
 popularity: high
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -164,6 +166,8 @@ graph TD
 ### Simple File Input
 
 Basic styled file input with a custom browse button.
+
+<Playground patternType="forms" pattern="file-input" example="basic" presentation="hidden-code" />
 
 ```html
 <div class="file-input">
@@ -745,6 +749,8 @@ When a form with a file input fails server-side validation (e.g., a required tex
 - [ ] Network interruption during upload shows an error with a retry option.
 - [ ] Uploading a zero-byte file shows an appropriate error.
 - [ ] Filenames with special characters or Unicode are displayed correctly.
+
+<ChecklistDownload patternSlug="file-input" />
 
 ## Frequently Asked Questions
 

@@ -43,6 +43,11 @@ export const TRACKING_EVENTS = {
 	TEXT_TO_SOCIAL_BUTTON_CLICK: "Text to Social Button Click",
 	TEXT_TO_SOCIAL_IMAGE_GENERATED: "Text to Social Image Generated",
 	TEXT_TO_SOCIAL_IMAGE_DOWNLOAD: "Text to Social Image Download",
+
+	// Checklist Download Events
+	CHECKLIST_DOWNLOAD_CLICK: "Checklist Download Click",
+	CHECKLIST_DOWNLOAD_SUCCESS: "Checklist Download Success",
+	CHECKLIST_DOWNLOAD_ERROR: "Checklist Download Error",
 } as const;
 
 // Import shared helpers

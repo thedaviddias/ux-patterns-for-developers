@@ -7,6 +7,8 @@ status: complete
 popularity: high
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -161,6 +163,8 @@ graph TD
 ### Basic Multi-select with Tags
 
 Standard implementation with tag-based visual selection.
+
+<Playground patternType="forms" pattern="multi-select-input" example="basic" presentation="hidden-code" />
 
 ```html
 <div class="multi-select" id="skills-select">
@@ -690,6 +694,8 @@ function focusOption(optionElement) {
 - [ ] Options with very long labels truncate gracefully in tags and dropdown.
 - [ ] Options with special characters (HTML entities) render correctly.
 - [ ] Maximum selection limit prevents selecting beyond the allowed count with a clear message.
+
+<ChecklistDownload patternSlug="multi-select-input" />
 
 ## Frequently Asked Questions
 

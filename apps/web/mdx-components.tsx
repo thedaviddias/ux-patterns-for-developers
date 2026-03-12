@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import { BrowserSupport } from "@/components/browser-support";
 import { BuildEffort } from "@/components/build-effort";
+import { ChecklistDownload } from "@/components/checklist-download";
 import { ComponentPreviewServerStub } from "@/components/component-preview-server-stub";
 import { ComponentPreviewWithMetadata } from "@/components/component-preview-wrapper";
 import { LazyDecisionFlow } from "@/components/decision-flow/lazy-decision-flow";
@@ -121,6 +122,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 		RelatedPatternsCard: RelatedPatternsCardServer,
 		PatternGuideList,
 		Playground,
+		ChecklistDownload,
 		GuidesBanner,
 		StepsPagination,
 		TermsListContainer: TermsListClient,

@@ -7,6 +7,8 @@ status: complete
 popularity: medium
 ---
 
+import { Playground } from "@/components/playground";
+
 
 ## Overview
 
@@ -153,6 +155,8 @@ graph TD
 ### Simple USD Input
 
 Basic currency field with a prefix symbol.
+
+<Playground patternType="forms" pattern="currency-input" example="basic" presentation="hidden-code" />
 
 ```html
 <div class="currency-input">
@@ -641,6 +645,8 @@ new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(am
 - [ ] Currencies with 0 decimal places (JPY) do not accept decimal input.
 - [ ] Currencies with 3 decimal places (KWD) allow the correct number of decimals.
 - [ ] Very small amounts (e.g., `$0.01`) are not rounded to zero.
+
+<ChecklistDownload patternSlug="currency-input" />
 
 ## Frequently Asked Questions
 

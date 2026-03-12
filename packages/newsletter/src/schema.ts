@@ -3,8 +3,12 @@ import { z } from "zod";
 // Common validation schemas
 export const subscribeSchema = z.object({
 	email: z.email({ message: "Invalid email address" }),
-	groups: z.array(z.union([z.string(), z.number()])).optional(), // Accept both string and number tag IDs
 	honeypot: z.string().optional(), // Hidden field for bot detection
+	// metadata — all optional, provided by call-site context
+	brand: z.string().optional(),
+	source_domain: z.string().optional(),
+	language: z.string().optional(),
+	product: z.string().optional(),
 });
 
 export type SubscribeRequest = z.infer<typeof subscribeSchema>;
@@ -16,7 +20,6 @@ export interface NewsletterSubscriber {
 	status: string;
 	createdAt: string;
 	updatedAt?: string;
-	groups?: string[];
 }
 
 export interface SubscribeResponse {
@@ -40,4 +43,15 @@ export interface KitConfig {
 	};
 }
 
-export type ProviderConfig = KitConfig;
+export interface ResendConfig {
+	provider: "resend";
+	apiKey: string;
+	audienceId: string;
+	logger?: {
+		debug: (message: string, options?: any) => void;
+		warn: (message: string, options?: any) => void;
+		error: (message: string, options?: any) => void;
+	};
+}
+
+export type ProviderConfig = KitConfig | ResendConfig;
