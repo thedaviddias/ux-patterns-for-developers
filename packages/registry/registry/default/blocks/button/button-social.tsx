@@ -9,7 +9,7 @@
  * @dependencies ["lucide-react"]
  * @registryDependencies ["button"]
  */
-import { Facebook, Github, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Github, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/ui/button";
 
 export default function ButtonSocial() {
@@ -65,16 +65,6 @@ export default function ButtonSocial() {
 				>
 					<Linkedin className="h-4 w-4" />
 					Connect LinkedIn
-				</Button>
-
-				<Button
-					type="button"
-					variant="outline"
-					hoverEffect="lift"
-					className="border-[#E4405F] text-[#E4405F] hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F] transition-all hover:shadow-lg hover:shadow-[#E4405F]/20"
-				>
-					<Instagram className="h-4 w-4" />
-					Follow on Instagram
 				</Button>
 
 				<Button
@@ -139,17 +129,6 @@ export default function ButtonSocial() {
 					aria-label="LinkedIn"
 				>
 					<Linkedin className="h-4 w-4" />
-				</Button>
-
-				<Button
-					type="button"
-					variant="solid"
-					size="sm"
-					hoverEffect="lift"
-					className="bg-gradient-to-br from-[#833AB4] via-[#E4405F] to-[#FCAF45] hover:opacity-90 text-white transition-all hover:shadow-lg hover:shadow-[#E4405F]/25"
-					aria-label="Instagram"
-				>
-					<Instagram className="h-4 w-4" />
 				</Button>
 
 				<Button

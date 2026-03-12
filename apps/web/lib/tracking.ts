@@ -219,7 +219,7 @@ export const trackTextToSocialEvent = (
 		| "image_download"
 		| "button_clicked",
 	options?: {
-		platform?: "instagram" | "twitter" | "linkedin";
+		platform?: "twitter" | "linkedin";
 		textLength?: number;
 		patternName?: string;
 	},

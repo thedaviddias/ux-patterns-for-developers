@@ -1,4 +1,4 @@
-import { AUTHOR, PROJECT } from "@ux-patterns/constants/author";
+import { PROJECT } from "@ux-patterns/constants/author";
 
 export const FOOTER_GENERAL_LINKS = [
 	{
@@ -57,12 +57,6 @@ export const FOOTER_OPENSOURCE_LINKS = [
 ];
 
 export const SOCIAL_LINKS = [
-	{
-		label: "Instagram",
-		link: AUTHOR.social.instagramUrl,
-		rel: "noopener noreferrer",
-		icon: "lucide:instagram",
-	},
 	{
 		label: "GitHub",
 		link: PROJECT.repository.url,

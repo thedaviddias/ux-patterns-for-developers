@@ -1,0 +1,203 @@
+# Infinite scroll
+
+> Create seamless content loading with infinite scroll, focusing on performance, accessibility, and user experience best practices.
+
+**URL:** https://uxpatterns.dev/patterns/navigation/infinite-scroll
+**Source:** apps/web/content/patterns/navigation/infinite-scroll.mdx
+
+---
+
+## Overview
+
+**Infinite Scroll** is a UI pattern that dynamically loads more content as users scroll down a page, eliminating the need for pagination or manual interaction. It provides a seamless browsing experience by continuously appending new items to the current view.
+
+This pattern is commonly used in **social media feeds, search results, and content-heavy websites** to keep users engaged without interruptions.
+
+## Use Cases
+
+### When to use:
+
+Use Infinite Scroll when you need to dynamically load more content as users scroll without requiring manual pagination.
+
+**Common scenarios include:**
+
+- **Social media feeds** – e.g., Twitter, Instagram, Facebook, where users consume an endless stream of content.
+- **News and blog sites** – e.g., showing a continuous stream of articles.
+- **E-commerce product listings** – e.g., dynamically loading more items as users explore the catalog.
+- **Search results** – e.g., reducing friction in discovering relevant items.
+- **Media galleries** – e.g., loading more images/videos as users scroll.
+
+### When not to use:
+
+- **When users need to find specific content quickly** – Paginated results may be more efficient.
+- **For structured navigation** – If users need to compare items or revisit previous results, pagination provides better control.
+- **If performance is a concern** – Infinite scroll can lead to high memory usage and slow rendering.
+- **For content requiring user actions** – If users frequently need to interact with elements (e.g., filling forms), infinite scrolling can be disruptive.
+- **When reaching the footer is important** – Users may struggle to access footer content if new items keep loading.
+
+## Benefits
+
+- **Enhances engagement** by providing a seamless browsing experience.
+- **Eliminates unnecessary page loads** and reduces navigation friction.
+- **Encourages content exploration** by presenting an uninterrupted flow of items.
+- **Optimized for touchscreens** where scrolling is more intuitive than clicking pagination buttons.
+
+## Drawbacks
+
+- **Navigation challenges** – Users may struggle to return to a previous position.
+- **Performance issues** – Excessive DOM elements can lead to lag and slow rendering.
+- **Accessibility concerns** – Keyboard and screen reader users may find it harder to navigate.
+- **Disrupts footer visibility** – Users may never reach the footer if content loads indefinitely.
+
+## Anatomy
+
+```mermaid
+flowchart TB
+A[Content Container] --> B[Trigger Point]
+B --> C[Loading Indicator]
+C --> D[Newly Loaded Content]
+D --> E[Next Trigger Point - Optional]
+```
+
+### Component Structure
+
+1. **Content Container**
+
+- Holds the dynamically loaded items.
+- Ensures content is structured and visually organized.
+- Can be a **list, grid, or other layout structure**.
+
+2. **Trigger Point**
+
+- The detection mechanism that determines **when to load more content**.
+- Typically appears when the **user scrolls near the end** of the container.
+- Can be based on **[viewport](/glossary/viewport) visibility, scroll depth, or other triggers**.
+
+3. **Loading Indicator**
+
+- Provides **visual feedback** while content is being retrieved.
+- Can be a **spinner, progress bar, or skeleton loader**.
+- Should **only be displayed when new content is actively loading**.
+
+4. **Newly Loaded Content**
+
+- The additional items dynamically inserted once new data is fetched.
+- Should **seamlessly integrate** with previously loaded content.
+- May **fade in or animate** to indicate new content.
+
+5. **Next Trigger Point (Optional)**
+
+- If more content is available, a new **Trigger Point** is added for the next batch.
+- Helps manage continuous loading in **long content feeds**.
+
+#### Summary of Components
+
+| Component            | Required? | Purpose                                                      |
+| -------------------- | --------- | ------------------------------------------------------------ |
+| Content Container    | ✅ Yes    | Holds the items being dynamically loaded.                    |
+| Trigger Point        | ✅ Yes    | Detects when the user reaches the threshold for new content. |
+| Loading Indicator    | ✅ Yes    | Shows that content is being fetched.                         |
+| Newly Loaded Content | ✅ Yes    | Represents the new batch of dynamically inserted content.    |
+| Next Trigger Point   | ❌ No     | Appears if additional content is available for loading.      |
+
+## Best Practices
+
+### Content & Usability
+
+**Do's ✅**
+
+- **Provide clear loading indicators** to inform users that content is being fetched.
+- **Use a 'Load More' button as a fallback** in case auto-loading fails.
+- **Allow users to jump back to the top** with a 'Back to Top' button.
+- **Save scroll position** so users don't lose their place when navigating back.
+
+**Don'ts ❌**
+
+- **Avoid infinite loops** – Ensure loading stops when all content is fetched.
+- **Don't break browser back navigation** – Users should be able to return to previous content states.
+- **Avoid excessive memory usage** – Remove off-screen items if necessary to optimize performance.
+
+### Accessibility
+
+**Do's ✅**
+
+- **Ensure content is focusable** – New items should be reachable via keyboard navigation.
+- **Announce new content dynamically** using ARIA [live regions](/glossary/live-regions) (`aria-live="polite"`).
+- **Provide an alternative to infinite scrolling** – Offer pagination or a "Load More" option.
+- **Ensure users can pause or stop loading** – Unexpected content updates can be disorienting.
+
+**Don'ts ❌**
+
+- **Avoid relying solely on scrolling** – Users with assistive technologies may need alternative navigation.
+- **Don't change content order unexpectedly** – Screen readers should process content sequentially.
+
+### Visual Design
+
+**Do's ✅**
+
+- **Use smooth transitions** when loading new items to maintain a natural experience.
+- **Indicate loading state** – Provide a spinner or skeleton loader while fetching data.
+- **Ensure visual continuity** – Keep layout stable to prevent sudden jumps.
+
+**Don'ts ❌**
+
+- **Don't push content down unexpectedly** – New items should append seamlessly without disrupting user flow.
+- **Avoid excessive whitespace** – Content should remain readable and well-structured.
+
+### Performance Optimization
+
+**Do's ✅**
+
+- **Implement lazy loading** – Load images and assets only when needed.
+- **Use virtualization** – Remove off-screen items from the DOM to improve performance.
+- **Optimize API calls** – Fetch only necessary data to reduce network requests.
+
+**Don'ts ❌**
+
+- **Avoid fetching too much data at once** – This can slow down rendering and increase memory usage.
+- **Don't re-render the entire list on new data arrival** – Only update necessary elements.
+
+## SEO Considerations
+
+- Ensure **search engines can access all content** by implementing **server-side rendering (SSR)** or an accessible paginated alternative.
+- Provide a **static link to all content pages** to ensure crawlers can index them.
+- Ensure that critical content is **available without JavaScript**.
+
+## Testing Guidelines
+
+### Functional Testing
+
+**Should ✓**
+
+- [ ] Confirm new content loads properly as the user scrolls.
+- [ ] Ensure scroll position remains stable after navigating back to the page.
+- [ ] Verify that users can manually load more content if needed.
+- [ ] Ensure the feature works across different browsers and devices.
+
+### Accessibility Testing
+
+**Should ✓**
+
+- [ ] Verify that screen readers announce new content properly.
+- [ ] Ensure that keyboard users can navigate through dynamically loaded items.
+- [ ] Test with reduced motion settings to ensure animations don't cause issues.
+
+### Performance Testing
+
+**Should ✓**
+
+- [ ] Measure memory usage to prevent excessive DOM elements.
+- [ ] Ensure API calls are efficient and minimize network overhead.
+- [ ] Test scrolling performance on both desktop and mobile devices.
+
+## Related Patterns
+
+## Frequently Asked Questions
+
+## Resources
+
+### Articles
+
+### Documentation
+
+### Libraries

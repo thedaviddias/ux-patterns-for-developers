@@ -16,12 +16,14 @@ import {
 } from "@/components/json-ld";
 import { DocsPageHeader, Toc, TocWrapper } from "@/components/layout";
 import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
+import { UseWithAIDisclosure } from "@/components/use-with-ai-disclosure";
 import {
 	generateStaticParams as generateContentParams,
 	getPage,
 	getPages,
 } from "@/lib/content";
 import { compileMDXContent } from "@/lib/mdx";
+import { getPatternSkill, globalPatternSkill } from "@/lib/pattern-skills";
 import { siteConfig } from "@/lib/site.config";
 import { getMDXComponents } from "@/mdx-components";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
@@ -61,6 +63,7 @@ export default async function Page(props: {
 	const title = page.title || "UX Patterns for Devs";
 	const description = page.description || "";
 	const path = `/${params.slug?.join("/") || ""}`;
+	const patternSkill = isPatternPage ? getPatternSkill(page.slug) : undefined;
 
 	// Generate appropriate schemas based on page type
 	const schemas: Record<string, unknown>[] = [];
@@ -220,11 +223,8 @@ export default async function Page(props: {
 	return (
 		<>
 			{/* Render JSON-LD schemas */}
-			{schemas.map((schema, index) => (
-				<JsonLd
-					key={`schema-${JSON.stringify(schema).slice(0, 50)}-${index}`}
-					data={schema}
-				/>
+			{schemas.map((schema) => (
+				<JsonLd key={`schema-${JSON.stringify(schema)}`} data={schema} />
 			))}
 
 			<article>
@@ -243,6 +243,14 @@ export default async function Page(props: {
 						githubUrl={`${PROJECT.repository.url}/blob/dev/apps/web/content/${page.slug}.mdx`}
 					/>
 				</div>
+				{isPatternPage && patternSkill ? (
+					<UseWithAIDisclosure
+						patternTitle={page.title}
+						patternSkill={patternSkill}
+						globalSkill={globalPatternSkill}
+						markdownUrl={`${page.url}.mdx`}
+					/>
+				) : null}
 
 				{/* Content + TOC flex container */}
 				<div className="flex gap-8">
