@@ -8,6 +8,8 @@ import {
 	getRouteCategory,
 } from "@/lib/bot-detection";
 
+let hasWarnedAboutMissingClientIP = false;
+
 export function proxy(request: NextRequest) {
 	const userAgent = request.headers.get("user-agent");
 	const pathname = request.nextUrl.pathname;
@@ -22,18 +24,12 @@ export function proxy(request: NextRequest) {
 
 	// Block known bad bots
 	if (detection.botType === "bad") {
-		return new Response("Forbidden", {
-			status: 403,
-			headers: { "X-Blocked-Reason": "bad-bot" },
-		});
+		return new Response("Forbidden", { status: 403 });
 	}
 
 	// Block suspicious requests (empty UA, vulnerability scanners)
 	if (detection.botType === "suspicious") {
-		return new Response("Forbidden", {
-			status: 403,
-			headers: { "X-Blocked-Reason": "suspicious" },
-		});
+		return new Response("Forbidden", { status: 403 });
 	}
 
 	// Skip rate limiting for prefetch requests
@@ -46,6 +42,17 @@ export function proxy(request: NextRequest) {
 
 	// Rate limiting per IP + route category
 	const { category, limit } = getRouteCategory(pathname);
+	if (!clientIP) {
+		if (!hasWarnedAboutMissingClientIP) {
+			hasWarnedAboutMissingClientIP = true;
+			console.warn(
+				"Skipping rate limiting because no client IP headers were present in proxy middleware.",
+			);
+		}
+
+		return NextResponse.next();
+	}
+
 	const rateLimitKey = `${clientIP}:${category}`;
 
 	if (!checkRateLimit(rateLimitKey, limit)) {
@@ -53,7 +60,6 @@ export function proxy(request: NextRequest) {
 			status: 429,
 			headers: {
 				"Retry-After": "60",
-				"X-RateLimit-Category": category,
 			},
 		});
 	}

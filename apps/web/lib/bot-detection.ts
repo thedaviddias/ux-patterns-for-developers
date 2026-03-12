@@ -10,7 +10,7 @@ const BAD_BOTS =
 
 // Paths commonly probed by vulnerability scanners
 const SUSPICIOUS_PATHS =
-	/^\/(wp-admin|wp-login|wp-content|wp-includes|\.env|\.git|phpmyadmin|phpinfo|administrator|cgi-bin|\.aws|\.well-known\/security\.txt)/i;
+	/^\/(wp-admin|wp-login|wp-content|wp-includes|\.env|\.git|phpmyadmin|phpinfo|administrator|cgi-bin|\.aws)/i;
 
 export type BotType = "good" | "bad" | "suspicious" | "human";
 
@@ -18,6 +18,24 @@ export interface BotDetectionResult {
 	isBot: boolean;
 	botType: BotType;
 	botName: string | null;
+}
+
+const TRUSTED_CLIENT_IP_HEADERS = [
+	"cf-connecting-ip",
+	"x-real-ip",
+	"fly-client-ip",
+] as const;
+
+function getTrustedHeaderValue(
+	request: NextRequest,
+	headerName: (typeof TRUSTED_CLIENT_IP_HEADERS)[number],
+): string | null {
+	const value = request.headers.get(headerName)?.trim();
+	if (!value || value.includes(",")) {
+		return null;
+	}
+
+	return value;
 }
 
 export function detectBot(
@@ -28,11 +46,7 @@ export function detectBot(
 		return { isBot: true, botType: "suspicious", botName: "empty-ua" };
 	}
 
-	const goodMatch = userAgent.match(GOOD_BOTS);
-	if (goodMatch) {
-		return { isBot: true, botType: "good", botName: goodMatch[0] };
-	}
-
+	// Mixed user agents like "Googlebot HeadlessChrome" must remain blocked.
 	const badMatch = userAgent.match(BAD_BOTS);
 	if (badMatch) {
 		return { isBot: true, botType: "bad", botName: badMatch[0] };
@@ -42,20 +56,26 @@ export function detectBot(
 		return { isBot: true, botType: "suspicious", botName: "path-scanner" };
 	}
 
+	const goodMatch = userAgent.match(GOOD_BOTS);
+	if (goodMatch) {
+		return { isBot: true, botType: "good", botName: goodMatch[0] };
+	}
+
 	return { isBot: false, botType: "human", botName: null };
 }
 
-export function getClientIP(request: NextRequest): string {
-	const forwardedFor = request.headers.get("x-forwarded-for");
-	const realIp = request.headers.get("x-real-ip");
-	const cfConnectingIp = request.headers.get("cf-connecting-ip");
+export function getClientIP(request: NextRequest): string | null {
+	for (const headerName of TRUSTED_CLIENT_IP_HEADERS) {
+		const clientIp = getTrustedHeaderValue(request, headerName);
+		if (clientIp) {
+			return clientIp;
+		}
+	}
 
-	return (
-		forwardedFor?.split(",")[0]?.trim() || realIp || cfConnectingIp || "unknown"
-	);
+	return null;
 }
 
-// --- Rate limiter (Map-based, Node.js runtime) ---
+// --- Rate limiter (best-effort, process-local) ---
 
 interface RateLimitEntry {
 	count: number;
@@ -63,19 +83,15 @@ interface RateLimitEntry {
 }
 
 const rateLimitMap = new Map<string, RateLimitEntry>();
+let rateLimitChecksSinceCleanup = 0;
 
-// Periodic cleanup every 5 minutes to prevent unbounded growth
-setInterval(
-	() => {
-		const now = Date.now();
-		for (const [key, entry] of rateLimitMap) {
-			if (entry.resetTime < now) {
-				rateLimitMap.delete(key);
-			}
+function cleanupExpiredRateLimits(now: number) {
+	for (const [key, entry] of rateLimitMap) {
+		if (entry.resetTime < now) {
+			rateLimitMap.delete(key);
 		}
-	},
-	5 * 60 * 1000,
-);
+	}
+}
 
 export function checkRateLimit(
 	key: string,
@@ -83,6 +99,13 @@ export function checkRateLimit(
 	windowMs: number = 60_000,
 ): boolean {
 	const now = Date.now();
+
+	rateLimitChecksSinceCleanup++;
+	if (rateLimitChecksSinceCleanup >= 100) {
+		cleanupExpiredRateLimits(now);
+		rateLimitChecksSinceCleanup = 0;
+	}
+
 	const entry = rateLimitMap.get(key);
 
 	if (!entry || entry.resetTime < now) {
