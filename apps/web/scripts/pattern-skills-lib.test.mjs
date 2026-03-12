@@ -241,9 +241,9 @@ test("llms text builders include the full index pointer and skill metadata", () 
 
 	const fullText = buildLlmsFullText({
 		globalSkill: {
-			skillSlug: "ux-patterns-global",
+			skillSlug: "ux-patterns",
 			installCommand:
-				"npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill ux-patterns-global",
+				"npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ux-patterns",
 		},
 		patterns: [
 			{
@@ -252,7 +252,7 @@ test("llms text builders include the full index pointer and skill metadata", () 
 				description: "Create accessible tab interfaces.",
 				skillSlug: "tabs",
 				installCommand:
-					"npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill tabs",
+					"npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tabs",
 				url: "https://uxpatterns.dev/patterns/navigation/tabs",
 				aliases: ["tabbed interface"],
 				relatedPatternUrls: [

@@ -13,7 +13,9 @@
     "LICENSE": true,
     ".lycheecache": true,
     "lychee-out.md": true,
-    "../.source": true
+    "../.source": true,
+    "**/.turbo": true,
+    "**/.vercel": true
   },
   "javascript.format.enable": true,
   "javascript.validate.enable": false,

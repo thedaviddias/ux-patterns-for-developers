@@ -8,20 +8,18 @@ import {
 	ExternalLinkIcon,
 	Sparkles,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { getSkillReferenceUrl } from "@/lib/pattern-skills-shared.js";
 
+const STORAGE_KEY = "use-with-ai-open";
+
 interface UseWithAIDisclosureProps {
 	patternTitle: string;
-	patternSkill: {
-		skillSlug: string;
-		installCommand: string;
-	};
-	globalSkill: {
-		skillSlug: string;
-		installCommand: string;
-	};
+	patternSkillSlug: string;
+	patternSkillInstallCommand: string;
+	globalSkillSlug: string;
+	globalSkillInstallCommand: string;
 	markdownUrl: string;
 }
 
@@ -45,11 +43,9 @@ function CopyCommandButton({
 	}
 
 	return (
-		<div className="rounded-xl border border-slate-200 bg-white/90 p-3 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
+		<div className="rounded-lg border border-border bg-background p-3">
 			<div className="mb-2 flex items-center justify-between gap-3">
-				<p className="text-sm font-medium text-slate-900 dark:text-slate-100">
-					{label}
-				</p>
+				<p className="text-sm font-medium text-foreground">{label}</p>
 				<button
 					type="button"
 					onClick={handleCopy}
@@ -58,7 +54,7 @@ function CopyCommandButton({
 							variant: "secondary",
 							size: "sm",
 							className:
-								"h-8 gap-1.5 px-2.5 [&_svg]:size-3.5 [&_svg]:text-slate-500 dark:[&_svg]:text-slate-400",
+								"h-8 gap-1.5 px-2.5 [&_svg]:size-3.5 [&_svg]:text-muted-foreground",
 						}),
 					)}
 					aria-label={
@@ -69,7 +65,7 @@ function CopyCommandButton({
 					{copied ? "Copied" : "Copy"}
 				</button>
 			</div>
-			<code className="block overflow-x-auto rounded-lg bg-slate-950 px-3 py-2 text-xs text-slate-100">
+			<code className="block overflow-x-auto rounded-md border border-border/60 bg-muted/60 px-3 py-2 text-xs text-foreground">
 				{command}
 			</code>
 		</div>
@@ -78,29 +74,50 @@ function CopyCommandButton({
 
 export function UseWithAIDisclosure({
 	patternTitle,
-	patternSkill,
-	globalSkill,
+	patternSkillSlug,
+	patternSkillInstallCommand,
+	globalSkillSlug,
+	globalSkillInstallCommand,
 	markdownUrl,
 }: UseWithAIDisclosureProps) {
 	const [open, setOpen] = useState(false);
 
+	useEffect(() => {
+		try {
+			const stored = window.localStorage.getItem(STORAGE_KEY);
+			if (stored !== null) {
+				setOpen(stored === "true");
+			}
+		} catch {
+			// Ignore storage access errors
+		}
+	}, []);
+
+	useEffect(() => {
+		try {
+			window.localStorage.setItem(STORAGE_KEY, String(open));
+		} catch {
+			// Ignore storage access errors
+		}
+	}, [open]);
+
 	return (
-		<section className="mb-8 rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-50 to-white p-4 shadow-sm dark:border-slate-800 dark:from-slate-950 dark:to-slate-900">
+		<section className="not-prose my-6 rounded-xl border border-border bg-card p-4 shadow-sm">
 			<button
 				type="button"
 				onClick={() => setOpen((value) => !value)}
-				className="flex w-full items-start justify-between gap-4 text-left"
+				className="flex w-full cursor-pointer items-start justify-between gap-4 rounded-lg text-left focus-visible:outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 				aria-expanded={open}
 			>
 				<div className="flex gap-3">
-					<div className="mt-0.5 rounded-xl bg-slate-900 p-2 text-white dark:bg-slate-100 dark:text-slate-950">
-						<Sparkles className="size-4" />
+					<div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-muted-foreground">
+						<Sparkles className="h-4 w-4 shrink-0" />
 					</div>
 					<div>
-						<h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
+						<h2 className="text-sm font-semibold tracking-tight text-foreground">
 							Use with AI
 						</h2>
-						<p className="mt-1 text-sm text-slate-700 dark:text-slate-300">
+						<p className="mt-1 text-sm text-muted-foreground">
 							Install the <span className="font-medium">{patternTitle}</span>{" "}
 							skill or the global UX patterns skill, then jump into the raw doc
 							and generated reference.
@@ -109,7 +126,7 @@ export function UseWithAIDisclosure({
 				</div>
 				<ChevronDown
 					className={cn(
-						"mt-1 size-4 shrink-0 text-slate-500 transition-transform dark:text-slate-400",
+						"mt-1 size-4 shrink-0 text-muted-foreground transition-transform",
 						open && "rotate-180",
 					)}
 				/>
@@ -118,12 +135,12 @@ export function UseWithAIDisclosure({
 			{open ? (
 				<div className="mt-4 grid gap-3">
 					<CopyCommandButton
-						label={`Install ${patternSkill.skillSlug}`}
-						command={patternSkill.installCommand}
+						label={`Install ${patternSkillSlug}`}
+						command={patternSkillInstallCommand}
 					/>
 					<CopyCommandButton
-						label={`Install ${globalSkill.skillSlug}`}
-						command={globalSkill.installCommand}
+						label={`Install ${globalSkillSlug}`}
+						command={globalSkillInstallCommand}
 					/>
 					<div className="flex flex-wrap gap-2">
 						<a
@@ -139,10 +156,10 @@ export function UseWithAIDisclosure({
 							rel="noreferrer"
 						>
 							Raw .mdx
-							<ExternalLinkIcon className="size-3.5 text-slate-500 dark:text-slate-400" />
+							<ExternalLinkIcon className="size-3.5 text-muted-foreground" />
 						</a>
 						<a
-							href={getSkillReferenceUrl(patternSkill.skillSlug)}
+							href={getSkillReferenceUrl(patternSkillSlug)}
 							className={cn(
 								buttonVariants({
 									variant: "secondary",
@@ -154,10 +171,10 @@ export function UseWithAIDisclosure({
 							rel="noreferrer"
 						>
 							Pattern reference
-							<ExternalLinkIcon className="size-3.5 text-slate-500 dark:text-slate-400" />
+							<ExternalLinkIcon className="size-3.5 text-muted-foreground" />
 						</a>
 						<a
-							href={getSkillReferenceUrl(globalSkill.skillSlug)}
+							href={getSkillReferenceUrl(globalSkillSlug)}
 							className={cn(
 								buttonVariants({
 									variant: "secondary",
@@ -169,7 +186,7 @@ export function UseWithAIDisclosure({
 							rel="noreferrer"
 						>
 							Global reference
-							<ExternalLinkIcon className="size-3.5 text-slate-500 dark:text-slate-400" />
+							<ExternalLinkIcon className="size-3.5 text-muted-foreground" />
 						</a>
 					</div>
 				</div>

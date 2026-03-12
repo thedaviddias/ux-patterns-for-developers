@@ -1,4 +1,3 @@
-import { PROJECT } from "@ux-patterns/constants/author";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { metadataSEO } from "@/app/metadata";
@@ -16,7 +15,7 @@ import {
 } from "@/components/json-ld";
 import { DocsPageHeader, Toc, TocWrapper } from "@/components/layout";
 import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
-import { UseWithAIDisclosure } from "@/components/use-with-ai-disclosure";
+import { GITHUB_REPO_URL } from "@/constants/project";
 import {
 	generateStaticParams as generateContentParams,
 	getPage,
@@ -27,6 +26,44 @@ import { getPatternSkill, globalPatternSkill } from "@/lib/pattern-skills";
 import { siteConfig } from "@/lib/site.config";
 import { getMDXComponents } from "@/mdx-components";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
+
+function injectUseWithAIIntoOverview(
+	source: string,
+	options: {
+		patternTitle: string;
+		patternSkillSlug: string;
+		patternSkillInstallCommand: string;
+		globalSkillSlug: string;
+		globalSkillInstallCommand: string;
+		markdownUrl: string;
+	},
+) {
+	const serializedProps = [
+		`patternTitle=${JSON.stringify(options.patternTitle)}`,
+		`patternSkillSlug=${JSON.stringify(options.patternSkillSlug)}`,
+		`patternSkillInstallCommand={${JSON.stringify(options.patternSkillInstallCommand)}}`,
+		`globalSkillSlug=${JSON.stringify(options.globalSkillSlug)}`,
+		`globalSkillInstallCommand={${JSON.stringify(options.globalSkillInstallCommand)}}`,
+		`markdownUrl=${JSON.stringify(options.markdownUrl)}`,
+	].join(" ");
+	const insertion = `\n<UseWithAIDisclosure ${serializedProps} />\n`;
+	const overviewMatch = source.match(/^## Overview\s*$/m);
+
+	if (!overviewMatch || overviewMatch.index === undefined) {
+		return `${insertion}${source}`;
+	}
+
+	const overviewStart = overviewMatch.index + overviewMatch[0].length;
+	const remaining = source.slice(overviewStart);
+	const nextSectionMatch = remaining.match(/\n##\s+/);
+
+	if (!nextSectionMatch || nextSectionMatch.index === undefined) {
+		return `${source}${insertion}`;
+	}
+
+	const insertAt = overviewStart + nextSectionMatch.index;
+	return `${source.slice(0, insertAt)}${insertion}${source.slice(insertAt)}`;
+}
 
 export default async function Page(props: {
 	params: Promise<{ slug: string[] }>;
@@ -41,12 +78,6 @@ export default async function Page(props: {
 
 	const page = getPage(params.slug);
 	if (!page) notFound();
-
-	// Compile MDX content from raw file using next-mdx-remote
-	const { content: mdxContent } = await compileMDXContent(
-		page.slug,
-		getMDXComponents(),
-	);
 
 	// Determine page type and properties
 	const isHomepage = !params.slug || params.slug.length === 0;
@@ -64,6 +95,25 @@ export default async function Page(props: {
 	const description = page.description || "";
 	const path = `/${params.slug?.join("/") || ""}`;
 	const patternSkill = isPatternPage ? getPatternSkill(page.slug) : undefined;
+
+	// Compile MDX content from raw file using next-mdx-remote
+	const { content: mdxContent } = await compileMDXContent(
+		page.slug,
+		getMDXComponents(),
+		isPatternPage && patternSkill
+			? {
+					sourceTransform: (source) =>
+						injectUseWithAIIntoOverview(source, {
+							patternTitle: page.title,
+							patternSkillSlug: patternSkill.skillSlug,
+							patternSkillInstallCommand: patternSkill.installCommand,
+							globalSkillSlug: globalPatternSkill.skillSlug,
+							globalSkillInstallCommand: globalPatternSkill.installCommand,
+							markdownUrl: `${page.url}.mdx`,
+						}),
+				}
+			: undefined,
+	);
 
 	// Generate appropriate schemas based on page type
 	const schemas: Record<string, unknown>[] = [];
@@ -240,17 +290,9 @@ export default async function Page(props: {
 					<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
 					<ViewOptions
 						markdownUrl={`${page.url}.mdx`}
-						githubUrl={`${PROJECT.repository.url}/blob/dev/apps/web/content/${page.slug}.mdx`}
+						githubUrl={`${GITHUB_REPO_URL}content/${page.slug}.mdx`}
 					/>
 				</div>
-				{isPatternPage && patternSkill ? (
-					<UseWithAIDisclosure
-						patternTitle={page.title}
-						patternSkill={patternSkill}
-						globalSkill={globalPatternSkill}
-						markdownUrl={`${page.url}.mdx`}
-					/>
-				) : null}
 
 				{/* Content + TOC flex container */}
 				<div className="flex gap-8">

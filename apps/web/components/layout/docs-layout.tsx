@@ -1,9 +1,8 @@
 "use client";
 
-import { Badge } from "@ux-patterns/ui/components/shadcn/badge";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/cn";
 import type { PageTreeNode, TocItem } from "@/lib/content";
+import { PatternStats } from "../pattern-stats";
 import { Header } from "./header";
 import { Sidebar, SidebarTrigger } from "./sidebar";
 import { SidebarProvider } from "./sidebar-context";
@@ -14,33 +13,6 @@ const docsDateFormatter = new Intl.DateTimeFormat("en-US", {
 	month: "short",
 	day: "numeric",
 });
-
-/**
- * Popularity badge configuration
- */
-const popularityConfig = {
-	low: {
-		label: "Growing",
-		icon: "📈",
-		className: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
-	},
-	medium: {
-		label: "Popular",
-		icon: "⭐",
-		className: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100",
-	},
-	high: {
-		label: "Very Popular",
-		icon: "🌟",
-		className:
-			"bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100",
-	},
-	trending: {
-		label: "Trending",
-		icon: "🔥",
-		className: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100",
-	},
-} as const;
 
 interface DocsLayoutProps {
 	/** Page tree for sidebar navigation */
@@ -215,34 +187,25 @@ export function DocsPageHeader({
 			)}
 			<h1 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h1>
 
-			{/* Aliases and popularity badge */}
-			{(aliases?.length || popularity) && (
+			{aliases && aliases.length > 0 && (
 				<div className="mt-3 flex flex-wrap items-center gap-3">
-					{aliases && aliases.length > 0 && (
-						<p className="text-sm text-muted-foreground italic">
-							Also called {aliases.join(", ")}
-						</p>
-					)}
-					{popularity && (
-						<Badge
-							className={cn(
-								"px-2 py-0.5 text-xs font-medium",
-								popularityConfig[popularity].className,
-							)}
-						>
-							<span className="mr-1">{popularityConfig[popularity].icon}</span>
-							{popularityConfig[popularity].label}
-						</Badge>
-					)}
+					<p className="text-sm text-muted-foreground italic">
+						Also called {aliases.join(", ")}
+					</p>
 				</div>
 			)}
 
 			{description && (
 				<p className="mt-3 text-lg text-muted-foreground">{description}</p>
 			)}
-			{(readTime || lastUpdated) && (
+			{(readTime || lastUpdated || popularity) && (
 				<div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
 					{readTime && <span>{readTime}</span>}
+					<PatternStats
+						mode="inline"
+						popularity={popularity}
+						className="mb-0 text-sm text-muted-foreground dark:text-muted-foreground"
+					/>
 					{lastUpdated && (
 						<span>
 							Last updated: {docsDateFormatter.format(new Date(lastUpdated))}

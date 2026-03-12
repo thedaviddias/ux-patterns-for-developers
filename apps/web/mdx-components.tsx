@@ -1,12 +1,43 @@
 import type { MDXComponents } from "mdx/types";
 import { BrowserSupport } from "@/components/browser-support";
 import { BuildEffort } from "@/components/build-effort";
+import { ComponentPreviewServerStub } from "@/components/component-preview-server-stub";
 import { ComponentPreviewWithMetadata } from "@/components/component-preview-wrapper";
+import { LazyDecisionFlow } from "@/components/decision-flow/lazy-decision-flow";
 import { FaqStructuredData } from "@/components/faq-structured-data";
 import { GlossaryStructuredData } from "@/components/glossary/structured-data";
-import { GuidesBanner } from "@/components/guides-banner";
 import { TermsListClient } from "@/components/glossary/terms-list-client";
+import { GuidesBanner } from "@/components/guides-banner";
 import { LinkCustom } from "@/components/link-custom";
+import {
+	Blockquote,
+	Callout,
+	Card,
+	Cards,
+	Code,
+	Em,
+	H1,
+	H2,
+	H3,
+	H4,
+	H5,
+	H6,
+	Hr,
+	Img,
+	LazyMermaid,
+	Li,
+	Ol,
+	P,
+	Pre,
+	Strong,
+	Table,
+	Tbody,
+	Td,
+	Th,
+	Thead,
+	Tr,
+	Ul,
+} from "@/components/mdx";
 import { PatternComparison } from "@/components/pattern-comparison";
 import { ComparisonGrid } from "@/components/pattern-comparison/comparison-grid";
 import { ComparisonHero } from "@/components/pattern-comparison/comparison-hero";
@@ -14,43 +45,13 @@ import { DecisionFlowSection } from "@/components/pattern-comparison/decision-fl
 import { ExamplesGrid } from "@/components/pattern-comparison/examples-grid";
 import { ImplementationMetrics } from "@/components/pattern-comparison/implementation-metrics";
 import { PerformanceComparison } from "@/components/pattern-comparison/performance-comparison";
-import { LazyDecisionFlow } from "@/components/decision-flow/lazy-decision-flow";
 import { PatternGuideList } from "@/components/pattern-guide-list";
 import { PatternPreview } from "@/components/pattern-preview";
 import { PatternStats } from "@/components/pattern-stats";
 import { Playground } from "@/components/playground";
-import { StepsPagination } from "@/components/seo/steps-pagination";
 import { RelatedPatternsCardServer } from "@/components/related-patterns-card-server";
-import { ComponentPreviewServerStub } from "@/components/component-preview-server-stub";
-import {
-	Callout,
-	Cards,
-	Card,
-	Code,
-	Pre,
-	LazyMermaid,
-	H1,
-	H2,
-	H3,
-	H4,
-	H5,
-	H6,
-	P,
-	Blockquote,
-	Ul,
-	Ol,
-	Li,
-	Hr,
-	Table,
-	Thead,
-	Tbody,
-	Tr,
-	Th,
-	Td,
-	Strong,
-	Em,
-	Img,
-} from "@/components/mdx";
+import { StepsPagination } from "@/components/seo/steps-pagination";
+import { UseWithAIDisclosure } from "@/components/use-with-ai-disclosure";
 
 /**
  * Base MDX components for rendering markdown content.
@@ -109,6 +110,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 		PatternPreview,
 		PatternStats,
 		PatternComparison,
+		UseWithAIDisclosure,
 		ComparisonGrid,
 		ComparisonHero,
 		DecisionFlowSection,

@@ -80,6 +80,9 @@ export async function compileMDXContent<
 >(
 	slug: string,
 	components: MDXComponents = {},
+	options?: {
+		sourceTransform?: (source: string) => string;
+	},
 ): Promise<{
 	content: React.ReactElement;
 	frontmatter: TFrontmatter;
@@ -95,7 +98,10 @@ export async function compileMDXContent<
 	}
 
 	// Read the raw MDX file
-	const source = await readFile(filePath, "utf-8");
+	const rawSource = await readFile(filePath, "utf-8");
+	const source = options?.sourceTransform
+		? options.sourceTransform(rawSource)
+		: rawSource;
 
 	// Compile with next-mdx-remote
 	const { content, frontmatter } = await compileMDX<TFrontmatter>({

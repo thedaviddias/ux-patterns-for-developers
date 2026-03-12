@@ -2,10 +2,10 @@
 name: "UX Patterns Global"
 description: "Use when choosing, comparing, or implementing UX patterns across the UX Patterns for Developers corpus."
 metadata:
-  id: ux-patterns-global
+  id: ux-patterns
   category: global
   source: uxpatterns.dev
-  url: https://uxpatterns.dev/skills/ux-patterns-global
+  url: https://uxpatterns.dev/skills/ux-patterns
 ---
 
 # UX Patterns Global

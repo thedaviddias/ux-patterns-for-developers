@@ -4,12 +4,14 @@
 	"private": true,
 	"scripts": {
 		"analyze": "export ANALYZE=true && next build",
-		"prebuild": "velite build && node scripts/generate-pattern-dates.js",
+		"prebuild": "node scripts/generate-pattern-skills.mjs && velite build && node scripts/generate-pattern-dates.js",
 		"build": "next build",
 		"check": "tsc --noEmit",
-		"dev": "next dev --turbo -p 3060",
+		"dev": "portless run next dev --turbo -p 3060",
 		"dev:velite": "velite --watch",
+		"skills:generate": "node scripts/generate-pattern-skills.mjs",
 		"start": "next start",
+		"test:skills": "node --test scripts/pattern-skills-lib.test.mjs",
 		"velite:build": "velite build",
 		"postinstall": "fumadocs-mdx"
 	},

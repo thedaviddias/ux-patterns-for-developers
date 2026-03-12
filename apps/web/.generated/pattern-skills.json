@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-03-12T18:28:30.316Z",
-  "installSource": "https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills",
+  "generatedAt": "2026-03-12T20:17:07.579Z",
+  "installSource": "https://github.com/thedaviddias/ux-patterns-for-developers",
   "globalSkill": {
-    "skillSlug": "ux-patterns-global",
+    "skillSlug": "ux-patterns",
     "title": "UX Patterns Global",
     "description": "Use when choosing, comparing, or implementing UX patterns across the UX Patterns for Developers corpus.",
-    "url": "https://uxpatterns.dev/skills/ux-patterns-global",
-    "referencePath": "skills/ux-patterns-global/references/categories.md",
-    "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill ux-patterns-global"
+    "url": "https://uxpatterns.dev/skills/ux-patterns",
+    "referencePath": "skills/ux-patterns/references/categories.md",
+    "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ux-patterns"
   },
   "patterns": [
     {
@@ -21,7 +21,7 @@
       "url": "https://uxpatterns.dev/patterns/authentication/account-settings",
       "sourcePath": "apps/web/content/patterns/authentication/account-settings.mdx",
       "referencePath": "skills/account-settings/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill account-settings",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill account-settings",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/authentication/password-reset",
         "https://uxpatterns.dev/patterns/authentication/social-login",
@@ -40,7 +40,7 @@
       "url": "https://uxpatterns.dev/patterns/authentication/login",
       "sourcePath": "apps/web/content/patterns/authentication/login.mdx",
       "referencePath": "skills/login/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill login",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill login",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/authentication/password-reset",
         "https://uxpatterns.dev/patterns/authentication/signup",
@@ -59,7 +59,7 @@
       "url": "https://uxpatterns.dev/patterns/authentication/password-reset",
       "sourcePath": "apps/web/content/patterns/authentication/password-reset.mdx",
       "referencePath": "skills/password-reset/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill password-reset",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill password-reset",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/authentication/login",
         "https://uxpatterns.dev/patterns/authentication/social-login",
@@ -77,7 +77,7 @@
       "url": "https://uxpatterns.dev/patterns/authentication/signup",
       "sourcePath": "apps/web/content/patterns/authentication/signup.mdx",
       "referencePath": "skills/signup/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill signup",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill signup",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/authentication/account-settings",
         "https://uxpatterns.dev/patterns/authentication/login",
@@ -95,7 +95,7 @@
       "url": "https://uxpatterns.dev/patterns/authentication/social-login",
       "sourcePath": "apps/web/content/patterns/authentication/social-login.mdx",
       "referencePath": "skills/social-login/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill social-login",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill social-login",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/authentication/login",
         "https://uxpatterns.dev/patterns/authentication/signup",
@@ -113,7 +113,7 @@
       "url": "https://uxpatterns.dev/patterns/authentication/two-factor",
       "sourcePath": "apps/web/content/patterns/authentication/two-factor.mdx",
       "referencePath": "skills/two-factor/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill two-factor",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill two-factor",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/authentication/account-settings",
         "https://uxpatterns.dev/patterns/authentication/login",
@@ -132,7 +132,7 @@
       "url": "https://uxpatterns.dev/patterns/authentication/user-profile",
       "sourcePath": "apps/web/content/patterns/authentication/user-profile.mdx",
       "referencePath": "skills/user-profile/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill user-profile",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill user-profile",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/authentication/account-settings",
         "https://uxpatterns.dev/patterns/authentication/login",
@@ -152,7 +152,7 @@
       "url": "https://uxpatterns.dev/patterns/content-management/accordion",
       "sourcePath": "apps/web/content/patterns/content-management/accordion.mdx",
       "referencePath": "skills/accordion/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill accordion",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill accordion",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/content-management/expandable-text",
         "https://uxpatterns.dev/patterns/content-management/modal",
@@ -174,7 +174,7 @@
       "url": "https://uxpatterns.dev/patterns/content-management/carousel",
       "sourcePath": "apps/web/content/patterns/content-management/carousel.mdx",
       "referencePath": "skills/carousel/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill carousel",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill carousel",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/carousel/examples",
         "https://uxpatterns.dev/patterns/content-management/accordion",
@@ -200,7 +200,7 @@
       "url": "https://uxpatterns.dev/patterns/content-management/expandable-text",
       "sourcePath": "apps/web/content/patterns/content-management/expandable-text.mdx",
       "referencePath": "skills/expandable-text/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill expandable-text",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill expandable-text",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/content-management/accordion",
         "https://uxpatterns.dev/patterns/content-management/modal",
@@ -223,7 +223,7 @@
       "url": "https://uxpatterns.dev/patterns/content-management/modal",
       "sourcePath": "apps/web/content/patterns/content-management/modal.mdx",
       "referencePath": "skills/modal/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill modal",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill modal",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/content-management/accordion",
         "https://uxpatterns.dev/patterns/content-management/popover",
@@ -242,7 +242,7 @@
       "url": "https://uxpatterns.dev/patterns/content-management/popover",
       "sourcePath": "apps/web/content/patterns/content-management/popover.mdx",
       "referencePath": "skills/popover/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill popover",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill popover",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/content-management/modal",
         "https://uxpatterns.dev/patterns/content-management/tooltip",
@@ -263,7 +263,7 @@
       "url": "https://uxpatterns.dev/patterns/content-management/tooltip",
       "sourcePath": "apps/web/content/patterns/content-management/tooltip.mdx",
       "referencePath": "skills/tooltip/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill tooltip",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tooltip",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/content-management/modal",
         "https://uxpatterns.dev/patterns/content-management/popover",
@@ -283,7 +283,7 @@
       "url": "https://uxpatterns.dev/patterns/data-display/table",
       "sourcePath": "apps/web/content/patterns/data-display/table.mdx",
       "referencePath": "skills/table/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill table",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill table",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/content-management/accordion",
         "https://uxpatterns.dev/patterns/content-management/expandable-text",
@@ -315,7 +315,7 @@
       "url": "https://uxpatterns.dev/patterns/forms/autocomplete",
       "sourcePath": "apps/web/content/patterns/forms/autocomplete.mdx",
       "referencePath": "skills/autocomplete/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill autocomplete",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill autocomplete",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/date-picker",
         "https://uxpatterns.dev/patterns/forms/multi-select-input",
@@ -333,7 +333,7 @@
       "url": "https://uxpatterns.dev/patterns/forms/button",
       "sourcePath": "apps/web/content/patterns/forms/button.mdx",
       "referencePath": "skills/button/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill button",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill button",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/toggle",
         "https://uxpatterns.dev/patterns/navigation/link"
@@ -353,7 +353,7 @@
       "url": "https://uxpatterns.dev/patterns/forms/checkbox",
       "sourcePath": "apps/web/content/patterns/forms/checkbox.mdx",
       "referencePath": "skills/checkbox/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill checkbox",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill checkbox",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/button",
         "https://uxpatterns.dev/patterns/forms/form-validation",
@@ -375,7 +375,7 @@
       "url": "https://uxpatterns.dev/patterns/forms/password",
       "sourcePath": "apps/web/content/patterns/forms/password.mdx",
       "referencePath": "skills/password/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill password",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill password",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/code-confirmation",
         "https://uxpatterns.dev/patterns/forms/text-field"
@@ -392,7 +392,7 @@
       "url": "https://uxpatterns.dev/patterns/forms/radio",
       "sourcePath": "apps/web/content/patterns/forms/radio.mdx",
       "referencePath": "skills/radio/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill radio",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill radio",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/checkbox",
         "https://uxpatterns.dev/patterns/forms/form-validation",
@@ -414,7 +414,7 @@
       "url": "https://uxpatterns.dev/patterns/forms/selection-input",
       "sourcePath": "apps/web/content/patterns/forms/selection-input.mdx",
       "referencePath": "skills/selection-input/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill selection-input",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill selection-input",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/autocomplete",
         "https://uxpatterns.dev/patterns/forms/multi-select-input"
@@ -431,7 +431,7 @@
       "url": "https://uxpatterns.dev/patterns/forms/text-field",
       "sourcePath": "apps/web/content/patterns/forms/text-field.mdx",
       "referencePath": "skills/text-field/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill text-field",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill text-field",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/autocomplete",
         "https://uxpatterns.dev/patterns/forms/checkbox",
@@ -453,7 +453,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/back-to-top",
       "sourcePath": "apps/web/content/patterns/navigation/back-to-top.mdx",
       "referencePath": "skills/back-to-top/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill back-to-top",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill back-to-top",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/breadcrumb",
         "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
@@ -471,7 +471,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/breadcrumb",
       "sourcePath": "apps/web/content/patterns/navigation/breadcrumb.mdx",
       "referencePath": "skills/breadcrumb/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill breadcrumb",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill breadcrumb",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/back-to-top",
         "https://uxpatterns.dev/patterns/navigation/pagination",
@@ -489,7 +489,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
       "sourcePath": "apps/web/content/patterns/navigation/hambuger-menu.mdx",
       "referencePath": "skills/hambuger-menu/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill hambuger-menu",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill hambuger-menu",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/navigation-menu",
         "https://uxpatterns.dev/patterns/navigation/sidebar",
@@ -509,7 +509,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
       "sourcePath": "apps/web/content/patterns/navigation/infinite-scroll.mdx",
       "referencePath": "skills/infinite-scroll/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill infinite-scroll",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill infinite-scroll",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/back-to-top",
         "https://uxpatterns.dev/patterns/navigation/load-more",
@@ -527,7 +527,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/link",
       "sourcePath": "apps/web/content/patterns/navigation/link.mdx",
       "referencePath": "skills/link/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill link",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill link",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/forms/button",
         "https://uxpatterns.dev/patterns/navigation/breadcrumb",
@@ -545,7 +545,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/load-more",
       "sourcePath": "apps/web/content/patterns/navigation/load-more.mdx",
       "referencePath": "skills/load-more/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill load-more",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill load-more",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/content-management/accordion",
         "https://uxpatterns.dev/patterns/forms/button",
@@ -565,7 +565,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/megamenu",
       "sourcePath": "apps/web/content/patterns/navigation/megamenu.mdx",
       "referencePath": "skills/megamenu/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill megamenu",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill megamenu",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
         "https://uxpatterns.dev/patterns/navigation/navigation-menu",
@@ -583,7 +583,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/navigation-menu",
       "sourcePath": "apps/web/content/patterns/navigation/navigation-menu.mdx",
       "referencePath": "skills/navigation-menu/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill navigation-menu",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill navigation-menu",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/breadcrumb",
         "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
@@ -602,7 +602,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/pagination",
       "sourcePath": "apps/web/content/patterns/navigation/pagination.mdx",
       "referencePath": "skills/pagination/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill pagination",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill pagination",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
         "https://uxpatterns.dev/patterns/navigation/load-more",
@@ -620,7 +620,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/sidebar",
       "sourcePath": "apps/web/content/patterns/navigation/sidebar.mdx",
       "referencePath": "skills/sidebar/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill sidebar",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill sidebar",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
         "https://uxpatterns.dev/patterns/navigation/navigation-menu",
@@ -638,7 +638,7 @@
       "url": "https://uxpatterns.dev/patterns/navigation/tabs",
       "sourcePath": "apps/web/content/patterns/navigation/tabs.mdx",
       "referencePath": "skills/tabs/references/pattern.md",
-      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers/tree/main/skills --skill tabs",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tabs",
       "relatedPatternUrls": [
         "https://uxpatterns.dev/patterns/advanced/wizard",
         "https://uxpatterns.dev/patterns/content-management/accordion",

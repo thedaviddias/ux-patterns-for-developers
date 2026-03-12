@@ -10,12 +10,14 @@ type PatternStatsProps = {
 	views?: number;
 	popularity?: "low" | "medium" | "high" | "trending";
 	className?: string;
+	mode?: "hidden" | "inline" | "block";
 };
 
 export const PatternStats = ({
 	views: initialViews,
 	popularity,
 	className,
+	mode = "hidden",
 }: PatternStatsProps) => {
 	const [views, setViews] = useState<number | undefined>(initialViews);
 	const [loading, setLoading] = useState(false);
@@ -23,6 +25,10 @@ export const PatternStats = ({
 
 	useEffect(() => {
 		const fetchStats = async () => {
+			if (mode === "hidden") {
+				return;
+			}
+
 			// Only fetch if no initial views provided and we have a pathname
 			if (initialViews === undefined && pathname) {
 				setLoading(true);
@@ -43,7 +49,7 @@ export const PatternStats = ({
 		};
 
 		fetchStats();
-	}, [pathname, initialViews]);
+	}, [pathname, initialViews, mode]);
 	const formatNumber = (num: number): string => {
 		if (num >= 1000) {
 			return `${(num / 1000).toFixed(1)}k`;
@@ -79,13 +85,13 @@ export const PatternStats = ({
 
 	const hasStats = (views && views > 0) || popularity;
 
-	if (!hasStats) return null;
+	if (mode === "hidden" || !hasStats) return null;
 
 	return (
 		<div
 			className={cn(
 				"flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400",
-				"mb-4",
+				mode === "block" && "mb-4",
 				className,
 			)}
 		>
