@@ -286,7 +286,7 @@ export default async function Page(props: {
 					aliases={page.aliases}
 					popularity={page.popularity}
 				/>
-				<div className="flex w-full flex-row gap-2 items-center justify-end py-4 mb-8">
+				<div className="flex w-full flex-row gap-2 items-center justify-end pb-4 mb-0">
 					<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
 					<ViewOptions
 						markdownUrl={`${page.url}.mdx`}

@@ -95,13 +95,6 @@ export const PatternStats = ({
 				className,
 			)}
 		>
-			{views && views > 0 && (
-				<div className="flex items-center gap-1.5">
-					<Eye className="w-4 h-4" />
-					<span>{loading ? "..." : formatNumber(views)} views</span>
-				</div>
-			)}
-
 			{popularity && (
 				<Badge
 					className={cn(
@@ -112,6 +105,13 @@ export const PatternStats = ({
 					<span className="mr-1">{popularityConfig[popularity].icon}</span>
 					{popularityConfig[popularity].label}
 				</Badge>
+			)}
+
+			{views && views > 0 && (
+				<div className="flex items-center gap-1.5">
+					<Eye className="w-4 h-4" />
+					<span>{loading ? "..." : formatNumber(views)} views</span>
+				</div>
 			)}
 		</div>
 	);

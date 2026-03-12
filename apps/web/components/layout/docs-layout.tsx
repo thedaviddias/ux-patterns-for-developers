@@ -200,12 +200,12 @@ export function DocsPageHeader({
 			)}
 			{(readTime || lastUpdated || popularity) && (
 				<div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-					{readTime && <span>{readTime}</span>}
 					<PatternStats
 						mode="inline"
 						popularity={popularity}
 						className="mb-0 text-sm text-muted-foreground dark:text-muted-foreground"
 					/>
+					{readTime && <span>{readTime}</span>}
 					{lastUpdated && (
 						<span>
 							Last updated: {docsDateFormatter.format(new Date(lastUpdated))}
