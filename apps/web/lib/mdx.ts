@@ -105,6 +105,9 @@ export async function compileMDXContent<
 		options: {
 			parseFrontmatter: true,
 			scope: mdxScope,
+			// Local MDX content relies on scoped expressions like data.prop.
+			blockJS: false,
+			blockDangerousJS: true,
 			mdxOptions: {
 				remarkPlugins: [remarkGfm, remarkMdxMermaid],
 				rehypePlugins: [
@@ -156,6 +159,8 @@ export async function compileMDXString<
 		components,
 		options: {
 			parseFrontmatter: true,
+			blockJS: false,
+			blockDangerousJS: true,
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
 				rehypePlugins: [

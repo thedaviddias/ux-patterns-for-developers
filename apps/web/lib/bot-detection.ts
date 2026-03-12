@@ -79,10 +79,18 @@ export function getRouteCategory(pathname: string): {
 	category: string;
 	limit: number;
 } {
-	if (pathname === "/proxy/api/event" || pathname === "/api/event") {
+	const normalizedPathname =
+		pathname !== "/" && pathname.endsWith("/")
+			? pathname.slice(0, -1)
+			: pathname;
+
+	if (
+		normalizedPathname === "/proxy/api/event" ||
+		normalizedPathname === "/api/event"
+	) {
 		return { category: "analytics", limit: 10 };
 	}
-	if (pathname.startsWith("/api/")) {
+	if (normalizedPathname.startsWith("/api/")) {
 		return { category: "api", limit: 20 };
 	}
 	return { category: "page", limit: 30 };

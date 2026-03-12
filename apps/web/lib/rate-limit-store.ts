@@ -1,4 +1,5 @@
 const DEFAULT_WINDOW_MS = 60_000;
+const DEFAULT_RATE_LIMIT_STORE_TIMEOUT_MS = 2_000;
 const LOCAL_DEV_RATE_LIMIT_WARNING =
 	"UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN are not configured. Falling back to an in-memory rate limiter in development only.";
 
@@ -64,19 +65,40 @@ class UpstashRateLimitStore implements DistributedRateLimitStore {
 
 	async increment(key: string, windowMs: number) {
 		const ttlSeconds = Math.max(1, Math.ceil(windowMs / 1000));
-		const response = await fetch(new URL("multi-exec", this.url), {
-			method: "POST",
-			headers: {
-				Authorization: `Bearer ${this.token}`,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify([
-				["SET", key, "0", "EX", String(ttlSeconds), "NX"],
-				["INCR", key],
-				["TTL", key],
-			]),
-			cache: "no-store",
-		});
+		const timeoutMs = Number(
+			process.env.RATE_LIMIT_STORE_TIMEOUT_MS ??
+				DEFAULT_RATE_LIMIT_STORE_TIMEOUT_MS,
+		);
+		const controller = new AbortController();
+		const timeout = setTimeout(() => controller.abort(), timeoutMs);
+		let response: Response;
+
+		try {
+			response = await fetch(new URL("multi-exec", this.url), {
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${this.token}`,
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify([
+					["SET", key, "0", "EX", String(ttlSeconds), "NX"],
+					["INCR", key],
+					["TTL", key],
+				]),
+				cache: "no-store",
+				signal: controller.signal,
+			});
+		} catch (error) {
+			if (error instanceof Error && error.name === "AbortError") {
+				throw new Error(
+					`Upstash rate limit request timed out after ${timeoutMs}ms`,
+				);
+			}
+
+			throw error;
+		} finally {
+			clearTimeout(timeout);
+		}
 
 		if (!response.ok) {
 			throw new Error(
@@ -151,15 +173,32 @@ export async function checkRateLimit(
 	windowMs: number = DEFAULT_WINDOW_MS,
 ): Promise<RateLimitCheckResult> {
 	if (!store) {
+		console.error(
+			"Rate-limit store unavailable; allowing request to avoid fail-closed outage.",
+			{ key, maxRequests, windowMs, defaultWindowMs: DEFAULT_WINDOW_MS },
+		);
 		return {
-			allowed: false,
-			retryAfterSeconds: Math.max(1, Math.ceil(windowMs / 1000)),
+			allowed: true,
+			retryAfterSeconds: 0,
 		};
 	}
 
-	const { count, retryAfterSeconds } = await store.increment(key, windowMs);
-	return {
-		allowed: count <= maxRequests,
-		retryAfterSeconds,
-	};
+	try {
+		const { count, retryAfterSeconds } = await store.increment(key, windowMs);
+		return {
+			allowed: count <= maxRequests,
+			retryAfterSeconds,
+		};
+	} catch (error) {
+		console.error("Rate-limit store request failed; allowing request.", {
+			key,
+			maxRequests,
+			windowMs,
+			error,
+		});
+		return {
+			allowed: true,
+			retryAfterSeconds: 0,
+		};
+	}
 }
