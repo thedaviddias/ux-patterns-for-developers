@@ -1,12 +1,19 @@
 "use client";
 
-import { cn } from "@/lib/cn";
-import type { PageTreeNode, TocItem } from "@/lib/content";
-import { SidebarProvider } from "./sidebar-context";
-import { Sidebar, SidebarTrigger } from "./sidebar";
-import { Header } from "./header";
 import { Badge } from "@ux-patterns/ui/components/shadcn/badge";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
+import type { PageTreeNode, TocItem } from "@/lib/content";
+import { Header } from "./header";
+import { Sidebar, SidebarTrigger } from "./sidebar";
+import { SidebarProvider } from "./sidebar-context";
+
+const docsDateFormatter = new Intl.DateTimeFormat("en-US", {
+	timeZone: "UTC",
+	year: "numeric",
+	month: "short",
+	day: "numeric",
+});
 
 /**
  * Popularity badge configuration
@@ -25,7 +32,8 @@ const popularityConfig = {
 	high: {
 		label: "Very Popular",
 		icon: "🌟",
-		className: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100",
+		className:
+			"bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100",
 	},
 	trending: {
 		label: "Trending",
@@ -64,7 +72,6 @@ interface DocsLayoutProps {
  */
 export function DocsLayout({
 	tree,
-	toc,
 	children,
 	sidebarHeader,
 	sidebarFooter,
@@ -154,7 +161,10 @@ export function DocsBreadcrumb({
 		<nav aria-label="Breadcrumb" className="mb-4">
 			<ol className="flex items-center gap-2 text-sm text-muted-foreground">
 				{items.map((item, index) => (
-					<li key={index} className="flex items-center gap-2">
+					<li
+						key={[item.href ?? "current", item.label].join(":")}
+						className="flex items-center gap-2"
+					>
 						{index > 0 && <span aria-hidden="true">/</span>}
 						{item.href ? (
 							<a
@@ -217,7 +227,7 @@ export function DocsPageHeader({
 						<Badge
 							className={cn(
 								"px-2 py-0.5 text-xs font-medium",
-								popularityConfig[popularity].className
+								popularityConfig[popularity].className,
 							)}
 						>
 							<span className="mr-1">{popularityConfig[popularity].icon}</span>
@@ -234,11 +244,9 @@ export function DocsPageHeader({
 				<div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
 					{readTime && <span>{readTime}</span>}
 					{lastUpdated && (
-						<span>Last updated: {new Date(lastUpdated).toLocaleDateString("en-US", {
-							year: "numeric",
-							month: "short",
-							day: "numeric",
-						})}</span>
+						<span>
+							Last updated: {docsDateFormatter.format(new Date(lastUpdated))}
+						</span>
 					)}
 				</div>
 			)}
