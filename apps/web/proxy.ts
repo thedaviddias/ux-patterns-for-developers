@@ -1,16 +1,10 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import {
-	checkRateLimit,
-	detectBot,
-	getClientIP,
-	getRouteCategory,
-} from "@/lib/bot-detection";
+import { detectBot, getClientIP, getRouteCategory } from "@/lib/bot-detection";
+import { checkRateLimit, getRateLimitStore } from "@/lib/rate-limit-store";
 
-let hasWarnedAboutMissingClientIP = false;
-
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
 	const userAgent = request.headers.get("user-agent");
 	const pathname = request.nextUrl.pathname;
 	const clientIP = getClientIP(request);
@@ -42,24 +36,26 @@ export function proxy(request: NextRequest) {
 
 	// Rate limiting per IP + route category
 	const { category, limit } = getRouteCategory(pathname);
-	if (!clientIP) {
-		if (!hasWarnedAboutMissingClientIP) {
-			hasWarnedAboutMissingClientIP = true;
-			console.warn(
-				"Skipping rate limiting because no client IP headers were present in proxy middleware.",
-			);
-		}
+	const rateLimitIdentifier = clientIP ?? "anonymous";
 
-		return NextResponse.next();
+	if (!clientIP) {
+		console.warn(
+			"Client IP headers were missing in proxy middleware. Falling back to the anonymous rate-limit bucket.",
+		);
 	}
 
-	const rateLimitKey = `${clientIP}:${category}`;
+	const rateLimitKey = `${rateLimitIdentifier}:${category}`;
+	const rateLimitResult = await checkRateLimit(
+		getRateLimitStore(),
+		rateLimitKey,
+		limit,
+	);
 
-	if (!checkRateLimit(rateLimitKey, limit)) {
+	if (!rateLimitResult.allowed) {
 		return new Response("Too Many Requests", {
 			status: 429,
 			headers: {
-				"Retry-After": "60",
+				"Retry-After": String(rateLimitResult.retryAfterSeconds),
 			},
 		});
 	}

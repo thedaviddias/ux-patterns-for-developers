@@ -75,52 +75,6 @@ export function getClientIP(request: NextRequest): string | null {
 	return null;
 }
 
-// --- Rate limiter (best-effort, process-local) ---
-
-interface RateLimitEntry {
-	count: number;
-	resetTime: number;
-}
-
-const rateLimitMap = new Map<string, RateLimitEntry>();
-let rateLimitChecksSinceCleanup = 0;
-
-function cleanupExpiredRateLimits(now: number) {
-	for (const [key, entry] of rateLimitMap) {
-		if (entry.resetTime < now) {
-			rateLimitMap.delete(key);
-		}
-	}
-}
-
-export function checkRateLimit(
-	key: string,
-	maxRequests: number,
-	windowMs: number = 60_000,
-): boolean {
-	const now = Date.now();
-
-	rateLimitChecksSinceCleanup++;
-	if (rateLimitChecksSinceCleanup >= 100) {
-		cleanupExpiredRateLimits(now);
-		rateLimitChecksSinceCleanup = 0;
-	}
-
-	const entry = rateLimitMap.get(key);
-
-	if (!entry || entry.resetTime < now) {
-		rateLimitMap.set(key, { count: 1, resetTime: now + windowMs });
-		return true;
-	}
-
-	if (entry.count >= maxRequests) {
-		return false;
-	}
-
-	entry.count++;
-	return true;
-}
-
 export function getRouteCategory(pathname: string): {
 	category: string;
 	limit: number;
