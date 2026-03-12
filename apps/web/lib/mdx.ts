@@ -13,34 +13,33 @@ import type { MDXComponents } from "mdx/types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-
-// Decision flow data imports for MDX scope
 import {
-	nodes as overlayNodes,
-	edges as overlayEdges,
-} from "@/components/decision-flow/data/overlay-patterns";
-import {
-	nodes as dataDisplayNodes,
 	edges as dataDisplayEdges,
+	nodes as dataDisplayNodes,
 } from "@/components/decision-flow/data/data-display-patterns";
 import {
-	nodes as inputTypeNodes,
 	edges as inputTypeEdges,
+	nodes as inputTypeNodes,
 } from "@/components/decision-flow/data/input-types";
 import {
-	nodes as navigationNodes,
 	edges as navigationEdges,
+	nodes as navigationNodes,
 } from "@/components/decision-flow/data/navigation-patterns";
+// Decision flow data imports for MDX scope
+import {
+	edges as overlayEdges,
+	nodes as overlayNodes,
+} from "@/components/decision-flow/data/overlay-patterns";
 
 // Pattern guide data imports for MDX scope
 import {
 	inputTypesComparisonData,
-	inputTypesImplementationData,
 	inputTypesExamplesData,
-	paginationComparisonData,
-	paginationPerformanceData,
-	paginationExamplesData,
+	inputTypesImplementationData,
 	modalComparisonData,
+	paginationComparisonData,
+	paginationExamplesData,
+	paginationPerformanceData,
 	tableComparisonData,
 } from "@/lib/pattern-guide-data";
 
@@ -105,6 +104,9 @@ export async function compileMDXContent<
 		options: {
 			parseFrontmatter: true,
 			scope: mdxScope,
+			// Local MDX content relies on scoped expressions like data.prop.
+			blockJS: false,
+			blockDangerousJS: true,
 			mdxOptions: {
 				remarkPlugins: [remarkGfm, remarkMdxMermaid],
 				rehypePlugins: [
@@ -156,6 +158,8 @@ export async function compileMDXString<
 		components,
 		options: {
 			parseFrontmatter: true,
+			blockJS: false,
+			blockDangerousJS: true,
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
 				rehypePlugins: [
