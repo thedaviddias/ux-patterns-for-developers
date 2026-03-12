@@ -1,0 +1,886 @@
+# Carousel
+
+> Build effective carousel components for your web applications. Learn best practices for implementing accessible, responsive carousels with proper navigation and touch support.
+
+**URL:** https://uxpatterns.dev/patterns/content-management/carousel
+**Source:** apps/web/content/patterns/content-management/carousel.mdx
+
+---
+
+## Overview
+
+A **carousel** displays content or images in a rotating or sliding manner. Users navigate through content with arrows, dots, or swipe gestures on touch devices.
+
+Carousels showcase featured content, promotions, or image galleries in limited space.
+
+## Use Cases
+
+### When to use:
+
+Use carousels to display **related content or images in limited space** while keeping users engaged.
+
+**Common use cases include:**
+
+- Featured products or services need showcasing (homepage promotions)
+- Key messages or storytelling require highlighting (step-by-step guides)
+- Portfolio of work or case studies needs display
+- Testimonials or customer reviews for presentation
+- Multi-step processes or tutorials guide users
+- News updates or event announcements get featured
+
+### When not to use:
+
+- Critical content needs immediate user interaction
+- Content lacks clear relationship or narrative flow
+- Users must compare items side-by-side or view all options at once
+- Too many carousel items make navigation cumbersome
+- Complex content requires significant reading time
+
+## Benefits
+
+- Maximizes limited screen space for featured content
+- Guides users through related items or messages
+- Increases engagement and page time
+- Enables visual storytelling and brand expression
+- Gives users interactive elements to explore
+
+## Drawbacks
+
+- **Low engagement rates** – users often ignore or miss slides
+- **Performance-heavy** – especially with large images or auto-rotation
+- **Accessibility issues** – particularly for keyboard and screen reader users
+- **Poor for critical content** – users might not interact with all slides
+- **Auto-rotation frustrates** – especially without pause control
+
+## Anatomy
+
+```mermaid
+graph TD
+    A[Carousel] --> B[Container]
+    B --> C[Content Wrapper]
+    B --> D[Navigation Controls]
+    B --> E[Pagination]
+    B --> P[See All Link]
+
+    C --> F[Slides]
+    F --> G[Slide 1]
+    F --> H[Slide 2]
+    F --> I[Slide n...]
+
+    D --> J[Previous Button]
+    D --> K[Next Button]
+
+    E --> L[Pagination Dots]
+
+    G --> M[Image]
+    G --> N[Caption]
+    G --> O[Content]
+```
+
+### Component Structure
+
+1. **Container**
+
+- Wraps carousel content and controls
+- Sets visible area and overall carousel dimensions
+- Has border, background color, or shadow to separate from other content
+
+2. **Content Wrapper**
+
+- Holds individual carousel slides or items
+- Enables smooth slide transitions
+- Uses CSS transforms or absolute positioning for slide placement
+
+3. **Slides**
+
+- Individual content items in the carousel
+- Contains images, text, videos, or interactive elements
+- Needs consistent dimensions and styling for cohesive appearance
+
+4. **Navigation Arrows**
+
+- Users manually advance or go back through carousel slides
+- Typically placed on the left and right sides of the carousel
+- Should have clear hover and focus states for accessibility
+
+5. **Pagination Dots**
+
+- Indicate the total number of slides and the current active slide
+- Allow users to quickly jump to a specific slide
+- Often placed below the carousel content for easy access
+
+6. **"See All" Link (Optional)**
+
+- Recommended when the carousel displays a subset of a larger collection (e.g., latest articles, featured products).
+- Provides a way for users to access more related content beyond what's shown in the carousel
+- Typically placed near the carousel, often below the slides or next to the pagination dots
+- Should have a clear and descriptive label indicating where it will take the user (e.g., "See All Products", "View More Cases")
+- Should be styled as a text link rather than a button to indicate navigation rather than an action.
+
+7. **Captions (Optional)**
+
+- Provide additional context or information about each slide
+- Can be overlaid on the slide image or placed below the slide
+- Should be concise and not obstruct the main slide content
+
+### Summary of Components
+
+| Component             | Required? | Purpose                                                 |
+| --------------------- | --------- | ------------------------------------------------------- |
+| Container             | ✅ Yes    | Wraps the entire carousel component.                    |
+| Slides Wrapper        | ✅ Yes    | Contains all slide elements.                            |
+| Slide                 | ✅ Yes    | Represents each individual content item.                |
+| Navigation Arrows     | ✅ Yes    | Allows users to move between slides.                    |
+| Pagination Indicators | ❌ No     | Shows the current position within the carousel.         |
+| Autoplay Controls     | ❌ No     | Allows users to start/stop automatic slide transitions. |
+
+## Examples
+
+### Interactive Demo
+
+### Tabbed Carousel
+
+The Tabbed Carousel provides a clean, tab-style navigation system where users can switch between individual content panels. This pattern is particularly effective when each slide contains detailed information that deserves focused attention.
+
+### Grouped Carousel
+
+The Grouped Carousel displays multiple items simultaneously, allowing users to browse through collections of related content. This implementation is ideal for showcasing product collections, image galleries, or any scenario where viewing items in groups enhances the user experience.
+
+### Basic Implementation
+
+```html
+<div class="carousel">
+  <div class="carousel__track">
+    <div class="carousel__slide" data-slide="1">Slide 1</div>
+    <div class="carousel__slide" data-slide="2">Slide 2</div>
+    <div class="carousel__slide" data-slide="3">Slide 3</div>
+  </div>
+  <button class="carousel__nav carousel__nav--prev" aria-label="Previous slide">❮</button>
+  <button class="carousel__nav carousel__nav--next" aria-label="Next slide">❯</button>
+  <div class="carousel__indicators">
+    <button class="carousel__dot" aria-label="Go to slide 1"></button>
+    <button class="carousel__dot" aria-label="Go to slide 2"></button>
+    <button class="carousel__dot" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+```
+
+## Best Practices
+
+### Content
+
+**Do's ✅**
+
+- **Keep slide content focused and concise** for easy scanning.
+- Use **high-quality, visually compelling images** that support the content message.
+- Ensure **slide content is mobile-friendly** and legible on smaller screens.
+- Provide **meaningful alt text** for slide images.
+- **Keep the number of slides manageable** to avoid carousel fatigue.
+- **Include a "See All" link** to direct users to a dedicated page with more related content (e.g., "See All Case Studies").
+
+**Don'ts ❌**
+
+- **Don't rely solely on the carousel** to convey critical information.
+- Avoid **using too much text** or overly complex layouts within slides.
+- **Don't make the carousel autoplay** without also providing pause/stop controls.
+- **Don't use the carousel as a primary navigation mechanism** for your site.
+
+---
+
+### Accessibility
+
+**Do's ✅**
+
+- **Ensure all slide content and controls are keyboard accessible**.
+- **Provide ARIA labels** for navigation elements and slide content.
+- **Allow users to pause or stop auto-rotating carousels**.
+- **Give users sufficient time** to read and interact with each slide.
+- **Make navigation controls large enough** for easy clicking or tapping.
+- **Ensure the "See All" link is keyboard accessible** and has a clear focus state.
+- **Provide a meaningful ARIA label** for the "See All" link that describes its purpose.
+- **Add `prefers-reduced-motion` to disable animations** for users with motion sensitivity.
+- Optionally, **provide a "Reduce Motion" toggle** for users who prefer less movement.
+
+**Don'ts ❌**
+
+- **Don't autoplay content** that contains animation or video without user consent.
+- Avoid **carousel designs that trap keyboard focus** within the component.
+- **Don't hide navigation controls** or make them difficult to find.
+- **Don't change slide content or position** while the user is interacting with it.
+
+---
+
+### Visual Design
+
+**Do's ✅**
+
+- **Use consistent design patterns** and styling for all carousel elements.
+- **Provide ample visual contrast** for text and interactive components.
+- **Ensure slide transitions are smooth** and not visually jarring.
+- **Use navigation indicators** that clearly convey the current slide position.
+- **Optimize slide images for fast loading** and performance.
+
+**Don'ts ❌**
+
+- **Don't use overly distracting transition effects** that detract from the content.
+- Avoid **low contrast or hard-to-read text** over busy background images.
+- **Don't make the carousel unnecessarily large** or overwhelming on the page.
+
+---
+
+### Layout & Positioning
+
+**Do's ✅**
+
+- **Position the carousel in a prominent location** that supports its content purpose.
+- **Ensure the carousel scales and adapts responsively** to different screen sizes.
+- **Provide ample spacing** between the carousel and surrounding page elements.
+- **Left-align slide content** for easier reading and scanning.
+- **Place navigation controls in intuitive** and easy-to-reach locations.
+
+**Don'ts ❌**
+
+- **Don't place the carousel too low** on the page where users might miss it.
+- Avoid **positioning the carousel in a way that obstructs other important content**.
+- **Don't force users to scroll unnecessarily** to view the full carousel on smaller screens.
+- **Don't overcrowd the carousel area** with too many competing elements or CTAs.
+
+---
+
+### Performance Optimization
+
+**Do's ✅**
+
+- Use **lazy loading** (`loading="lazy"`) for images to reduce initial page load time.
+- Optimize **carousel animations** using GPU-accelerated properties (e.g., `transform` instead of `margin`).
+- Minimize **reflows and repaints** by ensuring smooth transitions and avoiding layout shifts.
+- Reduce **event listener impact** by throttling or debouncing resize and scroll events.
+- Ensure efficient **resource management** to prevent memory leaks and excessive CPU usage.
+- Optimize **JavaScript execution** by deferring non-critical scripts and avoiding blocking tasks.
+
+**Don'ts ❌**
+
+- Don't load **off-screen images immediately**—defer loading until they are about to be displayed.
+- Avoid **complex animations** that trigger layout recalculations (e.g., changing `width` or `height` dynamically).
+- Don't overuse **box shadows and filters**, as they can slow down rendering performance.
+- Avoid **large DOM structures**—if the carousel contains many slides, use virtualized rendering.
+- Don't use **excessive animations** that could impact performance on lower-powered devices.
+
+## Common Mistakes & Anti-Patterns 🚫
+
+### Auto-Play Without Controls
+**The Problem:** Users might not have enough time to read or interact with content, and constantly rotating slides can disorient or frustrate them—especially those using assistive technologies.
+
+**How to Fix It?** Always provide **pause/play controls**. Respect `prefers-reduced-motion` by disabling or slowing auto-rotation for users who prefer less animation.
+
+---
+
+### No Keyboard or Touch Support
+
+**The Problem:** Carousels often exclude users who rely on keyboard navigation or expect swipe gestures on mobile devices.
+
+**How to Fix It?** Ensure you can navigate slides via `Tab` and arrow keys. Add swipe or drag support for mobile. Test thoroughly across various devices and accessibility tools.
+
+---
+
+### Hiding Important Content in Later Slides
+
+**The Problem:** Many users never click past the first slide, missing crucial information if it’s hidden further down the carousel.
+
+**How to Fix It?** Place the most essential content **in the first slide**. If the content is critical, consider using a static layout or highlight it differently so users don’t need to scroll or click.
+
+---
+
+### Lack of Visible Pagination
+
+**The Problem:** Without pagination dots or numbers, users can’t tell how many slides there are or where they are within the sequence.
+
+**How to Fix It?** Provide **clear pagination** (e.g., dots, numeric indicators) and label them properly (e.g., `aria-label="Go to slide 2"`).
+
+---
+
+### Missing or Incorrect ARIA Labels
+
+**The Problem:** If navigation buttons and slides lack descriptive labels, screen readers can't convey their function or content.
+
+**How to Fix It?** Use attributes like `aria-label="Next slide"` on arrows and `aria-roledescription="carousel"` on the container. For Tabbed Carousels, the slide panels use `role="tabpanel"` (see "ARIA Attributes for Tabbed Carousels"); for standard carousels, treat slides as groups with clear labels (e.g., "Slide 2 of 5").
+
+---
+
+### No Clear Focus Indicator
+
+**The Problem:** Keyboard users can lose track of where they are if there’s no visible focus outline on controls or slides.
+
+**How to Fix It?** Ensure buttons, dots, or slide links have a **high-contrast focus style**. Test with keyboard-only navigation to confirm you never lose focus.
+
+---
+
+### Inconsistent Screen Reader Announcements
+
+**The Problem:** If slide changes aren’t announced, users with screen readers won’t realize content has updated.
+
+**How to Fix It?** Use `aria-live="polite"` regions or update `aria-hidden` states so that each new slide is announced. Label slides accordingly (e.g., `"Slide 2 of 5"`).
+
+---
+
+### Overloaded Slide Content
+
+**The Problem:** Placing too many interactive elements or large blocks of text in a single slide can overwhelm keyboard or screen reader users.
+
+**How to Fix It?** Keep each slide **focused and concise**. If extra content is necessary, link to a dedicated page or consider an alternative layout that isn’t a carousel.
+
+## Micro-Interactions & Animations
+
+For a carousel component, implement these specific animations to enhance user experience:
+
+- **Slide Transition Animation:**
+
+  - **Effect:** Animate a smooth horizontal (or vertical) slide where the current slide moves out while the next slide slides in.
+  - **Timing:** Aim for a 300ms transition with an ease-in-out timing function to create a natural flow.
+
+- **Fade Transition (Optional):**
+
+  - **Effect:** Instead of sliding, optionally fade the outgoing slide out and the incoming slide in, offering a softer transition.
+  - **Timing:** Use a fade duration of approximately 300ms for consistency.
+
+- **Navigation Controls (Arrows):**
+
+  - **Hover:** Apply a subtle scale-up (e.g., to 1.05×) or color change when the user hovers over the arrow buttons, clearly indicating interactivity.
+  - **Active/Click:** Trigger a brief pulse or slight scale-up effect (completing within 150–200ms) when a navigation arrow is clicked.
+
+- **Indicator Animations:**
+
+  - **Effect:** For carousel indicators (e.g., dots), animate the active state by scaling the active dot slightly or changing its color to visually distinguish it from inactive indicators.
+  - **Timing:** Keep the indicator animation brief (around 150–200ms) for immediate feedback.
+
+- **Auto-Play & Swipe Feedback:**
+
+  - **Effect:** For auto-playing carousels or when swiping, ensure that transitions remain smooth and consistent. Provide a responsive drag/swipe animation with a slight resistance effect at the edges.
+  - **Timing:** Use the same 300ms transition timing as manual navigation to maintain consistency.
+
+- **Reduced Motion Considerations:**
+  - **Implementation:** Detect user preferences (e.g., via the `prefers-reduced-motion` media query) and reduce or disable these animations accordingly to ensure accessibility.
+
+## Tracking
+
+Tracking carousel interactions helps measure engagement, detect usability issues, and optimize content placement. By capturing key user actions, we can analyze how effectively the carousel is driving interaction and whether users engage with slides beyond the first one.
+
+### Key Tracking Points
+
+Each carousel interaction provides valuable insights into user behavior. Below are the key events that should be tracked:
+
+| **Event Name**               | **Description**                                    | **Why Track It?**                                                |
+| ---------------------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
+| `carousel.view`              | When the carousel first enters the [viewport](/glossary/viewport).       | Helps determine if users even see the carousel.                  |
+| `carousel.slide_change`      | When a user navigates to a different slide.        | Measures engagement and content interest.                        |
+| `carousel.auto_rotate_pause` | When a user **pauses auto-rotation** (if enabled). | Indicates if auto-rotation is frustrating users.                 |
+| `carousel.click`             | When a user clicks on a slide.                     | Helps measure which slides attract the most attention.           |
+| `carousel.swipe`             | When a user swipes on mobile.                      | Tracks touch engagement separately from clicks.                  |
+| `carousel.see_all_click`     | When users click the **"See All"** link.           | Indicates if users want more content than the carousel provides. |
+
+### Event Payload Structure
+
+To ensure consistent tracking, here’s a recommended event format:
+
+```json
+{
+  "event": "carousel.slide_change",
+  "properties": {
+    "carousel_id": "homepage_featured",
+    "slide_index": 3,
+    "total_slides": 5,
+    "interaction_type": "click" // or "swipe"
+  }
+}
+```
+
+### Key Metrics to Analyze
+
+Once tracking is in place, the following metrics provide actionable insights:
+
+- Engagement Rate → Percentage of users who interact with the carousel.
+- Slide Completion Rate → Percentage of users who view all slides.
+- Drop-off Rate → Percentage of users who only see the first slide before leaving.
+- Click-Through Rate (CTR) → Percentage of users clicking on any slide.
+- Auto-Play Pause Rate → How often users stop auto-rotation (if enabled).
+
+### Insights & Optimization Based on Tracking
+
+By analyzing tracking data, we can optimize the carousel experience:
+
+- 📉 **High Drop-off Rate?**
+  → Users might not be interested in later slides. Consider making the first slides more engaging, reducing the number of slides, or testing a different pattern (e.g., a grid or tabbed interface).
+
+- 🔄 **Frequent Auto-Play Pauses?**
+  → Users may find auto-rotation too fast or distracting. Slow down transitions, increase delay times, or disable autoplay by default.
+
+- 📊 **Low Click-Through Rate (CTR)?**
+  → The slides might not be engaging enough. Test different visuals, headlines, and CTAs to improve interaction.
+
+- 📱 **More Swipes than Clicks?**
+  → Mobile users may interact differently than desktop users. Optimize for touch gestures and ensure swipe responsiveness.
+
+- 🚀 **High "See All" Click Rate?**
+  → The carousel might not be displaying enough relevant content upfront. Consider making more items visible at once or leading users to a dedicated content hub.
+
+By continuously monitoring these metrics, we can refine the carousel’s effectiveness and improve overall user engagement.
+
+## Localization
+
+The carousel component contains several interactive elements that require localization. This includes visible labels for buttons and controls, as well as ARIA labels for screen readers. The following JSON structure provides a comprehensive set of strings that should be translated for each supported language.
+
+Note that for right-to-left (RTL) languages, you may need to adjust the direction of navigation arrows and content flow accordingly.
+
+```json
+{
+  "carousel": {
+    "next_slide": {
+      "label": "Next slide",
+      "aria_label": "Go to the next slide"
+    },
+    "previous_slide": {
+      "label": "Previous slide",
+      "aria_label": "Go to the previous slide"
+    },
+    "pause_autoplay": {
+      "label": "Pause autoplay",
+      "aria_label": "Pause automatic slide rotation"
+    },
+    "play_autoplay": {
+      "label": "Play autoplay",
+      "aria_label": "Resume automatic slide rotation"
+    },
+    "pagination": {
+      "aria_label": "Slide navigation"
+    },
+    "current_slide_indicator": {
+      "aria_label": "Slide {current} of {total}"
+    },
+    "see_all": {
+      "label": "See all",
+      "aria_label": "View all carousel items"
+    }
+  }
+}
+```
+
+## Accessibility
+
+When to use a tabbed carousel vs grouped carousel?
+
+**Use a Tabbed Carousel When:**
+
+- ✅ **You have a small number of slides** – Since each slide has a dedicated tab, a large number of slides can clutter the UI.
+- ✅ **Users should be able to jump between slides easily** – Tabs allow direct navigation to any slide without needing to cycle through sequentially.
+- ✅ **Your slides contain detailed, structured content** – If each slide functions as a self-contained panel (like feature descriptions, product highlights, or news sections), a tabbed interface enhances accessibility.
+- ✅ **Users rely on assistive technologies** – Tabs follow a clear WAI-ARIA Tabs Pattern, making them easier to navigate via screen readers and keyboard interactions.
+- ✅ **You want a more structured navigation experience** – Since users can visually scan and select a tab, they get a better sense of available content without guessing.
+
+Example Use Cases for Tabbed Carousels:
+
+- Showcasing key product features (e.g., "Performance," "Design," "Battery Life")
+- Tabbed tutorials with each step being its own slide
+- Multi-category content previews where users need to jump between different sections
+
+**Use a Grouped Carousel When:**
+
+- ✅ **Each "slide" contains multiple grouped items** – This is ideal when slides are made up of sets of images or content blocks rather than a single element.
+- ✅ **The focus is on scanning a collection, not individual elements** – A grouped layout is better when users should browse multiple options at once.
+- ✅ **You want minimal interaction but more content visible per slide** – Instead of making users navigate one-by-one, grouped carousels allow them to view several options at a glance.
+- ✅ **Direct navigation to specific slides isn't a priority** – Unlike tabs, grouped carousels usually rely on "previous" and "next" controls, making them better for sequential browsing.
+- ✅ **Keyboard navigation and focus management should be simpler** – Since each button represents a group rather than an individual tab, there are fewer interactive elements in the keyboard tab sequence, reducing accessibility complexity.
+
+Example Use Cases for Grouped Carousels:
+
+- Product galleries displaying multiple related items per slide
+- Portfolio showcases with sets of images per section
+- Multi-product promotions where multiple items appear in a single frame
+- News or blog carousels where grouped articles rotate
+
+Use the **decision tree** below to determine the right carousel type:
+
+```mermaid
+graph TD
+  A[Do users need direct navigation to specific slides?] -->|Yes| B[Use Tabbed Carousel]
+  A -->|No| C[Do slides contain multiple items per group?]
+  C -->|Yes| D[Use Grouped Carousel]
+  C -->|No| E[Do you need structured, labeled content panels?]
+  E -->|Yes| B[Use Tabbed Carousel]
+  E -->|No| F[Do users primarily browse sequentially?]
+  F -->|Yes| D[Use Grouped Carousel]
+  F -->|No| B[Use Tabbed Carousel]
+```
+
+For a **detailed breakdown** of feature differences, refer to the table below:
+
+| Feature                   | Tabbed Carousel                                                                      | Grouped Carousel                                             |
+| ------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Direct Navigation**     | Users can pick any slide directly via tabs                                           | Users must cycle through sequentially                        |
+| **Content Density**       | Displays one item per slide                                                          | Displays multiple items per slide                            |
+| **Keyboard-Friendly**     | Implements full **Tabs Pattern** (`role="tablist"`, `role="tab"`, `role="tabpanel"`) | Simpler button interactions, with fewer interactive elements |
+| **Screen Reader Support** | Uses **role="tablist"** for tab navigation and **role="tabpanel"** for content       | Uses **role="group"** for logical grouping of multiple items |
+| **Best for**              | Interactive, information-heavy content                                               | Browsing collections of items                                |
+
+### ARIA Attributes
+
+This section outlines the **required ARIA attributes** for carousels, covering both **Tabbed Carousels** (where slides are controlled via tabs) and **Grouped Carousels** (where slides contain multiple items and are controlled by buttons).
+
+---
+
+### General ARIA Attributes (Applicable to All Carousels)
+
+- **Carousel container**:
+
+  - Use a `<section>` or `role="region"`\*
+  - `aria-label` for a descriptive name\*
+  - `aria-roledescription="carousel"`
+
+  \* Alternatively, use `<section>` with `aria-labelledby` to link to the carousel title.
+
+- **Controls group**:
+
+  - `role="group"`
+  - `aria-label="Carousel controls"`
+
+- **Individual slides**:
+
+  - `role="group"`
+  - `aria-roledescription="slide"`
+  - `aria-label` for position information (e.g., `"Slide 2 of 5"`)
+
+- **Pause button**:
+
+  - `aria-pressed="true/false"` to indicate state
+  - `aria-label="Pause slide rotation"` (or `"Play slide rotation"` when stopped)
+
+- **Navigation controls (Next/Previous buttons)**:
+  - `aria-label="Next slide"` and `aria-label="Previous slide"`
+  - Avoid using only icons without labels.
+
+---
+
+### ARIA Attributes for Tabbed Carousels
+
+- **Tabs container**:
+
+  - `role="tablist"`
+  - `aria-label="Slide controls"`
+
+- **Individual tab buttons**:
+
+  - `role="tab"`
+  - `aria-selected="true/false"`
+  - `aria-controls="tabpanel-id"`
+
+- **Slide panels (content)**:
+  - `role="tabpanel"`
+  - `aria-labelledby="tab-id"`
+  - `aria-hidden="true/false"` (Hidden when inactive)
+
+---
+
+### ARIA Attributes for Grouped Carousels
+
+- **Slide picker controls**:
+
+  - `role="group"` to wrap slide selector buttons
+  - `aria-label="Choose slide to display"`
+
+- **Slide selector buttons**:
+
+  - `role="button"`
+  - `aria-labelledby="slide-id"` (Associates button with the slide)
+  - `aria-disabled="true"` (For currently active slide)
+
+- **Grouped slides**:
+  - `role="group"`
+  - `aria-label="Slide X of Y"`
+  - Each contained item should have appropriate semantic tags (e.g., `<article>`, `<figure>`).
+
+### Focus Management
+
+1. **Focus Order**
+
+The focus order should follow this sequence:
+
+- Pause/Play button
+- Slide controls (pagination) - can be visually placed below but should be placed in the DOM before changing the slides
+- See All link
+- Previous button
+- Slides content
+- Next button
+
+This order ensures that users can control the carousel's behavior before interacting with its content, with primary navigation controls (Previous/Next) taking precedence over secondary navigation (pagination).
+
+2. **Auto-rotation Behavior**
+
+In most cases, auto-rotation is discouraged as it makes it more difficult for users to have complete control over the carousel.
+
+But if you need to support auto-rotation, here's the expected behavior:
+
+- Auto-rotation must pause when:
+  - Any element receives focus
+  - User hovers over the carousel
+  - User interacts with any control
+  - Screen reader is actively reading content
+- The pause state must persist until user explicitly resumes
+- Provide clear visual indication of pause/play state
+
+3. **Focus States**
+
+- All interactive elements must have visible focus indicators with sufficient contrast (3:1 minimum)
+- Focus must not move automatically with slide transitions
+- Focus should remain on the control that triggered a slide change
+- Ensure focus is not trapped within the carousel
+
+### Keyboard Navigation
+
+The carousel must be fully operable with a keyboard. Here's the expected keyboard behavior:
+
+| Key                  | Purpose                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------ |
+| Left Arrow           | Move to previous slide                                                                     |
+| Right Arrow          | Move to next slide                                                                         |
+| Tab                  | Navigate through interactive elements (navigation arrows, pagination dots, "See All" link) |
+| Enter/Space          | Activate buttons, select slides via pagination                                             |
+| Escape               | Stop autoplay if enabled                                                                   |
+| Page Up (Optional)   | Move to previous slide                                                                     |
+| Page Down (Optional) | Move to next slide                                                                         |
+
+> Note: Keys marked as optional may be omitted in some carousel implementations. The core keys (Left/Right Arrow, Tab, Enter/Space, and Escape) should always be supported for proper accessibility.
+
+## Testing Guidelines
+
+### Functional Testing
+
+**Should ✓**
+
+- [ ] Navigate correctly between slides using arrow buttons
+- [ ] Show/hide navigation arrows appropriately at first/last slides
+- [ ] Update pagination indicators when slides change
+- [ ] Handle touch swipe gestures on mobile devices
+- [ ] Pause autoplay on hover/focus if enabled
+- [ ] Maintain slide position during window resize
+- [ ] Reset autoplay timer after manual navigation
+- [ ] Handle edge cases (single slide, empty carousel)
+
+### Accessibility Testing
+
+**Should ✓**
+
+- [ ] Support all keyboard interactions listed in Keyboard Navigation
+- [ ] Announce slide changes to screen readers
+- [ ] Include proper ARIA labels for all controls
+- [ ] Maintain focus management during slide transitions
+- [ ] Pause autoplay when screen reader is active
+- [ ] Provide sufficient color contrast for controls
+- [ ] Include alternative text for slide images
+- [ ] Support reduced motion preferences
+
+### Visual Testing
+
+**Should ✓**
+
+- [ ] Display smooth transitions between slides
+- [ ] Show correct active state for pagination indicators
+- [ ] Maintain aspect ratio of slide content
+- [ ] Handle different image sizes appropriately
+- [ ] Adapt layout responsively across breakpoints
+- [ ] Display loading states for lazy-loaded images
+- [ ] Show proper hover/focus states for controls
+- [ ] Maintain consistent heights during transitions
+
+### Performance Testing
+
+**Should ✓**
+
+- [ ] Lazy load off-screen slides
+- [ ] Optimize image loading and caching
+- [ ] Maintain smooth animations (60fps)
+- [ ] Handle rapid interactions without breaking
+- [ ] Manage memory usage with many slides
+- [ ] Cleanup event listeners when destroyed
+- [ ] Function without JavaScript (graceful degradation)
+- [ ] Handle slow network conditions gracefully
+
+## Usability Testing Insights
+
+Research shows that users:
+- Skip past carousels on 89% of homepage visits (Nielsen Norman Group)
+- Only interact with the first slide in 72% of cases
+- Prefer static content over auto-rotating carousels (84% of users)
+- Find carousel controls when clearly visible (61% success rate)
+- Struggle with auto-rotation speed (58% find default timing too fast)
+- Use swipe gestures on mobile more than arrow buttons (67% vs 33%)
+
+## Browser Support
+
+## SEO Considerations
+
+- Ensure all slide content is present in the DOM for crawlability
+- Avoid lazy loading the first slide's content
+- Use semantic HTML for better content understanding
+- Include descriptive alt text for all images
+- Implement structured data for carousel content when applicable
+- Ensure content is accessible without JavaScript
+- Avoid hiding important SEO content in later slides
+
+## Performance Metrics
+
+Target performance metrics for carousels:
+- **First Contentful Paint**: < 1.5s for first slide
+- **Slide transition**: < 300ms animation duration
+- **Touch response**: < 100ms for swipe initiation
+- **Image loading**: Lazy load slides 2+ to reduce initial payload
+- **JavaScript bundle**: < 30KB for carousel functionality
+- **Memory usage**: < 10MB additional for image carousel
+- **CPU usage**: < 5% during idle, < 15% during transitions
+
+## [Design Tokens](/glossary/design-tokens)
+
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
+
+### Carousel Tokens in DTF Format
+
+```json
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "carousel": {
+    "container": {
+      "minHeight": { "value": "400px", "type": "dimension" },
+      "padding": { "value": "2rem", "type": "dimension" }
+    },
+    "slide": {
+      "gap": { "value": "1rem", "type": "dimension" },
+      "background": { "value": "{color.gray.100}", "type": "color" }
+    },
+    "seeAllLink": {
+      "fontWeight": { "value": "600", "type": "fontWeight" },
+      "fontSize": { "value": "1rem", "type": "dimension" },
+      "color": {
+        "default": { "value": "{color.primary.600}", "type": "color" },
+        "hover": { "value": "{color.primary.700}", "type": "color" }
+      },
+      "marginTop": { "value": "1rem", "type": "dimension" },
+      "marginBottom": { "value": "1.5rem", "type": "dimension" },
+      "display": { "value": "inline-block", "type": "display" },
+      "position": { "value": "relative", "type": "position" },
+      "zIndex": { "value": "1", "type": "number" }
+    },
+    "navigation": {
+      "arrow": {
+        "color": { "value": "{color.gray.700}", "type": "color" },
+        "background": {
+          "default": { "value": "{color.white}", "type": "color" },
+          "hover": { "value": "{color.gray.200}", "type": "color" }
+        },
+        "border": { "value": "none", "type": "borderStyle" },
+        "size": { "value": "3rem", "type": "dimension" },
+        "icon": {
+          "previous": { "value": "{icon.chevronLeft}", "type": "icon" },
+          "next": { "value": "{icon.chevronRight}", "type": "icon" }
+        },
+        "focus": {
+          "outline": {
+            "value": "2px solid {color.primary.600}",
+            "type": "outline"
+          },
+          "outlineOffset": { "value": "2px", "type": "dimension" }
+        }
+      },
+      "pause": {
+        "color": { "value": "{color.gray.700}", "type": "color" },
+        "background": {
+          "default": { "value": "{color.white}", "type": "color" },
+          "hover": { "value": "{color.gray.200}", "type": "color" },
+          "pressed": { "value": "{color.primary.100}", "type": "color" }
+        },
+        "border": { "value": "none", "type": "borderStyle" },
+        "size": { "value": "2.5rem", "type": "dimension" },
+        "icon": {
+          "pause": { "value": "{icon.pause}", "type": "icon" },
+          "play": { "value": "{icon.play}", "type": "icon" }
+        },
+        "focus": {
+          "outline": {
+            "value": "2px solid {color.primary.600}",
+            "type": "outline"
+          },
+          "outlineOffset": { "value": "2px", "type": "dimension" }
+        }
+      },
+      "dot": {
+        "spacing": { "value": "0.75rem", "type": "dimension" },
+        "size": {
+          "default": { "value": "0.75rem", "type": "dimension" },
+          "active": { "value": "1rem", "type": "dimension" }
+        },
+        "color": {
+          "default": { "value": "{color.gray.300}", "type": "color" },
+          "active": { "value": "{color.primary.500}", "type": "color" },
+          "hover": { "value": "{color.primary.600}", "type": "color" }
+        },
+        "border": {
+          "radius": { "value": "50%", "type": "borderRadius" }
+        },
+        "focus": {
+          "outline": {
+            "value": "2px solid {color.primary.600}",
+            "type": "outline"
+          },
+          "outlineOffset": { "value": "2px", "type": "dimension" }
+        }
+      }
+    },
+    "caption": {
+      "padding": { "value": "1rem", "type": "dimension" },
+      "fontSize": { "value": "1rem", "type": "dimension" },
+      "color": { "value": "{color.gray.700}", "type": "color" },
+      "background": { "value": "{color.white}", "type": "color" }
+    },
+    "transition": {
+      "duration": { "value": "600ms", "type": "duration" },
+      "timing": {
+        "function": { "value": "ease-in-out", "type": "cubicBezier" }
+      }
+    }
+  }
+}
+```
+
+## Frequently Asked Questions
+
+## Related Patterns
+
+## Resources
+
+### Libraries & Frameworks
+
+### React Components
+- [Swiper React](https://swiperjs.com/react) – Most popular, touch-friendly
+- [React Slick](https://react-slick.neostack.com/) – Feature-rich carousel
+- [Embla Carousel React](https://www.embla-carousel.com/) – Lightweight and performant
+
+### Vue Components
+- [Vue Carousel](https://github.com/SSENSE/vue-carousel) – Simple and flexible
+- [Swiper Vue](https://swiperjs.com/vue) – Vue version of Swiper
+
+### Vanilla JavaScript
+- [Swiper](https://swiperjs.com/) – Modern mobile touch slider
+- [Glide.js](https://glidejs.com/) – Dependency-free carousel
+- [Splide](https://splidejs.com/) – Lightweight, flexible slider
+
+### Articles
+
+- [A Step-By-Step Guide To Building Accessible Carousels](https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/)
+- [More Alternatives to Using a Carousel on Your Website - Mightybytes](https://www.mightybytes.com/blog/more-alternatives-to-carousels-on-website/)
+- [How to build a more accessible carousel or slider - DEV Community](https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp)
+- [The Unbearable Inaccessibility of Slideshows — SitePoint](https://www.sitepoint.com/unbearable-accessible-slideshow/)
+- [Usability Guidelines For Better Carousels UX — Smashing Magazine](https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/)
+- [How to Test and Improve Carousel Accessibility: A Complete Guide - The A11Y Collective](https://www.a11y-collective.com/blog/accessible-carousel/)
+
+### Documentation
+
+- [Carousels Tutorial - WAI](https://www.w3.org/WAI/tutorials/carousels/)
+- [Auto-Rotating Image Carousel Example with Buttons for Slide Control](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/)
+- [Auto-Rotating Image Carousel with Tabs for Slide Control Example](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/)

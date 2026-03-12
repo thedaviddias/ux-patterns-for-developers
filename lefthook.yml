@@ -3,13 +3,18 @@ pre-commit:
   commands:
     format:
       glob: "*.{js,jsx,ts,tsx,json}"
-      run: npx @biomejs/biome format --write {staged_files}
+      run: pnpm exec biome format --write {staged_files}
     lint:
       glob: "*.{js,jsx,ts,tsx}"
-      run: npx @biomejs/biome lint {staged_files}
+      run: pnpm exec biome lint {staged_files}
     organize-imports:
       glob: "*.{js,jsx,ts,tsx}"
-      run: npx @biomejs/biome check --write {staged_files}
+      run: pnpm exec biome check --write {staged_files}
+    generate-pattern-skills:
+      glob: "apps/web/content/patterns/**/*.mdx"
+      run: |
+        pnpm skills:generate &&
+        git add apps/web/.generated/pattern-skills.json skills/
     sync-gallery-metadata:
       glob: "apps/gallery/content/entries/**/*.mdx"
       run: |

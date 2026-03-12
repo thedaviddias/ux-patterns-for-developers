@@ -1,4 +1,4 @@
-import { SiInstagram, SiX } from "@icons-pack/react-simple-icons";
+import { SiX } from "@icons-pack/react-simple-icons";
 import { AUTHOR } from "./author";
 
 interface SocialLink {
@@ -14,10 +14,5 @@ export const SOCIAL_LINKS: SocialLink[] = [
 		link: AUTHOR.social.twitterUrl,
 		rel: "me" as const,
 		icon: <SiX />,
-	},
-	{
-		label: "Instagram",
-		link: AUTHOR.social.instagramUrl,
-		icon: <SiInstagram />,
 	},
 ];

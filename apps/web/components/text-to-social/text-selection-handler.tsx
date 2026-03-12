@@ -1,6 +1,6 @@
 "use client";
 
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Twitter } from "lucide-react";
 import { usePlausible } from "next-plausible";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
@@ -36,7 +36,7 @@ function SelectionPopover({
 	}, [onClose]);
 
 	const generateImage = async (
-		platform: "instagram" | "twitter" | "linkedin",
+		platform: "twitter" | "linkedin",
 	) => {
 		setIsGenerating(true);
 
@@ -118,17 +118,8 @@ function SelectionPopover({
 				marginTop: "-8px",
 			}}
 		>
-			<div className="flex items-center gap-1">
-				<button
-					type="button"
-					onClick={() => generateImage("instagram")}
-					disabled={isGenerating}
-					className="p-2 hover:bg-fd-muted rounded transition-colors disabled:opacity-50"
-					title="Generate Instagram image"
-				>
-					<Instagram className="w-4 h-4" />
-				</button>
-				<button
+		<div className="flex items-center gap-1">
+			<button
 					type="button"
 					onClick={() => generateImage("twitter")}
 					disabled={isGenerating}

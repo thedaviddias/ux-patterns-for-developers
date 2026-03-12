@@ -1,0 +1,33 @@
+name: Verify Pattern Skills
+
+on:
+  pull_request:
+    paths:
+      - "apps/web/content/patterns/**/*.mdx"
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/web/content/patterns/**/*.mdx"
+  workflow_dispatch:
+
+jobs:
+  verify-pattern-skills:
+    runs-on: ubuntu-latest
+    name: Verify Pattern Skills
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        uses: ./.github/actions/install
+
+      - name: Regenerate pattern skills
+        run: pnpm skills:generate
+
+      - name: Run pattern skill tests
+        run: cd apps/web && node --test scripts/pattern-skills-lib.test.mjs
+
+      - name: Verify generated files are committed
+        run: git diff --exit-code -- apps/web/.generated/pattern-skills.json skills

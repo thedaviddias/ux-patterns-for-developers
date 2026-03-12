@@ -13,8 +13,6 @@ export const AUTHOR = {
 		twitterUrl: "https://x.com/thedaviddias",
 		github: "thedaviddias",
 		githubUrl: "https://github.com/thedaviddias",
-		instagram: "uxpatternsfordevs",
-		instagramUrl: "https://www.instagram.com/uxpatternsfordevs",
 	},
 } as const;
 
