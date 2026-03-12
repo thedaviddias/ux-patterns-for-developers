@@ -1,71 +1,66 @@
 "use client";
 
-import { AppWindowIcon, CodeIcon } from "lucide-react";
+import { PlaygroundCode } from "@/components/playground-code";
+import { PlaygroundSandbox } from "@/components/playground-sandbox";
+import { getPatternExample } from "@/examples/patterns";
 import {
-	SandboxCodeEditor,
-	SandboxLayout,
-	SandboxPreview,
-	SandboxProvider,
-	SandboxTabs,
-	SandboxTabsContent,
-	SandboxTabsList,
-	SandboxTabsTrigger,
-} from "@/components/lazy-sandbox";
-import { examples } from "@/examples/patterns";
+	composePatternExampleDocument,
+	getPatternExampleCodeTabs,
+	type PatternExamplePresentation,
+} from "@/examples/patterns/example";
 
 export const Playground = ({
 	patternType,
 	pattern,
 	example,
-	height = "650px",
+	height,
+	mode = "preview",
+	presentation = "auto",
 }: {
 	patternType: string;
 	pattern: string;
 	example: string;
 	height?: string;
+	mode?: "preview" | "sandbox";
+	presentation?: PatternExamplePresentation | "auto";
 }) => {
-	const code = (examples as any)[patternType][pattern][example] as string;
+	const patternExample = getPatternExample(patternType, pattern, example);
+
+	if (!patternExample) {
+		return null;
+	}
+
+	const resolvedHeight = height ?? patternExample.height ?? "650px";
+
+	if (mode === "sandbox") {
+		return (
+			<PlaygroundSandbox example={patternExample} height={resolvedHeight} />
+		);
+	}
+
+	const codeTabs = getPatternExampleCodeTabs(patternExample);
+	const previewTitle =
+		patternExample.title || `${patternType} ${pattern} ${example} preview`;
+	const resolvedPresentation =
+		presentation === "auto" ? patternExample.presentation : presentation;
+	const srcDoc = composePatternExampleDocument(patternExample);
 
 	return (
-		<div className="mt-6" style={{ height }}>
-			<SandboxProvider
-				files={{
-					"/index.html": code,
-				}}
-				template="static"
-			>
-				<SandboxLayout>
-					<SandboxTabs defaultValue="preview" className="h-[calc(100%-3rem)]">
-						<div className="flex items-center justify-between p-2 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 bg-white">
-							<SandboxTabsList className="border-none">
-								<SandboxTabsTrigger
-									value="code"
-									className="data-[state=active]:bg-zinc-100 dark:data-[state=active]:bg-zinc-900"
-								>
-									<CodeIcon size={14} />
-									Code
-								</SandboxTabsTrigger>
-								<SandboxTabsTrigger
-									value="preview"
-									className="data-[state=active]:bg-zinc-100 dark:data-[state=active]:bg-zinc-900"
-								>
-									<AppWindowIcon size={14} />
-									Preview
-								</SandboxTabsTrigger>
-							</SandboxTabsList>
-						</div>
-						<SandboxTabsContent value="code" className="h-full p-0">
-							<SandboxCodeEditor className="h-full" />
-						</SandboxTabsContent>
-						<SandboxTabsContent value="preview" className="h-full p-0">
-							<SandboxPreview
-								showOpenInCodeSandbox={true}
-								showRefreshButton={false}
-							/>
-						</SandboxTabsContent>
-					</SandboxTabs>
-				</SandboxLayout>
-			</SandboxProvider>
+		<div className="mt-6">
+			<div className="overflow-hidden rounded-lg border">
+				<div className="border-b bg-muted/30 px-3 py-2 text-sm font-medium">
+					Live preview
+				</div>
+				<iframe
+					className="block w-full border-0 bg-white"
+					sandbox="allow-scripts"
+					srcDoc={srcDoc}
+					style={{ height: resolvedHeight }}
+					title={previewTitle}
+				/>
+			</div>
+
+			<PlaygroundCode presentation={resolvedPresentation} tabs={codeTabs} />
 		</div>
 	);
 };

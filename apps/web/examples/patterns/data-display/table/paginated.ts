@@ -1,6 +1,56 @@
-export const paginatedTableExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const paginatedTableExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <!-- Selection Summary -->
+  <div class="selection-summary hidden" id="selectionSummary">
+    <span class="selection-text" id="selectionText">0 rows selected</span>
+    <button class="clear-selection" onclick="clearSelection()">Clear selection</button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="checkbox-col">
+            <input type="checkbox" id="selectAll" onchange="handleSelectAll()">
+          </th>
+          <th>Transaction ID</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th style="text-align: right;">Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Table rows will be rendered here -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-controls">
+    <div class="items-per-page">
+      <span>Show</span>
+      <select id="itemsPerPage" onchange="changeItemsPerPage()">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
+      <span id="resultsText">of 50 results</span>
+    </div>
+
+    <div class="pagination-nav">
+      <button class="pagination-btn" onclick="previousPage()" id="prevBtn">Previous</button>
+      <div id="pageButtons"></div>
+      <button class="pagination-btn" onclick="nextPage()" id="nextBtn">Next</button>
+    </div>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -215,61 +265,8 @@ export const paginatedTableExample = `
     background: #3b82f6;
     color: white;
     border-color: #3b82f6;
-  }
-</style>
-
-<div class="container">
-  <!-- Selection Summary -->
-  <div class="selection-summary hidden" id="selectionSummary">
-    <span class="selection-text" id="selectionText">0 rows selected</span>
-    <button class="clear-selection" onclick="clearSelection()">Clear selection</button>
-  </div>
-
-  <!-- Table -->
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th class="checkbox-col">
-            <input type="checkbox" id="selectAll" onchange="handleSelectAll()">
-          </th>
-          <th>Transaction ID</th>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Category</th>
-          <th style="text-align: right;">Amount</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <!-- Table rows will be rendered here -->
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Pagination Controls -->
-  <div class="pagination-controls">
-    <div class="items-per-page">
-      <span>Show</span>
-      <select id="itemsPerPage" onchange="changeItemsPerPage()">
-        <option value="5">5</option>
-        <option value="10" selected>10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-      </select>
-      <span id="resultsText">of 50 results</span>
-    </div>
-
-    <div class="pagination-nav">
-      <button class="pagination-btn" onclick="previousPage()" id="prevBtn">Previous</button>
-      <div id="pageButtons"></div>
-      <button class="pagination-btn" onclick="nextPage()" id="nextBtn">Next</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Generate sample data
+  }`,
+	js: `// Generate sample data
   const generateTransactions = () => {
     const categories = ['Food', 'Transport', 'Shopping', 'Bills', 'Entertainment', 'Healthcare'];
     const descriptions = [
@@ -465,6 +462,5 @@ export const paginatedTableExample = `
 
   // Initial render
   renderTable();
-  renderPagination();
-</script>
-`;
+  renderPagination();`,
+};

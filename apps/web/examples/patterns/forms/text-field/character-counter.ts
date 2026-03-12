@@ -1,6 +1,48 @@
-export const characterCounterTextFieldExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const characterCounterTextFieldExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <!-- Short text field with counter -->
+  <div class="text-field">
+    <label for="title">Article Title</label>
+    <input 
+      type="text" 
+      id="title" 
+      name="title"
+      placeholder="Enter article title"
+      maxlength="60"
+      aria-describedby="title-counter"
+    />
+    <div class="text-field__counter" id="title-counter">0/60</div>
+  </div>
+
+  <!-- Textarea with counter -->
+  <div class="text-field">
+    <label for="bio">Bio</label>
+    <textarea 
+      id="bio" 
+      name="bio"
+      placeholder="Tell us about yourself..."
+      maxlength="160"
+      aria-describedby="bio-counter"
+    ></textarea>
+    <div class="text-field__counter" id="bio-counter">0/160</div>
+  </div>
+
+  <!-- Pre-filled example showing warning state -->
+  <div class="text-field text-field--warning">
+    <label for="tweet">Tweet</label>
+    <textarea 
+      id="tweet" 
+      name="tweet"
+      placeholder="What's happening?"
+      maxlength="280"
+      aria-describedby="tweet-counter"
+    >This is a longer tweet that demonstrates the warning state when approaching the character limit. The counter should change color as we get close to the maximum allowed characters for this field.</textarea>
+    <div class="text-field__counter text-field__counter--warning" id="tweet-counter">225/280</div>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -78,53 +120,8 @@ export const characterCounterTextFieldExample = `
 
   .text-field--danger input, .text-field--danger textarea {
     border-color: #ef4444;
-  }
-</style>
-
-<div class="container">
-  <!-- Short text field with counter -->
-  <div class="text-field">
-    <label for="title">Article Title</label>
-    <input 
-      type="text" 
-      id="title" 
-      name="title"
-      placeholder="Enter article title"
-      maxlength="60"
-      aria-describedby="title-counter"
-    />
-    <div class="text-field__counter" id="title-counter">0/60</div>
-  </div>
-
-  <!-- Textarea with counter -->
-  <div class="text-field">
-    <label for="bio">Bio</label>
-    <textarea 
-      id="bio" 
-      name="bio"
-      placeholder="Tell us about yourself..."
-      maxlength="160"
-      aria-describedby="bio-counter"
-    ></textarea>
-    <div class="text-field__counter" id="bio-counter">0/160</div>
-  </div>
-
-  <!-- Pre-filled example showing warning state -->
-  <div class="text-field text-field--warning">
-    <label for="tweet">Tweet</label>
-    <textarea 
-      id="tweet" 
-      name="tweet"
-      placeholder="What's happening?"
-      maxlength="280"
-      aria-describedby="tweet-counter"
-    >This is a longer tweet that demonstrates the warning state when approaching the character limit. The counter should change color as we get close to the maximum allowed characters for this field.</textarea>
-    <div class="text-field__counter text-field__counter--warning" id="tweet-counter">225/280</div>
-  </div>
-</div>
-
-<script>
-  // Character counter functionality
+  }`,
+	js: `// Character counter functionality
   function updateCounter(input, counter) {
     const current = input.value.length;
     const max = parseInt(input.getAttribute('maxlength'));
@@ -157,6 +154,5 @@ export const characterCounterTextFieldExample = `
       // Update on input
       input.addEventListener('input', () => updateCounter(input, counter));
     }
-  });
-</script>
-`;
+  });`,
+};

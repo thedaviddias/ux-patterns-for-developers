@@ -1,4 +1,6 @@
-export const basicRadioExample = {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicRadioExample: PatternExampleDefinition = {
 	html: `<!-- Basic radio button group -->
 <fieldset>
   <legend>Choose your preferred contact method</legend>

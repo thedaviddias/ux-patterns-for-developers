@@ -180,6 +180,10 @@ Tabs that synchronize the active tab with a URL hash or query parameter for deep
 
 ## Examples
 
+### Live Preview
+
+<Playground patternType="navigation" pattern="tabs" example="basic" presentation="hidden-code" />
+
 ### Basic HTML Implementation
 
 ```html
@@ -639,7 +643,8 @@ Use `hidden` attribute or `display: none` to hide panels instead of removing the
 - **Implementation:** CSS `:focus-visible` with outline
 
 ### Scrollable Tab Indicators
-- **Effect:** Gradient fades or small arrows appear at the edges when tabs overflow
+- **Effect:** Gradient fades or small arrows appear at the edg
+import { Playground } from "@/components/playground";es when tabs overflow
 - **Timing:** 200ms fade based on scroll position
 - **Trigger:** Tab list scroll position changes
 - **Implementation:** CSS gradient overlays controlled by JavaScript scroll listener

@@ -1,6 +1,27 @@
-export const basicLoadMoreExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicLoadMoreExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <h1>Articles</h1>
+
+  <div class="items-grid" id="itemsContainer">
+    <!-- Initial items will be loaded here -->
+  </div>
+
+  <div class="load-more-container">
+    <button
+      type="button"
+      class="load-more-btn"
+      id="loadMoreBtn"
+      aria-label="Load more articles"
+      aria-controls="itemsContainer"
+    >
+      Load More
+    </button>
+    <div class="status-message" role="status" aria-live="polite" id="statusMessage"></div>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -125,32 +146,8 @@ export const basicLoadMoreExample = `
     padding: 2rem;
     color: #6b7280;
     font-style: italic;
-  }
-</style>
-
-<div class="container">
-  <h1>Articles</h1>
-
-  <div class="items-grid" id="itemsContainer">
-    <!-- Initial items will be loaded here -->
-  </div>
-
-  <div class="load-more-container">
-    <button
-      type="button"
-      class="load-more-btn"
-      id="loadMoreBtn"
-      aria-label="Load more articles"
-      aria-controls="itemsContainer"
-    >
-      Load More
-    </button>
-    <div class="status-message" role="status" aria-live="polite" id="statusMessage"></div>
-  </div>
-</div>
-
-<script>
-  // Simulated data
+  }`,
+	js: `// Simulated data
   const allItems = Array.from({ length: 25 }, (_, i) => ({
     id: i + 1,
     title: \`Article \${i + 1}\`,
@@ -256,6 +253,5 @@ export const basicLoadMoreExample = `
 
     // Initialize
     init();
-  }, 100);
-</script>
-`;
+  }, 100);`,
+};

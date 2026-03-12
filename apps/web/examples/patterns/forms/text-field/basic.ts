@@ -1,6 +1,16 @@
-export const basicTextFieldExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicTextFieldExample: PatternExampleDefinition = {
+	html: `<div class="text-field">
+  <label for="username">Username</label>
+  <input 
+    type="text" 
+    id="username" 
+    name="username" 
+    placeholder="Enter your username"
+  />
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -47,16 +57,5 @@ export const basicTextFieldExample = `
     background: #f9fafb;
     color: #9ca3af;
     cursor: not-allowed;
-  }
-</style>
-
-<div class="text-field">
-  <label for="username">Username</label>
-  <input 
-    type="text" 
-    id="username" 
-    name="username" 
-    placeholder="Enter your username"
-  />
-</div>
-`;
+  }`,
+};

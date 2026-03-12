@@ -1,6 +1,70 @@
-export const helperTextFieldExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const helperTextFieldExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <!-- Helper text below -->
+  <div class="text-field">
+    <label for="email">Email Address</label>
+    <input 
+      type="text" 
+      id="email" 
+      name="email"
+      placeholder="Enter your email"
+      aria-describedby="email-help"
+    />
+    <p class="text-field__helper" id="email-help">
+      We'll never share your email with anyone else.
+    </p>
+  </div>
+
+  <!-- Helper text above for formatting requirements -->
+  <div class="text-field">
+    <label for="phone">Phone Number</label>
+    <p class="text-field__helper text-field__helper--above" id="phone-format">
+      Format: +1 (555) 123-4567
+    </p>
+    <input 
+      type="tel" 
+      id="phone" 
+      name="phone"
+      placeholder="+1 (555) 123-4567"
+      aria-describedby="phone-format"
+    />
+  </div>
+
+  <!-- Password with requirements above -->
+  <div class="text-field">
+    <label for="password">
+      Password <span class="required">(Required)</span>
+    </label>
+    <p class="text-field__helper text-field__helper--above" id="password-requirements">
+      Must be at least 8 characters with one number and special character.
+    </p>
+    <input 
+      type="password" 
+      id="password" 
+      name="password"
+      required
+      aria-describedby="password-requirements"
+    />
+  </div>
+
+  <!-- Multiple lines of helper text -->
+  <div class="text-field">
+    <label for="username">Username</label>
+    <input 
+      type="text" 
+      id="username" 
+      name="username"
+      placeholder="Choose a username"
+      aria-describedby="username-help"
+    />
+    <p class="text-field__helper" id="username-help">
+      Your username will be visible to other users. It can contain letters, numbers, and underscores only. Must be between 3-20 characters.
+    </p>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -66,70 +130,5 @@ export const helperTextFieldExample = `
 
   .required {
     color: #dc2626;
-  }
-</style>
-
-<div class="container">
-  <!-- Helper text below -->
-  <div class="text-field">
-    <label for="email">Email Address</label>
-    <input 
-      type="text" 
-      id="email" 
-      name="email"
-      placeholder="Enter your email"
-      aria-describedby="email-help"
-    />
-    <p class="text-field__helper" id="email-help">
-      We'll never share your email with anyone else.
-    </p>
-  </div>
-
-  <!-- Helper text above for formatting requirements -->
-  <div class="text-field">
-    <label for="phone">Phone Number</label>
-    <p class="text-field__helper text-field__helper--above" id="phone-format">
-      Format: +1 (555) 123-4567
-    </p>
-    <input 
-      type="tel" 
-      id="phone" 
-      name="phone"
-      placeholder="+1 (555) 123-4567"
-      aria-describedby="phone-format"
-    />
-  </div>
-
-  <!-- Password with requirements above -->
-  <div class="text-field">
-    <label for="password">
-      Password <span class="required">(Required)</span>
-    </label>
-    <p class="text-field__helper text-field__helper--above" id="password-requirements">
-      Must be at least 8 characters with one number and special character.
-    </p>
-    <input 
-      type="password" 
-      id="password" 
-      name="password"
-      required
-      aria-describedby="password-requirements"
-    />
-  </div>
-
-  <!-- Multiple lines of helper text -->
-  <div class="text-field">
-    <label for="username">Username</label>
-    <input 
-      type="text" 
-      id="username" 
-      name="username"
-      placeholder="Choose a username"
-      aria-describedby="username-help"
-    />
-    <p class="text-field__helper" id="username-help">
-      Your username will be visible to other users. It can contain letters, numbers, and underscores only. Must be between 3-20 characters.
-    </p>
-  </div>
-</div>
-`;
+  }`,
+};

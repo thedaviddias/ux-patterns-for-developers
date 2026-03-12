@@ -59,7 +59,6 @@ export const Icons = {
 				fill="white"
 			/>
 			<defs>
-				{/* biome-ignore lint/correctness/useUniqueElementIds: Static SVG gradient definition */}
 				<linearGradient
 					id="paint0_linear_601_4643"
 					x1="128"
@@ -71,7 +70,6 @@ export const Icons = {
 					<stop stopColor="#EF786F" />
 					<stop offset="1" stopColor="#D8595E" />
 				</linearGradient>
-				{/* biome-ignore lint/correctness/useUniqueElementIds: Static SVG gradient definition */}
 				<linearGradient
 					id="paint1_linear_601_4643"
 					x1="78"

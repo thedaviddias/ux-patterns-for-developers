@@ -1,6 +1,91 @@
-export const basicTooltipExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicTooltipExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <h2>Tooltip Examples</h2>
+
+  <div class="demo-grid">
+    <!-- Basic Positions -->
+    <div class="demo-section">
+      <h3>Positions</h3>
+      <button class="tooltip-trigger" data-tooltip="Top tooltip" data-position="top">
+        Hover Top
+      </button>
+      <button class="tooltip-trigger" data-tooltip="Bottom tooltip" data-position="bottom">
+        Hover Bottom
+      </button>
+      <button class="tooltip-trigger" data-tooltip="Left tooltip" data-position="left">
+        Hover Left
+      </button>
+      <button class="tooltip-trigger" data-tooltip="Right tooltip" data-position="right">
+        Hover Right
+      </button>
+    </div>
+
+    <!-- Icon Buttons -->
+    <div class="demo-section">
+      <h3>Icon Buttons</h3>
+      <button class="tooltip-trigger icon-button" data-tooltip="Settings" data-position="top">
+        ⚙️
+      </button>
+      <button class="tooltip-trigger icon-button" data-tooltip="Delete item" data-position="top">
+        🗑️
+      </button>
+      <button class="tooltip-trigger icon-button" data-tooltip="Share" data-position="top">
+        📤
+      </button>
+      <button class="tooltip-trigger icon-button" data-tooltip="Download" data-position="top">
+        📥
+      </button>
+    </div>
+  </div>
+
+  <!-- Form with Help Tooltips -->
+  <div class="form-group">
+    <label class="form-label">
+      Email Address
+      <span class="help-icon tooltip-trigger" data-tooltip="We'll never share your email with anyone else" data-position="right">?</span>
+    </label>
+    <input type="email" class="form-input" placeholder="user@example.com" />
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">
+      Password
+      <span class="help-icon tooltip-trigger" data-tooltip="Must be at least 8 characters with one uppercase letter, one lowercase letter, and one number" data-position="right" data-multiline="true">?</span>
+    </label>
+    <input type="password" class="form-input" placeholder="Enter password" />
+  </div>
+
+  <!-- Rich Tooltip Example -->
+  <div class="demo-section">
+    <h3>Rich Content</h3>
+    <button class="tooltip-trigger" data-rich="true" data-position="bottom">
+      Advanced Tooltip
+    </button>
+  </div>
+
+  <!-- Keyboard Support -->
+  <div class="demo-section">
+    <h3>Keyboard Navigation</h3>
+    <button class="tooltip-trigger" data-tooltip="Tab to focus, Escape to dismiss" data-position="top">
+      Tab to Focus
+    </button>
+  </div>
+
+  <div class="info-box">
+    <h3>Features Demonstrated</h3>
+    <p>
+      • Multiple positioning options (top, bottom, left, right)<br>
+      • Automatic viewport boundary detection<br>
+      • Keyboard support (Tab to focus, Escape to dismiss)<br>
+      • Hover delay to prevent accidental triggers<br>
+      • ARIA attributes for accessibility<br>
+      • Both simple and rich tooltip content
+    </p>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -310,96 +395,8 @@ export const basicTooltipExample = `
     .demo-grid {
       grid-template-columns: 1fr;
     }
-  }
-</style>
-
-<div class="container">
-  <h2>Tooltip Examples</h2>
-
-  <div class="demo-grid">
-    <!-- Basic Positions -->
-    <div class="demo-section">
-      <h3>Positions</h3>
-      <button class="tooltip-trigger" data-tooltip="Top tooltip" data-position="top">
-        Hover Top
-      </button>
-      <button class="tooltip-trigger" data-tooltip="Bottom tooltip" data-position="bottom">
-        Hover Bottom
-      </button>
-      <button class="tooltip-trigger" data-tooltip="Left tooltip" data-position="left">
-        Hover Left
-      </button>
-      <button class="tooltip-trigger" data-tooltip="Right tooltip" data-position="right">
-        Hover Right
-      </button>
-    </div>
-
-    <!-- Icon Buttons -->
-    <div class="demo-section">
-      <h3>Icon Buttons</h3>
-      <button class="tooltip-trigger icon-button" data-tooltip="Settings" data-position="top">
-        ⚙️
-      </button>
-      <button class="tooltip-trigger icon-button" data-tooltip="Delete item" data-position="top">
-        🗑️
-      </button>
-      <button class="tooltip-trigger icon-button" data-tooltip="Share" data-position="top">
-        📤
-      </button>
-      <button class="tooltip-trigger icon-button" data-tooltip="Download" data-position="top">
-        📥
-      </button>
-    </div>
-  </div>
-
-  <!-- Form with Help Tooltips -->
-  <div class="form-group">
-    <label class="form-label">
-      Email Address
-      <span class="help-icon tooltip-trigger" data-tooltip="We'll never share your email with anyone else" data-position="right">?</span>
-    </label>
-    <input type="email" class="form-input" placeholder="user@example.com" />
-  </div>
-
-  <div class="form-group">
-    <label class="form-label">
-      Password
-      <span class="help-icon tooltip-trigger" data-tooltip="Must be at least 8 characters with one uppercase letter, one lowercase letter, and one number" data-position="right" data-multiline="true">?</span>
-    </label>
-    <input type="password" class="form-input" placeholder="Enter password" />
-  </div>
-
-  <!-- Rich Tooltip Example -->
-  <div class="demo-section">
-    <h3>Rich Content</h3>
-    <button class="tooltip-trigger" data-rich="true" data-position="bottom">
-      Advanced Tooltip
-    </button>
-  </div>
-
-  <!-- Keyboard Support -->
-  <div class="demo-section">
-    <h3>Keyboard Navigation</h3>
-    <button class="tooltip-trigger" data-tooltip="Tab to focus, Escape to dismiss" data-position="top">
-      Tab to Focus
-    </button>
-  </div>
-
-  <div class="info-box">
-    <h3>Features Demonstrated</h3>
-    <p>
-      • Multiple positioning options (top, bottom, left, right)<br>
-      • Automatic viewport boundary detection<br>
-      • Keyboard support (Tab to focus, Escape to dismiss)<br>
-      • Hover delay to prevent accidental triggers<br>
-      • ARIA attributes for accessibility<br>
-      • Both simple and rich tooltip content
-    </p>
-  </div>
-</div>
-
-<script>
-  // Tooltip implementation
+  }`,
+	js: `// Tooltip implementation
   class TooltipManager {
     constructor() {
       this.activeTooltip = null;
@@ -563,6 +560,5 @@ export const basicTooltipExample = `
   // Initialize tooltips
   document.addEventListener('DOMContentLoaded', () => {
     new TooltipManager();
-  });
-</script>
-`;
+  });`,
+};

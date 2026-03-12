@@ -181,6 +181,10 @@ Horizontal on desktop, collapses into a [hamburger menu](/patterns/navigation/ha
 
 ## Examples
 
+### Live Preview
+
+<Playground patternType="navigation" pattern="navigation-menu" example="basic" presentation="hidden-code" />
+
 ### Basic HTML Implementation
 
 ```html
@@ -586,7 +590,8 @@ Add `aria-label="Main navigation"` and `aria-label="Utility navigation"` to each
 - **Implementation:** CSS background-color transition
 
 ### Sticky Scroll Shadow
-- **Effect:** A subtle shadow appears below the navigation when it becomes sticky
+- **Effect:** A subtle shadow appears below the navigation when it
+import { Playground } from "@/components/playground"; becomes sticky
 - **Timing:** 200ms ease
 - **Trigger:** Scroll position changes and nav becomes fixed
 - **Implementation:** CSS box-shadow transition triggered by scroll observer

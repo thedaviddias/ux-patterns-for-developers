@@ -194,6 +194,10 @@ A guided step-by-step flow for initial configuration or comprehensive review.
 
 ## Examples
 
+### Live Preview
+
+<Playground patternType="authentication" pattern="account-settings" example="basic" presentation="hidden-code" />
+
 ### Basic HTML Implementation
 
 ```html
@@ -617,7 +621,8 @@ Show a temporary success message ("Changes saved") with `role="status"` for scre
 ## Micro-Interactions & Animations
 
 ### Save Success Feedback
-- **Effect:** "Changes saved" message fades in with a checkmark, then fades out after 3 seconds
+- **Effect:** "Changes saved" message fades in with a c
+import { Playground } from "@/components/playground";heckmark, then fades out after 3 seconds
 - **Timing:** 200ms fade-in, 3s display, 200ms fade-out
 - **Trigger:** Successful save API response
 - **Implementation:** CSS opacity transition with JavaScript timeout

@@ -39,7 +39,15 @@ const mockAudioContext = {
 	close: vi.fn().mockResolvedValue(undefined),
 };
 
-global.AudioContext = vi.fn(() => mockAudioContext) as any;
+global.AudioContext = vi.fn(
+	class MockAudioContext {
+		destination = mockAudioContext.destination;
+		currentTime = mockAudioContext.currentTime;
+		createOscillator = mockAudioContext.createOscillator;
+		createGain = mockAudioContext.createGain;
+		close = mockAudioContext.close;
+	},
+) as any;
 
 describe("Button Component", () => {
 	beforeEach(() => {
@@ -580,16 +588,18 @@ describe("Button Component", () => {
 			expect(global.AudioContext).not.toHaveBeenCalled();
 		});
 
-		it("properly cleans up AudioContext to prevent memory leaks", () => {
+		it("properly cleans up AudioContext to prevent memory leaks", async () => {
 			render(<Button sound="click">Sound</Button>);
 			const button = screen.getByRole("button");
 
 			// Click to trigger sound
-			fireEvent.click(button);
+			await userEvent.click(button);
 
 			// Verify AudioContext and nodes were created
-			expect(mockAudioContext.createOscillator).toHaveBeenCalled();
-			expect(mockAudioContext.createGain).toHaveBeenCalled();
+			await waitFor(() => {
+				expect(mockAudioContext.createOscillator).toHaveBeenCalled();
+				expect(mockAudioContext.createGain).toHaveBeenCalled();
+			});
 
 			// Verify that the cleanup event listener was registered
 			expect(mockOscillator.addEventListener).toHaveBeenCalledWith(

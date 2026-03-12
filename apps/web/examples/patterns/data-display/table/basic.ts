@@ -1,6 +1,57 @@
-export const basicTableExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicTableExample: PatternExampleDefinition = {
+	html: `<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Last Login</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>John Doe</strong></td>
+        <td>john@example.com</td>
+        <td>Admin</td>
+        <td><span class="status-badge status-active">Active</span></td>
+        <td>2024-01-15</td>
+      </tr>
+      <tr>
+        <td><strong>Jane Smith</strong></td>
+        <td>jane@example.com</td>
+        <td>Editor</td>
+        <td><span class="status-badge status-active">Active</span></td>
+        <td>2024-01-14</td>
+      </tr>
+      <tr>
+        <td><strong>Bob Johnson</strong></td>
+        <td>bob@example.com</td>
+        <td>Viewer</td>
+        <td><span class="status-badge status-inactive">Inactive</span></td>
+        <td>2024-01-10</td>
+      </tr>
+      <tr>
+        <td><strong>Alice Brown</strong></td>
+        <td>alice@example.com</td>
+        <td>Editor</td>
+        <td><span class="status-badge status-active">Active</span></td>
+        <td>2024-01-15</td>
+      </tr>
+      <tr>
+        <td><strong>Charlie Davis</strong></td>
+        <td>charlie@example.com</td>
+        <td>Admin</td>
+        <td><span class="status-badge status-active">Active</span></td>
+        <td>2024-01-13</td>
+      </tr>
+    </tbody>
+  </table>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -72,57 +123,5 @@ export const basicTableExample = `
   .status-inactive {
     background: #f3f4f6;
     color: #374151;
-  }
-</style>
-
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Status</th>
-        <th>Last Login</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>John Doe</strong></td>
-        <td>john@example.com</td>
-        <td>Admin</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td>2024-01-15</td>
-      </tr>
-      <tr>
-        <td><strong>Jane Smith</strong></td>
-        <td>jane@example.com</td>
-        <td>Editor</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td>2024-01-14</td>
-      </tr>
-      <tr>
-        <td><strong>Bob Johnson</strong></td>
-        <td>bob@example.com</td>
-        <td>Viewer</td>
-        <td><span class="status-badge status-inactive">Inactive</span></td>
-        <td>2024-01-10</td>
-      </tr>
-      <tr>
-        <td><strong>Alice Brown</strong></td>
-        <td>alice@example.com</td>
-        <td>Editor</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td>2024-01-15</td>
-      </tr>
-      <tr>
-        <td><strong>Charlie Davis</strong></td>
-        <td>charlie@example.com</td>
-        <td>Admin</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td>2024-01-13</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
+  }`,
+};

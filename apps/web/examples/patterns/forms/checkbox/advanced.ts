@@ -1,6 +1,205 @@
-export const advancedCheckboxExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const advancedCheckboxExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <h2>Advanced Checkbox Examples</h2>
+
+  <!-- Custom Styled Checkboxes -->
+  <div class="form-section">
+    <h3>Custom Styled Checkboxes</h3>
+    <div class="form-group">
+      <label class="custom-checkbox">
+        <input type="checkbox" name="custom1" value="option1">
+        <span class="checkmark"></span>
+        <span class="checkbox-label">
+          Custom styled checkbox
+          <div class="checkbox-description">This checkbox uses custom CSS styling</div>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="custom-checkbox animated-checkbox">
+        <input type="checkbox" name="custom2" value="option2">
+        <span class="checkmark"></span>
+        <span class="checkbox-label">
+          Animated checkbox
+          <div class="checkbox-description">Includes bounce animation on selection</div>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group disabled">
+      <label class="custom-checkbox disabled">
+        <input type="checkbox" name="custom3" value="option3" disabled>
+        <span class="checkmark"></span>
+        <span class="checkbox-label">
+          Disabled custom checkbox
+          <div class="checkbox-description">This option is currently disabled</div>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Card-style Checkboxes -->
+  <div class="form-section">
+    <h3>Card-style Checkboxes</h3>
+    <div class="checkbox-group">
+      <label class="checkbox-card" data-option="basic">
+        <input type="checkbox" name="plan" value="basic">
+        <div class="card-content">
+          <div class="card-icon">📦</div>
+          <div class="card-text">
+            <div class="card-title">Basic Plan</div>
+            <div class="card-description">Perfect for individuals and small projects</div>
+          </div>
+        </div>
+      </label>
+
+      <label class="checkbox-card" data-option="pro">
+        <input type="checkbox" name="plan" value="pro">
+        <div class="card-content">
+          <div class="card-icon">🚀</div>
+          <div class="card-text">
+            <div class="card-title">Pro Plan</div>
+            <div class="card-description">Advanced features for growing businesses</div>
+          </div>
+        </div>
+      </label>
+
+      <label class="checkbox-card" data-option="enterprise">
+        <input type="checkbox" name="plan" value="enterprise">
+        <div class="card-content">
+          <div class="card-icon">🏢</div>
+          <div class="card-text">
+            <div class="card-title">Enterprise Plan</div>
+            <div class="card-description">Full-featured solution for large organizations</div>
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Form Validation -->
+  <div class="form-section">
+    <h3>Form Validation</h3>
+    <div class="form-group" id="required-group">
+      <label class="custom-checkbox">
+        <input type="checkbox" name="required" value="agree" required>
+        <span class="checkmark"></span>
+        <span class="checkbox-label">
+          I agree to the terms and conditions
+          <div class="checkbox-description">This field is required</div>
+        </span>
+      </label>
+      <div class="error-message" id="required-error" style="display: none;">
+        You must agree to the terms and conditions
+      </div>
+    </div>
+
+    <div class="form-group" id="success-group">
+      <label class="custom-checkbox">
+        <input type="checkbox" name="newsletter" value="subscribe">
+        <span class="checkmark"></span>
+        <span class="checkbox-label">
+          Subscribe to newsletter
+          <div class="checkbox-description">Get updates about new features</div>
+        </span>
+      </label>
+      <div class="success-message" id="newsletter-success" style="display: none;">
+        Thank you for subscribing!
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Checkbox Groups -->
+  <div class="form-section">
+    <h3>Dynamic Checkbox Groups</h3>
+    <div class="dynamic-group" id="dynamic-group">
+      <div class="group-header">
+        <span class="group-title">Select Features</span>
+        <button class="add-button" onclick="addFeature()">+ Add Feature</button>
+      </div>
+      <div id="features-list">
+        <div class="checkbox-item">
+          <label class="custom-checkbox">
+            <input type="checkbox" name="features" value="analytics">
+            <span class="checkmark"></span>
+            <span class="checkbox-label">Analytics Dashboard</span>
+          </label>
+        </div>
+        <div class="checkbox-item">
+          <label class="custom-checkbox">
+            <input type="checkbox" name="features" value="api">
+            <span class="checkmark"></span>
+            <span class="checkbox-label">API Access</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Indicator -->
+  <div class="form-section">
+    <h3>Progress Indicator</h3>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+    </div>
+    <div class="progress-text" id="progress-text">Select at least 3 options to continue</div>
+
+    <div class="checkbox-group">
+      <div class="checkbox-item">
+        <label class="custom-checkbox">
+          <input type="checkbox" name="progress" value="option1" onchange="updateProgress()">
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Option 1</span>
+        </label>
+      </div>
+      <div class="checkbox-item">
+        <label class="custom-checkbox">
+          <input type="checkbox" name="progress" value="option2" onchange="updateProgress()">
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Option 2</span>
+        </label>
+      </div>
+      <div class="checkbox-item">
+        <label class="custom-checkbox">
+          <input type="checkbox" name="progress" value="option3" onchange="updateProgress()">
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Option 3</span>
+        </label>
+      </div>
+      <div class="checkbox-item">
+        <label class="custom-checkbox">
+          <input type="checkbox" name="progress" value="option4" onchange="updateProgress()">
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Option 4</span>
+        </label>
+      </div>
+      <div class="checkbox-item">
+        <label class="custom-checkbox">
+          <input type="checkbox" name="progress" value="option5" onchange="updateProgress()">
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Option 5</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Advanced Features Demonstrated</h3>
+    <p>
+      • Custom styled checkboxes with animations<br>
+      • Card-style checkbox selection<br>
+      • Form validation with error/success states<br>
+      • Dynamic checkbox group management<br>
+      • Progress indicators for multi-step forms<br>
+      • Indeterminate state handling<br>
+      • Responsive design considerations
+    </p>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -354,210 +553,8 @@ export const advancedCheckboxExample = `
     .checkbox-card {
       padding: 0.75rem;
     }
-  }
-</style>
-
-<div class="container">
-  <h2>Advanced Checkbox Examples</h2>
-
-  <!-- Custom Styled Checkboxes -->
-  <div class="form-section">
-    <h3>Custom Styled Checkboxes</h3>
-    <div class="form-group">
-      <label class="custom-checkbox">
-        <input type="checkbox" name="custom1" value="option1">
-        <span class="checkmark"></span>
-        <span class="checkbox-label">
-          Custom styled checkbox
-          <div class="checkbox-description">This checkbox uses custom CSS styling</div>
-        </span>
-      </label>
-    </div>
-
-    <div class="form-group">
-      <label class="custom-checkbox animated-checkbox">
-        <input type="checkbox" name="custom2" value="option2">
-        <span class="checkmark"></span>
-        <span class="checkbox-label">
-          Animated checkbox
-          <div class="checkbox-description">Includes bounce animation on selection</div>
-        </span>
-      </label>
-    </div>
-
-    <div class="form-group disabled">
-      <label class="custom-checkbox disabled">
-        <input type="checkbox" name="custom3" value="option3" disabled>
-        <span class="checkmark"></span>
-        <span class="checkbox-label">
-          Disabled custom checkbox
-          <div class="checkbox-description">This option is currently disabled</div>
-        </span>
-      </label>
-    </div>
-  </div>
-
-  <!-- Card-style Checkboxes -->
-  <div class="form-section">
-    <h3>Card-style Checkboxes</h3>
-    <div class="checkbox-group">
-      <label class="checkbox-card" data-option="basic">
-        <input type="checkbox" name="plan" value="basic">
-        <div class="card-content">
-          <div class="card-icon">📦</div>
-          <div class="card-text">
-            <div class="card-title">Basic Plan</div>
-            <div class="card-description">Perfect for individuals and small projects</div>
-          </div>
-        </div>
-      </label>
-
-      <label class="checkbox-card" data-option="pro">
-        <input type="checkbox" name="plan" value="pro">
-        <div class="card-content">
-          <div class="card-icon">🚀</div>
-          <div class="card-text">
-            <div class="card-title">Pro Plan</div>
-            <div class="card-description">Advanced features for growing businesses</div>
-          </div>
-        </div>
-      </label>
-
-      <label class="checkbox-card" data-option="enterprise">
-        <input type="checkbox" name="plan" value="enterprise">
-        <div class="card-content">
-          <div class="card-icon">🏢</div>
-          <div class="card-text">
-            <div class="card-title">Enterprise Plan</div>
-            <div class="card-description">Full-featured solution for large organizations</div>
-          </div>
-        </div>
-      </label>
-    </div>
-  </div>
-
-  <!-- Form Validation -->
-  <div class="form-section">
-    <h3>Form Validation</h3>
-    <div class="form-group" id="required-group">
-      <label class="custom-checkbox">
-        <input type="checkbox" name="required" value="agree" required>
-        <span class="checkmark"></span>
-        <span class="checkbox-label">
-          I agree to the terms and conditions
-          <div class="checkbox-description">This field is required</div>
-        </span>
-      </label>
-      <div class="error-message" id="required-error" style="display: none;">
-        You must agree to the terms and conditions
-      </div>
-    </div>
-
-    <div class="form-group" id="success-group">
-      <label class="custom-checkbox">
-        <input type="checkbox" name="newsletter" value="subscribe">
-        <span class="checkmark"></span>
-        <span class="checkbox-label">
-          Subscribe to newsletter
-          <div class="checkbox-description">Get updates about new features</div>
-        </span>
-      </label>
-      <div class="success-message" id="newsletter-success" style="display: none;">
-        Thank you for subscribing!
-      </div>
-    </div>
-  </div>
-
-  <!-- Dynamic Checkbox Groups -->
-  <div class="form-section">
-    <h3>Dynamic Checkbox Groups</h3>
-    <div class="dynamic-group" id="dynamic-group">
-      <div class="group-header">
-        <span class="group-title">Select Features</span>
-        <button class="add-button" onclick="addFeature()">+ Add Feature</button>
-      </div>
-      <div id="features-list">
-        <div class="checkbox-item">
-          <label class="custom-checkbox">
-            <input type="checkbox" name="features" value="analytics">
-            <span class="checkmark"></span>
-            <span class="checkbox-label">Analytics Dashboard</span>
-          </label>
-        </div>
-        <div class="checkbox-item">
-          <label class="custom-checkbox">
-            <input type="checkbox" name="features" value="api">
-            <span class="checkmark"></span>
-            <span class="checkbox-label">API Access</span>
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Progress Indicator -->
-  <div class="form-section">
-    <h3>Progress Indicator</h3>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-    </div>
-    <div class="progress-text" id="progress-text">Select at least 3 options to continue</div>
-
-    <div class="checkbox-group">
-      <div class="checkbox-item">
-        <label class="custom-checkbox">
-          <input type="checkbox" name="progress" value="option1" onchange="updateProgress()">
-          <span class="checkmark"></span>
-          <span class="checkbox-label">Option 1</span>
-        </label>
-      </div>
-      <div class="checkbox-item">
-        <label class="custom-checkbox">
-          <input type="checkbox" name="progress" value="option2" onchange="updateProgress()">
-          <span class="checkmark"></span>
-          <span class="checkbox-label">Option 2</span>
-        </label>
-      </div>
-      <div class="checkbox-item">
-        <label class="custom-checkbox">
-          <input type="checkbox" name="progress" value="option3" onchange="updateProgress()">
-          <span class="checkmark"></span>
-          <span class="checkbox-label">Option 3</span>
-        </label>
-      </div>
-      <div class="checkbox-item">
-        <label class="custom-checkbox">
-          <input type="checkbox" name="progress" value="option4" onchange="updateProgress()">
-          <span class="checkmark"></span>
-          <span class="checkbox-label">Option 4</span>
-        </label>
-      </div>
-      <div class="checkbox-item">
-        <label class="custom-checkbox">
-          <input type="checkbox" name="progress" value="option5" onchange="updateProgress()">
-          <span class="checkmark"></span>
-          <span class="checkbox-label">Option 5</span>
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-box">
-    <h3>Advanced Features Demonstrated</h3>
-    <p>
-      • Custom styled checkboxes with animations<br>
-      • Card-style checkbox selection<br>
-      • Form validation with error/success states<br>
-      • Dynamic checkbox group management<br>
-      • Progress indicators for multi-step forms<br>
-      • Indeterminate state handling<br>
-      • Responsive design considerations
-    </p>
-  </div>
-</div>
-
-<script>
-  // Card-style checkbox selection
+  }`,
+	js: `// Card-style checkbox selection
   document.addEventListener('DOMContentLoaded', () => {
     const cardCheckboxes = document.querySelectorAll('.checkbox-card');
 
@@ -673,6 +670,5 @@ export const advancedCheckboxExample = `
     if (validateForm()) {
       alert('Form submitted successfully!');
     }
-  });
-</script>
-`;
+  });`,
+};

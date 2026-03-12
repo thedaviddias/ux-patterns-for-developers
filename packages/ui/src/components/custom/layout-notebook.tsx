@@ -31,7 +31,6 @@ import { NavProvider } from "fumadocs-ui/contexts/layout";
 import { TreeContextProvider } from "fumadocs-ui/contexts/tree";
 import {
 	type BaseLayoutProps,
-	type BaseLinkType,
 	resolveLinkItems,
 	type LinkItemType,
 } from "fumadocs-ui/layouts/shared";
@@ -229,9 +228,9 @@ function DocsNavbar({
 					<ul className="flex flex-row items-center gap-2 px-6 max-lg:hidden">
 						{links
 							.filter((item) => item.type !== "icon")
-							.map((item, i) => (
+							.map((item) => (
 								<NavbarLinkItem
-									key={i}
+									key={getLinkItemKey(item)}
 									item={item}
 									className="inline-flex items-center gap-1 p-2 text-fd-muted-foreground transition-colors hover:text-fd-accent-foreground data-[active=true]:text-fd-primary [&_svg]:size-4 text-sm"
 								/>
@@ -262,9 +261,9 @@ function DocsNavbar({
 
 					{links
 						.filter((item) => item.type === "icon")
-						.map((item, i) => (
+						.map((item) => (
 							<Link
-								key={i}
+								key={getLinkItemKey(item)}
 								href={item.url}
 								external={item.external}
 								className={cn(
@@ -348,14 +347,16 @@ function NavbarLinkItem({
 					<ChevronDown className="size-3" />
 				</PopoverTrigger>
 				<PopoverContent className="flex flex-col">
-					{item.items.map((child, i) => {
+					{item.items.map((child) => {
 						if (child.type === "custom")
-							return <Fragment key={i}>{child.children}</Fragment>;
+							return (
+								<Fragment key={getLinkItemKey(child)}>{child.children}</Fragment>
+							);
 
 						const active = child.url ? isTabActive({ url: child.url }, pathname) : false;
 						return (
 							<Link
-								key={i}
+								key={getLinkItemKey(child)}
 								href={child.url}
 								external={child.external}
 								data-active={active}
@@ -379,6 +380,18 @@ function NavbarLinkItem({
 			{item.text}
 		</Link>
 	);
+}
+
+function getLinkItemKey(item: LinkItemType): string {
+	if ("url" in item && item.url) return item.url;
+	if ("label" in item && item.label) return `${item.type}:${item.label}`;
+	if ("text" in item && item.text) return `${item.type}:${item.text}`;
+	if (item.type === "custom" && item.children && typeof item.children === "object") {
+		const childKey = "key" in item.children ? item.children.key : null;
+		if (childKey != null) return `custom:${String(childKey)}`;
+	}
+
+	return item.type;
 }
 
 export { Navbar, NavbarSidebarTrigger };

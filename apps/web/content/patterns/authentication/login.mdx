@@ -203,6 +203,10 @@ The form occupies one half of the screen with branding or illustration on the ot
 
 ## Examples
 
+### Live Preview
+
+<Playground patternType="authentication" pattern="login" example="basic" presentation="hidden-code" />
+
 ### Basic HTML Implementation
 
 ```html
@@ -669,7 +673,8 @@ After 3-5 failed attempts, show a message: "Too many attempts. Please wait 30 se
 
 ### Clearing Fields on Error
 **The Problem:**
-The form clears the email field on failed login, forcing users to retype their email address.
+The form clears the email field on failed login
+import { Playground } from "@/components/playground";, forcing users to retype their email address.
 
 **How to Fix It:**
 Preserve the email value after a failed attempt. Only clear the password field, as retyping the password is a security best practice.

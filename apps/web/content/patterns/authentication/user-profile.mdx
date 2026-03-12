@@ -203,6 +203,10 @@ A profile page with tabbed content sections (Posts, Repositories, Activity, Sett
 
 ## Examples
 
+### Live Preview
+
+<Playground patternType="authentication" pattern="user-profile" example="basic" presentation="hidden-code" />
+
 ### Basic HTML Implementation
 
 ```html
@@ -674,7 +678,8 @@ Make email visibility opt-in. Default to hidden and let users choose to display 
 
 ### Avatar Upload Without Crop
 **The Problem:**
-Users upload a large photo and it gets auto-cropped awkwardly, cutting off faces or important parts.
+Users upload a large photo 
+import { Playground } from "@/components/playground";and it gets auto-cropped awkwardly, cutting off faces or important parts.
 
 **How to Fix It:**
 Provide a crop tool after upload that lets users position and resize the image within the circular/square frame before saving.

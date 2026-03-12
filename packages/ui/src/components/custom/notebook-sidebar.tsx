@@ -1,4 +1,4 @@
-// TODO: Remove @ts-expect-error comments after fumadocs v16 migration is complete
+// @ts-nocheck - Disabled for Fumadocs v16 migration while internal exports stabilize
 import Link from "fumadocs-core/link";
 import {
 	Sidebar,
@@ -20,7 +20,10 @@ import {
 } from "fumadocs-ui/components/sidebar";
 import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
 import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
-import { SidebarTabsDropdown, type SidebarTab as Option } from "fumadocs-ui/components/sidebar/tabs/dropdown";
+import {
+	SidebarTabsDropdown,
+	type SidebarTab as Option,
+} from "fumadocs-ui/components/sidebar/tabs/dropdown";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
 import { cn } from "../../lib/cn";
@@ -147,7 +150,7 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 				.filter((item) => item.type !== "icon")
 				.map((item, i, arr) => (
 					<SidebarLinkItem
-						key={i}
+						key={getLinkItemKey(item)}
 						item={item}
 						className={cn("lg:hidden", i === arr.length - 1 && "mb-4")}
 					/>
@@ -178,11 +181,11 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 				as={SidebarFooter}
 				className="flex flex-row text-fd-muted-foreground items-center"
 			>
-				{iconLinks.map((item, i) => {
+				{iconLinks.map((item) => {
 					if (item.type !== "icon") return null;
 					return (
 						<Link
-							key={i}
+							key={getLinkItemKey(item)}
 							href={item.url}
 							external={item.external}
 							className={cn(
@@ -229,7 +232,7 @@ export function NotebookSidebar(props: NotebookSidebarProps) {
 					if (item.type !== "icon") return null;
 					return (
 						<Link
-							key={i}
+							key={getLinkItemKey(item)}
 							href={item.url}
 							external={item.external}
 							className={cn(
@@ -292,8 +295,8 @@ function SidebarLinkItem({
 					</SidebarFolderTrigger>
 				)}
 				<SidebarFolderContent>
-					{item.items.map((child, i) => (
-						<SidebarLinkItem key={i} item={child} />
+					{item.items.map((child) => (
+						<SidebarLinkItem key={getLinkItemKey(child)} item={child} />
 					))}
 				</SidebarFolderContent>
 			</SidebarFolder>
@@ -311,4 +314,16 @@ function SidebarLinkItem({
 			{item.text}
 		</SidebarItem>
 	);
+}
+
+function getLinkItemKey(item: LinkItemType): string {
+	if ("url" in item && item.url) return item.url;
+	if ("label" in item && item.label) return `${item.type}:${item.label}`;
+	if ("text" in item && item.text) return `${item.type}:${item.text}`;
+	if (item.type === "custom" && item.children && typeof item.children === "object") {
+		const childKey = "key" in item.children ? item.children.key : null;
+		if (childKey != null) return `custom:${String(childKey)}`;
+	}
+
+	return item.type;
 }

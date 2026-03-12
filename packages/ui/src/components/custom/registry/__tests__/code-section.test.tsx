@@ -1,184 +1,100 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import * as React from "react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { act, render, screen } from "@testing-library/react";
+import type { ComponentProps } from "react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CodeSection } from "../code-section";
 
-// Mock the pre element with different heights
-const createMockPreElement = (scrollHeight: number) => {
-	const mockPre = document.createElement("pre");
-	Object.defineProperty(mockPre, "scrollHeight", {
-		value: scrollHeight,
-		writable: true,
+const flushHeightChecks = async () => {
+	await act(async () => {
+		vi.runAllTimers();
 	});
-	return mockPre;
 };
+
+const renderCodeSection = (props?: Partial<ComponentProps<typeof CodeSection>>) =>
+	render(
+		<CodeSection {...props}>
+			<pre>
+				<code>{props?.children ?? "console.log('test')"}</code>
+			</pre>
+		</CodeSection>,
+	);
 
 describe("CodeSection", () => {
 	beforeEach(() => {
-		// Reset any mocks
 		vi.clearAllMocks();
+		vi.useFakeTimers();
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
 	});
 
 	it("should render children correctly", () => {
-		render(
-			<CodeSection>
-				<pre>
-					<code>console.log('test')</code>
-				</pre>
-			</CodeSection>,
-		);
+		renderCodeSection();
 
 		expect(screen.getByText("console.log('test')")).toBeInTheDocument();
 	});
 
 	it("should NOT show expand button for short content", async () => {
-		// Mock querySelector to return a short pre element
-		const mockQuerySelector = vi.fn();
-		mockQuerySelector.mockReturnValue(createMockPreElement(200)); // Short content
-
-		const mockRef = { current: { querySelector: mockQuerySelector } };
-		vi.spyOn(React, "useRef").mockReturnValue(mockRef);
-
-		render(
-			<CodeSection>
-				<pre style={{ height: "200px" }}>
-					<code>Short code</code>
-				</pre>
-			</CodeSection>,
-		);
-
-		// Wait for useEffect to run
-		await waitFor(() => {
-			expect(mockQuerySelector).toHaveBeenCalledWith("pre");
+		const onShouldShowExpandChange = vi.fn();
+		const { container } = renderCodeSection({
+			children: "Short code",
+			onShouldShowExpandChange,
 		});
 
-		// Should NOT show expand button
-		expect(screen.queryByText("Expand")).not.toBeInTheDocument();
+		await flushHeightChecks();
+
+		const preElement = container.querySelector("pre");
+		expect(onShouldShowExpandChange).toHaveBeenLastCalledWith(false);
+		expect(container.querySelector(".bg-gradient-to-t")).not.toBeInTheDocument();
+		expect(preElement).toHaveStyle({ maxHeight: "none", overflow: "visible" });
 	});
 
-	it("should show expand button for tall content", async () => {
-		render(
-			<CodeSection>
-				<pre style={{ height: "500px" }}>
-					<code>
-						{Array.from({ length: 20 }, (_, i) => `Line ${i + 1}\n`).join("")}
-					</code>
-				</pre>
-			</CodeSection>,
-		);
-
-		// Wait for height detection
-		await waitFor(
-			() => {
-				const expandButton = screen.queryByText("Expand");
-				expect(expandButton).toBeInTheDocument();
-			},
-			{ timeout: 1000 },
-		);
-	});
-
-	it("should toggle between Expand and Collapse states", async () => {
-		render(
-			<CodeSection>
-				<pre style={{ height: "500px" }}>
-					<code>Very tall content that should trigger expand</code>
-				</pre>
-			</CodeSection>,
-		);
-
-		// Wait for expand button to appear
-		await waitFor(() => {
-			expect(screen.getByText("Expand")).toBeInTheDocument();
+	it("should detect tall content and collapse it by default", async () => {
+		const onShouldShowExpandChange = vi.fn();
+		const tallContent = Array.from(
+			{ length: 20 },
+			(_, index) => `Line ${index + 1}`,
+		).join("\n");
+		const { container } = renderCodeSection({
+			children: tallContent,
+			onShouldShowExpandChange,
 		});
 
-		const expandButton = screen.getByText("Expand");
+		await flushHeightChecks();
 
-		// Click to expand
-		fireEvent.click(expandButton);
-
-		// Should now show Collapse
-		expect(screen.getByText("Collapse")).toBeInTheDocument();
-		expect(screen.queryByText("Expand")).not.toBeInTheDocument();
-
-		// Click to collapse
-		fireEvent.click(screen.getByText("Collapse"));
-
-		// Should show Expand again
-		expect(screen.getByText("Expand")).toBeInTheDocument();
-	});
-
-	it("should show gradient overlay when collapsed and content is tall", async () => {
-		const { container } = render(
-			<CodeSection>
-				<pre style={{ height: "500px" }}>
-					<code>Tall content</code>
-				</pre>
-			</CodeSection>,
-		);
-
-		// Wait for height detection
-		await waitFor(() => {
-			expect(screen.getByText("Expand")).toBeInTheDocument();
-		});
-
-		// Should show gradient overlay
-		const gradient = container.querySelector(".bg-gradient-to-t");
-		expect(gradient).toBeInTheDocument();
+		const preElement = container.querySelector("pre");
+		expect(onShouldShowExpandChange).toHaveBeenLastCalledWith(true);
+		expect(container.querySelector(".bg-gradient-to-t")).toBeInTheDocument();
+		expect(preElement).toHaveStyle({ maxHeight: "350px", overflow: "hidden" });
 	});
 
 	it("should hide gradient overlay when expanded", async () => {
-		const { container } = render(
-			<CodeSection>
-				<pre style={{ height: "500px" }}>
-					<code>Tall content</code>
-				</pre>
-			</CodeSection>,
-		);
-
-		// Wait for expand button
-		await waitFor(() => {
-			expect(screen.getByText("Expand")).toBeInTheDocument();
+		const tallContent = Array.from(
+			{ length: 20 },
+			(_, index) => `Line ${index + 1}`,
+		).join("\n");
+		const { container } = renderCodeSection({
+			children: tallContent,
+			isExpanded: true,
+			shouldShowExpand: true,
 		});
 
-		// Click expand
-		fireEvent.click(screen.getByText("Expand"));
+		await flushHeightChecks();
 
-		// Gradient should be hidden
-		const gradient = container.querySelector(".bg-gradient-to-t");
-		expect(gradient).not.toBeInTheDocument();
+		const preElement = container.querySelector("pre");
+		expect(container.querySelector(".bg-gradient-to-t")).not.toBeInTheDocument();
+		expect(preElement).toHaveStyle({ maxHeight: "none", overflow: "visible" });
 	});
 
-	it("should apply correct CSS classes for collapsed state", () => {
-		const { container } = render(
-			<CodeSection>
-				<pre>
-					<code>Test</code>
-				</pre>
-			</CodeSection>,
-		);
-
-		const codeContainer = container.querySelector('[class*="max-h-"]');
-		expect(codeContainer).toHaveClass("max-h-[350px]");
-		expect(codeContainer).toHaveClass("overflow-hidden");
-	});
-
-	it("should apply correct CSS classes for expanded state", async () => {
-		const { container } = render(
-			<CodeSection>
-				<pre style={{ height: "500px" }}>
-					<code>Tall content</code>
-				</pre>
-			</CodeSection>,
-		);
-
-		// Wait for expand button and click it
-		await waitFor(() => {
-			expect(screen.getByText("Expand")).toBeInTheDocument();
+	it("should report extracted code content", async () => {
+		const onCodeContentChange = vi.fn();
+		renderCodeSection({
+			children: "const answer = 42;",
+			onCodeContentChange,
 		});
 
-		fireEvent.click(screen.getByText("Expand"));
+		await flushHeightChecks();
 
-		const codeContainer = container.querySelector('[class*="max-h-"]');
-		expect(codeContainer).toHaveClass("max-h-none");
+		expect(onCodeContentChange).toHaveBeenLastCalledWith("const answer = 42;");
 	});
 });

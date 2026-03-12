@@ -1,6 +1,54 @@
-export const sortableTableExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const sortableTableExample: PatternExampleDefinition = {
+	html: `<div class="table-container">
+  <table id="sortableTable">
+    <thead>
+      <tr>
+        <th class="sortable" data-column="name">
+          Name
+          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
+          </svg>
+        </th>
+        <th class="sortable" data-column="email">
+          Email
+          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
+          </svg>
+        </th>
+        <th class="sortable" data-column="role">
+          Role
+          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
+          </svg>
+        </th>
+        <th class="sortable" data-column="salary">
+          Salary
+          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
+          </svg>
+        </th>
+        <th class="sortable" data-column="status">
+          Status
+          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
+          </svg>
+        </th>
+        <th class="sortable" data-column="lastLogin">
+          Last Login
+          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
+          </svg>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Table rows will be rendered here -->
+    </tbody>
+  </table>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -104,59 +152,8 @@ export const sortableTableExample = `
   .status-inactive {
     background: #f3f4f6;
     color: #374151;
-  }
-</style>
-
-<div class="table-container">
-  <table id="sortableTable">
-    <thead>
-      <tr>
-        <th class="sortable" data-column="name">
-          Name
-          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
-          </svg>
-        </th>
-        <th class="sortable" data-column="email">
-          Email
-          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
-          </svg>
-        </th>
-        <th class="sortable" data-column="role">
-          Role
-          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
-          </svg>
-        </th>
-        <th class="sortable" data-column="salary">
-          Salary
-          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
-          </svg>
-        </th>
-        <th class="sortable" data-column="status">
-          Status
-          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
-          </svg>
-        </th>
-        <th class="sortable" data-column="lastLogin">
-          Last Login
-          <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M16 15l-4 4-4-4" />
-          </svg>
-        </th>
-      </tr>
-    </thead>
-    <tbody id="tableBody">
-      <!-- Table rows will be rendered here -->
-    </tbody>
-  </table>
-</div>
-
-<script>
-  // Data
+  }`,
+	js: `// Data
   const tableData = [
     { name: 'John Doe', email: 'john@example.com', role: 'Admin', salary: 95000, status: 'active', lastLogin: '2024-01-15' },
     { name: 'Jane Smith', email: 'jane@example.com', role: 'Editor', salary: 65000, status: 'active', lastLogin: '2024-01-14' },
@@ -241,6 +238,5 @@ export const sortableTableExample = `
   });
 
   // Initial render
-  renderTable();
-</script>
-`;
+  renderTable();`,
+};

@@ -1,4 +1,6 @@
-export const advancedRadioExample = {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const advancedRadioExample: PatternExampleDefinition = {
 	html: `<!-- Advanced radio button form with validation -->
 <form id="advancedRadioForm" novalidate>
   <fieldset>

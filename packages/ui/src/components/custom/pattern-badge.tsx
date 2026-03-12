@@ -26,7 +26,6 @@ export function PatternBadge({
 				variantStyles[variant],
 				className,
 			)}
-			aria-label={`${label} pattern`}
 		>
 			{label}
 		</span>

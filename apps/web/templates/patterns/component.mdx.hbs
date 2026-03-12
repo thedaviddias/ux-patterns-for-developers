@@ -181,19 +181,30 @@ How the pattern changes based on context
 
 <!--
   REQUIRED SECTION
-  Examples combining interactive demos and implementation code
-  Place interactive Playground demos first for visual patterns,
-  followed by static code examples for implementation reference
+  Use a tiered example model:
+  1. One canonical live preview
+  2. One concise visible implementation snippet
+  3. Advanced examples collapsed or optional
 -->
 ## Examples
 
-### Interactive Demo
+### Live Preview
 
 <Playground
   patternType="{{category}}"
   pattern="{{name-lowercase}}"
   example="basic"
+  presentation="hidden-code"
 />
+
+### Basic Implementation
+
+```html
+<!-- Keep this canonical example short and focused -->
+<div class="{{name-lowercase}}">
+  <!-- Component markup here -->
+</div>
+```
 
 ### Advanced Demo
 
@@ -201,16 +212,8 @@ How the pattern changes based on context
   patternType="{{category}}"
   pattern="{{name-lowercase}}"
   example="advanced"
+  presentation="collapsed"
 />
-
-### Basic Implementation
-
-```html
-<!-- Basic HTML structure for the {{name}} pattern -->
-<div class="{{name-lowercase}}">
-  <!-- Component markup here -->
-</div>
-```
 
 ## Common Mistakes & Anti-Patterns 🚫
 
@@ -593,4 +596,3 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 ### Tools
 - [{{name}} Generator](https://example.com) - Quick starter tool
 - [Testing Utilities](https://example.com) - Specialized testing helpers
-

@@ -1,6 +1,74 @@
-export const basicBackToTopExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicBackToTopExample: PatternExampleDefinition = {
+	html: `<div class="scroll-progress">
+  <div class="scroll-progress-bar" id="progressBar"></div>
+</div>
+
+<div class="container">
+  <header>
+    <h1>Back to Top Demo</h1>
+    <p class="subtitle">Scroll down to see the button appear</p>
+  </header>
+
+  <section class="content-section">
+    <h2>Introduction</h2>
+    <p>This is a demonstration of the Back to Top pattern. As you scroll down this page, you'll notice a button appears in the bottom-right corner after you've scrolled past a certain threshold.</p>
+    <p>The button provides a quick way to return to the top of the page without manually scrolling. This is especially useful on long pages with extensive content.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Features</h2>
+    <p>This implementation includes several key features:</p>
+    <p><strong>Smooth Scrolling:</strong> The page scrolls smoothly to the top when the button is clicked, providing a pleasant user experience.</p>
+    <p><strong>Progressive Appearance:</strong> The button only appears after scrolling down a significant distance (300px in this demo), avoiding clutter when it's not needed.</p>
+    <p><strong>Keyboard Support:</strong> The button is fully keyboard accessible and can be activated with Enter or Space keys.</p>
+    <p><strong>Visual Feedback:</strong> Hover and active states provide clear feedback to users.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Accessibility</h2>
+    <p>The Back to Top button follows accessibility best practices:</p>
+    <p>It includes proper ARIA labels for screen readers, ensuring all users understand its purpose.</p>
+    <p>The button is keyboard focusable and shows a clear focus indicator when navigated to via keyboard.</p>
+    <p>For users who prefer reduced motion, the smooth scrolling is automatically disabled, respecting their system preferences.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Performance</h2>
+    <p>This implementation is optimized for performance:</p>
+    <p>The scroll event is throttled to prevent excessive calculations during scrolling.</p>
+    <p>CSS transitions are used for the button's appearance animation, leveraging GPU acceleration.</p>
+    <p>The button is hidden using both opacity and visibility properties to ensure it doesn't interfere with other page elements when not visible.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Mobile Considerations</h2>
+    <p>On mobile devices, the button is positioned to be easily reachable with the thumb.</p>
+    <p>The touch target size meets accessibility guidelines (minimum 44x44 pixels).</p>
+    <p>The button size is slightly reduced on smaller screens to avoid taking up too much space.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Try It Out!</h2>
+    <p>Keep scrolling to see the Back to Top button in action. Notice how it fades in smoothly once you've scrolled past the threshold.</p>
+    <p>Click or tap the button to instantly return to the top of the page. The smooth scrolling animation makes the transition pleasant and helps maintain context.</p>
+    <p>Try using your keyboard: Tab to focus the button and press Enter or Space to activate it.</p>
+  </section>
+</div>
+
+<button
+  type="button"
+  class="back-to-top"
+  id="backToTop"
+  aria-label="Back to top"
+  title="Back to top"
+></button>
+
+<div class="scroll-indicator" id="scrollIndicator">
+  Scroll: <span id="scrollPercent">0</span>%
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -184,79 +252,8 @@ export const basicBackToTopExample = `
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-  }
-</style>
-
-<div class="scroll-progress">
-  <div class="scroll-progress-bar" id="progressBar"></div>
-</div>
-
-<div class="container">
-  <header>
-    <h1>Back to Top Demo</h1>
-    <p class="subtitle">Scroll down to see the button appear</p>
-  </header>
-
-  <section class="content-section">
-    <h2>Introduction</h2>
-    <p>This is a demonstration of the Back to Top pattern. As you scroll down this page, you'll notice a button appears in the bottom-right corner after you've scrolled past a certain threshold.</p>
-    <p>The button provides a quick way to return to the top of the page without manually scrolling. This is especially useful on long pages with extensive content.</p>
-  </section>
-
-  <section class="content-section">
-    <h2>Features</h2>
-    <p>This implementation includes several key features:</p>
-    <p><strong>Smooth Scrolling:</strong> The page scrolls smoothly to the top when the button is clicked, providing a pleasant user experience.</p>
-    <p><strong>Progressive Appearance:</strong> The button only appears after scrolling down a significant distance (300px in this demo), avoiding clutter when it's not needed.</p>
-    <p><strong>Keyboard Support:</strong> The button is fully keyboard accessible and can be activated with Enter or Space keys.</p>
-    <p><strong>Visual Feedback:</strong> Hover and active states provide clear feedback to users.</p>
-  </section>
-
-  <section class="content-section">
-    <h2>Accessibility</h2>
-    <p>The Back to Top button follows accessibility best practices:</p>
-    <p>It includes proper ARIA labels for screen readers, ensuring all users understand its purpose.</p>
-    <p>The button is keyboard focusable and shows a clear focus indicator when navigated to via keyboard.</p>
-    <p>For users who prefer reduced motion, the smooth scrolling is automatically disabled, respecting their system preferences.</p>
-  </section>
-
-  <section class="content-section">
-    <h2>Performance</h2>
-    <p>This implementation is optimized for performance:</p>
-    <p>The scroll event is throttled to prevent excessive calculations during scrolling.</p>
-    <p>CSS transitions are used for the button's appearance animation, leveraging GPU acceleration.</p>
-    <p>The button is hidden using both opacity and visibility properties to ensure it doesn't interfere with other page elements when not visible.</p>
-  </section>
-
-  <section class="content-section">
-    <h2>Mobile Considerations</h2>
-    <p>On mobile devices, the button is positioned to be easily reachable with the thumb.</p>
-    <p>The touch target size meets accessibility guidelines (minimum 44x44 pixels).</p>
-    <p>The button size is slightly reduced on smaller screens to avoid taking up too much space.</p>
-  </section>
-
-  <section class="content-section">
-    <h2>Try It Out!</h2>
-    <p>Keep scrolling to see the Back to Top button in action. Notice how it fades in smoothly once you've scrolled past the threshold.</p>
-    <p>Click or tap the button to instantly return to the top of the page. The smooth scrolling animation makes the transition pleasant and helps maintain context.</p>
-    <p>Try using your keyboard: Tab to focus the button and press Enter or Space to activate it.</p>
-  </section>
-</div>
-
-<button
-  type="button"
-  class="back-to-top"
-  id="backToTop"
-  aria-label="Back to top"
-  title="Back to top"
-></button>
-
-<div class="scroll-indicator" id="scrollIndicator">
-  Scroll: <span id="scrollPercent">0</span>%
-</div>
-
-<script>
-  // Configuration
+  }`,
+	js: `// Configuration
   const SCROLL_THRESHOLD = 300; // Show button after scrolling 300px
   const THROTTLE_DELAY = 100; // Throttle scroll events
 
@@ -354,6 +351,5 @@ export const basicBackToTopExample = `
 
     // Initialize on load
     updateScrollIndicators();
-  }, 100);
-</script>
-`;
+  }, 100);`,
+};

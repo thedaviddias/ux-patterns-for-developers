@@ -1,6 +1,20 @@
-export const basicPaginationExample = `
-<style>
-    * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicPaginationExample: PatternExampleDefinition = {
+	html: `<div class="content" id="content">
+    <!-- Content will be inserted here -->
+  </div>
+
+  <div class="info" id="info">
+    <!-- Info will be inserted here -->
+  </div>
+
+  <nav aria-label="Pagination Navigation" role="navigation">
+    <div class="pagination" id="pagination">
+      <!-- Pagination controls will be inserted here -->
+    </div>
+  </nav>`,
+	css: `* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -104,24 +118,8 @@ export const basicPaginationExample = `
         font-size: 0.75rem;
         min-width: 36px;
       }
-    }
-  </style>
-  <div class="content" id="content">
-    <!-- Content will be inserted here -->
-  </div>
-
-  <div class="info" id="info">
-    <!-- Info will be inserted here -->
-  </div>
-
-  <nav aria-label="Pagination Navigation" role="navigation">
-    <div class="pagination" id="pagination">
-      <!-- Pagination controls will be inserted here -->
-    </div>
-  </nav>
-
-  <script>
-    // Sample data
+    }`,
+	js: `// Sample data
     const items = Array.from({ length: 50 }, (_, i) => ({
       id: i + 1,
       title: \`Item \${i + 1}\`,
@@ -239,6 +237,5 @@ export const basicPaginationExample = `
 
     // Initial render
     renderContent();
-    renderPagination();
-  </script>
-`;
+    renderPagination();`,
+};

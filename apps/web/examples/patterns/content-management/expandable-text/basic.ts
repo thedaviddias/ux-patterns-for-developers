@@ -1,5 +1,7 @@
-export const basicExpandableTextExample = `
-<div>
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicExpandableTextExample: PatternExampleDefinition = {
+	html: `<div>
   <p id="expandable-text">
     This is the visible content...
     <span id="hidden-text" hidden>
@@ -9,10 +11,8 @@ export const basicExpandableTextExample = `
   <button id="expand-button" aria-expanded="false" aria-controls="hidden-text">
     Read More <span aria-hidden="true">▾</span>
   </button>
-</div>
-
-<script>
-  const button = document.getElementById("expand-button");
+</div>`,
+	js: `const button = document.getElementById("expand-button");
   const text = document.getElementById("hidden-text");
   const icon = button.querySelector("span");
 
@@ -25,6 +25,5 @@ export const basicExpandableTextExample = `
     button.textContent = isExpanded ? "Read More" : "Read Less";
     button.appendChild(icon);
     icon.textContent = isExpanded ? "▾" : "▴";
-  });
-</script>
-`;
+  });`,
+};

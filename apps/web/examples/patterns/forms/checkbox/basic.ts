@@ -1,6 +1,139 @@
-export const basicCheckboxExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicCheckboxExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <h2>Checkbox Examples</h2>
+
+  <!-- Basic Checkboxes -->
+  <div class="form-section">
+    <h3>Basic Checkboxes</h3>
+    <div class="checkbox-group">
+      <div class="checkbox-item">
+        <input type="checkbox" id="newsletter" name="preferences" value="newsletter" class="checkbox-input">
+        <label for="newsletter" class="checkbox-label">
+          Subscribe to newsletter
+          <div class="checkbox-description">Get weekly updates about new features and tips</div>
+        </label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="notifications" name="preferences" value="notifications" class="checkbox-input">
+        <label for="notifications" class="checkbox-label">
+          Email notifications
+          <div class="checkbox-description">Receive notifications about important updates</div>
+        </label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="marketing" name="preferences" value="marketing" class="checkbox-input">
+        <label for="marketing" class="checkbox-label">
+          Marketing emails
+          <div class="checkbox-description">Promotional offers and product announcements</div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grouped Checkboxes -->
+  <div class="form-section">
+    <h3>Grouped Checkboxes</h3>
+    <fieldset>
+      <legend>Communication Preferences</legend>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="email" name="communication" value="email" class="checkbox-input">
+          <label for="email" class="checkbox-label">Email notifications</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="sms" name="communication" value="sms" class="checkbox-input">
+          <label for="sms" class="checkbox-label">SMS notifications</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="push" name="communication" value="push" class="checkbox-input">
+          <label for="push" class="checkbox-label">Push notifications</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <!-- Inline Checkboxes -->
+  <div class="form-section">
+    <h3>Inline Checkboxes</h3>
+    <div class="checkbox-inline">
+      <div class="checkbox-item">
+        <input type="checkbox" id="terms" name="agreements" value="terms" class="checkbox-input">
+        <label for="terms" class="checkbox-label">Terms of Service</label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="privacy" name="agreements" value="privacy" class="checkbox-input">
+        <label for="privacy" class="checkbox-label">Privacy Policy</label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="cookies" name="agreements" value="cookies" class="checkbox-input">
+        <label for="cookies" class="checkbox-label">Cookie Policy</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disabled State -->
+  <div class="form-section">
+    <h3>Disabled State</h3>
+    <div class="checkbox-group">
+      <div class="checkbox-item">
+        <input type="checkbox" id="enabled" name="status" value="enabled" class="checkbox-input">
+        <label for="enabled" class="checkbox-label">Enabled option</label>
+      </div>
+
+      <div class="checkbox-item disabled">
+        <input type="checkbox" id="disabled" name="status" value="disabled" class="checkbox-input" disabled>
+        <label for="disabled" class="checkbox-label">Disabled option</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indeterminate State -->
+  <div class="form-section">
+    <h3>Indeterminate State</h3>
+    <div class="checkbox-group">
+      <div class="checkbox-item">
+        <input type="checkbox" id="select-all" name="select-all" class="checkbox-input checkbox-indeterminate">
+        <label for="select-all" class="checkbox-label">Select all items</label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="item1" name="items" value="item1" class="checkbox-input">
+        <label for="item1" class="checkbox-label">Item 1</label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="item2" name="items" value="item2" class="checkbox-input">
+        <label for="item2" class="checkbox-label">Item 2</label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="item3" name="items" value="item3" class="checkbox-input">
+        <label for="item3" class="checkbox-label">Item 3</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>Features Demonstrated</h3>
+    <p>
+      • Multiple checkbox selections<br>
+      • Proper labeling and accessibility<br>
+      • Different states (checked, unchecked, disabled)<br>
+      • Grouped and individual checkbox behaviors<br>
+      • Keyboard navigation support<br>
+      • Indeterminate state for parent checkboxes
+    </p>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -173,144 +306,8 @@ export const basicCheckboxExample = `
       flex-direction: column;
       gap: 0.75rem;
     }
-  }
-</style>
-
-<div class="container">
-  <h2>Checkbox Examples</h2>
-
-  <!-- Basic Checkboxes -->
-  <div class="form-section">
-    <h3>Basic Checkboxes</h3>
-    <div class="checkbox-group">
-      <div class="checkbox-item">
-        <input type="checkbox" id="newsletter" name="preferences" value="newsletter" class="checkbox-input">
-        <label for="newsletter" class="checkbox-label">
-          Subscribe to newsletter
-          <div class="checkbox-description">Get weekly updates about new features and tips</div>
-        </label>
-      </div>
-
-      <div class="checkbox-item">
-        <input type="checkbox" id="notifications" name="preferences" value="notifications" class="checkbox-input">
-        <label for="notifications" class="checkbox-label">
-          Email notifications
-          <div class="checkbox-description">Receive notifications about important updates</div>
-        </label>
-      </div>
-
-      <div class="checkbox-item">
-        <input type="checkbox" id="marketing" name="preferences" value="marketing" class="checkbox-input">
-        <label for="marketing" class="checkbox-label">
-          Marketing emails
-          <div class="checkbox-description">Promotional offers and product announcements</div>
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Grouped Checkboxes -->
-  <div class="form-section">
-    <h3>Grouped Checkboxes</h3>
-    <fieldset>
-      <legend>Communication Preferences</legend>
-      <div class="checkbox-group">
-        <div class="checkbox-item">
-          <input type="checkbox" id="email" name="communication" value="email" class="checkbox-input">
-          <label for="email" class="checkbox-label">Email notifications</label>
-        </div>
-
-        <div class="checkbox-item">
-          <input type="checkbox" id="sms" name="communication" value="sms" class="checkbox-input">
-          <label for="sms" class="checkbox-label">SMS notifications</label>
-        </div>
-
-        <div class="checkbox-item">
-          <input type="checkbox" id="push" name="communication" value="push" class="checkbox-input">
-          <label for="push" class="checkbox-label">Push notifications</label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-
-  <!-- Inline Checkboxes -->
-  <div class="form-section">
-    <h3>Inline Checkboxes</h3>
-    <div class="checkbox-inline">
-      <div class="checkbox-item">
-        <input type="checkbox" id="terms" name="agreements" value="terms" class="checkbox-input">
-        <label for="terms" class="checkbox-label">Terms of Service</label>
-      </div>
-
-      <div class="checkbox-item">
-        <input type="checkbox" id="privacy" name="agreements" value="privacy" class="checkbox-input">
-        <label for="privacy" class="checkbox-label">Privacy Policy</label>
-      </div>
-
-      <div class="checkbox-item">
-        <input type="checkbox" id="cookies" name="agreements" value="cookies" class="checkbox-input">
-        <label for="cookies" class="checkbox-label">Cookie Policy</label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Disabled State -->
-  <div class="form-section">
-    <h3>Disabled State</h3>
-    <div class="checkbox-group">
-      <div class="checkbox-item">
-        <input type="checkbox" id="enabled" name="status" value="enabled" class="checkbox-input">
-        <label for="enabled" class="checkbox-label">Enabled option</label>
-      </div>
-
-      <div class="checkbox-item disabled">
-        <input type="checkbox" id="disabled" name="status" value="disabled" class="checkbox-input" disabled>
-        <label for="disabled" class="checkbox-label">Disabled option</label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Indeterminate State -->
-  <div class="form-section">
-    <h3>Indeterminate State</h3>
-    <div class="checkbox-group">
-      <div class="checkbox-item">
-        <input type="checkbox" id="select-all" name="select-all" class="checkbox-input checkbox-indeterminate">
-        <label for="select-all" class="checkbox-label">Select all items</label>
-      </div>
-
-      <div class="checkbox-item">
-        <input type="checkbox" id="item1" name="items" value="item1" class="checkbox-input">
-        <label for="item1" class="checkbox-label">Item 1</label>
-      </div>
-
-      <div class="checkbox-item">
-        <input type="checkbox" id="item2" name="items" value="item2" class="checkbox-input">
-        <label for="item2" class="checkbox-label">Item 2</label>
-      </div>
-
-      <div class="checkbox-item">
-        <input type="checkbox" id="item3" name="items" value="item3" class="checkbox-input">
-        <label for="item3" class="checkbox-label">Item 3</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-box">
-    <h3>Features Demonstrated</h3>
-    <p>
-      • Multiple checkbox selections<br>
-      • Proper labeling and accessibility<br>
-      • Different states (checked, unchecked, disabled)<br>
-      • Grouped and individual checkbox behaviors<br>
-      • Keyboard navigation support<br>
-      • Indeterminate state for parent checkboxes
-    </p>
-  </div>
-</div>
-
-<script>
-  // Indeterminate state demo
+  }`,
+	js: `// Indeterminate state demo
   document.addEventListener('DOMContentLoaded', () => {
     const selectAllCheckbox = document.getElementById('select-all');
     const itemCheckboxes = document.querySelectorAll('input[name="items"]');
@@ -344,6 +341,5 @@ export const basicCheckboxExample = `
         }
       });
     });
-  });
-</script>
-`;
+  });`,
+};

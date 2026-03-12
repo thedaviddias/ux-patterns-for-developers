@@ -1,5 +1,7 @@
-export const nativeModalExample = `
-<!-- Trigger Button -->
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const nativeModalExample: PatternExampleDefinition = {
+	html: `<!-- Trigger Button -->
 <button
   type="button"
   onclick="document.getElementById('nativeModal').showModal()"
@@ -22,5 +24,5 @@ export const nativeModalExample = `
     </button>
     <button type="button" class="button-primary">Confirm</button>
   </div>
-</dialog>
-`;
+</dialog>`,
+};

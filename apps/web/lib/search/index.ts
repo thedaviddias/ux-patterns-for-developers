@@ -54,6 +54,13 @@ export interface SearchResult {
 // Cache the search index
 let searchIndex: Orama<typeof searchSchema> | null = null;
 
+interface QuickSearchItem {
+	title: string;
+	url: string;
+	category: string;
+	type: SearchDocumentType["type"];
+}
+
 /**
  * Extract plain text from MDX body for indexing
  * The body is compiled JSX, so we need to strip it down
@@ -95,6 +102,36 @@ function getCategory(slug: string): string {
 	return parts[0].replace(/-/g, " ");
 }
 
+function isSearchHidden(status?: string): boolean {
+	return status === "draft" || status === "coming-soon";
+}
+
+async function insertIfUnique(
+	db: Orama<typeof searchSchema>,
+	indexedIds: Set<string>,
+	document: SearchDocumentType,
+): Promise<void> {
+	if (indexedIds.has(document.id)) {
+		return;
+	}
+
+	indexedIds.add(document.id);
+	await insert(db, document);
+}
+
+function addQuickSearchItemIfUnique(
+	results: QuickSearchItem[],
+	seenUrls: Set<string>,
+	item: QuickSearchItem,
+): void {
+	if (seenUrls.has(item.url)) {
+		return;
+	}
+
+	seenUrls.add(item.url);
+	results.push(item);
+}
+
 /**
  * Create the search index from Velite content
  */
@@ -102,13 +139,14 @@ export async function createSearchIndex(): Promise<Orama<typeof searchSchema>> {
 	const db = await create({
 		schema: searchSchema,
 	});
+	const indexedIds = new Set<string>();
 
 	// Index all docs
 	for (const doc of docs) {
 		// Skip drafts and coming-soon
-		if (doc.status === "draft" || doc.status === "coming-soon") continue;
+		if (isSearchHidden(doc.status)) continue;
 
-		await insert(db, {
+		await insertIfUnique(db, indexedIds, {
 			id: doc.slug,
 			title: doc.title,
 			description: doc.description || "",
@@ -124,9 +162,9 @@ export async function createSearchIndex(): Promise<Orama<typeof searchSchema>> {
 	for (const post of blog) {
 		// Skip drafts and coming-soon (if status field exists)
 		const status = (post as { status?: string }).status;
-		if (status === "draft" || status === "coming-soon") continue;
+		if (isSearchHidden(status)) continue;
 
-		await insert(db, {
+		await insertIfUnique(db, indexedIds, {
 			id: `blog/${post.slug}`,
 			title: post.title,
 			description: post.description || "",
@@ -199,18 +237,14 @@ export function createQuickSearchData(): Array<{
 	category: string;
 	type: SearchDocumentType["type"];
 }> {
-	const results: Array<{
-		title: string;
-		url: string;
-		category: string;
-		type: SearchDocumentType["type"];
-	}> = [];
+	const results: QuickSearchItem[] = [];
+	const seenUrls = new Set<string>();
 
 	// Add docs
 	for (const doc of docs) {
-		if (doc.status === "draft" || doc.status === "coming-soon") continue;
+		if (isSearchHidden(doc.status)) continue;
 
-		results.push({
+		addQuickSearchItemIfUnique(results, seenUrls, {
 			title: doc.title,
 			url: doc.url,
 			category: getCategory(doc.slug),
@@ -222,9 +256,9 @@ export function createQuickSearchData(): Array<{
 	for (const post of blog) {
 		// Skip drafts and coming-soon (if status field exists)
 		const status = (post as { status?: string }).status;
-		if (status === "draft" || status === "coming-soon") continue;
+		if (isSearchHidden(status)) continue;
 
-		results.push({
+		addQuickSearchItemIfUnique(results, seenUrls, {
 			title: post.title,
 			url: post.url,
 			category: "blog",

@@ -41,6 +41,8 @@ export function MenuLinkItem({
 	item: LinkItemType;
 	className?: string;
 }) {
+	const pathname = usePathname();
+
 	if (item.type === "custom")
 		return <div className={cn("grid", props.className)}>{item.children}</div>;
 
@@ -65,14 +67,12 @@ export function MenuLinkItem({
 						header
 					)}
 				</p>
-				{item.items.map((child, i) => (
-					<MenuLinkItem key={i} item={child} />
+				{item.items.map((child) => (
+					<MenuLinkItem key={getLinkItemKey(child)} item={child} />
 				))}
 			</div>
 		);
 	}
-
-	const pathname = usePathname();
 	const active = item.url ? isTabActive({ url: item.url }, pathname) : false;
 
 	return (
@@ -92,6 +92,18 @@ export function MenuLinkItem({
 			</Link>
 		</NavigationMenuLink>
 	);
+}
+
+function getLinkItemKey(item: LinkItemType): string {
+	if ("url" in item && item.url) return item.url;
+	if ("label" in item && item.label) return `${item.type}:${item.label}`;
+	if ("text" in item && item.text) return `${item.type}:${item.text}`;
+	if (item.type === "custom" && item.children && typeof item.children === "object") {
+		const childKey = "key" in item.children ? item.children.key : null;
+		if (childKey != null) return `custom:${String(childKey)}`;
+	}
+
+	return item.type;
 }
 
 export const Menu = NavigationMenuItem;

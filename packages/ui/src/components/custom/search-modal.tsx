@@ -607,9 +607,9 @@ function BrowseView({
 
 function SearchView({
 	searchQuery,
-	selectedPlatform,
+	selectedPlatform: _selectedPlatform,
 	entries,
-	patterns,
+	patterns: _patterns,
 	getPatternUrl,
 	onClose,
 }: {

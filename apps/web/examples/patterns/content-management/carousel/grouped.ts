@@ -1,6 +1,94 @@
-export const groupedCarouselExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const groupedCarouselExample: PatternExampleDefinition = {
+	html: `<!-- Carousel -->
+<section aria-roledescription="carousel" aria-label="Grouped content carousel">
+  <!-- Visually hidden heading for screen readers -->
+  <h2 class="sr-only">Grouped Content Carousel</h2>
+
+  <!-- See All link with descriptive label -->
+  <a
+    href="/all-products"
+    class="carousel-see-all"
+    aria-label="View all featured groups"
+  >
+    See All Products
+  </a>
+
+  <!-- Controls Group -->
+  <div role="group" aria-label="Carousel controls">
+    <!-- Pause/Play button -->
+    <button
+      type="button"
+      class="carousel-pause"
+      aria-label="Pause auto-rotation"
+      aria-pressed="false"
+    >
+      <span aria-hidden="true">⏸</span>
+    </button>
+    <!-- Navigation controls -->
+    <button type="button" class="carousel-prev" aria-label="Previous group">
+      <span aria-hidden="true">&lt;</span>
+    </button>
+    <button type="button" class="carousel-next" aria-label="Next group">
+      <span aria-hidden="true">&gt;</span>
+    </button>
+
+    <!-- Pagination with proper ARIA roles -->
+    <div class="carousel-pagination" role="group" aria-label="Group controls">
+      <button
+        type="button"
+        aria-label="Show group 1 of 3"
+        aria-current="true"
+        aria-controls="group1"
+      >
+        <span class="sr-only">Group 1</span>
+      </button>
+      <button
+        type="button"
+        aria-label="Show group 2 of 3"
+        aria-controls="group2"
+      >
+        <span class="sr-only">Group 2</span>
+      </button>
+      <!-- More pagination buttons... -->
+    </div>
+  </div>
+
+  <!-- Grouped Slides -->
+  <ul
+    class="carousel-content"
+    role="list"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <li id="group1" role="group" aria-label="1 of 3" class="active">
+      <div class="carousel-group">
+        <div class="demo-item demo-item-1">Item 1</div>
+        <div class="demo-item demo-item-2">Item 2</div>
+        <div class="demo-item demo-item-3">Item 3</div>
+      </div>
+      <div class="carousel-caption">Featured Products Collection - Group 1</div>
+    </li>
+    <li id="group2" role="group" aria-label="2 of 3">
+      <div class="carousel-group">
+        <div class="demo-item demo-item-4">Item 4</div>
+        <div class="demo-item demo-item-5">Item 5</div>
+        <div class="demo-item demo-item-6">Item 6</div>
+      </div>
+      <div class="carousel-caption">Best Sellers Collection - Group 2</div>
+    </li>
+    <li id="group3" role="group" aria-label="3 of 3">
+      <div class="carousel-group">
+        <div class="demo-item demo-item-7">Item 7</div>
+        <div class="demo-item demo-item-8">Item 8</div>
+        <div class="demo-item demo-item-9">Item 9</div>
+      </div>
+      <div class="carousel-caption">New Arrivals Collection - Group 3</div>
+    </li>
+  </ul>
+</section>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -260,99 +348,8 @@ export const groupedCarouselExample = `
     .carousel-group {
       grid-template-columns: 1fr;
     }
-  }
-</style>
-
-<!-- Carousel -->
-<section aria-roledescription="carousel" aria-label="Grouped content carousel">
-  <!-- Visually hidden heading for screen readers -->
-  <h2 class="sr-only">Grouped Content Carousel</h2>
-
-  <!-- See All link with descriptive label -->
-  <a
-    href="/all-products"
-    class="carousel-see-all"
-    aria-label="View all featured groups"
-  >
-    See All Products
-  </a>
-
-  <!-- Controls Group -->
-  <div role="group" aria-label="Carousel controls">
-    <!-- Pause/Play button -->
-    <button
-      type="button"
-      class="carousel-pause"
-      aria-label="Pause auto-rotation"
-      aria-pressed="false"
-    >
-      <span aria-hidden="true">⏸</span>
-    </button>
-    <!-- Navigation controls -->
-    <button type="button" class="carousel-prev" aria-label="Previous group">
-      <span aria-hidden="true">&lt;</span>
-    </button>
-    <button type="button" class="carousel-next" aria-label="Next group">
-      <span aria-hidden="true">&gt;</span>
-    </button>
-
-    <!-- Pagination with proper ARIA roles -->
-    <div class="carousel-pagination" role="group" aria-label="Group controls">
-      <button
-        type="button"
-        aria-label="Show group 1 of 3"
-        aria-current="true"
-        aria-controls="group1"
-      >
-        <span class="sr-only">Group 1</span>
-      </button>
-      <button
-        type="button"
-        aria-label="Show group 2 of 3"
-        aria-controls="group2"
-      >
-        <span class="sr-only">Group 2</span>
-      </button>
-      <!-- More pagination buttons... -->
-    </div>
-  </div>
-
-  <!-- Grouped Slides -->
-  <ul
-    class="carousel-content"
-    role="list"
-    aria-live="polite"
-    aria-atomic="true"
-  >
-    <li id="group1" role="group" aria-label="1 of 3" class="active">
-      <div class="carousel-group">
-        <div class="demo-item demo-item-1">Item 1</div>
-        <div class="demo-item demo-item-2">Item 2</div>
-        <div class="demo-item demo-item-3">Item 3</div>
-      </div>
-      <div class="carousel-caption">Featured Products Collection - Group 1</div>
-    </li>
-    <li id="group2" role="group" aria-label="2 of 3">
-      <div class="carousel-group">
-        <div class="demo-item demo-item-4">Item 4</div>
-        <div class="demo-item demo-item-5">Item 5</div>
-        <div class="demo-item demo-item-6">Item 6</div>
-      </div>
-      <div class="carousel-caption">Best Sellers Collection - Group 2</div>
-    </li>
-    <li id="group3" role="group" aria-label="3 of 3">
-      <div class="carousel-group">
-        <div class="demo-item demo-item-7">Item 7</div>
-        <div class="demo-item demo-item-8">Item 8</div>
-        <div class="demo-item demo-item-9">Item 9</div>
-      </div>
-      <div class="carousel-caption">New Arrivals Collection - Group 3</div>
-    </li>
-  </ul>
-</section>
-
-<script>
-  // Grouped Carousel functionality
+  }`,
+	js: `// Grouped Carousel functionality
   class GroupedCarousel {
     constructor() {
       this.currentGroup = 0;
@@ -529,6 +526,5 @@ export const groupedCarouselExample = `
     document.addEventListener('DOMContentLoaded', () => new GroupedCarousel());
   } else {
     new GroupedCarousel();
-  }
-</script>
-`;
+  }`,
+};

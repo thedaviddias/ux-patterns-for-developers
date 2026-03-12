@@ -1,6 +1,29 @@
-export const basicModalExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicModalExample: PatternExampleDefinition = {
+	html: `<!-- Trigger Button -->
+<button type="button" data-modal-target="basicModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="basicModal" class="modal" role="dialog" aria-modal="true">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <button type="button" class="modal-close" aria-label="Close modal">
+      &times;
+    </button>
+
+    <h2>Modal Title</h2>
+    <p>Modal content goes here... You can close this modal by clicking the × button, pressing Escape, or clicking outside the content area.</p>
+
+    <div class="modal-actions">
+      <button type="button" class="button-secondary modal-cancel">
+        Cancel
+      </button>
+      <button type="button" class="button-primary modal-submit">Confirm</button>
+    </div>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -164,34 +187,8 @@ export const basicModalExample = `
   /* Prevent body scroll when modal is open */
   body.modal-open {
     overflow: hidden;
-  }
-</style>
-
-<!-- Trigger Button -->
-<button type="button" data-modal-target="basicModal">Open Modal</button>
-
-<!-- Modal -->
-<div id="basicModal" class="modal" role="dialog" aria-modal="true">
-  <div class="modal-overlay"></div>
-  <div class="modal-content">
-    <button type="button" class="modal-close" aria-label="Close modal">
-      &times;
-    </button>
-
-    <h2>Modal Title</h2>
-    <p>Modal content goes here... You can close this modal by clicking the × button, pressing Escape, or clicking outside the content area.</p>
-
-    <div class="modal-actions">
-      <button type="button" class="button-secondary modal-cancel">
-        Cancel
-      </button>
-      <button type="button" class="button-primary modal-submit">Confirm</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Modal functionality
+  }`,
+	js: `// Modal functionality
   let activeModal = null;
   let focusedElementBeforeModal = null;
 
@@ -260,6 +257,5 @@ export const basicModalExample = `
     if (e.key === 'Escape' && activeModal) {
       closeModal();
     }
-  });
-</script>
-`;
+  });`,
+};

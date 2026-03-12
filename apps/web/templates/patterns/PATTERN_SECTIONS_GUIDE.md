@@ -13,7 +13,7 @@ These sections must be included in every pattern.
 | **Use Cases** | When to use/not use | Specific scenarios with examples |
 | **Anatomy** | Visual/structural breakdown | Diagrams or component structure |
 | **Best Practices** | Implementation guidelines | Do's and don'ts for all aspects |
-| **Interactive Example** | Live code playground | At least one basic example |
+| **Interactive Example** | Live preview + canonical code | At least one canonical example |
 | **Accessibility** | WCAG compliance | ARIA, keyboard navigation, screen readers |
 | **Testing Guidelines** | How to test the pattern | Functional, unit, and E2E test examples |
 
@@ -164,8 +164,10 @@ Always organize into these subsections:
 5. **Common Mistakes** - Anti-patterns with fixes
 
 ### Interactive Examples
-- Start with a basic example
-- Add advanced examples for complex patterns
+- Start with one canonical live preview for the core behavior
+- Keep the first visible code sample compact and instructional
+- Collapse advanced or verbose examples so they do not dominate the page
+- Use `presentation="hidden-code"` when the page already includes a concise static implementation block
 - Ensure examples work in the Playground component
 
 ### Performance Section

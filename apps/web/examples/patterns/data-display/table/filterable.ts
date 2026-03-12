@@ -1,6 +1,58 @@
-export const filterableTableExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const filterableTableExample: PatternExampleDefinition = {
+	html: `<div class="container">
+  <!-- Filter Controls -->
+  <div class="filter-controls">
+    <div class="filter-group" style="flex: 2;">
+      <label for="search">Search</label>
+      <input type="text" id="search" placeholder="Search products...">
+    </div>
+    
+    <div class="filter-group">
+      <label for="category">Category</label>
+      <select id="category">
+        <option value="all">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Furniture">Furniture</option>
+      </select>
+    </div>
+    
+    <div class="filter-group">
+      <label for="status">Status</label>
+      <select id="status">
+        <option value="all">All Statuses</option>
+        <option value="available">Available</option>
+        <option value="low-stock">Low Stock</option>
+        <option value="out-of-stock">Out of Stock</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Results Count -->
+  <div class="results-count" id="resultsCount">
+    Showing 8 of 8 products
+  </div>
+
+  <!-- Table -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Table rows will be rendered here -->
+      </tbody>
+    </table>
+  </div>
+</div>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -144,63 +196,8 @@ export const filterableTableExample = `
     text-align: center;
     padding: 3rem;
     color: #6b7280;
-  }
-</style>
-
-<div class="container">
-  <!-- Filter Controls -->
-  <div class="filter-controls">
-    <div class="filter-group" style="flex: 2;">
-      <label for="search">Search</label>
-      <input type="text" id="search" placeholder="Search products...">
-    </div>
-    
-    <div class="filter-group">
-      <label for="category">Category</label>
-      <select id="category">
-        <option value="all">All Categories</option>
-        <option value="Electronics">Electronics</option>
-        <option value="Furniture">Furniture</option>
-      </select>
-    </div>
-    
-    <div class="filter-group">
-      <label for="status">Status</label>
-      <select id="status">
-        <option value="all">All Statuses</option>
-        <option value="available">Available</option>
-        <option value="low-stock">Low Stock</option>
-        <option value="out-of-stock">Out of Stock</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- Results Count -->
-  <div class="results-count" id="resultsCount">
-    Showing 8 of 8 products
-  </div>
-
-  <!-- Table -->
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Stock</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <!-- Table rows will be rendered here -->
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<script>
-  // Data
+  }`,
+	js: `// Data
   const products = [
     { id: 1, name: 'Laptop Pro', category: 'Electronics', price: 1299, stock: 15, status: 'available' },
     { id: 2, name: 'Wireless Mouse', category: 'Electronics', price: 29, stock: 3, status: 'low-stock' },
@@ -283,6 +280,5 @@ export const filterableTableExample = `
   document.getElementById('status').addEventListener('change', applyFilters);
 
   // Initial render
-  renderTable();
-</script>
-`;
+  renderTable();`,
+};

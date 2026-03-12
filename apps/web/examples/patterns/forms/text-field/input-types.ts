@@ -1,82 +1,7 @@
-export const inputTypesTextFieldExample = `
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
 
-  body {
-    font-family: system-ui, -apple-system, sans-serif;
-    padding: 2rem;
-    background: #f8fafc;
-    line-height: 1.6;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .text-field {
-    width: 100%;
-  }
-
-  .text-field--full {
-    grid-column: 1 / -1;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #374151;
-  }
-
-  input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    background: white;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  input:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-  }
-
-  input:invalid {
-    border-color: #ef4444;
-  }
-
-  input:invalid:focus {
-    border-color: #ef4444;
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-  }
-
-  .text-field__helper {
-    margin-top: 0.375rem;
-    font-size: 0.75rem;
-    color: #6b7280;
-  }
-
-  @media (max-width: 640px) {
-    .container {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
-<div class="container">
+export const inputTypesTextFieldExample: PatternExampleDefinition = {
+	html: `<div class="container">
   <!-- Email -->
   <div class="text-field">
     <label for="email">Email</label>
@@ -204,10 +129,82 @@ export const inputTypesTextFieldExample = `
     />
     <div class="text-field__helper">Masked input with minimum length validation</div>
   </div>
-</div>
+</div>`,
+	css: `* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-<script>
-  // Update range value display
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 2rem;
+    background: #f8fafc;
+    line-height: 1.6;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .text-field {
+    width: 100%;
+  }
+
+  .text-field--full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  input:invalid {
+    border-color: #ef4444;
+  }
+
+  input:invalid:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+
+  .text-field__helper {
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+    color: #6b7280;
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }`,
+	js: `// Update range value display
   const volumeSlider = document.getElementById('volume');
   const volumeValue = document.getElementById('volume-value');
 
@@ -235,6 +232,5 @@ export const inputTypesTextFieldExample = `
         this.style.borderColor = '#d1d5db';
       }
     });
-  });
-</script>
-`;
+  });`,
+};

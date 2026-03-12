@@ -1,6 +1,91 @@
-export const tabbedCarouselExample = `
-<style>
-  * {
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const tabbedCarouselExample: PatternExampleDefinition = {
+	html: `<!-- Carousel -->
+<section aria-roledescription="carousel" aria-label="Featured content">
+  <!-- Visually hidden heading for screen readers -->
+  <h2 class="sr-only">Featured Content Carousel</h2>
+
+  <!-- See All link with descriptive label -->
+  <a
+    href="#"
+    class="carousel-see-all"
+    aria-label="View all featured products"
+  >
+    See All Products
+  </a>
+
+  <!-- Controls Group -->
+  <div role="group" aria-label="Carousel controls">
+    <!-- Pause/Play button -->
+    <button
+      type="button"
+      class="carousel-pause"
+      aria-label="Pause auto-rotation"
+      aria-pressed="false"
+    >
+      <span aria-hidden="true">⏸</span>
+    </button>
+    <!-- Navigation controls -->
+    <button type="button" class="carousel-prev" aria-label="Previous slide">
+      <span aria-hidden="true">‹</span>
+    </button>
+    <button type="button" class="carousel-next" aria-label="Next slide">
+      <span aria-hidden="true">›</span>
+    </button>
+
+    <!-- Pagination with proper ARIA roles -->
+    <div class="carousel-pagination" role="tablist" aria-label="Slide controls">
+      <button
+        type="button"
+        id="tab1"
+        role="tab"
+        aria-selected="true"
+        aria-controls="slide1"
+        data-slide="0"
+      >
+        <span class="sr-only">Slide 1</span>
+      </button>
+      <button
+        type="button"
+        id="tab2"
+        role="tab"
+        aria-selected="false"
+        aria-controls="slide2"
+        data-slide="1"
+      >
+        <span class="sr-only">Slide 2</span>
+      </button>
+      <button
+        type="button"
+        id="tab3"
+        role="tab"
+        aria-selected="false"
+        aria-controls="slide3"
+        data-slide="2"
+      >
+        <span class="sr-only">Slide 3</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Slides -->
+  <div class="carousel-content">
+    <div id="slide1" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
+      <div class="demo-slide demo-slide-1">Slide 1</div>
+      <div class="carousel-caption">Beautiful mountain landscape with crystal clear lakes</div>
+    </div>
+    <div id="slide2" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
+      <div class="demo-slide demo-slide-2">Slide 2</div>
+      <div class="carousel-caption">Stunning sunset over the ocean waves</div>
+    </div>
+    <div id="slide3" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
+      <div class="demo-slide demo-slide-3">Slide 3</div>
+      <div class="carousel-caption">Peaceful forest path through ancient trees</div>
+    </div>
+  </div>
+</section>`,
+	css: `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -232,96 +317,8 @@ export const tabbedCarouselExample = `
 
   .demo-slide-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
   .demo-slide-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-  .demo-slide-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-</style>
-
-<!-- Carousel -->
-<section aria-roledescription="carousel" aria-label="Featured content">
-  <!-- Visually hidden heading for screen readers -->
-  <h2 class="sr-only">Featured Content Carousel</h2>
-
-  <!-- See All link with descriptive label -->
-  <a
-    href="#"
-    class="carousel-see-all"
-    aria-label="View all featured products"
-  >
-    See All Products
-  </a>
-
-  <!-- Controls Group -->
-  <div role="group" aria-label="Carousel controls">
-    <!-- Pause/Play button -->
-    <button
-      type="button"
-      class="carousel-pause"
-      aria-label="Pause auto-rotation"
-      aria-pressed="false"
-    >
-      <span aria-hidden="true">⏸</span>
-    </button>
-    <!-- Navigation controls -->
-    <button type="button" class="carousel-prev" aria-label="Previous slide">
-      <span aria-hidden="true">‹</span>
-    </button>
-    <button type="button" class="carousel-next" aria-label="Next slide">
-      <span aria-hidden="true">›</span>
-    </button>
-
-    <!-- Pagination with proper ARIA roles -->
-    <div class="carousel-pagination" role="tablist" aria-label="Slide controls">
-      <button
-        type="button"
-        id="tab1"
-        role="tab"
-        aria-selected="true"
-        aria-controls="slide1"
-        data-slide="0"
-      >
-        <span class="sr-only">Slide 1</span>
-      </button>
-      <button
-        type="button"
-        id="tab2"
-        role="tab"
-        aria-selected="false"
-        aria-controls="slide2"
-        data-slide="1"
-      >
-        <span class="sr-only">Slide 2</span>
-      </button>
-      <button
-        type="button"
-        id="tab3"
-        role="tab"
-        aria-selected="false"
-        aria-controls="slide3"
-        data-slide="2"
-      >
-        <span class="sr-only">Slide 3</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Slides -->
-  <div class="carousel-content">
-    <div id="slide1" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
-      <div class="demo-slide demo-slide-1">Slide 1</div>
-      <div class="carousel-caption">Beautiful mountain landscape with crystal clear lakes</div>
-    </div>
-    <div id="slide2" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
-      <div class="demo-slide demo-slide-2">Slide 2</div>
-      <div class="carousel-caption">Stunning sunset over the ocean waves</div>
-    </div>
-    <div id="slide3" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
-      <div class="demo-slide demo-slide-3">Slide 3</div>
-      <div class="carousel-caption">Peaceful forest path through ancient trees</div>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Carousel functionality
+  .demo-slide-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }`,
+	js: `// Carousel functionality
   class Carousel {
     constructor() {
       this.currentSlide = 0;
@@ -502,6 +499,5 @@ export const tabbedCarouselExample = `
     document.addEventListener('DOMContentLoaded', () => new Carousel());
   } else {
     new Carousel();
-  }
-</script>
-`;
+  }`,
+};
