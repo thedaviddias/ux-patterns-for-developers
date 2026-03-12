@@ -4,13 +4,14 @@
 	"private": true,
 	"scripts": {
 		"analyze": "export ANALYZE=true && next build",
-		"prebuild": "velite build && node scripts/generate-pattern-dates.mjs",
+		"prebuild": "velite build && node scripts/validate-mermaid.mjs && node scripts/generate-pattern-dates.mjs",
 		"build": "next build",
-		"check": "tsc --noEmit",
+		"check": "node scripts/validate-mermaid.mjs && tsc --noEmit",
 		"dev": "portless run next dev --turbo -p 3060",
 		"dev:velite": "velite --watch",
 		"skills:generate": "node scripts/generate-pattern-skills.mjs",
 		"start": "next start",
+		"test:mermaid": "node --test scripts/validate-mermaid.test.mjs",
 		"test:skills": "node --test scripts/pattern-skills-lib.test.mjs",
 		"velite:build": "velite build",
 		"postinstall": "fumadocs-mdx"

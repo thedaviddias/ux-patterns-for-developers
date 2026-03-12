@@ -20,11 +20,7 @@
 		"release:version": "auto version -v",
 		"syncpack:fix": "pnpm dlx syncpack fix-mismatches",
 		"syncpack:list": "pnpm dlx syncpack list-mismatches",
-		"skills:generate": "pnpm --filter web skills:generate",
-		"registry:generate": "pnpm --filter @ux-patterns/registry registry:generate",
-		"registry:build": "pnpm --filter @ux-patterns/registry registry:build",
-		"registry:index": "node scripts/build-registry.js",
-		"registry:watch": "pnpm --filter @ux-patterns/registry dev"
+		"skills:generate": "pnpm --filter web skills:generate"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.11",

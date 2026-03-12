@@ -2,8 +2,6 @@
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
 @source '../components/**/*.{js,ts,tsx}';
-@source '../../../__registry__/**/*.{js,ts,tsx}';
-@source '../../../packages/registry/registry/default/**/*.{js,ts,tsx}';
 @source '../../../packages/ui/src/**/*.{js,ts,tsx}';
 
 @custom-variant dark (&:is(.dark *));

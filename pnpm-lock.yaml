@@ -720,9 +720,6 @@ importers:
       '@ux-patterns/hooks':
         specifier: workspace:*
         version: link:../hooks
-      '@ux-patterns/registry':
-        specifier: workspace:^
-        version: link:../registry
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1

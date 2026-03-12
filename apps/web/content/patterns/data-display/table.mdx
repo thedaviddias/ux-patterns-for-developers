@@ -108,6 +108,7 @@ import { GuidesBanner } from "@/components/guides-banner";
 
 ```mermaid
 flowchart TB
+subgraph DataTable[Data Table Structure]
 Header[Table Header] -->|contains| HeaderRow[Header Row]
 HeaderRow --> HeaderCell[Header Cells]
 HeaderCell --> SortButton[Sort Controls]
@@ -125,10 +126,10 @@ Footer --> BulkActions[Bulk Actions]
 Tools[Table Tools] -->|includes| Search[Search Bar]
 Tools --> Export[Export Options]
 Tools --> ColumnToggle[Column Visibility]
+end
 
 classDef container stroke:#666,stroke-width:2px
 class DataTable container
-end
 ```
 
 ### Component Structure

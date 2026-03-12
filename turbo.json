@@ -6,7 +6,7 @@
 	},
 	"tasks": {
 		"build": {
-			"dependsOn": ["^build", "registry:generate"],
+			"dependsOn": ["^build"],
 			"outputs": [
 				".next/**",
 				"!.next/cache/**",
@@ -38,38 +38,7 @@
 				"GITHUB_TOKEN"
 			]
 		},
-		"registry:generate": {
-			"outputs": [
-				"../../apps/kit/public/r/**",
-				"../../apps/kit/public/registry.json"
-			],
-			"env": [
-				"NODE_ENV",
-				"SENTRY_*",
-				"UPSTASH_REDIS_REST_URL",
-				"UPSTASH_REDIS_REST_TOKEN",
-				"KV_REST_API_URL",
-				"KV_REST_API_TOKEN",
-				"KV_REST_API_READ_ONLY_TOKEN",
-				"KV_URL",
-				"REDIS_URL",
-				"RATE_LIMIT_STORE_TIMEOUT_MS",
-				"MDX_API_KEY",
-				"MAILERLITE_API_KEY",
-				"MAILERLITE_GROUP_IDS",
-				"KIT_API_KEY",
-				"KIT_FORM_ID",
-				"KIT_DEFAULT_TAG_IDS",
-				"PLAUSIBLE_API_KEY",
-				"TURBO_REMOTE_CACHE_SIGNATURE_KEY",
-				"GITHUB_TOKEN"
-			]
-		},
 		"dev": {
-			"cache": false,
-			"persistent": true
-		},
-		"registry:watch": {
 			"cache": false,
 			"persistent": true
 		},
