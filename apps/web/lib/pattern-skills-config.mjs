@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export * from "./pattern-skills-shared.js";
+export * from "./pattern-skills-shared.mjs";
 
 export function findRepoRoot(startDir = process.cwd()) {
 	let current = path.resolve(startDir);

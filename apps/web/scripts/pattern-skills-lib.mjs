@@ -10,7 +10,7 @@ import {
 	PATTERN_SKILLS_GLOBAL_SLUG,
 	PATTERN_SKILLS_INSTALL_SOURCE,
 	PATTERN_SKILLS_SITE_URL,
-} from "../lib/pattern-skills-config.js";
+} from "../lib/pattern-skills-config.mjs";
 
 function normalizeHeading(value) {
 	return value

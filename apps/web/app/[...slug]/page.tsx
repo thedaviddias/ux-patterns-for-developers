@@ -50,7 +50,8 @@ function injectUseWithAIIntoOverview(
 	const overviewMatch = source.match(/^## Overview\s*$/m);
 
 	if (!overviewMatch || overviewMatch.index === undefined) {
-		return `${insertion}${source}`;
+		// Keep YAML frontmatter at byte 0 when a pattern page has no Overview heading.
+		return `${source}${insertion}`;
 	}
 
 	const overviewStart = overviewMatch.index + overviewMatch[0].length;

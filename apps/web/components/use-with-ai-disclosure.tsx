@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
-import { getSkillReferenceUrl } from "@/lib/pattern-skills-shared.js";
+import { getSkillReferenceUrl } from "@/lib/pattern-skills-shared.mjs";
 
 const STORAGE_KEY = "use-with-ai-open";
 

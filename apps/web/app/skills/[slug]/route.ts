@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { notFound } from "next/navigation";
 import { getPatternSkillBySlug } from "@/lib/pattern-skills";
-import { findRepoRoot } from "@/lib/pattern-skills-config.js";
+import { findRepoRoot } from "@/lib/pattern-skills-config.mjs";
 
 export const revalidate = false;
 

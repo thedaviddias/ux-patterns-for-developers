@@ -1,4 +1,4 @@
-import { buildLlmsIndexText } from "@/lib/pattern-skills-text.js";
+import { buildLlmsIndexText } from "@/lib/pattern-skills-text.mjs";
 import { source } from "@/lib/source";
 
 export const revalidate = false;

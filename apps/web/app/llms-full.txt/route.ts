@@ -1,5 +1,5 @@
 import { patternSkillsManifest } from "@/lib/pattern-skills";
-import { buildLlmsFullText } from "@/lib/pattern-skills-text.js";
+import { buildLlmsFullText } from "@/lib/pattern-skills-text.mjs";
 
 export const revalidate = false;
 

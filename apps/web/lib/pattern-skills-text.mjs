@@ -2,7 +2,7 @@ import {
 	getSkillReferenceUrl,
 	PATTERN_SKILLS_GLOBAL_SLUG,
 	PATTERN_SKILLS_SITE_URL,
-} from "./pattern-skills-shared.js";
+} from "./pattern-skills-shared.mjs";
 
 function absoluteUrl(pathname) {
 	return new URL(pathname, PATTERN_SKILLS_SITE_URL).toString();

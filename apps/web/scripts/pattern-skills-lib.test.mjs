@@ -6,7 +6,7 @@ import test from "node:test";
 import {
 	buildLlmsFullText,
 	buildLlmsIndexText,
-} from "../lib/pattern-skills-text.js";
+} from "../lib/pattern-skills-text.mjs";
 import {
 	generatePatternSkills,
 	stripMdxToMarkdown,
