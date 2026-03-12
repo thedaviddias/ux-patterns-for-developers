@@ -49,7 +49,9 @@ function CustomSidebarItem({ item, ...props }: any) {
 		<SidebarItem item={item} {...props}>
 			{props.children ? (
 				<div className="flex items-center justify-between w-full gap-2">
-					<span className="flex-1 flex items-center gap-2">{props.children}</span>
+					<span className="flex-1 flex items-center gap-2">
+						{props.children}
+					</span>
 					{badge}
 				</div>
 			) : (

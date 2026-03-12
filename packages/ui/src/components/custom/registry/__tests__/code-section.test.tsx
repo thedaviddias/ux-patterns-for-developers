@@ -9,7 +9,9 @@ const flushHeightChecks = async () => {
 	});
 };
 
-const renderCodeSection = (props?: Partial<ComponentProps<typeof CodeSection>>) =>
+const renderCodeSection = (
+	props?: Partial<ComponentProps<typeof CodeSection>>,
+) =>
 	render(
 		<CodeSection {...props}>
 			<pre>
@@ -45,7 +47,9 @@ describe("CodeSection", () => {
 
 		const preElement = container.querySelector("pre");
 		expect(onShouldShowExpandChange).toHaveBeenLastCalledWith(false);
-		expect(container.querySelector(".bg-gradient-to-t")).not.toBeInTheDocument();
+		expect(
+			container.querySelector(".bg-gradient-to-t"),
+		).not.toBeInTheDocument();
 		expect(preElement).toHaveStyle({ maxHeight: "none", overflow: "visible" });
 	});
 
@@ -82,7 +86,9 @@ describe("CodeSection", () => {
 		await flushHeightChecks();
 
 		const preElement = container.querySelector("pre");
-		expect(container.querySelector(".bg-gradient-to-t")).not.toBeInTheDocument();
+		expect(
+			container.querySelector(".bg-gradient-to-t"),
+		).not.toBeInTheDocument();
 		expect(preElement).toHaveStyle({ maxHeight: "none", overflow: "visible" });
 	});
 

@@ -18,15 +18,14 @@ import {
 	SidebarTrigger,
 	SidebarViewport,
 } from "fumadocs-ui/components/sidebar";
-import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
-import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
 import {
-	SidebarTabsDropdown,
 	type SidebarTab as Option,
+	SidebarTabsDropdown,
 } from "fumadocs-ui/components/sidebar/tabs/dropdown";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
-import { cn } from "../../lib/cn";
+import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
+import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
 import { Languages, Sidebar as SidebarIcon, X } from "lucide-react";
 import {
 	Children,
@@ -35,6 +34,7 @@ import {
 	isValidElement,
 	type ReactNode,
 } from "react";
+import { cn } from "../../lib/cn";
 
 /**
  * HideIfEmpty - Conditionally renders a wrapper element only if it has non-empty children
@@ -47,7 +47,8 @@ function HideIfEmpty<T extends ElementType = "div">({
 }: { as?: T; children?: ReactNode } & ComponentProps<T>): ReactNode {
 	const Component = as || "div";
 	const childArray = Children.toArray(children).filter(
-		(child) => isValidElement(child) || (typeof child === "string" && child.trim())
+		(child) =>
+			isValidElement(child) || (typeof child === "string" && child.trim()),
 	);
 
 	if (childArray.length === 0) return null;
@@ -320,7 +321,11 @@ function getLinkItemKey(item: LinkItemType): string {
 	if ("url" in item && item.url) return item.url;
 	if ("label" in item && item.label) return `${item.type}:${item.label}`;
 	if ("text" in item && item.text) return `${item.type}:${item.text}`;
-	if (item.type === "custom" && item.children && typeof item.children === "object") {
+	if (
+		item.type === "custom" &&
+		item.children &&
+		typeof item.children === "object"
+	) {
 		const childKey = "key" in item.children ? item.children.key : null;
 		if (childKey != null) return `custom:${String(childKey)}`;
 	}

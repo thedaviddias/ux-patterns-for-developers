@@ -98,7 +98,11 @@ function getLinkItemKey(item: LinkItemType): string {
 	if ("url" in item && item.url) return item.url;
 	if ("label" in item && item.label) return `${item.type}:${item.label}`;
 	if ("text" in item && item.text) return `${item.type}:${item.text}`;
-	if (item.type === "custom" && item.children && typeof item.children === "object") {
+	if (
+		item.type === "custom" &&
+		item.children &&
+		typeof item.children === "object"
+	) {
 		const childKey = "key" in item.children ? item.children.key : null;
 		if (childKey != null) return `custom:${String(childKey)}`;
 	}

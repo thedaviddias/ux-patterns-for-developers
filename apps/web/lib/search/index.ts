@@ -5,9 +5,9 @@
  * Supports both client-side (title search) and server-side (full content) search.
  */
 
-import { create, insert, search } from "@orama/orama";
 import type { Orama } from "@orama/orama";
-import { docs, blog } from "@/.velite";
+import { create, insert, search } from "@orama/orama";
+import { blog, docs } from "@/.velite";
 
 /**
  * Orama schema definition
@@ -197,7 +197,7 @@ export async function searchDocs(
 	options?: {
 		limit?: number;
 		type?: SearchDocumentType["type"];
-	}
+	},
 ): Promise<SearchResult[]> {
 	const db = await getSearchIndex();
 

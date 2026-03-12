@@ -8,19 +8,13 @@ import {
 	NavbarSidebarTrigger,
 } from "@ux-patterns/ui/components/custom/navbar";
 import { NotebookSidebar } from "@ux-patterns/ui/components/custom/notebook-sidebar";
+import Link from "fumadocs-core/link";
 import type { PageTree } from "fumadocs-core/page-tree";
 import {
 	SidebarCollapseTrigger,
 	type SidebarComponents,
 	type SidebarProps,
 } from "fumadocs-ui/components/sidebar";
-import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
-import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
-import {
-	SearchToggle,
-	LargeSearchToggle,
-} from "fumadocs-ui/layouts/shared/search-toggle";
-import type { SidebarTab as Option } from "fumadocs-ui/utils/get-sidebar-tabs";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import {
 	Popover,
@@ -31,17 +25,22 @@ import { NavProvider } from "fumadocs-ui/contexts/layout";
 import { TreeContextProvider } from "fumadocs-ui/contexts/tree";
 import {
 	type BaseLayoutProps,
-	resolveLinkItems,
 	type LinkItemType,
+	resolveLinkItems,
 } from "fumadocs-ui/layouts/shared";
-import { cn } from "../../lib/cn";
+import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
+import {
+	LargeSearchToggle,
+	SearchToggle,
+} from "fumadocs-ui/layouts/shared/search-toggle";
+import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
+import type { SidebarTab as Option } from "fumadocs-ui/utils/get-sidebar-tabs";
 import {
 	type GetSidebarTabsOptions,
 	getSidebarTabs,
 } from "fumadocs-ui/utils/get-sidebar-tabs";
 import { isTabActive } from "fumadocs-ui/utils/is-active";
 import { ChevronDown, Languages, Sidebar as SidebarIcon } from "lucide-react";
-import Link from "fumadocs-core/link";
 import { usePathname } from "next/navigation";
 import {
 	type ComponentProps,
@@ -50,6 +49,7 @@ import {
 	type ReactNode,
 	useMemo,
 } from "react";
+import { cn } from "../../lib/cn";
 
 export interface DocsLayoutProps extends BaseLayoutProps {
 	tree: PageTree.Root;
@@ -340,7 +340,9 @@ function NavbarLinkItem({
 					)}
 				>
 					{item.url ? (
-						<Link href={item.url} external={item.external}>{item.text}</Link>
+						<Link href={item.url} external={item.external}>
+							{item.text}
+						</Link>
 					) : (
 						item.text
 					)}
@@ -350,10 +352,14 @@ function NavbarLinkItem({
 					{item.items.map((child) => {
 						if (child.type === "custom")
 							return (
-								<Fragment key={getLinkItemKey(child)}>{child.children}</Fragment>
+								<Fragment key={getLinkItemKey(child)}>
+									{child.children}
+								</Fragment>
 							);
 
-						const active = child.url ? isTabActive({ url: child.url }, pathname) : false;
+						const active = child.url
+							? isTabActive({ url: child.url }, pathname)
+							: false;
 						return (
 							<Link
 								key={getLinkItemKey(child)}
@@ -376,7 +382,12 @@ function NavbarLinkItem({
 
 	const active = item.url ? isTabActive({ url: item.url }, pathname) : false;
 	return (
-		<Link href={item.url} external={item.external} data-active={active} {...props}>
+		<Link
+			href={item.url}
+			external={item.external}
+			data-active={active}
+			{...props}
+		>
 			{item.text}
 		</Link>
 	);
@@ -386,7 +397,11 @@ function getLinkItemKey(item: LinkItemType): string {
 	if ("url" in item && item.url) return item.url;
 	if ("label" in item && item.label) return `${item.type}:${item.label}`;
 	if ("text" in item && item.text) return `${item.type}:${item.text}`;
-	if (item.type === "custom" && item.children && typeof item.children === "object") {
+	if (
+		item.type === "custom" &&
+		item.children &&
+		typeof item.children === "object"
+	) {
 		const childKey = "key" in item.children ? item.children.key : null;
 		if (childKey != null) return `custom:${String(childKey)}`;
 	}
