@@ -796,6 +796,7 @@ const [resendCooldown, setResendCooldown] = useState(0);
 
 ### Articles
 
+- [Two-Factor Authentication UX Implementation](https://thedaviddias.com/articles/two-factor-authentication-ux-implementation) by David Dias
 - [Multi-Factor Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html) by OWASP
 - [Guide to WebAuthn](https://webauthn.guide/) – Practical guide to passwordless authentication
 - [Two-Factor Authentication UX](https://www.nngroup.com/articles/two-factor-authentication/) by Nielsen Norman Group
