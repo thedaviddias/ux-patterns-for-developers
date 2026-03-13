@@ -37,9 +37,8 @@ Include these based on pattern complexity and category.
 | **Tracking** | Analytics implementation | For patterns requiring usage metrics |
 | **Localization** | i18n considerations | For text-heavy or culture-specific patterns |
 | **SEO** | Search optimization | For patterns affecting crawlability |
-| **Browser Support** | Compatibility notes | When using newer web features |
 | **Design Tokens** | Design system integration | For organizations with token systems |
-| **Resources** | External references | When additional learning materials exist |
+| **Resources** | Curated external references | Required for every published pattern page as the closing section |
 
 ### 🔵 Situational Sections
 Add these sections only for specific pattern types.
@@ -163,11 +162,32 @@ Always organize into these subsections:
 4. **Layout & Positioning** - Responsive behavior
 5. **Common Mistakes** - Anti-patterns with fixes
 
+### Resources Section
+Always organize resources in this exact order:
+1. **References** - Standards, MDN, WAI, specs, and platform docs
+2. **Guides** - Tutorials, implementation walkthroughs, and practical how-tos
+3. **Articles** - Research, case studies, and opinionated best-practice pieces
+4. **NPM Packages** - Popular, maintained packages that help implement the pattern
+
+Resource rules:
+- Use only external `https://` links in `Resources`
+- Keep `Resources` as the final `##` section in each published pattern page
+- Include at least 2 links in `References`
+- Include at least 1 link in `Guides`
+- Include at least 1 link in `Articles`
+- Include at least 2 packages in `NPM Packages`
+- Prefer official docs, established UX research, and maintained packages over weaker duplicates
+- Optional subsections like `Design Systems`, `Accessibility`, and `Tools` may appear only after the required four
+
 ### Interactive Examples
 - Start with one canonical live preview for the core behavior
+- Make the preview feel like a real product surface, not an isolated demo card
+- Show enough surrounding UI context that the pattern reads in-place
 - Keep the first visible code sample compact and instructional
 - Collapse advanced or verbose examples so they do not dominate the page
 - Use `presentation="hidden-code"` when the page already includes a concise static implementation block
+- Prefer shared `preview-*` primitives and the shared foundation over per-example reset scaffolding
+- Use shadcn, Origin UI, and similar libraries as visual references only; normalize them into the site house style instead of copying one source verbatim
 - Ensure examples work in the Playground component
 
 ### Performance Section
@@ -222,4 +242,4 @@ For every new pattern, ask:
 
 - **Template:** `/templates/patterns/component.mdx.hbs`
 - **Examples:** `/content/patterns/` (all pattern files)
-- **Components:** `/app/_components/` (Playground, BrowserSupport, etc.)
+- **Components:** `/app/_components/` (Playground, etc.)

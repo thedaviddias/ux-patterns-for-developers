@@ -1061,10 +1061,6 @@ Research shows that users:
 - Want to customize visible columns (61% of users)
 - Expect Excel-like keyboard navigation (58% of users)
 
-## Browser Support
-
-<BrowserSupport features={["html.elements.table", "api.HTMLTableElement", "css.properties.position.sticky"]} />
-
 ## SEO Considerations
 
 - Use semantic HTML table elements for crawlability
@@ -1148,38 +1144,21 @@ Target performance metrics for data tables:
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [TanStack Table](https://tanstack.com/table/) – Headless UI for complete control
-- [AG Grid](https://www.ag-grid.com/) – Enterprise-grade features
-- [MUI DataGrid](https://mui.com/x/react-data-grid/) – Material Design implementation
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [Inclusive Components: Data tables](https://inclusive-components.design/data-tables/) - Semantics, captions, responsive strategies, and navigation guidance for tables.
 
-#### Vue Components
-- [Vue Good Table](https://github.com/xaksis/vue-good-table) – Simple and clean
-- [Vueye Table](https://github.com/boussadjra/vueye-table) – Advanced features
+### Guides
 
-#### Vanilla JavaScript
-- [DataTables](https://datatables.net/) – jQuery-based, feature-rich
-- [Tabulator](https://tabulator.info/) – No dependencies, modern
-- [Grid.js](https://gridjs.io/) – Lightweight, simple API
+- [Stephanie Walter: Designing complex data tables](https://stephaniewalter.design/blog/essential-resources-design-complex-data-tables/) - Design considerations for dense tables, column behavior, and analytical workflows.
 
-### Articles & Guides
-- [Design Better Data Tables](https://medium.com/nextux/design-better-data-tables-4ecc99d23356) - Comprehensive guide to data table design
-- [Enterprise UX: Essential Resources to Design Complex Data Tables](https://stephaniewalter.design/blog/essential-resources-design-complex-data-tables/) - Enterprise-focused table design
-- [Data Table Design Patterns](https://pencilandpaper.io/articles/ux-pattern-analysis-enterprise-data-tables/) - Analysis of enterprise data table patterns
+### Articles
 
-### Tools & Libraries
-- [TanStack Table](https://tanstack.com/table/) - Headless UI for building powerful tables
-- [TanStack Virtual](https://tanstack.com/virtual/) - Headless UI for Virtualizing Large Element Lists
-- [AG Grid](https://www.ag-grid.com/) - Enterprise-grade data grid
-- [DataTables](https://datatables.net/) - Feature-rich jQuery plugin
-- [Grid.js](https://gridjs.io/) - Advanced table plugin in TypeScript
+- [Pencil & Paper: Enterprise data table patterns](https://pencilandpaper.io/articles/ux-pattern-analysis-enterprise-data-tables/) - Analysis of scanning, sorting, filtering, and dense enterprise-table behavior.
 
-### Accessibility Resources
-- [ARIA Table Properties](https://www.w3.org/WAI/ARIA/apg/patterns/table/) - W3C ARIA authoring practices
-- [Inclusive Components: Data Tables](https://inclusive-components.design/data-tables/) - Heydon Pickering's guide
+### NPM Packages
 
-### Performance & Optimization
-- [Virtual Scrolling Explained](https://blog.logrocket.com/virtual-scrolling-core-principles-and-basic-implementation-in-react/) - React virtual scrolling
-- [Optimizing Large Lists](https://web.dev/articles/virtualize-long-lists-react-window) - Google's performance guide
+- [`@tanstack/react-table`](https://www.npmjs.com/package/%40tanstack%2Freact-table) - Headless table engine for sorting, filtering, grouping, and row models.
+- [`@tanstack/react-virtual`](https://www.npmjs.com/package/%40tanstack%2Freact-virtual) - Virtualization primitives for large lists, tables, and feeds.
+- [`react-virtuoso`](https://www.npmjs.com/package/react-virtuoso) - Virtualized list and table components for large feeds and long result sets.

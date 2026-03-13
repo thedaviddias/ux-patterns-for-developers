@@ -153,6 +153,8 @@ Dedicates a column or row to promotional banners, new arrivals, or featured link
 
 ## Examples
 
+### Live Preview
+
 ### Basic HTML Implementation
 
 ```html
@@ -248,235 +250,6 @@ Dedicates a column or row to promotional banners, new arrivals, or featured link
     });
   });
 </script>
-```
-
-### React Implementation
-
-```jsx
-
-function Megamenu({ label, categories }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const triggerRef = useRef(null);
-  const panelRef = useRef(null);
-  const timeoutRef = useRef(null);
-
-  const open = useCallback(() => {
-    clearTimeout(timeoutRef.current);
-    setIsOpen(true);
-  }, []);
-
-  const close = useCallback(() => {
-    setIsOpen(false);
-    triggerRef.current?.focus();
-  }, []);
-
-  const delayedClose = useCallback(() => {
-    timeoutRef.current = setTimeout(() => setIsOpen(false), 300);
-  }, []);
-
-  const cancelClose = useCallback(() => {
-    clearTimeout(timeoutRef.current);
-  }, []);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') close();
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, close]);
-
-  return (
-    <li
-      role="none"
-      onMouseEnter={open}
-      onMouseLeave={delayedClose}
-    >
-      <button
-        ref={triggerRef}
-        type="button"
-        role="menuitem"
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-        className="nav-trigger"
-        onClick={() => (isOpen ? close() : open())}
-      >
-        {label}
-        <span className="chevron" aria-hidden="true">▾</span>
-      </button>
-
-      {isOpen && (
-        <div
-          ref={panelRef}
-          className="megamenu-panel"
-          role="menu"
-          onMouseEnter={cancelClose}
-          onMouseLeave={delayedClose}
-        >
-          <div className="megamenu-columns">
-            {categories.map((category) => (
-              <div key={category.heading} className="megamenu-column">
-                <h3 className="megamenu-heading">{category.heading}</h3>
-                <ul role="none">
-                  {category.links.map((link) => (
-                    <li key={link.href} role="none">
-                      <a role="menuitem" href={link.href}>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </li>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.nav-bar {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 0.25rem;
-  position: relative;
-}
-
-.nav-trigger {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.75rem 1rem;
-  border: none;
-  background: transparent;
-  font-size: 1rem;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.nav-trigger:hover,
-.nav-trigger[aria-expanded="true"] {
-  background-color: #f3f4f6;
-  border-radius: 0.375rem;
-}
-
-.nav-trigger:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-  border-radius: 0.375rem;
-}
-
-.chevron {
-  font-size: 0.75rem;
-  transition: transform 200ms ease;
-}
-
-.nav-trigger[aria-expanded="true"] .chevron {
-  transform: rotate(180deg);
-}
-
-.megamenu-panel {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0 0 0.5rem 0.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem 2rem;
-  z-index: 100;
-  animation: megamenu-enter 200ms ease;
-}
-
-@keyframes megamenu-enter {
-  from {
-    opacity: 0;
-    transform: translateY(-0.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.megamenu-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  gap: 2rem;
-}
-
-.megamenu-heading {
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #6b7280;
-  margin: 0 0 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.megamenu-column ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.megamenu-column li + li {
-  margin-top: 0.25rem;
-}
-
-.megamenu-column a {
-  display: block;
-  padding: 0.375rem 0.5rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  color: #1f2937;
-  font-size: 0.9375rem;
-}
-
-.megamenu-column a:hover {
-  background-color: #f3f4f6;
-  color: #111827;
-}
-
-.megamenu-column a:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 1px;
-}
-
-@media (max-width: 768px) {
-  .megamenu-panel {
-    position: static;
-    border: none;
-    box-shadow: none;
-    padding: 0 1rem;
-  }
-
-  .megamenu-columns {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .megamenu-panel {
-    animation: none;
-  }
-  .chevron {
-    transition: none;
-  }
-}
 ```
 
 ## Best Practices
@@ -807,8 +580,6 @@ const open = () => { setHasOpened(true); setIsOpen(true); };
 - [ ] Lazy-loaded images don't block panel appearance
 - [ ] Component does not cause main thread blocking
 
-## Browser Support
-
 ## SEO Considerations
 
 - **Crawlable links:** Ensure all megamenu links use proper `<a>` tags with `href` so search engines can discover linked pages
@@ -866,24 +637,21 @@ const open = () => { setHasOpened(true); setIsOpen(true); };
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [Radix Navigation Menu](https://www.radix-ui.com/primitives/docs/components/navigation-menu) – Accessible navigation menu primitives
-- [Headless UI Popover](https://headlessui.com/react/popover) – Unstyled popover components usable for megamenus
-- [React Mega Menu](https://github.com/jamhall/react-mega-menu) – Configurable megamenu component
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - Reference patterns for keyboard behavior, semantics, and assistive technology support.
 
-#### Vanilla JavaScript
-- [Accessible Mega Menu](https://adobe-accessibility.github.io/Accessible-Mega-Menu/) – Adobe's accessible megamenu implementation
-- [focus-trap](https://github.com/focus-trap/focus-trap) – Focus management for accessible panels
+### Guides
+
+- [WAI Fly-out Menus Tutorial](https://www.w3.org/WAI/tutorials/menus/flyout/) - Guidance for hover intent, disclosure timing, and focus handling in nested navigation.
 
 ### Articles
 
-- [Mega Menus Work Well for Site Navigation](https://www.nngroup.com/articles/mega-menus-work-well/) by Nielsen Norman Group
-- [Building Accessible Mega Menus](https://www.w3.org/WAI/tutorials/menus/flyout/) by W3C WAI
-- [Mega Menu Design](https://www.smashingmagazine.com/2021/03/mega-menu-design/) by Smashing Magazine
+- [Nielsen Norman Group: Mega menus work well](https://www.nngroup.com/articles/mega-menus-work-well/) - Evidence for structured large-menu layouts and hover/focus handling tradeoffs.
 
-### Design Systems
+### NPM Packages
 
-- [Shopify Polaris Navigation](https://polaris.shopify.com/components/navigation) – E-commerce navigation patterns
-- [GOV.UK Mega Menu](https://design-system.service.gov.uk/) – Government design system navigation
+- [`@radix-ui/react-navigation-menu`](https://www.npmjs.com/package/%40radix-ui%2Freact-navigation-menu) - Structured menu primitive for complex site navigation.
+- [`@headlessui/react`](https://www.npmjs.com/package/%40headlessui%2Freact) - Headless primitives for menus, tabs, popovers, and disclosure controls.
+- [`@floating-ui/react`](https://www.npmjs.com/package/%40floating-ui%2Freact) - Positioning engine for tooltips, popovers, dropdowns, and anchored surfaces.

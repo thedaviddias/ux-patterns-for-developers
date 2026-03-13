@@ -9,7 +9,6 @@ popularity: high
 
 import { Playground } from "@/components/playground";
 
-
 ## Overview
 
 A **Multi-select Input** is a form component that allows users to select multiple items from a predefined set of options. It differs from an autocomplete (which suggests options for freeform entry) by working with a **bounded, known list of options** — users can only select what exists in the list.
@@ -735,28 +734,22 @@ function focusOption(optionElement) {
 
 ## Resources
 
-### Libraries
+### References
 
-- [Downshift](https://www.downshift-js.com/) - Accessible multi-select primitives for React
-- [React Select](https://react-select.com/) - Feature-rich multi-select with async support
-- [Headless UI Combobox](https://headlessui.com/react/combobox) - Accessible combobox from Tailwind team
-- [Choices.js](https://choices-js.github.io/Choices/) - Lightweight multi-select without dependencies
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN select element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select) - Native selection control behavior, labels, and grouped options.
 
-### Design Systems
+### Guides
 
-- [Radix UI Select](https://www.radix-ui.com/primitives/docs/components/select) - Accessible select primitive
-- [Mantine MultiSelect](https://mantine.dev/core/multi-select/) - Full-featured multi-select component
-- [Chakra UI MultiSelect](https://chakra-ui.com/docs/components/select) - Multi-select for Chakra
-- [Carbon Design Multi-Select](https://carbondesignsystem.com/components/multi-select/usage) - IBM multi-select guidelines
+- [Chrome Developers: customizable select](https://developer.chrome.com/blog/rfc-customizable-select) - Current platform direction for improving flexible, accessible select experiences.
 
-### Articles & Guides
+### Articles
 
-- [ARIA Listbox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/) - W3C accessibility pattern for listboxes
-- [ARIA Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) - W3C accessible combobox
-- [Accessible Multi-Select](https://adrianroselli.com/2022/05/under-engineered-multi-selects.html) - Adrian Roselli on multi-select accessibility
-- [Multi-select UX Research](https://baymard.com/blog/multi-select-listbox) - Baymard Institute usability study
+- [Adrian Roselli: Under-engineered multi-selects](https://adrianroselli.com/2022/05/under-engineered-multi-selects.html) - Implementation guidance for selection UIs that stay usable with keyboard and assistive tech.
+- [Baymard: Multi-select listbox usability](https://baymard.com/blog/multi-select-listbox) - Research on discoverability and interaction cost in multi-select controls.
 
-### Tools & Utilities
+### NPM Packages
 
-- [Accessibility Checker](https://wave.webaim.org/) - Check component accessibility
-- [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - W3C ARIA patterns reference
+- [`react-select`](https://www.npmjs.com/package/react-select) - Flexible combobox and async selection building blocks.
+- [`downshift`](https://www.npmjs.com/package/downshift) - Headless combobox, autocomplete, and selection primitives.
+- [`react-aria-components`](https://www.npmjs.com/package/react-aria-components) - Headless accessible components covering many form and overlay patterns.

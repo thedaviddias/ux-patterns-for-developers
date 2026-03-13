@@ -1,0 +1,96 @@
+---
+name: Card Grid
+description: "Use when you need to display content in a responsive card layout."
+metadata:
+  id: card-grid
+  category: data-display
+  pattern: Card Grid
+  source: uxpatterns.dev
+  url: https://uxpatterns.dev/patterns/data-display/card-grid
+  sourcePath: apps/web/content/patterns/data-display/card-grid.mdx
+---
+
+# Card Grid
+
+Display content in a responsive card layout
+
+## What it solves
+
+A **Card Grid** pattern helps teams create a reliable way to show many items in a visual browseable grid without losing the metadata needed for quick evaluation. It is most useful when teams need content libraries and resources.
+Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
+
+## When to use
+
+- Content libraries and resources
+- Catalog browsing
+- Dashboard modules or boards
+
+## When to avoid
+
+- Use a simpler view when users only need one or two values and not the full layout.
+- Avoid this pattern when the task is creation or editing rather than interpretation.
+- Do not force the same view onto mobile if another representation would be clearer.
+
+## Implementation workflow
+
+1. Confirm the pattern matches the problem and constraints before copying the example.
+2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
+3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
+4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+
+## Accessibility guardrails
+
+### Keyboard Interaction
+- [ ] Verify that card grid can be completed using keyboard alone.
+- [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI.
+- [ ] Preserve a visible focus state that is still readable at high zoom.
+### Screen Reader Support
+- [ ] Use semantic elements first, then add ARIA only where semantics alone are not enough.
+- [ ] Announce state changes such as errors, loading, or completion in the right place and with the right politeness.
+- [ ] Connect labels, hints, and status text with `aria-describedby` or structural headings when useful.
+### Visual Accessibility
+- [ ] Do not rely on color alone to convey severity, completion, or selection state.
+
+## Performance guardrails
+
+- Measure the cost of rendering the default view before adding richer adornments such as nested actions, charts, or inline filters.
+- Use pagination, windowing, or progressive disclosure when the layout would otherwise render too many items at once.
+- Stabilize heights and placeholder geometry so loading and data refresh states do not cause large layout shifts.
+
+## Common mistakes
+
+### **Choosing the layout before the task**
+
+**The Problem:**
+Teams often pick a visually familiar pattern before confirming whether users need comparison, exploration, or scanning.
+
+**How to Fix It?**
+Start from the user task, then map the layout to comparison, chronology, hierarchy, or overview needs.
+
+### **Ignoring non-happy states**
+
+**The Problem:**
+A polished default view still feels broken when loading, empty, and error states are inconsistent.
+
+**How to Fix It?**
+Design the data lifecycle up front, including empty, partial, stale, and failed results.
+
+### **Shipping a desktop-only density model**
+
+**The Problem:**
+Large tables, dense dashboards, and heavy cards collapse quickly on small screens.
+
+**How to Fix It?**
+Define a mobile strategy such as stacked cards, progressive disclosure, or alternate summaries before implementation.
+
+## Related patterns
+
+- https://uxpatterns.dev/patterns/data-display/list-view
+- https://uxpatterns.dev/patterns/data-display/table
+- https://uxpatterns.dev/patterns/e-commerce/product-card
+
+---
+
+For full implementation detail, examples, and testing notes, see `references/pattern.md`.
+
+Pattern page: https://uxpatterns.dev/patterns/data-display/card-grid

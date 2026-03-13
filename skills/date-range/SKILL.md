@@ -123,7 +123,6 @@ function getDisabledDatesForEndSelection(startDate, minDays) {
 
 ## Related patterns
 
-- https://uxpatterns.dev/patterns/dialog-modal/examples
 - https://uxpatterns.dev/patterns/forms/date-input
 - https://uxpatterns.dev/patterns/forms/date-picker
 - https://uxpatterns.dev/patterns/forms/selection-input

@@ -1,5 +1,4 @@
 import type { MDXComponents } from "mdx/types";
-import { BrowserSupport } from "@/components/browser-support";
 import { BuildEffort } from "@/components/build-effort";
 import { ChecklistDownload } from "@/components/checklist-download";
 import { ComponentPreviewServerStub } from "@/components/component-preview-server-stub";
@@ -104,7 +103,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 		Mermaid: LazyMermaid,
 		ComponentPreview: ComponentPreviewWithMetadata,
 		ComponentPreviewServer: ComponentPreviewServerStub,
-		BrowserSupport,
 		BuildEffort,
 		FaqStructuredData,
 		GlossaryStructuredData,

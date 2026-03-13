@@ -575,10 +575,6 @@ Based on usability studies, users expect:
 - **Quick loading times** - Users abandon if loading takes > 3 seconds
 - **End-of-content clarity** - Users repeatedly click when the end isn't clear
 
-## Browser Support
-
-<BrowserSupport features={["api.IntersectionObserver", "css.transitions", "html.elements.button"]} />
-
 ## Performance Metrics
 
 **Target Metrics:**
@@ -732,34 +728,21 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Infinite Scroll Component](https://github.com/ankeetmaini/react-infinite-scroll-component) – Infinite scroll with "Load More" support
-- [React Waypoint](https://github.com/civiccc/react-waypoint) – Trigger functions when scrolling to an element
-- [React Query](https://tanstack.com/query/latest) – Data fetching with pagination support
-- [SWR](https://swr.vercel.app/) – Data fetching with infinite loading patterns
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) - Viewport observation for lazy loading, infinite lists, and progressive reveal patterns.
 
-#### Vue Components
-- [Vue Infinite Loading](https://github.com/PeachScript/vue-infinite-loading) – Infinite scroll plugin with "Load More" button option
-- [Vue Load More](https://github.com/Akryum/vue-observe-visibility) – Detect when element becomes visible
+### Guides
 
-#### Vanilla JavaScript
-- [Infinite Scroll](https://infinite-scroll.com/) – JavaScript plugin by Metafizzy
-- [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) – Native browser API for detecting visibility
+- [web.dev: Virtualize large lists](https://web.dev/articles/virtualize-long-lists-react-window) - Rendering and scrolling guidance for large result sets, feeds, and data-heavy interfaces.
 
-### Design Systems
+### Articles
 
-- [Material Design - Progress & Activity](https://m3.material.io/components/progress-indicators/overview) - Loading patterns guidance
-- [Carbon Design System - Loading](https://carbondesignsystem.com/patterns/loading-pattern/) - IBM's loading patterns
+- [Nielsen Norman Group: Infinite scrolling tips](https://www.nngroup.com/articles/infinite-scrolling-tips/) - Tradeoffs in feed-style browsing, orientation, and footer access.
 
-### Articles & Guides
+### NPM Packages
 
-- [Load More vs Pagination vs Infinite Scroll](https://www.nngroup.com/articles/infinite-scrolling-tips/) - Nielsen Norman Group analysis
-- [Performance Best Practices for Load More](https://web.dev/patterns/web-vitals-patterns/infinite-scroll/) - Web.dev performance guide
-
-### Tools & Testing
-
-- [WAVE](https://wave.webaim.org/) - Test load more accessibility
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse) - Performance testing for lazy loading
-- [PageSpeed Insights](https://pagespeed.web.dev/) - Analyze load more performance impact
+- [`@tanstack/react-query`](https://www.npmjs.com/package/%40tanstack%2Freact-query) - Server-state management for async data, optimistic UI, and background refresh.
+- [`react-virtuoso`](https://www.npmjs.com/package/react-virtuoso) - Virtualized list and table components for large feeds and long result sets.
+- [`@tanstack/react-virtual`](https://www.npmjs.com/package/%40tanstack%2Freact-virtual) - Virtualization primitives for large lists, tables, and feeds.

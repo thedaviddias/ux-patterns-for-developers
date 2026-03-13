@@ -277,208 +277,6 @@ A guided step-by-step flow for initial configuration or comprehensive review.
 </div>
 ```
 
-### React Implementation
-
-```jsx
-import { useState, useCallback } from 'react';
-
-function SettingsSection({ title, children, onSave, isSaving }) {
-  const [hasChanges, setHasChanges] = useState(false);
-  const [saveStatus, setSaveStatus] = useState(null);
-
-  const handleSave = useCallback(async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    try {
-      await onSave(Object.fromEntries(formData));
-      setSaveStatus('saved');
-      setHasChanges(false);
-      setTimeout(() => setSaveStatus(null), 3000);
-    } catch {
-      setSaveStatus('error');
-    }
-  }, [onSave]);
-
-  return (
-    <section className="settings-section">
-      <h2>{title}</h2>
-      <form onSubmit={handleSave} onChange={() => setHasChanges(true)}>
-        {children}
-        <div className="form-actions">
-          <button type="submit" className="save-btn" disabled={!hasChanges || isSaving}>
-            {isSaving ? 'Saving…' : 'Save changes'}
-          </button>
-          {saveStatus === 'saved' && (
-            <span className="save-status success" role="status">Changes saved</span>
-          )}
-          {saveStatus === 'error' && (
-            <span className="save-status error" role="status">Failed to save. Try again.</span>
-          )}
-        </div>
-      </form>
-    </section>
-  );
-}
-
-function DangerZone({ onDelete }) {
-  const [showConfirm, setShowConfirm] = useState(false);
-
-  return (
-    <section className="settings-section danger-zone">
-      <h2>Danger zone</h2>
-      <div className="settings-item">
-        <div>
-          <h3>Delete account</h3>
-          <p>Permanently delete your account and all associated data.</p>
-        </div>
-        {showConfirm ? (
-          <div className="confirm-actions">
-            <p><strong>Are you sure? This cannot be undone.</strong></p>
-            <button className="danger-btn" onClick={onDelete}>Yes, delete my account</button>
-            <button className="cancel-btn" onClick={() => setShowConfirm(false)}>Cancel</button>
-          </div>
-        ) : (
-          <button className="danger-btn" onClick={() => setShowConfirm(true)}>
-            Delete account
-          </button>
-        )}
-      </div>
-    </section>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.settings-layout {
-  display: grid;
-  grid-template-columns: 14rem 1fr;
-  gap: 2rem;
-  max-width: 56rem;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.settings-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: sticky;
-  top: 5rem;
-}
-
-.settings-nav a {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.375rem;
-  text-decoration: none;
-  color: #374151;
-  font-size: 0.875rem;
-}
-
-.settings-nav a:hover { background: #f3f4f6; }
-.settings-nav a[aria-current="true"] { background: #dbeafe; color: #1d4ed8; font-weight: 500; }
-.settings-nav a:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
-
-.settings-section {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #e5e7eb;
-  margin-bottom: 2rem;
-}
-
-.settings-section h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 1.25rem;
-}
-
-.settings-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  border-top: 1px solid #f3f4f6;
-}
-
-.settings-item h3 { font-size: 0.9375rem; font-weight: 500; margin: 0; }
-.settings-item p { font-size: 0.8125rem; color: #6b7280; margin: 0.25rem 0 0; }
-
-.status-badge {
-  display: inline-block;
-  padding: 0.125rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.status-badge.enabled { background: #dcfce7; color: #166534; }
-.status-badge.disabled { background: #fee2e2; color: #991b1b; }
-
-.form-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.save-btn {
-  padding: 0.625rem 1.25rem;
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.save-btn:hover:not(:disabled) { background: #1d4ed8; }
-.save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.save-btn:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
-
-.save-status {
-  font-size: 0.8125rem;
-  font-weight: 500;
-}
-
-.save-status.success { color: #16a34a; }
-.save-status.error { color: #dc2626; }
-
-.action-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  background: #fff;
-  font-size: 0.8125rem;
-  cursor: pointer;
-}
-
-.action-btn:hover { background: #f9fafb; }
-
-.danger-zone { border: 1px solid #fca5a5; border-radius: 0.5rem; padding: 1.5rem; }
-.danger-zone h2 { color: #dc2626; }
-
-.danger-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #dc2626;
-  border-radius: 0.375rem;
-  background: #fff;
-  color: #dc2626;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.danger-btn:hover { background: #fef2f2; }
-.danger-btn:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; }
-
-@media (max-width: 768px) {
-  .settings-layout { grid-template-columns: 1fr; }
-  .settings-nav ul { display: flex; gap: 0.25rem; overflow-x: auto; position: static; }
-}
-```
-
 ## Best Practices
 
 ### Content
@@ -801,10 +599,6 @@ const debouncedSave = useMemo(
 - [ ] Toggle switches reflect current state accurately
 - [ ] Active navigation item is highlighted
 
-## Browser Support
-
-<BrowserSupport features={["html.elements.form", "css.properties.display.grid", "api.Window.beforeunload"]} />
-
 ## SEO Considerations
 
 - **Noindex all settings pages** — Account settings are behind authentication and should not be indexed
@@ -889,18 +683,22 @@ const debouncedSave = useMemo(
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [shadcn/ui Settings](https://ui.shadcn.com/examples/forms) – Form components for settings pages
-- [React Hook Form](https://react-hook-form.com/) – Form state management and validation
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
+
+### Guides
+
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
 ### Articles
 
-- [Settings Design Patterns](https://www.nngroup.com/articles/settings-design/) by Nielsen Norman Group
-- [Account Settings UX](https://www.smashingmagazine.com/2019/02/user-preferences-settings-design/) by Smashing Magazine
+- [Nielsen Norman Group: Login walls](https://www.nngroup.com/articles/login-walls/) - When forced authentication harms discovery and conversion in account flows.
+- [Smashing Magazine: Checklist for cards](https://www.smashingmagazine.com/2020/08/checklist-cards-release/) - A practical review of content hierarchy, action density, and card sizing.
 
-### Design Systems
+### NPM Packages
 
-- [GitHub Settings](https://github.com/settings/profile) – Tabbed account settings reference
-- [Stripe Dashboard Settings](https://dashboard.stripe.com/settings) – Clean settings organization
+- [`react-hook-form`](https://www.npmjs.com/package/react-hook-form) - Low-friction form state and validation wiring for complex input flows.
+- [`zod`](https://www.npmjs.com/package/zod) - Schema validation for typed parsing, normalization, and field-level error handling.
+- [`react-easy-crop`](https://www.npmjs.com/package/react-easy-crop) - Image cropping primitives for avatar and profile-photo editing flows.

@@ -1,5 +1,6 @@
 "use client";
 
+import { ExpandableCodeBlock } from "@ux-patterns/ui/components/custom/expandable-code-block";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
 	Collapsible,
@@ -34,21 +35,19 @@ function PlaygroundCodeTabs({ tabs }: { tabs: PatternExampleCodeTab[] }) {
 				</div>
 
 				{tabs.map((tab) => (
-					<TabsContent
-						key={tab.value}
-						value={tab.value}
-						className="mt-0 [&_pre]:my-0"
-					>
-						<DynamicCodeBlock
-							code={tab.code}
-							lang={tab.lang}
-							options={{
-								themes: {
-									light: "github-light",
-									dark: "github-dark",
-								},
-							}}
-						/>
+					<TabsContent key={tab.value} value={tab.value} className="mt-0">
+						<ExpandableCodeBlock contentClassName="[&_pre]:my-0">
+							<DynamicCodeBlock
+								code={tab.code}
+								lang={tab.lang}
+								options={{
+									themes: {
+										light: "github-light",
+										dark: "github-dark",
+									},
+								}}
+							/>
+						</ExpandableCodeBlock>
 					</TabsContent>
 				))}
 			</Tabs>

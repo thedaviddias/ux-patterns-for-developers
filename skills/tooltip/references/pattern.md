@@ -469,8 +469,6 @@ The following table outlines the standard keyboard interactions for tooltip comp
 - [ ] Optimize tooltip animations to **use `opacity` and `transform` for smooth rendering**.
 - [ ] Test for **efficient event handling** to avoid performance degradation on repeated interactions.
 
-## Browser Support
-
 ## [Design Tokens](/glossary/design-tokens)
 
 These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -506,29 +504,21 @@ Consider these related patterns when implementing tooltips:
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Tooltip](https://react-tooltip.com/) – Highly customizable tooltip component
-- [Floating UI](https://floating-ui.com/) – Positioning engine for tooltips and popovers
-- [Radix UI Tooltip](https://www.radix-ui.com/docs/primitives/components/tooltip) – Unstyled, accessible tooltip primitive
-- [MUI Tooltip](https://mui.com/material-ui/react-tooltip/) – Material Design tooltip component
-- [Tooltip - shadcn/ui](https://ui.shadcn.com/docs/components/tooltip) – Modern tooltip implementation
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - Reference patterns for keyboard behavior, semantics, and assistive technology support.
 
-#### Vue Components
-- [Floating Vue](https://floating-vue.starpad.dev/) – Floating UI components for Vue
-- [PrimeVue Tooltip](https://primevue.org/tooltip/) – Feature-rich tooltip directive
+### Guides
 
-#### Vanilla JavaScript
-- [Tippy.js](https://atomiks.github.io/tippyjs/) – Complete tooltip, popover, dropdown solution
-- [Popper.js](https://popper.js.org/) – Positioning engine used by many libraries
-- [Balloon.css](https://kazzkiq.github.io/balloon.css/) – Pure CSS tooltips
+- [MDN WAI-ARIA basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) - Guidance on when to rely on native HTML and when to introduce ARIA roles and states.
 
 ### Articles
 
-- [Tooltip - Nielsen Norman Group](https://www.nngroup.com/articles/tooltip-guidelines/)
-- [Designing better tooltips for improved UX - LogRocket Blog](https://blog.logrocket.com/ux-design/designing-better-tooltips-improved-ux/)
+- [Nielsen Norman Group: Accordions on desktop](https://www.nngroup.com/articles/accordions-on-desktop/) - When collapsible content helps scanning and when it hides too much context.
 
-### Documentation
+### NPM Packages
 
-- [Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
+- [`@radix-ui/react-dialog`](https://www.npmjs.com/package/%40radix-ui%2Freact-dialog) - Dialog primitive for modals, sheet-style overlays, and focus management.
+- [`@floating-ui/react`](https://www.npmjs.com/package/%40floating-ui%2Freact) - Positioning engine for tooltips, popovers, dropdowns, and anchored surfaces.
+- [`focus-trap`](https://www.npmjs.com/package/focus-trap) - Keeps keyboard focus inside active modal and popover surfaces.

@@ -598,8 +598,6 @@ function generateBreadcrumbSchema(breadcrumbs) {
 - [ ] Work with dynamic content updates
 - [ ] Function without JavaScript (progressive enhancement)
 
-## Browser Support
-
 ## Design Tokens (DTF)
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -670,13 +668,21 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ## Resources
 
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) - Native link semantics, navigation behavior, and accessible labeling.
+
+### Guides
+
+- [WAI Cognitive Pattern: Make Each Step Clear](https://www.w3.org/WAI/WCAG2/supplemental/patterns/o1p04-clear-steps/) - Recommendations for orientation, progress, and re-entry in staged task flows.
+
 ### Articles
 
-- [Breadcrumbs: 11 Design Guidelines for Desktop and Mobile](https://www.nngroup.com/articles/breadcrumbs/) by Nielsen Norman Group
-- [Designing Effective Breadcrumbs Navigation — Smashing Magazine](https://www.smashingmagazine.com/2022/04/breadcrumbs-ux-design/)
-- [Breadcrumb Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/) by W3C
-- [Breadcrumbs](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-breadcrumbs) - By A11y Style guide
+- [Nielsen Norman Group: Breadcrumbs](https://www.nngroup.com/articles/breadcrumbs/) - Best practices for hierarchy cues, current-page indication, and truncation.
 
-### Libraries
+### NPM Packages
 
-- [Breadcrumb: shadcn/ui](https://ui.shadcn.com/docs/components/breadcrumb)
+- [`next`](https://www.npmjs.com/package/next) - Routing, image, and navigation primitives commonly used in app shell and commerce UIs.
+- [`react-router-dom`](https://www.npmjs.com/package/react-router-dom) - Client-side route primitives useful for links, breadcrumbs, and tab navigation.
+- [`@tanstack/react-router`](https://www.npmjs.com/package/%40tanstack%2Freact-router) - Typed route primitives for navigation-heavy interfaces.

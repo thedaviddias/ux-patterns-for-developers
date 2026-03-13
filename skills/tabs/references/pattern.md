@@ -148,6 +148,8 @@ Tabs that synchronize the active tab with a URL hash or query parameter for deep
 
 ## Examples
 
+### Live Preview
+
 ### Basic HTML Implementation
 
 ```html
@@ -257,192 +259,6 @@ Tabs that synchronize the active tab with a URL hash or query parameter for deep
     });
   });
 </script>
-```
-
-### React Implementation
-
-```jsx
-
-function Tabs({ tabs, defaultTab, ariaLabel }) {
-  const [activeTab, setActiveTab] = useState(defaultTab || tabs[0].id);
-  const tabRefs = useRef([]);
-
-  const handleKeyDown = useCallback((e, index) => {
-    let newIndex;
-
-    if (e.key === 'ArrowRight') {
-      newIndex = (index + 1) % tabs.length;
-    } else if (e.key === 'ArrowLeft') {
-      newIndex = (index - 1 + tabs.length) % tabs.length;
-    } else if (e.key === 'Home') {
-      newIndex = 0;
-    } else if (e.key === 'End') {
-      newIndex = tabs.length - 1;
-    } else {
-      return;
-    }
-
-    e.preventDefault();
-    setActiveTab(tabs[newIndex].id);
-    tabRefs.current[newIndex]?.focus();
-  }, [tabs]);
-
-  return (
-    <div className="tabs">
-      <div role="tablist" aria-label={ariaLabel}>
-        {tabs.map((tab, index) => (
-          <button
-            key={tab.id}
-            ref={(el) => { tabRefs.current[index] = el; }}
-            role="tab"
-            id={`tab-${tab.id}`}
-            aria-selected={activeTab === tab.id}
-            aria-controls={`panel-${tab.id}`}
-            tabIndex={activeTab === tab.id ? 0 : -1}
-            onClick={() => setActiveTab(tab.id)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {tabs.map((tab) => (
-        <div
-          key={tab.id}
-          role="tabpanel"
-          id={`panel-${tab.id}`}
-          aria-labelledby={`tab-${tab.id}`}
-          tabIndex={0}
-          hidden={activeTab !== tab.id}
-        >
-          {tab.content}
-        </div>
-      ))}
-    </div>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.tabs {
-  width: 100%;
-}
-
-[role="tablist"] {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid #e5e7eb;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-[role="tablist"]::-webkit-scrollbar {
-  display: none;
-}
-
-[role="tab"] {
-  flex-shrink: 0;
-  padding: 0.75rem 1.25rem;
-  border: none;
-  border-bottom: 2px solid transparent;
-  background: transparent;
-  color: #6b7280;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 150ms ease, border-color 150ms ease;
-}
-
-[role="tab"]:hover {
-  color: #374151;
-  border-bottom-color: #d1d5db;
-}
-
-[role="tab"][aria-selected="true"] {
-  color: #2563eb;
-  border-bottom-color: #2563eb;
-}
-
-[role="tab"]:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: -2px;
-  border-radius: 0.25rem 0.25rem 0 0;
-}
-
-[role="tabpanel"] {
-  padding: 1.5rem 0;
-}
-
-[role="tabpanel"]:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-  border-radius: 0.25rem;
-}
-
-/* Vertical tabs variant */
-.tabs-vertical {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.tabs-vertical [role="tablist"] {
-  flex-direction: column;
-  border-bottom: none;
-  border-right: 1px solid #e5e7eb;
-  gap: 0.25rem;
-  padding-right: 0;
-  overflow: visible;
-}
-
-.tabs-vertical [role="tab"] {
-  border-bottom: none;
-  border-right: 2px solid transparent;
-  text-align: left;
-}
-
-.tabs-vertical [role="tab"][aria-selected="true"] {
-  border-right-color: #2563eb;
-}
-
-/* Pill / segmented variant */
-.tabs-pill [role="tablist"] {
-  display: inline-flex;
-  gap: 0.25rem;
-  padding: 0.25rem;
-  background: #f3f4f6;
-  border: none;
-  border-radius: 0.5rem;
-}
-
-.tabs-pill [role="tab"] {
-  border: none;
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
-}
-
-.tabs-pill [role="tab"][aria-selected="true"] {
-  background: #fff;
-  color: #111827;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 640px) {
-  [role="tab"] {
-    padding: 0.625rem 1rem;
-    font-size: 0.875rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [role="tab"] {
-    transition: none;
-  }
-}
 ```
 
 ## Best Practices
@@ -606,7 +422,8 @@ Use `hidden` attribute or `display: none` to hide panels instead of removing the
 - **Implementation:** CSS `:focus-visible` with outline
 
 ### Scrollable Tab Indicators
-- **Effect:** Gradient fades or small arrows appear at the edges when tabs overflow
+- **Effect:** Gradient fades or small arrows appear at the edg
+
 - **Timing:** 200ms fade based on scroll position
 - **Trigger:** Tab list scroll position changes
 - **Implementation:** CSS gradient overlays controlled by JavaScript scroll listener
@@ -785,8 +602,6 @@ function LazyTabPanel({ isActive, children }) {
 - [ ] Lazy-loaded content doesn't block the tab switch
 - [ ] Scrollable tab list scrolls smoothly at 60fps
 
-## Browser Support
-
 ## SEO Considerations
 
 - **Hidden content is indexed:** Search engines can read content in hidden tab panels if it's in the HTML DOM
@@ -848,23 +663,21 @@ function LazyTabPanel({ isActive, children }) {
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [Radix Tabs](https://www.radix-ui.com/primitives/docs/components/tabs) – Accessible tab primitives for React
-- [Headless UI Tabs](https://headlessui.com/react/tabs) – Unstyled accessible tab components
-- [React Aria useTabs](https://react-spectrum.adobe.com/react-aria/useTabList.html) – Adobe's accessible tab hooks
-- [shadcn/ui Tabs](https://ui.shadcn.com/docs/components/tabs) – Styled tab component
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - Reference patterns for keyboard behavior, semantics, and assistive technology support.
 
-#### Vue Components
-- [Headless UI Vue Tabs](https://headlessui.com/vue/tabs) – Accessible tabs for Vue
+### Guides
 
-#### Vanilla JavaScript
-- [Tabby](https://github.com/cferdinandi/tabby) – Lightweight vanilla JS tabs
+- [MDN WAI-ARIA basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) - Guidance on when to rely on native HTML and when to introduce ARIA roles and states.
 
 ### Articles
 
-- [Tabs, Used Right](https://www.nngroup.com/articles/tabs-used-right/) by Nielsen Norman Group
-- [ARIA Authoring Practices: Tabs](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) by W3C
-- [Inclusive Components: Tabbed Interfaces](https://inclusive-components.design/tabbed-interfaces/) by Heydon Pickering
-- [Tabs: Design Patterns](https://www.smashingmagazine.com/2022/05/designing-better-tabs/) by Smashing Magazine
+- [Nielsen Norman Group: Tabs used right](https://www.nngroup.com/articles/tabs-used-right/) - Guidance for grouping content, labeling, and avoiding hidden complexity.
+
+### NPM Packages
+
+- [`@radix-ui/react-tabs`](https://www.npmjs.com/package/%40radix-ui%2Freact-tabs) - Tablist primitive for in-page content switching.
+- [`react-aria-components`](https://www.npmjs.com/package/react-aria-components) - Headless accessible components covering many form and overlay patterns.
+- [`@headlessui/react`](https://www.npmjs.com/package/%40headlessui%2Freact) - Headless primitives for menus, tabs, popovers, and disclosure controls.

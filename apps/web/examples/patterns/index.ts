@@ -44,6 +44,7 @@ import { inputTypesTextFieldExample as formsTextFieldInputTypesExample } from ".
 import { requiredTextFieldExample as formsTextFieldRequiredExample } from "./forms/text-field/required";
 import { validationTextFieldExample as formsTextFieldValidationExample } from "./forms/text-field/validation";
 import { withIconsTextFieldExample as formsTextFieldWithIconsExample } from "./forms/text-field/with-icons";
+import { generatedExamples } from "./generated";
 import { basicBackToTopExample as navigationBackToTopBasicExample } from "./navigation/back-to-top/basic";
 import { basicExample as navigationBreadcrumbBasicExample } from "./navigation/breadcrumb/basic";
 import { basicExample as navigationHambugerMenuBasicExample } from "./navigation/hambuger-menu/basic";
@@ -55,7 +56,7 @@ import { basicPaginationExample as navigationPaginationBasicExample } from "./na
 import { basicExample as navigationSidebarBasicExample } from "./navigation/sidebar/basic";
 import { basicExample as navigationTabsBasicExample } from "./navigation/tabs/basic";
 
-export const examples = {
+const baseExamples = {
 	authentication: {
 		"account-settings": {
 			basic: authenticationAccountSettingsBasicExample,
@@ -192,6 +193,26 @@ export const examples = {
 		tabs: {
 			basic: navigationTabsBasicExample,
 		},
+	},
+} as const satisfies Record<
+	string,
+	Record<string, Record<string, PatternExampleDefinition>>
+>;
+
+export const examples = {
+	...baseExamples,
+	...generatedExamples,
+	"content-management": {
+		...baseExamples["content-management"],
+		...generatedExamples["content-management"],
+	},
+	"data-display": {
+		...baseExamples["data-display"],
+		...generatedExamples["data-display"],
+	},
+	forms: {
+		...baseExamples.forms,
+		...generatedExamples.forms,
 	},
 } as const satisfies Record<
 	string,

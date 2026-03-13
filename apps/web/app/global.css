@@ -11,7 +11,11 @@
   position: relative;
   padding: 2.75rem 1rem 1rem 1rem;
   border-radius: 0.5rem;
-  overflow-x: auto;
+  overflow-x: hidden;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 0.875rem;
   line-height: 1.7;
@@ -24,6 +28,9 @@ pre.shiki code,
 .code-block pre code {
   font-family: inherit !important;
   font-size: inherit !important;
+  white-space: inherit !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
   background: none !important;
   background-color: transparent !important;
   padding: 0 !important;
@@ -36,6 +43,7 @@ pre.shiki code,
 /* Reset line spans inside code blocks */
 pre.shiki code span,
 .code-block pre code span {
+  white-space: inherit !important;
   border: none !important;
   background: transparent !important;
 }

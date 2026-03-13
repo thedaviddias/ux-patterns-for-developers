@@ -1,8 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/cn";
+import { ExpandableCodeBlock } from "@ux-patterns/ui/components/custom/expandable-code-block";
 import { Check, Copy } from "lucide-react";
-import { useState, useCallback, type ReactNode } from "react";
+import { type ReactNode, useCallback, useState } from "react";
+import { cn } from "@/lib/cn";
 
 interface CodeBlockProps {
 	children: ReactNode;
@@ -27,7 +28,7 @@ export function Code({ children, className, ...props }: CodeBlockProps) {
 		<code
 			className={cn(
 				"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
-				className
+				className,
 			)}
 			{...props}
 		>
@@ -43,16 +44,14 @@ export function Code({ children, className, ...props }: CodeBlockProps) {
  */
 export function Pre({ children, raw, className, ...props }: PreProps) {
 	const [copied, setCopied] = useState(false);
+	const [codeText, setCodeText] = useState("");
 
 	const handleCopy = useCallback(async () => {
-		// Try to get the raw text content
-		const textToCopy =
-			raw ||
-			(typeof children === "object" &&
-			children !== null &&
-			"props" in children
-				? String((children as any).props.children || "")
-				: String(children || ""));
+		const textToCopy = raw || codeText;
+
+		if (!textToCopy) {
+			return;
+		}
 
 		try {
 			await navigator.clipboard.writeText(textToCopy);
@@ -61,30 +60,36 @@ export function Pre({ children, raw, className, ...props }: PreProps) {
 		} catch (err) {
 			console.error("Failed to copy:", err);
 		}
-	}, [children, raw]);
+	}, [codeText, raw]);
 
 	return (
-		<div className="code-block group relative my-4">
-			<button
-				type="button"
-				onClick={handleCopy}
-				className={cn(
-					"absolute right-2 top-2 z-20 cursor-pointer rounded-md p-2 transition-colors",
-					"opacity-0 group-hover:opacity-100 focus:opacity-100",
-					"bg-black/50 hover:bg-black/70",
-					"text-white/80 hover:text-white"
-				)}
-				aria-label={copied ? "Copied!" : "Copy code"}
-			>
-				{copied ? (
-					<Check className="h-4 w-4 text-green-400" />
-				) : (
-					<Copy className="h-4 w-4" />
-				)}
-			</button>
+		<ExpandableCodeBlock
+			className="my-4"
+			contentClassName="[&_pre]:my-0"
+			onCodeContentChange={setCodeText}
+			actions={
+				<button
+					type="button"
+					onClick={handleCopy}
+					className={cn(
+						"cursor-pointer rounded-md p-2 transition-colors",
+						"opacity-0 group-hover:opacity-100 focus:opacity-100",
+						"bg-black/50 hover:bg-black/70",
+						"text-white/80 hover:text-white",
+					)}
+					aria-label={copied ? "Copied!" : "Copy code"}
+				>
+					{copied ? (
+						<Check className="h-4 w-4 text-green-400" />
+					) : (
+						<Copy className="h-4 w-4" />
+					)}
+				</button>
+			}
+		>
 			<pre className={className} {...props}>
 				{children}
 			</pre>
-		</div>
+		</ExpandableCodeBlock>
 	);
 }

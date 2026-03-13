@@ -90,7 +90,6 @@ Target performance metrics for carousels:
 
 ## Related patterns
 
-- https://uxpatterns.dev/patterns/carousel/examples
 - https://uxpatterns.dev/patterns/content-management/accordion
 - https://uxpatterns.dev/patterns/content-management/expandable-text
 - https://uxpatterns.dev/patterns/data-display/card-grid

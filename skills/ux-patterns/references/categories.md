@@ -2,6 +2,64 @@
 
 This category index maps installable pattern skills back to their canonical docs.
 
+## advanced
+
+- **Command Palette**
+  - URL: https://uxpatterns.dev/patterns/advanced/command-palette
+  - Skill: command-palette
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill command-palette`
+- **Search Results**
+  - URL: https://uxpatterns.dev/patterns/advanced/search-results
+  - Skill: search-results
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill search-results`
+- **Wizard / Stepper**
+  - URL: https://uxpatterns.dev/patterns/advanced/wizard
+  - Skill: wizard
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill wizard`
+
+## ai-intelligence
+
+- **AI Chat Interface**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/ai-chat
+  - Skill: ai-chat
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-chat`
+- **AI Error States**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/ai-error-states
+  - Skill: ai-error-states
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-error-states`
+- **AI Loading States**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/ai-loading-states
+  - Skill: ai-loading-states
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-loading-states`
+- **AI Suggestions**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/ai-suggestions
+  - Skill: ai-suggestions
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-suggestions`
+- **Context Window**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/context-window
+  - Skill: context-window
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill context-window`
+- **Model Selector**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/model-selector
+  - Skill: model-selector
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill model-selector`
+- **Prompt Input**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/prompt-input
+  - Skill: prompt-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill prompt-input`
+- **Response Feedback**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/response-feedback
+  - Skill: response-feedback
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill response-feedback`
+- **Streaming Response**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/streaming-response
+  - Skill: streaming-response
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill streaming-response`
+- **Token Counter**
+  - URL: https://uxpatterns.dev/patterns/ai-intelligence/token-counter
+  - Skill: token-counter
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill token-counter`
+
 ## authentication
 
 - **Account Settings**
@@ -43,6 +101,10 @@ This category index maps installable pattern skills back to their canonical docs
   - URL: https://uxpatterns.dev/patterns/content-management/carousel
   - Skill: carousel
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill carousel`
+- **Drag and Drop**
+  - URL: https://uxpatterns.dev/patterns/content-management/drag-and-drop
+  - Skill: drag-and-drop
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill drag-and-drop`
 - **Expandable Text**
   - URL: https://uxpatterns.dev/patterns/content-management/expandable-text
   - Skill: expandable-text
@@ -62,10 +124,69 @@ This category index maps installable pattern skills back to their canonical docs
 
 ## data-display
 
+- **Calendar View**
+  - URL: https://uxpatterns.dev/patterns/data-display/calendar
+  - Skill: calendar
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill calendar`
+- **Card Grid**
+  - URL: https://uxpatterns.dev/patterns/data-display/card-grid
+  - Skill: card-grid
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill card-grid`
+- **Charts & Graphs**
+  - URL: https://uxpatterns.dev/patterns/data-display/chart
+  - Skill: chart
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill chart`
+- **Comparison Table**
+  - URL: https://uxpatterns.dev/patterns/data-display/comparison-table
+  - Skill: comparison-table
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill comparison-table`
+- **Dashboard Layout**
+  - URL: https://uxpatterns.dev/patterns/data-display/dashboard
+  - Skill: dashboard
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill dashboard`
 - **Data Table**
   - URL: https://uxpatterns.dev/patterns/data-display/table
   - Skill: table
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill table`
+- **Filter Panel**
+  - URL: https://uxpatterns.dev/patterns/data-display/filter-panel
+  - Skill: filter-panel
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill filter-panel`
+- **Kanban Board**
+  - URL: https://uxpatterns.dev/patterns/data-display/kanban-board
+  - Skill: kanban-board
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill kanban-board`
+- **List View**
+  - URL: https://uxpatterns.dev/patterns/data-display/list-view
+  - Skill: list-view
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill list-view`
+- **Statistics Display**
+  - URL: https://uxpatterns.dev/patterns/data-display/statistics
+  - Skill: statistics
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill statistics`
+- **Timeline**
+  - URL: https://uxpatterns.dev/patterns/data-display/timeline
+  - Skill: timeline
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill timeline`
+- **Tree View**
+  - URL: https://uxpatterns.dev/patterns/data-display/tree-view
+  - Skill: tree-view
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tree-view`
+
+## e-commerce
+
+- **Checkout Flow**
+  - URL: https://uxpatterns.dev/patterns/e-commerce/checkout
+  - Skill: checkout
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill checkout`
+- **Product Card**
+  - URL: https://uxpatterns.dev/patterns/e-commerce/product-card
+  - Skill: product-card
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill product-card`
+- **Shopping Cart**
+  - URL: https://uxpatterns.dev/patterns/e-commerce/shopping-cart
+  - Skill: shopping-cart
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill shopping-cart`
 
 ## forms
 
@@ -109,6 +230,10 @@ This category index maps installable pattern skills back to their canonical docs
   - URL: https://uxpatterns.dev/patterns/forms/file-input
   - Skill: file-input
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill file-input`
+- **Form Validation**
+  - URL: https://uxpatterns.dev/patterns/forms/form-validation
+  - Skill: form-validation
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill form-validation`
 - **Multi-select Input**
   - URL: https://uxpatterns.dev/patterns/forms/multi-select-input
   - Skill: multi-select-input
@@ -117,18 +242,73 @@ This category index maps installable pattern skills back to their canonical docs
   - URL: https://uxpatterns.dev/patterns/forms/password
   - Skill: password
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill password`
+- **Phone Number**
+  - URL: https://uxpatterns.dev/patterns/forms/phone-number
+  - Skill: phone-number
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill phone-number`
 - **Radio Button**
   - URL: https://uxpatterns.dev/patterns/forms/radio
   - Skill: radio
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill radio`
+- **Rating Input**
+  - URL: https://uxpatterns.dev/patterns/forms/rating-input
+  - Skill: rating-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill rating-input`
+- **Rich Text Editor**
+  - URL: https://uxpatterns.dev/patterns/forms/rich-text-editor
+  - Skill: rich-text-editor
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill rich-text-editor`
+- **Search Field**
+  - URL: https://uxpatterns.dev/patterns/forms/search-field
+  - Skill: search-field
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill search-field`
 - **Selection Input**
   - URL: https://uxpatterns.dev/patterns/forms/selection-input
   - Skill: selection-input
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill selection-input`
+- **Signature Pad**
+  - URL: https://uxpatterns.dev/patterns/forms/signature-pad
+  - Skill: signature-pad
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill signature-pad`
+- **Slider**
+  - URL: https://uxpatterns.dev/patterns/forms/slider
+  - Skill: slider
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill slider`
+- **Tag Input**
+  - URL: https://uxpatterns.dev/patterns/forms/tag-input
+  - Skill: tag-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tag-input`
 - **Text Field**
   - URL: https://uxpatterns.dev/patterns/forms/text-field
   - Skill: text-field
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill text-field`
+- **Textarea**
+  - URL: https://uxpatterns.dev/patterns/forms/textarea
+  - Skill: textarea
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill textarea`
+- **Time Input**
+  - URL: https://uxpatterns.dev/patterns/forms/time-input
+  - Skill: time-input
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill time-input`
+- **Toggle**
+  - URL: https://uxpatterns.dev/patterns/forms/toggle
+  - Skill: toggle
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill toggle`
+
+## media
+
+- **Image Gallery**
+  - URL: https://uxpatterns.dev/patterns/media/image-gallery
+  - Skill: image-gallery
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill image-gallery`
+- **Image Upload**
+  - URL: https://uxpatterns.dev/patterns/media/image-upload
+  - Skill: image-upload
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill image-upload`
+- **Video Player**
+  - URL: https://uxpatterns.dev/patterns/media/video-player
+  - Skill: video-player
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill video-player`
 
 ## navigation
 
@@ -176,3 +356,49 @@ This category index maps installable pattern skills back to their canonical docs
   - URL: https://uxpatterns.dev/patterns/navigation/tabs
   - Skill: tabs
   - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tabs`
+
+## social
+
+- **Activity Feed**
+  - URL: https://uxpatterns.dev/patterns/social/activity-feed
+  - Skill: activity-feed
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill activity-feed`
+- **Comment System**
+  - URL: https://uxpatterns.dev/patterns/social/comment-system
+  - Skill: comment-system
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill comment-system`
+- **Like Button**
+  - URL: https://uxpatterns.dev/patterns/social/like-button
+  - Skill: like-button
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill like-button`
+- **Share Dialog**
+  - URL: https://uxpatterns.dev/patterns/social/share-dialog
+  - Skill: share-dialog
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill share-dialog`
+
+## user-feedback
+
+- **Cookie Consent**
+  - URL: https://uxpatterns.dev/patterns/user-feedback/cookie-consent
+  - Skill: cookie-consent
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill cookie-consent`
+- **Empty States**
+  - URL: https://uxpatterns.dev/patterns/user-feedback/empty-states
+  - Skill: empty-states
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill empty-states`
+- **Loading Indicator**
+  - URL: https://uxpatterns.dev/patterns/user-feedback/loading-indicator
+  - Skill: loading-indicator
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill loading-indicator`
+- **Notification**
+  - URL: https://uxpatterns.dev/patterns/user-feedback/notification
+  - Skill: notification
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill notification`
+- **Progress Indicator**
+  - URL: https://uxpatterns.dev/patterns/user-feedback/progress-indicator
+  - Skill: progress-indicator
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill progress-indicator`
+- **Skeleton**
+  - URL: https://uxpatterns.dev/patterns/user-feedback/skeleton
+  - Skill: skeleton
+  - Install: `npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill skeleton`

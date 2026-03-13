@@ -292,231 +292,6 @@ Includes company domain, team size, and role selection alongside personal creden
 </div>
 ```
 
-### React Implementation
-
-```jsx
-import { useState, useMemo } from 'react';
-
-function getPasswordStrength(password) {
-  let score = 0;
-  if (password.length >= 8) score++;
-  if (password.length >= 12) score++;
-  if (/[A-Z]/.test(password) && /[a-z]/.test(password)) score++;
-  if (/\d/.test(password)) score++;
-  if (/[^A-Za-z0-9]/.test(password)) score++;
-  return Math.min(score, 4);
-}
-
-const strengthLabels = ['', 'Weak', 'Fair', 'Good', 'Strong'];
-
-function SignUpForm({ onSubmit, isLoading }) {
-  const [form, setForm] = useState({ name: '', email: '', password: '', terms: false });
-  const [errors, setErrors] = useState({});
-
-  const strength = useMemo(() => getPasswordStrength(form.password), [form.password]);
-
-  const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
-
-  const validate = () => {
-    const e = {};
-    if (!form.email) e.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email address';
-    if (!form.password) e.password = 'Password is required';
-    else if (form.password.length < 8) e.password = 'Password must be at least 8 characters';
-    if (!form.terms) e.terms = 'You must agree to the terms';
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) onSubmit(form);
-  };
-
-  return (
-    <div className="signup-container">
-      <h1>Create your account</h1>
-      <p>Start your free trial. No credit card required.</p>
-
-      <form onSubmit={handleSubmit} noValidate>
-        <div className="form-field">
-          <label htmlFor="name">Full name</label>
-          <input
-            type="text"
-            id="name"
-            value={form.name}
-            onChange={(e) => update('name', e.target.value)}
-            autoComplete="name"
-          />
-        </div>
-
-        <div className="form-field">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            id="email"
-            value={form.email}
-            onChange={(e) => update('email', e.target.value)}
-            autoComplete="email"
-            aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? 'email-error' : undefined}
-          />
-          {errors.email && (
-            <span id="email-error" className="field-error" role="alert">{errors.email}</span>
-          )}
-        </div>
-
-        <div className="form-field">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={form.password}
-            onChange={(e) => update('password', e.target.value)}
-            autoComplete="new-password"
-            minLength={8}
-            aria-invalid={!!errors.password}
-            aria-describedby="password-hint"
-          />
-          <div id="password-hint" className="password-requirements">
-            At least 8 characters
-          </div>
-          {form.password && (
-            <div className="password-strength">
-              <div
-                className={`strength-bar strength-${strength}`}
-                role="progressbar"
-                aria-valuenow={strength}
-                aria-valuemin={0}
-                aria-valuemax={4}
-                aria-label={`Password strength: ${strengthLabels[strength]}`}
-              />
-              <span className="strength-label">{strengthLabels[strength]}</span>
-            </div>
-          )}
-          {errors.password && (
-            <span className="field-error" role="alert">{errors.password}</span>
-          )}
-        </div>
-
-        <div className="form-field terms">
-          <label>
-            <input
-              type="checkbox"
-              checked={form.terms}
-              onChange={(e) => update('terms', e.target.checked)}
-            />
-            I agree to the <a href="/terms">Terms of Service</a> and{' '}
-            <a href="/privacy">Privacy Policy</a>
-          </label>
-          {errors.terms && (
-            <span className="field-error" role="alert">{errors.terms}</span>
-          )}
-        </div>
-
-        <button type="submit" className="signup-btn" disabled={isLoading}>
-          {isLoading ? 'Creating account…' : 'Create account'}
-        </button>
-      </form>
-
-      <p className="login-link">
-        Already have an account? <a href="/login">Sign in</a>
-      </p>
-    </div>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.signup-container {
-  max-width: 24rem;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.password-requirements {
-  font-size: 0.8125rem;
-  color: #6b7280;
-  margin-top: 0.375rem;
-}
-
-.password-strength {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.strength-bar {
-  flex: 1;
-  height: 4px;
-  background: #e5e7eb;
-  border-radius: 2px;
-  position: relative;
-  overflow: hidden;
-}
-
-.strength-bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  border-radius: 2px;
-  transition: width 200ms ease, background-color 200ms ease;
-}
-
-.strength-1::after { width: 25%; background: #ef4444; }
-.strength-2::after { width: 50%; background: #f59e0b; }
-.strength-3::after { width: 75%; background: #3b82f6; }
-.strength-4::after { width: 100%; background: #22c55e; }
-
-.strength-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  min-width: 3rem;
-}
-
-.terms {
-  font-size: 0.8125rem;
-}
-
-.terms label {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-
-.terms a {
-  color: #2563eb;
-  text-decoration: underline;
-}
-
-.signup-btn {
-  width: 100%;
-  padding: 0.75rem;
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-.signup-btn:hover:not(:disabled) { background: #1d4ed8; }
-.signup-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.signup-btn:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
-```
-
 ## Best Practices
 
 ### Content
@@ -902,10 +677,6 @@ observer.observe(socialSection);
 - [ ] Loading state is visible on the submit button
 - [ ] Verification success screen displays correctly
 
-## Browser Support
-
-<BrowserSupport features={["html.elements.form", "html.elements.input.type_email", "html.elements.input.autocomplete"]} />
-
 ## SEO Considerations
 
 - **Signup pages should generally be noindexed** — Use `<meta name="robots" content="noindex">` unless signup discovery is important for growth
@@ -984,18 +755,22 @@ observer.observe(socialSection);
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Hook Form](https://react-hook-form.com/) – Performant form handling with validation
-- [Zod](https://zod.dev/) – TypeScript-first schema validation
-- [Clerk Sign Up](https://clerk.com/docs/components/authentication/sign-up) – Pre-built registration components
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
 
-#### Vanilla JavaScript
-- [zxcvbn](https://github.com/dropbox/zxcvbn) – Realistic password strength estimation by Dropbox
+### Guides
+
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
 ### Articles
 
-- [How to Design Sign Up Experiences](https://www.nngroup.com/articles/checklist-registration-pages/) by Nielsen Norman Group
-- [Best Practices for Form Design](https://uxdesign.cc/design-better-forms-96fadca0f49c) by Andrew Coyle
-- [The UX of Sign-Up Forms](https://www.smashingmagazine.com/2023/02/guide-accessible-form-validation/) by Smashing Magazine
+- [Nielsen Norman Group: Login walls](https://www.nngroup.com/articles/login-walls/) - When forced authentication harms discovery and conversion in account flows.
+- [Smashing Magazine: Designing efficient web forms](https://www.smashingmagazine.com/2017/06/designing-efficient-web-forms/) - Field-level usability guidance for labels, grouping, defaults, and submission flows.
+
+### NPM Packages
+
+- [`@clerk/nextjs`](https://www.npmjs.com/package/%40clerk%2Fnextjs) - Hosted authentication flows and account-management building blocks for Next.js apps.
+- [`next-auth`](https://www.npmjs.com/package/next-auth) - Open-source authentication framework for session, provider, and credential flows.
+- [`react-hook-form`](https://www.npmjs.com/package/react-hook-form) - Low-friction form state and validation wiring for complex input flows.

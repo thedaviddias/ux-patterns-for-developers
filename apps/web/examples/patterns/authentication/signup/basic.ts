@@ -1,7 +1,7 @@
 import type { PatternExampleDefinition } from "@/examples/patterns/example";
 
 export const basicExample: PatternExampleDefinition = {
-	html: `<div class="signup-container">
+	html: `<div class="signup-container preview-card">
   <h1>Create your account</h1>
   <p>Start your free trial. No credit card required.</p>
 
@@ -61,6 +61,7 @@ export const basicExample: PatternExampleDefinition = {
 
     <button type="submit" class="signup-btn">Create account</button>
   </form>
+  <p id="signup-status" class="preview-help">Password strength updates as you type.</p>
 
   <div class="divider"><span>or sign up with</span></div>
 
@@ -73,6 +74,125 @@ export const basicExample: PatternExampleDefinition = {
     Already have an account? <a href="/login">Sign in</a>
   </p>
 </div>`,
+	css: `.signup-container {
+  max-width: 480px;
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+}
+
+.signup-container h1 {
+  font-size: 1.6rem;
+}
+
+.signup-container > p:first-of-type {
+  color: var(--preview-muted);
+}
+
+.signup-container form,
+.form-field {
+  display: grid;
+  gap: 8px;
+}
+
+.password-requirements,
+.terms {
+  font-size: 0.9rem;
+  color: var(--preview-muted);
+}
+
+.terms label {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.terms input {
+  width: auto;
+  margin-top: 3px;
+}
+
+.password-strength {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(219, 228, 238, 0.9);
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f59e0b, #2563eb);
+  transition: width 0.2s ease;
+}
+
+.signup-btn,
+.social-btn {
+  min-height: 44px;
+  padding: 11px 15px;
+  border-radius: 14px;
+  border: 1px solid var(--preview-border);
+  font-weight: 700;
+}
+
+.signup-btn {
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+  border-color: #1d4ed8;
+  color: white;
+}
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.social-btn {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--preview-muted);
+  font-size: 0.88rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--preview-border);
+}
+`,
+	js: `const signupForm = document.querySelector(".signup-container form");
+const signupPassword = document.getElementById("password");
+const signupStatus = document.getElementById("signup-status");
+const strengthBar = document.querySelector(".strength-bar");
+const strengthMeter = document.querySelector(".password-strength");
+
+signupPassword.addEventListener("input", () => {
+  const passwordValue = signupPassword.value;
+  const passwordScore = [
+    passwordValue.length >= 8,
+    /\\d/.test(passwordValue),
+    /[A-Z]/.test(passwordValue),
+    /[^A-Za-z0-9]/.test(passwordValue)
+  ].filter(Boolean).length;
+
+  strengthBar.style.width = passwordScore * 25 + "%";
+  strengthMeter.setAttribute("aria-valuenow", String(passwordScore));
+});
+
+signupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  signupStatus.textContent = "Account details look ready to submit.";
+});
+`,
 	presentation: "hidden-code",
 	variant: "canonical",
 };

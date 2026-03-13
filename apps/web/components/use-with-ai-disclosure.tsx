@@ -65,7 +65,7 @@ function CopyCommandButton({
 					{copied ? "Copied" : "Copy"}
 				</button>
 			</div>
-			<code className="block overflow-x-auto rounded-md border border-border/60 bg-muted/60 px-3 py-2 text-xs text-foreground">
+			<code className="block rounded-md border border-border/60 bg-muted/60 px-3 py-2 text-xs text-foreground whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
 				{command}
 			</code>
 		</div>

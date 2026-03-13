@@ -5,10 +5,7 @@
  * but uses Velite-generated content instead.
  */
 
-import { docs, blog, meta } from "../.velite";
-import type { LucideIcon } from "lucide-react";
-import * as Icons from "lucide-react";
-import { createElement, type ReactElement } from "react";
+import { blog, docs, meta } from "../.velite";
 
 // Re-export types
 export type Doc = (typeof docs)[number];
@@ -54,15 +51,12 @@ export function isPublished(doc: Doc): boolean {
 /**
  * Page tree node types for navigation
  */
-export type PageTreeNode =
-	| PageTreeFolder
-	| PageTreeItem
-	| PageTreeSeparator;
+export type PageTreeNode = PageTreeFolder | PageTreeItem | PageTreeSeparator;
 
 export interface PageTreeFolder {
 	type: "folder";
 	name: string;
-	icon?: ReactElement;
+	icon?: string;
 	index?: PageTreeItem;
 	children: PageTreeNode[];
 }
@@ -71,7 +65,7 @@ export interface PageTreeItem {
 	type: "page";
 	name: string;
 	url: string;
-	icon?: ReactElement;
+	icon?: string;
 	external?: boolean;
 	draft?: boolean;
 }
@@ -79,17 +73,6 @@ export interface PageTreeItem {
 export interface PageTreeSeparator {
 	type: "separator";
 	name: string;
-}
-
-/**
- * Get icon component from name
- */
-function getIcon(name: string | undefined): ReactElement | undefined {
-	if (!name) return undefined;
-	const IconComponent = (Icons as unknown as Record<string, LucideIcon>)[name];
-	return IconComponent
-		? createElement(IconComponent, { className: "h-4 w-4" })
-		: undefined;
 }
 
 /**
@@ -110,9 +93,7 @@ export function getBlogPost(slug: string): BlogPost | undefined {
 /**
  * Get all docs with optional filtering
  */
-export function getPages(options?: {
-	filter?: (doc: Doc) => boolean;
-}): Doc[] {
+export function getPages(options?: { filter?: (doc: Doc) => boolean }): Doc[] {
 	if (options?.filter) {
 		return docs.filter(options.filter);
 	}
@@ -124,7 +105,7 @@ export function getPages(options?: {
  */
 export function getBlogPosts(): BlogPost[] {
 	return [...blog].sort(
-		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 	);
 }
 
@@ -145,7 +126,10 @@ export function getPatterns(includeDrafts = false): Doc[] {
  * @param category - The category slug (e.g., "forms", "navigation")
  * @param includeDrafts - Whether to include draft patterns (default: false)
  */
-export function getPatternsByCategory(category: string, includeDrafts = false): Doc[] {
+export function getPatternsByCategory(
+	category: string,
+	includeDrafts = false,
+): Doc[] {
 	return docs.filter((doc) => {
 		if (!doc.slug.startsWith(`patterns/${category}/`)) return false;
 		if (!includeDrafts && isDraft(doc)) return false;
@@ -211,13 +195,13 @@ function buildTreeFromMeta(metaItem: Meta, basePath: string): PageTreeNode[] {
 		if (folderMeta) {
 			// It's a folder
 			const indexDoc = docs.find(
-				(d) => d.slug === fullPath || d.slug === `${fullPath}/index`
+				(d) => d.slug === fullPath || d.slug === `${fullPath}/index`,
 			);
 
 			const folder: PageTreeFolder = {
 				type: "folder",
 				name: folderMeta.title,
-				icon: getIcon(folderMeta.icon),
+				icon: folderMeta.icon,
 				children: buildTreeFromMeta(folderMeta, fullPath),
 			};
 
@@ -226,7 +210,7 @@ function buildTreeFromMeta(metaItem: Meta, basePath: string): PageTreeNode[] {
 					type: "page",
 					name: indexDoc.title,
 					url: indexDoc.url,
-					icon: getIcon(indexDoc.icon),
+					icon: indexDoc.icon,
 					draft: isDraft(indexDoc),
 				};
 			}
@@ -235,7 +219,7 @@ function buildTreeFromMeta(metaItem: Meta, basePath: string): PageTreeNode[] {
 		} else {
 			// It's a page
 			const doc = docs.find(
-				(d) => d.slug === fullPath || d.slug === `${basePath}/${pageName}`
+				(d) => d.slug === fullPath || d.slug === `${basePath}/${pageName}`,
 			);
 
 			if (doc) {
@@ -243,7 +227,7 @@ function buildTreeFromMeta(metaItem: Meta, basePath: string): PageTreeNode[] {
 					type: "page",
 					name: doc.title,
 					url: doc.url,
-					icon: getIcon(doc.icon),
+					icon: doc.icon,
 					draft: isDraft(doc),
 				});
 			}
@@ -273,11 +257,15 @@ export function getSectionPageTree(section: string): PageTreeNode[] {
 
 	// Find the folder matching the section
 	const sectionFolder = fullTree.find(
-		(node) => node.type === "folder" &&
-		(node as PageTreeFolder).index?.url?.startsWith(`/${section}`) ||
-		(node.type === "folder" && (node as PageTreeFolder).children.some(
-			child => child.type === "page" && (child as PageTreeItem).url.startsWith(`/${section}`)
-		))
+		(node) =>
+			(node.type === "folder" &&
+				(node as PageTreeFolder).index?.url?.startsWith(`/${section}`)) ||
+			(node.type === "folder" &&
+				(node as PageTreeFolder).children.some(
+					(child) =>
+						child.type === "page" &&
+						(child as PageTreeItem).url.startsWith(`/${section}`),
+				)),
 	);
 
 	if (sectionFolder && sectionFolder.type === "folder") {
@@ -292,10 +280,14 @@ export function getSectionPageTree(section: string): PageTreeNode[] {
 		}
 		if (node.type === "folder") {
 			const folder = node as PageTreeFolder;
-			return folder.index?.url?.startsWith(`/${section}`) ||
-				folder.children.some(child =>
-					child.type === "page" && (child as PageTreeItem).url.startsWith(`/${section}`)
-				);
+			return (
+				folder.index?.url?.startsWith(`/${section}`) ||
+				folder.children.some(
+					(child) =>
+						child.type === "page" &&
+						(child as PageTreeItem).url.startsWith(`/${section}`),
+				)
+			);
 		}
 		return false;
 	});

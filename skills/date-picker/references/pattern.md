@@ -687,28 +687,21 @@ Always use `Intl.Locale` or a locale database to determine the correct first day
 
 ## Resources
 
-### Libraries
+### References
 
-- [React DayPicker](https://react-day-picker.js.org/) - Flexible date picker for React with full keyboard support
-- [Flatpickr](https://flatpickr.js.org/) - Lightweight, zero-dependency date picker
-- [Pikaday](https://pikaday.com/) - Refreshing JavaScript datepicker
-- [Tempus Dominus](https://getdatepicker.com/) - Bootstrap-compatible date/time picker
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN date input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) - Native date input support, parsing, and constraint behavior.
 
-### Design Systems
+### Guides
 
-- [GOV.UK Date Picker](https://design-system.service.gov.uk/components/date-input/) - Accessible government date input
-- [Radix UI Calendar](https://www.radix-ui.com/primitives/docs/components/calendar) - Headless accessible calendar primitive
-- [shadcn/ui Calendar](https://ui.shadcn.com/docs/components/calendar) - Styled calendar component
-- [Carbon Design System](https://carbondesignsystem.com/components/date-picker/usage) - IBM date picker
+- [Nielsen Norman Group: Date-input usability](https://www.nngroup.com/articles/date-input/) - Research on segmented date fields, formatting, and calendar picker tradeoffs.
 
-### Articles & Guides
+### Articles
 
-- [ARIA Calendar Widget Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) - W3C APG date picker example
-- [Accessible Date Picker](https://a11y-101.com/development/date-picker) - Accessibility focused guide
-- [Date Picker Design Patterns](https://www.nngroup.com/articles/date-input/) - Nielsen Norman Group research
+- [Nielsen Norman Group: Date-input usability](https://www.nngroup.com/articles/date-input/) - Research on segmented date fields, formatting, and calendar picker tradeoffs.
 
-### Tools & Utilities
+### NPM Packages
 
-- [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - W3C accessibility patterns
-- [date-fns](https://date-fns.org/) - Date utility library for formatting and manipulation
-- [Temporal API](https://tc39.es/proposal-temporal/) - Next-generation JavaScript date handling
+- [`react-day-picker`](https://www.npmjs.com/package/react-day-picker) - Calendar and date-range primitives for custom date pickers.
+- [`date-fns`](https://www.npmjs.com/package/date-fns) - Date parsing, formatting, and range math for calendars and schedule interfaces.
+- [`@internationalized/date`](https://www.npmjs.com/package/%40internationalized%2Fdate) - Locale-aware date calculations used in robust date/time selection UIs.

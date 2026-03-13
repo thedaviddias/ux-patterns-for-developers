@@ -85,13 +85,26 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 			return;
 		}
 
+		const controller = new AbortController();
+		let isActive = true;
 		const timeout = setTimeout(async () => {
+			if (!isActive) {
+				return;
+			}
+
 			setIsSearching(true);
 			try {
 				const searchUrl = `/api/search?q=${encodeURIComponent(query)}&limit=10`;
-				const response = await fetch(searchUrl);
+				const response = await fetch(searchUrl, {
+					signal: controller.signal,
+				});
 				const data = await response.json();
 				const searchResults = data.results || [];
+
+				if (!isActive) {
+					return;
+				}
+
 				setResults(searchResults);
 
 				// Track search query (only if query changed to avoid duplicate events)
@@ -103,13 +116,22 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 					});
 				}
 			} catch (error) {
+				if (controller.signal.aborted || !isActive) {
+					return;
+				}
 				console.error("Search failed:", error);
 			} finally {
-				setIsSearching(false);
+				if (isActive) {
+					setIsSearching(false);
+				}
 			}
 		}, 300);
 
-		return () => clearTimeout(timeout);
+		return () => {
+			isActive = false;
+			controller.abort();
+			clearTimeout(timeout);
+		};
 	}, [query, plausible]);
 
 	// Combine quick results with full results

@@ -477,13 +477,6 @@ The following table outlines the standard keyboard interactions for checkbox com
 - [ ] Test **touch interactions** on mobile devices and tablets.
 - [ ] Validate **screen reader compatibility** across different assistive technologies.
 
-## Browser Support
-
-**Polyfills Required:**
-- Custom styling for older browsers
-- Indeterminate state support for IE
-- Focus management for complex interactions
-
 ## Design Tokens
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -525,24 +518,21 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Hook Form](https://react-hook-form.com/) – Performant forms with easy validation
-- [Formik](https://formik.org/) – Popular form library with checkbox support
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN checkbox input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) - Native checkbox semantics, indeterminate state, and browser behavior.
 
-#### Vue Components
-- [Vue Formulate](https://vueformulate.com/) – Form builder with checkbox components
-- [VeeValidate](https://vee-validate.logaretm.com/) – Validation library for Vue forms
+### Guides
 
-#### Vanilla JavaScript
-- [Choices.js](https://github.com/Choices-js/Choices) – Lightweight select/multi-select library
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
 ### Articles
 
-- [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/) by Nielsen Norman Group
-- [Designing Efficient Web Forms: On Structure, Inputs, Labels And Actions](https://www.smashingmagazine.com/2017/06/designing-efficient-web-forms/) by Smashing Magazine
+- [Nielsen Norman Group: Listbox vs. dropdown](https://www.nngroup.com/articles/listbox-dropdown/) - When to use each selection pattern and how they affect scanning speed.
 
-### Documentation
+### NPM Packages
 
-- [MDN Checkbox Input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
+- [`react-aria-components`](https://www.npmjs.com/package/react-aria-components) - Headless accessible components covering many form and overlay patterns.
+- [`react-hook-form`](https://www.npmjs.com/package/react-hook-form) - Low-friction form state and validation wiring for complex input flows.
+- [`zod`](https://www.npmjs.com/package/zod) - Schema validation for typed parsing, normalization, and field-level error handling.

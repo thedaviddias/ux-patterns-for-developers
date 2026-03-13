@@ -386,12 +386,21 @@ Consider these related patterns when implementing popovers:
 
 ## Resources
 
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - Reference patterns for keyboard behavior, semantics, and assistive technology support.
+
+### Guides
+
+- [MDN WAI-ARIA basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) - Guidance on when to rely on native HTML and when to introduce ARIA roles and states.
+
 ### Articles
 
-### Documentation
+- [Nielsen Norman Group: Accordions on desktop](https://www.nngroup.com/articles/accordions-on-desktop/) - When collapsible content helps scanning and when it hides too much context.
 
-[popover | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover)
+### NPM Packages
 
-### Libraries
-
-- [Popover - shadcn/ui](https://ui.shadcn.com/docs/components/popover)
+- [`@radix-ui/react-dialog`](https://www.npmjs.com/package/%40radix-ui%2Freact-dialog) - Dialog primitive for modals, sheet-style overlays, and focus management.
+- [`@floating-ui/react`](https://www.npmjs.com/package/%40floating-ui%2Freact) - Positioning engine for tooltips, popovers, dropdowns, and anchored surfaces.
+- [`focus-trap`](https://www.npmjs.com/package/focus-trap) - Keeps keyboard focus inside active modal and popover surfaces.

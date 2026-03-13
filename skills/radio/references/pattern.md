@@ -389,12 +389,6 @@ By continuously monitoring these metrics, we can refine radio button usability a
 - [ ] Test **touch interactions** on mobile devices and tablets.
 - [ ] Validate **screen reader compatibility** across different assistive technologies.
 
-## Browser Support
-
-**Polyfills Required:**
-- Custom styling for older browsers
-- Focus management for complex interactions
-
 ## Design Tokens
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -449,30 +443,27 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
+## Frequently Asked Questions
+
 ## Related Patterns
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Hook Form](https://react-hook-form.com/) – Performant forms with easy validation
-- [Formik](https://formik.org/) – Popular form library with radio button support
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN radio input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) - Native radio group semantics, exclusivity, and label associations.
 
-#### Vue Components
-- [VeeValidate](https://vee-validate.logaretm.com/) – Form validation for Vue.js
-- [Vue Formulate](https://vueformulate.com/) – Form building for Vue.js
+### Guides
 
-#### Vanilla JavaScript
-- [Choices.js](https://github.com/Choices-js/Choices) – Lightweight select/multi-select library
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
 ### Articles
 
-- [Radio Buttons vs. Checkboxes](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/) by Nielsen Norman Group
-- [Designing Efficient Web Forms: On Structure, Inputs, Labels And Actions](https://www.smashingmagazine.com/2017/06/designing-efficient-web-forms/) by Smashing Magazine
+- [Nielsen Norman Group: Listbox vs. dropdown](https://www.nngroup.com/articles/listbox-dropdown/) - When to use each selection pattern and how they affect scanning speed.
 
-### Documentation
+### NPM Packages
 
-- [MDN Radio Input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
-
-## Frequently Asked Questions
+- [`@radix-ui/react-radio-group`](https://www.npmjs.com/package/%40radix-ui%2Freact-radio-group) - Radio-group primitive for custom layouts and keyboard support.
+- [`react-aria-components`](https://www.npmjs.com/package/react-aria-components) - Headless accessible components covering many form and overlay patterns.
+- [`react-hook-form`](https://www.npmjs.com/package/react-hook-form) - Low-friction form state and validation wiring for complex input flows.

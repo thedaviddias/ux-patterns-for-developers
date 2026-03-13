@@ -1,0 +1,28 @@
+{
+	"name": "video",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"check": "tsc --noEmit",
+		"render:landscape": "node scripts/render.mjs landscape",
+		"render:portrait": "node scripts/render.mjs portrait",
+		"studio": "remotion studio src/index.ts",
+		"test": "tsx --test src/**/*.test.ts"
+	},
+	"dependencies": {
+		"@remotion/cli": "4.0.435",
+		"@remotion/google-fonts": "4.0.435",
+		"@remotion/transitions": "4.0.435",
+		"react": "^19.2.3",
+		"react-dom": "^19.2.3",
+		"remotion": "4.0.435",
+		"zod": "^4.3.5"
+	},
+	"devDependencies": {
+		"@types/node": "25.0.5",
+		"@types/react": "^19.2.7",
+		"@types/react-dom": "^19.2.3",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
+	}
+}

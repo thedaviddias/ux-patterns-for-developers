@@ -713,8 +713,6 @@ Research shows that users:
 - Struggle with auto-rotation speed (58% find default timing too fast)
 - Use swipe gestures on mobile more than arrow buttons (67% vs 33%)
 
-## Browser Support
-
 ## SEO Considerations
 
 - Ensure all slide content is present in the DOM for crawlability
@@ -854,33 +852,22 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-### React Components
-- [Swiper React](https://swiperjs.com/react) – Most popular, touch-friendly
-- [React Slick](https://react-slick.neostack.com/) – Feature-rich carousel
-- [Embla Carousel React](https://www.embla-carousel.com/) – Lightweight and performant
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI Media Accessibility User Requirements](https://www.w3.org/WAI/media/av/) - Requirements for captions, transcripts, controls, and inclusive media playback.
 
-### Vue Components
-- [Vue Carousel](https://github.com/SSENSE/vue-carousel) – Simple and flexible
-- [Swiper Vue](https://swiperjs.com/vue) – Vue version of Swiper
+### Guides
 
-### Vanilla JavaScript
-- [Swiper](https://swiperjs.com/) – Modern mobile touch slider
-- [Glide.js](https://glidejs.com/) – Dependency-free carousel
-- [Splide](https://splidejs.com/) – Lightweight, flexible slider
+- [web.dev: Browser-level lazy loading for CMSs](https://web.dev/articles/browser-level-lazy-loading-for-cmss) - Recommendations for below-the-fold media loading without hurting initial rendering.
 
 ### Articles
 
-- [A Step-By-Step Guide To Building Accessible Carousels](https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/)
-- [More Alternatives to Using a Carousel on Your Website - Mightybytes](https://www.mightybytes.com/blog/more-alternatives-to-carousels-on-website/)
-- [How to build a more accessible carousel or slider - DEV Community](https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp)
-- [The Unbearable Inaccessibility of Slideshows — SitePoint](https://www.sitepoint.com/unbearable-accessible-slideshow/)
-- [Usability Guidelines For Better Carousels UX — Smashing Magazine](https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/)
-- [How to Test and Improve Carousel Accessibility: A Complete Guide - The A11Y Collective](https://www.a11y-collective.com/blog/accessible-carousel/)
+- [Smashing Magazine: Designing better carousel UX](https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/) - Research-informed guidance on controls, pacing, and whether a carousel is justified.
+- [Smashing Magazine: Building accessible carousels](https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/) - Accessibility techniques for rotation, focus handling, and announcement strategy.
 
-### Documentation
+### NPM Packages
 
-- [Carousels Tutorial - WAI](https://www.w3.org/WAI/tutorials/carousels/)
-- [Auto-Rotating Image Carousel Example with Buttons for Slide Control](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/)
-- [Auto-Rotating Image Carousel with Tabs for Slide Control Example](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/)
+- [`embla-carousel-react`](https://www.npmjs.com/package/embla-carousel-react) - Carousel engine with strong swipe support and minimal API surface.
+- [`swiper`](https://www.npmjs.com/package/swiper) - Full-featured touch slider with pagination, looping, and responsive breakpoints.
+- [`lightgallery`](https://www.npmjs.com/package/lightgallery) - Gallery/lightbox components for zoomable image and mixed media collections.

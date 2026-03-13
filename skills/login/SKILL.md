@@ -88,7 +88,7 @@ After 3-5 failed attempts, show a message: "Too many attempts. Please wait 30 se
 
 ### Clearing Fields on Error
 **The Problem:**
-The form clears the email field on failed login, forcing users to retype their email address.
+The form clears the email field on failed login
 
 **How to Fix It:**
 Preserve the email value after a failed attempt. Only clear the password field, as retyping the password is a security best practice.

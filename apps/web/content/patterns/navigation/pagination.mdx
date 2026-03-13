@@ -597,10 +597,6 @@ The following table outlines the standard keyboard interactions for pagination c
 - [ ] Ensure that pagination does not cause significant loading delays.
 - [ ] Validate that new page content loads efficiently when navigating.
 
-## Browser Support
-
-<BrowserSupport features={["css.flexbox", "window.api.history.pushstate"]} />
-
 ## Performance Metrics
 
 ### Target Metrics
@@ -704,27 +700,21 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Paginate](https://github.com/AdeleD/react-paginate) – A ReactJS component to render a pagination
-- [RC Pagination](https://github.com/react-component/pagination) – React pagination component
-- [Ant Design Pagination](https://ant.design/components/pagination) – Enterprise-class pagination component
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) - Native link semantics, navigation behavior, and accessible labeling.
 
-#### Vue Components
-- [Vue Pagination 2](https://github.com/matfish2/vue-pagination-2) – Vue.js 2 pagination component
-- [Vuetify Pagination](https://vuetifyjs.com/en/components/paginations/) – Material Design pagination component
+### Guides
 
-#### Vanilla JavaScript
-- [Pagination.js](http://pagination.js.org/) – A jQuery plugin for pagination
-- [SimplePagination.js](https://flaviusmatis.github.io/simplePagination.js) – Simple and lightweight pagination plugin
+- [web.dev: Virtualize large lists](https://web.dev/articles/virtualize-long-lists-react-window) - Rendering and scrolling guidance for large result sets, feeds, and data-heavy interfaces.
 
 ### Articles
 
-- [Pagination Design Pattern](https://www.nngroup.com/articles/pagination/)
+- [Nielsen Norman Group: Infinite scrolling tips](https://www.nngroup.com/articles/infinite-scrolling-tips/) - Tradeoffs in feed-style browsing, orientation, and footer access.
 
-### Implementation Guides
+### NPM Packages
 
-- [React Pagination Tutorial](https://www.digitalocean.com/community/tutorials/how-to-build-custom-pagination-with-react)
-- [Vue.js Pagination Component](https://vuejs.org/examples/#grid-component)
-- [Accessible Pagination with ARIA](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
+- [`rc-pagination`](https://www.npmjs.com/package/rc-pagination) - Pagination control primitive for server-driven page navigation.
+- [`react-paginate`](https://www.npmjs.com/package/react-paginate) - Pagination UI component for client- or server-driven page switching.
+- [`@tanstack/react-query`](https://www.npmjs.com/package/%40tanstack%2Freact-query) - Server-state management for async data, optimistic UI, and background refresh.

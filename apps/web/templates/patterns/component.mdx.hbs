@@ -5,7 +5,6 @@ icon: # Lucide icon name (e.g., ChevronUp, Loader, Menu)
 status: draft # draft | coming-soon | published
 ---
 
-import { BrowserSupport } from "@app/_components/browser-support";
 import { BuildEffort } from "@app/_components/build-effort";
 import { FaqStructuredData } from "@app/_components/faq-structured-data";
 import { Playground } from "@app/_components/playground";
@@ -478,25 +477,6 @@ The following table outlines the standard keyboard interactions for {{name}} com
   OPTIONAL SECTION
   Browser compatibility information
 -->
-## Browser Support
-
-<BrowserSupport
-  features={[
-    "CSS Grid",
-    "Flexbox",
-    "Custom Properties"
-  ]}
-/>
-
-**Polyfills Required:**
-- Feature detection for older browsers
-- Progressive enhancement strategy
-- Fallback implementations
-
-<!--
-  OPTIONAL SECTION (for design system integration)
-  Design token specifications
--->
 ## Design Tokens
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -565,34 +545,21 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 <RelatedPatternsCard category="{{category}}" />
 
 <!--
-  OPTIONAL SECTION
-  External resources and references
+  REQUIRED CLOSING SECTION
+  Curated external references, guides, articles, and npm packages
 -->
 ## Resources
 
-### Libraries & Frameworks
+### References
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for the pattern
+- [MDN or WAI Reference](https://developer.mozilla.org/) - Platform or standards reference for the core interaction
 
-#### React Components
-- [Library Name](https://example.com) – Brief description of strengths
-- [Another Library](https://example.com) – What makes it unique
-
-#### Vue Components
-- [Vue Library](https://example.com) – Key features
-- [Alternative](https://example.com) – When to use
-
-#### Vanilla JavaScript
-- [Pure JS Library](https://example.com) – No framework needed
-- [Lightweight Option](https://example.com) – Minimal dependencies
+### Guides
+- [Implementation Guide](https://example.com) - Practical tutorial or official walkthrough
 
 ### Articles
-- [Best Practices for {{name}}](https://example.com) - Comprehensive guide
-- [{{name}} Performance Optimization](https://example.com) - Advanced techniques
+- [Pattern Deep Dive](https://example.com) - Research, UX analysis, or best-practice article
 
-### Documentation
-- [MDN Web Docs](https://developer.mozilla.org) - Web standards reference
-- [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) - Accessibility standards
-- [Lightweight Alternative](https://github.com) - Minimal dependencies
-
-### Tools
-- [{{name}} Generator](https://example.com) - Quick starter tool
-- [Testing Utilities](https://example.com) - Specialized testing helpers
+### NPM Packages
+- [`package-name`](https://www.npmjs.com/package/package-name) - Popular package that helps implement the pattern
+- [`another-package`](https://www.npmjs.com/package/another-package) - Maintained alternative or complementary helper

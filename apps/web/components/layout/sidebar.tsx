@@ -1,19 +1,48 @@
 "use client";
 
-import { cn } from "@/lib/cn";
-import type { PageTreeNode, PageTreeFolder, PageTreeItem } from "@/lib/content";
-import { useSidebar } from "./sidebar-context";
+import type { LucideIcon } from "lucide-react";
+import * as Icons from "lucide-react";
 import { ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+	type KeyboardEvent,
+	type ReactNode,
 	useCallback,
 	useEffect,
 	useRef,
-	useState,
-	type KeyboardEvent,
-	type ReactNode,
 } from "react";
+import { cn } from "@/lib/cn";
+import type { PageTreeFolder, PageTreeItem, PageTreeNode } from "@/lib/content";
+import { useSidebar } from "./sidebar-context";
+
+function renderTreeIcon(iconName: string | undefined) {
+	if (!iconName) {
+		return null;
+	}
+
+	const IconComponent = (Icons as unknown as Record<string, LucideIcon>)[
+		iconName
+	];
+
+	if (!IconComponent) {
+		return null;
+	}
+
+	return <IconComponent className="h-4 w-4" aria-hidden="true" />;
+}
+
+function getNodeKey(node: PageTreeNode) {
+	if (node.type === "separator") {
+		return `separator:${node.name}`;
+	}
+
+	if (node.type === "folder") {
+		return `folder:${node.index?.url ?? node.name}`;
+	}
+
+	return `page:${node.url}`;
+}
 
 interface SidebarProps {
 	tree: PageTreeNode[];
@@ -33,9 +62,13 @@ interface SidebarProps {
  * - Mobile slide-out drawer
  * - Hidden scrollbar (visible on hover)
  */
-export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarProps) {
-	const { open, setOpen, scrollPosition, setScrollPosition } =
-		useSidebar();
+export function Sidebar({
+	tree,
+	header,
+	footer,
+	variant = "desktop",
+}: SidebarProps) {
+	const { open, setOpen, scrollPosition, setScrollPosition } = useSidebar();
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
 
@@ -57,7 +90,7 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 
 	// Close mobile sidebar on navigation
 	useEffect(() => {
-		if (variant === "mobile") {
+		if (variant === "mobile" && pathname) {
 			setOpen(false);
 		}
 	}, [pathname, setOpen, variant]);
@@ -78,6 +111,8 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 	if (variant === "desktop") {
 		return (
 			<div className="flex h-full flex-col border-r border-border">
+				{header && <div className="border-b px-4 py-3">{header}</div>}
+
 				{/* Navigation */}
 				<nav
 					ref={scrollRef}
@@ -89,9 +124,7 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 				</nav>
 
 				{/* Footer */}
-				{footer && (
-					<div className="border-t px-4 py-3">{footer}</div>
-				)}
+				{footer && <div className="border-t px-4 py-3">{footer}</div>}
 			</div>
 		);
 	}
@@ -112,7 +145,7 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 			<aside
 				className={cn(
 					"fixed top-14 left-0 z-40 h-[calc(100vh-3.5rem)] w-72 border-r border-border bg-background transition-transform duration-300 ease-in-out",
-					open ? "translate-x-0" : "-translate-x-full"
+					open ? "translate-x-0" : "-translate-x-full",
 				)}
 			>
 				<div className="flex h-full flex-col">
@@ -120,6 +153,7 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 					<div className="flex h-12 items-center justify-between border-b px-4">
 						<span className="font-semibold">Navigation</span>
 						<button
+							type="button"
 							className="rounded-md p-1.5 hover:bg-accent"
 							onClick={() => setOpen(false)}
 							aria-label="Close sidebar"
@@ -127,6 +161,8 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 							<X className="h-5 w-5" />
 						</button>
 					</div>
+
+					{header && <div className="border-b px-4 py-3">{header}</div>}
 
 					{/* Navigation */}
 					<nav
@@ -139,9 +175,7 @@ export function Sidebar({ tree, header, footer, variant = "desktop" }: SidebarPr
 					</nav>
 
 					{/* Footer */}
-					{footer && (
-						<div className="border-t px-4 py-3">{footer}</div>
-					)}
+					{footer && <div className="border-t px-4 py-3">{footer}</div>}
 				</div>
 			</aside>
 		</>
@@ -155,9 +189,12 @@ interface SidebarTreeProps {
 
 function SidebarTree({ nodes, level }: SidebarTreeProps) {
 	return (
-		<ul className="space-y-1" role="tree" aria-label={level === 0 ? "Navigation" : undefined}>
-			{nodes.map((node, index) => (
-				<SidebarNode key={index} node={node} level={level} />
+		<ul
+			className="space-y-1"
+			aria-label={level === 0 ? "Navigation" : undefined}
+		>
+			{nodes.map((node) => (
+				<SidebarNode key={getNodeKey(node)} node={node} level={level} />
 			))}
 		</ul>
 	);
@@ -171,7 +208,7 @@ interface SidebarNodeProps {
 function SidebarNode({ node, level }: SidebarNodeProps) {
 	if (node.type === "separator") {
 		return (
-			<li className="pt-4 pb-1 first:pt-0" role="separator">
+			<li className="pt-4 pb-1 first:pt-0">
 				<span className="px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
 					{node.name}
 				</span>
@@ -193,7 +230,14 @@ interface SidebarFolderProps {
 }
 
 function SidebarFolder({ folder, level }: SidebarFolderProps) {
-	const { expandedPaths, togglePath, expandPath, defaultOpenLevel, hasHydrated, hadStoredData } = useSidebar();
+	const {
+		expandedPaths,
+		togglePath,
+		expandPath,
+		defaultOpenLevel,
+		hasHydrated,
+		hadStoredData,
+	} = useSidebar();
 	const pathname = usePathname();
 	const folderPath = folder.index?.url || folder.name;
 	const buttonRef = useRef<HTMLButtonElement>(null);
@@ -203,28 +247,44 @@ function SidebarFolder({ folder, level }: SidebarFolderProps) {
 	const hasActiveChild = folder.children.some((child) => {
 		if (child.type === "page") return child.url === pathname;
 		if (child.type === "folder") {
-			return child.index?.url === pathname ||
-				child.children.some((c) => c.type === "page" && c.url === pathname);
+			return (
+				child.index?.url === pathname ||
+				child.children.some((c) => c.type === "page" && c.url === pathname)
+			);
 		}
 		return false;
 	});
 
 	// Determine if folder should be auto-expanded by default
-	const shouldDefaultExpand = level < defaultOpenLevel || isActive || hasActiveChild;
+	const shouldDefaultExpand =
+		level < defaultOpenLevel || isActive || hasActiveChild;
 
 	// Compute expanded state:
 	// - Before hydration OR first visit (no stored data): show defaults
 	// - After hydration with stored data: use localStorage state (user preferences)
-	const isExpanded = hasHydrated && hadStoredData
-		? expandedPaths.has(folderPath)
-		: shouldDefaultExpand;
+	const isExpanded =
+		hasHydrated && hadStoredData
+			? expandedPaths.has(folderPath)
+			: shouldDefaultExpand;
 
 	// After hydration, if this is a first visit, persist default-expanded folders to state
 	useEffect(() => {
-		if (hasHydrated && !hadStoredData && shouldDefaultExpand && !expandedPaths.has(folderPath)) {
+		if (
+			hasHydrated &&
+			!hadStoredData &&
+			shouldDefaultExpand &&
+			!expandedPaths.has(folderPath)
+		) {
 			expandPath(folderPath);
 		}
-	}, [hasHydrated, hadStoredData, shouldDefaultExpand, expandedPaths, folderPath, expandPath]);
+	}, [
+		hasHydrated,
+		hadStoredData,
+		shouldDefaultExpand,
+		expandedPaths,
+		folderPath,
+		expandPath,
+	]);
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
 		switch (e.key) {
@@ -249,17 +309,19 @@ function SidebarFolder({ folder, level }: SidebarFolderProps) {
 	};
 
 	return (
-		<li role="treeitem" aria-expanded={isExpanded}>
+		<li>
 			<div className="flex items-center">
 				<button
+					type="button"
 					ref={buttonRef}
 					onClick={() => togglePath(folderPath)}
 					onKeyDown={handleKeyDown}
+					aria-expanded={isExpanded}
 					className={cn(
 						"flex w-full items-start gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
 						"hover:bg-accent hover:text-accent-foreground",
 						"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-						(isActive || hasActiveChild) && "text-primary font-medium"
+						(isActive || hasActiveChild) && "text-primary font-medium",
 					)}
 					style={{ paddingLeft: `${level * 12 + 8}px` }}
 					aria-label={`${folder.name}, ${isExpanded ? "expanded" : "collapsed"}`}
@@ -267,19 +329,23 @@ function SidebarFolder({ folder, level }: SidebarFolderProps) {
 					<ChevronRight
 						className={cn(
 							"h-4 w-4 shrink-0 transition-transform duration-200",
-							isExpanded && "rotate-90"
+							isExpanded && "rotate-90",
 						)}
 					/>
-					{folder.icon}
+					{renderTreeIcon(folder.icon)}
 					<span className="line-clamp-2">{folder.name}</span>
 				</button>
 			</div>
 
 			{isExpanded && (
-				<ul className="mt-1" role="group">
+				<ul className="mt-1">
 					{/* Folder children */}
-					{folder.children.map((child, index) => (
-						<SidebarNode key={index} node={child} level={level + 1} />
+					{folder.children.map((child) => (
+						<SidebarNode
+							key={getNodeKey(child)}
+							node={child}
+							level={level + 1}
+						/>
 					))}
 				</ul>
 			)}
@@ -304,7 +370,7 @@ function SidebarItem({ item, level }: SidebarItemProps) {
 	};
 
 	return (
-		<li role="treeitem">
+		<li>
 			<Link
 				ref={linkRef}
 				href={item.url}
@@ -317,23 +383,23 @@ function SidebarItem({ item, level }: SidebarItemProps) {
 					"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
 					isActive
 						? "bg-primary/10 text-primary font-medium"
-						: "text-muted-foreground"
+						: "text-muted-foreground",
 				)}
 				style={{ paddingLeft: `${level * 12 + 8}px` }}
 				aria-current={isActive ? "page" : undefined}
 			>
-				{item.icon}
+				{renderTreeIcon(item.icon)}
 				<span className="line-clamp-2 flex-1">{item.name}</span>
 				{item.draft && (
-					<span
-						className="h-2 w-2 shrink-0 rounded-full bg-amber-500"
-						title="Draft"
-						aria-label="Draft"
-					/>
+					<>
+						<span
+							className="h-2 w-2 shrink-0 rounded-full bg-amber-500"
+							title="Draft"
+						/>
+						<span className="sr-only">Draft</span>
+					</>
 				)}
-				{item.external && (
-					<span className="sr-only">(opens in new tab)</span>
-				)}
+				{item.external && <span className="sr-only">(opens in new tab)</span>}
 			</Link>
 		</li>
 	);
@@ -347,10 +413,8 @@ export function SidebarTrigger({ className }: { className?: string }) {
 
 	return (
 		<button
-			className={cn(
-				"rounded-md p-2 hover:bg-accent md:hidden",
-				className
-			)}
+			type="button"
+			className={cn("rounded-md p-2 hover:bg-accent md:hidden", className)}
 			onClick={() => setOpen(true)}
 			aria-label="Open navigation menu"
 		>

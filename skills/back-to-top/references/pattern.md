@@ -175,90 +175,6 @@ This example showcases:
 </script>
 ```
 
-### React Implementation with Hooks
-
-```jsx
-
-function BackToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  return isVisible ? (
-    <button
-      onClick={scrollToTop}
-      className="back-to-top"
-      aria-label="Back to top"
-    >
-      ↑
-    </button>
-  ) : null;
-}
-```
-
-### CSS Styling
-
-```css
-.back-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  opacity: 0.9;
-  transition: opacity 0.3s, transform 0.3s;
-  z-index: 1000;
-}
-
-.back-to-top:hover {
-  opacity: 1;
-  transform: translateY(-4px);
-}
-
-.back-to-top:focus {
-  outline: 2px solid #0056b3;
-  outline-offset: 2px;
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .back-to-top {
-    transition: none;
-  }
-
-  * {
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Mobile optimization */
-@media (max-width: 768px) {
-  .back-to-top {
-    bottom: 1rem;
-    right: 1rem;
-  }
-}
-```
-
 ## Best Practices
 
 ### Content
@@ -544,75 +460,6 @@ Note that for right-to-left (RTL) languages, you may need to adjust the button p
 </script>
 ```
 
-### React Implementation with Hooks
-
-```tsx
-
-function BackToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  return (
-    <button
-      className={`back-to-top ${isVisible ? 'visible' : ''}`}
-      onClick={scrollToTop}
-      aria-label="Back to top"
-    >
-      ↑
-    </button>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.back-to-top {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 200ms, visibility 200ms;
-}
-
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.back-to-top:hover {
-  background: #555;
-}
-
-.back-to-top:focus {
-  outline: 2px solid #0066cc;
-  outline-offset: 2px;
-}
-```
-
 ## Performance
 
 ### Performance Metrics
@@ -685,8 +532,6 @@ Performance Testing
 - [ ] Handle rapid scrolling up/down events effectively
 - [ ] Support smooth animations without jank
 - [ ] Remain performant on mobile devices
-
-## Browser Support
 
 ## Performance Metrics
 
@@ -793,20 +638,21 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Scroll](https://github.com/fisshy/react-scroll) – Scroll components with smooth animations
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) - Native link semantics, navigation behavior, and accessible labeling.
 
-#### Vue Components
-- [Vue Backtotop](https://github.com/caiofsouza/vue-backtotop) – Back to top component for Vue.js
-- [Vue Scroll To](https://github.com/rigor789/vue-scrollto) – Scrolling to elements with easing
+### Guides
 
-#### Vanilla JavaScript
-- [Vanilla Back To Top](https://github.com/vfeskov/vanilla-back-to-top) – Lightweight vanilla JS implementation
-- [ScrollToTop.js](https://github.com/cferdinandi/smooth-scroll) – Smooth scrolling library
+- [MDN Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) - Viewport observation for lazy loading, infinite lists, and progressive reveal patterns.
 
 ### Articles
 
-- [Back-to-Top Button Design Guidelines](https://www.nngroup.com/articles/back-to-top/)
-- [Scroll to Top: Does it Need to be Accessible?](https://www.digitala11y.com/scroll-to-top-does-it-need-to-be-accessible/)
+- [Nielsen Norman Group: Back-to-top links](https://www.nngroup.com/articles/back-to-top/) - Why and when an explicit return-to-top control improves long-page navigation.
+
+### NPM Packages
+
+- [`react-scroll`](https://www.npmjs.com/package/react-scroll) - Animated scrolling helpers for page navigation and back-to-top patterns.
+- [`lenis`](https://www.npmjs.com/package/lenis) - Smooth-scrolling utility for long-page navigation, section jumps, and return-to-top controls.
+- [`framer-motion`](https://www.npmjs.com/package/framer-motion) - Motion primitives for affordance, feedback, and progressive reveal.

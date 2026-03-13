@@ -719,28 +719,21 @@ When a form with a file input fails server-side validation (e.g., a required tex
 
 ## Resources
 
-### Libraries
+### References
 
-- [Dropzone.js](https://www.dropzone.dev/) - Popular drag-and-drop upload library
-- [Uppy](https://uppy.io/) - Modular file uploader with cloud picker support
-- [FilePond](https://pqina.nl/filepond/) - Smooth, accessible file upload component
-- [React Dropzone](https://react-dropzone.js.org/) - React hook and component for drag-and-drop
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file) - Native file selection, accepted formats, and form submission behavior.
 
-### Design Systems
+### Guides
 
-- [Material Design File Upload](https://material.io/components/file-upload) - Google's file upload guidelines
-- [Carbon Design System File Uploader](https://carbondesignsystem.com/components/file-uploader/usage) - IBM file upload component
-- [Atlassian Design System](https://atlassian.design/components/file-upload/usage) - Jira/Confluence upload patterns
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
 
-### Articles & Guides
+### Articles
 
-- [Accessible File Upload](https://www.smashingmagazine.com/2018/09/importance-manual-accessibility-testing/) - Accessibility considerations
-- [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) - MDN reference
-- [File API](https://developer.mozilla.org/en-US/docs/Web/API/File_API) - Browser File API reference
-- [XHR Upload Progress](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/upload) - Progress event reference
+- [web.dev: Browser-level lazy loading for CMSs](https://web.dev/articles/browser-level-lazy-loading-for-cmss) - Recommendations for below-the-fold media loading without hurting initial rendering.
 
-### Tools & Utilities
+### NPM Packages
 
-- [file-type](https://github.com/sindresorhus/file-type) - Detect file type by magic bytes (Node.js)
-- [browser-image-compression](https://github.com/Donaldcwl/browser-image-compression) - Client-side image compression before upload
-- [Accessibility Checker](https://wave.webaim.org/) - Test file input accessibility
+- [`react-dropzone`](https://www.npmjs.com/package/react-dropzone) - Drag-and-drop and click-to-upload file selection helpers.
+- [`uppy`](https://www.npmjs.com/package/uppy) - File upload orchestration with progress, retries, and remote provider support.
+- [`filepond`](https://www.npmjs.com/package/filepond) - Polished upload UI with previews, validation, and async processing hooks.

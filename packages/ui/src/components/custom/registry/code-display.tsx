@@ -5,6 +5,7 @@ import { Icons } from "@ux-patterns/ui/components/custom/icons";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import * as React from "react";
 import undent from "undent";
+import { ExpandableCodeBlock } from "../expandable-code-block";
 
 interface CodeDisplayProps {
 	name: string;
@@ -243,15 +244,17 @@ export function CodeDisplay({
 	}
 
 	return (
-		<DynamicCodeBlock
-			lang={showHTML ? "html" : "tsx"}
-			code={codeContent}
-			options={{
-				themes: {
-					light: "github-light",
-					dark: "github-dark",
-				},
-			}}
-		/>
+		<ExpandableCodeBlock contentClassName="[&_pre]:my-0">
+			<DynamicCodeBlock
+				lang={showHTML ? "html" : "tsx"}
+				code={codeContent}
+				options={{
+					themes: {
+						light: "github-light",
+						dark: "github-dark",
+					},
+				}}
+			/>
+		</ExpandableCodeBlock>
 	);
 }

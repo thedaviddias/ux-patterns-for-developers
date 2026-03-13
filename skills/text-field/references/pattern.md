@@ -865,31 +865,21 @@ Target performance metrics for text field components:
 
 ## Resources
 
-### Libraries
+### References
 
-- [React Hook Form](https://react-hook-form.com/) - Performant, flexible forms with validation
-- [Formik](https://formik.org/) - Forms without tears
-- [React Final Form](https://final-form.org/react) - High performance forms
-- [Mantine TextInput](https://mantine.dev/core/text-input/) - Full-featured text input component
-- [Chakra UI Input](https://chakra-ui.com/docs/components/input) - Simple and modular input component
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN Form controls](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms) - Core browser behavior for HTML form controls, submission, validation, and semantics.
 
-### Design Systems
+### Guides
 
-- [Material Design Text Fields](https://material.io/components/text-fields) - Google's text field guidelines
-- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/text-fields) - Apple's text field standards
-- [Ant Design Input](https://ant.design/components/input) - Enterprise-grade input design
-- [Carbon Design System](https://carbondesignsystem.com/components/text-input/usage) - IBM's input component guidelines
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
-### Articles & Guides
+### Articles
 
-- [Form Design Best Practices](https://uxplanet.org/designing-perfect-text-field-clarity-accessibility-and-user-experience-6e7dd80e68c8) - Comprehensive form design guide
-- [Accessible Form Design](https://webaim.org/techniques/forms/) - WebAIM's form accessibility techniques
-- [Mobile Input Best Practices](https://developers.google.com/web/fundamentals/design-and-ux/input/forms) - Google's mobile form guidelines
-- [Input Validation Patterns](https://www.smashingmagazine.com/2009/07/web-form-validation-best-practices-and-tutorials/) - Validation best practices guide
+- [Smashing Magazine: Designing efficient web forms](https://www.smashingmagazine.com/2017/06/designing-efficient-web-forms/) - Field-level usability guidance for labels, grouping, defaults, and submission flows.
 
-### Tools & Utilities
+### NPM Packages
 
-- [HTML5 Input Types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types) - Complete reference for input types
-- [Accessibility Checker](https://wave.webaim.org/) - Check form accessibility
-- [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/) - Ensure sufficient contrast
-- [Screen Reader Testing](https://webaim.org/articles/screenreader_testing/) - Test with assistive technologies
+- [`react-hook-form`](https://www.npmjs.com/package/react-hook-form) - Low-friction form state and validation wiring for complex input flows.
+- [`zod`](https://www.npmjs.com/package/zod) - Schema validation for typed parsing, normalization, and field-level error handling.
+- [`@tanstack/react-form`](https://www.npmjs.com/package/%40tanstack%2Freact-form) - Typed form state and validation workflows for advanced form UIs.

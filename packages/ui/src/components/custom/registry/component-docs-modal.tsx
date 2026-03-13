@@ -20,6 +20,7 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Copy } from "lucide-react";
 import { usePlausible } from "next-plausible";
 import React from "react";
+import { ExpandableCodeBlock } from "../expandable-code-block";
 
 interface ComponentDocsModalProps {
 	name: string;
@@ -134,7 +135,7 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 							<Tabs items={["pnpm", "npm", "yarn", "bun"]}>
 								<Tab value="pnpm">
 									<div className="relative">
-										<pre className="bg-fd-muted p-3 rounded-md text-sm overflow-x-auto">
+										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
 											<code>{commands.pnpm}</code>
 										</pre>
 										<Button
@@ -156,7 +157,7 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 								</Tab>
 								<Tab value="npm">
 									<div className="relative">
-										<pre className="bg-fd-muted p-3 rounded-md text-sm overflow-x-auto">
+										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
 											<code>{commands.npm}</code>
 										</pre>
 										<Button
@@ -178,7 +179,7 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 								</Tab>
 								<Tab value="yarn">
 									<div className="relative">
-										<pre className="bg-fd-muted p-3 rounded-md text-sm overflow-x-auto">
+										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
 											<code>{commands.yarn}</code>
 										</pre>
 										<Button
@@ -200,7 +201,7 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 								</Tab>
 								<Tab value="bun">
 									<div className="relative">
-										<pre className="bg-fd-muted p-3 rounded-md text-sm overflow-x-auto">
+										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
 											<code>{commands.bun}</code>
 										</pre>
 										<Button
@@ -233,7 +234,26 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 										Loading code...
 									</div>
 								) : rawContent ? (
-									<div className="relative">
+									<ExpandableCodeBlock
+										contentClassName="[&_pre]:my-0"
+										actions={
+											<div className="relative">
+												<Button
+													variant="ghost"
+													size="sm"
+													className="h-6 w-6 p-0"
+													onClick={() => copyToClipboard(rawContent, "code")}
+												>
+													<Copy className="h-3 w-3" />
+												</Button>
+												{copied === "code" && (
+													<div className="absolute right-0 top-6 text-xs text-green-600">
+														Copied!
+													</div>
+												)}
+											</div>
+										}
+									>
 										<DynamicCodeBlock
 											lang="tsx"
 											code={rawContent}
@@ -244,20 +264,7 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 												},
 											}}
 										/>
-										<Button
-											variant="ghost"
-											size="sm"
-											className="absolute right-2 top-2 h-6 w-6 p-0"
-											onClick={() => copyToClipboard(rawContent, "code")}
-										>
-											<Copy className="h-3 w-3" />
-										</Button>
-										{copied === "code" && (
-											<div className="absolute right-2 top-8 text-xs text-green-600">
-												Copied!
-											</div>
-										)}
-									</div>
+									</ExpandableCodeBlock>
 								) : (
 									<div className="text-sm text-muted-foreground p-4">
 										Failed to load code

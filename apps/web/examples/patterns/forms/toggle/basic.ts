@@ -1,0 +1,10 @@
+import type { PatternExampleDefinition } from "@/examples/patterns/example";
+
+export const basicExample: PatternExampleDefinition = {
+	html: '<div class="demo-shell card toggle-card">\n  <label class="switch-row">\n    <span>Enable weekly digest</span>\n    <span class="switch-control">\n      <input type="checkbox" class="switch-input" id="toggle-switch" aria-describedby="toggle-status" />\n      <span class="switch" aria-hidden="true"></span>\n    </span>\n  </label>\n  <p id="toggle-status" class="muted" aria-live="polite">Digest is off.</p>\n</div>',
+	css: ".toggle-card { padding: 24px; display: grid; gap: 12px; }\n.switch-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; cursor: pointer; }\n.switch-control { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 34px; }\n.switch-input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }\n.switch { width: 58px; height: 34px; border-radius: 999px; background: #cbd5e1; position: relative; transition: background 0.2s ease; }\n.switch::after { content: ''; width: 26px; height: 26px; background: white; border-radius: 999px; position: absolute; top: 4px; left: 4px; transition: transform 0.2s ease; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2); }\n.switch-input:checked + .switch { background: #0f766e; }\n.switch-input:checked + .switch::after { transform: translateX(24px); }\n.switch-input:focus-visible + .switch { outline: 3px solid rgba(15, 118, 110, 0.28); outline-offset: 3px; }\n.switch-input:disabled + .switch { background: #e2e8f0; cursor: not-allowed; }\np { margin: 0; }",
+	js: "const toggle = document.getElementById('toggle-switch');\nconst status = document.getElementById('toggle-status');\n\ntoggle.addEventListener('change', () => {\n  status.textContent = toggle.checked ? 'Digest is on.' : 'Digest is off.';\n});",
+	height: "320px",
+	presentation: "hidden-code",
+	variant: "canonical",
+};

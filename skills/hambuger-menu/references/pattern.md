@@ -146,6 +146,8 @@ The main content shifts to reveal a persistent sidebar-style menu underneath.
 
 ## Examples
 
+### Live Preview
+
 ### Basic HTML Implementation
 
 ```html
@@ -206,196 +208,6 @@ The main content shifts to reveal a persistent sidebar-style menu underneath.
     }
   });
 </script>
-```
-
-### React Implementation
-
-```jsx
-
-function HamburgerMenu({ items }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleRef = useRef(null);
-  const navRef = useRef(null);
-
-  const close = useCallback(() => {
-    setIsOpen(false);
-    toggleRef.current?.focus();
-  }, []);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const firstLink = navRef.current?.querySelector('a');
-    firstLink?.focus();
-
-    document.body.style.overflow = 'hidden';
-
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') close();
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, close]);
-
-  return (
-    <header>
-      <button
-        ref={toggleRef}
-        type="button"
-        className={`hamburger-toggle ${isOpen ? 'is-open' : ''}`}
-        aria-expanded={isOpen}
-        aria-controls="main-nav"
-        aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-        onClick={() => (isOpen ? close() : setIsOpen(true))}
-      >
-        <span className="hamburger-icon" aria-hidden="true" />
-      </button>
-
-      {isOpen && (
-        <>
-          <div className="nav-overlay" onClick={close} aria-hidden="true" />
-          <nav id="main-nav" ref={navRef} className="nav-panel" aria-label="Main navigation">
-            <ul>
-              {items.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} onClick={close}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </>
-      )}
-    </header>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.hamburger-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.hamburger-icon,
-.hamburger-icon::before,
-.hamburger-icon::after {
-  display: block;
-  width: 1.5rem;
-  height: 2px;
-  background-color: currentColor;
-  transition: transform 300ms ease, opacity 200ms ease;
-  position: relative;
-}
-
-.hamburger-icon::before,
-.hamburger-icon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-}
-
-.hamburger-icon::before { top: -6px; }
-.hamburger-icon::after { top: 6px; }
-
-/* Animate to ✕ */
-.hamburger-toggle[aria-expanded="true"] .hamburger-icon {
-  background-color: transparent;
-}
-.hamburger-toggle[aria-expanded="true"] .hamburger-icon::before {
-  top: 0;
-  transform: rotate(45deg);
-}
-.hamburger-toggle[aria-expanded="true"] .hamburger-icon::after {
-  top: 0;
-  transform: rotate(-45deg);
-}
-
-.nav-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80%;
-  max-width: 20rem;
-  height: 100dvh;
-  background: #fff;
-  transform: translateX(-100%);
-  transition: transform 300ms ease;
-  z-index: 1000;
-  overflow-y: auto;
-  padding: 4rem 1.5rem 1.5rem;
-}
-
-.nav-panel:not([hidden]) {
-  transform: translateX(0);
-}
-
-.nav-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 300ms ease;
-}
-
-.nav-panel:not([hidden]) ~ .nav-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.nav-panel ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-panel li + li {
-  margin-top: 0.5rem;
-}
-
-.nav-panel a {
-  display: block;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: inherit;
-  font-size: 1.125rem;
-}
-
-.nav-panel a:hover {
-  background-color: #f3f4f6;
-}
-
-.nav-panel a:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hamburger-icon,
-  .hamburger-icon::before,
-  .hamburger-icon::after,
-  .nav-panel,
-  .nav-overlay {
-    transition: none;
-  }
-}
 ```
 
 ## Best Practices
@@ -545,6 +357,7 @@ Add `aria-label="Open navigation menu"` to the toggle button. Update the label d
 
 ### Overlay Fade
 - **Effect:** Semi-transparent backdrop fades in behind the panel
+
 - **Timing:** 300ms ease, synchronized with panel slide
 - **Trigger:** Menu open/close
 - **Implementation:** CSS opacity transition with pointer-events toggle
@@ -731,8 +544,6 @@ const open = () => { setHasOpened(true); setIsOpen(true); };
 - [ ] Body scroll lock does not cause scroll position jump
 - [ ] Component does not block main thread during transitions
 
-## Browser Support
-
 ## SEO Considerations
 
 - **Hidden content:** Search engines generally crawl content inside `hidden` attributes or `display: none`, but verify your navigation links are in the static HTML (not JS-only rendered)
@@ -786,22 +597,21 @@ const open = () => { setHasOpened(true); setIsOpen(true); };
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [React Burger Menu](https://github.com/negomi/react-burger-menu) – Off-canvas sidebar menu with multiple animation styles
-- [Headless UI Menu](https://headlessui.com/react/menu) – Accessible menu components for React
-- [Radix Navigation Menu](https://www.radix-ui.com/primitives/docs/components/navigation-menu) – Unstyled accessible navigation primitives
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - Reference patterns for keyboard behavior, semantics, and assistive technology support.
 
-#### Vue Components
-- [Vue Burger Menu](https://github.com/mbj36/vue-burger-menu) – Off-canvas sidebar component for Vue.js
+### Guides
 
-#### Vanilla JavaScript
-- [Mmenu.js](https://mmenujs.com/) – Sliding panels and navigation drawers
-- [focus-trap](https://github.com/focus-trap/focus-trap) – Trap focus within a DOM node for accessible modals and menus
+- [WAI Fly-out Menus Tutorial](https://www.w3.org/WAI/tutorials/menus/flyout/) - Guidance for hover intent, disclosure timing, and focus handling in nested navigation.
 
 ### Articles
 
-- [Hamburger Menus and Hidden Navigation Hurt UX Metrics](https://www.nngroup.com/articles/hamburger-menus/) by Nielsen Norman Group
-- [The Hamburger Menu Debate](https://www.smashingmagazine.com/2017/02/designing-better-navigation-ux/) by Smashing Magazine
-- [Building an Accessible Hamburger Menu](https://www.a11yproject.com/posts/accessible-hamburger-menu/) by The A11Y Project
+- [Nielsen Norman Group: Hamburger menus](https://www.nngroup.com/articles/hamburger-menus/) - Tradeoffs between compact navigation and discoverability in responsive interfaces.
+
+### NPM Packages
+
+- [`@radix-ui/react-navigation-menu`](https://www.npmjs.com/package/%40radix-ui%2Freact-navigation-menu) - Structured menu primitive for complex site navigation.
+- [`@headlessui/react`](https://www.npmjs.com/package/%40headlessui%2Freact) - Headless primitives for menus, tabs, popovers, and disclosure controls.
+- [`focus-trap`](https://www.npmjs.com/package/focus-trap) - Keeps keyboard focus inside active modal and popover surfaces.

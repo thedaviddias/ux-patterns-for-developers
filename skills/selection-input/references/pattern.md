@@ -162,8 +162,6 @@ graph TD
 </select>
 ```
 
-## Browser Support
-
 ## Design Tokens
 
 These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -239,15 +237,27 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 }
 ```
 
-## Resources
-
-- [Request for developer feedback: customizable select](https://developer.chrome.com/blog/rfc-customizable-select)
-
-### Articles
-
-- [Designing Drop-Down Menus: Examples and Best Practices](https://www.smashingmagazine.com/2009/03/designing-drop-down-menus-examples-and-best-practices/)
-- [Listboxes vs. Dropdown Lists](https://www.nngroup.com/articles/listbox-dropdown/)
-
 ## Libraries
 
 - [Select - shadcn/ui](https://ui.shadcn.com/docs/components/select)
+
+## Resources
+
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN select element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select) - Native selection control behavior, labels, and grouped options.
+
+### Guides
+
+- [Chrome Developers: customizable select](https://developer.chrome.com/blog/rfc-customizable-select) - Current platform direction for improving flexible, accessible select experiences.
+
+### Articles
+
+- [Nielsen Norman Group: Listbox vs. dropdown](https://www.nngroup.com/articles/listbox-dropdown/) - When to use each selection pattern and how they affect scanning speed.
+
+### NPM Packages
+
+- [`@radix-ui/react-select`](https://www.npmjs.com/package/%40radix-ui%2Freact-select) - Accessible custom select primitive with keyboard and screen-reader support.
+- [`react-aria-components`](https://www.npmjs.com/package/react-aria-components) - Headless accessible components covering many form and overlay patterns.
+- [`@headlessui/react`](https://www.npmjs.com/package/%40headlessui%2Freact) - Headless primitives for menus, tabs, popovers, and disclosure controls.

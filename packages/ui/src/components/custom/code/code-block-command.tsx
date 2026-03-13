@@ -78,9 +78,9 @@ export function CodeBlockCommand({
 				{Object.entries(tabs).map(([key, value]) => {
 					return (
 						<TabsContent key={key} value={key} className="mt-0">
-							<pre className="px-4 py-5 overflow-x-auto">
+							<pre className="px-4 py-5 pr-10 whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
 								<code
-									className="relative font-mono text-sm leading-none"
+									className="relative font-mono text-sm leading-6 whitespace-pre-wrap break-words [overflow-wrap:anywhere]"
 									data-language="bash"
 								>
 									{value}

@@ -1,7 +1,7 @@
 import type { PatternExampleDefinition } from "@/examples/patterns/example";
 
 export const basicExample: PatternExampleDefinition = {
-	html: `<div class="settings-layout">
+	html: `<div class="settings-layout preview-card">
   <nav class="settings-nav" aria-label="Account settings">
     <ul>
       <li><a href="#general" aria-current="true">General</a></li>
@@ -75,6 +75,136 @@ export const basicExample: PatternExampleDefinition = {
     </section>
   </main>
 </div>`,
+	css: `.settings-layout {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.settings-nav ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.settings-nav a {
+  display: flex;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--preview-muted);
+  font-weight: 700;
+}
+
+.settings-nav a[aria-current="true"] {
+  background: var(--preview-primary-soft);
+  color: var(--preview-primary-strong);
+}
+
+.settings-content {
+  display: grid;
+  gap: 16px;
+}
+
+.settings-section {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.settings-form,
+.form-field {
+  display: grid;
+  gap: 8px;
+}
+
+.field-hint {
+  color: var(--preview-muted);
+  font-size: 0.88rem;
+}
+
+.form-actions,
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.save-btn,
+.action-btn,
+.danger-btn {
+  min-height: 44px;
+  padding: 11px 15px;
+  border-radius: 14px;
+  border: 1px solid var(--preview-border);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.save-btn:not(:disabled) {
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+  color: white;
+  border-color: #1d4ed8;
+}
+
+.danger-btn {
+  background: #fff5f5;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.settings-item {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.settings-item-info {
+  display: grid;
+  gap: 4px;
+}
+
+.status-badge.enabled {
+  color: var(--preview-success);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .settings-layout {
+    grid-template-columns: 1fr;
+  }
+}
+`,
+	js: `const settingsForm = document.querySelector(".settings-form");
+const saveButton = settingsForm.querySelector(".save-btn");
+const saveStatus = settingsForm.querySelector(".save-status");
+
+settingsForm.querySelectorAll("input, select").forEach((field) => {
+  field.addEventListener("input", () => {
+    saveButton.disabled = false;
+    saveStatus.textContent = "Unsaved changes";
+  });
+
+  field.addEventListener("change", () => {
+    saveButton.disabled = false;
+    saveStatus.textContent = "Unsaved changes";
+  });
+});
+
+settingsForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  saveButton.disabled = true;
+  saveStatus.textContent = "Changes saved";
+});
+`,
 	presentation: "hidden-code",
 	variant: "canonical",
 };

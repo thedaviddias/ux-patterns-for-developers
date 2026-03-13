@@ -631,26 +631,21 @@ Always use `Intl.DateTimeFormat` to determine the correct display order for the 
 
 ## Resources
 
-### Libraries
+### References
 
-- [React DayPicker](https://react-day-picker.js.org/) - Flexible date picker for React
-- [Flatpickr](https://flatpickr.js.org/) - Lightweight date/time picker
-- [date-fns](https://date-fns.org/) - Modern JavaScript date utility library
-- [Luxon](https://moment.github.io/luxon/) - Powerful date/time library with locale support
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN date input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) - Native date input support, parsing, and constraint behavior.
 
-### Design Systems
+### Guides
 
-- [GOV.UK Date Input](https://design-system.service.gov.uk/components/date-input/) - Authoritative segmented date input pattern
-- [Carbon Design System](https://carbondesignsystem.com/components/date-picker/usage) - IBM date input guidelines
-- [Material Design](https://material.io/components/date-pickers) - Google date input patterns
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
 
-### Articles & Guides
+### Articles
 
-- [Date Picker Design](https://www.nngroup.com/articles/date-input/) - Nielsen Norman Group guide
-- [GOV.UK Date Pattern Research](https://design-system.service.gov.uk/patterns/dates/) - Evidence-based date entry patterns
-- [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) - MDN locale-aware date formatting
+- [Nielsen Norman Group: Date-input usability](https://www.nngroup.com/articles/date-input/) - Research on segmented date fields, formatting, and calendar picker tradeoffs.
 
-### Tools & Utilities
+### NPM Packages
 
-- [HTML date input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) - MDN reference
-- [Date validation patterns](https://www.regular-expressions.info/dates.html) - Date regex reference
+- [`react-hook-form`](https://www.npmjs.com/package/react-hook-form) - Low-friction form state and validation wiring for complex input flows.
+- [`date-fns`](https://www.npmjs.com/package/date-fns) - Date parsing, formatting, and range math for calendars and schedule interfaces.
+- [`react-imask`](https://www.npmjs.com/package/react-imask) - Structured masking for currency, phone, date, and segmented time inputs.

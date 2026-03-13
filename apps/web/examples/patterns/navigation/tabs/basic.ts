@@ -107,6 +107,53 @@ export const basicExample: PatternExampleDefinition = {
     });
   });
 </script>`,
+	css: `.tabs {
+  display: grid;
+  gap: 16px;
+}
+
+[role="tablist"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 18px;
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--preview-shadow);
+}
+
+[role="tab"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--preview-muted);
+  font-weight: 700;
+}
+
+[role="tab"][aria-selected="true"] {
+  background: white;
+  color: var(--preview-primary-strong);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+[role="tabpanel"] {
+  padding: 20px;
+  border-radius: 22px;
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--preview-shadow);
+}
+
+[role="tabpanel"] p {
+  color: var(--preview-muted);
+}
+`,
 	presentation: "hidden-code",
 	variant: "canonical",
 };

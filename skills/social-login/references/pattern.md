@@ -152,6 +152,8 @@ Prompts users to link a social account to an existing email-based account.
 
 ## Examples
 
+### Live Preview
+
 ### Basic HTML Implementation
 
 ```html
@@ -198,153 +200,6 @@ Prompts users to link a social account to an existing email-based account.
     window.location.href = `${AUTH_URLS[provider]}?${params}`;
   }
 </script>
-```
-
-### React Implementation
-
-```jsx
-function SocialLoginButtons({ providers, onError }) {
-  const [loading, setLoading] = useState(null);
-
-  const handleLogin = async (provider) => {
-    setLoading(provider);
-    try {
-      const state = crypto.randomUUID();
-      sessionStorage.setItem('oauth_state', state);
-
-      const params = new URLSearchParams({
-        client_id: provider.clientId,
-        redirect_uri: `${window.location.origin}/api/auth/${provider.id}/callback`,
-        response_type: 'code',
-        scope: provider.scopes,
-        state,
-      });
-
-      window.location.href = `${provider.authUrl}?${params}`;
-    } catch (err) {
-      setLoading(null);
-      onError?.(err);
-    }
-  };
-
-  return (
-    <div className="social-login">
-      {providers.map((provider) => (
-        <button
-          key={provider.id}
-          type="button"
-          className={`social-btn ${provider.id}`}
-          onClick={() => handleLogin(provider)}
-          disabled={loading !== null}
-          aria-busy={loading === provider.id}
-        >
-          <span className="social-icon" aria-hidden="true">
-            {provider.icon}
-          </span>
-          {loading === provider.id
-            ? `Connecting to ${provider.name}…`
-            : `Continue with ${provider.name}`}
-        </button>
-      ))}
-    </div>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.social-login {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  background: #fff;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 150ms ease, border-color 150ms ease;
-}
-
-.social-btn:hover:not(:disabled) {
-  background: #f9fafb;
-  border-color: #9ca3af;
-}
-
-.social-btn:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-.social-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.social-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
-}
-
-/* Provider-specific branding */
-.social-btn.google {
-  color: #1f2937;
-}
-
-.social-btn.apple {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-
-.social-btn.apple:hover:not(:disabled) {
-  background: #1a1a1a;
-}
-
-.social-btn.github {
-  background: #24292e;
-  color: #fff;
-  border-color: #24292e;
-}
-
-.social-btn.github:hover:not(:disabled) {
-  background: #2f363d;
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 1.5rem 0;
-  color: #9ca3af;
-  font-size: 0.8125rem;
-}
-
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: #e5e7eb;
-}
-
-.divider span {
-  padding: 0 0.75rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .social-btn { transition: none; }
-}
 ```
 
 ## Best Practices
@@ -661,8 +516,6 @@ window.location.href = `${authUrl}?${params}`;
 - [ ] Buttons are consistently sized across viewports
 - [ ] Divider renders cleanly between social and email options
 
-## Browser Support
-
 ## SEO Considerations
 
 - **No direct SEO impact** — Social login pages are typically noindexed
@@ -714,19 +567,23 @@ window.location.href = `${authUrl}?${params}`;
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React / Next.js
-- [NextAuth.js](https://next-auth.js.org/) – Authentication with built-in provider support
-- [Clerk](https://clerk.com/) – Drop-in social login components
-- [Auth0 React SDK](https://auth0.com/docs/libraries/auth0-react) – Universal login with social providers
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
 
-#### Node.js
-- [Passport.js](http://www.passportjs.org/) – Modular authentication middleware with provider strategies
+### Guides
+
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
 ### Articles
 
-- [Social Login Buttons Aren't Worth It](https://www.nngroup.com/articles/social-login/) by Nielsen Norman Group
-- [Sign in with Apple Guidelines](https://developer.apple.com/sign-in-with-apple/get-started/) by Apple
-- [Google Sign-In Branding Guidelines](https://developers.google.com/identity/branding-guidelines) by Google
-- [OAuth 2.0 for Browser-Based Apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps) by IETF
+- [Nielsen Norman Group: Login walls](https://www.nngroup.com/articles/login-walls/) - When forced authentication harms discovery and conversion in account flows.
+- [Nielsen Norman Group: Login walls](https://www.nngroup.com/articles/login-walls/) - When forced authentication harms discovery and conversion in account flows.
+
+### NPM Packages
+
+- [`next-auth`](https://www.npmjs.com/package/next-auth) - Open-source authentication framework for session, provider, and credential flows.
+- [`@auth0/auth0-react`](https://www.npmjs.com/package/%40auth0%2Fauth0-react) - Hosted OAuth and enterprise identity integration for React apps.
+- [`@clerk/nextjs`](https://www.npmjs.com/package/%40clerk%2Fnextjs) - Hosted authentication flows and account-management building blocks for Next.js apps.

@@ -60,6 +60,70 @@ export const basicExample: PatternExampleDefinition = {
     });
   });
 </script>`,
+	css: `header {
+  display: grid;
+  gap: 16px;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--preview-shadow);
+}
+
+.nav-list > li {
+  position: relative;
+}
+
+.nav-list a,
+.nav-list button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: var(--preview-text);
+  font-weight: 600;
+}
+
+.nav-list a[aria-current="page"],
+.nav-list button[aria-expanded="true"] {
+  background: var(--preview-primary-soft);
+  color: var(--preview-primary-strong);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  list-style: none;
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--preview-shadow);
+  display: grid;
+  gap: 6px;
+}
+
+.dropdown a {
+  width: 100%;
+}
+
+.dropdown a:hover {
+  background: rgba(219, 234, 254, 0.7);
+  text-decoration: none;
+}
+`,
 	presentation: "hidden-code",
 	variant: "canonical",
 };

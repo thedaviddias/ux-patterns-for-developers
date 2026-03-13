@@ -147,6 +147,8 @@ Horizontal on desktop, collapses into a [hamburger menu](/patterns/navigation/ha
 
 ## Examples
 
+### Live Preview
+
 ### Basic HTML Implementation
 
 ```html
@@ -209,191 +211,6 @@ Horizontal on desktop, collapses into a [hamburger menu](/patterns/navigation/ha
     });
   });
 </script>
-```
-
-### React Implementation
-
-```jsx
-
-function NavDropdown({ label, items }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const triggerRef = useRef(null);
-  const dropdownRef = useRef(null);
-
-  const close = useCallback(() => {
-    setIsOpen(false);
-    triggerRef.current?.focus();
-  }, []);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleClickOutside = (e) => {
-      if (!triggerRef.current?.parentElement.contains(e.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') close();
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen, close]);
-
-  return (
-    <li className="has-dropdown">
-      <button
-        ref={triggerRef}
-        type="button"
-        aria-expanded={isOpen}
-        aria-haspopup="true"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {label}
-        <span aria-hidden="true">▾</span>
-      </button>
-      {isOpen && (
-        <ul ref={dropdownRef} className="dropdown">
-          {items.map((item) => (
-            <li key={item.href}>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </li>
-  );
-}
-
-function NavigationMenu({ items, currentPath }) {
-  return (
-    <nav aria-label="Main navigation">
-      <ul className="nav-list">
-        {items.map((item) =>
-          item.children ? (
-            
-          ) : (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                aria-current={item.href === currentPath ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            </li>
-          )
-        )}
-      </ul>
-    </nav>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-nav[aria-label="Main navigation"] {
-  background: #fff;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 0.25rem;
-}
-
-.nav-list > li {
-  position: relative;
-}
-
-.nav-list a,
-.nav-list button {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.75rem 1rem;
-  text-decoration: none;
-  color: #374151;
-  font-size: 0.9375rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 0.375rem;
-  white-space: nowrap;
-}
-
-.nav-list a:hover,
-.nav-list button:hover {
-  background-color: #f3f4f6;
-  color: #111827;
-}
-
-.nav-list a:focus-visible,
-.nav-list button:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-.nav-list a[aria-current="page"] {
-  color: #2563eb;
-  font-weight: 600;
-  background-color: #eff6ff;
-}
-
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 12rem;
-  list-style: none;
-  margin: 0.25rem 0 0;
-  padding: 0.5rem;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-}
-
-.dropdown a {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.375rem;
-  color: #374151;
-}
-
-.dropdown a:hover {
-  background-color: #f3f4f6;
-}
-
-/* Sticky variation */
-.nav-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-}
-
-@media (max-width: 768px) {
-  .nav-list {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dropdown {
-    animation: none;
-  }
-}
 ```
 
 ## Best Practices
@@ -551,7 +368,8 @@ Add `aria-label="Main navigation"` and `aria-label="Utility navigation"` to each
 - **Implementation:** CSS background-color transition
 
 ### Sticky Scroll Shadow
-- **Effect:** A subtle shadow appears below the navigation when it becomes sticky
+- **Effect:** A subtle shadow appears below the navigation when it
+
 - **Timing:** 200ms ease
 - **Trigger:** Scroll position changes and nav becomes fixed
 - **Implementation:** CSS box-shadow transition triggered by scroll observer
@@ -731,8 +549,6 @@ const toggleDropdown = () => {
 - [ ] Dropdowns open without perceptible delay
 - [ ] Navigation works without JavaScript (progressive enhancement)
 
-## Browser Support
-
 ## SEO Considerations
 
 - **Internal linking structure:** Navigation menus provide the strongest internal linking signals — ensure all main sections are linked
@@ -792,22 +608,21 @@ const toggleDropdown = () => {
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [Radix Navigation Menu](https://www.radix-ui.com/primitives/docs/components/navigation-menu) – Accessible navigation menu primitives
-- [Headless UI Menu](https://headlessui.com/react/menu) – Unstyled accessible menu components
-- [React Aria useMenu](https://react-spectrum.adobe.com/react-aria/useMenu.html) – Adobe's accessible menu hooks
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - Reference patterns for keyboard behavior, semantics, and assistive technology support.
 
-#### Vue Components
-- [Headless UI Vue Menu](https://headlessui.com/vue/menu) – Accessible menu for Vue
+### Guides
 
-#### CSS Frameworks
-- [Tailwind CSS Navbar](https://tailwindui.com/components/application-ui/navigation/navbars) – Responsive navigation components
-- [Bootstrap Navbar](https://getbootstrap.com/docs/5.3/components/navbar/) – Responsive navigation bar
+- [WAI Fly-out Menus Tutorial](https://www.w3.org/WAI/tutorials/menus/flyout/) - Guidance for hover intent, disclosure timing, and focus handling in nested navigation.
 
 ### Articles
 
-- [Navigation Design: Best Practices](https://www.nngroup.com/articles/navigation-design/) by Nielsen Norman Group
-- [ARIA Authoring Practices: Menu](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/) by W3C
-- [Responsive Navigation Patterns](https://bradfrost.com/blog/post/responsive-nav-patterns/) by Brad Frost
+- [Nielsen Norman Group: Mega menus work well](https://www.nngroup.com/articles/mega-menus-work-well/) - Evidence for structured large-menu layouts and hover/focus handling tradeoffs.
+
+### NPM Packages
+
+- [`@radix-ui/react-navigation-menu`](https://www.npmjs.com/package/%40radix-ui%2Freact-navigation-menu) - Structured menu primitive for complex site navigation.
+- [`@headlessui/react`](https://www.npmjs.com/package/%40headlessui%2Freact) - Headless primitives for menus, tabs, popovers, and disclosure controls.
+- [`@floating-ui/react`](https://www.npmjs.com/package/%40floating-ui%2Freact) - Positioning engine for tooltips, popovers, dropdowns, and anchored surfaces.

@@ -137,6 +137,8 @@ A link that initiates a file download instead of navigating to a new page.
 
 ## Examples
 
+### Live Preview
+
 ### Basic HTML Implementation
 
 ```html
@@ -160,116 +162,6 @@ A link that initiates a file download instead of navigating to a new page.
 
 <!-- Skip navigation link -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
-```
-
-### React Implementation
-
-```jsx
-function Link({ href, children, external, download: isDownload, ...props }) {
-  const isExternal = external || (href && href.startsWith('http'));
-
-  const externalProps = isExternal
-    ? { target: '_blank', rel: 'noopener noreferrer' }
-    : {};
-
-  return (
-    <a href={href} {...externalProps} {...props}>
-      {children}
-      {isExternal && (
-        <>
-          <span aria-hidden="true" className="external-icon">↗</span>
-          <span className="sr-only">(opens in new tab)</span>
-        </>
-      )}
-      {isDownload && (
-        <span aria-hidden="true" className="download-icon">↓</span>
-      )}
-    </a>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-a {
-  color: #2563eb;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  text-decoration-thickness: 1px;
-  transition: color 150ms ease, text-decoration-color 150ms ease;
-}
-
-a:visited {
-  color: #7c3aed;
-}
-
-a:hover {
-  color: #1d4ed8;
-  text-decoration-thickness: 2px;
-}
-
-a:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-a:active {
-  color: #1e40af;
-}
-
-/* External link icon */
-.external-icon {
-  display: inline-block;
-  margin-left: 0.2em;
-  font-size: 0.8em;
-  vertical-align: super;
-}
-
-/* Skip link */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.skip-link:focus {
-  position: fixed;
-  top: 0.5rem;
-  left: 0.5rem;
-  width: auto;
-  height: auto;
-  padding: 0.75rem 1.5rem;
-  background: #1e293b;
-  color: #fff;
-  font-weight: 600;
-  z-index: 9999;
-  border-radius: 0.375rem;
-  text-decoration: none;
-}
-
-/* Screen reader only text */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  a {
-    transition: none;
-  }
-}
 ```
 
 ## Best Practices
@@ -601,8 +493,6 @@ a:hover {
 - [ ] Prefetch targets efficiently without overwhelming the network
 - [ ] Respond to interaction within 50ms
 
-## Browser Support
-
 ## SEO Considerations
 
 - **Descriptive anchor text** helps search engines understand the destination page's content — avoid "click here"
@@ -683,15 +573,21 @@ a:hover {
 
 ## Resources
 
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) - Native link semantics, navigation behavior, and accessible labeling.
+
+### Guides
+
+- [MDN WAI-ARIA basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) - Guidance on when to rely on native HTML and when to introduce ARIA roles and states.
+
 ### Articles
 
-- [Links vs. Buttons in Modern Web Applications](https://marcysutton.com/links-vs-buttons-in-modern-web-applications) by Marcy Sutton
-- [Writing Hyperlinks: Best Practices](https://www.nngroup.com/articles/writing-links/) by Nielsen Norman Group
-- [Accessible Links](https://www.a11yproject.com/posts/creating-valid-and-accessible-links/) by The A11Y Project
-- [Link Purpose (In Context)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html) – WCAG 2.1 Understanding
+- [Nielsen Norman Group: Writing links](https://www.nngroup.com/articles/writing-links/) - How link text influences comprehension, scanning, and navigation confidence.
 
-### Libraries
+### NPM Packages
 
-- [Next.js Link](https://nextjs.org/docs/app/api-reference/components/link) – Client-side navigation with prefetching
-- [React Router Link](https://reactrouter.com/en/main/components/Link) – Declarative routing for React
-- [Vue Router RouterLink](https://router.vuejs.org/api/#router-link) – Declarative navigation for Vue.js
+- [`next`](https://www.npmjs.com/package/next) - Routing, image, and navigation primitives commonly used in app shell and commerce UIs.
+- [`react-router-dom`](https://www.npmjs.com/package/react-router-dom) - Client-side route primitives useful for links, breadcrumbs, and tab navigation.
+- [`@tanstack/react-router`](https://www.npmjs.com/package/%40tanstack%2Freact-router) - Typed route primitives for navigation-heavy interfaces.

@@ -615,26 +615,21 @@ new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(am
 
 ## Resources
 
-### Libraries
+### References
 
-- [React Currency Input Field](https://github.com/cchanxzy/react-currency-input-field) - React component with locale support
-- [AutoNumeric](https://autonumeric.org/) - Automatic number & currency formatting
-- [Cleave.js](https://nosir.github.io/cleave.js/) - Input format as you type
-- [currency.js](https://currency.js.org/) - Simple, safe currency parsing and formatting
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN Form controls](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms) - Core browser behavior for HTML form controls, submission, validation, and semantics.
 
-### Design Systems
+### Guides
 
-- [Material Design Text Fields](https://material.io/components/text-fields) - Prefix/suffix field pattern
-- [Carbon Design System](https://carbondesignsystem.com/components/number-input/usage) - IBM numeric input guidelines
-- [Polaris (Shopify)](https://polaris.shopify.com/components/text-field) - E-commerce input patterns
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
 
-### Articles & Guides
+### Articles
 
-- [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) - MDN locale-aware number formatting
-- [Designing Currency Inputs](https://uxplanet.org/designing-perfect-text-field-clarity-accessibility-and-user-experience-6e7dd80e68c8) - UX considerations
-- [Form Design: Best Practices](https://www.smashingmagazine.com/2011/11/extensive-guide-to-web-form-usability/) - Smashing Magazine form guide
+- [Smashing Magazine: Designing efficient web forms](https://www.smashingmagazine.com/2017/06/designing-efficient-web-forms/) - Field-level usability guidance for labels, grouping, defaults, and submission flows.
 
-### Tools & Utilities
+### NPM Packages
 
-- [Intl Explorer](https://www.intl-explorer.com/) - Interactive Intl API explorer
-- [Currency Codes](https://www.iso.org/iso-4217-currency-codes.html) - ISO 4217 currency reference
+- [`react-number-format`](https://www.npmjs.com/package/react-number-format) - Masked number and currency entry with formatting and caret handling.
+- [`dinero.js`](https://www.npmjs.com/package/dinero.js) - Money modeling helpers for prices, formatting, rounding, and calculations.
+- [`react-imask`](https://www.npmjs.com/package/react-imask) - Structured masking for currency, phone, date, and segmented time inputs.

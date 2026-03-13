@@ -1,0 +1,90 @@
+---
+name: Toggle
+description: "Use when you need to switch between two states."
+metadata:
+  id: toggle
+  category: forms
+  pattern: Toggle
+  source: uxpatterns.dev
+  url: https://uxpatterns.dev/patterns/forms/toggle
+  sourcePath: apps/web/content/patterns/forms/toggle.mdx
+---
+
+# Toggle
+
+Switch between two states
+
+## What it solves
+
+A **Toggle** pattern helps teams create a reliable way to switch a binary setting on or off while making the current state obvious before and after interaction. It is most useful when teams need settings and preferences.
+Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
+
+## When to use
+
+- Settings and preferences
+- Feature enablement
+- Notification or privacy controls
+
+## When to avoid
+
+- Prefer a native checkbox input for settings and forms when the value is simply on or off.
+- Use a button with `aria-pressed` only when the control represents an action state such as play/pause or show/hide.
+- Do not add extra formatting or validation if the product does not benefit from it.
+
+## Implementation workflow
+
+1. Confirm the pattern matches the problem and constraints before copying the example.
+2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
+3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
+4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+
+## Accessibility guardrails
+
+### Keyboard Interaction
+- [ ] Verify that toggle can be completed using keyboard alone.
+- [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI.
+- [ ] Preserve a visible focus state that is still readable at high zoom.
+### Screen Reader Support
+- [ ] Use semantic elements first, then add ARIA only where semantics alone are not enough.
+- [ ] Announce state changes such as errors, loading, or completion in the right place and with the right politeness.
+- [ ] Connect labels, hints, and status text with `aria-describedby` or structural headings when useful.
+### Visual Accessibility
+- [ ] Do not rely on color alone to convey severity, completion, or selection state.
+
+## Common mistakes
+
+### **Using the wrong validation moment**
+
+**The Problem:**
+Immediate validation on partial input makes the pattern feel punitive and noisy.
+
+**How to Fix It?**
+Wait until the user has enough information in the field, then validate on blur, pause, or submit depending on the risk of the rule.
+
+### **Separating labels, hints, and errors**
+
+**The Problem:**
+People cannot tell which message belongs to which control when the copy is visually detached.
+
+**How to Fix It?**
+Keep labels, helper text, and validation messages tightly grouped and connected with `aria-describedby` where appropriate.
+
+### **Forgetting touch and autofill behavior**
+
+**The Problem:**
+Desktop-only styling hides the fact that mobile keyboards, autofill, and paste flows behave differently.
+
+**How to Fix It?**
+Test the control with autofill, paste, zoom, and on-screen keyboards before calling the pattern complete.
+
+## Related patterns
+
+- https://uxpatterns.dev/patterns/forms/button
+- https://uxpatterns.dev/patterns/forms/checkbox
+- https://uxpatterns.dev/patterns/forms/radio
+
+---
+
+For full implementation detail, examples, and testing notes, see `references/pattern.md`.
+
+Pattern page: https://uxpatterns.dev/patterns/forms/toggle

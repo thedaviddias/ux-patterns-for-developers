@@ -1,6 +1,7 @@
 import { Index } from "@ux-patterns/registry/.generated";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import undent from "undent";
+import { ExpandableCodeBlock } from "../expandable-code-block";
 
 interface CodeDisplayServerProps {
 	name: string;
@@ -215,15 +216,17 @@ export async function CodeDisplayServer({
 	}
 
 	return (
-		<DynamicCodeBlock
-			lang={showHTML ? "html" : "tsx"}
-			code={codeContent}
-			options={{
-				themes: {
-					light: "github-light",
-					dark: "github-dark",
-				},
-			}}
-		/>
+		<ExpandableCodeBlock contentClassName="[&_pre]:my-0">
+			<DynamicCodeBlock
+				lang={showHTML ? "html" : "tsx"}
+				code={codeContent}
+				options={{
+					themes: {
+						light: "github-light",
+						dark: "github-dark",
+					},
+				}}
+			/>
+		</ExpandableCodeBlock>
 	);
 }

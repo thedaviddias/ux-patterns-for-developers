@@ -96,7 +96,6 @@ Try **auto-loading on scroll** after a few manual loads, or increase batch size 
 - https://uxpatterns.dev/patterns/forms/button
 - https://uxpatterns.dev/patterns/navigation/infinite-scroll
 - https://uxpatterns.dev/patterns/navigation/pagination
-- https://uxpatterns.dev/patterns/web-vitals-patterns/infinite-scroll
 
 ---
 

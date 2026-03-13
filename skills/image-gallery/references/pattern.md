@@ -1,0 +1,301 @@
+# Image Gallery
+
+> Learn how to implement image galleries. Discover best practices for lightboxes, thumbnails, and image navigation.
+
+**URL:** https://uxpatterns.dev/patterns/media/image-gallery
+**Source:** apps/web/content/patterns/media/image-gallery.mdx
+
+---
+
+## Overview
+
+A **Image Gallery** pattern helps teams create a reliable way to help users browse several related images without losing orientation, context, or performance. It is most useful when teams need portfolio and gallery pages.
+
+Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
+
+## Use Cases
+
+### When to use:
+
+- Portfolio and gallery pages
+- Product image collections
+- Documentation screenshots and walkthroughs
+
+### When not to use:
+
+- Use a simpler image, link, or file input if full media handling is not actually needed.
+- Avoid rich custom controls when browser-native behavior is enough for the task.
+- Do not assume network-heavy media is appropriate for every audience or context.
+
+### Common scenarios and examples
+
+- Portfolio and gallery pages where users need a clear, repeatable interface model.
+- Product image collections where users need a clear, repeatable interface model.
+- Documentation screenshots and walkthroughs where users need a clear, repeatable interface model.
+
+## Benefits
+
+- Clarifies how image gallery should behave before implementation details begin to sprawl.
+- Creates a reusable interaction model for teams who need to help users browse several related images without losing orientation, context, or performance.
+- Makes accessibility, edge cases, and recovery paths part of the design instead of post-launch cleanup.
+- Gives product, design, and engineering a shared language for evaluating trade-offs.
+
+## Drawbacks
+
+- Bandwidth, device capability, and screen size all change how the experience feels.
+- Media-heavy layouts expose performance issues quickly.
+- Accessibility gaps are especially visible when captions, transcripts, or alternate controls are missing.
+- Different browsers implement advanced media features with subtle differences.
+
+## Anatomy
+
+```mermaid
+flowchart TB
+Root[Image Gallery] --> A[Thumbnail overview]
+Root --> B[Primary viewer]
+Root --> C[Navigation controls]
+Root --> D[Caption or metadata]
+Root --> E[Lightbox state]
+```
+
+### Component Structure
+
+1. **Thumbnail overview**
+
+- Lets users scan the available images quickly.
+
+2. **Primary viewer**
+
+- Shows the currently selected image at a larger size.
+
+3. **Navigation controls**
+
+- Move between images without forcing users back to the overview.
+
+4. **Caption or metadata**
+
+- Explains what the image shows or why it matters.
+
+5. **Lightbox state**
+
+- Expands the viewer for focused inspection.
+
+#### Summary of Components
+
+| Component | Required? | Purpose |
+| --- | --- | --- |
+| Thumbnail overview | ✅ Yes | Lets users scan the available images quickly. |
+| Primary viewer | ✅ Yes | Shows the currently selected image at a larger size. |
+| Navigation controls | ✅ Yes | Move between images without forcing users back to the overview. |
+| Caption or metadata | ❌ No | Explains what the image shows or why it matters. |
+| Lightbox state | ❌ No | Expands the viewer for focused inspection. |
+
+## Variations
+
+### Grid-first gallery
+
+Prioritizes scanning many images at once.
+
+**When to use:** Use when overview is the main job.
+
+### Viewer-first gallery
+
+Leads with one large image and supporting thumbnails.
+
+**When to use:** Use when detail inspection matters most.
+
+### Fullscreen gallery
+
+Expands media into an immersive lightbox.
+
+**When to use:** Use when users need distraction-free review.
+
+## Best Practices
+
+### Content
+
+**Do's ✅**
+
+- Tell users what the media contains before they commit to viewing or uploading it.
+- Keep captions, labels, and file requirements visible.
+- Use metadata such as duration, size, and status to set expectations early.
+
+**Don'ts ❌**
+
+- Do not autoplay or auto-upload in a way that surprises people.
+- Do not rely on thumbnails alone to explain the media.
+- Do not hide file restrictions until after the action starts.
+
+### Accessibility
+
+**Do's ✅**
+
+- Verify that image gallery can be completed using keyboard alone.
+- Keep focus order logical when the pattern opens, updates, or reveals additional UI.
+- Preserve a visible focus state that is still readable at high zoom.
+- Use semantic elements first, then add ARIA only where semantics alone are not enough.
+- Announce state changes such as errors, loading, or completion in the right place and with the right politeness.
+
+**Don'ts ❌**
+
+- Do not remove focus styles without a visible replacement.
+- Do not depend on placeholder or helper text that disappears before the user can act on it.
+- Do not assume pointer, touch, and assistive technologies will all interact with the pattern the same way.
+
+### Visual Design
+
+**Do's ✅**
+
+- Reserve aspect-ratio space to avoid layout shift.
+- Keep controls legible over bright or dark imagery.
+- Show progress and completion states in the same visual language as the media frame.
+
+**Don'ts ❌**
+
+- Do not overlay controls on top of important content without contrast support.
+- Do not let placeholders use completely different aspect ratios from the final media.
+- Do not assume hover-only affordances are enough.
+
+### Layout & Positioning
+
+**Do's ✅**
+
+- Adapt the controls and chrome to portrait and landscape contexts.
+- Keep supporting metadata close to the media frame.
+- Test zoom, orientation changes, and small-screen control spacing.
+
+**Don'ts ❌**
+
+- Do not make the media surface so dominant that supporting actions disappear.
+- Do not move core controls into hidden menus by default on desktop.
+- Do not ignore offline or poor-network scenarios.
+
+## Platform-Specific Considerations
+
+- Touch targets need more room on mobile than on desktop, especially for scrubbers, thumbnails, and upload affordances.
+- Test camera, gallery, fullscreen, and share behaviors on real mobile devices instead of assuming browser desktop emulation is enough.
+- If the media pattern appears inside a native shell or hybrid app, confirm focus, keyboard, and permission prompts still work in the right order.
+
+## Common Mistakes & Anti-Patterns 🚫
+
+### **Treating media as decoration only**
+
+**The Problem:**
+Important uploads and playback flows break when the design assumes the media is just visual garnish.
+
+**How to Fix It?**
+Design state, metadata, and controls as first-class parts of the pattern, not as overlays added later.
+
+---
+
+### **Skipping fallback behavior**
+
+**The Problem:**
+Different devices support different codecs, capture flows, and bandwidth envelopes.
+
+**How to Fix It?**
+Plan graceful fallbacks for unsupported APIs, low data conditions, and failed loads.
+
+---
+
+### **Forgetting accessibility artifacts**
+
+**The Problem:**
+Media patterns become exclusionary quickly when captions, transcripts, alt text, or visible status are missing.
+
+**How to Fix It?**
+Treat alternate access paths as part of the core experience, not as post-launch polish.
+
+## Examples
+
+### Live Preview
+
+### Basic Implementation
+
+```html
+<div class="demo-shell card gallery-card">
+  <div class="viewer" id="gallery-viewer">Living room view</div>
+  <div class="thumbs">
+    <button type="button" data-view="Living room view">1</button>
+    <button type="button" data-view="Kitchen detail">2</button>
+    <button type="button" data-view="Bedroom layout">3</button>
+  </div>
+</div>
+```
+
+### What this example demonstrates
+
+- A clear baseline implementation of image gallery that can be reviewed without framework-specific noise.
+- Visible state, spacing, and content hierarchy that mirror the implementation guidance above.
+- A small enough surface to copy into a design review or prototype before scaling the pattern up.
+
+### Implementation Notes
+
+- Start with semantic HTML and only add JavaScript where the interaction truly requires it.
+- Keep styling tokens and spacing consistent with adjacent controls or layouts.
+- If the live implementation introduces async behavior, mirror those states in the code example rather than documenting them only in prose.
+
+## Accessibility
+
+### Keyboard Interaction
+
+- [ ] Verify that image gallery can be completed using keyboard alone.
+- [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI.
+- [ ] Preserve a visible focus state that is still readable at high zoom.
+
+### Screen Reader Support
+
+- [ ] Use semantic elements first, then add ARIA only where semantics alone are not enough.
+- [ ] Announce state changes such as errors, loading, or completion in the right place and with the right politeness.
+- [ ] Connect labels, hints, and status text with `aria-describedby` or structural headings when useful.
+
+### Visual Accessibility
+
+- [ ] Do not rely on color alone to convey severity, completion, or selection state.
+- [ ] Test the pattern at 200% zoom and with reduced motion enabled.
+- [ ] Ensure touch targets remain comfortable on mobile and coarse pointers.
+
+## Testing Guidelines
+
+### Functional Testing
+
+- [ ] Verify the default, loading, error, and success states for image gallery.
+- [ ] Test the primary action and the obvious recovery action in the same run.
+- [ ] Confirm that state survives refresh, navigation, or retry in the way users would expect.
+
+### Accessibility Testing
+
+- [ ] Run keyboard-only checks and at least one screen reader pass on the final implementation.
+- [ ] Validate headings, labels, and announcement behavior with real content rather than lorem ipsum.
+- [ ] Check color contrast and focus visibility in both default and stressed states.
+
+### Edge Cases
+
+- [ ] Test empty, long, duplicated, and unexpectedly formatted content.
+- [ ] Check behavior on narrow screens, zoomed layouts, and slower networks.
+- [ ] Verify that optimistic or asynchronous states reconcile correctly after a failure.
+
+## Frequently Asked Questions
+
+## Related Patterns
+
+## Resources
+
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI Media Accessibility User Requirements](https://www.w3.org/WAI/media/av/) - Requirements for captions, transcripts, controls, and inclusive media playback.
+
+### Guides
+
+- [web.dev: Browser-level lazy loading for CMSs](https://web.dev/articles/browser-level-lazy-loading-for-cmss) - Recommendations for below-the-fold media loading without hurting initial rendering.
+
+### Articles
+
+- [Smashing Magazine: Designing better carousel UX](https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/) - Research-informed guidance on controls, pacing, and whether a carousel is justified.
+
+### NPM Packages
+
+- [`yet-another-react-lightbox`](https://www.npmjs.com/package/yet-another-react-lightbox) - React lightbox for galleries, captions, zoom, and keyboard navigation.
+- [`photoswipe`](https://www.npmjs.com/package/photoswipe) - Lightbox engine for touch-first image viewing and zoom interactions.
+- [`lightgallery`](https://www.npmjs.com/package/lightgallery) - Gallery/lightbox components for zoomable image and mixed media collections.

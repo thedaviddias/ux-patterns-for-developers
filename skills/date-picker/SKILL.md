@@ -126,7 +126,6 @@ function closeCalendar() {
 
 ## Related patterns
 
-- https://uxpatterns.dev/patterns/dialog-modal/examples
 - https://uxpatterns.dev/patterns/forms/date-input
 - https://uxpatterns.dev/patterns/forms/date-range
 - https://uxpatterns.dev/patterns/forms/text-field

@@ -3,17 +3,400 @@ title: "Comparison Table"
 summary: "Compare features and options side-by-side"
 description: "Learn how to implement comparison tables. Discover best practices for feature comparisons, pricing tables, and decision matrices."
 icon: Table2
-status: draft
+status: complete
 ---
 
-<Callout type="warning">
-  This page is empty for now. Please help us by
-  [contributing](https://github.com/thedaviddias/ux-patterns-for-developers/blob/main/.github/CONTRIBUTING.md)
-  to add content.
-</Callout>
+## Overview
 
-## Related patterns
+A **Comparison Table** pattern helps teams create a reliable way to line up options side by side so users can evaluate feature, price, or policy differences quickly. It is most useful when teams need plan and feature comparison.
 
-- Data tables: [Data Table](/patterns/data-display/table)
-- Pricing display: [Product Card](/patterns/e-commerce/product-card)
-- Feature lists: [List View](/patterns/data-display/list-view)
+Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
+
+<BuildEffort
+  level="medium"
+  description="Requires structured state, keyboard handling, and resilient feedback for compare features and options side-by-side."
+/>
+
+## Use Cases
+
+### When to use:
+
+- Plan and feature comparison
+- Vendor or tool evaluation
+- Product selection
+
+### When not to use:
+
+- Use a simpler view when users only need one or two values and not the full layout.
+- Avoid this pattern when the task is creation or editing rather than interpretation.
+- Do not force the same view onto mobile if another representation would be clearer.
+
+### Common scenarios and examples
+
+- Plan and feature comparison where users need a clear, repeatable interface model.
+- Vendor or tool evaluation where users need a clear, repeatable interface model.
+- Product selection where users need a clear, repeatable interface model.
+
+<PatternComparison
+  alternatives={[
+  {
+    "name": "Data Table",
+    "path": "/patterns/data-display/table",
+    "when": "users need data table instead of comparison table as the primary interaction",
+    "pros": [
+      "Clearer fit for its own job",
+      "Lower ambiguity about the expected interaction"
+    ],
+    "cons": [
+      "Less specialized for comparison table",
+      "Different states and recovery paths to teach"
+    ]
+  },
+  {
+    "name": "Product Card",
+    "path": "/patterns/e-commerce/product-card",
+    "when": "users need product card instead of comparison table as the primary interaction",
+    "pros": [
+      "Clearer fit for its own job",
+      "Lower ambiguity about the expected interaction"
+    ],
+    "cons": [
+      "Less specialized for comparison table",
+      "Different states and recovery paths to teach"
+    ]
+  },
+  {
+    "name": "List View",
+    "path": "/patterns/data-display/list-view",
+    "when": "users need list view instead of comparison table as the primary interaction",
+    "pros": [
+      "Clearer fit for its own job",
+      "Lower ambiguity about the expected interaction"
+    ],
+    "cons": [
+      "Less specialized for comparison table",
+      "Different states and recovery paths to teach"
+    ]
+  }
+]}
+/>
+
+## Benefits
+
+- Clarifies how comparison table should behave before implementation details begin to sprawl.
+- Creates a reusable interaction model for teams who need to line up options side by side so users can evaluate feature, price, or policy differences quickly.
+- Makes accessibility, edge cases, and recovery paths part of the design instead of post-launch cleanup.
+- Gives product, design, and engineering a shared language for evaluating trade-offs.
+
+## Drawbacks
+
+- It can become visually dense or noisy when too much state is shown at once.
+- Responsive behavior usually needs a deliberate mobile fallback, not just smaller text.
+- Loading, empty, and error states are just as important as the happy path.
+- Performance work becomes visible quickly when the dataset or layout grows.
+
+## Anatomy
+
+```mermaid
+flowchart TB
+Root[Comparison Table] --> A[Option columns]
+Root --> B[Feature rows]
+Root --> C[Highlight state]
+Root --> D[Decision CTA]
+Root --> E[Sticky labels]
+```
+
+### Component Structure
+
+1. **Option columns**
+
+- Represent the products, plans, or choices being compared.
+
+2. **Feature rows**
+
+- Provide the criteria used to judge the options.
+
+3. **Highlight state**
+
+- Draws attention to a recommended or currently selected column.
+
+4. **Decision CTA**
+
+- Lets users act after comparing.
+
+5. **Sticky labels**
+
+- Keep orientation when the table becomes long or scrollable.
+
+#### Summary of Components
+
+| Component | Required? | Purpose |
+| --- | --- | --- |
+| Option columns | ✅ Yes | Represent the products, plans, or choices being compared. |
+| Feature rows | ✅ Yes | Provide the criteria used to judge the options. |
+| Highlight state | ❌ No | Draws attention to a recommended or currently selected column. |
+| Decision CTA | ❌ No | Lets users act after comparing. |
+| Sticky labels | ❌ No | Keep orientation when the table becomes long or scrollable. |
+
+## Variations
+
+### Feature comparison
+
+Lists qualitative capabilities or availability.
+
+**When to use:** Use for plan and product matrices.
+
+### Pricing comparison
+
+Combines price, packaging, and support details.
+
+**When to use:** Use for subscription or service selection.
+
+### Decision matrix
+
+Weights several criteria for internal decision-making.
+
+**When to use:** Use for tools, procurement, or evaluation workflows.
+
+## Examples
+
+### Live Preview
+
+<Playground patternType="data-display" pattern="comparison-table" example="basic" presentation="hidden-code" />
+
+### Basic Implementation
+
+```html
+<div class="demo-shell card table-card">
+  <table>
+    <thead><tr><th>Feature</th><th>Starter</th><th>Team</th><th>Enterprise</th></tr></thead>
+    <tbody>
+      <tr><td>Shared components</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Design review workflows</td><td>—</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Audit history</td><td>—</td><td>—</td><td>✓</td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### What this example demonstrates
+
+- A clear baseline implementation of comparison table that can be reviewed without framework-specific noise.
+- Visible state, spacing, and content hierarchy that mirror the implementation guidance above.
+- A small enough surface to copy into a design review or prototype before scaling the pattern up.
+
+### Implementation Notes
+
+- Start with semantic HTML and only add JavaScript where the interaction truly requires it.
+- Keep styling tokens and spacing consistent with adjacent controls or layouts.
+- If the live implementation introduces async behavior, mirror those states in the code example rather than documenting them only in prose.
+
+## Best Practices
+
+### Content
+
+**Do's ✅**
+
+- Start with the questions users need answered before choosing the layout.
+- Use labels, legends, and headings that explain why the data matters.
+- Keep supporting metadata close to the item, card, chart, or row it describes.
+
+**Don'ts ❌**
+
+- Do not assume everyone already understands the metric, status, or sorting rule.
+- Do not rely on truncation to hide critical context.
+- Do not bury key actions where they only appear on hover.
+
+### Accessibility
+
+**Do's ✅**
+
+- Verify that comparison table can be completed using keyboard alone.
+- Keep focus order logical when the pattern opens, updates, or reveals additional UI.
+- Preserve a visible focus state that is still readable at high zoom.
+- Use semantic elements first, then add ARIA only where semantics alone are not enough.
+- Announce state changes such as errors, loading, or completion in the right place and with the right politeness.
+
+**Don'ts ❌**
+
+- Do not remove focus styles without a visible replacement.
+- Do not depend on placeholder or helper text that disappears before the user can act on it.
+- Do not assume pointer, touch, and assistive technologies will all interact with the pattern the same way.
+
+### Visual Design
+
+**Do's ✅**
+
+- Use hierarchy to separate primary values from supporting context.
+- Reserve space for loading and empty states to avoid layout jumps.
+- Design density levels intentionally for desktop and mobile.
+
+**Don'ts ❌**
+
+- Do not use decorative chrome that competes with the data itself.
+- Do not make all rows, cards, or panels look equally important when priorities differ.
+- Do not overload a single view with every possible control.
+
+### Layout & Positioning
+
+**Do's ✅**
+
+- Preserve scannability as the viewport shrinks.
+- Keep filters, summaries, and data visibly connected.
+- Choose stable ordering and grouping rules so users can build muscle memory.
+
+**Don'ts ❌**
+
+- Do not let controls jump around between breakpoints.
+- Do not hide essential data behind horizontal scrolling without a fallback.
+- Do not treat empty or zero states as an afterthought.
+
+## Common Mistakes & Anti-Patterns 🚫
+
+### **Choosing the layout before the task**
+
+**The Problem:**
+Teams often pick a visually familiar pattern before confirming whether users need comparison, exploration, or scanning.
+
+**How to Fix It?**
+Start from the user task, then map the layout to comparison, chronology, hierarchy, or overview needs.
+
+---
+
+### **Ignoring non-happy states**
+
+**The Problem:**
+A polished default view still feels broken when loading, empty, and error states are inconsistent.
+
+**How to Fix It?**
+Design the data lifecycle up front, including empty, partial, stale, and failed results.
+
+---
+
+### **Shipping a desktop-only density model**
+
+**The Problem:**
+Large tables, dense dashboards, and heavy cards collapse quickly on small screens.
+
+**How to Fix It?**
+Define a mobile strategy such as stacked cards, progressive disclosure, or alternate summaries before implementation.
+
+## Data Flow
+
+- Start by defining the source of truth for the dataset, then map how filters, sorting, and view state transform that dataset before render.
+- Keep loading, empty, and partial states in the same data flow model as the populated state so the view does not need separate ad hoc logic.
+- When the pattern supports drilling into detail, keep the transition between overview and detail explicit so users understand what changed.
+
+## Performance
+
+- Measure the cost of rendering the default view before adding richer adornments such as nested actions, charts, or inline filters.
+- Use pagination, windowing, or progressive disclosure when the layout would otherwise render too many items at once.
+- Stabilize heights and placeholder geometry so loading and data refresh states do not cause large layout shifts.
+
+## Usability Considerations
+
+- Test whether people can answer the intended question in under a few seconds; if not, the layout may be too dense or too vague.
+- Make sort, filter, and grouping rules visible whenever they change the order or subset of data.
+- Give users a clear path back to a simpler or more detailed view when one layout cannot answer every question.
+
+## Accessibility
+
+### Keyboard Interaction
+
+- [ ] Verify that comparison table can be completed using keyboard alone.
+- [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI.
+- [ ] Preserve a visible focus state that is still readable at high zoom.
+
+### Screen Reader Support
+
+- [ ] Use semantic elements first, then add ARIA only where semantics alone are not enough.
+- [ ] Announce state changes such as errors, loading, or completion in the right place and with the right politeness.
+- [ ] Connect labels, hints, and status text with `aria-describedby` or structural headings when useful.
+
+### Visual Accessibility
+
+- [ ] Do not rely on color alone to convey severity, completion, or selection state.
+- [ ] Test the pattern at 200% zoom and with reduced motion enabled.
+- [ ] Ensure touch targets remain comfortable on mobile and coarse pointers.
+
+## Testing Guidelines
+
+### Functional Testing
+
+- [ ] Verify the default, loading, error, and success states for comparison table.
+- [ ] Test the primary action and the obvious recovery action in the same run.
+- [ ] Confirm that state survives refresh, navigation, or retry in the way users would expect.
+
+### Accessibility Testing
+
+- [ ] Run keyboard-only checks and at least one screen reader pass on the final implementation.
+- [ ] Validate headings, labels, and announcement behavior with real content rather than lorem ipsum.
+- [ ] Check color contrast and focus visibility in both default and stressed states.
+
+### Edge Cases
+
+- [ ] Test empty, long, duplicated, and unexpectedly formatted content.
+- [ ] Check behavior on narrow screens, zoomed layouts, and slower networks.
+- [ ] Verify that optimistic or asynchronous states reconcile correctly after a failure.
+
+## Frequently Asked Questions
+
+<FaqStructuredData
+  items={[
+  {
+    "question": "When should I choose Comparison Table instead of Data Table?",
+    "answer": "Choose comparison table when the job depends on line up options side by side so users can evaluate feature, price, or policy differences quickly. If the team only needs a lighter interaction with fewer states, Data Table will usually be easier to ship and maintain."
+  },
+  {
+    "question": "What is the biggest implementation risk with Comparison Table?",
+    "answer": "The biggest risk is usually not the default visual state. It is the combination of state management, accessibility, and recovery behavior once loading, errors, or narrow screens enter the picture."
+  },
+  {
+    "question": "How do I know whether comparison table is working well?",
+    "answer": "Watch whether users can complete the intended job without pausing to decode the interface, whether state changes feel trustworthy, and whether edge cases behave as intentionally as the happy path."
+  }
+]}
+/>
+
+## Related Patterns
+
+<RelatedPatternsCard
+  patterns={[
+    {
+      title: "Data Table",
+      path: "/patterns/data-display/table",
+      description: "Display structured data in rows and columns",
+    },
+    {
+      title: "Product Card",
+      path: "/patterns/e-commerce/product-card",
+      description: "Product display cards for e-commerce",
+    },
+    {
+      title: "List View",
+      path: "/patterns/data-display/list-view",
+      description: "Display data in vertical lists",
+    },
+  ]}
+/>
+
+## Resources
+
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [Inclusive Components: Data tables](https://inclusive-components.design/data-tables/) - Semantics, captions, responsive strategies, and navigation guidance for tables.
+
+### Guides
+
+- [Stephanie Walter: Designing complex data tables](https://stephaniewalter.design/blog/essential-resources-design-complex-data-tables/) - Design considerations for dense tables, column behavior, and analytical workflows.
+
+### Articles
+
+- [Pencil & Paper: Enterprise data table patterns](https://pencilandpaper.io/articles/ux-pattern-analysis-enterprise-data-tables/) - Analysis of scanning, sorting, filtering, and dense enterprise-table behavior.
+
+### NPM Packages
+
+- [`@tanstack/react-table`](https://www.npmjs.com/package/%40tanstack%2Freact-table) - Headless table engine for sorting, filtering, grouping, and row models.
+- [`@tanstack/react-virtual`](https://www.npmjs.com/package/%40tanstack%2Freact-virtual) - Virtualization primitives for large lists, tables, and feeds.
+- [`react-virtuoso`](https://www.npmjs.com/package/react-virtuoso) - Virtualized list and table components for large feeds and long result sets.

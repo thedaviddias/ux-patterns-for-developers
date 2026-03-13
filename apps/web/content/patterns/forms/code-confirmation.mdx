@@ -9,7 +9,6 @@ popularity: medium
 
 import { Playground } from "@/components/playground";
 
-
 ## Overview
 
 A **Code Confirmation** (also called an OTP input or verification code input) is a specialized form component that allows users to enter short numeric or alphanumeric codes — typically 4–8 characters — sent via SMS, email, or authenticator app to verify identity.
@@ -685,28 +684,21 @@ lastInput.addEventListener('input', () => {
 
 ## Resources
 
-### Libraries
+### References
 
-- [input-otp](https://github.com/guilhermerodz/input-otp) - Headless OTP input for React
-- [react-otp-input](https://github.com/devfolioco/react-otp-input) - OTP input component for React
-- [vue-otp-input](https://github.com/bachdgvn/vue-otp-input) - OTP input for Vue.js
-- [ng-otp-input](https://github.com/code-farmz/ng-otp-input) - OTP input for Angular
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
 
-### Design Systems
+### Guides
 
-- [Mantine PinInput](https://mantine.dev/core/pin-input/) - Pin/OTP input component
-- [Chakra UI PinInput](https://chakra-ui.com/docs/components/pin-input) - Accessible pin input component
-- [shadcn/ui InputOTP](https://ui.shadcn.com/docs/components/input-otp) - OTP input with copy-paste support
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
-### Articles & Guides
+### Articles
 
-- [One-Time Code from SMS](https://web.dev/web-otp/) - WebOTP API for SMS autofill
-- [Designing OTP Input Fields](https://uxdesign.cc/designing-otp-input-fields-ba36ec54cc5e) - UX best practices for code entry
-- [SMS OTP Best Practices](https://www.twilio.com/blog/2fa-sms-design-best-practices) - Twilio's guide to 2FA UX
-- [WCAG Input Accessibility](https://www.w3.org/WAI/tutorials/forms/grouping/) - Grouping form elements accessibly
+- [Microsoft Human-AI Interaction Guidelines](https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/) - Research-backed recommendations for AI feedback, confidence, intervention, and recovery.
 
-### Tools & Utilities
+### NPM Packages
 
-- [WebOTP API](https://developer.mozilla.org/en-US/docs/Web/API/WebOTP_API) - Browser API for SMS one-time codes
-- [TOTP Libraries](https://github.com/nicowillis/totp.js) - Time-based OTP generation
-- [Accessibility Checker](https://wave.webaim.org/) - Check form accessibility
+- [`input-otp`](https://www.npmjs.com/package/input-otp) - Accessible one-time-code inputs with segmented cells and paste handling.
+- [`react-otp-input`](https://www.npmjs.com/package/react-otp-input) - OTP field helper for segmented verification-code entry.
+- [`otplib`](https://www.npmjs.com/package/otplib) - TOTP/HOTP helpers for two-factor enrollment and code verification flows.

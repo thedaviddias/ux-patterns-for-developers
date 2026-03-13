@@ -287,6 +287,8 @@ Each variation can be combined with different visual styles (primary, secondary,
 
 ## Examples
 
+### Live Preview
+
 ### Basic Implementation
 
 ```html
@@ -523,8 +525,6 @@ Each variation can be combined with different visual styles (primary, secondary,
 - Visual Regression: [Percy](https://percy.io/) or [Chromatic](https://www.chromatic.com/)
 - Cross-browser: [BrowserStack](https://www.browserstack.com/) or [Sauce Labs](https://saucelabs.com/)
 
-## Browser Support
-
 ## Design Tokens
 
 These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -658,24 +658,21 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 
 ## Resources
 
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) - Native button semantics, activation behavior, and form integration.
+
+### Guides
+
+- [MDN WAI-ARIA basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) - Guidance on when to rely on native HTML and when to introduce ARIA roles and states.
+
 ### Articles
 
-- [button: The Button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
-- [I've been doing buttons wrong! Have you?](https://uxplanet.org/ive-been-doing-buttons-wrong-have-you-2117c0066613) by Adham Dannaway
-- [A comprehensive guide to buttons](https://uxplanet.org/a-comprehensive-guide-to-buttons-8f3b8a1c6f0d) by UX Planet
-- [A comprehensive guide to designing UX buttons](https://www.invisionapp.com/inside-design/comprehensive-guide-designing-ux-buttons/?ref=checklist.design) by InVision
+- [Smashing Magazine: Designing efficient web forms](https://www.smashingmagazine.com/2017/06/designing-efficient-web-forms/) - Field-level usability guidance for labels, grouping, defaults, and submission flows.
 
-- [Building Accessible Buttons with ARIA: A11y Support Series](https://www.deque.com/blog/accessible-aria-buttons/) by Deque
-- [Buttons A11y Styleguide](https://a11y-style-guide.com/style-guide/section-general.html#kssref-general-buttons)
+### NPM Packages
 
-### Design systems
-
-- [Style Dictionary](https://styledictionary.com/)
-- [Button (Carbon Design System)](https://carbondesignsystem.com/components/button/usage/)
-- [Button (Material Design)](https://m3.material.io/components/all-buttons)
-
-### Libraries
-
-### Footnotes
-
-[^describe-buttons]: [Descriptive buttons](https://primer.style/guides/accessibility/descriptive-buttons)
+- [`@radix-ui/react-slot`](https://www.npmjs.com/package/%40radix-ui%2Freact-slot) - Polymorphic slotting for composable buttons and interactive surfaces.
+- [`react-aria-components`](https://www.npmjs.com/package/react-aria-components) - Headless accessible components covering many form and overlay patterns.
+- [`framer-motion`](https://www.npmjs.com/package/framer-motion) - Motion primitives for affordance, feedback, and progressive reveal.

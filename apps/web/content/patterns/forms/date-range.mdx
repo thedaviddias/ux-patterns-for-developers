@@ -9,7 +9,6 @@ popularity: medium
 
 import { Playground } from "@/components/playground";
 
-
 ## Overview
 
 A **Date Range** component allows users to select both a **start date** and an **end date**, defining a continuous period of time. It extends the [Date Picker](/patterns/forms/date-picker) pattern by introducing range visualization — highlighting the days between the two selected dates — and range-specific validation (end date must be after start date, minimum/maximum range length).
@@ -699,26 +698,21 @@ A single calendar panel for a date range picker forces users to navigate months 
 
 ## Resources
 
-### Libraries
+### References
 
-- [React DayPicker](https://react-day-picker.js.org/) - Supports range mode with customization
-- [Flatpickr](https://flatpickr.js.org/) - Date range mode built-in
-- [Litepicker](https://litepicker.com/) - Lightweight date range picker
-- [Air Datepicker](https://air-datepicker.com/) - Feature-rich date picker with range support
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN date input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) - Native date input support, parsing, and constraint behavior.
 
-### Design Systems
+### Guides
 
-- [Airbnb Date Picker](https://github.com/airbnb/react-dates) - The original hotel-style range picker
-- [shadcn/ui Date Range Picker](https://ui.shadcn.com/docs/components/date-range-picker) - Styled range picker component
-- [Radix UI Calendar](https://www.radix-ui.com/primitives/docs/components/calendar) - Headless calendar with range support
+- [Nielsen Norman Group: Date-input usability](https://www.nngroup.com/articles/date-input/) - Research on segmented date fields, formatting, and calendar picker tradeoffs.
 
-### Articles & Guides
+### Articles
 
-- [Date Range Picker UX](https://uxdesign.cc/date-range-picker-design-pattern-f1b649e43a48) - UX design patterns for range selection
-- [ARIA Date Picker Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) - W3C accessibility guide
-- [Hotel Booking UX Research](https://baymard.com/blog/date-range-pickers) - Baymard Institute date range research
+- [Nielsen Norman Group: Date-input usability](https://www.nngroup.com/articles/date-input/) - Research on segmented date fields, formatting, and calendar picker tradeoffs.
 
-### Tools & Utilities
+### NPM Packages
 
-- [date-fns](https://date-fns.org/) - Date utility library for range calculations
-- [Day.js](https://day.js.org/) - Lightweight date library with range plugin
+- [`react-day-picker`](https://www.npmjs.com/package/react-day-picker) - Calendar and date-range primitives for custom date pickers.
+- [`date-fns`](https://www.npmjs.com/package/date-fns) - Date parsing, formatting, and range math for calendars and schedule interfaces.
+- [`@internationalized/date`](https://www.npmjs.com/package/%40internationalized%2Fdate) - Locale-aware date calculations used in robust date/time selection UIs.

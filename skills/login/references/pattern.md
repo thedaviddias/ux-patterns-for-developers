@@ -171,6 +171,8 @@ The form occupies one half of the screen with branding or illustration on the ot
 
 ## Examples
 
+### Live Preview
+
 ### Basic HTML Implementation
 
 ```html
@@ -232,305 +234,6 @@ The form occupies one half of the screen with branding or illustration on the ot
     Don't have an account? <a href="/signup">Create one</a>
   </p>
 </div>
-```
-
-### React Implementation
-
-```jsx
-
-function LoginForm({ onSubmit, isLoading }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [remember, setRemember] = useState(false);
-  const [errors, setErrors] = useState({});
-
-  const validate = () => {
-    const newErrors = {};
-    if (!email) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Enter a valid email address';
-    if (!password) newErrors.password = 'Password is required';
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      onSubmit({ email, password, remember });
-    }
-  };
-
-  return (
-    <div className="login-container">
-      <h1>Sign in</h1>
-      <p>Welcome back. Enter your credentials to access your account.</p>
-
-      <form onSubmit={handleSubmit} noValidate>
-        <div className="form-field">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="email"
-            aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? 'email-error' : undefined}
-          />
-          {errors.email && (
-            <span id="email-error" className="field-error" role="alert">
-              {errors.email}
-            </span>
-          )}
-        </div>
-
-        <div className="form-field">
-          <label htmlFor="password">Password</label>
-          <div className="password-wrapper">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-              aria-invalid={!!errors.password}
-              aria-describedby={errors.password ? 'password-error' : undefined}
-            />
-            <button
-              type="button"
-              className="password-toggle"
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? '🙈' : '👁'}
-            </button>
-          </div>
-          {errors.password && (
-            <span id="password-error" className="field-error" role="alert">
-              {errors.password}
-            </span>
-          )}
-        </div>
-
-        <div className="form-options">
-          <label className="remember-me">
-            <input
-              type="checkbox"
-              checked={remember}
-              onChange={(e) => setRemember(e.target.checked)}
-            />
-            Remember me
-          </label>
-          <a href="/forgot-password">Forgot password?</a>
-        </div>
-
-        <button type="submit" className="login-btn" disabled={isLoading}>
-          {isLoading ? 'Signing in…' : 'Sign in'}
-        </button>
-      </form>
-
-      <p className="signup-link">
-        Don't have an account? <a href="/signup">Create one</a>
-      </p>
-    </div>
-  );
-}
-```
-
-### CSS Styling
-
-```css
-.login-container {
-  max-width: 24rem;
-  margin: 4rem auto;
-  padding: 2rem;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.login-container h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 0.25rem;
-}
-
-.login-container > p {
-  color: #6b7280;
-  font-size: 0.875rem;
-  margin: 0 0 1.5rem;
-}
-
-.form-field {
-  margin-bottom: 1rem;
-}
-
-.form-field label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 0.375rem;
-  color: #374151;
-}
-
-.form-field input {
-  width: 100%;
-  padding: 0.625rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
-}
-
-.form-field input:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-.form-field input[aria-invalid="true"] {
-  border-color: #dc2626;
-}
-
-.field-error {
-  display: block;
-  font-size: 0.8125rem;
-  color: #dc2626;
-  margin-top: 0.25rem;
-}
-
-.password-wrapper {
-  position: relative;
-}
-
-.password-wrapper input {
-  padding-right: 3rem;
-}
-
-.password-toggle {
-  position: absolute;
-  right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 0.25rem;
-  font-size: 1rem;
-}
-
-.form-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  font-size: 0.875rem;
-}
-
-.remember-me {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-
-.form-options a {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-.form-options a:hover {
-  text-decoration: underline;
-}
-
-.login-btn {
-  width: 100%;
-  padding: 0.75rem;
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 150ms ease;
-}
-
-.login-btn:hover:not(:disabled) {
-  background: #1d4ed8;
-}
-
-.login-btn:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-.login-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 1.5rem 0;
-  color: #9ca3af;
-  font-size: 0.8125rem;
-}
-
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: #e5e7eb;
-}
-
-.divider span {
-  padding: 0 0.75rem;
-}
-
-.social-buttons {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.social-btn {
-  flex: 1;
-  padding: 0.625rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  background: #fff;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.social-btn:hover {
-  background: #f9fafb;
-}
-
-.signup-link {
-  text-align: center;
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 1.5rem;
-}
-
-.signup-link a {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .form-field input,
-  .login-btn {
-    transition: none;
-  }
-}
 ```
 
 ## Best Practices
@@ -636,7 +339,7 @@ After 3-5 failed attempts, show a message: "Too many attempts. Please wait 30 se
 
 ### Clearing Fields on Error
 **The Problem:**
-The form clears the email field on failed login, forcing users to retype their email address.
+The form clears the email field on failed login
 
 **How to Fix It:**
 Preserve the email value after a failed attempt. Only clear the password field, as retyping the password is a security best practice.
@@ -923,8 +626,6 @@ observer.observe(socialButtonContainer);
 - [ ] Social login SDKs don't block initial page render
 - [ ] Form is usable on slow network connections
 
-## Browser Support
-
 ## SEO Considerations
 
 - **Login pages should be noindexed** — Use `<meta name="robots" content="noindex">` to prevent search engine indexing
@@ -983,24 +684,22 @@ observer.observe(socialButtonContainer);
 
 ## Resources
 
-### Libraries & Frameworks
+### References
 
-#### React Components
-- [NextAuth.js](https://next-auth.js.org/) – Authentication for Next.js with built-in UI
-- [Clerk](https://clerk.com/) – Drop-in authentication components for React
-- [Auth0 React SDK](https://auth0.com/docs/libraries/auth0-react) – Authentication with pre-built login UI
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI Forms Tips and Tricks](https://www.w3.org/WAI/tutorials/forms/tips/) - Practical guidance for formatting, grouping, timing, and forgiving user input rules.
 
-#### Vanilla JavaScript
-- [Passport.js](http://www.passportjs.org/) – Authentication middleware for Node.js
-- [SuperTokens](https://supertokens.com/) – Open-source authentication with pre-built UI
+### Guides
+
+- [WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/) - Accessible labels, instructions, validation, and grouping for forms and input controls.
 
 ### Articles
 
-- [Login Walls: Asking Users to Log In Before They Can Do Anything](https://www.nngroup.com/articles/login-walls/) by Nielsen Norman Group
-- [The Current State of Authentication: We Have a Password Problem](https://www.smashingmagazine.com/2016/06/the-current-state-of-authentication-we-have-a-password-problem/) by Smashing Magazine
-- [WebAuthn Guide](https://webauthn.guide/) – Passwordless authentication guide
+- [Nielsen Norman Group: Login walls](https://www.nngroup.com/articles/login-walls/) - When forced authentication harms discovery and conversion in account flows.
+- [Nielsen Norman Group: Login walls](https://www.nngroup.com/articles/login-walls/) - When forced authentication harms discovery and conversion in account flows.
 
-### Design Systems
+### NPM Packages
 
-- [Material Design Text Fields](https://m3.material.io/components/text-fields/overview) – Input field patterns
-- [Atlassian Login Pattern](https://atlassian.design/patterns/log-in) – Enterprise login design
+- [`next-auth`](https://www.npmjs.com/package/next-auth) - Open-source authentication framework for session, provider, and credential flows.
+- [`@clerk/nextjs`](https://www.npmjs.com/package/%40clerk%2Fnextjs) - Hosted authentication flows and account-management building blocks for Next.js apps.
+- [`@auth0/auth0-react`](https://www.npmjs.com/package/%40auth0%2Fauth0-react) - Hosted OAuth and enterprise identity integration for React apps.

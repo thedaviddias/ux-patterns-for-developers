@@ -680,28 +680,21 @@ If users only need to choose from 8 brand colors, launching a full color wheel i
 
 ## Resources
 
-### Libraries
+### References
 
-- [React Colorful](https://github.com/omgovich/react-colorful) - Tiny, accessible color picker for React
-- [Pickr](https://simonwillis.github.io/pickr/) - Flat, simple, hackable color picker
-- [vanilla-picker](https://vanilla-picker.js.org/) - Zero-dependency color picker
-- [TinyColor](https://github.com/bgrins/TinyColor) - Color manipulation utility library
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [MDN color input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color) - Native color picker semantics, browser support, and fallback behavior.
 
-### Design Systems
+### Guides
 
-- [Radix UI](https://www.radix-ui.com/) - Accessible component primitives including custom inputs
-- [Mantine ColorInput](https://mantine.dev/core/color-input/) - Full-featured color input for React
-- [Spectrum (Adobe)](https://spectrum.adobe.com/page/color-picker/) - Adobe's color picker design guidelines
+- [MDN WAI-ARIA basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) - Guidance on when to rely on native HTML and when to introduce ARIA roles and states.
 
-### Articles & Guides
+### Articles
 
-- [Building an Accessible Color Picker](https://www.smashingmagazine.com/2021/02/building-accessible-color-picker/) - Smashing Magazine guide
-- [EyeDropper API](https://developer.chrome.com/docs/capabilities/web-apis/eyedropper) - Chrome Developers reference
-- [Color Accessibility](https://webaim.org/articles/contrast/) - WebAIM contrast checker guide
-- [CSS Color Values](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) - MDN reference for color formats
+- [web.dev: Rendering on the Web](https://web.dev/articles/rendering-on-the-web) - Rendering tradeoffs for data-rich pages, dashboards, and result-heavy views.
 
-### Tools & Utilities
+### NPM Packages
 
-- [Contrast Checker](https://webaim.org/resources/contrastchecker/) - WCAG contrast validation
-- [Coolors](https://coolors.co/) - Color palette generator
-- [MDN `<input type="color">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color) - Native color input reference
+- [`@uiw/react-color`](https://www.npmjs.com/package/%40uiw%2Freact-color) - Modern color input and picker primitives for brand and theme tooling.
+- [`tinycolor2`](https://www.npmjs.com/package/tinycolor2) - Color parsing and manipulation helpers for previews, contrast, and validation.
+- [`@radix-ui/react-popover`](https://www.npmjs.com/package/%40radix-ui%2Freact-popover) - Popover primitive for anchored overlays and inline helpers.

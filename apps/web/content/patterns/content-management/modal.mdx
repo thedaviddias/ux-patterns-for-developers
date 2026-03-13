@@ -545,12 +545,6 @@ The following table outlines the standard keyboard interactions for modal compon
 - [ ] Test modal performance when **multiple modals are triggered in succession**.
 - [ ] Confirm that **closing the modal correctly removes it from the DOM** (if dynamically inserted).
 
-## Browser Support
-
-<BrowserSupport
-  features={["api.HTMLDialogElement", "css.properties.backdrop-filter"]}
-/>
-
 ## [Design Tokens](/glossary/design-tokens)
 
 These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -642,17 +636,21 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 
 ## Resources
 
+### References
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) - Reference patterns for keyboard behavior, semantics, and assistive technology support.
+
+### Guides
+
+- [MDN WAI-ARIA basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) - Guidance on when to rely on native HTML and when to introduce ARIA roles and states.
+
 ### Articles
 
-- [A11y Dialog by Kitty Giraudel](https://a11y-dialog.netlify.app/)
-- [Which heading level should dialog modals have](https://medium.com/@web-accessibility-education/which-heading-level-should-dialog-modals-have-7b3df89437f0)
+- [Nielsen Norman Group: Accordions on desktop](https://www.nngroup.com/articles/accordions-on-desktop/) - When collapsible content helps scanning and when it hides too much context.
 
-### Documentation
+### NPM Packages
 
-- [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
-- [Using the Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#dismissing_popovers_automatically_via_a_timer)
-
-### Libraries
-
-- [Dialog - shadcn/ui](https://ui.shadcn.com/docs/components/dialog)
-- [React Aria - Modal](https://react-spectrum.adobe.com/react-aria/Modal.html)
+- [`@radix-ui/react-dialog`](https://www.npmjs.com/package/%40radix-ui%2Freact-dialog) - Dialog primitive for modals, sheet-style overlays, and focus management.
+- [`@floating-ui/react`](https://www.npmjs.com/package/%40floating-ui%2Freact) - Positioning engine for tooltips, popovers, dropdowns, and anchored surfaces.
+- [`focus-trap`](https://www.npmjs.com/package/focus-trap) - Keeps keyboard focus inside active modal and popover surfaces.
