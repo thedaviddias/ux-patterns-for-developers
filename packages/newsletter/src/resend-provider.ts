@@ -27,12 +27,6 @@ export class ResendProvider {
 
 	async subscribe(data: SubscribeRequest): Promise<SubscribeResponse> {
 		try {
-			this.config.logger?.debug("Resend: Adding contact", {
-				email: data.email,
-				product: data.product,
-				brand: RESEND_BRAND,
-			});
-
 			// Build custom properties from metadata fields
 			const properties: Record<string, string | number | null> = {};
 			properties.brand = RESEND_BRAND;
@@ -41,6 +35,7 @@ export class ResendProvider {
 			if (data.product) properties.product = data.product;
 
 			const { data: contact, error } = await this.resend.contacts.create({
+				audienceId: this.config.audienceId,
 				email: data.email,
 				unsubscribed: false,
 				...(Object.keys(properties).length > 0 ? { properties } : {}),
@@ -81,7 +76,9 @@ export class ResendProvider {
 				subscriber,
 			};
 		} catch (error) {
-			this.config.logger?.error("Resend subscription error", { error });
+			this.config.logger?.error?.("Resend subscription error", {
+				error: error instanceof Error ? error.message : "Unknown error",
+			});
 
 			return {
 				success: false,

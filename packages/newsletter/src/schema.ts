@@ -37,9 +37,9 @@ export interface KitConfig {
 	// Optional: fallback tags if none provided in request
 	defaultTagIds?: number[];
 	logger?: {
-		debug: (message: string, options?: any) => void;
-		warn: (message: string, options?: any) => void;
-		error: (message: string, options?: any) => void;
+		debug?: (message: string, options?: any) => void;
+		warn?: (message: string, options?: any) => void;
+		error?: (message: string, options?: any) => void;
 	};
 }
 
@@ -48,9 +48,9 @@ export interface ResendConfig {
 	apiKey: string;
 	audienceId: string;
 	logger?: {
-		debug: (message: string, options?: any) => void;
-		warn: (message: string, options?: any) => void;
-		error: (message: string, options?: any) => void;
+		debug?: (message: string, options?: any) => void;
+		warn?: (message: string, options?: any) => void;
+		error?: (message: string, options?: any) => void;
 	};
 }
 

@@ -51,10 +51,6 @@ export async function POST(request: Request) {
 			apiKey: process.env.RESEND_API_KEY as string,
 			audienceId: process.env.RESEND_AUDIENCE_ID as string,
 			logger: {
-				debug: (message: string, options?: any) =>
-					console.debug(message, options),
-				warn: (message: string, options?: any) =>
-					console.warn(message, options),
 				error: (message: string, options?: any) =>
 					console.error(message, options),
 			},
@@ -78,6 +74,13 @@ export async function POST(request: Request) {
 			language,
 			product,
 		});
+
+		if (!result.success) {
+			console.error("Newsletter subscription failed", {
+				provider: "resend",
+				error: result.error ?? result.message,
+			});
+		}
 
 		if (result.success) {
 			return NextResponse.json(result, { status: 200 });

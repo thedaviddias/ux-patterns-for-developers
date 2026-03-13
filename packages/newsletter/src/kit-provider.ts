@@ -27,11 +27,6 @@ export class KitProvider {
 
 	async subscribe(data: SubscribeRequest): Promise<SubscribeResponse> {
 		try {
-			this.config.logger?.debug("Kit: Creating subscriber", {
-				data: { email: data.email, tagsCount: data.groups?.length },
-				tags: { type: "newsletter" },
-			});
-
 			// First, create the subscriber
 			const createSubscriberBody: any = {
 				email_address: data.email,
@@ -149,8 +144,8 @@ export class KitProvider {
 				subscriber,
 			};
 		} catch (error) {
-			this.config.logger?.error("Kit subscription error", {
-				data: error,
+			this.config.logger?.error?.("Kit subscription error", {
+				data: error instanceof Error ? error.message : "Unknown error",
 				tags: { provider: "kit" },
 			});
 
@@ -213,8 +208,8 @@ export class KitProvider {
 				message: "Successfully unsubscribed",
 			};
 		} catch (error) {
-			this.config.logger?.error("Kit unsubscribe error", {
-				data: error,
+			this.config.logger?.error?.("Kit unsubscribe error", {
+				data: error instanceof Error ? error.message : "Unknown error",
 				tags: { provider: "kit" },
 			});
 
@@ -257,8 +252,8 @@ export class KitProvider {
 				createdAt: subscriber.created_at,
 			};
 		} catch (error) {
-			this.config.logger?.error("Kit get subscriber error", {
-				data: error,
+			this.config.logger?.error?.("Kit get subscriber error", {
+				data: error instanceof Error ? error.message : "Unknown error",
 				tags: { provider: "kit" },
 			});
 			return null;
