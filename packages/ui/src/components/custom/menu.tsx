@@ -10,8 +10,8 @@ import {
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { cva } from "class-variance-authority";
 import Link from "fumadocs-core/link";
+import { isTabActive } from "fumadocs-ui/components/sidebar/tabs/dropdown";
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
-import { isTabActive } from "fumadocs-ui/utils/is-active";
 import { usePathname } from "next/navigation";
 import type { ComponentPropsWithoutRef } from "react";
 

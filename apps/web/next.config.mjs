@@ -30,7 +30,7 @@ const config = {
 			fullUrl: true,
 		},
 	},
-	serverExternalPackages: ["ts-morph", "typescript", "twoslash", "shiki"],
+	serverExternalPackages: ["ts-morph", "typescript", "twoslash"],
 	async rewrites() {
 		return [
 			{

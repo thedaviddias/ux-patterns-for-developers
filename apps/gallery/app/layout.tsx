@@ -1,7 +1,7 @@
 import "@/app/global.css";
 
 import { HomeLayout } from "@ux-patterns/ui/components/custom/header";
-import { RootProvider } from "fumadocs-ui/provider";
+import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";

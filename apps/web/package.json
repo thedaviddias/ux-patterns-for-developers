@@ -11,6 +11,8 @@
 		"dev:velite": "velite --watch",
 		"sync:pattern-resources": "node scripts/sync-pattern-resources.mjs",
 		"skills:generate": "node scripts/generate-pattern-skills.mjs",
+		"art": "tsx scripts/render-pattern-art.tsx",
+		"art:render": "tsx scripts/render-pattern-art.tsx",
 		"start": "next start",
 		"test": "vitest run",
 		"test:mermaid": "node --test scripts/validate-mermaid.test.mjs",

@@ -4,7 +4,7 @@
 import {
 	LargeSearchToggle,
 	SearchToggle,
-} from "fumadocs-ui/layouts/shared/search-toggle";
+} from "@ux-patterns/ui/components/custom/fumadocs-compat";
 import { usePlausible } from "next-plausible";
 import type { ComponentProps } from "react";
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { Index } from "@ux-patterns/registry/.generated";
 import { Icons } from "@ux-patterns/ui/components/custom/icons";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
@@ -20,6 +19,7 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Copy } from "lucide-react";
 import { usePlausible } from "next-plausible";
 import React from "react";
+import { Index } from "../../../../../registry/.generated/index";
 import { ExpandableCodeBlock } from "../expandable-code-block";
 
 interface ComponentDocsModalProps {

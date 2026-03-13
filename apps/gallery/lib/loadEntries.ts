@@ -25,7 +25,7 @@ export async function loadEntries(): Promise<Entry[]> {
 			content: data.description || "", // Use description field for the content
 			source: data.source,
 			slug: page.slugs.join("/"), // Use slugs from page
-			filePath: page.file.path,
+			filePath: (page as any).info?.fullPath ?? (page as any).file?.path ?? "",
 			// Don't pass body function to client components
 			// body: page.data.body,
 		};
@@ -84,7 +84,7 @@ export function getEntryWithBody(id: string): (Entry & { body: any }) | null {
 		content: data.description || "",
 		source: data.source,
 		slug: page.slugs.join("/"),
-		filePath: page.file.path,
+		filePath: (page as any).info?.fullPath ?? (page as any).file?.path ?? "",
 		body: page.data.body, // Include MDX body for server rendering
 	};
 }

@@ -138,6 +138,10 @@ graph TD
 
 ### Content
 
+![Do and Don't for Content - 1](/patterns/autocomplete/do-dont-content-1.webp)
+
+![Do and Don't for Content - 2](/patterns/autocomplete/do-dont-content-2.webp)
+
 **Do's ✅**
 
 - Provide a descriptive label that indicates the purpose of the Autocomplete field
@@ -149,6 +153,12 @@ graph TD
 - Don't make your suggestions so vague that it's unclear what the user is selecting
 
 ### Accessibility
+
+![Do and Don't for Accessibility - 1](/patterns/autocomplete/do-dont-accessibility-1.webp)
+
+![Do and Don't for Accessibility - 2](/patterns/autocomplete/do-dont-accessibility-2.webp)
+
+![Do and Don't for Accessibility - 3](/patterns/autocomplete/do-dont-accessibility-3.webp)
 
 **Do's ✅**
 
@@ -163,6 +173,10 @@ graph TD
 
 ### Visual Design
 
+![Do and Don't for Visual Design - 1](/patterns/autocomplete/do-dont-visual-design-1.webp)
+
+![Do and Don't for Visual Design - 2](/patterns/autocomplete/do-dont-visual-design-2.webp)
+
 **Do's ✅**
 
 - Keep the suggestion list clearly delineated, with sufficient contrast and spacing
@@ -174,6 +188,10 @@ graph TD
 - Don't create a cluttered or confusing interface by mixing too many design elements
 
 ### Layout & Positioning
+
+![Do and Don't for Layout & Positioning - 1](/patterns/autocomplete/do-dont-layout-positioning-1.webp)
+
+![Do and Don't for Layout & Positioning - 2](/patterns/autocomplete/do-dont-layout-positioning-2.webp)
 
 **Do's ✅**
 
@@ -258,6 +276,43 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
   }
 }
 ```
+
+## Accessibility
+
+- Ensure the input is labeled and announced as a combobox (`role="combobox"`, `aria-expanded`, `aria-controls`).
+- Support full keyboard interaction: `ArrowUp/ArrowDown`, `Enter`, `Escape`, and `Tab`.
+- Expose active option context with `aria-activedescendant` and stable option IDs.
+- Announce loading, empty, and error states to screen readers.
+- Keep suggestions readable with strong contrast and visible focus styles.
+
+## Testing Guidelines
+
+### Functional Testing
+
+**Should ✓**
+
+- [ ] Verify suggestions open/close correctly when typing, focusing, and blurring.
+- [ ] Confirm filtering and ranking return relevant options for partial matches.
+- [ ] Ensure selecting an option updates the field value and form state.
+- [ ] Validate debounce logic avoids redundant API requests during rapid typing.
+
+### Accessibility Testing
+
+**Should ✓**
+
+- [ ] Confirm screen readers announce combobox state and highlighted option.
+- [ ] Verify keyboard-only users can navigate, select, and dismiss suggestions.
+- [ ] Ensure focus is never trapped in the suggestion list.
+- [ ] Check empty/no-result states are communicated clearly.
+
+### Performance Testing
+
+**Should ✓**
+
+- [ ] Measure response time for first suggestions under realistic network latency.
+- [ ] Confirm large datasets remain responsive with virtualization or capped results.
+- [ ] Validate request cancellation and caching behavior on rapid input changes.
+- [ ] Ensure no layout shift occurs when the suggestion panel appears.
 
 ## Frequently Asked Questions
 

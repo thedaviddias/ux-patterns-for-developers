@@ -13,9 +13,17 @@ const processor = remark()
 	.use(remarkGfm);
 
 export async function getLLMText(page: InferPageType<typeof source>) {
+	const absolutePath =
+		(page as typeof page & { info?: { fullPath?: string } }).info?.fullPath ??
+		page.absolutePath;
+
+	if (!absolutePath) {
+		throw new Error(`Missing absolute path for page ${page.url}`);
+	}
+
 	const processed = await processor.process({
-		path: page.absolutePath,
-		value: await fs.readFile(page.absolutePath),
+		path: absolutePath,
+		value: await fs.readFile(absolutePath),
 	});
 
 	// note: it doesn't escape frontmatter, it's up to you.

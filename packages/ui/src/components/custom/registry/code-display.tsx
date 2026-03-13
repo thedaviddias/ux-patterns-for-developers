@@ -1,10 +1,10 @@
 "use client";
 
-import { Index } from "@ux-patterns/registry/.generated";
 import { Icons } from "@ux-patterns/ui/components/custom/icons";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import * as React from "react";
 import undent from "undent";
+import { Index } from "../../../../../registry/.generated/index";
 import { ExpandableCodeBlock } from "../expandable-code-block";
 
 interface CodeDisplayProps {

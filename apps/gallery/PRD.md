@@ -72,7 +72,7 @@ media:
 tags: [clarity, discoverability]
 notes: "Avoids infinite scroll fatigue; footer remains reachable."
 source:
-  url: "https://www.amazon.com/s?k=..."
+  url: "https://www.amazon.com/s?k=load+more"
   capturedAt: "2025-09-08"
 ---
 

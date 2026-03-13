@@ -1,4 +1,4 @@
-import { ThemeToggle } from "fumadocs-ui/components/layout/theme-toggle";
+import { ThemeToggle } from "@ux-patterns/ui/components/custom/fumadocs-compat";
 
 export const Footer = () => {
 	return (

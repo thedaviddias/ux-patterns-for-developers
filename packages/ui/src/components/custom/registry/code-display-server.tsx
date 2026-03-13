@@ -1,6 +1,6 @@
-import { Index } from "@ux-patterns/registry/.generated";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import undent from "undent";
+import { Index } from "../../../../../registry/.generated/index";
 import { ExpandableCodeBlock } from "../expandable-code-block";
 
 interface CodeDisplayServerProps {

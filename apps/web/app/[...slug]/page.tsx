@@ -23,6 +23,7 @@ import {
 } from "@/lib/content";
 import { compileMDXContent } from "@/lib/mdx";
 import { getPatternSkill, globalPatternSkill } from "@/lib/pattern-skills";
+import { resolveOgImageUrl } from "@/lib/resolve-og-image";
 import { siteConfig } from "@/lib/site.config";
 import { getMDXComponents } from "@/mdx-components";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
@@ -348,11 +349,12 @@ export async function generateMetadata(props: {
 				: title;
 
 	// OG image handling
-	const ogImageUrl = isHomepage
-		? "/og/opengraph-image.png"
-		: isPatternPage
-			? `/og/patterns/${params.slug[params.slug.length - 1]}.png`
-			: "/og/opengraph-image.png";
+	const ogImageUrl = resolveOgImageUrl({
+		isHomepage,
+		isPatternPage,
+		pageOgImage: page.ogImage,
+		patternSlug: params.slug[params.slug.length - 1],
+	});
 
 	// Base metadata
 	const metadata: Metadata = {

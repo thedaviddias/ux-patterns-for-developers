@@ -1,6 +1,6 @@
-import { Index } from "@ux-patterns/registry/.generated";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import * as React from "react";
+import { Index } from "../../../../../registry/.generated/index";
 import { CodeDisplayServer } from "./code-display-server";
 import { ComponentWrapper } from "./component-wrapper";
 

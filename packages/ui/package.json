@@ -17,7 +17,7 @@
 		"lint": "biome lint .",
 		"check": "tsc --noEmit",
 		"check:type": "tsc --noEmit",
-		"test": "vitest",
+		"test": "vitest run",
 		"test:ui": "vitest --ui",
 		"test:run": "vitest run"
 	},

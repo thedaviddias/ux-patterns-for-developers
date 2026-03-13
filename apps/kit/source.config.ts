@@ -25,7 +25,6 @@ export const docs: ReturnType<typeof defineDocs> = defineDocs({
 export type Docs = typeof docs;
 
 export default defineConfig({
-	lastModifiedTime: "git",
 	mdxOptions: {
 		remarkPlugins: [],
 		providerImportSource: "@/mdx-components",

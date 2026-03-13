@@ -1,6 +1,6 @@
 #############################  Display  #############################
 verbose = "info"
-output = "./lychee-out.md"
+format = "Markdown"
 
 #############################  Cache  ###############################
 cache = true
@@ -16,11 +16,6 @@ accept = ["200", "429", "403"]
 scheme = ["https"]
 
 #############################  Exclusions  ##########################
-base = "https://github.com/thedaviddias/ux-patterns-for-developers/"
 exclude = [
-    "https://caniuse.com",
-    "../../../public/*",
-    "/patterns/*",
-    "https://github.com/public/*",
-    " https://github.com/patterns/*"
+    "https://caniuse.com"
 ]

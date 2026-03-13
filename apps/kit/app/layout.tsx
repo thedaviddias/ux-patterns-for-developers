@@ -1,6 +1,6 @@
 import "@/app/global.css";
 import { MetadataGenerator } from "@ux-patterns/seo/metadata";
-import { RootProvider } from "fumadocs-ui/provider";
+import { RootProvider } from "fumadocs-ui/provider/next";
 import { Inter } from "next/font/google";
 import PlausibleProvider from "next-plausible";
 

@@ -1,7 +1,7 @@
-import { Index } from "@ux-patterns/registry/.generated";
 import { Icons } from "@ux-patterns/ui/components/custom/icons";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import * as React from "react";
+import { Index } from "../../../../../registry/.generated/index";
 import { CodeDisplay } from "./code-display";
 import { ComponentWrapper } from "./component-wrapper";
 

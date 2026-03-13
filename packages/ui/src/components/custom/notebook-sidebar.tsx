@@ -1,4 +1,8 @@
 // @ts-nocheck - Disabled for Fumadocs v16 migration while internal exports stabilize
+import {
+	LanguageToggle,
+	ThemeToggle,
+} from "@ux-patterns/ui/components/custom/fumadocs-compat";
 import Link from "fumadocs-core/link";
 import {
 	Sidebar,
@@ -24,8 +28,6 @@ import {
 } from "fumadocs-ui/components/sidebar/tabs/dropdown";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
-import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
-import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
 import { Languages, Sidebar as SidebarIcon, X } from "lucide-react";
 import {
 	Children,

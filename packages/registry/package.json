@@ -12,7 +12,7 @@
 		"registry:generate": "npx tsx scripts/build-registry.ts && shadcn build ../../apps/kit/public/r/registry.json --output ../../apps/kit/public/r",
 		"check": "tsc --noEmit",
 		"registry:build": "shadcn build",
-		"test": "vitest",
+		"test": "vitest run",
 		"test:ui": "vitest --ui",
 		"test:run": "vitest run",
 		"test:coverage": "vitest run --coverage"

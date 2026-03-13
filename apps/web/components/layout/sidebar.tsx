@@ -10,6 +10,7 @@ import {
 	type ReactNode,
 	useCallback,
 	useEffect,
+	useLayoutEffect,
 	useRef,
 } from "react";
 import { cn } from "@/lib/cn";
@@ -68,18 +69,27 @@ export function Sidebar({
 	footer,
 	variant = "desktop",
 }: SidebarProps) {
-	const { open, setOpen, scrollPosition, setScrollPosition } = useSidebar();
+	const { open, setOpen, scrollPosition, setScrollPosition, hasHydrated } =
+		useSidebar();
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
+	const hasRestoredScrollRef = useRef(false);
+	const lastPathnameRef = useRef<string | null>(null);
 
-	// Restore scroll position on mount only
-	// Using ref to capture initial value to avoid dependency on scrollPosition
-	const initialScrollPosition = useRef(scrollPosition);
-	useEffect(() => {
-		if (scrollRef.current && initialScrollPosition.current > 0) {
-			scrollRef.current.scrollTop = initialScrollPosition.current;
+	// Restore the sidebar's saved scroll after hydration and on route changes.
+	useLayoutEffect(() => {
+		if (!hasHydrated || !scrollRef.current) return;
+
+		const isFirstHydratedRender = !hasRestoredScrollRef.current;
+		const isPathChange = lastPathnameRef.current !== pathname;
+
+		if (isFirstHydratedRender || isPathChange) {
+			scrollRef.current.scrollTop = scrollPosition;
+			hasRestoredScrollRef.current = true;
 		}
-	}, []);
+
+		lastPathnameRef.current = pathname;
+	}, [hasHydrated, pathname, scrollPosition]);
 
 	// Save scroll position on scroll
 	const handleScroll = useCallback(() => {

@@ -4,6 +4,7 @@ import type {
 	NavigationMenuContentProps,
 	NavigationMenuTriggerProps,
 } from "@radix-ui/react-navigation-menu";
+import { useNav } from "@ux-patterns/ui/components/custom/fumadocs-compat";
 import { buttonVariants } from "@ux-patterns/ui/components/shadcn/button";
 import {
 	NavigationMenu,
@@ -18,10 +19,9 @@ import { cn } from "@ux-patterns/ui/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import Link, { type LinkProps } from "fumadocs-core/link";
 import type { Option } from "fumadocs-ui/components/layout/root-toggle";
-import { useNav } from "fumadocs-ui/contexts/layout";
-import { useSidebar } from "fumadocs-ui/contexts/sidebar";
+import { useSidebar } from "fumadocs-ui/components/sidebar/base";
+import { isTabActive } from "fumadocs-ui/components/sidebar/tabs/dropdown";
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
-import { isTabActive } from "fumadocs-ui/utils/is-active";
 import { SidebarIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { type ComponentProps, useId, useMemo, useState } from "react";
@@ -132,7 +132,8 @@ export function NavbarLink({
 	item: LinkItemType;
 	className?: string;
 	children?: React.ReactNode;
-} & VariantProps<typeof linkVariants> & Omit<ComponentProps<typeof Link>, 'href'>) {
+} & VariantProps<typeof linkVariants> &
+	Omit<ComponentProps<typeof Link>, "href">) {
 	const pathname = usePathname();
 	const active = item.url ? isTabActive({ url: item.url }, pathname) : false;
 

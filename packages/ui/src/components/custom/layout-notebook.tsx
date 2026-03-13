@@ -1,6 +1,13 @@
 // @ts-nocheck - Disabled for Fumadocs v16 migration, using built-in layouts instead
 "use client";
 import {
+	LanguageToggle,
+	LargeSearchToggle,
+	NavProvider,
+	SearchToggle,
+	ThemeToggle,
+} from "@ux-patterns/ui/components/custom/fumadocs-compat";
+import {
 	LayoutBody,
 	LayoutTabs,
 	Navbar,
@@ -15,31 +22,24 @@ import {
 	type SidebarComponents,
 	type SidebarProps,
 } from "fumadocs-ui/components/sidebar";
+import { isTabActive } from "fumadocs-ui/components/sidebar/tabs/dropdown";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
 } from "fumadocs-ui/components/ui/popover";
-import { NavProvider } from "fumadocs-ui/contexts/layout";
 import { TreeContextProvider } from "fumadocs-ui/contexts/tree";
 import {
 	type BaseLayoutProps,
 	type LinkItemType,
 	resolveLinkItems,
 } from "fumadocs-ui/layouts/shared";
-import { LanguageToggle } from "fumadocs-ui/layouts/shared/language-toggle";
-import {
-	LargeSearchToggle,
-	SearchToggle,
-} from "fumadocs-ui/layouts/shared/search-toggle";
-import { ThemeToggle } from "fumadocs-ui/layouts/shared/theme-toggle";
 import type { SidebarTab as Option } from "fumadocs-ui/utils/get-sidebar-tabs";
 import {
 	type GetSidebarTabsOptions,
 	getSidebarTabs,
 } from "fumadocs-ui/utils/get-sidebar-tabs";
-import { isTabActive } from "fumadocs-ui/utils/is-active";
 import { ChevronDown, Languages, Sidebar as SidebarIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import {
