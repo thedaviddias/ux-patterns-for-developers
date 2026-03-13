@@ -10,6 +10,8 @@
 		"choosing-input-types",
 		"input-selection-guide",
 		"pagination-vs-infinite-scroll",
+		"pagination-vs-infinite-scroll-vs-load-more",
+		"search-field-vs-command-palette",
 		"modal-vs-popover-guide",
 		"table-vs-list-vs-cards"
 	]

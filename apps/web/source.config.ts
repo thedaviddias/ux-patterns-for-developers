@@ -1,7 +1,7 @@
 import {
+	remarkHeading,
 	remarkMdxMermaid,
 	remarkStructure,
-	remarkHeading,
 } from "fumadocs-core/mdx-plugins";
 import {
 	defineCollections,
@@ -33,6 +33,8 @@ export const docs = defineDocs({
 			tags: z.array(z.string()).optional(),
 			keywords: z.array(z.string()).optional(),
 			category: z.array(z.string()).optional(),
+			synonyms: z.array(z.string()).optional(),
+			related_patterns: z.array(z.string()).optional(),
 			wordCount: z.number().optional(),
 			hideFromNav: z.boolean().optional(),
 			publishedAt: z.union([z.string(), z.date()]).optional(),

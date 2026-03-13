@@ -8,6 +8,7 @@ popularity: high
 ---
 
 import { Playground } from "@/components/playground";
+import { GuidesBanner } from "@/components/guides-banner";
 
 <PatternPreview />
 
@@ -18,6 +19,12 @@ import { Playground } from "@/components/playground";
 <BuildEffort
   level="medium"
   description="Requires dynamic content loading, state management, accessibility considerations (keyboard navigation, `aria-live` updates), and performance optimizations. The button should be removed when all content is loaded."
+/>
+
+<GuidesBanner
+  title="Load More vs Pagination vs Infinite Scroll?"
+  description="Compare content loading patterns to make the right choice"
+  guidePath="/pattern-guide/pagination-vs-infinite-scroll-vs-load-more"
 />
 
 ## Use Cases
@@ -50,20 +57,22 @@ For better usability, make sure the Load More button gets **removed when all con
 
 <PatternComparison
   current="Load More"
+  title="Choose the right loading pattern"
+  description="Load More is usually the balanced middle ground. Compare it with the two extremes before you decide whether your surface needs more control or more momentum."
   alternatives={[
     {
       name: "Pagination",
       path: "/patterns/navigation/pagination",
-      when: "users need to jump to specific pages or see total item count",
-      pros: ["Better for SEO", "Clear position indicator"],
-      cons: ["More clicks required", "Page reload disruption"]
+      when: "users need exact page jumps, stable URLs, or clearer orientation through large result sets",
+      pros: ["Better SEO and sharing", "Clear position indicator", "Strong recovery"],
+      cons: ["More navigation overhead", "Feels heavier for casual browsing"]
     },
     {
       name: "Infinite Scroll",
       path: "/patterns/navigation/infinite-scroll",
-      when: "content consumption should be seamless and continuous",
-      pros: ["No user action needed", "Smooth browsing"],
-      cons: ["Hard to reach footer", "Can't bookmark position"]
+      when: "the experience is truly feed-like and uninterrupted consumption matters more than control",
+      pros: ["No load trigger", "Strong engagement", "Great for passive browsing"],
+      cons: ["Harder footer access", "Weaker recovery and bookmarking"]
     }
   ]}
 />

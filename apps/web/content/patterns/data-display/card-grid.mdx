@@ -6,6 +6,8 @@ icon: Grid3x3
 status: complete
 ---
 
+import { GuidesBanner } from "@/components/guides-banner";
+
 ## Overview
 
 A **Card Grid** pattern helps teams create a reliable way to show many items in a visual browseable grid without losing the metadata needed for quick evaluation. It is most useful when teams need content libraries and resources.
@@ -15,6 +17,12 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 <BuildEffort
   level="medium"
   description="Requires structured state, keyboard handling, and resilient feedback for display content in a responsive card layout."
+/>
+
+<GuidesBanner
+  title="Table vs List View vs Card Grid?"
+  description="Compare the main collection display patterns before you choose one"
+  guidePath="/pattern-guide/table-vs-list-vs-cards"
 />
 
 ## Use Cases
@@ -38,44 +46,50 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 - Dashboard modules or boards where users need a clear, repeatable interface model.
 
 <PatternComparison
+  current="Card Grid"
+  title="Choose the right collection layout"
+  description="Card grid is strongest when visuals do real decision-making work. Compare it with list and table layouts before defaulting to cards for everything."
   alternatives={[
   {
     "name": "List View",
     "path": "/patterns/data-display/list-view",
-    "when": "users need list view instead of card grid as the primary interaction",
+    "when": "users mainly scan a simple vertical stream and only a few attributes matter per item",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Faster linear scanning",
+      "Better mobile readability",
+      "Lower visual noise"
     ],
     "cons": [
-      "Less specialized for card grid",
-      "Different states and recovery paths to teach"
+      "Less visual richness",
+      "Weaker fit for media-heavy browsing"
     ]
   },
   {
     "name": "Data Table",
     "path": "/patterns/data-display/table",
-    "when": "users need data table instead of card grid as the primary interaction",
+    "when": "users must compare structured fields across many items and rely on sorting or filtering",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Stronger comparison",
+      "Higher information density",
+      "Better operational workflows"
     ],
     "cons": [
-      "Less specialized for card grid",
-      "Different states and recovery paths to teach"
+      "Less visual appeal",
+      "Poorer fit for browse-first experiences"
     ]
   },
   {
     "name": "Product Card",
     "path": "/patterns/e-commerce/product-card",
-    "when": "users need product card instead of card grid as the primary interaction",
+    "when": "the card itself needs domain-specific commerce details like pricing, ratings, stock, and purchase actions",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Tailored for shopping flows",
+      "Encodes ecommerce-specific metadata",
+      "Supports stronger purchase intent"
     ],
     "cons": [
-      "Less specialized for card grid",
-      "Different states and recovery paths to teach"
+      "Too specialized for general libraries",
+      "Heavier than a generic card grid"
     ]
   }
 ]}

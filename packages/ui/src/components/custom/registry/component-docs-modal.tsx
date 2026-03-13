@@ -16,10 +16,11 @@ import {
 } from "@ux-patterns/ui/components/shadcn/tooltip";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import { Copy } from "lucide-react";
 import { usePlausible } from "next-plausible";
 import React from "react";
 import { Index } from "../../../../../registry/.generated/index";
+import { CopyActionButton } from "../copy-action-button";
+import { CopyCommandRow } from "../copy-command-row";
 import { ExpandableCodeBlock } from "../expandable-code-block";
 
 interface ComponentDocsModalProps {
@@ -27,7 +28,6 @@ interface ComponentDocsModalProps {
 }
 
 export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
-	const [copied, setCopied] = React.useState<string | null>(null);
 	const [rawContent, setRawContent] = React.useState<string | null>(null);
 	const [loading, setLoading] = React.useState(true);
 	const [open, setOpen] = React.useState(false);
@@ -41,27 +41,34 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 		bun: `bunx shadcn@latest add @upkit/${name}`,
 	};
 
-	const copyToClipboard = async (text: string, type: string) => {
-		try {
-			await navigator.clipboard.writeText(text);
-			setCopied(type);
-			setTimeout(() => setCopied(null), 2000);
+	const copyToClipboard = React.useCallback(
+		async (text: string, type: string) => {
+			try {
+				await navigator.clipboard.writeText(text);
 
-			// Track copy events
-			if (type.startsWith("install-")) {
-				const pm = type.slice("install-".length);
-				plausible("Install Command Copy", {
-					props: { package_manager: pm, component_name: name },
-				});
-			} else if (type === "code") {
-				plausible("Component Raw Code Copy", {
-					props: { component_name: name },
-				});
+				// Track copy events
+				if (type.startsWith("install-")) {
+					const pm = type.slice("install-".length);
+					plausible("Install Command Copy", {
+						props: { package_manager: pm, component_name: name },
+					});
+				} else if (type === "code") {
+					plausible("Component Raw Code Copy", {
+						props: { component_name: name },
+					});
+				}
+			} catch (err) {
+				console.error("Failed to copy text: ", err);
+				return false;
 			}
-		} catch (err) {
-			console.error("Failed to copy text: ", err);
-		}
-	};
+			return true;
+		},
+		[name, plausible],
+	);
+
+	const packageManagers = Object.entries(commands) as Array<
+		[keyof typeof commands, string]
+	>;
 
 	// Load raw TSX content from bundled index
 	React.useEffect(() => {
@@ -132,95 +139,21 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 						{/* Installation Section */}
 						<div className="space-y-3">
 							<h3 className="text-sm font-medium">Package Manager</h3>
-							<Tabs items={["pnpm", "npm", "yarn", "bun"]}>
-								<Tab value="pnpm">
-									<div className="relative">
-										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
-											<code>{commands.pnpm}</code>
-										</pre>
-										<Button
-											variant="ghost"
-											size="sm"
-											className="absolute right-2 top-2 h-6 w-6 p-0"
-											onClick={() =>
-												copyToClipboard(commands.pnpm, "install-pnpm")
+							<Tabs items={packageManagers.map(([manager]) => manager)}>
+								{packageManagers.map(([manager, command]) => (
+									<Tab key={manager} value={manager}>
+										<CopyCommandRow
+											command={command}
+											idleAriaLabel={`Copy ${manager} install command`}
+											copiedAriaLabel={`Copied ${manager} install command`}
+											rowClassName="border-transparent bg-fd-muted hover:bg-fd-muted/80"
+											codeClassName="text-sm"
+											onCopy={() =>
+												copyToClipboard(command, `install-${manager}`)
 											}
-										>
-											<Copy className="h-3 w-3" />
-										</Button>
-										{copied === "install-pnpm" && (
-											<div className="absolute right-2 top-8 text-xs text-green-600">
-												Copied!
-											</div>
-										)}
-									</div>
-								</Tab>
-								<Tab value="npm">
-									<div className="relative">
-										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
-											<code>{commands.npm}</code>
-										</pre>
-										<Button
-											variant="ghost"
-											size="sm"
-											className="absolute right-2 top-2 h-6 w-6 p-0"
-											onClick={() =>
-												copyToClipboard(commands.npm, "install-npm")
-											}
-										>
-											<Copy className="h-3 w-3" />
-										</Button>
-										{copied === "install-npm" && (
-											<div className="absolute right-2 top-8 text-xs text-green-600">
-												Copied!
-											</div>
-										)}
-									</div>
-								</Tab>
-								<Tab value="yarn">
-									<div className="relative">
-										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
-											<code>{commands.yarn}</code>
-										</pre>
-										<Button
-											variant="ghost"
-											size="sm"
-											className="absolute right-2 top-2 h-6 w-6 p-0"
-											onClick={() =>
-												copyToClipboard(commands.yarn, "install-yarn")
-											}
-										>
-											<Copy className="h-3 w-3" />
-										</Button>
-										{copied === "install-yarn" && (
-											<div className="absolute right-2 top-8 text-xs text-green-600">
-												Copied!
-											</div>
-										)}
-									</div>
-								</Tab>
-								<Tab value="bun">
-									<div className="relative">
-										<pre className="bg-fd-muted rounded-md p-3 pr-10 text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
-											<code>{commands.bun}</code>
-										</pre>
-										<Button
-											variant="ghost"
-											size="sm"
-											className="absolute right-2 top-2 h-6 w-6 p-0"
-											onClick={() =>
-												copyToClipboard(commands.bun, "install-bun")
-											}
-										>
-											<Copy className="h-3 w-3" />
-										</Button>
-										{copied === "install-bun" && (
-											<div className="absolute right-2 top-8 text-xs text-green-600">
-												Copied!
-											</div>
-										)}
-									</div>
-								</Tab>
+										/>
+									</Tab>
+								))}
 							</Tabs>
 						</div>
 
@@ -237,21 +170,14 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 									<ExpandableCodeBlock
 										contentClassName="[&_pre]:my-0"
 										actions={
-											<div className="relative">
-												<Button
-													variant="ghost"
-													size="sm"
-													className="h-6 w-6 p-0"
-													onClick={() => copyToClipboard(rawContent, "code")}
-												>
-													<Copy className="h-3 w-3" />
-												</Button>
-												{copied === "code" && (
-													<div className="absolute right-0 top-6 text-xs text-green-600">
-														Copied!
-													</div>
-												)}
-											</div>
+											<CopyActionButton
+												variant="ghost"
+												size="sm"
+												className="h-6 w-6 p-0"
+												onCopy={() => copyToClipboard(rawContent, "code")}
+												idleAriaLabel="Copy component source"
+												copiedAriaLabel="Copied component source"
+											/>
 										}
 									>
 										<DynamicCodeBlock

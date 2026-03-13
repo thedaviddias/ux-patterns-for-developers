@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/cn";
 import type { ComponentPropsWithoutRef } from "react";
+import { cn } from "@/lib/cn";
 
 /**
  * Heading Components
@@ -46,10 +46,7 @@ export const H6 = createHeading(6);
 /**
  * Paragraph
  */
-export function P({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"p">) {
+export function P({ className, ...props }: ComponentPropsWithoutRef<"p">) {
 	return (
 		<p
 			className={cn("leading-7 [&:not(:first-child)]:mt-4", className)}
@@ -69,7 +66,7 @@ export function Blockquote({
 		<blockquote
 			className={cn(
 				"mt-6 border-l-4 border-primary/30 pl-4 italic text-muted-foreground",
-				className
+				className,
 			)}
 			{...props}
 		/>
@@ -79,13 +76,16 @@ export function Blockquote({
 /**
  * Unordered List
  */
-export function Ul({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"ul">) {
+export function Ul({ className, ...props }: ComponentPropsWithoutRef<"ul">) {
+	const isTaskList = className?.includes("contains-task-list");
+
 	return (
 		<ul
-			className={cn("my-4 ml-6 list-disc [&>li]:mt-2", className)}
+			className={cn(
+				"my-4 [&>li]:mt-2",
+				isTaskList ? "ml-0 list-none pl-0" : "ml-6 list-disc",
+				className,
+			)}
 			{...props}
 		/>
 	);
@@ -94,10 +94,7 @@ export function Ul({
 /**
  * Ordered List
  */
-export function Ol({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"ol">) {
+export function Ol({ className, ...props }: ComponentPropsWithoutRef<"ol">) {
 	return (
 		<ol
 			className={cn("my-4 ml-6 list-decimal [&>li]:mt-2", className)}
@@ -109,20 +106,25 @@ export function Ol({
 /**
  * List Item
  */
-export function Li({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"li">) {
-	return <li className={cn("leading-7", className)} {...props} />;
+export function Li({ className, ...props }: ComponentPropsWithoutRef<"li">) {
+	const isTaskListItem = className?.includes("task-list-item");
+
+	return (
+		<li
+			className={cn(
+				"leading-7",
+				isTaskListItem && "list-none marker:content-none",
+				className,
+			)}
+			{...props}
+		/>
+	);
 }
 
 /**
  * Horizontal Rule
  */
-export function Hr({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"hr">) {
+export function Hr({ className, ...props }: ComponentPropsWithoutRef<"hr">) {
 	return <hr className={cn("my-8 border-border", className)} {...props} />;
 }
 
@@ -154,45 +156,41 @@ export function Tbody({
 	className,
 	...props
 }: ComponentPropsWithoutRef<"tbody">) {
-	return <tbody className={cn("[&>tr:last-child]:border-0", className)} {...props} />;
-}
-
-export function Tr({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"tr">) {
 	return (
-		<tr
-			className={cn("border-b border-border transition-colors hover:bg-muted/50", className)}
-			{...props}
-		/>
+		<tbody className={cn("[&>tr:last-child]:border-0", className)} {...props} />
 	);
 }
 
-export function Th({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"th">) {
+export function Tr({ className, ...props }: ComponentPropsWithoutRef<"tr">) {
 	return (
-		<th
+		<tr
 			className={cn(
-				"px-4 py-3 text-left font-semibold text-foreground [&[align=center]]:text-center [&[align=right]]:text-right",
-				className
+				"border-b border-border transition-colors hover:bg-muted/50",
+				className,
 			)}
 			{...props}
 		/>
 	);
 }
 
-export function Td({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"td">) {
+export function Th({ className, ...props }: ComponentPropsWithoutRef<"th">) {
+	return (
+		<th
+			className={cn(
+				"px-4 py-3 text-left font-semibold text-foreground [&[align=center]]:text-center [&[align=right]]:text-right",
+				className,
+			)}
+			{...props}
+		/>
+	);
+}
+
+export function Td({ className, ...props }: ComponentPropsWithoutRef<"td">) {
 	return (
 		<td
 			className={cn(
 				"px-4 py-3 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-				className
+				className,
 			)}
 			{...props}
 		/>
@@ -212,10 +210,7 @@ export function Strong({
 /**
  * Emphasis/Italic
  */
-export function Em({
-	className,
-	...props
-}: ComponentPropsWithoutRef<"em">) {
+export function Em({ className, ...props }: ComponentPropsWithoutRef<"em">) {
 	return <em className={cn("italic", className)} {...props} />;
 }
 
@@ -228,6 +223,7 @@ export function Img({
 	...props
 }: ComponentPropsWithoutRef<"img">) {
 	return (
+		// biome-ignore lint/performance/noImgElement: MDX images can use arbitrary sources and dimensions.
 		<img
 			className={cn("my-4 rounded-lg border", className)}
 			alt={alt}

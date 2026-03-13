@@ -5,176 +5,113 @@ export const nodes: DecisionNode[] = [
 		id: "1",
 		type: "question",
 		data: {
-			label: "Do users need to compare data across items?",
+			label: "Do users need to compare multiple items side by side?",
 			description:
-				"Will users analyze relationships between different data points?",
+				"Use this when people must line up attributes, sort columns, or scan across rows.",
 		},
 		position: { x: 0, y: 0 },
 	},
 	{
 		id: "2",
-		type: "question",
+		type: "pattern",
 		data: {
-			label: "Is visual content (images/graphics) primary?",
-			description: "Are images or visual elements the main focus?",
+			label: "Table",
+			description:
+				"Best for dense comparison, sorting, and structured analysis",
+			patternLink: "/patterns/data-display/table",
 		},
-		position: { x: -200, y: 100 },
+		position: { x: -280, y: 140 },
 	},
 	{
 		id: "3",
 		type: "question",
 		data: {
-			label: "How many data fields per item?",
-			description: "Consider the amount of information to display",
+			label: "Is visual browsing more important than strict comparison?",
+			description:
+				"Think images, covers, thumbnails, and self-contained cards.",
 		},
-		position: { x: 200, y: 100 },
+		position: { x: 220, y: 140 },
 	},
 	{
 		id: "4",
 		type: "pattern",
 		data: {
-			label: "Table",
-			description: "Best for data comparison and analysis",
-			patternLink: "/patterns/data-display/table",
+			label: "Card Grid",
+			description: "Best for visual discovery and self-contained item browsing",
+			patternLink: "/patterns/data-display/card-grid",
 		},
-		position: { x: -300, y: 200 },
+		position: { x: 420, y: 300 },
 	},
 	{
 		id: "5",
 		type: "question",
 		data: {
-			label: "Is mobile the primary platform?",
-			description: "Will most users access on mobile devices?",
+			label:
+				"Do users mostly scan a single stream with only a few key attributes?",
+			description:
+				"Use this for inboxes, activity feeds, lightweight records, and mobile-first lists.",
 		},
-		position: { x: -100, y: 200 },
+		position: { x: 40, y: 300 },
 	},
 	{
 		id: "6",
 		type: "pattern",
 		data: {
-			label: "Card Grid",
-			description: "Visual browsing with flexible layout",
-			patternLink: "/patterns/data-display/card-grid",
-		},
-		position: { x: 300, y: 300 },
-	},
-	{
-		id: "7",
-		type: "pattern",
-		data: {
 			label: "List View",
-			description: "Simple, scannable, mobile-friendly",
+			description:
+				"Best for simple scanning, prioritization, and mobile readability",
 			patternLink: "/patterns/data-display/list-view",
 		},
-		position: { x: 100, y: 300 },
+		position: { x: 40, y: 450 },
 	},
 	{
-		id: "8",
 		type: "consideration",
+		id: "7",
 		data: {
-			label: "Consider Responsive Table",
-			description: "Use horizontal scroll or card transformation on mobile",
-			patternLink: "/patterns/data-display/table#responsive-design",
+			label: "Use Table Instead",
+			description:
+				"If fields keep growing and comparison becomes the main job, a table will outperform a list.",
+			patternLink: "/patterns/data-display/table",
 		},
-		position: { x: -200, y: 300 },
-	},
-	{
-		id: "9",
-		type: "pattern",
-		data: {
-			label: "Dashboard",
-			description: "Multiple data visualizations in one view",
-			patternLink: "/patterns/data-display/dashboard",
-		},
-		position: { x: 0, y: 400 },
-	},
-	{
-		id: "10",
-		type: "question",
-		data: {
-			label: "Need multiple data views?",
-			description: "Charts, metrics, and KPIs together?",
-		},
-		position: { x: 0, y: 200 },
+		position: { x: -220, y: 450 },
 	},
 ];
 
 export const edges: DecisionEdge[] = [
-	// Initial comparison question
 	{
 		id: "e1-2",
 		source: "1",
 		target: "2",
-		label: "No",
+		label: "Yes",
 	},
 	{
-		id: "e1-5",
+		id: "e1-3",
 		source: "1",
-		target: "5",
-		label: "Yes",
-	},
-
-	// Visual content path
-	{
-		id: "e2-6",
-		source: "2",
-		target: "6",
-		label: "Yes",
-	},
-	{
-		id: "e2-3",
-		source: "2",
 		target: "3",
 		label: "No",
 	},
-
-	// Data fields question
 	{
-		id: "e3-7",
+		id: "e3-4",
 		source: "3",
-		target: "7",
-		label: "Few (1-3)",
-	},
-	{
-		id: "e3-6",
-		source: "3",
-		target: "6",
-		label: "Many (4+)",
-	},
-
-	// Mobile platform path
-	{
-		id: "e5-8",
-		source: "5",
-		target: "8",
+		target: "4",
 		label: "Yes",
 	},
 	{
-		id: "e5-4",
-		source: "5",
-		target: "4",
+		id: "e3-5",
+		source: "3",
+		target: "5",
 		label: "No",
 	},
-
-	// Multiple views path
 	{
-		id: "e1-10",
-		source: "1",
-		target: "10",
-		label: "Multiple types",
-	},
-	{
-		id: "e10-9",
-		source: "10",
-		target: "9",
+		id: "e5-6",
+		source: "5",
+		target: "6",
 		label: "Yes",
 	},
-
-	// Responsive consideration
 	{
-		id: "e8-7",
-		source: "8",
+		id: "e5-7",
+		source: "5",
 		target: "7",
-		label: "Simplify",
+		label: "No",
 	},
 ];

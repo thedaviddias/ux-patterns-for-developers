@@ -29,9 +29,9 @@ Pagination works well, but consider alternatives like [infinite scroll](/pattern
 />
 
 <GuidesBanner
-  title="Pagination vs Infinite Scroll?"
+  title="Pagination vs Infinite Scroll vs Load More?"
   description="Compare content loading patterns to make the right choice"
-  guidePath="/pattern-guide/pagination-vs-infinite-scroll"
+  guidePath="/pattern-guide/pagination-vs-infinite-scroll-vs-load-more"
 />
 
 ## Use Cases
@@ -57,27 +57,22 @@ Pagination helps users navigate large information sets without getting overwhelm
 
 <PatternComparison
   current="Pagination"
+  title="Choose the right loading pattern"
+  description="Pagination is strongest when people need orientation, shareable URLs, and predictable recovery. Compare it with the lighter-weight loading patterns before you commit."
   alternatives={[
     {
       name: "Load More",
       path: "/patterns/navigation/load-more",
-      when: "users prefer continuous browsing without page reloads",
-      pros: ["Keeps context", "Smoother experience"],
-      cons: ["No jump to specific content", "Can't bookmark position"]
+      when: "users browse in batches and should decide when the next set of results appears",
+      pros: ["Balanced default", "Keeps context", "Footer stays reachable"],
+      cons: ["No exact page jumps", "Weaker SEO and shareability than pagination"]
     },
     {
       name: "Infinite Scroll",
       path: "/patterns/navigation/infinite-scroll",
-      when: "content consumption should be seamless and addictive",
-      pros: ["No user action needed", "Engagement focused"],
-      cons: ["Footer inaccessible", "Performance issues with long lists"]
-    },
-    {
-      name: "Tabs",
-      path: "/patterns/navigation/tabs",
-      when: "content has distinct categories that users switch between",
-      pros: ["Clear organization", "Quick switching"],
-      cons: ["Limited to few categories", "Not for large datasets"]
+      when: "discovery should feel uninterrupted and precise recovery matters less than momentum",
+      pros: ["Lowest browsing friction", "Strong mobile feel", "Engagement focused"],
+      cons: ["Harder to revisit results", "Footer access and recovery are weaker"]
     }
   ]}
 />

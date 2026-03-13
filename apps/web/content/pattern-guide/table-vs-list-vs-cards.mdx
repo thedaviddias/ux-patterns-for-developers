@@ -1,21 +1,77 @@
 ---
-title: "Table vs List vs Cards: When to Use Each Data Display Pattern (2025)"
-description: Choose the right data display pattern based on your content type, user needs, and device constraints
+title: "Table vs List View vs Card Grid: Which Data Display Pattern Should You Use? (2026)"
+description: "Choose the right data display pattern based on comparison needs, scanability, visual density, and device constraints."
 icon: LayoutGrid
 ---
 
-<div>
-  <div className="prose dark:prose-invert mb-10 space-y-4">
-    Choosing the right data display pattern is crucial for user experience. Tables, lists, and cards each excel in different scenarios.
-    
-    Use this guide to select the best pattern based on your data complexity, comparison needs, and mobile requirements.
-  </div>
+## Quick Answer
 
-  <DecisionFlowSection 
-    title="Table vs List vs Cards Data Display Decision Flow"
-    nodes={dataDisplayNodes}
-    edges={dataDisplayEdges}
-  />
-  
-  <ComparisonGrid patterns={tableComparisonData.patterns} />
-</div>
+- Use **Table** when users must compare attributes across multiple items, sort columns, or scan dense structured data.
+- Use **List View** when users mainly read down a single stream and only a few key attributes matter per item.
+- Use **Card Grid** when visual browsing matters more than strict side-by-side comparison.
+
+<ComparisonGrid patterns={tableComparisonData.patterns} />
+
+<DecisionFlowSection 
+  title="Table vs List View vs Card Grid Decision Flow"
+  nodes={dataDisplayNodes}
+  edges={dataDisplayEdges}
+/>
+
+## Compare By Criteria
+
+| Criteria | Table | List View | Card Grid |
+| --- | --- | --- | --- |
+| Primary job | Side-by-side comparison | Linear scanning | Visual browsing |
+| Information density | High | Medium | Medium |
+| Sorting and filtering fit | Strong | Medium | Weak |
+| Mobile readability | Weak | Strong | Medium to strong |
+| Visual emphasis | Weak | Medium | Strong |
+| Cross-item comparison | Strong | Medium | Weak |
+| Implementation complexity | Medium to high | Medium | Medium |
+
+## Why Each One Wins
+
+### Table
+
+Table is the right choice when comparison is the job. It is strongest for operational interfaces where users sort, filter, and inspect many fields across many rows.
+
+### List View
+
+List view wins when users scan one item after another and only need a small number of important attributes. It is especially effective for inboxes, activity feeds, and mobile-first records.
+
+### Card Grid
+
+Card grid wins when each item should feel self-contained and visually browsable. It is the better fit for libraries, catalogues, galleries, and surfaces where thumbnails or covers carry meaning.
+
+## Real-World Fits
+
+<Cards>
+  <Card title="Table" href="/patterns/data-display/table">
+    Admin records, inventory management, analytics rows, CRM datasets
+  </Card>
+  <Card title="List View" href="/patterns/data-display/list-view">
+    Activity streams, inboxes, lightweight admin records, mobile-first lists
+  </Card>
+  <Card title="Card Grid" href="/patterns/data-display/card-grid">
+    Resource libraries, product browsing, media collections, template galleries
+  </Card>
+</Cards>
+
+## Default Recommendation
+
+If the team is unsure, start with **List View** when the dataset is small and scanning matters more than dense comparison. Move to **Table** only when column comparison becomes the real job, and choose **Card Grid** when visuals are doing substantial decision-making work.
+
+## Next Steps
+
+<Cards>
+  <Card title="Read Table" href="/patterns/data-display/table">
+    Build dense, structured data displays with sorting and filtering
+  </Card>
+  <Card title="Read List View" href="/patterns/data-display/list-view">
+    Design readable linear lists for scanning and prioritization
+  </Card>
+  <Card title="Read Card Grid" href="/patterns/data-display/card-grid">
+    Implement visual browse surfaces with self-contained cards
+  </Card>
+</Cards>

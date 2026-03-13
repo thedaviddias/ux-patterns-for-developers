@@ -3,46 +3,36 @@
  */
 
 export const comparisonData = {
-  patterns: [
-    {
-      title: "Modal",
-      href: "/patterns/content-management/modal",
-      criteria: [
-        "Blocks all interactions",
-        "Complex forms & wizards",
-        "Critical confirmations",
-        "Full mobile takeover",
-      ],
-    },
-    {
-      title: "Drawer",
-      href: "/patterns/navigation/sidebar",
-      criteria: [
-        "Maintains page context",
-        "Filters & settings panels",
-        "Mobile-friendly slide-in",
-        "Semi-persistent content",
-      ],
-    },
-    {
-      title: "Popover",
-      href: "/patterns/content-management/popover",
-      criteria: [
-        "Contextual to element",
-        "Menus & quick options",
-        "Non-blocking interactions",
-        "Dismissible on outside click",
-      ],
-    },
-    {
-      title: "Tooltip",
-      href: "/patterns/content-management/tooltip",
-      criteria: [
-        "Brief help text only",
-        "Hover/focus triggered",
-        "Non-interactive content",
-        "Minimal visual disruption",
-      ],
-    },
-  ],
+	patterns: [
+		{
+			title: "Modal",
+			href: "/patterns/content-management/modal",
+			criteria: [
+				"The task must interrupt the current flow",
+				"Critical confirmations or required input",
+				"Complex forms and multi-step interactions",
+				"The user should focus on one thing only",
+			],
+		},
+		{
+			title: "Popover",
+			href: "/patterns/content-management/popover",
+			criteria: [
+				"The content is contextual to a trigger",
+				"Users need lightweight actions or details",
+				"Page context should remain visible",
+				"The interaction should feel lighter than a modal",
+			],
+		},
+		{
+			title: "Tooltip",
+			href: "/patterns/content-management/tooltip",
+			criteria: [
+				"Users only need a brief explanation",
+				"The content is non-critical and non-interactive",
+				"Hover or focus should be enough to reveal it",
+				"Visual disruption should stay minimal",
+			],
+		},
+	],
 };

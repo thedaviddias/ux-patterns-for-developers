@@ -7,6 +7,8 @@ status: complete
 aliases: ["search input"]
 ---
 
+import { GuidesBanner } from "@/components/guides-banner";
+
 ## Overview
 
 A **Search Field** pattern helps teams create a reliable way to help users retrieve content or commands quickly with a clear input, sensible defaults, and immediate recovery paths. It is most useful when teams need site-wide content search.
@@ -16,6 +18,12 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 <BuildEffort
   level="medium"
   description="Requires structured state, keyboard handling, and resilient feedback for search through content efficiently."
+/>
+
+<GuidesBanner
+  title="Search Field vs Command Palette?"
+  description="Compare visible search with a keyboard-first command surface"
+  guidePath="/pattern-guide/search-field-vs-command-palette"
 />
 
 ## Use Cases
@@ -39,44 +47,49 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 - Quick command or object lookup where users need a clear, repeatable interface model.
 
 <PatternComparison
+  current="Search Field"
+  title="Choose visible search vs richer alternatives"
+  description="Search field is the default when the job is retrieval. Compare it with a keyboard-first launcher, a suggestion-heavy input, and a plain field before treating them as interchangeable."
   alternatives={[
+  {
+    "name": "Command Palette",
+    "path": "/patterns/advanced/command-palette",
+    "when": "users need one keyboard-first surface for actions, destinations, recent items, and power-user shortcuts",
+    "pros": [
+      "Fast for expert users",
+      "Unifies actions and navigation",
+      "Handles larger action spaces"
+    ],
+    "cons": [
+      "Lower discoverability",
+      "Higher implementation complexity"
+    ]
+  },
   {
     "name": "Autocomplete",
     "path": "/patterns/forms/autocomplete",
-    "when": "users need autocomplete instead of search field as the primary interaction",
+    "when": "users benefit from strong suggestions while typing and often know the item they want",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Reduces typing",
+      "Guides query formation",
+      "Speeds up known-item lookup"
     ],
     "cons": [
-      "Less specialized for search field",
-      "Different states and recovery paths to teach"
+      "Needs high-quality suggestion data",
+      "Less useful for open-ended exploration"
     ]
   },
   {
     "name": "Text Field",
     "path": "/patterns/forms/text-field",
-    "when": "users need text field instead of search field as the primary interaction",
+    "when": "the input is freeform text but is not actually performing search or retrieval",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Lowest complexity",
+      "Clear form-field affordance"
     ],
     "cons": [
-      "Less specialized for search field",
-      "Different states and recovery paths to teach"
-    ]
-  },
-  {
-    "name": "Search Results",
-    "path": "/patterns/advanced/search-results",
-    "when": "users need search results instead of search field as the primary interaction",
-    "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
-    ],
-    "cons": [
-      "Less specialized for search field",
-      "Different states and recovery paths to teach"
+      "No search-specific semantics",
+      "No built-in affordance for clear, recent, or result states"
     ]
   }
 ]}

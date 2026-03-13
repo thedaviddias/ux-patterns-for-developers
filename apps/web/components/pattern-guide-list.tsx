@@ -1,6 +1,6 @@
 "use client";
 
-import { Cards, Card } from "@/components/mdx";
+import { Card, Cards } from "@/components/mdx";
 
 /**
  * Pattern Guide data
@@ -24,9 +24,9 @@ const patternGuides = [
 	},
 	{
 		slug: "modal-vs-popover-guide",
-		title: "Modal vs Popover Guide",
+		title: "Modal vs Popover vs Tooltip",
 		description:
-			"When to use modals versus popovers for overlay content.",
+			"Choose the right overlay pattern based on attention level and interaction complexity.",
 	},
 	{
 		slug: "pagination-vs-infinite-scroll",
@@ -35,10 +35,21 @@ const patternGuides = [
 			"Compare pagination and infinite scroll patterns for content loading.",
 	},
 	{
+		slug: "pagination-vs-infinite-scroll-vs-load-more",
+		title: "Pagination vs Infinite Scroll vs Load More",
+		description:
+			"Choose the right content loading pattern for search, feeds, and browse-heavy interfaces.",
+	},
+	{
+		slug: "search-field-vs-command-palette",
+		title: "Search Field vs Command Palette",
+		description:
+			"Decide between visible search and a keyboard-first command surface.",
+	},
+	{
 		slug: "table-vs-list-vs-cards",
 		title: "Table vs List vs Cards",
-		description:
-			"Choose the right pattern for displaying collections of data.",
+		description: "Choose the right pattern for displaying collections of data.",
 	},
 ];
 

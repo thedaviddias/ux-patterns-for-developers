@@ -6,6 +6,8 @@ icon: Terminal
 status: complete
 ---
 
+import { GuidesBanner } from "@/components/guides-banner";
+
 ## Overview
 
 A **Command Palette** pattern helps teams create a reliable way to find and run commands, destinations, and recent items from a single keyboard-first surface. It is most useful when teams need editor and workspace commands.
@@ -15,6 +17,12 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 <BuildEffort
   level="high"
   description="Requires coordinated state, async data, and strong accessibility coverage across the full command palette experience."
+/>
+
+<GuidesBanner
+  title="Command Palette vs Search Field?"
+  description="Compare a power-user launcher with visible search"
+  guidePath="/pattern-guide/search-field-vs-command-palette"
 />
 
 ## Use Cases
@@ -38,44 +46,36 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 - Object or page navigation for power users where users need a clear, repeatable interface model.
 
 <PatternComparison
+  current="Command Palette"
+  title="Choose visible search vs a power-user launcher"
+  description="Command palette is for action-heavy products and keyboard-first speed. Compare it with simpler, more visible surfaces before you add a hidden expert layer."
   alternatives={[
   {
     "name": "Search Field",
     "path": "/patterns/forms/search-field",
-    "when": "users need search field instead of command palette as the primary interaction",
+    "when": "users are mainly retrieving content or filtering data and the control should stay visible",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Easy to discover",
+      "Works for broad audiences",
+      "Better for simpler surfaces"
     ],
     "cons": [
-      "Less specialized for command palette",
-      "Different states and recovery paths to teach"
-    ]
-  },
-  {
-    "name": "Modal",
-    "path": "/patterns/content-management/modal",
-    "when": "users need modal instead of command palette as the primary interaction",
-    "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
-    ],
-    "cons": [
-      "Less specialized for command palette",
-      "Different states and recovery paths to teach"
+      "Less suited to action-heavy workflows",
+      "Slower for expert users"
     ]
   },
   {
     "name": "Navigation Menu",
     "path": "/patterns/navigation/navigation-menu",
-    "when": "users need navigation menu instead of command palette as the primary interaction",
+    "when": "users browse a stable set of destinations and do not need to type to get around",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Fully visible information architecture",
+      "Great for novice users",
+      "No hidden shortcuts to learn"
     ],
     "cons": [
-      "Less specialized for command palette",
-      "Different states and recovery paths to teach"
+      "Breaks down as the action space grows",
+      "Less efficient for expert users"
     ]
   }
 ]}

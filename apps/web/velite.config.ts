@@ -1,4 +1,3 @@
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeShiki from "@shikijs/rehype";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
@@ -62,6 +61,8 @@ const docs = defineCollection({
 			// Pattern-specific fields
 			aliases: s.array(s.string()).optional(),
 			popularity: patternPopularity.optional(),
+			synonyms: s.array(s.string()).optional(),
+			related_patterns: s.array(s.string()).optional(),
 
 			// Content metadata
 			thumbnail: s.string().optional(),
@@ -91,9 +92,7 @@ const docs = defineCollection({
 					? filePath.substring(contentIndex + "content/".length)
 					: filePath;
 
-			const slug = relativePath
-				.replace(/\.mdx$/, "")
-				.replace(/\/index$/, "");
+			const slug = relativePath.replace(/\.mdx$/, "").replace(/\/index$/, "");
 
 			// Compute URL
 			const url = `/${slug}`;

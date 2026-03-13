@@ -1,9 +1,7 @@
 "use client";
 
 import { useConfig } from "@ux-patterns/hooks/use-config";
-import { useCopy } from "@ux-patterns/hooks/use-copy";
 import { useMounted } from "@ux-patterns/hooks/use-mounted";
-import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
 	Tabs,
 	TabsContent,
@@ -11,8 +9,8 @@ import {
 	TabsTrigger,
 } from "@ux-patterns/ui/components/shadcn/tabs";
 import type { NpmCommands } from "@ux-patterns/ui/types";
-import { CheckIcon, ClipboardIcon } from "lucide-react";
 import * as React from "react";
+import { CopyActionButton } from "../copy-action-button";
 
 export function CodeBlockCommand({
 	__npmCommand__,
@@ -21,7 +19,6 @@ export function CodeBlockCommand({
 	__bunCommand__,
 }: React.ComponentProps<"pre"> & NpmCommands) {
 	const [config, setConfig] = useConfig();
-	const { copied, copy } = useCopy();
 	const mounted = useMounted();
 
 	const packageManager = config.packageManager || "pnpm";
@@ -33,16 +30,6 @@ export function CodeBlockCommand({
 			bun: __bunCommand__,
 		};
 	}, [__npmCommand__, __pnpmCommand__, __yarnCommand__, __bunCommand__]);
-
-	const copyCommand = React.useCallback(() => {
-		const command = tabs[packageManager];
-
-		if (!command) {
-			return;
-		}
-
-		copy(command);
-	}, [packageManager, tabs, copy]);
 
 	if (!mounted) {
 		return null;
@@ -90,15 +77,14 @@ export function CodeBlockCommand({
 					);
 				})}
 			</Tabs>
-			<Button
+			<CopyActionButton
 				size="icon"
 				variant="ghost"
 				className="absolute right-2.5 top-2 z-10 h-6 w-6 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50 [&_svg]:h-3 [&_svg]:w-3"
-				onClick={copyCommand}
-			>
-				<span className="sr-only">Copy</span>
-				{copied ? <CheckIcon /> : <ClipboardIcon />}
-			</Button>
+				textToCopy={tabs[packageManager] ?? ""}
+				idleAriaLabel="Copy command"
+				copiedAriaLabel="Copied command"
+			/>
 		</div>
 	);
 }

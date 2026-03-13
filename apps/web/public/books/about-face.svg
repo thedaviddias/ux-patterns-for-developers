@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" role="img" aria-labelledby="title desc">
+  <title id="title">About Face cover placeholder</title>
+  <desc id="desc">A local placeholder cover for About Face by Alan Cooper.</desc>
+  <rect width="600" height="900" fill="#e6eef5" />
+  <rect x="36" y="36" width="528" height="828" rx="20" fill="#f8fbff" stroke="#1e3a8a" stroke-width="6" />
+  <path d="M170 220c0-72 58-130 130-130s130 58 130 130-58 130-130 130S170 292 170 220Z" fill="#93c5fd" />
+  <path d="M225 220c0-42 33-75 75-75s75 33 75 75-33 75-75 75-75-33-75-75Z" fill="#eff6ff" />
+  <text x="72" y="470" fill="#172554" font-family="Georgia, serif" font-size="60" font-weight="700">
+    <tspan x="72" dy="0">About</tspan>
+    <tspan x="72" dy="74">Face</tspan>
+  </text>
+  <text x="72" y="610" fill="#1d4ed8" font-family="Arial, sans-serif" font-size="24" letter-spacing="2">
+    INTERACTION DESIGN
+  </text>
+  <text x="72" y="760" fill="#1f2937" font-family="Arial, sans-serif" font-size="30">
+    Alan Cooper
+  </text>
+</svg>

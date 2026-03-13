@@ -6,6 +6,8 @@ icon: ListOrdered
 status: complete
 ---
 
+import { GuidesBanner } from "@/components/guides-banner";
+
 ## Overview
 
 A **List View** pattern helps teams create a reliable way to present items in a linear format that favors readability, comparison of a few attributes, and efficient scanning. It is most useful when teams need activity and inbox lists.
@@ -15,6 +17,12 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 <BuildEffort
   level="medium"
   description="Requires structured state, keyboard handling, and resilient feedback for display data in vertical lists."
+/>
+
+<GuidesBanner
+  title="Table vs List View vs Card Grid?"
+  description="Compare the main collection display patterns before you choose one"
+  guidePath="/pattern-guide/table-vs-list-vs-cards"
 />
 
 ## Use Cases
@@ -38,44 +46,36 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 - Mobile-first data browsing where users need a clear, repeatable interface model.
 
 <PatternComparison
+  current="List View"
+  title="Choose the right collection layout"
+  description="List view is best when people scan down a single stream. Compare it with denser tables and more visual card layouts before you lock in the pattern."
   alternatives={[
-  {
-    "name": "Card Grid",
-    "path": "/patterns/data-display/card-grid",
-    "when": "users need card grid instead of list view as the primary interaction",
-    "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
-    ],
-    "cons": [
-      "Less specialized for list view",
-      "Different states and recovery paths to teach"
-    ]
-  },
   {
     "name": "Data Table",
     "path": "/patterns/data-display/table",
-    "when": "users need data table instead of list view as the primary interaction",
+    "when": "users need to compare several attributes across many rows or rely on sorting and filtering",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Higher data density",
+      "Better side-by-side comparison",
+      "Stronger fit for structured analysis"
     ],
     "cons": [
-      "Less specialized for list view",
-      "Different states and recovery paths to teach"
+      "Weaker on mobile",
+      "Heavier cognitive load"
     ]
   },
   {
-    "name": "Timeline",
-    "path": "/patterns/data-display/timeline",
-    "when": "users need timeline instead of list view as the primary interaction",
+    "name": "Card Grid",
+    "path": "/patterns/data-display/card-grid",
+    "when": "visual browsing matters more than single-column scanning and each item should feel self-contained",
     "pros": [
-      "Clearer fit for its own job",
-      "Lower ambiguity about the expected interaction"
+      "Stronger visual hierarchy",
+      "Better for thumbnails and media",
+      "More expressive item presentation"
     ],
     "cons": [
-      "Less specialized for list view",
-      "Different states and recovery paths to teach"
+      "Weaker direct comparison",
+      "Usually shows less information per screen"
     ]
   }
 ]}

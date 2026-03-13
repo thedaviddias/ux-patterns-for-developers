@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Don't Make Me Think cover placeholder</title>
+  <desc id="desc">A local placeholder cover for the book Don't Make Me Think, Revisited by Steve Krug.</desc>
+  <rect width="600" height="900" fill="#f5efe2" />
+  <rect x="36" y="36" width="528" height="828" rx="20" fill="#fffaf0" stroke="#1f2937" stroke-width="6" />
+  <rect x="72" y="96" width="456" height="18" fill="#d97706" />
+  <text x="72" y="240" fill="#111827" font-family="Georgia, serif" font-size="56" font-weight="700">
+    <tspan x="72" dy="0">Don't Make</tspan>
+    <tspan x="72" dy="72">Me Think</tspan>
+  </text>
+  <text x="72" y="420" fill="#92400e" font-family="Arial, sans-serif" font-size="28" letter-spacing="3">
+    REVISITED
+  </text>
+  <text x="72" y="760" fill="#374151" font-family="Arial, sans-serif" font-size="30">
+    Steve Krug
+  </text>
+</svg>

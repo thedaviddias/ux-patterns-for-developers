@@ -3,46 +3,36 @@
  */
 
 export const comparisonData = {
-  patterns: [
-    {
-      title: "Table",
-      href: "/patterns/data-display/table",
-      criteria: [
-        "Data comparison is critical",
-        "Many columns of data needed",
-        "Sorting and filtering required",
-        "Desktop-first application",
-      ],
-    },
-    {
-      title: "List View",
-      href: "/patterns/data-display/list-view",
-      criteria: [
-        "Simple, scannable content",
-        "Single primary action per item",
-        "Mobile-optimized layout",
-        "Chronological or priority order",
-      ],
-    },
-    {
-      title: "Card Grid",
-      href: "/patterns/data-display/card-grid",
-      criteria: [
-        "Visual content is important",
-        "Each item is self-contained",
-        "Browsing over comparison",
-        "Responsive across devices",
-      ],
-    },
-    {
-      title: "Dashboard",
-      href: "/patterns/data-display/dashboard",
-      criteria: [
-        "Multiple data types displayed",
-        "High-level overview needed",
-        "Real-time metrics important",
-        "Executive summary view",
-      ],
-    },
-  ],
+	patterns: [
+		{
+			title: "Table",
+			href: "/patterns/data-display/table",
+			criteria: [
+				"Cross-item comparison is critical",
+				"Sorting and filtering matter",
+				"Many fields must stay visible together",
+				"Density matters more than visual browsing",
+			],
+		},
+		{
+			title: "List View",
+			href: "/patterns/data-display/list-view",
+			criteria: [
+				"Users scan a single vertical stream",
+				"Only a few attributes matter per item",
+				"Mobile-first readability matters",
+				"Chronological or priority order is important",
+			],
+		},
+		{
+			title: "Card Grid",
+			href: "/patterns/data-display/card-grid",
+			criteria: [
+				"Visual content is a primary part of the decision",
+				"Each item should feel self-contained",
+				"Browsing matters more than direct comparison",
+				"Responsive visual layout is a priority",
+			],
+		},
+	],
 };

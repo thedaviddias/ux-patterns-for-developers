@@ -88,6 +88,84 @@ const CATEGORY_ACCENT_COLORS: Record<string, string> = {
 	"user-feedback": "#9aa7b6",
 };
 
+const SCENE_LAYOUTS: Record<
+	SceneKind,
+	{
+		coverMinHeight: number;
+		coverWidth: number;
+		coverYOffset: number;
+		ogWidth: number;
+	}
+> = {
+	ai: { coverMinHeight: 420, coverWidth: 1360, coverYOffset: 28, ogWidth: 820 },
+	auth: {
+		coverMinHeight: 420,
+		coverWidth: 1360,
+		coverYOffset: 32,
+		ogWidth: 820,
+	},
+	commerce: {
+		coverMinHeight: 420,
+		coverWidth: 1420,
+		coverYOffset: 28,
+		ogWidth: 820,
+	},
+	content: {
+		coverMinHeight: 340,
+		coverWidth: 1360,
+		coverYOffset: 24,
+		ogWidth: 800,
+	},
+	controls: {
+		coverMinHeight: 260,
+		coverWidth: 1440,
+		coverYOffset: 56,
+		ogWidth: 760,
+	},
+	data: {
+		coverMinHeight: 420,
+		coverWidth: 1460,
+		coverYOffset: 24,
+		ogWidth: 860,
+	},
+	feedback: {
+		coverMinHeight: 320,
+		coverWidth: 1360,
+		coverYOffset: 28,
+		ogWidth: 800,
+	},
+	form: {
+		coverMinHeight: 420,
+		coverWidth: 1360,
+		coverYOffset: 32,
+		ogWidth: 820,
+	},
+	media: {
+		coverMinHeight: 430,
+		coverWidth: 1460,
+		coverYOffset: 22,
+		ogWidth: 860,
+	},
+	modal: {
+		coverMinHeight: 420,
+		coverWidth: 1360,
+		coverYOffset: 28,
+		ogWidth: 820,
+	},
+	navigation: {
+		coverMinHeight: 240,
+		coverWidth: 1520,
+		coverYOffset: 68,
+		ogWidth: 820,
+	},
+	social: {
+		coverMinHeight: 380,
+		coverWidth: 1380,
+		coverYOffset: 24,
+		ogWidth: 820,
+	},
+};
+
 function parseArgs(argv: string[]): RenderArgs {
 	const args: RenderArgs = {
 		openPreview: false,
@@ -352,6 +430,7 @@ function buildDocument(params: {
 	fontCss: string;
 	height: number;
 	width: number;
+	background: string;
 }) {
 	return `<!doctype html>
 <html>
@@ -365,7 +444,7 @@ function buildDocument(params: {
         width: ${params.width}px;
         height: ${params.height}px;
         overflow: hidden;
-        background: #000;
+        background: ${params.background};
       }
       body, #root {
         display: flex;
@@ -380,11 +459,16 @@ function buildDocument(params: {
 </html>`;
 }
 
-function createSurfaceCard(children: React.ReactNode, width: number) {
+function createSurfaceCard(
+	children: React.ReactNode,
+	width: number,
+	minHeight?: number,
+) {
 	return (
 		<div
 			style={{
 				width,
+				minHeight,
 				display: "flex",
 				flexDirection: "column",
 				borderRadius: 28,
@@ -422,12 +506,12 @@ function GenericScene(props: {
 	variant: Variant;
 }) {
 	const isCover = props.variant === "cover";
+	const layout = SCENE_LAYOUTS[props.doc.sceneKind];
 	const size = isCover ? MODAL_COVER_SIZE : MODAL_OG_SIZE;
 	const helperText = trimLine(
 		props.doc.summary || props.doc.description || props.doc.title,
 	);
-	const sceneWidth = isCover ? 1240 : 780;
-	const sceneSlotHeight = isCover ? 560 : 320;
+	const sceneWidth = isCover ? layout.coverWidth : layout.ogWidth;
 
 	return (
 		<div
@@ -471,15 +555,7 @@ function GenericScene(props: {
 						style={{
 							position: "absolute",
 							inset: 0,
-							background: `radial-gradient(circle at 50% 56%, ${props.accentColor}26 0%, ${props.accentColor}14 18%, rgba(5,5,5,0) 56%)`,
-						}}
-					/>
-					<div
-						style={{
-							position: "absolute",
-							inset: 0,
-							background:
-								"radial-gradient(circle at 50% 48%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.18) 56%, rgba(0,0,0,0.44) 100%)",
+							background: `radial-gradient(circle at 50% 64%, ${props.accentColor}26 0%, ${props.accentColor}14 18%, rgba(5,5,5,0) 58%)`,
 						}}
 					/>
 				</>
@@ -491,7 +567,8 @@ function GenericScene(props: {
 					zIndex: 1,
 					display: "flex",
 					width: "100%",
-					height: "100%",
+					height: size.height,
+					boxSizing: "border-box",
 					flexDirection: "column",
 					alignItems: "center",
 					justifyContent: isCover ? "center" : "flex-start",
@@ -554,10 +631,9 @@ function GenericScene(props: {
 					style={{
 						display: "flex",
 						width: sceneWidth,
-						height: sceneSlotHeight,
 						alignItems: "center",
 						justifyContent: "center",
-						marginTop: isCover ? 0 : 20,
+						marginTop: isCover ? layout.coverYOffset : 20,
 					}}
 				>
 					{renderSceneUi(props.doc, props.variant)}
@@ -569,12 +645,13 @@ function GenericScene(props: {
 
 function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 	const isCover = variant === "cover";
-	const width = isCover ? 1220 : 720;
+	const layout = SCENE_LAYOUTS[doc.sceneKind];
+	const width = isCover ? layout.coverWidth - 120 : layout.ogWidth - 100;
 
 	switch (doc.sceneKind) {
 		case "form":
 			return createSurfaceCard(
-				<div style={{ display: "grid", gap: 18, padding: "34px 40px 28px" }}>
+				<div style={{ display: "grid", gap: 18, padding: "34px 40px 42px" }}>
 					<div
 						style={{
 							fontSize: isCover ? 48 : 28,
@@ -607,9 +684,18 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 								backgroundColor: "rgba(255,255,255,0.05)",
 							}}
 						/>
+						<div
+							style={{
+								height: isCover ? 86 : 60,
+								borderRadius: 20,
+								border: "1px solid rgba(255,255,255,0.10)",
+								backgroundColor: "rgba(255,255,255,0.05)",
+							}}
+						/>
 					</div>
 				</div>,
 				width,
+				isCover ? layout.coverMinHeight : undefined,
 			);
 
 		case "controls":
@@ -624,11 +710,17 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 					>
 						{doc.title}
 					</div>
-					<div style={{ display: "flex", gap: 18, alignItems: "center" }}>
+					<div
+						style={{
+							display: "flex",
+							gap: isCover ? 26 : 18,
+							alignItems: "center",
+						}}
+					>
 						<div
 							style={{
-								width: isCover ? 112 : 78,
-								height: isCover ? 64 : 46,
+								width: isCover ? 140 : 78,
+								height: isCover ? 78 : 46,
 								borderRadius: 999,
 								backgroundColor: "#d7a241",
 								boxShadow: "0 12px 28px rgba(215,162,65,0.18)",
@@ -636,16 +728,16 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 						/>
 						<div
 							style={{
-								width: isCover ? 78 : 54,
-								height: isCover ? 78 : 54,
+								width: isCover ? 92 : 54,
+								height: isCover ? 92 : 54,
 								borderRadius: 18,
 								border: "1px solid rgba(255,255,255,0.14)",
 							}}
 						/>
 						<div
 							style={{
-								width: isCover ? 78 : 54,
-								height: isCover ? 78 : 54,
+								width: isCover ? 92 : 54,
+								height: isCover ? 92 : 54,
 								borderRadius: 999,
 								border: "1px solid rgba(255,255,255,0.14)",
 							}}
@@ -653,35 +745,84 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 					</div>
 				</div>,
 				width,
+				isCover ? layout.coverMinHeight : undefined,
 			);
 
 		case "navigation":
 			return createSurfaceCard(
-				<div style={{ padding: "38px 40px", display: "grid", gap: 24 }}>
+				<div
+					style={{
+						padding: isCover ? "52px 56px" : "28px 32px 42px",
+						display: "flex",
+						flexDirection: "column",
+						gap: isCover ? 30 : 0,
+					}}
+				>
+					{!isCover &&
+						["row-a", "row-b", "row-c", "row-d", "row-e"].map((rowKey) => (
+							<div
+								key={rowKey}
+								style={{
+									display: "flex",
+									alignItems: "center",
+									gap: 16,
+									padding: "12px 0",
+									borderBottom: "1px solid rgba(255,255,255,0.06)",
+								}}
+							>
+								<div
+									style={{
+										width: 24,
+										height: 24,
+										borderRadius: 6,
+										backgroundColor: "rgba(255,255,255,0.08)",
+										flexShrink: 0,
+									}}
+								/>
+								<div
+									style={{
+										flex: 1,
+										height: 10,
+										borderRadius: 999,
+										backgroundColor: "rgba(255,255,255,0.10)",
+									}}
+								/>
+								<div
+									style={{
+										width: "20%",
+										height: 10,
+										borderRadius: 999,
+										backgroundColor: "rgba(255,255,255,0.07)",
+									}}
+								/>
+							</div>
+						))}
 					<div
 						style={{
 							display: "flex",
-							gap: 12,
+							gap: isCover ? 18 : 10,
 							alignItems: "center",
 							justifyContent: "space-between",
+							paddingTop: isCover ? 0 : 20,
 						}}
 					>
-						{["Previous", "1", "2", "Next"].map((item) => (
+						{["←", "1", "2", "3", "...", "→"].map((item) => (
 							<div
 								key={item}
 								style={{
-									height: isCover ? 64 : 46,
-									padding: isCover ? "0 26px" : "0 18px",
-									borderRadius: 16,
+									height: isCover ? 86 : 40,
+									minWidth: isCover ? 86 : 40,
+									padding: isCover ? "0 34px" : "0 14px",
+									borderRadius: isCover ? 20 : 12,
 									display: "flex",
 									alignItems: "center",
 									justifyContent: "center",
 									backgroundColor:
 										item === "2" ? "rgba(255,255,255,0.92)" : "transparent",
 									border:
-										item === "2" ? "none" : "1px solid rgba(255,255,255,0.14)",
-									color: item === "2" ? "#111111" : "#ffffff",
-									fontSize: isCover ? 26 : 18,
+										item === "2" ? "none" : "1px solid rgba(255,255,255,0.12)",
+									color: item === "2" ? "#111111" : "rgba(255,255,255,0.6)",
+									fontSize: isCover ? 34 : 16,
 									fontWeight: 600,
 								}}
 							>
@@ -691,6 +832,7 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 					</div>
 				</div>,
 				width,
+				isCover ? layout.coverMinHeight : undefined,
 			);
 
 		case "data":
@@ -1013,11 +1155,12 @@ async function renderVariant(options: {
 		fontCss: options.fontCss,
 		height: size.height,
 		width: size.width,
+		background: isCover ? options.doc.coverBackgroundColor : "#050505",
 	});
 
 	await fs.writeFile(htmlPath, html, "utf8");
 	await execFileAsync(CHROME_BIN, [
-		"--headless=new",
+		"--headless",
 		"--disable-gpu",
 		"--hide-scrollbars",
 		"--force-device-scale-factor=1",

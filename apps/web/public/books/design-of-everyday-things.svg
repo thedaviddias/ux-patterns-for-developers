@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" role="img" aria-labelledby="title desc">
+  <title id="title">The Design of Everyday Things cover placeholder</title>
+  <desc id="desc">A local placeholder cover for The Design of Everyday Things by Don Norman.</desc>
+  <rect width="600" height="900" fill="#efe8db" />
+  <rect x="36" y="36" width="528" height="828" rx="20" fill="#fffdf8" stroke="#0f172a" stroke-width="6" />
+  <circle cx="300" cy="210" r="70" fill="#0ea5e9" />
+  <rect x="120" y="360" width="360" height="12" fill="#0f172a" />
+  <text x="72" y="470" fill="#111827" font-family="Georgia, serif" font-size="48" font-weight="700">
+    <tspan x="72" dy="0">The Design of</tspan>
+    <tspan x="72" dy="62">Everyday</tspan>
+    <tspan x="72" dy="62">Things</tspan>
+  </text>
+  <text x="72" y="760" fill="#334155" font-family="Arial, sans-serif" font-size="30">
+    Don Norman
+  </text>
+</svg>

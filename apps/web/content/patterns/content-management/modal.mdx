@@ -26,7 +26,7 @@ Modals display important information, request user input, or confirm actions in 
 />
 
 <GuidesBanner
-  title="Modal vs Popover vs Drawer?"
+  title="Modal vs Popover vs Tooltip?"
   description="Compare all overlay patterns to make the right choice"
   guidePath="/pattern-guide/modal-vs-popover-guide"
 />
@@ -56,27 +56,22 @@ Use modals to **interrupt user flow** for important information or required user
 
 <PatternComparison
   current="Modal"
+  title="Choose the right overlay pattern"
+  description="Modal is the strongest interruptive option. Compare it with lighter contextual surfaces before taking over the whole screen."
   alternatives={[
     {
       name: "Popover",
       path: "/patterns/content-management/popover",
-      when: "showing contextual information without blocking interaction",
-      pros: ["Non-blocking", "Contextual", "Lightweight"],
-      cons: ["Less focus", "Easy to dismiss", "Limited space"]
-    },
-    {
-      name: "Accordion",
-      path: "/patterns/content-management/accordion",
-      when: "content can be displayed inline within the page flow",
-      pros: ["Inline content", "No overlay", "Progressive disclosure"],
-      cons: ["Less emphasis", "Can be missed", "Page reflow"]
+      when: "the content belongs to a trigger and should feel contextual rather than interruptive",
+      pros: ["Keeps page context", "Lighter interaction cost", "Good for quick actions"],
+      cons: ["Easier to dismiss accidentally", "Less space and focus control"]
     },
     {
       name: "Tooltip",
       path: "/patterns/content-management/tooltip",
-      when: "providing brief hints or additional information",
-      pros: ["Minimal", "Non-intrusive", "Quick info"],
-      cons: ["Very limited space", "No complex content", "No actions"]
+      when: "users only need a brief explanation and there is nothing meaningful to click inside",
+      pros: ["Minimal UI cost", "Fast to scan", "Great for labels and hints"],
+      cons: ["No real interaction", "Weak fit for critical or longer content"]
     }
   ]}
 />

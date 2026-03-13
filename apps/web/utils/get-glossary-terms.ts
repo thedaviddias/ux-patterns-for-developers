@@ -4,6 +4,8 @@ export interface GlossaryTerm {
 	title: string;
 	description: string;
 	category: string[];
+	synonyms: string[];
+	relatedPatterns: string[];
 	slug: string;
 	url: string;
 }
@@ -22,6 +24,10 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
 				title: page.data.title || page.slugs[page.slugs.length - 1],
 				description: page.data.description || "",
 				category: Array.isArray(page.data.category) ? page.data.category : [],
+				synonyms: Array.isArray(page.data.synonyms) ? page.data.synonyms : [],
+				relatedPatterns: Array.isArray(page.data.related_patterns)
+					? page.data.related_patterns
+					: [],
 				slug: page.slugs[page.slugs.length - 1],
 				url: page.url,
 			};

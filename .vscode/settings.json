@@ -17,6 +17,14 @@
     "**/.turbo": true,
     "**/.vercel": true
   },
+  "files.exclude": {
+    "**/.turbo": true,
+    "**/.vercel": true,
+    "**/.generated": true,
+    "**/coverage": true,
+    ".git": true,
+    ".tmp": true
+  },
   "javascript.format.enable": true,
   "javascript.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
@@ -50,8 +58,5 @@
   },
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[handlebars]": {
-    "editor.defaultFormatter": "eamodio.html-formatter"
   }
 }

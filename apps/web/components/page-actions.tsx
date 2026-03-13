@@ -1,4 +1,5 @@
 "use client";
+import { CopyMarkdownButton } from "@ux-patterns/ui/components/custom/copy-markdown-button";
 import { buttonVariants } from "@ux-patterns/ui/components/shadcn/button";
 import { cva } from "class-variance-authority";
 import {
@@ -6,18 +7,9 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "fumadocs-ui/components/ui/popover";
-import { useCopyButton } from "fumadocs-ui/utils/use-copy-button";
-import {
-	Check,
-	ChevronDown,
-	Copy,
-	ExternalLinkIcon,
-	MessageCircleIcon,
-} from "lucide-react";
-import { useMemo, useState } from "react";
+import { ChevronDown, ExternalLinkIcon, MessageCircleIcon } from "lucide-react";
+import { useMemo } from "react";
 import { cn } from "../lib/cn";
-
-const cache = new Map<string, string>();
 
 export function LLMCopyButton({
 	/**
@@ -27,46 +19,7 @@ export function LLMCopyButton({
 }: {
 	markdownUrl: string;
 }) {
-	const [isLoading, setLoading] = useState(false);
-	const [checked, onClick] = useCopyButton(async () => {
-		const cached = cache.get(markdownUrl);
-		if (cached) return navigator.clipboard.writeText(cached);
-
-		setLoading(true);
-
-		try {
-			await navigator.clipboard.write([
-				new ClipboardItem({
-					"text/plain": fetch(markdownUrl).then(async (res) => {
-						const content = await res.text();
-						cache.set(markdownUrl, content);
-
-						return content;
-					}),
-				}),
-			]);
-		} finally {
-			setLoading(false);
-		}
-	});
-
-	return (
-		<button
-			type="button"
-			disabled={isLoading}
-			className={cn(
-				buttonVariants({
-					variant: "secondary",
-					size: "sm",
-					className: "gap-2 [&_svg]:size-3.5 [&_svg]:text-fd-muted-foreground",
-				}),
-			)}
-			onClick={onClick}
-		>
-			{checked ? <Check /> : <Copy />}
-			Copy Markdown
-		</button>
-	);
+	return <CopyMarkdownButton markdownUrl={markdownUrl} />;
 }
 
 const optionVariants = cva(

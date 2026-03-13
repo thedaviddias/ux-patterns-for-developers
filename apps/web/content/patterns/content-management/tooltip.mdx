@@ -63,6 +63,28 @@ Use a tooltip when you need to provide **additional context or explanations** wi
 - **If the tooltip is the only means** of conveying information (accessibility issue).
 - **For mobile-first interactions** where hover-based behavior isn't intuitive.
 
+<PatternComparison
+  current="Tooltip"
+  title="Choose the right overlay pattern"
+  description="Tooltip only works when the content stays brief and non-critical. If it needs more than that, step up to a richer surface."
+  alternatives={[
+    {
+      name: "Popover",
+      path: "/patterns/content-management/popover",
+      when: "the content is still contextual but needs richer text, controls, or lightweight interaction",
+      pros: ["Supports more content", "Can handle actions", "Still keeps page context"],
+      cons: ["Heavier than a tooltip", "Needs stronger dismissal and focus handling"]
+    },
+    {
+      name: "Modal",
+      path: "/patterns/content-management/modal",
+      when: "the information is important enough to interrupt the flow or the user must act before continuing",
+      pros: ["Maximum focus", "Best for required tasks", "Clearer for important decisions"],
+      cons: ["Most disruptive option", "Overkill for small explanations"]
+    }
+  ]}
+/>
+
 ## Benefits
 
 - **Reduces clutter** by providing contextual information without crowding the UI.

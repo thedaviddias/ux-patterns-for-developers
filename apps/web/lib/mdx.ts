@@ -22,6 +22,10 @@ import {
 	nodes as inputTypeNodes,
 } from "@/components/decision-flow/data/input-types";
 import {
+	edges as loadingPatternEdges,
+	nodes as loadingPatternNodes,
+} from "@/components/decision-flow/data/loading-patterns";
+import {
 	edges as navigationEdges,
 	nodes as navigationNodes,
 } from "@/components/decision-flow/data/navigation-patterns";
@@ -30,16 +34,22 @@ import {
 	edges as overlayEdges,
 	nodes as overlayNodes,
 } from "@/components/decision-flow/data/overlay-patterns";
+import {
+	edges as searchVsCommandEdges,
+	nodes as searchVsCommandNodes,
+} from "@/components/decision-flow/data/search-vs-command-palette";
 
 // Pattern guide data imports for MDX scope
 import {
 	inputTypesComparisonData,
 	inputTypesExamplesData,
 	inputTypesImplementationData,
+	loadingPatternsComparisonData,
 	modalComparisonData,
 	paginationComparisonData,
 	paginationExamplesData,
 	paginationPerformanceData,
+	searchVsCommandComparisonData,
 	tableComparisonData,
 } from "@/lib/pattern-guide-data";
 
@@ -54,14 +64,20 @@ const mdxScope = {
 	inputTypeEdges,
 	navigationNodes,
 	navigationEdges,
+	loadingPatternNodes,
+	loadingPatternEdges,
+	searchVsCommandNodes,
+	searchVsCommandEdges,
 	// Pattern guide data
 	inputTypesComparisonData,
 	inputTypesImplementationData,
 	inputTypesExamplesData,
+	loadingPatternsComparisonData,
 	paginationComparisonData,
 	paginationPerformanceData,
 	paginationExamplesData,
 	modalComparisonData,
+	searchVsCommandComparisonData,
 	tableComparisonData,
 };
 

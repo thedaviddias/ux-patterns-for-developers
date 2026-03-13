@@ -1,0 +1,78 @@
+---
+title: "Pagination vs Infinite Scroll vs Load More: Which Pattern Should You Use? (2026)"
+description: "Choose the right content loading pattern based on user intent, navigation needs, SEO, and implementation trade-offs."
+icon: Split
+---
+
+## Quick Answer
+
+- Use **Pagination** when users need precision: page jumps, stable URLs, revisiting earlier results, or stronger SEO support.
+- Use **Infinite Scroll** when the product is optimized for continuous discovery and the main goal is uninterrupted browsing momentum.
+- Use **Load More** when you want progressive disclosure without giving up user control, footer access, or implementation sanity.
+
+<ComparisonGrid patterns={loadingPatternsComparisonData.patterns} />
+
+<DecisionFlowSection
+  title="Pagination vs Infinite Scroll vs Load More Decision Flow"
+  nodes={loadingPatternNodes}
+  edges={loadingPatternEdges}
+/>
+
+## Compare By Criteria
+
+| Criteria | Pagination | Infinite Scroll | Load More |
+| --- | --- | --- | --- |
+| Primary job | Precise navigation | Seamless consumption | Controlled browsing |
+| User control | Strong | Weak | Strong |
+| Orientation and recovery | Strong | Weak | Medium |
+| SEO and shareable URLs | Strong | Weak | Medium |
+| Footer access | Strong | Weak | Strong |
+| Mobile feel | Medium | Strong | Strong |
+| Performance risk over time | Medium | High | Medium |
+| Implementation complexity | Medium | High | Medium |
+
+## Why Each One Wins
+
+### Pagination
+
+Pagination is the right choice when users need to move with intent rather than drift through content. It is the strongest option for search results, directories, archives, and any interface where people compare items or come back later.
+
+### Infinite Scroll
+
+Infinite scroll wins when interruption is the enemy. It is most effective in feeds, inspiration surfaces, and media-heavy browsing where the next item matters more than the exact position in the list.
+
+### Load More
+
+Load more is the most practical default when you want discovery without losing control. It works especially well for ecommerce grids, article listings, and gallery-like experiences where users browse in batches instead of pages.
+
+## Real-World Fits
+
+<Cards>
+  <Card title="Pagination" href="/patterns/navigation/pagination">
+    Search results, admin tables, job boards, documentation archives
+  </Card>
+  <Card title="Infinite Scroll" href="/patterns/navigation/infinite-scroll">
+    Social feeds, inspiration galleries, media discovery, mobile-first browsing
+  </Card>
+  <Card title="Load More" href="/patterns/navigation/load-more">
+    Ecommerce collections, article archives, browse-heavy results pages
+  </Card>
+</Cards>
+
+## Default Recommendation
+
+If the team does not have a strong reason to choose either extreme, start with **Load More**. It is usually the safest middle ground because it preserves control, reduces implementation complexity versus infinite scroll, and avoids some of pagination's navigation overhead for casual browsing.
+
+## Next Steps
+
+<Cards>
+  <Card title="Read Pagination" href="/patterns/navigation/pagination">
+    Implementation details and best practices for structured navigation
+  </Card>
+  <Card title="Read Infinite Scroll" href="/patterns/navigation/infinite-scroll">
+    Performance, accessibility, and recovery guidance for endless feeds
+  </Card>
+  <Card title="Read Load More" href="/patterns/navigation/load-more">
+    Build a controlled progressive loading experience
+  </Card>
+</Cards>

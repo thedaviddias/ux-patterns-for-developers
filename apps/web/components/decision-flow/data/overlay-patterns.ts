@@ -5,103 +5,77 @@ export const nodes: DecisionNode[] = [
 		id: "1",
 		type: "question",
 		data: {
-			label: "Does the interaction require blocking other actions?",
+			label: "Does the task need to interrupt the user?",
 			description:
-				"Should users be prevented from interacting with the rest of the page?",
+				"Use this when people should stop and deal with one focused task.",
 		},
 		position: { x: 0, y: 0 },
 	},
 	{
 		id: "2",
-		type: "question",
+		type: "pattern",
 		data: {
-			label: "Is the content complex or lengthy?",
-			description: "Forms, wizards, or detailed information",
+			label: "Modal",
+			description:
+				"Best for blocking tasks, required actions, and focused input",
+			patternLink: "/patterns/content-management/modal",
 		},
-		position: { x: -200, y: 100 },
+		position: { x: -260, y: 140 },
 	},
 	{
 		id: "3",
 		type: "question",
 		data: {
-			label: "Is the interaction contextual to a specific element?",
-			description: "Related to a button, link, or specific UI element",
+			label: "Does the content include actions or multi-step interaction?",
+			description:
+				"Think quick actions, menus, filters, and lightweight contextual UI.",
 		},
-		position: { x: 200, y: 100 },
+		position: { x: 220, y: 140 },
 	},
 	{
-		id: "4",
 		type: "pattern",
+		id: "4",
 		data: {
-			label: "Modal",
-			description: "Full attention required, blocks other interactions",
-			patternLink: "/patterns/content-management/modal",
+			label: "Popover",
+			description: "Best for contextual details or lightweight interaction",
+			patternLink: "/patterns/content-management/popover",
 		},
-		position: { x: -300, y: 200 },
+		position: { x: 80, y: 300 },
 	},
 	{
 		id: "5",
 		type: "question",
 		data: {
-			label: "Do you need to maintain page context?",
-			description: "Should users see the underlying content?",
+			label: "Is it only a brief explanation with no interaction inside it?",
+			description:
+				"If yes, it should stay short, non-critical, and easy to dismiss.",
 		},
-		position: { x: -100, y: 200 },
+		position: { x: 360, y: 300 },
 	},
 	{
 		id: "6",
 		type: "pattern",
 		data: {
-			label: "Drawer",
-			description:
-				"Side panel that maintains context, good for filters/navigation",
-			patternLink: "/patterns/navigation/sidebar",
+			label: "Tooltip",
+			description: "Best for short explanatory text on hover or focus",
+			patternLink: "/patterns/content-management/tooltip",
 		},
-		position: { x: -200, y: 300 },
+		position: { x: 360, y: 440 },
 	},
 	{
 		id: "7",
-		type: "question",
-		data: {
-			label: "Is it just supplementary information?",
-			description: "Brief help text or additional context",
-		},
-		position: { x: 300, y: 200 },
-	},
-	{
-		id: "8",
-		type: "pattern",
-		data: {
-			label: "Popover",
-			description: "Contextual overlay for moderate content",
-			patternLink: "/patterns/content-management/popover",
-		},
-		position: { x: 100, y: 300 },
-	},
-	{
-		id: "9",
-		type: "pattern",
-		data: {
-			label: "Tooltip",
-			description: "Brief text-only information on hover/focus",
-			patternLink: "/patterns/content-management/tooltip",
-		},
-		position: { x: 400, y: 300 },
-	},
-	{
-		id: "10",
 		type: "consideration",
 		data: {
-			label: "Consider Mobile Experience",
-			description: "Modals work better on mobile than popovers",
-			patternLink: "/patterns/content-management/modal#mobile-considerations",
+			label: "Use Popover Instead",
+			description:
+				"If users need to click, tab, or read more than a sentence or two, do not force it into a tooltip.",
+			patternLink: "/patterns/content-management/popover",
 		},
-		position: { x: 0, y: 400 },
+		position: { x: 120, y: 440 },
 	},
 ];
 
 export const edges: DecisionEdge[] = [
-	// Initial blocking question
 	{
 		id: "e1-2",
 		source: "1",
@@ -114,22 +88,18 @@ export const edges: DecisionEdge[] = [
 		target: "3",
 		label: "No",
 	},
-
-	// Complex content path
 	{
-		id: "e2-4",
-		source: "2",
+		id: "e3-4",
+		source: "3",
 		target: "4",
-		label: "Yes",
-	},
-	{
-		id: "e2-5",
-		source: "2",
-		target: "5",
 		label: "No",
 	},
-
-	// Context maintenance path
+	{
+		id: "e3-5",
+		source: "3",
+		target: "5",
+		label: "Yes",
+	},
 	{
 		id: "e5-6",
 		source: "5",
@@ -137,51 +107,9 @@ export const edges: DecisionEdge[] = [
 		label: "Yes",
 	},
 	{
-		id: "e5-4",
+		id: "e5-7",
 		source: "5",
-		target: "4",
-		label: "No",
-	},
-
-	// Contextual element path
-	{
-		id: "e3-7",
-		source: "3",
 		target: "7",
-		label: "Yes",
-	},
-	{
-		id: "e3-5",
-		source: "3",
-		target: "5",
 		label: "No",
-	},
-
-	// Supplementary info path
-	{
-		id: "e7-9",
-		source: "7",
-		target: "9",
-		label: "Yes",
-	},
-	{
-		id: "e7-8",
-		source: "7",
-		target: "8",
-		label: "No",
-	},
-
-	// Mobile consideration connections
-	{
-		id: "e8-10",
-		source: "8",
-		target: "10",
-		label: "Check mobile",
-	},
-	{
-		id: "e4-10",
-		source: "4",
-		target: "10",
-		label: "Consider",
 	},
 ];

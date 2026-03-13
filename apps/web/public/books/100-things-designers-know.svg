@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" role="img" aria-labelledby="title desc">
+  <title id="title">100 Things Every Designer Needs to Know About People cover placeholder</title>
+  <desc id="desc">A local placeholder cover for 100 Things Every Designer Needs to Know About People by Susan Weinschenk.</desc>
+  <rect width="600" height="900" fill="#f2efe7" />
+  <rect x="36" y="36" width="528" height="828" rx="20" fill="#fffdf9" stroke="#111827" stroke-width="6" />
+  <text x="72" y="220" fill="#b91c1c" font-family="Arial, sans-serif" font-size="116" font-weight="700">
+    100
+  </text>
+  <text x="72" y="350" fill="#111827" font-family="Georgia, serif" font-size="42" font-weight="700">
+    <tspan x="72" dy="0">Things Every</tspan>
+    <tspan x="72" dy="56">Designer Needs</tspan>
+    <tspan x="72" dy="56">to Know About</tspan>
+    <tspan x="72" dy="56">People</tspan>
+  </text>
+  <text x="72" y="760" fill="#374151" font-family="Arial, sans-serif" font-size="28">
+    Susan Weinschenk
+  </text>
+</svg>

@@ -1,0 +1,67 @@
+---
+title: "Search Field vs Command Palette: Which Pattern Should You Use? (2026)"
+description: "Choose between visible search and a keyboard-first command surface based on user intent, product complexity, and discoverability."
+icon: Search
+---
+
+## Quick Answer
+
+- Use **Search Field** when the main job is finding existing content, filtering data, or giving users a visible retrieval control.
+- Use **Command Palette** when the product needs a keyboard-first launcher for actions, destinations, recent items, and power-user workflows.
+- If the product surface is still simple, start with **Search Field** and only add a command palette once the action space is large enough to justify it.
+
+<ComparisonGrid patterns={searchVsCommandComparisonData.patterns} />
+
+<DecisionFlowSection
+  title="Search Field vs Command Palette Decision Flow"
+  nodes={searchVsCommandNodes}
+  edges={searchVsCommandEdges}
+/>
+
+## Compare By Criteria
+
+| Criteria | Search Field | Command Palette |
+| --- | --- | --- |
+| Primary job | Retrieve content | Trigger actions and navigation |
+| Discoverability | Strong | Weak to medium |
+| Keyboard-first speed | Medium | Strong |
+| Works for novice users | Strong | Medium |
+| Product complexity tolerance | Low to medium | High |
+| Search result type | Content or records | Commands, pages, recent items |
+| Implementation complexity | Medium | High |
+
+## Why Each One Wins
+
+### Search Field
+
+Search field is the right choice when the product needs a visible, obvious way to retrieve content or narrow a dataset. It is easier to discover, easier to teach, and better for broad audiences than a hidden expert surface.
+
+### Command Palette
+
+Command palette wins when the interface has grown beyond a simple navigation model. It compresses commands, destinations, and recent items into a single keyboard-first entry point for frequent users who care about speed.
+
+## Real-World Fits
+
+<Cards>
+  <Card title="Search Field" href="/patterns/forms/search-field">
+    Site search, table filtering, documentation search, customer directory lookup
+  </Card>
+  <Card title="Command Palette" href="/patterns/advanced/command-palette">
+    Workspace apps, editors, admin tools, action-heavy dashboards
+  </Card>
+</Cards>
+
+## Default Recommendation
+
+If the team is undecided, ship **Search Field** first. It solves the more universal problem, sets clear expectations for users, and avoids introducing a power-user mechanic before the product actually needs it.
+
+## Next Steps
+
+<Cards>
+  <Card title="Read Search Field" href="/patterns/forms/search-field">
+    Implementation guidance for visible retrieval and filtering
+  </Card>
+  <Card title="Read Command Palette" href="/patterns/advanced/command-palette">
+    Build a command surface for actions, destinations, and shortcuts
+  </Card>
+</Cards>

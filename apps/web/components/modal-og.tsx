@@ -485,10 +485,8 @@ export function ModalScene(props: ModalSceneProps) {
 					style={{
 						display: "flex",
 						width: config.slotWidth,
-						height: config.slotHeight,
 						alignItems: "center",
 						justifyContent: config.slotJustifyContent,
-						overflow: "hidden",
 						paddingTop: config.slotPaddingTop,
 						marginTop: config.chromeGapBottom,
 					}}
