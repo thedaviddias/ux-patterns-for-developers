@@ -121,7 +121,9 @@ export function Sidebar({
 	if (variant === "desktop") {
 		return (
 			<div className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-border/70 bg-card/80 backdrop-blur">
-				{header && <div className="border-b border-border/70 px-5 py-4">{header}</div>}
+				{header && (
+					<div className="border-b border-border/70 px-5 py-4">{header}</div>
+				)}
 
 				{/* Navigation */}
 				<nav
@@ -134,7 +136,9 @@ export function Sidebar({
 				</nav>
 
 				{/* Footer */}
-				{footer && <div className="border-t border-border/70 px-5 py-4">{footer}</div>}
+				{footer && (
+					<div className="border-t border-border/70 px-5 py-4">{footer}</div>
+				)}
 			</div>
 		);
 	}
@@ -172,7 +176,9 @@ export function Sidebar({
 						</button>
 					</div>
 
-					{header && <div className="border-b border-border/70 px-5 py-4">{header}</div>}
+					{header && (
+						<div className="border-b border-border/70 px-5 py-4">{header}</div>
+					)}
 
 					{/* Navigation */}
 					<nav
@@ -185,7 +191,9 @@ export function Sidebar({
 					</nav>
 
 					{/* Footer */}
-					{footer && <div className="border-t border-border/70 px-5 py-4">{footer}</div>}
+					{footer && (
+						<div className="border-t border-border/70 px-5 py-4">{footer}</div>
+					)}
 				</div>
 			</aside>
 		</>
@@ -425,7 +433,10 @@ export function SidebarTrigger({ className }: { className?: string }) {
 	return (
 		<button
 			type="button"
-			className={cn("rounded-xl border border-border/70 bg-background/80 p-2 hover:bg-accent md:hidden", className)}
+			className={cn(
+				"rounded-xl border border-border/70 bg-background/80 p-2 hover:bg-accent md:hidden",
+				className,
+			)}
 			onClick={() => setOpen(true)}
 			aria-label="Open navigation menu"
 		>

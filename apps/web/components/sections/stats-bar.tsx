@@ -169,10 +169,7 @@ export function StatsBar({
 	sectionsPerPattern = 17,
 }: StatsBarProps) {
 	return (
-		<section
-			aria-label="Project statistics"
-			className="py-8 sm:py-10"
-		>
+		<section aria-label="Project statistics" className="py-8 sm:py-10">
 			<div className="container mx-auto px-6">
 				<div className="rounded-[1.75rem] border border-border/70 bg-card/80 px-4 py-2 backdrop-blur sm:px-6">
 					<div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-8">

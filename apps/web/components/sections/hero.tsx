@@ -19,7 +19,9 @@ export default async function Hero() {
 				<div className="max-w-4xl">
 					<div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/75 px-4 py-2 text-sm font-medium text-muted-foreground backdrop-blur">
 						<Sparkles className="h-4 w-4 text-orange-500" />
-						<span>{patternCount}+ patterns across {categoryCount} categories</span>
+						<span>
+							{patternCount}+ patterns across {categoryCount} categories
+						</span>
 					</div>
 
 					<h1 className="mx-auto mt-8 max-w-5xl text-balance text-5xl font-semibold leading-[0.97] text-foreground sm:text-6xl lg:text-7xl">

@@ -104,9 +104,7 @@ function DocsLayoutInner({
 					</div>
 
 					{/* Page content - TOC is rendered by the page component */}
-					<main className="min-w-0 flex-1 px-0 md:px-0">
-						{children}
-					</main>
+					<main className="min-w-0 flex-1 px-0 md:px-0">{children}</main>
 				</div>
 			</div>
 

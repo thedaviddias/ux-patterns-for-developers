@@ -117,7 +117,9 @@ export function QuickDecisionBand({
 								</Link>
 							))
 						) : (
-							<p className="text-sm text-muted-foreground">No comparisons yet.</p>
+							<p className="text-sm text-muted-foreground">
+								No comparisons yet.
+							</p>
 						)}
 					</div>
 				</div>

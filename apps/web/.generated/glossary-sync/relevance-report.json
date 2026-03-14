@@ -1,556 +1,538 @@
 {
-  "summary": {
-    "candidates": 10,
-    "high": 1,
-    "medium": 8,
-    "low": 1,
-    "autoEligible": 1,
-    "approvedMedium": 0,
-    "blockedMedium": 8,
-    "blockedLow": 1
-  },
-  "candidates": [
-    {
-      "phrase": "helper text",
-      "proposedTerm": "Helper Text",
-      "relevanceScore": 75,
-      "tier": "high",
-      "recommendedAction": "keep-review",
-      "signals": {
-        "patternCoverage": 59,
-        "weightedSectionCoverage": 3.71,
-        "proseMentions": 14,
-        "listMentions": 92,
-        "faqMentions": 0,
-        "checklistMentions": 2,
-        "existingGlossarySimilarity": 0.14,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 104
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "forms/text-field",
-          "forms/form-validation",
-          "forms/date-input"
-        ],
-        "topSupportingSections": [
-          "Best Practices",
-          "Common Mistakes & Anti-Patterns 🚫",
-          "Anatomy"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          },
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          },
-          {
-            "patternSlug": "advanced/wizard",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "helper text",
-      "normalizedPhrase": "helper text",
-      "draftEligibility": "auto",
-      "approvalSource": null
-    },
-    {
-      "phrase": "state management",
-      "proposedTerm": "State Management",
-      "relevanceScore": 68,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 13,
-        "weightedSectionCoverage": 2.31,
-        "proseMentions": 6,
-        "listMentions": 12,
-        "faqMentions": 0,
-        "checklistMentions": 0,
-        "existingGlossarySimilarity": 0.16,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 7
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "navigation/load-more",
-          "navigation/navigation-menu",
-          "navigation/sidebar"
-        ],
-        "topSupportingSections": [
-          "Resources",
-          "Overview",
-          "Drawbacks"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Resources",
-            "excerpt": "- - Search API client for fast, ranked search results and filtering flows. - - React bindings for search results, faceting, and query-state UIs. - - Server-state management for asy"
-          },
-          {
-            "patternSlug": "e-commerce/shopping-cart",
-            "section": "Resources",
-            "excerpt": "- - Cart state helpers for add/remove/update flows and totals. - - Stripe.js loading and client-side payment primitives. - - Server-state management for async data, optimistic UI, "
-          },
-          {
-            "patternSlug": "data-display/filter-panel",
-            "section": "Resources",
-            "excerpt": "- - Headless table engine for sorting, filtering, grouping, and row models. - - Flexible combobox and async selection building blocks. - - Server-state management for async data, o"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "state management",
-      "normalizedPhrase": "state management",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "Focus States",
-      "proposedTerm": "Focus States",
-      "relevanceScore": 60,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 6,
-        "weightedSectionCoverage": 3.71,
-        "proseMentions": 1,
-        "listMentions": 11,
-        "faqMentions": 0,
-        "checklistMentions": 1,
-        "existingGlossarySimilarity": 0.17,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 12
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "forms/button",
-          "navigation/back-to-top",
-          "content-management/carousel"
-        ],
-        "topSupportingSections": [
-          "Accessibility",
-          "Anatomy",
-          "Best Practices"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "data-display/table",
-            "section": "Accessibility",
-            "excerpt": "3. Focus States"
-          },
-          {
-            "patternSlug": "forms/button",
-            "section": "Anatomy",
-            "excerpt": "- The root button element that wraps all other components - Handles click events and keyboard interactions - Manages focus states and accessibility attributes - Contains variants f"
-          },
-          {
-            "patternSlug": "forms/button",
-            "section": "Best Practices",
-            "excerpt": "- Use the same button style for the same action throughout the application - Make buttons finger-friendly for mobile users (minimum 44x44px ) - Use appropriate visual hierarchy (pr"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "focus state",
-      "normalizedPhrase": "focus state",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "color alone",
-      "proposedTerm": "Color Alone",
-      "relevanceScore": 59,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 65,
-        "weightedSectionCoverage": 3.96,
-        "proseMentions": 0,
-        "listMentions": 66,
-        "faqMentions": 0,
-        "checklistMentions": 53,
-        "existingGlossarySimilarity": 0.15,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 0.8,
-        "keyphraseMentions": 0
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "navigation/link",
-          "advanced/command-palette",
-          "advanced/search-results"
-        ],
-        "topSupportingSections": [
-          "Accessibility",
-          "Best Practices",
-          "Testing Guidelines"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Accessibility",
-            "excerpt": "- [ ] Do not rely on color alone to convey severity, completion, or selection state. - [ ] Test the pattern at 200% zoom and with reduced motion enabled. - [ ] Ensure touch targets"
-          },
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Accessibility",
-            "excerpt": "- [ ] Do not rely on color alone to convey severity, completion, or selection state. - [ ] Test the pattern at 200% zoom and with reduced motion enabled. - [ ] Ensure touch targets"
-          },
-          {
-            "patternSlug": "advanced/wizard",
-            "section": "Accessibility",
-            "excerpt": "- [ ] Do not rely on color alone to convey severity, completion, or selection state. - [ ] Test the pattern at 200% zoom and with reduced motion enabled. - [ ] Ensure touch targets"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "color alone",
-      "normalizedPhrase": "color alone",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "visible focus",
-      "proposedTerm": "Visible Focus",
-      "relevanceScore": 59,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 60,
-        "weightedSectionCoverage": 3.96,
-        "proseMentions": 1,
-        "listMentions": 113,
-        "faqMentions": 0,
-        "checklistMentions": 52,
-        "existingGlossarySimilarity": 0.15,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 1
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "advanced/command-palette",
-          "advanced/search-results",
-          "advanced/wizard"
-        ],
-        "topSupportingSections": [
-          "Best Practices",
-          "Accessibility",
-          "Micro-Interactions & Animations"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Best Practices",
-            "excerpt": "- Verify that command palette can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focu"
-          },
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Accessibility",
-            "excerpt": "- [ ] Verify that command palette can be completed using keyboard alone. - [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI. - [ ] Preserve a "
-          },
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Best Practices",
-            "excerpt": "- Verify that search results can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focus"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "visible focus",
-      "normalizedPhrase": "visible focus",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "assistive technologies",
-      "proposedTerm": "Assistive Technologies",
-      "relevanceScore": 59,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 57,
-        "weightedSectionCoverage": 3.92,
-        "proseMentions": 1,
-        "listMentions": 58,
-        "faqMentions": 0,
-        "checklistMentions": 1,
-        "existingGlossarySimilarity": 0.15,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 58
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "content-management/carousel",
-          "forms/button",
-          "advanced/command-palette"
-        ],
-        "topSupportingSections": [
-          "Best Practices",
-          "Testing Guidelines",
-          "Common Mistakes & Anti-Patterns 🚫"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          },
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          },
-          {
-            "patternSlug": "advanced/wizard",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "assistive technology",
-      "normalizedPhrase": "assistive technology",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "focus styles",
-      "proposedTerm": "Focus Styles",
-      "relevanceScore": 59,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 57,
-        "weightedSectionCoverage": 4,
-        "proseMentions": 0,
-        "listMentions": 57,
-        "faqMentions": 0,
-        "checklistMentions": 0,
-        "existingGlossarySimilarity": 0.13,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 57
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "advanced/command-palette",
-          "advanced/search-results",
-          "advanced/wizard"
-        ],
-        "topSupportingSections": [
-          "Best Practices",
-          "Accessibility",
-          "Anatomy"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          },
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          },
-          {
-            "patternSlug": "advanced/wizard",
-            "section": "Best Practices",
-            "excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "focus style",
-      "normalizedPhrase": "focus style",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "focus order",
-      "proposedTerm": "Focus Order",
-      "relevanceScore": 59,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 57,
-        "weightedSectionCoverage": 4,
-        "proseMentions": 2,
-        "listMentions": 109,
-        "faqMentions": 0,
-        "checklistMentions": 52,
-        "existingGlossarySimilarity": 0.17,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 110
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "advanced/command-palette",
-          "advanced/search-results",
-          "advanced/wizard"
-        ],
-        "topSupportingSections": [
-          "Accessibility",
-          "Best Practices"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Best Practices",
-            "excerpt": "- Verify that command palette can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focu"
-          },
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Accessibility",
-            "excerpt": "- [ ] Verify that command palette can be completed using keyboard alone. - [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI. - [ ] Preserve a "
-          },
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Best Practices",
-            "excerpt": "- Verify that search results can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focus"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "focus order",
-      "normalizedPhrase": "focus order",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "Visual States",
-      "proposedTerm": "Visual States",
-      "relevanceScore": 55,
-      "tier": "medium",
-      "recommendedAction": "defer",
-      "signals": {
-        "patternCoverage": 4,
-        "weightedSectionCoverage": 3.25,
-        "proseMentions": 1,
-        "listMentions": 5,
-        "faqMentions": 0,
-        "checklistMentions": 1,
-        "existingGlossarySimilarity": 0.14,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 1,
-        "keyphraseMentions": 4
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "navigation/back-to-top",
-          "forms/button",
-          "navigation/pagination"
-        ],
-        "topSupportingSections": [
-          "Anatomy",
-          "Testing Guidelines",
-          "Common Mistakes & Anti-Patterns 🚫"
-        ],
-        "nearestExistingGlossaryTerm": null,
-        "sampleExcerpts": [
-          {
-            "patternSlug": "forms/button",
-            "section": "Anatomy",
-            "excerpt": "5. Visual States"
-          },
-          {
-            "patternSlug": "forms/button",
-            "section": "Testing Guidelines",
-            "excerpt": "- [ ] Show a loader when the button is submitting a form - [ ] Disable the button during form submission to prevent double submissions - [ ] Handle click events and trigger the app"
-          },
-          {
-            "patternSlug": "navigation/back-to-top",
-            "section": "Anatomy",
-            "excerpt": "4. Visual States"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "visual state",
-      "normalizedPhrase": "visual state",
-      "draftEligibility": "blocked-medium",
-      "approvalSource": null
-    },
-    {
-      "phrase": "semantic elements",
-      "proposedTerm": "Semantic Elements",
-      "relevanceScore": 49,
-      "tier": "low",
-      "recommendedAction": "reject",
-      "signals": {
-        "patternCoverage": 52,
-        "weightedSectionCoverage": 4,
-        "proseMentions": 0,
-        "listMentions": 104,
-        "faqMentions": 0,
-        "checklistMentions": 52,
-        "existingGlossarySimilarity": 0.56,
-        "boilerplateRisk": 0,
-        "instructionalPhraseRisk": 0,
-        "phraseQuality": 0.8,
-        "keyphraseMentions": 0
-      },
-      "evidence": {
-        "topSupportingPatterns": [
-          "advanced/command-palette",
-          "advanced/search-results",
-          "advanced/wizard"
-        ],
-        "topSupportingSections": [
-          "Best Practices",
-          "Accessibility"
-        ],
-        "nearestExistingGlossaryTerm": {
-          "title": "Semantic HTML",
-          "slug": "semantic-html",
-          "similarity": 0.56
-        },
-        "sampleExcerpts": [
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Best Practices",
-            "excerpt": "- Verify that command palette can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focu"
-          },
-          {
-            "patternSlug": "advanced/command-palette",
-            "section": "Accessibility",
-            "excerpt": "- [ ] Use semantic elements first, then add ARIA only where semantics alone are not enough. - [ ] Announce state changes such as errors, loading, or completion in the right place a"
-          },
-          {
-            "patternSlug": "advanced/search-results",
-            "section": "Best Practices",
-            "excerpt": "- Verify that search results can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focus"
-          }
-        ]
-      },
-      "normalizedProposedTerm": "semantic element",
-      "normalizedPhrase": "semantic element",
-      "draftEligibility": "blocked-low",
-      "approvalSource": null
-    }
-  ]
+	"summary": {
+		"candidates": 10,
+		"high": 1,
+		"medium": 8,
+		"low": 1,
+		"autoEligible": 1,
+		"approvedMedium": 0,
+		"blockedMedium": 8,
+		"blockedLow": 1
+	},
+	"candidates": [
+		{
+			"phrase": "helper text",
+			"proposedTerm": "Helper Text",
+			"relevanceScore": 75,
+			"tier": "high",
+			"recommendedAction": "keep-review",
+			"signals": {
+				"patternCoverage": 59,
+				"weightedSectionCoverage": 3.71,
+				"proseMentions": 14,
+				"listMentions": 92,
+				"faqMentions": 0,
+				"checklistMentions": 2,
+				"existingGlossarySimilarity": 0.14,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 104
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"forms/text-field",
+					"forms/form-validation",
+					"forms/date-input"
+				],
+				"topSupportingSections": [
+					"Best Practices",
+					"Common Mistakes & Anti-Patterns 🚫",
+					"Anatomy"
+				],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					},
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					},
+					{
+						"patternSlug": "advanced/wizard",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					}
+				]
+			},
+			"normalizedProposedTerm": "helper text",
+			"normalizedPhrase": "helper text",
+			"draftEligibility": "auto",
+			"approvalSource": null
+		},
+		{
+			"phrase": "state management",
+			"proposedTerm": "State Management",
+			"relevanceScore": 68,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 13,
+				"weightedSectionCoverage": 2.31,
+				"proseMentions": 6,
+				"listMentions": 12,
+				"faqMentions": 0,
+				"checklistMentions": 0,
+				"existingGlossarySimilarity": 0.16,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 7
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"navigation/load-more",
+					"navigation/navigation-menu",
+					"navigation/sidebar"
+				],
+				"topSupportingSections": ["Resources", "Overview", "Drawbacks"],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Resources",
+						"excerpt": "- - Search API client for fast, ranked search results and filtering flows. - - React bindings for search results, faceting, and query-state UIs. - - Server-state management for asy"
+					},
+					{
+						"patternSlug": "e-commerce/shopping-cart",
+						"section": "Resources",
+						"excerpt": "- - Cart state helpers for add/remove/update flows and totals. - - Stripe.js loading and client-side payment primitives. - - Server-state management for async data, optimistic UI, "
+					},
+					{
+						"patternSlug": "data-display/filter-panel",
+						"section": "Resources",
+						"excerpt": "- - Headless table engine for sorting, filtering, grouping, and row models. - - Flexible combobox and async selection building blocks. - - Server-state management for async data, o"
+					}
+				]
+			},
+			"normalizedProposedTerm": "state management",
+			"normalizedPhrase": "state management",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "Focus States",
+			"proposedTerm": "Focus States",
+			"relevanceScore": 60,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 6,
+				"weightedSectionCoverage": 3.71,
+				"proseMentions": 1,
+				"listMentions": 11,
+				"faqMentions": 0,
+				"checklistMentions": 1,
+				"existingGlossarySimilarity": 0.17,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 12
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"forms/button",
+					"navigation/back-to-top",
+					"content-management/carousel"
+				],
+				"topSupportingSections": ["Accessibility", "Anatomy", "Best Practices"],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "data-display/table",
+						"section": "Accessibility",
+						"excerpt": "3. Focus States"
+					},
+					{
+						"patternSlug": "forms/button",
+						"section": "Anatomy",
+						"excerpt": "- The root button element that wraps all other components - Handles click events and keyboard interactions - Manages focus states and accessibility attributes - Contains variants f"
+					},
+					{
+						"patternSlug": "forms/button",
+						"section": "Best Practices",
+						"excerpt": "- Use the same button style for the same action throughout the application - Make buttons finger-friendly for mobile users (minimum 44x44px ) - Use appropriate visual hierarchy (pr"
+					}
+				]
+			},
+			"normalizedProposedTerm": "focus state",
+			"normalizedPhrase": "focus state",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "color alone",
+			"proposedTerm": "Color Alone",
+			"relevanceScore": 59,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 65,
+				"weightedSectionCoverage": 3.96,
+				"proseMentions": 0,
+				"listMentions": 66,
+				"faqMentions": 0,
+				"checklistMentions": 53,
+				"existingGlossarySimilarity": 0.15,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 0.8,
+				"keyphraseMentions": 0
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"navigation/link",
+					"advanced/command-palette",
+					"advanced/search-results"
+				],
+				"topSupportingSections": [
+					"Accessibility",
+					"Best Practices",
+					"Testing Guidelines"
+				],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Accessibility",
+						"excerpt": "- [ ] Do not rely on color alone to convey severity, completion, or selection state. - [ ] Test the pattern at 200% zoom and with reduced motion enabled. - [ ] Ensure touch targets"
+					},
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Accessibility",
+						"excerpt": "- [ ] Do not rely on color alone to convey severity, completion, or selection state. - [ ] Test the pattern at 200% zoom and with reduced motion enabled. - [ ] Ensure touch targets"
+					},
+					{
+						"patternSlug": "advanced/wizard",
+						"section": "Accessibility",
+						"excerpt": "- [ ] Do not rely on color alone to convey severity, completion, or selection state. - [ ] Test the pattern at 200% zoom and with reduced motion enabled. - [ ] Ensure touch targets"
+					}
+				]
+			},
+			"normalizedProposedTerm": "color alone",
+			"normalizedPhrase": "color alone",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "visible focus",
+			"proposedTerm": "Visible Focus",
+			"relevanceScore": 59,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 60,
+				"weightedSectionCoverage": 3.96,
+				"proseMentions": 1,
+				"listMentions": 113,
+				"faqMentions": 0,
+				"checklistMentions": 52,
+				"existingGlossarySimilarity": 0.15,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 1
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"advanced/command-palette",
+					"advanced/search-results",
+					"advanced/wizard"
+				],
+				"topSupportingSections": [
+					"Best Practices",
+					"Accessibility",
+					"Micro-Interactions & Animations"
+				],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Best Practices",
+						"excerpt": "- Verify that command palette can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focu"
+					},
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Accessibility",
+						"excerpt": "- [ ] Verify that command palette can be completed using keyboard alone. - [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI. - [ ] Preserve a "
+					},
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Best Practices",
+						"excerpt": "- Verify that search results can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focus"
+					}
+				]
+			},
+			"normalizedProposedTerm": "visible focus",
+			"normalizedPhrase": "visible focus",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "assistive technologies",
+			"proposedTerm": "Assistive Technologies",
+			"relevanceScore": 59,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 57,
+				"weightedSectionCoverage": 3.92,
+				"proseMentions": 1,
+				"listMentions": 58,
+				"faqMentions": 0,
+				"checklistMentions": 1,
+				"existingGlossarySimilarity": 0.15,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 58
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"content-management/carousel",
+					"forms/button",
+					"advanced/command-palette"
+				],
+				"topSupportingSections": [
+					"Best Practices",
+					"Testing Guidelines",
+					"Common Mistakes & Anti-Patterns 🚫"
+				],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					},
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					},
+					{
+						"patternSlug": "advanced/wizard",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					}
+				]
+			},
+			"normalizedProposedTerm": "assistive technology",
+			"normalizedPhrase": "assistive technology",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "focus styles",
+			"proposedTerm": "Focus Styles",
+			"relevanceScore": 59,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 57,
+				"weightedSectionCoverage": 4,
+				"proseMentions": 0,
+				"listMentions": 57,
+				"faqMentions": 0,
+				"checklistMentions": 0,
+				"existingGlossarySimilarity": 0.13,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 57
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"advanced/command-palette",
+					"advanced/search-results",
+					"advanced/wizard"
+				],
+				"topSupportingSections": ["Best Practices", "Accessibility", "Anatomy"],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					},
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					},
+					{
+						"patternSlug": "advanced/wizard",
+						"section": "Best Practices",
+						"excerpt": "- Do not remove focus styles without a visible replacement. - Do not depend on placeholder or helper text that disappears before the user can act on it. - Do not assume pointer, to"
+					}
+				]
+			},
+			"normalizedProposedTerm": "focus style",
+			"normalizedPhrase": "focus style",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "focus order",
+			"proposedTerm": "Focus Order",
+			"relevanceScore": 59,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 57,
+				"weightedSectionCoverage": 4,
+				"proseMentions": 2,
+				"listMentions": 109,
+				"faqMentions": 0,
+				"checklistMentions": 52,
+				"existingGlossarySimilarity": 0.17,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 110
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"advanced/command-palette",
+					"advanced/search-results",
+					"advanced/wizard"
+				],
+				"topSupportingSections": ["Accessibility", "Best Practices"],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Best Practices",
+						"excerpt": "- Verify that command palette can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focu"
+					},
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Accessibility",
+						"excerpt": "- [ ] Verify that command palette can be completed using keyboard alone. - [ ] Keep focus order logical when the pattern opens, updates, or reveals additional UI. - [ ] Preserve a "
+					},
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Best Practices",
+						"excerpt": "- Verify that search results can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focus"
+					}
+				]
+			},
+			"normalizedProposedTerm": "focus order",
+			"normalizedPhrase": "focus order",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "Visual States",
+			"proposedTerm": "Visual States",
+			"relevanceScore": 55,
+			"tier": "medium",
+			"recommendedAction": "defer",
+			"signals": {
+				"patternCoverage": 4,
+				"weightedSectionCoverage": 3.25,
+				"proseMentions": 1,
+				"listMentions": 5,
+				"faqMentions": 0,
+				"checklistMentions": 1,
+				"existingGlossarySimilarity": 0.14,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 1,
+				"keyphraseMentions": 4
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"navigation/back-to-top",
+					"forms/button",
+					"navigation/pagination"
+				],
+				"topSupportingSections": [
+					"Anatomy",
+					"Testing Guidelines",
+					"Common Mistakes & Anti-Patterns 🚫"
+				],
+				"nearestExistingGlossaryTerm": null,
+				"sampleExcerpts": [
+					{
+						"patternSlug": "forms/button",
+						"section": "Anatomy",
+						"excerpt": "5. Visual States"
+					},
+					{
+						"patternSlug": "forms/button",
+						"section": "Testing Guidelines",
+						"excerpt": "- [ ] Show a loader when the button is submitting a form - [ ] Disable the button during form submission to prevent double submissions - [ ] Handle click events and trigger the app"
+					},
+					{
+						"patternSlug": "navigation/back-to-top",
+						"section": "Anatomy",
+						"excerpt": "4. Visual States"
+					}
+				]
+			},
+			"normalizedProposedTerm": "visual state",
+			"normalizedPhrase": "visual state",
+			"draftEligibility": "blocked-medium",
+			"approvalSource": null
+		},
+		{
+			"phrase": "semantic elements",
+			"proposedTerm": "Semantic Elements",
+			"relevanceScore": 49,
+			"tier": "low",
+			"recommendedAction": "reject",
+			"signals": {
+				"patternCoverage": 52,
+				"weightedSectionCoverage": 4,
+				"proseMentions": 0,
+				"listMentions": 104,
+				"faqMentions": 0,
+				"checklistMentions": 52,
+				"existingGlossarySimilarity": 0.56,
+				"boilerplateRisk": 0,
+				"instructionalPhraseRisk": 0,
+				"phraseQuality": 0.8,
+				"keyphraseMentions": 0
+			},
+			"evidence": {
+				"topSupportingPatterns": [
+					"advanced/command-palette",
+					"advanced/search-results",
+					"advanced/wizard"
+				],
+				"topSupportingSections": ["Best Practices", "Accessibility"],
+				"nearestExistingGlossaryTerm": {
+					"title": "Semantic HTML",
+					"slug": "semantic-html",
+					"similarity": 0.56
+				},
+				"sampleExcerpts": [
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Best Practices",
+						"excerpt": "- Verify that command palette can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focu"
+					},
+					{
+						"patternSlug": "advanced/command-palette",
+						"section": "Accessibility",
+						"excerpt": "- [ ] Use semantic elements first, then add ARIA only where semantics alone are not enough. - [ ] Announce state changes such as errors, loading, or completion in the right place a"
+					},
+					{
+						"patternSlug": "advanced/search-results",
+						"section": "Best Practices",
+						"excerpt": "- Verify that search results can be completed using keyboard alone. - Keep focus order logical when the pattern opens, updates, or reveals additional UI. - Preserve a visible focus"
+					}
+				]
+			},
+			"normalizedProposedTerm": "semantic element",
+			"normalizedPhrase": "semantic element",
+			"draftEligibility": "blocked-low",
+			"approvalSource": null
+		}
+	]
 }

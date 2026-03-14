@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import type { Doc } from "@/lib/content";
 import { cn } from "@/lib/cn";
+import type { Doc } from "@/lib/content";
 
 interface FeaturedGuidesProps {
 	guides: Doc[];
@@ -20,7 +20,9 @@ export function FeaturedGuides({ guides }: FeaturedGuidesProps) {
 			<div className="container mx-auto px-6">
 				<div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
 					<div>
-						<p className="font-display text-sm italic text-muted-foreground">Guides</p>
+						<p className="font-display text-sm italic text-muted-foreground">
+							Guides
+						</p>
 						<h2
 							id="featured-guides-heading"
 							className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl"

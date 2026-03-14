@@ -23,8 +23,8 @@ import {
 	getPages,
 } from "@/lib/content";
 import { compileMDXContent } from "@/lib/mdx";
-import { getPatternSkill, globalPatternSkill } from "@/lib/pattern-skills";
 import { applyPatternPageSourceTransforms } from "@/lib/pattern-page-source";
+import { getPatternSkill, globalPatternSkill } from "@/lib/pattern-skills";
 import { resolveOgImageUrl } from "@/lib/resolve-og-image";
 import { siteConfig } from "@/lib/site.config";
 import { getMDXComponents } from "@/mdx-components";

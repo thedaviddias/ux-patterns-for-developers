@@ -87,14 +87,13 @@ export function FAQ() {
 	const [openIndex, setOpenIndex] = useState<number | null>(0);
 
 	return (
-		<section
-			aria-labelledby="faq-heading"
-			className="py-16 sm:py-18 lg:py-20"
-		>
+		<section aria-labelledby="faq-heading" className="py-16 sm:py-18 lg:py-20">
 			<div className="container mx-auto max-w-4xl px-6">
 				{/* Section Header */}
 				<div className="text-center mb-12">
-					<p className="font-display text-sm italic text-muted-foreground">FAQ</p>
+					<p className="font-display text-sm italic text-muted-foreground">
+						FAQ
+					</p>
 					<h2
 						id="faq-heading"
 						className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl"

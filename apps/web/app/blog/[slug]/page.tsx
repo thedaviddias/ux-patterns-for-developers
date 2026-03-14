@@ -15,9 +15,9 @@ import { generateBlogPostingSchema, JsonLd } from "@/components/json-ld";
 import { getBlogPost } from "@/lib/content";
 import { compileMDXContent } from "@/lib/mdx";
 import { siteConfig } from "@/lib/site.config";
+import { getMDXComponents } from "@/mdx-components";
 import { formatDate } from "@/utils/date";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
-import { getMDXComponents } from "@/mdx-components";
 
 interface PageProps {
 	params: Promise<{ slug: string }>;
@@ -42,7 +42,7 @@ export default async function BlogPost({ params }: PageProps) {
 	// Compile MDX content from raw file
 	const { content: mdxContent } = await compileMDXContent(
 		`blog/${slug}`,
-		getMDXComponents()
+		getMDXComponents(),
 	);
 
 	const date = new Date(pageData.date || Date.now());

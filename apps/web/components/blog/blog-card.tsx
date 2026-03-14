@@ -47,7 +47,9 @@ export function BlogCard({
 					<h3 className="text-2xl font-semibold text-card-foreground group-hover:underline underline-offset-4">
 						{title}
 					</h3>
-					<p className="text-muted-foreground text-sm leading-6">{description}</p>
+					<p className="text-muted-foreground text-sm leading-6">
+						{description}
+					</p>
 				</div>
 			</div>
 		</Link>

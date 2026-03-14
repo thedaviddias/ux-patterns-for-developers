@@ -66,15 +66,22 @@ function PatternCard({ pattern }: PatternCardProps) {
 
 			<div className="p-5">
 				<div className="mb-4 flex items-center justify-between gap-3">
-					<span className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] ${theme.badgeClass}`}>
+					<span
+						className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] ${theme.badgeClass}`}
+					>
 						{theme.label}
 					</span>
 					{pattern.icon && (
-						<pattern.icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+						<pattern.icon
+							className="h-4 w-4 text-muted-foreground"
+							aria-hidden="true"
+						/>
 					)}
 				</div>
 
-				<h3 className="text-2xl font-semibold text-foreground">{pattern.title}</h3>
+				<h3 className="text-2xl font-semibold text-foreground">
+					{pattern.title}
+				</h3>
 				<p className="mt-3 text-sm leading-6 text-muted-foreground">
 					{pattern.summary || pattern.description}
 				</p>
@@ -107,8 +114,10 @@ export function FeaturedPatterns({ categories }: FeaturedPatternsProps) {
 	if (featuredPatterns.length < 4) {
 		for (const category of categories) {
 			for (const pattern of category.patterns) {
-				if (pattern.status === "draft" || featuredPatterns.length >= 5) continue;
-				if (featuredPatterns.some((item) => item.href === pattern.href)) continue;
+				if (pattern.status === "draft" || featuredPatterns.length >= 5)
+					continue;
+				if (featuredPatterns.some((item) => item.href === pattern.href))
+					continue;
 				featuredPatterns.push(pattern);
 			}
 		}
@@ -116,7 +125,8 @@ export function FeaturedPatterns({ categories }: FeaturedPatternsProps) {
 
 	const totalPatternCount = categories.reduce(
 		(acc, category) =>
-			acc + category.patterns.filter((pattern) => pattern.status !== "draft").length,
+			acc +
+			category.patterns.filter((pattern) => pattern.status !== "draft").length,
 		0,
 	);
 

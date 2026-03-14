@@ -1,8 +1,8 @@
 "use client";
 
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import type { TocItem } from "@/lib/content";
-import { useEffect, useState, useCallback, useRef } from "react";
 
 interface TocProps {
 	items: TocItem[];
@@ -111,7 +111,9 @@ export function Toc({ items, className }: TocProps) {
 			)}
 			aria-label="Table of contents"
 		>
-			<p className="font-display text-sm italic text-muted-foreground">On this page</p>
+			<p className="font-display text-sm italic text-muted-foreground">
+				On this page
+			</p>
 			<TocList items={items} activeId={activeId} level={0} />
 		</nav>
 	);
@@ -125,7 +127,12 @@ interface TocListProps {
 
 function TocList({ items, activeId, level }: TocListProps) {
 	return (
-		<ul className={cn("space-y-1.5", level > 0 && "ml-3 border-l border-border/60 pl-3")}>
+		<ul
+			className={cn(
+				"space-y-1.5",
+				level > 0 && "ml-3 border-l border-border/60 pl-3",
+			)}
+		>
 			{items.map((item) => (
 				<TocListItem
 					key={item.url}
@@ -177,7 +184,7 @@ function TocListItem({ item, activeId, level }: TocListItemProps) {
 					"hover:text-foreground",
 					isActive
 						? "bg-background/90 font-medium text-foreground"
-						: "text-muted-foreground"
+						: "text-muted-foreground",
 				)}
 				aria-current={isActive ? "location" : undefined}
 			>
@@ -210,7 +217,7 @@ export function TocWrapper({
 				"overflow-y-auto scrollbar-none",
 				// Fallback for browsers that don't support scrollbar-none
 				"[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",
-				className
+				className,
 			)}
 		>
 			{children}

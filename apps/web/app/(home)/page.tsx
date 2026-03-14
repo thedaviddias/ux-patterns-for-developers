@@ -3,16 +3,16 @@ import {
 	StructuredDataGenerator,
 } from "@ux-patterns/seo/structured-data";
 import type { Metadata } from "next";
-import { SubscribeForm } from "@/components/subscribe";
 import { BlogHighlights } from "@/components/sections/blog-highlights";
 import { ContentEntryPoints } from "@/components/sections/content-entry-points";
 import { FAQ } from "@/components/sections/faq";
-import { FeaturedPatterns } from "@/components/sections/featured-patterns";
 import { FeaturedGuides } from "@/components/sections/featured-guides";
+import { FeaturedPatterns } from "@/components/sections/featured-patterns";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { GlossarySpotlight } from "@/components/sections/glossary-spotlight";
 import Hero from "@/components/sections/hero";
 import { StatsBar } from "@/components/sections/stats-bar";
+import { SubscribeForm } from "@/components/subscribe";
 import { getBlogPosts, getPages } from "@/lib/content";
 import { siteConfig } from "@/lib/site.config";
 import { getGlossaryTerms } from "@/utils/get-glossary-terms";

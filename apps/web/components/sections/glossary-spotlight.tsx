@@ -11,7 +11,9 @@ export function GlossarySpotlight({ terms }: GlossarySpotlightProps) {
 		return null;
 	}
 
-	const letters = Array.from(new Set(terms.map((term) => term.title[0]?.toUpperCase())))
+	const letters = Array.from(
+		new Set(terms.map((term) => term.title[0]?.toUpperCase())),
+	)
 		.filter(Boolean)
 		.slice(0, 8);
 

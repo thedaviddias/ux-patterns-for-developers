@@ -225,7 +225,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 							return (
 								<CommandGroup key={type} heading={typeLabels[type] || type}>
 									{items.map((result, index) => (
-									<CommandItem
+										<CommandItem
 											key={result.id}
 											value={result.url}
 											onSelect={() => handleSelect(result, index + 1)}

@@ -1,4 +1,10 @@
-import { ArrowRight, BookOpen, Compass, FileText, LibraryBig } from "lucide-react";
+import {
+	ArrowRight,
+	BookOpen,
+	Compass,
+	FileText,
+	LibraryBig,
+} from "lucide-react";
 import Link from "next/link";
 import type { ComponentType } from "react";
 import { cn } from "@/lib/cn";

@@ -35,9 +35,7 @@ function serializeQuickDecisionProps(data: QuickDecisionData) {
 	}
 
 	if (data.accessibilityRisk) {
-		props.push(
-			`accessibilityRisk=${JSON.stringify(data.accessibilityRisk)}`,
-		);
+		props.push(`accessibilityRisk=${JSON.stringify(data.accessibilityRisk)}`);
 	}
 
 	return props.join(" ");
