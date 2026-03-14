@@ -1,3 +1,5 @@
+import { getPatternCoverSrc } from "@/lib/pattern-cover-assets";
+
 const DEFAULT_OG_IMAGE = "/og/opengraph-image.png";
 
 export function resolveOgImageUrl(options: {
@@ -18,7 +20,7 @@ export function resolveOgImageUrl(options: {
 	}
 
 	if (options.isPatternPage && options.patternSlug) {
-		return `/og/patterns/${options.patternSlug}.png`;
+		return getPatternCoverSrc(options.patternSlug) || DEFAULT_OG_IMAGE;
 	}
 
 	return DEFAULT_OG_IMAGE;

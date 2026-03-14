@@ -11,8 +11,6 @@
 		"dev:velite": "velite --watch",
 		"sync:pattern-resources": "node scripts/sync-pattern-resources.mjs",
 		"skills:generate": "node scripts/generate-pattern-skills.mjs",
-		"art": "tsx scripts/render-pattern-art.tsx",
-		"art:render": "tsx scripts/render-pattern-art.tsx",
 		"glossary:audit": "node scripts/sync-glossary-terms.mjs --mode=audit",
 		"glossary:relevance": "node scripts/sync-glossary-terms.mjs --mode=relevance",
 		"glossary:sync": "node scripts/sync-glossary-terms.mjs --mode=sync",
@@ -26,7 +24,12 @@
 		"test:skills": "node --test scripts/pattern-skills-lib.test.mjs",
 		"audit:pattern-resources": "node scripts/audit-pattern-resources.mjs",
 		"velite:build": "velite build",
-		"postinstall": "fumadocs-mdx"
+		"postinstall": "fumadocs-mdx",
+		"art": "tsx scripts/ux-covers/generator.ts",
+		"art:generate-ai": "tsx scripts/ux-covers/generator.ts",
+		"art:optimize-ai": "tsx scripts/ux-covers/optimizer.ts",
+		"art:render": "tsx scripts/render-pattern-art.tsx",
+		"art:scan-ai": "tsx scripts/ux-covers/generator.ts --scan-only"
 	},
 	"dependencies": {
 		"@codesandbox/sandpack-react": "^2.20.0",

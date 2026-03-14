@@ -34,7 +34,7 @@ export const FaqStructuredData: React.FC<FAQProps> = ({ items }) => {
 				{items.map((item, index) => (
 					<div
 						key={`faq-item-${item.question}-${index}`}
-						className="group rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-card"
+						className="group rounded-[1.5rem] border border-border/60 bg-background/75 p-6"
 					>
 						<dl className="!m-0">
 							<dt className="text-lg font-semibold leading-snug text-neutral-900 dark:text-neutral-100 mt-0">

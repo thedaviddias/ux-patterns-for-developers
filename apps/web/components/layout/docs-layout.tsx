@@ -129,7 +129,7 @@ export function DocsBreadcrumb({
 }) {
 	return (
 		<nav aria-label="Breadcrumb" className="mb-4">
-			<ol className="flex items-center gap-2 text-sm text-muted-foreground">
+			<ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
 				{items.map((item, index) => (
 					<li
 						key={[item.href ?? "current", item.label].join(":")}
@@ -164,8 +164,7 @@ export function DocsBreadcrumb({
 export function DocsPageHeader({
 	title,
 	description,
-	category,
-	eyebrow,
+	breadcrumbs,
 	readTime,
 	lastUpdated,
 	aliases,
@@ -174,8 +173,7 @@ export function DocsPageHeader({
 }: {
 	title: string;
 	description?: string;
-	category?: string;
-	eyebrow?: string;
+	breadcrumbs?: { label: string; href?: string }[];
 	readTime?: string;
 	lastUpdated?: string;
 	aliases?: string[];
@@ -184,12 +182,8 @@ export function DocsPageHeader({
 }) {
 	return (
 		<header className="mb-0 rounded-[2rem] border border-border/70 bg-card/85 px-6 py-7 backdrop-blur sm:px-8 sm:py-8">
-			{(eyebrow || category) && (
-				<p className="font-display text-sm italic text-muted-foreground">
-					{eyebrow}
-					{eyebrow && category ? " · " : ""}
-					{category}
-				</p>
+			{breadcrumbs && breadcrumbs.length > 0 && (
+				<DocsBreadcrumb items={breadcrumbs} />
 			)}
 			<h1 className="mt-2 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
 				{title}
@@ -208,24 +202,26 @@ export function DocsPageHeader({
 					{description}
 				</p>
 			)}
-			{(readTime || lastUpdated || popularity) && (
-				<div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-					<PatternStats
-						mode="inline"
-						popularity={popularity}
-						className="mb-0 text-sm text-muted-foreground dark:text-muted-foreground"
-					/>
-					{readTime && <span>{readTime}</span>}
-					{lastUpdated && (
-						<span>
-							Last updated: {docsDateFormatter.format(new Date(lastUpdated))}
-						</span>
+			{(readTime || lastUpdated || popularity || actions) && (
+				<div className="mt-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+					<div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+						<PatternStats
+							mode="inline"
+							popularity={popularity}
+							className="mb-0 text-sm text-muted-foreground dark:text-muted-foreground"
+						/>
+						{readTime && <span>{readTime}</span>}
+						{lastUpdated && (
+							<span>
+								Last updated: {docsDateFormatter.format(new Date(lastUpdated))}
+							</span>
+						)}
+					</div>
+					{actions && (
+						<div className="flex flex-wrap items-center gap-2 md:justify-end">
+							{actions}
+						</div>
 					)}
-				</div>
-			)}
-			{actions && (
-				<div className="mt-5 flex flex-wrap items-center justify-end gap-2">
-					{actions}
 				</div>
 			)}
 		</header>

@@ -2,7 +2,10 @@
 
 import { Badge } from "@ux-patterns/ui/components/shadcn/badge";
 import { Gauge, Rocket, Zap } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { cn } from "@/lib/cn";
+import { LinkCustom } from "./link-custom";
 
 type BuildEffortProps = {
 	level: "low" | "medium" | "high";
@@ -60,7 +63,12 @@ export const BuildEffort = ({ level, description }: BuildEffortProps) => {
 		>
 			{/* Decorative pattern */}
 			<div className="absolute inset-0 opacity-5">
-				<svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+				<svg
+					aria-hidden="true"
+					className="w-full h-full"
+					focusable="false"
+					xmlns="http://www.w3.org/2000/svg"
+				>
 					<defs>
 						<pattern
 							id="build-pattern"
@@ -103,9 +111,32 @@ export const BuildEffort = ({ level, description }: BuildEffortProps) => {
 							</Badge>
 						</div>
 
-						<p className="text-sm text-muted-foreground leading-relaxed mt-1 mb-0">
-							{description}
-						</p>
+						<div className="mt-1 text-sm leading-relaxed text-muted-foreground">
+							<ReactMarkdown
+								remarkPlugins={[remarkGfm]}
+								components={{
+									a: ({ href, children }) => (
+										<LinkCustom
+											href={href ?? "#"}
+											variant="primary"
+											size="sm"
+											icon={false}
+											className="inline"
+										>
+											{children}
+										</LinkCustom>
+									),
+									p: ({ children }) => <>{children}</>,
+									code: ({ children }) => (
+										<code className="rounded bg-background/70 px-1 py-0.5 text-[0.9em] text-foreground">
+											{children}
+										</code>
+									),
+								}}
+							>
+								{description}
+							</ReactMarkdown>
+						</div>
 					</div>
 				</div>
 			</div>

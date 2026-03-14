@@ -12,6 +12,7 @@ import { MobileTableOfContents } from "@/components/blog/mobile-toc";
 import { ReadMoreSection } from "@/components/blog/read-more-section";
 import { TableOfContents } from "@/components/blog/table-of-contents";
 import { generateBlogPostingSchema, JsonLd } from "@/components/json-ld";
+import { DocsBreadcrumb } from "@/components/layout";
 import { getBlogPost } from "@/lib/content";
 import { compileMDXContent } from "@/lib/mdx";
 import { siteConfig } from "@/lib/site.config";
@@ -81,6 +82,13 @@ export default async function BlogPost({ params }: PageProps) {
 
 				<div className="relative z-10 border-b border-border/70 p-6">
 					<div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[2rem] border border-border/70 bg-card/85 px-8 py-8 backdrop-blur">
+						<DocsBreadcrumb
+							items={[
+								{ label: "Home", href: "/" },
+								{ label: "Blog", href: "/blog" },
+								{ label: pageData.title || "Article" },
+							]}
+						/>
 						<div className="flex flex-wrap items-center gap-3 gap-y-5 text-sm text-muted-foreground">
 							<Button variant="outline" asChild className="h-8 w-8 rounded-xl">
 								<Link href="/blog">

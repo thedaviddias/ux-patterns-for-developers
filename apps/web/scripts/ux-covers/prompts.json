@@ -1,0 +1,465 @@
+{
+	"basePrompt": "Create a premium cover illustration for a UX design pattern.\n\nVisual direction:\n- Bold, colorful background with depth, lighting, and strong contrast.\n- One polished product UI scene that feels specific to the pattern instead of a generic dashboard.\n- Editorial, high-end, software product aesthetic.\n- Clean composition, minimal clutter, crisp spacing, intentional hierarchy.\n\nAvoid:\n- No people, hands, devices floating in space, or photorealistic stock scenes.\n- No brand logos, watermarks, UI labels added for decoration, or large marketing text.\n- No collage of many unrelated screens.\n- No low-detail wireframes or placeholder-only mockups.",
+	"patterns": {
+		"command-palette": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Command Palette as a realistic advanced interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"search-results": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Search Results as a realistic advanced interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"wizard": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Wizard / Stepper as a realistic advanced interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"ai-chat": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show AI Chat Interface as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"ai-error-states": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show AI Error States as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"ai-loading-states": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show AI Loading States as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"ai-suggestions": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show AI Suggestions as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"context-window": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Context Window as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"model-selector": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Model Selector as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"prompt-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Prompt Input as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"response-feedback": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Response Feedback as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"streaming-response": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Streaming Response as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"token-counter": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Token Counter as a realistic ai & intelligence interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"account-settings": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Account Settings as a realistic authentication interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"login": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Login Form as a realistic authentication interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"password-reset": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Password Reset as a realistic authentication interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"signup": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Sign Up Flow as a realistic authentication interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"social-login": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Social Login as a realistic authentication interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"two-factor": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Two-Factor Authentication as a realistic authentication interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"user-profile": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show User Profile as a realistic authentication interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"accordion": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Accordion as a realistic content management interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"carousel": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Carousel as a realistic content management interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"drag-and-drop": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Drag and Drop as a realistic content management interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"expandable-text": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Expandable Text as a realistic content management interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"modal": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Modal as a realistic content management interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"popover": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Popover as a realistic content management interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"tooltip": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Tooltip as a realistic content management interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"calendar": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Calendar View as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"card-grid": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Card Grid as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"chart": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Charts & Graphs as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"comparison-table": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Design a minimalist, clean comparison table component with a light, muted background and rounded corners. It should feature four columns: 'Feature', followed by three column headers like 'Option A', 'Option B', and 'Option C' in a standard, slightly bold sans-serif font. The rows below should clearly define features, such as 'Storage' (with values like 100GB, 250GB, Unlimited), 'Users' (1, 10, Unlimited), and 'Support' (Standard, Priority, 24/7). Instead of checkmarks, use distinct, simple iconography for presence (e.g., small circles) or absence (e.g., faint dashes), and use a slightly darker background shade for the header row to provide structure."
+		},
+		"dashboard": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Dashboard Layout as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"filter-panel": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Filter Panel as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"kanban-board": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Kanban Board as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"list-view": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show List View as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"statistics": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Statistics Display as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"table": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Data Table as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"timeline": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Timeline as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"tree-view": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Tree View as a realistic data display interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"checkout": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Checkout Flow as a realistic e-commerce interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"product-card": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Product Card as a realistic e-commerce interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"shopping-cart": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Shopping Cart as a realistic e-commerce interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"autocomplete": {
+			"locked": true,
+			"promptAddon": "",
+			"subjectPrompt": "Generate a white, rounded autocomplete dropdown component with a soft drop shadow, featuring a top search area and a bottom suggestions list separated by a faint horizontal divider. The search area contains a light gray magnifying glass icon followed by the text \"Autocomple\" with an active I-beam text cursor immediately after the \"e\". The suggestions list contains three spacious items—\"Autocomplete Pattern\", \"Autocomplete Best Practices\", and \"Autocomplete Common Pitfalls\"—with the first item highlighted by a soft, light grayish-blue background. Throughout the three suggestions, use a clean, dark sans-serif font where the matched substring \"Autocomple\" is heavily bolded and the remaining text is set to a regular font weight."
+		},
+		"button": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Button as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"checkbox": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Checkbox as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"code-confirmation": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Code Confirmation as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"color-picker": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Color Picker as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"currency-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Currency Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"date-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Date Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"date-picker": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Date Picker as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"date-range": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Date Range as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"file-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show File Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"form-validation": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Form Validation as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"multi-select-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Multi-select Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"password": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Password as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"phone-number": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Phone Number as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"radio": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Radio Button as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"rating-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Rating Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"rich-text-editor": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Rich Text Editor as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"search-field": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Search Field as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"selection-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Selection Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"signature-pad": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Signature Pad as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"slider": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Slider as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"tag-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Tag Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"text-field": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Text Field as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"textarea": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Textarea as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"time-input": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Time Input as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"toggle": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Toggle as a realistic input & forms interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"image-gallery": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Image Gallery as a realistic media interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"image-upload": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Image Upload as a realistic media interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"video-player": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Video Player as a realistic media interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"back-to-top": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Back to Top as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"breadcrumb": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Breadcrumb as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"hambuger-menu": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Hamburger Menu as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"infinite-scroll": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Infinite scroll as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"link": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Link as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"load-more": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Load More as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"megamenu": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Megamenu as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"navigation-menu": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Navigation Menu as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"pagination": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Pagination as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"sidebar": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Sidebar as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"tabs": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Tabs as a realistic layout & navigation interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"activity-feed": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Activity Feed as a realistic social interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"comment-system": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Comment System as a realistic social interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"like-button": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Like Button as a realistic social interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"share-dialog": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Share Dialog as a realistic social interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"cookie-consent": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Cookie Consent as a realistic user feedback interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"empty-states": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Empty States as a realistic user feedback interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"loading-indicator": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Loading Indicator as a realistic user feedback interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"notification": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Notification as a realistic user feedback interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"progress-indicator": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Progress Indicator as a realistic user feedback interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		},
+		"skeleton": {
+			"locked": false,
+			"promptAddon": "",
+			"subjectPrompt": "Show Skeleton as a realistic user feedback interface with one clear hero interaction. Make the scene feel product-ready and immediately recognizable from the UI structure, controls, and state shown."
+		}
+	}
+}

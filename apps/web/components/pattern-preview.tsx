@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { getPatternCoverSrc } from "@/lib/pattern-cover-assets";
 
 export const PatternPreview = ({ alt }: { alt: string }) => {
@@ -9,10 +10,12 @@ export const PatternPreview = ({ alt }: { alt: string }) => {
 	const segments = pathname.split("/");
 	const patternName = segments[segments.length - 1];
 	const coverSrc = getPatternCoverSrc(patternName);
+	const [failedCoverSrc, setFailedCoverSrc] = useState<string | null>(null);
+	const hasCoverError = failedCoverSrc === coverSrc;
 
 	return (
 		<div className="pattern-preview not-prose my-6 overflow-hidden rounded-[1.75rem] border border-border/70 bg-card">
-			{coverSrc ? (
+			{coverSrc && !hasCoverError ? (
 				<Image
 					src={coverSrc}
 					alt={alt || `Example of ${patternName} pattern`}
@@ -21,6 +24,9 @@ export const PatternPreview = ({ alt }: { alt: string }) => {
 					priority
 					unoptimized
 					className="h-auto w-full"
+					onError={() => {
+						setFailedCoverSrc(coverSrc);
+					}}
 				/>
 			) : (
 				<div className="flex min-h-[280px] items-end bg-[radial-gradient(circle_at_top_left,_rgba(214,163,65,0.18),_transparent_42%),linear-gradient(135deg,_rgba(15,23,42,0.92),_rgba(15,23,42,0.72))] p-8">

@@ -10,20 +10,18 @@ import {
 	MODAL_COVER_SIZE,
 	MODAL_OG_SIZE,
 	ModalCover,
-	ModalScene,
-	type ModalSceneVariant,
 } from "../components/modal-og";
 import { PATTERNS_MAP } from "../constants/patterns";
 import {
-	DEFAULT_PATTERN_COVER_COLOR,
-	LEGACY_PATTERN_COVER_COLORS,
+	getPatternCoverAccentColor,
+	getPatternCoverBackgroundColor,
 } from "../lib/pattern-cover-colors";
 
 const execFileAsync = promisify(execFile);
 const CHROME_BIN =
 	"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
-type Variant = "og" | "cover";
+type Variant = "cover";
 type PatternArg = "all" | string;
 type SceneKind =
 	| "modal"
@@ -56,36 +54,8 @@ type RenderArgs = {
 	openPreview: boolean;
 	outDir: string;
 	pattern: PatternArg;
-	variant: "both" | Variant;
+	variant: Variant;
 	previewDir: string;
-};
-
-const CATEGORY_COVER_COLORS: Record<string, string> = {
-	advanced: "#64748b",
-	"ai-intelligence": "#80a7ff",
-	authentication: "#bf6160",
-	"content-management": "#ffb000",
-	"data-display": "#ffb000",
-	"e-commerce": "#ffb000",
-	forms: "#edf3e6",
-	media: "#64748b",
-	navigation: "#80a7ff",
-	social: "#e80058",
-	"user-feedback": "#64748b",
-};
-
-const CATEGORY_ACCENT_COLORS: Record<string, string> = {
-	advanced: "#98a4b7",
-	"ai-intelligence": "#8c88ff",
-	authentication: "#cf8078",
-	"content-management": "#d7a241",
-	"data-display": "#d9b64c",
-	"e-commerce": "#d59a45",
-	forms: "#7f9570",
-	media: "#8796aa",
-	navigation: "#89a7ff",
-	social: "#ff5f97",
-	"user-feedback": "#9aa7b6",
 };
 
 const SCENE_LAYOUTS: Record<
@@ -172,7 +142,7 @@ function parseArgs(argv: string[]): RenderArgs {
 		outDir: path.resolve(process.cwd(), "public"),
 		pattern: "all",
 		previewDir: path.resolve(process.cwd(), ".tmp/pattern-art"),
-		variant: "both",
+		variant: "cover",
 	};
 
 	const positional: string[] = [];
@@ -197,10 +167,7 @@ function parseArgs(argv: string[]): RenderArgs {
 			continue;
 		}
 		if (token === "--variant" && argv[index + 1]) {
-			const value = argv[index + 1];
-			if (value === "og" || value === "cover" || value === "both") {
-				args.variant = value;
-			}
+			args.variant = "cover";
 			index += 1;
 			continue;
 		}
@@ -217,10 +184,7 @@ function parseArgs(argv: string[]): RenderArgs {
 		args.pattern = positional[0] || args.pattern;
 	}
 	if (positional[1]) {
-		const value = positional[1];
-		if (value === "og" || value === "cover" || value === "both") {
-			args.variant = value;
-		}
+		args.variant = "cover";
 	}
 
 	return args;
@@ -383,12 +347,10 @@ async function getPatternDocs(): Promise<PatternDoc[]> {
 			return {
 				categoryLabel: category?.name || slugToTitle(categorySlug),
 				categorySlug,
-				coverBackgroundColor:
-					LEGACY_PATTERN_COVER_COLORS[
-						slug as keyof typeof LEGACY_PATTERN_COVER_COLORS
-					] ||
-					CATEGORY_COVER_COLORS[categorySlug] ||
-					DEFAULT_PATTERN_COVER_COLOR,
+				coverBackgroundColor: getPatternCoverBackgroundColor(
+					slug,
+					categorySlug,
+				),
 				description: String(data.description || ""),
 				fullSlug: `${categorySlug}/${slug}`,
 				sceneKind: inferSceneKind({ categorySlug, slug }),
@@ -1115,51 +1077,35 @@ async function renderVariant(options: {
 	gridDataUrl: string;
 	htmlDir: string;
 	outDir: string;
-	variant: Variant;
 }) {
-	const isCover = options.variant === "cover";
-	const size = isCover ? MODAL_COVER_SIZE : MODAL_OG_SIZE;
-	const ogDir = path.join(options.outDir, "og", "patterns");
+	const size = MODAL_COVER_SIZE;
 	const coverDir = path.join(options.outDir, "covers", "patterns");
-	await fs.mkdir(ogDir, { recursive: true });
 	await fs.mkdir(coverDir, { recursive: true });
 	await fs.mkdir(options.htmlDir, { recursive: true });
 
 	let element: React.ReactElement;
 	if (options.doc.slug === "modal") {
-		element = isCover
-			? React.createElement(ModalCover, {
-					coverBackgroundColor: options.doc.coverBackgroundColor,
-				})
-			: React.createElement(ModalScene, {
-					backgroundImageUrl: options.gridDataUrl,
-					variant: "og" satisfies ModalSceneVariant,
-				});
+		element = React.createElement(ModalCover, {
+			coverBackgroundColor: options.doc.coverBackgroundColor,
+		});
 	} else {
 		element = React.createElement(GenericScene, {
-			accentColor:
-				CATEGORY_ACCENT_COLORS[options.doc.categorySlug] || "#d7a241",
+			accentColor: getPatternCoverAccentColor(options.doc.categorySlug),
 			doc: options.doc,
 			gridDataUrl: options.gridDataUrl,
-			variant: options.variant,
+			variant: "cover",
 		});
 	}
 
-	const htmlPath = path.join(
-		options.htmlDir,
-		`${options.doc.slug}-${options.variant}.html`,
-	);
-	const pngPath = path.join(
-		isCover ? coverDir : ogDir,
-		`${options.doc.slug}.png`,
-	);
+	const htmlPath = path.join(options.htmlDir, `${options.doc.slug}-cover.html`);
+	const pngPath = path.join(coverDir, `${options.doc.slug}.png`);
 
 	const html = buildDocument({
 		bodyMarkup: renderToStaticMarkup(element),
 		fontCss: options.fontCss,
 		height: size.height,
 		width: size.width,
-		background: isCover ? options.doc.coverBackgroundColor : "#050505",
+		background: options.doc.coverBackgroundColor,
 	});
 
 	await fs.writeFile(htmlPath, html, "utf8");
@@ -1185,12 +1131,6 @@ async function buildPreviewPage(paths: {
 	const previewPath = path.join(paths.previewDir, "pattern-art-preview.html");
 	const items = paths.docs
 		.map((doc) => {
-			const ogPath = path.join(
-				paths.assetDir,
-				"og",
-				"patterns",
-				`${doc.slug}.png`,
-			);
 			const coverPath = path.join(
 				paths.assetDir,
 				"covers",
@@ -1200,8 +1140,8 @@ async function buildPreviewPage(paths: {
 			return `<article class="card">
   <h2>${doc.title}</h2>
   <p>${doc.categoryLabel}</p>
-  <img src="file://${ogPath}" alt="${doc.slug} og" />
-  <img class="cover" src="file://${coverPath}" alt="${doc.slug} cover" />
+  <img src="file://${coverPath}" alt="${doc.slug} shared image" />
+  <img class="cover" src="file://${coverPath}" alt="${doc.slug} pattern preview" />
 </article>`;
 		})
 		.join("");
@@ -1269,21 +1209,15 @@ async function main() {
 		"image/png",
 	);
 
-	const variants: Variant[] =
-		args.variant === "both" ? ["og", "cover"] : [args.variant];
-
 	for (const doc of selectedDocs) {
-		for (const variant of variants) {
-			const result = await renderVariant({
-				doc,
-				fontCss,
-				gridDataUrl,
-				htmlDir: path.join(args.previewDir, "html"),
-				outDir: args.outDir,
-				variant,
-			});
-			console.log(`${doc.slug}:${variant}: ${result.pngPath}`);
-		}
+		const result = await renderVariant({
+			doc,
+			fontCss,
+			gridDataUrl,
+			htmlDir: path.join(args.previewDir, "html"),
+			outDir: args.outDir,
+		});
+		console.log(`${doc.slug}:cover: ${result.pngPath}`);
 	}
 
 	const previewPath = await buildPreviewPage({

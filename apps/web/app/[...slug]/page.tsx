@@ -59,17 +59,32 @@ export default async function Page(props: {
 		params.slug[1] && params.slug[1] in PATTERNS_MAP
 			? PATTERNS_MAP[params.slug[1] as keyof typeof PATTERNS_MAP].name
 			: undefined;
-	const eyebrow = isPatternPage
-		? "Pattern"
-		: isPatternCategory
-			? "Pattern category"
-			: isPatternsIndex
-				? "Patterns"
-				: isPatternGuide
-					? "Guide"
-					: isGlossaryPage
-						? "Glossary"
-						: "Page";
+	const sectionLabels: Record<string, string> = {
+		patterns: "Patterns",
+		"pattern-guide": "Guides",
+		glossary: "Glossary",
+		blog: "Blog",
+		pages: "Pages",
+	};
+	const visibleBreadcrumbs: { label: string; href?: string }[] = [
+		{ label: "Home", href: "/" },
+		...params.slug.map((segment, index) => {
+			const isLast = index === params.slug.length - 1;
+			const href = isLast
+				? undefined
+				: `/${params.slug.slice(0, index + 1).join("/")}`;
+			const label = isLast
+				? page.title
+				: index === 0
+					? (sectionLabels[segment] ?? page.title)
+					: params.slug[0] === "patterns" && index === 1 && patternCategoryLabel
+						? patternCategoryLabel
+						: segment.charAt(0).toUpperCase() +
+							segment.slice(1).replace(/-/g, " ");
+
+			return { label, href };
+		}),
+	];
 
 	const title = page.title || "UX Patterns for Devs";
 	const description = page.description || "";
@@ -270,8 +285,7 @@ export default async function Page(props: {
 				<DocsPageHeader
 					title={page.title}
 					description={page.description}
-					category={patternCategoryLabel}
-					eyebrow={eyebrow}
+					breadcrumbs={visibleBreadcrumbs}
 					readTime={page.readTime}
 					lastUpdated={page.dateModified || page.lastModified}
 					aliases={page.aliases}

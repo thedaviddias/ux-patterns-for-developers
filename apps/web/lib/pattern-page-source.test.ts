@@ -5,7 +5,7 @@ import {
 } from "./pattern-page-source";
 
 describe("injectQuickDecisionAfterSpecimen", () => {
-	it("inserts quick decision immediately after the first PatternPreview", () => {
+	it("inserts quick decision after the Overview section when preview exists", () => {
 		const source = `---
 title: "Autocomplete"
 ---
@@ -16,7 +16,11 @@ title: "Autocomplete"
 
 ## Overview
 
-Body`;
+Body
+
+## Use Cases
+
+More body`;
 
 		const result = injectQuickDecisionAfterSpecimen(source, {
 			bestFor: ["A"],
@@ -25,19 +29,50 @@ Body`;
 
 		expect(result).toContain("<PatternPreview");
 		expect(result.indexOf("<QuickDecisionBand")).toBeGreaterThan(
-			result.indexOf("<PatternPreview"),
+			result.indexOf("Body"),
+		);
+		expect(result.indexOf("<QuickDecisionBand")).toBeGreaterThan(
+			result.indexOf("## Overview"),
 		);
 		expect(result.indexOf("<QuickDecisionBand")).toBeLessThan(
-			result.indexOf("## Overview"),
+			result.indexOf("## Use Cases"),
 		);
 	});
 
-	it("falls back to placing quick decision before Overview when no specimen exists", () => {
+	it("inserts quick decision after the Overview section when no preview exists", () => {
 		const source = `---
 title: "Autocomplete"
 ---
 
 ## Overview
+
+Body
+
+## Use Cases
+
+More body`;
+
+		const result = injectQuickDecisionAfterSpecimen(source, {
+			bestFor: ["A"],
+			complexity: "medium",
+		});
+
+		expect(result.indexOf("<QuickDecisionBand")).toBeGreaterThan(
+			result.indexOf("## Overview"),
+		);
+		expect(result.indexOf("<QuickDecisionBand")).toBeLessThan(
+			result.indexOf("## Use Cases"),
+		);
+	});
+
+	it("falls back to placing quick decision after the preview when Overview is missing", () => {
+		const source = `---
+title: "Autocomplete"
+---
+
+<PatternPreview />
+
+## Use Cases
 
 Body`;
 
@@ -46,14 +81,17 @@ Body`;
 			complexity: "medium",
 		});
 
+		expect(result.indexOf("<QuickDecisionBand")).toBeGreaterThan(
+			result.indexOf("<PatternPreview"),
+		);
 		expect(result.indexOf("<QuickDecisionBand")).toBeLessThan(
-			result.indexOf("## Overview"),
+			result.indexOf("## Use Cases"),
 		);
 	});
 });
 
 describe("applyPatternPageSourceTransforms", () => {
-	it("keeps quick decision above the overview disclosure content", () => {
+	it("places quick decision after Overview and before the overview disclosure", () => {
 		const source = `---
 title: "Autocomplete"
 ---
@@ -79,11 +117,11 @@ Body`;
 			},
 		});
 
-		expect(result.indexOf("<QuickDecisionBand")).toBeLessThan(
-			result.indexOf("<UseWithAIDisclosure"),
+		expect(result.indexOf("<QuickDecisionBand")).toBeGreaterThan(
+			result.indexOf("## Overview"),
 		);
 		expect(result.indexOf("<QuickDecisionBand")).toBeLessThan(
-			result.indexOf("## Overview"),
+			result.indexOf("<UseWithAIDisclosure"),
 		);
 	});
 });

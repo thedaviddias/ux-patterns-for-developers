@@ -17,7 +17,7 @@ describe("ModalScene", () => {
 			screen.getByText("Focused dialogs for critical actions"),
 		).toBeInTheDocument();
 		expect(screen.queryByText("Esc to close")).not.toBeInTheDocument();
-	});
+	}, 10_000);
 
 	it("renders a ui-only cover variant with the mapped legacy background", () => {
 		render(

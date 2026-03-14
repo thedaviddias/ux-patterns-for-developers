@@ -7,6 +7,7 @@ import * as Icons from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cardHoverClassName } from "../lib/card-interactions";
 import { cn } from "../lib/cn";
 import type { EnrichedPattern } from "../utils/enrich-patterns-with-icons";
 
@@ -57,10 +58,8 @@ export const RelatedPatternsCard = ({
 						href={pattern.path}
 						data-card
 						className={cn(
-							"group block p-4 rounded-lg border border-border",
-							"bg-card hover:bg-secondary/50",
-							"transition-all duration-200",
-							"hover:shadow-sm dark:hover:shadow-none",
+							"group block rounded-[1.5rem] border border-border/60 bg-background/75 p-4",
+							cardHoverClassName(),
 						)}
 					>
 						<div className="flex items-start justify-between">
@@ -69,12 +68,12 @@ export const RelatedPatternsCard = ({
 									(() => {
 										const IconComponent = getIconComponent(pattern.icon);
 										return IconComponent ? (
-											<IconComponent className="w-5 h-5 text-muted-foreground group-hover:text-primary flex-shrink-0 mt-0.5" />
+											<IconComponent className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
 										) : null;
 									})()}
 								<div className="flex-1">
 									<div className="flex items-start gap-2">
-										<h4 className="font-medium text-base text-card-foreground group-hover:text-primary mt-0">
+										<h4 className="mt-0 text-base font-medium text-card-foreground">
 											{pattern.title}
 										</h4>
 										{(() => {
@@ -120,7 +119,7 @@ export const RelatedPatternsCard = ({
 									)}
 								</div>
 							</div>
-							<ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary flex-shrink-0 ml-2 transition-transform group-hover:translate-x-0.5" />
+							<ArrowRight className="ml-2 h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
 						</div>
 					</Link>
 				))}

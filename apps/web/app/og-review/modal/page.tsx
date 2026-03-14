@@ -7,11 +7,11 @@ const mobilePreviewWidth = 390;
 const mobileScale = mobilePreviewWidth / MODAL_OG_SIZE.width;
 const mobilePreviewHeight = Math.round(MODAL_OG_SIZE.height * mobileScale);
 const coverPreviewWidth = 900;
-const ogPngRoute = "/og/patterns/modal.png";
+const ogPngRoute = "/covers/patterns/modal.png";
 const coverPngRoute = "/covers/patterns/modal.png";
 
 export const metadata: Metadata = {
-	title: "OG Review: Modal OG + Cover",
+	title: "OG Review: Shared Pattern Image",
 	robots: {
 		index: false,
 		follow: false,
@@ -29,8 +29,8 @@ export default function ModalOgReviewPage() {
 					Modal OG Prototype
 				</h1>
 				<p className="max-w-2xl text-base text-muted-foreground">
-					Compare the live OG export with the centered cover variant used by
-					pattern previews.
+					Review the single shared image used for both OG metadata and pattern
+					previews.
 				</p>
 				<div className="flex flex-wrap gap-3">
 					<Link
@@ -52,11 +52,9 @@ export default function ModalOgReviewPage() {
 
 			<section className="flex flex-col gap-4">
 				<div>
-					<h2 className="text-lg font-semibold text-foreground">
-						Desktop render
-					</h2>
+					<h2 className="text-lg font-semibold text-foreground">OG usage</h2>
 					<p className="text-sm text-muted-foreground">
-						Live PNG output from the OG route at full size.
+						The shared cover asset rendered at full OG size.
 					</p>
 				</div>
 				<div className="overflow-x-auto rounded-3xl border border-border bg-card/40 p-4">
@@ -115,10 +113,10 @@ export default function ModalOgReviewPage() {
 			<section className="flex flex-col gap-4">
 				<div>
 					<h2 className="text-lg font-semibold text-foreground">
-						Cover render
+						Shared image
 					</h2>
 					<p className="text-sm text-muted-foreground">
-						Live cover output at the same path consumed by pattern previews.
+						The same asset consumed by the pattern preview component.
 					</p>
 				</div>
 				<div className="overflow-x-auto rounded-3xl border border-border bg-card/40 p-4">

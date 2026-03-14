@@ -2,6 +2,7 @@
 
 import { ArrowRight, CheckCircle, Sparkles, XCircle } from "lucide-react";
 import Link from "next/link";
+import { cardHoverClassName } from "../lib/card-interactions";
 import { cn } from "../lib/cn";
 
 type Alternative = {
@@ -50,27 +51,27 @@ export const PatternComparison = ({
 	return (
 		<section
 			className={cn(
-				"not-prose mt-8 rounded-2xl border border-neutral-200/80 bg-gradient-to-br from-neutral-50 to-white p-5 dark:border-neutral-800 dark:from-neutral-950 dark:to-neutral-900",
+				"not-prose mt-8 rounded-[1.75rem] border border-border/70 bg-card/80 p-5 backdrop-blur",
 				className,
 			)}
 		>
 			<div className="mb-5">
 				<div className="mb-3 flex flex-wrap items-center gap-2">
-					<div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300">
+					<div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-xs font-medium text-muted-foreground">
 						<Sparkles className="h-3.5 w-3.5" />
 						Choose this vs that
 					</div>
 					{current ? (
-						<div className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-900/80 dark:bg-emerald-950/40 dark:text-emerald-300">
+						<div className="inline-flex items-center rounded-full border border-emerald-300/70 bg-emerald-50/80 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-900/80 dark:bg-emerald-950/35 dark:text-emerald-300">
 							Current pattern: {current}
 						</div>
 					) : null}
 				</div>
 				<div className="max-w-3xl">
-					<h3 className="text-xl font-semibold tracking-tight text-neutral-950 dark:text-neutral-50">
+					<h3 className="text-xl font-semibold tracking-tight text-foreground">
 						{heading}
 					</h3>
-					<p className="mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-300">
+					<p className="mt-2 text-sm leading-6 text-muted-foreground">
 						{subheading}
 					</p>
 				</div>
@@ -79,7 +80,10 @@ export const PatternComparison = ({
 			<div className={cn("grid gap-4", gridClassName)}>
 				{alternatives.map((alt) => (
 					<div
-						className="group relative flex h-full flex-col rounded-xl border border-neutral-200 bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-sm dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-neutral-700"
+						className={cn(
+							"group relative flex h-full flex-col rounded-[1.5rem] border border-border/70 bg-background/70 p-4",
+							cardHoverClassName(),
+						)}
 						key={alt.name}
 					>
 						<div className="mb-4">
@@ -87,7 +91,7 @@ export const PatternComparison = ({
 								<Link
 									href={alt.path}
 									data-card
-									className="inline-flex items-center gap-1 text-xl text-neutral-950 no-underline after:absolute after:inset-0 after:content-[''] dark:text-neutral-50"
+									className="inline-flex items-center gap-1 text-xl text-foreground no-underline after:absolute after:inset-0 after:content-['']"
 								>
 									{alt.name}
 									<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -97,25 +101,23 @@ export const PatternComparison = ({
 
 						<div className="flex flex-1 flex-col justify-between gap-4 text-sm">
 							<div>
-								<div className="mb-1 font-medium text-neutral-950 dark:text-neutral-50">
+								<div className="mb-1 font-medium text-foreground">
 									Choose when
 								</div>
-								<p className="leading-6 text-neutral-600 dark:text-neutral-300">
-									{alt.when}
-								</p>
+								<p className="leading-6 text-muted-foreground">{alt.when}</p>
 							</div>
 
 							<div className="mt-auto space-y-4">
 								{(alt.pros || alt.cons) && (
-									<div className="space-y-3 border-t border-neutral-100 pt-4 dark:border-neutral-800">
+									<div className="space-y-3 border-t border-border/60 pt-4">
 										{alt.pros ? (
 											<div className="flex items-start gap-2">
 												<CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-600 dark:text-green-400" />
 												<div>
-													<div className="font-medium text-neutral-950 dark:text-neutral-50">
+													<div className="font-medium text-foreground">
 														Why it wins
 													</div>
-													<p className="leading-6 text-neutral-600 dark:text-neutral-300">
+													<p className="leading-6 text-muted-foreground">
 														{alt.pros.join(", ")}
 													</p>
 												</div>
@@ -125,10 +127,10 @@ export const PatternComparison = ({
 											<div className="flex items-start gap-2">
 												<XCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-rose-600 dark:text-rose-400" />
 												<div>
-													<div className="font-medium text-neutral-950 dark:text-neutral-50">
+													<div className="font-medium text-foreground">
 														Tradeoffs
 													</div>
-													<p className="leading-6 text-neutral-600 dark:text-neutral-300">
+													<p className="leading-6 text-muted-foreground">
 														{alt.cons.join(", ")}
 													</p>
 												</div>
@@ -137,8 +139,8 @@ export const PatternComparison = ({
 									</div>
 								)}
 
-								<div className="border-t border-neutral-100 pt-4 dark:border-neutral-800">
-									<span className="inline-flex items-center gap-1 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+								<div className="border-t border-border/60 pt-4">
+									<span className="inline-flex items-center gap-1 text-sm font-medium text-foreground">
 										Read pattern
 										<ArrowRight className="h-4 w-4" />
 									</span>

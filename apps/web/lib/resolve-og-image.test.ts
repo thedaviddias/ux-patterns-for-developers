@@ -7,20 +7,20 @@ describe("resolveOgImageUrl", () => {
 			resolveOgImageUrl({
 				isHomepage: false,
 				isPatternPage: true,
-				pageOgImage: "/og/patterns/modal.png",
+				pageOgImage: "/covers/patterns/modal.png",
 				patternSlug: "modal",
 			}),
-		).toBe("/og/patterns/modal.png");
+		).toBe("/covers/patterns/modal.png");
 	});
 
-	it("falls back to the pattern og route when no custom image exists", () => {
+	it("falls back to the pattern cover route when no custom image exists", () => {
 		expect(
 			resolveOgImageUrl({
 				isHomepage: false,
 				isPatternPage: true,
 				patternSlug: "modal",
 			}),
-		).toBe("/og/patterns/modal.png");
+		).toBe("/covers/patterns/modal.png");
 	});
 
 	it("falls back to the site og image for non-pattern pages", () => {
@@ -40,6 +40,6 @@ describe("resolveOgImageUrl", () => {
 				pageOgImage: "  ",
 				patternSlug: "modal",
 			}),
-		).toBe("/og/patterns/modal.png");
+		).toBe("/covers/patterns/modal.png");
 	});
 });

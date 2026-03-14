@@ -15,6 +15,24 @@ type UseWithAIOptions = {
 	markdownUrl: string;
 };
 
+function getSectionInsertAt(source: string, heading: string) {
+	const sectionMatch = source.match(new RegExp(`^## ${heading}\\s*$`, "m"));
+
+	if (!sectionMatch || sectionMatch.index === undefined) {
+		return null;
+	}
+
+	const sectionStart = sectionMatch.index + sectionMatch[0].length;
+	const remaining = source.slice(sectionStart);
+	const nextSectionMatch = remaining.match(/\n##\s+/);
+
+	if (!nextSectionMatch || nextSectionMatch.index === undefined) {
+		return source.length;
+	}
+
+	return sectionStart + nextSectionMatch.index;
+}
+
 function serializeQuickDecisionProps(data: QuickDecisionData) {
 	const props: string[] = [];
 
@@ -54,21 +72,11 @@ export function injectUseWithAIIntoOverview(
 		`markdownUrl=${JSON.stringify(options.markdownUrl)}`,
 	].join(" ");
 	const insertion = `\n<UseWithAIDisclosure ${serializedProps} />\n`;
-	const overviewMatch = source.match(/^## Overview\s*$/m);
+	const insertAt = getSectionInsertAt(source, "Overview");
 
-	if (!overviewMatch || overviewMatch.index === undefined) {
+	if (insertAt === null) {
 		return `${source}${insertion}`;
 	}
-
-	const overviewStart = overviewMatch.index + overviewMatch[0].length;
-	const remaining = source.slice(overviewStart);
-	const nextSectionMatch = remaining.match(/\n##\s+/);
-
-	if (!nextSectionMatch || nextSectionMatch.index === undefined) {
-		return `${source}${insertion}`;
-	}
-
-	const insertAt = overviewStart + nextSectionMatch.index;
 	return `${source.slice(0, insertAt)}${insertion}${source.slice(insertAt)}`;
 }
 
@@ -82,6 +90,14 @@ export function injectQuickDecisionAfterSpecimen(
 	}
 
 	const insertion = `\n<QuickDecisionBand ${serializedProps} />\n`;
+	const overviewInsertAt = getSectionInsertAt(source, "Overview");
+
+	if (overviewInsertAt !== null) {
+		return `${source.slice(0, overviewInsertAt)}${insertion}${source.slice(
+			overviewInsertAt,
+		)}`;
+	}
+
 	const previewMatch = source.match(/<PatternPreview\b[\s\S]*?\/>/);
 
 	if (previewMatch && previewMatch.index !== undefined) {
@@ -89,14 +105,7 @@ export function injectQuickDecisionAfterSpecimen(
 		return `${source.slice(0, insertAt)}${insertion}${source.slice(insertAt)}`;
 	}
 
-	const overviewMatch = source.match(/^## Overview\s*$/m);
-	if (!overviewMatch || overviewMatch.index === undefined) {
-		return `${insertion}${source}`;
-	}
-
-	return `${source.slice(0, overviewMatch.index)}${insertion}${source.slice(
-		overviewMatch.index,
-	)}`;
+	return `${insertion}${source}`;
 }
 
 export function applyPatternPageSourceTransforms(

@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
  */
 const headingStyles = {
 	1: "text-4xl font-extrabold tracking-tight mt-0 mb-4",
-	2: "text-3xl font-bold tracking-tight mt-10 mb-4",
+	2: "text-3xl font-bold tracking-tight mt-4 mb-4",
 	3: "text-2xl font-semibold tracking-tight mt-8 mb-3",
 	4: "text-xl font-semibold mt-6 mb-2",
 	5: "text-lg font-semibold mt-4 mb-2",

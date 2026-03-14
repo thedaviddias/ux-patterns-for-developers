@@ -4,6 +4,7 @@ import { metadataSEO } from "@/app/metadata";
 import { MobileTableOfContents } from "@/components/blog/mobile-toc";
 import { TableOfContents } from "@/components/blog/table-of-contents";
 import { generateArticleSchema, JsonLd } from "@/components/json-ld";
+import { DocsBreadcrumb } from "@/components/layout";
 import { siteConfig } from "@/lib/site.config";
 import { source } from "@/lib/source";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
@@ -54,6 +55,9 @@ export default async function AboutPage() {
 			<div className="min-h-screen bg-background relative">
 				<div className="space-y-4 border-b border-border relative z-10">
 					<div className="max-w-7xl mx-auto flex flex-col gap-6 p-6">
+						<DocsBreadcrumb
+							items={[{ label: "Home", href: "/" }, { label: title }]}
+						/>
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance">
 							{title}
 						</h1>
