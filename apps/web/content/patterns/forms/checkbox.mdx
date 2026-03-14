@@ -18,11 +18,9 @@ A **checkbox** is a form control that allows users to select one or more options
 Checkboxes are essential for forms, settings panels, and any interface where users need to make multiple selections or toggle individual options on and off.
 
 <BuildEffort
-  level="low"
-  description="Native HTML input with optional styling enhancements. Requires proper labeling, keyboard navigation, and ARIA attributes for accessibility."
-/>
-
-<GuidesBanner
+level="low"
+  description="Native HTML input with optional styling enhancements. Requires proper labeling, [keyboard navigation](/glossary/keyboard-navigation), and [ARIA attributes](/glossary/aria-attributes) for accessibility."
+/><GuidesBanner
   title="Checkbox vs Radio vs Dropdown?"
   description="Compare selection patterns to make the right choice"
   guidePath="/pattern-guide/input-selection-guide"
@@ -342,8 +340,7 @@ Ensure minimum touch target size and consider expanding the clickable area beyon
 - **Render Time**: < 16ms for checkbox state changes
 - **Bundle Size**: < 2KB for basic checkbox implementation
 - **Memory Usage**: Minimal impact for standard checkbox groups
-- **Accessibility**: 100% keyboard navigable, screen reader compatible
-
+- **Accessibility**: 100% keyboard navigable, [screen reader](/glossary/screen-reader) compatible
 **Optimization Strategies:**
 - **Event Delegation**: Use single event listener for checkbox groups
 - **Lazy Rendering**: Only render visible checkboxes in long lists
@@ -351,10 +348,9 @@ Ensure minimum touch target size and consider expanding the clickable area beyon
 - **Virtual Scrolling**: For very large checkbox lists (100+ items)
 
 **Mobile Performance:**
-- **Touch Optimization**: 44x44px minimum touch targets
+- **Touch Optimization**: 44x44px minimum [touch targets](/glossary/touch-targets)
 - **Reduced Motion**: Respect `prefers-reduced-motion` for animations
 - **Progressive Enhancement**: Core functionality works without JavaScript
-
 ## Tracking
 
 Tracking checkbox interactions helps measure their effectiveness, determine whether users find them useful, and identify potential usability issues. By analyzing checkbox engagement, we can assess whether checkboxes enhance form completion or if users find them confusing.
@@ -472,11 +468,10 @@ The following table outlines the standard keyboard interactions for checkbox com
 
 ## SEO Considerations
 
-- **Form Structure**: Use semantic HTML with proper form elements
+- **Form Structure**: Use [semantic HTML](/glossary/semantic-html) with proper form elements
 - **Label Content**: Include relevant keywords in checkbox labels
 - **Schema Markup**: Use structured data for form elements when appropriate
 - **Progressive Enhancement**: Ensure core functionality works without JavaScript
-
 ## Testing Guidelines
 
 ### Functional Testing
@@ -539,8 +534,7 @@ The following table outlines the standard keyboard interactions for checkbox com
 
 ## Design Tokens
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
-
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 ```json
 {
   "$schema": "https://design-tokens.org/schema.json",

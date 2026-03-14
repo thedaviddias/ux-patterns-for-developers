@@ -16,9 +16,9 @@ interface SubscribeFormProps {
 const FORM_CLASSES = "w-full max-w-md mx-auto";
 const SECTION_CLASSES = {
 	inline:
-		"mt-12 mb-8 py-6 px-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-center",
+		"mt-12 mb-8 rounded-[1.5rem] border border-border/70 bg-card/80 px-6 py-6 text-center backdrop-blur",
 	default:
-		"flex flex-col mt-10 items-center justify-center py-10 px-4 text-center border border-neutral-400 dark:border-neutral-600 rounded-xl",
+		"container mx-auto mt-6 max-w-4xl rounded-[2rem] border border-border/70 bg-card/85 px-6 py-10 text-center backdrop-blur sm:px-8",
 };
 
 export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
@@ -124,13 +124,13 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 				<>
 					<h2
 						id={subscribeTitleId}
-						className="text-2xl font-bold mb-5 text-foreground"
+						className="text-3xl font-semibold text-foreground sm:text-4xl"
 					>
-						Get notified when new patterns are added!
+						Get new patterns in your inbox
 					</h2>
-					<p className="text-muted-foreground max-w-xl mx-auto mb-5">
-						Subscribe to the UX Patterns for Devs newsletter for the latest
-						updates and new pattern releases.
+					<p className="mx-auto mb-5 mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
+						Occasional updates when a new pattern, comparison guide, or major
+						reference section lands.
 					</p>
 				</>
 			)}
@@ -166,7 +166,7 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 						aria-errormessage={
 							status === "error" ? subscribeMessageId : undefined
 						}
-						className={`${getTrackingClass(variant).newsletterInputFocus} flex-1 ${isInline ? "px-3 py-1.5" : "px-4 py-2"} text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50`}
+						className={`${getTrackingClass(variant).newsletterInputFocus} flex-1 rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring/40 disabled:opacity-50`}
 					/>
 					{/* Honeypot field for basic bot mitigation */}
 					<input
@@ -181,7 +181,7 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 					<button
 						type="submit"
 						disabled={status === "loading"}
-						className={`${getTrackingClass(variant).newsletterButtonClick} ${isInline ? "px-4 py-1.5" : "px-6 py-2"} text-sm font-medium text-black bg-white hover:bg-gray-100 disabled:bg-neutral-400 disabled:cursor-not-allowed rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-neutral-300`}
+						className={`${getTrackingClass(variant).newsletterButtonClick} rounded-2xl border border-foreground bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-foreground/92 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-ring/40 focus:ring-offset-2`}
 					>
 						{status === "loading" ? "Subscribing..." : "Subscribe"}
 					</button>

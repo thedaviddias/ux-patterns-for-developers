@@ -8,7 +8,7 @@ interface AlphabetNavProps {
 
 export function AlphabetNav({ availableLetters }: AlphabetNavProps) {
 	return (
-		<div className="flex flex-wrap gap-2 mb-12">
+		<div className="mb-12 flex flex-wrap gap-2 rounded-[1.5rem] border border-border/70 bg-card/70 p-4 backdrop-blur">
 			{Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ").map((letter) => (
 				<Letter
 					key={letter}

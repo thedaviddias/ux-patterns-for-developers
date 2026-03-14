@@ -61,7 +61,10 @@ export function ReadMoreSection({
 	return (
 		<section className="border-t border-border p-0">
 			<div className="p-6 lg:p-10">
-				<h2 className="text-2xl font-medium mb-8">Read more</h2>
+				<p className="font-display text-sm italic text-muted-foreground">
+					Next reading
+				</p>
+				<h2 className="mb-8 mt-2 text-3xl font-medium">Read more</h2>
 
 				<div className="flex flex-col gap-8">
 					{otherPosts.map((post) => {

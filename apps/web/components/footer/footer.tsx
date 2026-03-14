@@ -89,7 +89,7 @@ const FooterOpenSourceLinks = () => (
 // Client component for footer content
 const FooterContent = () => {
 	return (
-		<footer className="w-full pb-5">
+		<footer className="w-full pt-10 pb-5 sm:pt-12">
 			<div className="mx-auto container px-4 border-t border-fd-border pt-12">
 				<div className="w-full">
 					<h2 className="sr-only">Footer</h2>

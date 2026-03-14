@@ -168,3 +168,55 @@ test("validatePatternStructureSource reports section order mismatches", () => {
 		failures.some((failure) => failure.startsWith("Section order mismatch.")),
 	);
 });
+
+test("validatePatternStructureSource reports headings glued to self-closing JSX", () => {
+	const source = `## Overview
+
+<BuildEffort level="medium" />## Use Cases
+
+<PatternComparison alternatives={[]} />
+
+## Benefits
+
+## Drawbacks
+
+## Anatomy
+
+## Variations
+
+## Examples
+
+<Playground patternType="forms" pattern="search-field" example="basic" />
+
+## Best Practices
+
+## Common Mistakes & Anti-Patterns 🚫
+
+## Accessibility
+
+## Validation Rules
+
+## Error Handling
+
+## Testing Guidelines
+
+## Design Tokens
+
+## Frequently Asked Questions
+
+<FaqStructuredData items={[]} />
+
+## Related Patterns
+
+<RelatedPatternsCard patterns={[]} />
+
+## Resources
+`;
+
+	const failures = validatePatternStructureSource(source, SAMPLE_CONTRACT);
+	assert.ok(
+		failures.includes(
+			"Markdown headings must start on a new line after self-closing JSX tags.",
+		),
+	);
+});

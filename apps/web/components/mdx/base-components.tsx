@@ -136,7 +136,7 @@ export function Table({
 	...props
 }: ComponentPropsWithoutRef<"table">) {
 	return (
-		<div className="my-6 w-full overflow-x-auto">
+		<div className="my-6 w-full overflow-x-auto rounded-[1.5rem] border border-border/70 bg-card/70 shadow-[0_20px_60px_-50px_rgba(15,23,42,0.45)]">
 			<table
 				className={cn("w-full border-collapse text-sm", className)}
 				{...props}
@@ -149,7 +149,15 @@ export function Thead({
 	className,
 	...props
 }: ComponentPropsWithoutRef<"thead">) {
-	return <thead className={cn("bg-muted/50", className)} {...props} />;
+	return (
+		<thead
+			className={cn(
+				"bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.04))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))]",
+				className,
+			)}
+			{...props}
+		/>
+	);
 }
 
 export function Tbody({
@@ -165,7 +173,7 @@ export function Tr({ className, ...props }: ComponentPropsWithoutRef<"tr">) {
 	return (
 		<tr
 			className={cn(
-				"border-b border-border transition-colors hover:bg-muted/50",
+				"border-b border-border/60 bg-transparent transition-colors odd:bg-background/20 even:bg-background/5 hover:bg-muted/25",
 				className,
 			)}
 			{...props}
@@ -177,7 +185,7 @@ export function Th({ className, ...props }: ComponentPropsWithoutRef<"th">) {
 	return (
 		<th
 			className={cn(
-				"px-4 py-3 text-left font-semibold text-foreground [&[align=center]]:text-center [&[align=right]]:text-right",
+				"px-4 py-3.5 text-left font-semibold text-foreground [&[align=center]]:text-center [&[align=right]]:text-right",
 				className,
 			)}
 			{...props}
@@ -189,7 +197,7 @@ export function Td({ className, ...props }: ComponentPropsWithoutRef<"td">) {
 	return (
 		<td
 			className={cn(
-				"px-4 py-3 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+				"px-4 py-3.5 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
 				className,
 			)}
 			{...props}

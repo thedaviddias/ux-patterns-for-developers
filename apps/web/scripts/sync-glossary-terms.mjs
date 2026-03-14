@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-import { runGlossarySync } from "./glossary-sync-lib.mjs";
+import {
+	runGlossaryRelevanceReport,
+	runGlossarySync,
+} from "./glossary-sync-lib.mjs";
 
 async function main() {
 	const args = process.argv.slice(2);
@@ -9,9 +12,20 @@ async function main() {
 	const dryRun = args.includes("--dry-run");
 	const mode = modeArg?.split("=")[1] ?? "audit";
 
-	if (!["audit", "sync"].includes(mode)) {
-		console.error(`Invalid mode "${mode}". Expected audit or sync.`);
+	if (!["audit", "relevance", "sync"].includes(mode)) {
+		console.error(`Invalid mode "${mode}". Expected audit, relevance, or sync.`);
 		process.exit(1);
+	}
+
+	if (mode === "relevance") {
+		const report = await runGlossaryRelevanceReport();
+
+		console.log("Glossary relevance report complete.");
+		console.log(
+			`Candidates: ${report.summary.candidates}, high: ${report.summary.high}, medium: ${report.summary.medium}, low: ${report.summary.low}.`,
+		);
+		console.log(`Report written to ${report.outputRoot}`);
+		return;
 	}
 
 	const report = await runGlossarySync({

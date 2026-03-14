@@ -109,10 +109,9 @@ SidebarContainer --> CollapseToggle[Collapse Toggle - optional]
 
 1. **Sidebar Container**
 
-- The root panel fixed to the left (or right) edge of the viewport
+- The root panel fixed to the left (or right) edge of the [viewport](/glossary/viewport)
 - Uses `<aside>` or `<nav>` with proper ARIA labeling
 - Independently scrollable when content overflows the viewport
-
 2. **Sidebar Header (Optional)**
 
 - Contains the application logo, workspace name, or user info
@@ -298,9 +297,8 @@ A sidebar divided into distinct groups with headings and visual separators.
 - Use `<nav>` or `<aside>` with `aria-label` for the sidebar landmark
 - Mark the current page with `aria-current="page"` on the active link
 - Use `aria-expanded` on collapsible section toggles
-- Support keyboard navigation: Tab between items, Enter to activate, Escape to collapse
+- Support [keyboard navigation](/glossary/keyboard-navigation): Tab between items, Enter to activate, Escape to collapse
 - Ensure the sidebar is scrollable independently when content overflows
-
 **Don'ts ❌**
 
 - Don't make the sidebar only operable via mouse or touch
@@ -329,9 +327,8 @@ A sidebar divided into distinct groups with headings and visual separators.
 
 - Convert to an overlay sidebar on mobile with a visible toggle button
 - Add a backdrop overlay that dismisses the sidebar on tap
-- Ensure touch targets are at least 44×44px for all links
+- Ensure [touch targets](/glossary/touch-targets) are at least 44×44px for all links
 - Support swipe-to-close gestures for the overlay sidebar
-
 **Don'ts ❌**
 
 - Don't display the full sidebar permanently on mobile screens
@@ -424,9 +421,8 @@ Show tooltips on hover/focus that display the full label. Ensure tooltips have p
 ### Active Item Highlight
 - **Effect:** Background color slides to the newly active item
 - **Timing:** 150ms ease-in-out
-- **Trigger:** Route change (page navigation)
+- **Trigger:** Route change ([page navigation](/glossary/pagination))
 - **Implementation:** CSS background-color transition on the active link
-
 ### Mobile Overlay Entry
 - **Effect:** Sidebar slides in from the left edge with a fading backdrop
 - **Timing:** 250ms ease for slide, 300ms for backdrop fade
@@ -618,10 +614,9 @@ const toggle = () => { setHasExpanded(true); setIsExpanded(prev => !prev); };
 
 - **Sidebar links are crawlable** — ensure all links use proper `<a>` tags with `href`
 - **Avoid duplicate content** — if sidebar and main content link to the same pages, search engines handle it well, but keep it intentional
-- **Mobile overlay content** — hidden sidebar content is still in the DOM and crawlable
+- **Mobile overlay content** — hidden sidebar content is still in the [DOM](/glossary/dom) and crawlable
 - **Navigation structure** — sidebar navigation helps search engines understand site hierarchy
 - **Render server-side** — ensure sidebar links are in the server-rendered HTML for crawler access
-
 ## Design Tokens
 
 ```json

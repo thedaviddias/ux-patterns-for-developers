@@ -24,6 +24,11 @@ const stepSchema = s.object({
 	image: s.string().optional(),
 });
 
+const compareWithSchema = s.object({
+	name: s.string(),
+	href: s.string(),
+});
+
 /**
  * Main docs schema - migrated from source.config.ts
  * Covers patterns, glossary, and general pages
@@ -63,6 +68,11 @@ const docs = defineCollection({
 			popularity: patternPopularity.optional(),
 			synonyms: s.array(s.string()).optional(),
 			related_patterns: s.array(s.string()).optional(),
+			bestFor: s.array(s.string()).optional(),
+			avoidWhen: s.array(s.string()).optional(),
+			compareWith: s.array(compareWithSchema).optional(),
+			complexity: s.enum(["low", "medium", "high"]).optional(),
+			accessibilityRisk: s.enum(["low", "medium", "high"]).optional(),
 
 			// Content metadata
 			thumbnail: s.string().optional(),
@@ -126,6 +136,7 @@ const blog = defineCollection({
 			author: s.string(),
 			date: s.isodate(),
 			image: s.string().optional(),
+			thumbnail: s.string().optional(),
 			tags: s.array(s.string()).optional(),
 			// Velite computed fields
 			body: s.mdx(),

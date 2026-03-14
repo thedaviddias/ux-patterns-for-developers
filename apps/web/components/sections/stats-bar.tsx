@@ -171,27 +171,29 @@ export function StatsBar({
 	return (
 		<section
 			aria-label="Project statistics"
-			className="border-y border-border bg-muted/30"
+			className="py-8 sm:py-10"
 		>
 			<div className="container mx-auto px-6">
-				<div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-8">
-					<StatItem
-						value={patternCount}
-						label="Patterns"
-						icon={Layers}
-						suffix="+"
-					/>
-					<StatItem
-						value={categoryCount}
-						label="Categories"
-						icon={FolderOpen}
-					/>
-					<StatItem
-						value={sectionsPerPattern}
-						label="Sections per Pattern"
-						icon={BookOpen}
-					/>
-					<GitHubStarsItem />
+				<div className="rounded-[1.75rem] border border-border/70 bg-card/80 px-4 py-2 backdrop-blur sm:px-6">
+					<div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-8">
+						<StatItem
+							value={patternCount}
+							label="Patterns"
+							icon={Layers}
+							suffix="+"
+						/>
+						<StatItem
+							value={categoryCount}
+							label="Categories"
+							icon={FolderOpen}
+						/>
+						<StatItem
+							value={sectionsPerPattern}
+							label="Sections per Pattern"
+							icon={BookOpen}
+						/>
+						<GitHubStarsItem />
+					</div>
 				</div>
 			</div>
 		</section>

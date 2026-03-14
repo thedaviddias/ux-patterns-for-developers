@@ -105,10 +105,13 @@ export function Toc({ items, className }: TocProps) {
 
 	return (
 		<nav
-			className={cn("space-y-2", className)}
+			className={cn(
+				"space-y-3 rounded-[1.5rem] border border-border/70 bg-card/80 p-5 backdrop-blur",
+				className,
+			)}
 			aria-label="Table of contents"
 		>
-			<h2 className="text-sm font-semibold">On this page</h2>
+			<p className="font-display text-sm italic text-muted-foreground">On this page</p>
 			<TocList items={items} activeId={activeId} level={0} />
 		</nav>
 	);
@@ -122,7 +125,7 @@ interface TocListProps {
 
 function TocList({ items, activeId, level }: TocListProps) {
 	return (
-		<ul className={cn("space-y-1", level > 0 && "ml-3 border-l pl-3")}>
+		<ul className={cn("space-y-1.5", level > 0 && "ml-3 border-l border-border/60 pl-3")}>
 			{items.map((item) => (
 				<TocListItem
 					key={item.url}
@@ -170,10 +173,10 @@ function TocListItem({ item, activeId, level }: TocListItemProps) {
 				href={item.url}
 				onClick={handleClick}
 				className={cn(
-					"block py-1 text-sm transition-colors",
+					"block rounded-lg px-2 py-1.5 text-sm transition-colors",
 					"hover:text-foreground",
 					isActive
-						? "font-medium text-primary"
+						? "bg-background/90 font-medium text-foreground"
 						: "text-muted-foreground"
 				)}
 				aria-current={isActive ? "location" : undefined}
@@ -202,7 +205,7 @@ export function TocWrapper({
 			className={cn(
 				"hidden xl:block",
 				"sticky top-20 h-[calc(100vh-5rem)] w-64 shrink-0",
-				"py-6 pr-4",
+				"pt-0 pb-6 pl-4",
 				// Hide scrollbar but allow scrolling if needed
 				"overflow-y-auto scrollbar-none",
 				// Fallback for browsers that don't support scrollbar-none

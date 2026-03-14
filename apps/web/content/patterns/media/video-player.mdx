@@ -220,10 +220,9 @@ Pairs playback with chapters, notes, or transcripts.
 
 ## Platform-Specific Considerations
 
-- Touch targets need more room on mobile than on desktop, especially for scrubbers, thumbnails, and upload affordances.
+- [Touch targets](/glossary/touch-targets) need more room on mobile than on desktop, especially for scrubbers, thumbnails, and upload affordances.
 - Test camera, gallery, fullscreen, and share behaviors on real mobile devices instead of assuming browser desktop emulation is enough.
 - If the media pattern appears inside a native shell or hybrid app, confirm focus, keyboard, and permission prompts still work in the right order.
-
 ## Common Mistakes & Anti-Patterns 🚫
 
 ### **Treating media as decoration only**
@@ -281,10 +280,9 @@ Treat alternate access paths as part of the core experience, not as post-launch 
 
 ### Implementation Notes
 
-- Start with semantic HTML and only add JavaScript where the interaction truly requires it.
+- Start with [semantic HTML](/glossary/semantic-html) and only add JavaScript where the interaction truly requires it.
 - Keep styling tokens and spacing consistent with adjacent controls or layouts.
 - If the live implementation introduces async behavior, mirror those states in the code example rather than documenting them only in prose.
-
 ## Accessibility
 
 ### Keyboard Interaction
@@ -315,10 +313,9 @@ Treat alternate access paths as part of the core experience, not as post-launch 
 
 ### Accessibility Testing
 
-- [ ] Run keyboard-only checks and at least one screen reader pass on the final implementation.
+- [ ] Run keyboard-only checks and at least one [screen reader](/glossary/screen-reader) pass on the final implementation.
 - [ ] Validate headings, labels, and announcement behavior with real content rather than lorem ipsum.
 - [ ] Check color contrast and focus visibility in both default and stressed states.
-
 ### Edge Cases
 
 - [ ] Test empty, long, duplicated, and unexpectedly formatted content.

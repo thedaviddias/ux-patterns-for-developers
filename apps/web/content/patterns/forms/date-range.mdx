@@ -307,17 +307,15 @@ For rental systems requiring a minimum booking period.
 
 - Announce the selected range via `aria-live="polite"`: "March 12 to March 19, 7 nights selected."
 - Use distinct `aria-label` values for start and end inputs that include their role.
-- Mark range-start, range-end, and in-range day cells with descriptive aria attributes.
+- Mark range-start, range-end, and in-range day cells with descriptive [aria attributes](/glossary/aria-attributes).
 - Announce hover-preview range changes to assistive technology users via a polite live region.
 - Announce errors (end before start, range too short/long) via `aria-live="assertive"`.
 - Allow keyboard users to set the range by navigating the calendar grid.
-
 **Don'ts ❌**
 
 - Don't use color alone to indicate range start, range end, and in-range cells.
-- Don't leave screen reader users without feedback about which selection step they're on.
+- Don't leave [screen reader](/glossary/screen-reader) users without feedback about which selection step they're on.
 - Don't trap users in an unusable state if they select an invalid range.
-
 ---
 
 ### Visual Design
@@ -642,10 +640,9 @@ A single calendar panel for a date range picker forces users to navigate months 
 **Should ✓**
 
 - [ ] Dual panel collapses to single panel on screens < 640px.
-- [ ] Touch targets are at least 44×44px for day cells.
+- [ ] [Touch targets](/glossary/touch-targets) are at least 44×44px for day cells.
 - [ ] A bottom sheet is used on mobile rather than a floating overlay.
 - [ ] Tap-to-select-start and tap-to-select-end works correctly on touch.
-
 ---
 
 ### Edge Cases

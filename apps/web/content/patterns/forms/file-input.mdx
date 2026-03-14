@@ -696,15 +696,13 @@ When a form with a file input fails server-side validation (e.g., a required tex
 
 **Should ✓**
 
-- [ ] Screen reader announces file name after selection via `aria-live`.
+- [ ] [Screen reader](/glossary/screen-reader) announces file name after selection via `aria-live`.
 - [ ] Drop zone is operable via keyboard (`Enter`/`Space`).
 - [ ] Remove buttons have `aria-label="Remove [filename]"`.
-- [ ] Progress bar has correct ARIA attributes (`role="progressbar"`, `aria-valuenow`).
+- [ ] Progress bar has correct [ARIA attributes](/glossary/aria-attributes) (`role="progressbar"`, `aria-valuenow`).
 - [ ] Error messages are announced via `aria-live="polite"` or `aria-live="assertive"`.
 - [ ] Focus is managed correctly after removing a file item.
-
 ---
-
 ### Performance Testing
 
 **Should ✓**
@@ -733,10 +731,9 @@ When a form with a file input fails server-side validation (e.g., a required tex
 **Should ✓**
 
 - [ ] File picker opens the correct source (camera, gallery, files) based on `accept` attribute.
-- [ ] Touch targets for remove buttons are at least 44×44px.
+- [ ] [Touch targets](/glossary/touch-targets) for remove buttons are at least 44×44px.
 - [ ] Drag-and-drop is gracefully skipped on mobile (where it's not natively supported).
 - [ ] File upload works correctly on iOS Safari and Android Chrome.
-
 ---
 
 ### Edge Cases
@@ -754,11 +751,11 @@ When a form with a file input fails server-side validation (e.g., a required tex
 ## Frequently Asked Questions
 
 <FaqStructuredData
-  items={[
+items={[
     {
       question: "How do I style the native file input to match my design system?",
       answer:
-        "The most reliable approach is to visually hide the native input with `opacity: 0; position: absolute;` (not `display: none`, which breaks keyboard access) and create a custom-styled button or drop zone that programmatically triggers the input via `.click()`. Keep the native input in the DOM and accessible by keyboard.",
+        "The most reliable approach is to visually hide the native input with `opacity: 0; position: absolute;` (not `display: none`, which breaks keyboard access) and create a custom-styled button or drop zone that programmatically triggers the input via `.click()`. Keep the native input in the [DOM](/glossary/dom) and accessible by keyboard.",
     },
     {
       question: "How do I implement drag-and-drop file upload?",
@@ -782,7 +779,6 @@ When a form with a file input fails server-side validation (e.g., a required tex
     },
   ]}
 />
-
 ## Related Patterns
 
 <RelatedPatternsCard category="forms" />

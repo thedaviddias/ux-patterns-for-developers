@@ -216,9 +216,8 @@ Blocks one region while preserving the rest of the page.
 **Don'ts ❌**
 
 - Do not cover key controls unless blocking interaction is intentional.
-- Do not move the viewport unexpectedly to reveal transient feedback.
+- Do not move the [viewport](/glossary/viewport) unexpectedly to reveal transient feedback.
 - Do not mix persistent and transient messages without a hierarchy rule.
-
 ## Micro-Interactions & Animations
 
 - Use motion to reinforce state change, not to create novelty for its own sake.
@@ -258,8 +257,7 @@ Pick the lightest possible feedback for the wait length and keep the pattern hon
 ### **Skipping announcement strategy**
 
 **The Problem:**
-Screen reader users miss transient changes when live-region behavior is inconsistent or absent.
-
+[Screen reader](/glossary/screen-reader) users miss transient changes when live-region behavior is inconsistent or absent.
 **How to Fix It?**
 Define how each state is announced and test polite versus assertive updates with real assistive technology.
 
@@ -288,10 +286,9 @@ Define how each state is announced and test polite versus assertive updates with
 
 ### Implementation Notes
 
-- Start with semantic HTML and only add JavaScript where the interaction truly requires it.
+- Start with [semantic HTML](/glossary/semantic-html) and only add JavaScript where the interaction truly requires it.
 - Keep styling tokens and spacing consistent with adjacent controls or layouts.
 - If the live implementation introduces async behavior, mirror those states in the code example rather than documenting them only in prose.
-
 ## Accessibility
 
 ### Keyboard Interaction
@@ -310,8 +307,7 @@ Define how each state is announced and test polite versus assertive updates with
 
 - [ ] Do not rely on color alone to convey severity, completion, or selection state.
 - [ ] Test the pattern at 200% zoom and with reduced motion enabled.
-- [ ] Ensure touch targets remain comfortable on mobile and coarse pointers.
-
+- [ ] Ensure [touch targets](/glossary/touch-targets) remain comfortable on mobile and coarse pointers.
 ## Testing Guidelines
 
 ### Functional Testing

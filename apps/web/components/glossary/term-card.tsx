@@ -11,17 +11,21 @@ interface TermCardProps {
 
 export function TermCard({ title, description, category, url }: TermCardProps) {
 	return (
-		<Card title={title} href={url}>
-			<div className="flex flex-col gap-2">
-				<p className="text-sm text-muted-foreground line-clamp-2">
+		<Card
+			title={title}
+			href={url}
+			className="rounded-[1.5rem] border-border/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(250,250,249,0.82))] p-5 dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.82),rgba(15,23,42,0.72))]"
+		>
+			<div className="flex flex-col gap-3">
+				<p className="text-sm leading-6 text-muted-foreground line-clamp-3">
 					{description}
 				</p>
 				{category.length > 0 && (
-					<div className="flex flex-wrap gap-2 mt-2">
+					<div className="mt-2 flex flex-wrap gap-2">
 						{category.map((cat) => (
 							<span
 								key={cat}
-								className="px-2 py-1 text-xs rounded-full bg-accent text-accent-foreground"
+								className="rounded-full border border-teal-200 bg-teal-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-700 dark:border-teal-900 dark:bg-teal-950/40 dark:text-teal-200"
 							>
 								{cat}
 							</span>

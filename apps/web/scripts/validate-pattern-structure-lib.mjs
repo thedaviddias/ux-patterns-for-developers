@@ -32,6 +32,12 @@ export function validatePatternStructureSource(source, contract) {
 	const failures = [];
 	const { headings, sections } = extractSections(source);
 
+	if (/\/>[ \t]*##\s+/m.test(source)) {
+		failures.push(
+			"Markdown headings must start on a new line after self-closing JSX tags.",
+		);
+	}
+
 	if (JSON.stringify(headings) !== JSON.stringify(contract.expectedSections)) {
 		failures.push(
 			`Section order mismatch. Expected: ${contract.expectedSections.join(" -> ")}. Received: ${headings.join(" -> ")}`,

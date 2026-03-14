@@ -80,10 +80,10 @@ function DocsLayoutInner({
 			<Header githubStars={githubStars} searchToggle={searchToggle} />
 
 			{/* Container for sidebar + content */}
-			<div className="container mx-auto px-4 md:px-6 flex flex-1">
+			<div className="container mx-auto flex flex-1 px-4 pt-6 pb-10 md:px-6 md:pt-8">
 				{/* Sidebar - sticky within container */}
-				<aside className="hidden md:block w-64 shrink-0">
-					<div className="sticky top-14 h-[calc(100vh-3.5rem)] overflow-hidden">
+				<aside className="hidden w-72 shrink-0 md:block">
+					<div className="sticky top-[4.75rem] h-[calc(100vh-5.5rem)] overflow-hidden pr-5">
 						<Sidebar
 							tree={tree}
 							header={sidebarHeader}
@@ -96,7 +96,7 @@ function DocsLayoutInner({
 				{/* Main content area */}
 				<div className="flex-1 min-w-0">
 					{/* Mobile sidebar trigger bar */}
-					<div className="sticky top-14 z-30 flex h-12 items-center gap-4 border-b bg-background/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
+					<div className="sticky top-14 z-30 mb-4 flex h-12 items-center gap-4 rounded-2xl border border-border/70 bg-card/85 px-4 backdrop-blur md:hidden">
 						<SidebarTrigger />
 						<span className="text-sm font-medium text-muted-foreground">
 							Navigation
@@ -104,7 +104,7 @@ function DocsLayoutInner({
 					</div>
 
 					{/* Page content - TOC is rendered by the page component */}
-					<main className="flex-1 min-w-0 px-4 py-8 md:px-8 lg:px-12">
+					<main className="min-w-0 flex-1 px-0 md:px-0">
 						{children}
 					</main>
 				</div>
@@ -167,39 +167,51 @@ export function DocsPageHeader({
 	title,
 	description,
 	category,
+	eyebrow,
 	readTime,
 	lastUpdated,
 	aliases,
 	popularity,
+	actions,
 }: {
 	title: string;
 	description?: string;
 	category?: string;
+	eyebrow?: string;
 	readTime?: string;
 	lastUpdated?: string;
 	aliases?: string[];
 	popularity?: "low" | "medium" | "high" | "trending";
+	actions?: ReactNode;
 }) {
 	return (
-		<header className="mb-4">
-			{category && (
-				<p className="text-sm font-medium text-primary mb-2">{category}</p>
+		<header className="mb-0 rounded-[2rem] border border-border/70 bg-card/85 px-6 py-7 backdrop-blur sm:px-8 sm:py-8">
+			{(eyebrow || category) && (
+				<p className="font-display text-sm italic text-muted-foreground">
+					{eyebrow}
+					{eyebrow && category ? " · " : ""}
+					{category}
+				</p>
 			)}
-			<h1 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h1>
+			<h1 className="mt-2 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+				{title}
+			</h1>
 
 			{aliases && aliases.length > 0 && (
 				<div className="mt-3 flex flex-wrap items-center gap-3">
-					<p className="text-sm text-muted-foreground italic">
+					<p className="text-sm italic text-muted-foreground">
 						Also called {aliases.join(", ")}
 					</p>
 				</div>
 			)}
 
 			{description && (
-				<p className="mt-3 text-lg text-muted-foreground">{description}</p>
+				<p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
+					{description}
+				</p>
 			)}
 			{(readTime || lastUpdated || popularity) && (
-				<div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
+				<div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
 					<PatternStats
 						mode="inline"
 						popularity={popularity}
@@ -211,6 +223,11 @@ export function DocsPageHeader({
 							Last updated: {docsDateFormatter.format(new Date(lastUpdated))}
 						</span>
 					)}
+				</div>
+			)}
+			{actions && (
+				<div className="mt-5 flex flex-wrap items-center justify-end gap-2">
+					{actions}
 				</div>
 			)}
 		</header>

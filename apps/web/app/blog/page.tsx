@@ -32,7 +32,7 @@ export default async function HomePage({
 	const sortedBlogs = allPages.filter(
 		(page) => page.url.startsWith("/blog/") && page.url !== "/blog",
 	);
-	allPages.sort((a, b) => {
+	sortedBlogs.sort((a, b) => {
 		const dateA = new Date(a.data.date).getTime();
 		const dateB = new Date(b.data.date).getTime();
 		return dateB - dateA;
@@ -67,35 +67,34 @@ export default async function HomePage({
 
 	return (
 		<div className="min-h-screen relative">
-			<div className="p-6 border-b border-border flex flex-col gap-6 min-h-[200px] justify-center relative z-10">
-				<div className="max-w-7xl mx-auto w-full">
+			<div className="border-b border-border/70 p-6 relative z-10">
+				<div className="mx-auto flex min-h-[240px] max-w-7xl flex-col justify-center gap-6 rounded-[2rem] border border-border/70 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.12),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.94),rgba(250,250,249,0.82))] px-8 py-10 dark:bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.14),transparent_20%),linear-gradient(180deg,rgba(15,23,42,0.82),rgba(15,23,42,0.72))]">
 					<div className="flex flex-col gap-2">
-						<h1 className="font-medium text-4xl md:text-5xl tracking-tighter">
+						<p className="font-display text-sm italic text-muted-foreground">
 							Blog
+						</p>
+						<h1 className="font-medium text-4xl md:text-5xl tracking-tighter">
+							Writing around patterns, product choices, and interface work
 						</h1>
-						<p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-							Latest news and updates from UX Patterns for Developers.
+						<p className="max-w-3xl text-muted-foreground text-sm md:text-base lg:text-lg leading-7">
+							Notes from the work behind UX Patterns for Developers: launches,
+							design trade-offs, and practical thinking about building better
+							interfaces.
 						</p>
 					</div>
-				</div>
-				{allTags.length > 0 && (
-					<div className="max-w-7xl mx-auto w-full">
+					{allTags.length > 0 && (
 						<TagFilter
 							tags={allTags}
 							selectedTag={selectedTag}
 							tagCounts={tagCounts}
 						/>
-					</div>
-				)}
+					)}
+				</div>
 			</div>
 
-			<div className="max-w-7xl mx-auto w-full px-6 lg:px-0">
+			<div className="max-w-7xl mx-auto w-full px-6 py-8">
 				<Suspense fallback={<div>Loading articles...</div>}>
-					<div
-						className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative overflow-hidden border-x border-border ${
-							filteredBlogs.length < 4 ? "border-b" : "border-b-0"
-						}`}
-					>
+					<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 						{filteredBlogs.map((blog) => {
 							const date = new Date(blog.data.date);
 							const formattedDate = formatDate(date);
@@ -108,7 +107,7 @@ export default async function HomePage({
 									description={blog.data.description}
 									date={formattedDate}
 									thumbnail={blog.data.thumbnail}
-									showRightBorder={filteredBlogs.length < 3}
+									showRightBorder={false}
 								/>
 							);
 						})}

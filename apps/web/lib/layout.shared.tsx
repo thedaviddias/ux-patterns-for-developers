@@ -13,7 +13,7 @@ export const linkItems: LinkItemType[] = [
 		active: "nested-url",
 	},
 	{
-		text: "Patterns Guide",
+		text: "Guides",
 		url: "/pattern-guide",
 		active: "nested-url",
 	},

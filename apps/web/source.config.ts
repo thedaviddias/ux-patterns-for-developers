@@ -35,6 +35,18 @@ export const docs = defineDocs({
 			category: z.array(z.string()).optional(),
 			synonyms: z.array(z.string()).optional(),
 			related_patterns: z.array(z.string()).optional(),
+			bestFor: z.array(z.string()).optional(),
+			avoidWhen: z.array(z.string()).optional(),
+			compareWith: z
+				.array(
+					z.object({
+						name: z.string(),
+						href: z.string(),
+					}),
+				)
+				.optional(),
+			complexity: z.enum(["low", "medium", "high"]).optional(),
+			accessibilityRisk: z.enum(["low", "medium", "high"]).optional(),
 			wordCount: z.number().optional(),
 			hideFromNav: z.boolean().optional(),
 			publishedAt: z.union([z.string(), z.date()]).optional(),
@@ -72,6 +84,7 @@ export const blog = defineCollections({
 	schema: frontmatterSchema.extend({
 		author: z.string(),
 		date: z.string().date().or(z.date()),
+		thumbnail: z.string().optional(),
 	}),
 });
 

@@ -14,10 +14,9 @@ popularity: medium
 Megamenus help users scan large navigation structures without repeated clicking, making them a staple on enterprise, e-commerce, and content-heavy websites.
 
 <BuildEffort
-  level="high"
-  description="Requires complex multi-column layouts, hover intent detection to prevent accidental triggers, full keyboard navigation across rows and columns, responsive collapse into accordion or stacked layouts on mobile, and extensive ARIA role management."
+level="high"
+  description="Requires complex multi-column layouts, hover intent detection to prevent accidental triggers, full [keyboard navigation](/glossary/keyboard-navigation) across rows and columns, responsive collapse into accordion or stacked layouts on mobile, and extensive ARIA role management."
 />
-
 ## Use Cases
 
 ### When to use:
@@ -89,9 +88,8 @@ Use **Megamenu** to **expose a large set of categorized navigation options in a 
 - **Overwhelming for small sites** – Megamenus on sites with few links feel disproportionate and confusing
 - **Hover intent challenges** – Accidental triggers from mouse movement frustrate users; requires careful delay tuning
 - **Mobile adaptation** – Wide multi-column panels must collapse into a completely different pattern on small screens
-- **Performance cost** – Large DOM structures with many links and images can impact rendering performance
+- **Performance cost** – Large [DOM](/glossary/dom) structures with many links and images can impact rendering performance
 - **Accessibility barrier** – Keyboard navigation across a 2D grid of links is complex to implement correctly
-
 ## Anatomy
 
 ```mermaid
@@ -159,8 +157,7 @@ Column3 --> Links3[Link Group]
 ## Variations
 
 ### 1. Full-Width Megamenu
-Spans the entire width of the viewport with multiple columns of equal width.
-
+Spans the entire width of the [viewport](/glossary/viewport) with multiple columns of equal width.
 **When to use:** Sites with many categories that benefit from maximum horizontal space (e-commerce, news portals).
 
 ### 2. Flyout Megamenu
@@ -342,9 +339,8 @@ Dedicates a column or row to promotional banners, new arrivals, or featured link
 
 - Collapse the megamenu into an accordion or stacked list on mobile viewports
 - Use tap-to-expand (not hover) for mobile triggers
-- Ensure touch targets are at least 44×44px for all links
+- Ensure [touch targets](/glossary/touch-targets) are at least 44×44px for all links
 - Provide a clear back or close mechanism in the mobile view
-
 **Don'ts ❌**
 
 - Don't attempt to render multi-column layouts on narrow screens
@@ -668,7 +664,7 @@ const open = () => { setHasOpened(true); setIsOpen(true); };
 ## FAQ
 
 <FaqStructuredData
-  items={[
+items={[
     {
       question: "What is a megamenu?",
       answer:
@@ -692,11 +688,10 @@ const open = () => { setHasOpened(true); setIsOpen(true); };
     {
       question: "How do I make a megamenu keyboard accessible?",
       answer:
-        "Support Enter and Space to toggle the panel open and closed. Use Escape to close and return focus to the trigger. Tab moves between links within the panel. Ensure aria-expanded, aria-haspopup, and proper heading structure are present for screen reader support.",
+        "Support Enter and Space to toggle the panel open and closed. Use Escape to close and return focus to the trigger. Tab moves between links within the panel. Ensure aria-expanded, aria-haspopup, and proper heading structure are present for [screen reader](/glossary/screen-reader) support.",
     },
   ]}
 />
-
 ## Related Patterns
 
 <RelatedPatternsCard category="navigation" />

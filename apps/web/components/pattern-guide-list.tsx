@@ -55,12 +55,13 @@ const patternGuides = [
 
 export function PatternGuideList() {
 	return (
-		<Cards>
+		<Cards className="gap-5">
 			{patternGuides.map((guide) => (
 				<Card
 					key={guide.slug}
 					title={guide.title}
 					href={`/pattern-guide/${guide.slug}`}
+					className="rounded-[1.5rem] border-border/70 bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.12),transparent_25%),linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,250,249,0.86))] p-5 transition-all duration-200 hover:-translate-y-1 hover:bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.16),transparent_25%),linear-gradient(180deg,rgba(255,255,255,0.98),rgba(250,250,249,0.9))] dark:bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.18),transparent_25%),linear-gradient(180deg,rgba(15,23,42,0.82),rgba(15,23,42,0.72))]"
 				>
 					{guide.description}
 				</Card>

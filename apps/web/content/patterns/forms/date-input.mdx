@@ -310,14 +310,12 @@ Simplified two-segment variant for card expiry dates.
 - Give each segment input an individual `aria-label`.
 - Announce validation errors via `aria-live="polite"`.
 - Use `autocomplete="bday"` for birthday fields to assist autofill.
-- Support keyboard navigation between segments with `Arrow` keys.
-
+- Support [keyboard navigation](/glossary/keyboard-navigation) between segments with `Arrow` keys.
 **Don'ts ❌**
 
 - Don't rely on placeholder text alone to communicate date format.
 - Don't use `aria-hidden` on segment separators while making them critical to understanding the format.
-- Don't skip focus management for auto-advance — screen reader users need predictable focus behavior.
-
+- Don't skip focus management for auto-advance — [screen reader](/glossary/screen-reader) users need predictable focus behavior.
 ---
 
 ### Visual Design
@@ -619,9 +617,8 @@ Always use `Intl.DateTimeFormat` to determine the correct display order for the 
 
 - [ ] `type="date"` opens the native date picker on iOS and Android.
 - [ ] Segmented inputs show numeric keyboard with `inputmode="numeric"`.
-- [ ] Touch targets are at least 44×44px per segment.
+- [ ] [Touch targets](/glossary/touch-targets) are at least 44×44px per segment.
 - [ ] Font size is at least 16px to prevent iOS auto-zoom.
-
 ---
 
 ### Edge Cases

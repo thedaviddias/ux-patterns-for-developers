@@ -200,10 +200,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
-			<DialogContent className="p-0 gap-0 max-w-2xl">
+			<DialogContent className="max-w-2xl gap-0 overflow-hidden rounded-[2rem] border border-border/70 bg-card/95 p-0 backdrop-blur">
 				<DialogTitle className="sr-only">Search documentation</DialogTitle>
-				<Command shouldFilter={false} className="rounded-lg">
-					<div className="flex items-center border-b px-3">
+				<Command shouldFilter={false} className="rounded-[2rem] bg-transparent">
+					<div className="flex items-center border-b border-border/70 px-4 py-2">
 						<Search className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
 						<CommandInput
 							placeholder="Search documentation..."
@@ -215,7 +215,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 							<Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
 						)}
 					</div>
-					<CommandList className="max-h-[400px]">
+					<CommandList className="max-h-[420px] px-2 py-2">
 						{query.length >= 2 &&
 							displayResults.length === 0 &&
 							!isSearching && <CommandEmpty>No results found.</CommandEmpty>}
@@ -225,11 +225,11 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 							return (
 								<CommandGroup key={type} heading={typeLabels[type] || type}>
 									{items.map((result, index) => (
-										<CommandItem
+									<CommandItem
 											key={result.id}
 											value={result.url}
 											onSelect={() => handleSelect(result, index + 1)}
-											className="cursor-pointer"
+											className="cursor-pointer rounded-xl"
 										>
 											<Icon className="mr-2 h-4 w-4 text-muted-foreground" />
 											<div className="flex flex-col flex-1 overflow-hidden">
@@ -256,7 +256,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 							</div>
 						)}
 					</CommandList>
-					<div className="flex items-center justify-between border-t px-3 py-2 text-xs text-muted-foreground">
+					<div className="flex items-center justify-between border-t border-border/70 px-4 py-3 text-xs text-muted-foreground">
 						<div className="flex gap-2">
 							<kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">↑↓</kbd>
 							<span>Navigate</span>

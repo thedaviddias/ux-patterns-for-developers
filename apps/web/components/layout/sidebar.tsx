@@ -120,21 +120,21 @@ export function Sidebar({
 	// Desktop variant - simple in-flow sidebar
 	if (variant === "desktop") {
 		return (
-			<div className="flex h-full flex-col border-r border-border">
-				{header && <div className="border-b px-4 py-3">{header}</div>}
+			<div className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-border/70 bg-card/80 backdrop-blur">
+				{header && <div className="border-b border-border/70 px-5 py-4">{header}</div>}
 
 				{/* Navigation */}
 				<nav
 					ref={scrollRef}
 					onScroll={handleScroll}
-					className="sidebar-scroll flex-1 overflow-y-auto px-3 py-4"
+					className="sidebar-scroll flex-1 overflow-y-auto px-4 py-4"
 					aria-label="Documentation navigation"
 				>
 					<SidebarTree nodes={tree} level={0} />
 				</nav>
 
 				{/* Footer */}
-				{footer && <div className="border-t px-4 py-3">{footer}</div>}
+				{footer && <div className="border-t border-border/70 px-5 py-4">{footer}</div>}
 			</div>
 		);
 	}
@@ -154,17 +154,17 @@ export function Sidebar({
 			{/* Sidebar */}
 			<aside
 				className={cn(
-					"fixed top-14 left-0 z-40 h-[calc(100vh-3.5rem)] w-72 border-r border-border bg-background transition-transform duration-300 ease-in-out",
+					"fixed top-16 left-4 z-40 h-[calc(100vh-5rem)] w-[min(20rem,calc(100vw-2rem))] overflow-hidden rounded-[2rem] border border-border/70 bg-card/95 shadow-[0_28px_90px_-55px_rgba(15,23,42,0.65)] backdrop-blur transition-transform duration-300 ease-in-out",
 					open ? "translate-x-0" : "-translate-x-full",
 				)}
 			>
 				<div className="flex h-full flex-col">
 					{/* Mobile header with close button */}
-					<div className="flex h-12 items-center justify-between border-b px-4">
+					<div className="flex h-14 items-center justify-between border-b border-border/70 px-5">
 						<span className="font-semibold">Navigation</span>
 						<button
 							type="button"
-							className="rounded-md p-1.5 hover:bg-accent"
+							className="rounded-xl p-2 hover:bg-accent"
 							onClick={() => setOpen(false)}
 							aria-label="Close sidebar"
 						>
@@ -172,20 +172,20 @@ export function Sidebar({
 						</button>
 					</div>
 
-					{header && <div className="border-b px-4 py-3">{header}</div>}
+					{header && <div className="border-b border-border/70 px-5 py-4">{header}</div>}
 
 					{/* Navigation */}
 					<nav
 						ref={scrollRef}
 						onScroll={handleScroll}
-						className="sidebar-scroll flex-1 overflow-y-auto px-3 py-4"
+						className="sidebar-scroll flex-1 overflow-y-auto px-4 py-4"
 						aria-label="Documentation navigation"
 					>
 						<SidebarTree nodes={tree} level={0} />
 					</nav>
 
 					{/* Footer */}
-					{footer && <div className="border-t px-4 py-3">{footer}</div>}
+					{footer && <div className="border-t border-border/70 px-5 py-4">{footer}</div>}
 				</div>
 			</aside>
 		</>
@@ -328,12 +328,13 @@ function SidebarFolder({ folder, level }: SidebarFolderProps) {
 					onKeyDown={handleKeyDown}
 					aria-expanded={isExpanded}
 					className={cn(
-						"flex w-full items-start gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
-						"hover:bg-accent hover:text-accent-foreground",
+						"flex w-full items-start gap-2 rounded-xl px-3 py-2 text-sm transition-colors",
+						"hover:bg-muted/80 hover:text-foreground",
 						"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-						(isActive || hasActiveChild) && "text-primary font-medium",
+						(isActive || hasActiveChild) &&
+							"bg-background/90 text-foreground font-medium shadow-sm",
 					)}
-					style={{ paddingLeft: `${level * 12 + 8}px` }}
+					style={{ paddingLeft: `${level * 12 + 12}px` }}
 					aria-label={`${folder.name}, ${isExpanded ? "expanded" : "collapsed"}`}
 				>
 					<ChevronRight
@@ -388,14 +389,14 @@ function SidebarItem({ item, level }: SidebarItemProps) {
 				target={item.external ? "_blank" : undefined}
 				rel={item.external ? "noopener noreferrer" : undefined}
 				className={cn(
-					"flex items-start gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
-					"hover:bg-accent hover:text-accent-foreground",
+					"flex items-start gap-2 rounded-xl px-3 py-2 text-sm transition-colors",
+					"hover:bg-muted/80 hover:text-foreground",
 					"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
 					isActive
-						? "bg-primary/10 text-primary font-medium"
+						? "bg-background/90 text-foreground font-medium shadow-sm"
 						: "text-muted-foreground",
 				)}
-				style={{ paddingLeft: `${level * 12 + 8}px` }}
+				style={{ paddingLeft: `${level * 12 + 12}px` }}
 				aria-current={isActive ? "page" : undefined}
 			>
 				{renderTreeIcon(item.icon)}
@@ -424,7 +425,7 @@ export function SidebarTrigger({ className }: { className?: string }) {
 	return (
 		<button
 			type="button"
-			className={cn("rounded-md p-2 hover:bg-accent md:hidden", className)}
+			className={cn("rounded-xl border border-border/70 bg-background/80 p-2 hover:bg-accent md:hidden", className)}
 			onClick={() => setOpen(true)}
 			aria-label="Open navigation menu"
 		>

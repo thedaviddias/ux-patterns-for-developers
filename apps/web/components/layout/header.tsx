@@ -15,7 +15,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
 	{ label: "Patterns", href: "/patterns/getting-started" },
-	{ label: "Patterns Guide", href: "/pattern-guide" },
+	{ label: "Guides", href: "/pattern-guide" },
 	{ label: "Glossary", href: "/glossary" },
 	{ label: "Blog", href: "/blog" },
 ];

@@ -5,40 +5,39 @@ export function FinalCTA() {
 	return (
 		<section
 			aria-labelledby="final-cta-heading"
-			className="pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 lg:pb-12 relative overflow-hidden"
+			className="py-16 sm:py-18 lg:py-20"
 		>
-			{/* Subtle gradient background */}
-			<div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.02] via-background to-foreground/[0.03] pointer-events-none" />
-
-			<div className="container max-w-3xl mx-auto px-6 relative">
-				<div className="text-center">
+			<div className="container relative mx-auto max-w-4xl px-6">
+				<div className="rounded-[2rem] border border-border/70 bg-card/85 px-6 py-10 text-center backdrop-blur sm:px-8">
+					<p className="font-display text-sm italic text-muted-foreground">
+						Start here
+					</p>
 					<h2
 						id="final-cta-heading"
-						className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground tracking-tight leading-tight"
+						className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl"
 					>
-						Ready to build better interfaces?
+						Start with the pattern library
 					</h2>
 
-					<p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
-						Start with the getting started guide or dive straight into the
-						patterns.
+					<p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
+						Open the getting started page if you want structure first, or go
+						straight into the patterns if you already know what you are trying
+						to build.
 					</p>
 
-					<div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-						{/* Primary CTA */}
+					<div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
 						<Link
 							href="/patterns/getting-started"
-							className="group inline-flex items-center justify-center gap-2 rounded-lg bg-foreground text-background px-6 py-3 text-base font-semibold transition-all duration-200 hover:bg-foreground/90 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+							className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-foreground px-6 py-3 text-base font-semibold text-background transition-all duration-200 hover:bg-foreground/90 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 						>
 							<BookOpen className="h-4 w-4" />
 							Getting Started Guide
 							<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
 						</Link>
 
-						{/* Secondary CTA */}
 						<Link
 							href="/patterns"
-							className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-6 py-3 text-base font-medium text-foreground transition-all duration-200 hover:bg-muted hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+							className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border px-6 py-3 text-base font-medium text-foreground transition-all duration-200 hover:bg-muted hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 						>
 							<Layers className="h-4 w-4" />
 							Browse All Patterns

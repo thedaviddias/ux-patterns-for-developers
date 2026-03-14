@@ -1,11 +1,9 @@
-import { cn } from "@ux-patterns/ui/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Compass, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { TRACKING_CLASSES } from "@/lib/tracking";
 import { getPatternCategories } from "@/utils/get-pattern-categories";
 
 export default async function Hero() {
-	// Get pattern count dynamically
 	const categories = await getPatternCategories();
 	const patternCount = categories.reduce(
 		(acc, cat) => acc + cat.patterns.filter((p) => p.status !== "draft").length,
@@ -14,53 +12,45 @@ export default async function Hero() {
 	const categoryCount = categories.length;
 
 	return (
-		<section className="relative overflow-hidden py-12 md:py-20 lg:py-24">
-			{/* Subtle gradient background */}
-			<div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background to-muted/20" />
+		<section className="relative overflow-hidden pt-14 pb-10 md:pt-20 md:pb-14 lg:pt-24 lg:pb-16">
+			<div className="absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.30),transparent_34%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.16),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,255,255,0.75))] dark:bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.18),transparent_30%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.14),transparent_24%),linear-gradient(180deg,rgba(2,6,23,0.96),rgba(2,6,23,0.72))]" />
 
-			<div className="container max-w-4xl mx-auto px-6 text-center">
-				{/* Trust Badge */}
-				<Link
-					href="/patterns"
-					className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 backdrop-blur-sm px-4 py-2 text-sm font-medium transition-all hover:border-foreground/30 hover:bg-muted/50 mb-8"
-				>
-					<span className="inline-flex items-center rounded-full bg-foreground text-background px-2.5 py-0.5 text-xs font-bold tabular-nums">
-						{patternCount}+
-					</span>
-					<span className="text-muted-foreground">
-						UX Patterns across {categoryCount} categories
-					</span>
-				</Link>
+			<div className="container mx-auto flex flex-col items-center px-6 text-center">
+				<div className="max-w-4xl">
+					<div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/75 px-4 py-2 text-sm font-medium text-muted-foreground backdrop-blur">
+						<Sparkles className="h-4 w-4 text-orange-500" />
+						<span>{patternCount}+ patterns across {categoryCount} categories</span>
+					</div>
 
-				{/* Main Headline */}
-				<h1
-					className={cn(
-						"text-foreground",
-						"mx-auto max-w-3xl",
-						"text-balance font-semibold tracking-tight",
-						"text-4xl sm:text-5xl md:text-6xl lg:text-7xl",
-						"leading-[1.1]",
-					)}
-				>
-					The Developer's Guide to UX Patterns
-				</h1>
+					<h1 className="mx-auto mt-8 max-w-5xl text-balance text-5xl font-semibold leading-[0.97] text-foreground sm:text-6xl lg:text-7xl">
+						UX patterns and reference tools for{" "}
+						<span className="font-display italic text-orange-700 dark:text-orange-300">
+							better interface decisions
+						</span>
+					</h1>
 
-				{/* Subheadline */}
-				<p className="mx-auto mt-6 max-w-2xl text-balance text-lg text-muted-foreground md:text-xl leading-relaxed">
-					Comprehensive documentation covering{" "}
-					<span className="text-foreground font-medium">when to use</span> each
-					pattern, accessibility guidelines, and real implementation examples.
-				</p>
+					<p className="mx-auto mt-6 max-w-3xl text-balance text-lg leading-8 text-muted-foreground md:text-xl">
+						Study proven UI patterns, compare tradeoffs, learn the vocabulary,
+						and read the thinking behind interaction design without bouncing
+						between ten different resources.
+					</p>
 
-				{/* CTA */}
-				<div className="mt-10 flex items-center justify-center">
-					<Link
-						href="/patterns"
-						className={`${TRACKING_CLASSES.BROWSE_PATTERNS_CLICK} group inline-flex items-center justify-center gap-2 rounded-lg bg-foreground text-background px-6 py-3 text-base font-semibold transition-all duration-200 hover:bg-foreground/90 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`}
-					>
-						Browse Patterns
-						<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-					</Link>
+					<div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+						<Link
+							href="/patterns"
+							className={`${TRACKING_CLASSES.BROWSE_PATTERNS_CLICK} group inline-flex items-center justify-center gap-2 rounded-2xl bg-foreground px-6 py-3.5 text-base font-semibold text-background transition-all duration-200 hover:bg-foreground/92`}
+						>
+							Browse Patterns
+							<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+						</Link>
+						<Link
+							href="/pattern-guide"
+							className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-background/70 px-6 py-3.5 text-base font-semibold text-foreground backdrop-blur transition-colors hover:bg-card"
+						>
+							Open Decision Guides
+							<Compass className="h-4 w-4" />
+						</Link>
+					</div>
 				</div>
 			</div>
 		</section>

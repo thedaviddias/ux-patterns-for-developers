@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 interface FAQItem {
@@ -45,10 +45,10 @@ interface FAQItemComponentProps {
 function FAQItemComponent({ item, isOpen, onToggle }: FAQItemComponentProps) {
 	return (
 		<div
-			className={`border border-border rounded-xl overflow-hidden transition-all duration-200 ${
+			className={`overflow-hidden rounded-[1.5rem] border border-border/70 transition-all duration-200 ${
 				isOpen
 					? "bg-muted/30 border-foreground/20"
-					: "hover:border-foreground/10 hover:bg-muted/10"
+					: "bg-background/70 hover:border-foreground/10 hover:bg-muted/10"
 			}`}
 		>
 			<button
@@ -89,30 +89,26 @@ export function FAQ() {
 	return (
 		<section
 			aria-labelledby="faq-heading"
-			className="py-16 sm:py-20 lg:py-24 bg-muted/20"
+			className="py-16 sm:py-18 lg:py-20"
 		>
-			<div className="container max-w-3xl mx-auto px-6">
+			<div className="container mx-auto max-w-4xl px-6">
 				{/* Section Header */}
 				<div className="text-center mb-12">
-					<div className="inline-flex items-center gap-2 mb-3">
-						<HelpCircle className="h-5 w-5 text-muted-foreground" />
-						<span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-							FAQ
-						</span>
-					</div>
+					<p className="font-display text-sm italic text-muted-foreground">FAQ</p>
 					<h2
 						id="faq-heading"
-						className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight"
+						className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl"
 					>
-						Frequently Asked Questions
+						Common questions about the library
 					</h2>
-					<p className="mt-3 text-muted-foreground">
-						Everything you need to know about UX Patterns for Devs
+					<p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
+						Short answers about what the project covers, how it differs from UI
+						libraries, and how to use it in real product work.
 					</p>
 				</div>
 
 				{/* FAQ Items */}
-				<div className="space-y-3">
+				<div className="space-y-3 rounded-[2rem] border border-border/70 bg-card/80 p-4 backdrop-blur sm:p-5">
 					{FAQ_ITEMS.map((item, index) => (
 						<FAQItemComponent
 							key={item.question}

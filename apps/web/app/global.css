@@ -126,77 +126,87 @@ html.dark .shiki span,
 
 :root {
 	--radius: 0.625rem;
-	--background: 0 0% 100%;
-	--foreground: 222.2 84% 4.9%;
+	--background: 48 33% 97%;
+	--foreground: 224 32% 12%;
 	--card: 0 0% 100%;
-	--card-foreground: 222.2 84% 4.9%;
+	--card-foreground: 224 32% 12%;
 	--popover: 0 0% 100%;
-	--popover-foreground: 222.2 84% 4.9%;
-	--primary: 222.2 47.4% 11.2%;
+	--popover-foreground: 224 32% 12%;
+	--primary: 224 36% 14%;
 	--primary-foreground: 210 40% 98%;
-	--secondary: 210 40% 96%;
-	--secondary-foreground: 222.2 84% 4.9%;
-	--muted: 210 40% 96%;
-	--muted-foreground: 215.4 16.3% 46.9%;
-	--accent: 210 40% 96%;
-	--accent-foreground: 222.2 84% 4.9%;
+	--secondary: 44 43% 93%;
+	--secondary-foreground: 224 32% 12%;
+	--muted: 42 38% 93%;
+	--muted-foreground: 222 15% 38%;
+	--accent: 34 83% 88%;
+	--accent-foreground: 224 32% 12%;
 	--destructive: 0 84.2% 60.2%;
-	--border: 214.3 31.8% 91.4%;
-	--input: 214.3 31.8% 91.4%;
-	--ring: 222.2 84% 4.9%;
-	--chart-1: 12 76% 61%;
-	--chart-2: 173 58% 39%;
-	--chart-3: 197 37% 24%;
-	--chart-4: 43 74% 66%;
-	--chart-5: 27 87% 67%;
-	--sidebar: 0 0% 98%;
-	--sidebar-foreground: 222.2 84% 4.9%;
-	--sidebar-primary: 222.2 47.4% 11.2%;
+	--border: 32 24% 84%;
+	--input: 32 24% 84%;
+	--ring: 224 36% 14%;
+	--chart-1: 22 89% 61%;
+	--chart-2: 164 65% 39%;
+	--chart-3: 213 75% 46%;
+	--chart-4: 342 84% 58%;
+	--chart-5: 48 95% 56%;
+	--sidebar: 42 43% 95%;
+	--sidebar-foreground: 224 32% 12%;
+	--sidebar-primary: 224 36% 14%;
 	--sidebar-primary-foreground: 210 40% 98%;
-	--sidebar-accent: 210 40% 96%;
-	--sidebar-accent-foreground: 222.2 84% 4.9%;
-	--sidebar-border: 214.3 31.8% 91.4%;
-	--sidebar-ring: 222.2 84% 4.9%;
+	--sidebar-accent: 34 83% 88%;
+	--sidebar-accent-foreground: 224 32% 12%;
+	--sidebar-border: 32 24% 84%;
+	--sidebar-ring: 224 36% 14%;
 
-	--color-1: 12 76% 61%;
-	--color-2: 315 70% 50%;
-	--color-3: 262 83% 58%;
-	--color-4: 221 83% 53%;
-	--color-5: 142 76% 73%;
+	--specimen-surface: 223 28% 9%;
+	--specimen-surface-foreground: 32 33% 97%;
+	--specimen-muted: 223 18% 22%;
+	--specimen-border: 223 16% 18%;
+	--atlas-orange: 29 96% 58%;
+	--atlas-amber: 43 96% 62%;
+	--atlas-teal: 168 76% 38%;
+	--atlas-blue: 214 83% 49%;
+	--atlas-pink: 336 86% 54%;
+	--atlas-violet: 263 69% 60%;
 }
 
 .dark {
-	--background: 0 0% 3.9%;
-	--foreground: 0 0% 98%;
-	--card: 0 0% 3.9%;
-	--card-foreground: 0 0% 98%;
-	--popover: 0 0% 3.9%;
-	--popover-foreground: 0 0% 98%;
-	--primary: 0 0% 98%;
-	--primary-foreground: 0 0% 3.9%;
-	--secondary: 0 0% 14.9%;
-	--secondary-foreground: 0 0% 98%;
-	--muted: 0 0% 14.9%;
-	--muted-foreground: 0 0% 63.9%;
-	--accent: 0 0% 14.9%;
-	--accent-foreground: 0 0% 98%;
+	--background: 224 32% 8%;
+	--foreground: 40 36% 96%;
+	--card: 224 28% 10%;
+	--card-foreground: 40 36% 96%;
+	--popover: 224 28% 10%;
+	--popover-foreground: 40 36% 96%;
+	--primary: 40 36% 96%;
+	--primary-foreground: 224 32% 8%;
+	--secondary: 223 20% 17%;
+	--secondary-foreground: 40 36% 96%;
+	--muted: 223 20% 15%;
+	--muted-foreground: 35 14% 72%;
+	--accent: 223 20% 17%;
+	--accent-foreground: 40 36% 96%;
 	--destructive: 0 62.8% 30.6%;
-	--border: 0 0% 14.9%;
-	--input: 0 0% 14.9%;
-	--ring: 0 0% 83.1%;
-	--chart-1: 220 70% 50%;
-	--chart-2: 160 60% 45%;
-	--chart-3: 30 80% 55%;
-	--chart-4: 280 65% 60%;
-	--chart-5: 340 75% 55%;
-	--sidebar: 0 0% 3.9%;
-	--sidebar-foreground: 0 0% 98%;
-	--sidebar-primary: 0 0% 98%;
-	--sidebar-primary-foreground: 0 0% 3.9%;
-	--sidebar-accent: 0 0% 14.9%;
-	--sidebar-accent-foreground: 0 0% 98%;
-	--sidebar-border: 0 0% 14.9%;
-	--sidebar-ring: 0 0% 83.1%;
+	--border: 223 18% 20%;
+	--input: 223 18% 20%;
+	--ring: 35 29% 88%;
+	--chart-1: 29 96% 58%;
+	--chart-2: 168 76% 40%;
+	--chart-3: 214 83% 56%;
+	--chart-4: 336 86% 62%;
+	--chart-5: 48 95% 60%;
+	--sidebar: 224 32% 8%;
+	--sidebar-foreground: 40 36% 96%;
+	--sidebar-primary: 40 36% 96%;
+	--sidebar-primary-foreground: 224 32% 8%;
+	--sidebar-accent: 223 20% 17%;
+	--sidebar-accent-foreground: 40 36% 96%;
+	--sidebar-border: 223 18% 20%;
+	--sidebar-ring: 35 29% 88%;
+
+	--specimen-surface: 223 28% 10%;
+	--specimen-surface-foreground: 40 36% 96%;
+	--specimen-muted: 223 18% 24%;
+	--specimen-border: 223 16% 20%;
 }
 
 /* Custom scrollbar - hidden by default, visible on hover */
@@ -261,9 +271,47 @@ html.dark .shiki span,
   margin-top: 0.5rem !important;
 }
 
+html {
+	background:
+		radial-gradient(circle at top, hsl(var(--accent) / 0.35), transparent 40%),
+		linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+}
+
+body {
+	font-family: var(--font-ui), ui-sans-serif, system-ui, sans-serif;
+	background:
+		radial-gradient(circle at top right, hsl(var(--accent) / 0.25), transparent 30%),
+		radial-gradient(circle at top left, hsl(var(--chart-2) / 0.08), transparent 20%),
+		linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+	color: hsl(var(--foreground));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: -0.03em;
+}
+
+.font-display {
+	font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+.specimen-surface {
+	background: hsl(var(--specimen-surface));
+	color: hsl(var(--specimen-surface-foreground));
+	border-color: hsl(var(--specimen-border));
+	box-shadow:
+		0 28px 80px -44px hsl(var(--foreground) / 0.45),
+		0 14px 36px -28px hsl(var(--foreground) / 0.28);
+}
+
 @theme inline {
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+	--font-sans: var(--font-ui);
+	--font-serif: var(--font-display);
+	--font-mono: var(--font-mono-source);
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
@@ -299,6 +347,10 @@ html.dark .shiki span,
 	--color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
 	--color-sidebar-border: hsl(var(--sidebar-border));
 	--color-sidebar-ring: hsl(var(--sidebar-ring));
+	--color-specimen-surface: hsl(var(--specimen-surface));
+	--color-specimen-surface-foreground: hsl(var(--specimen-surface-foreground));
+	--color-specimen-muted: hsl(var(--specimen-muted));
+	--color-specimen-border: hsl(var(--specimen-border));
 	
 	/* Text sizes for headings */
 	--text-4xl: 2.25rem;

@@ -79,10 +79,10 @@ export default async function BlogPost({ params }: PageProps) {
 			<div className="min-h-screen relative">
 				<HashScrollHandler />
 
-				<div className="space-y-4 border-b border-border relative z-10">
-					<div className="max-w-7xl mx-auto flex flex-col gap-6 p-6">
+				<div className="relative z-10 border-b border-border/70 p-6">
+					<div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[2rem] border border-border/70 bg-card/85 px-8 py-8 backdrop-blur">
 						<div className="flex flex-wrap items-center gap-3 gap-y-5 text-sm text-muted-foreground">
-							<Button variant="outline" asChild className="h-6 w-6">
+							<Button variant="outline" asChild className="h-8 w-8 rounded-xl">
 								<Link href="/blog">
 									<ArrowLeft className="w-4 h-4" />
 									<span className="sr-only">Back to all articles</span>
@@ -93,7 +93,7 @@ export default async function BlogPost({ params }: PageProps) {
 									{pageData.tags.map((tag: string) => (
 										<span
 											key={tag}
-											className="h-6 w-fit px-3 text-sm font-medium bg-muted text-muted-foreground rounded-md border flex items-center justify-center"
+											className="flex h-7 w-fit items-center justify-center rounded-xl border border-border/70 bg-background px-3 text-sm font-medium text-muted-foreground"
 										>
 											{tag}
 										</span>
@@ -105,22 +105,24 @@ export default async function BlogPost({ params }: PageProps) {
 							</time>
 						</div>
 
+						<p className="font-display text-sm italic text-muted-foreground">
+							Blog
+						</p>
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance">
 							{pageData.title}
 						</h1>
 
 						{pageData.description && (
-							<p className="text-muted-foreground max-w-4xl md:text-lg md:text-balance">
+							<p className="max-w-4xl text-muted-foreground md:text-lg md:text-balance leading-8">
 								{pageData.description}
 							</p>
 						)}
 					</div>
 				</div>
-				<div className="flex divide-x divide-border relative max-w-7xl mx-auto px-4 md:px-0 z-10">
-					<div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full border-x border-border p-0 pointer-events-none" />
-					<main className="w-full p-0 overflow-hidden">
+				<div className="relative z-10 mx-auto flex max-w-7xl gap-8 px-6 py-8">
+					<main className="w-full overflow-hidden rounded-[2rem] border border-border/70 bg-card/80 backdrop-blur">
 						{pageData.image && (
-							<div className="relative w-full h-[500px] overflow-hidden object-cover border border-transparent">
+							<div className="relative h-[500px] w-full overflow-hidden border-b border-border/70 object-cover">
 								<Image
 									src={pageData.image}
 									alt={pageData.title || ""}
@@ -143,16 +145,18 @@ export default async function BlogPost({ params }: PageProps) {
 						</div>
 					</main>
 
-					<aside className="hidden lg:block w-[350px] flex-shrink-0 p-6 lg:p-10 bg-muted/60 dark:bg-muted/20">
+					<aside className="hidden w-[350px] flex-shrink-0 lg:block">
 						<div className="sticky top-20 space-y-8">
-							<AuthorCard
-								author={{
-									name: AUTHOR.name,
-									position: "UX Patterns for Developers Creator",
-									avatar: "/authors/thedaviddias.webp",
-								}}
-							/>
-							<div className="border border-border rounded-lg p-6 bg-card">
+							<div className="rounded-[2rem] border border-border/70 bg-card/80 p-6 backdrop-blur">
+								<AuthorCard
+									author={{
+										name: AUTHOR.name,
+										position: "UX Patterns for Developers Creator",
+										avatar: "/authors/thedaviddias.webp",
+									}}
+								/>
+							</div>
+							<div className="rounded-[2rem] border border-border/70 bg-card/80 p-6 backdrop-blur">
 								<TableOfContents />
 							</div>
 						</div>

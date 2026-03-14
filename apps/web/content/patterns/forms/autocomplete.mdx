@@ -6,6 +6,23 @@ icon: Search
 status: complete
 aliases: ["autosuggest"]
 popularity: high
+bestFor:
+  - Long option lists where typing can narrow the field
+  - Inputs where users may know only part of the answer
+  - Repeated data entry that benefits from speed
+avoidWhen:
+  - The option set is short enough for radio buttons or select
+  - Matching is unreliable and suggestions will feel noisy
+  - Users need to compare all options at once
+compareWith:
+  - name: "Selection Input"
+    href: "/patterns/forms/selection-input"
+  - name: "Search Field"
+    href: "/patterns/forms/search-field"
+  - name: "Multi-select Input"
+    href: "/patterns/forms/multi-select-input"
+complexity: medium
+accessibilityRisk: high
 ---
 
 import { Playground } from "@/components/playground";
@@ -19,12 +36,11 @@ import { Playground } from "@/components/playground";
 Autocomplete combines [text input](/patterns/forms/text-field) flexibility with dropdown-style selection, providing real-time suggestions matching user input. This pattern reduces errors, speeds data entry, and improves form completion.
 
 <BuildEffort
-  level="medium"
-  description="Requires live filtering, real-time suggestion updates, keyboard navigation, and screen reader compatibility using ARIA attributes."
+level="medium"
+  description="Requires live filtering, real-time suggestion updates, [keyboard navigation](/glossary/keyboard-navigation), and [screen reader](/glossary/screen-reader) compatibility using [ARIA attributes](/glossary/aria-attributes)."
 />
 
 ## Use Cases
-
 ### When to use:
 
 - Users select from large sets of predefined options (country selection, airport codes)
@@ -140,8 +156,6 @@ graph TD
 
 ![Do and Don't for Content - 1](/patterns/autocomplete/do-dont-content-1.webp)
 
-![Do and Don't for Content - 2](/patterns/autocomplete/do-dont-content-2.webp)
-
 **Do's ✅**
 
 - Provide a descriptive label that indicates the purpose of the Autocomplete field
@@ -156,10 +170,6 @@ graph TD
 
 ![Do and Don't for Accessibility - 1](/patterns/autocomplete/do-dont-accessibility-1.webp)
 
-![Do and Don't for Accessibility - 2](/patterns/autocomplete/do-dont-accessibility-2.webp)
-
-![Do and Don't for Accessibility - 3](/patterns/autocomplete/do-dont-accessibility-3.webp)
-
 **Do's ✅**
 
 - Use `aria-controls`, `aria-autocomplete`, and other relevant ARIA attributes to help screen readers
@@ -172,8 +182,6 @@ graph TD
 - Don't assume all users can use a mouse; ensure keyboard navigation works properly
 
 ### Visual Design
-
-![Do and Don't for Visual Design - 1](/patterns/autocomplete/do-dont-visual-design-1.webp)
 
 ![Do and Don't for Visual Design - 2](/patterns/autocomplete/do-dont-visual-design-2.webp)
 
@@ -188,10 +196,6 @@ graph TD
 - Don't create a cluttered or confusing interface by mixing too many design elements
 
 ### Layout & Positioning
-
-![Do and Don't for Layout & Positioning - 1](/patterns/autocomplete/do-dont-layout-positioning-1.webp)
-
-![Do and Don't for Layout & Positioning - 2](/patterns/autocomplete/do-dont-layout-positioning-2.webp)
 
 **Do's ✅**
 

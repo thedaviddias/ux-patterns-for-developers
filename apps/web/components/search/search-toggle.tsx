@@ -38,14 +38,14 @@ export function SearchToggle({ className }: SearchToggleProps) {
 				type="button"
 				onClick={handleOpen}
 				className={cn(
-					"inline-flex items-center gap-2 rounded-md border bg-background px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
+					"inline-flex items-center gap-2 rounded-2xl border border-border/70 bg-card/85 px-3.5 py-2 text-sm text-muted-foreground backdrop-blur transition-colors hover:bg-muted hover:text-foreground",
 					className,
 				)}
 				aria-label="Search documentation"
 			>
 				<Search className="h-4 w-4" />
 				<span className="hidden sm:inline">Search...</span>
-				<kbd className="hidden rounded bg-muted px-1.5 py-0.5 font-mono text-xs md:inline">
+				<kbd className="hidden rounded-lg bg-background px-1.5 py-0.5 font-mono text-xs md:inline">
 					{isMac ? "⌘K" : "Ctrl+K"}
 				</kbd>
 			</button>

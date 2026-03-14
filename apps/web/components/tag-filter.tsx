@@ -42,19 +42,19 @@ function DesktopTagFilter({
 					type="button"
 					key={tag}
 					onClick={() => onTagClick(tag)}
-					className={`h-8 flex items-center px-1 pl-3 rounded-lg cursor-pointer border text-sm transition-colors ${
+					className={`flex h-9 items-center rounded-2xl border px-1 pl-3 text-sm transition-colors ${
 						selectedTag === tag
-							? "border-primary bg-primary text-primary-foreground"
-							: "border-border hover:bg-muted"
+							? "border-foreground bg-foreground text-background"
+							: "border-border/70 bg-background/70 hover:bg-muted"
 					}`}
 				>
 					<span>{tag}</span>
 					{tagCounts?.[tag] && (
 						<span
-							className={`ml-2 text-xs border rounded-md h-6 min-w-6 font-medium flex items-center justify-center ${
+							className={`ml-2 flex h-6 min-w-6 items-center justify-center rounded-xl border text-xs font-medium ${
 								selectedTag === tag
-									? "border-border/40 dark:border-primary-foreground bg-background text-primary"
-									: "border-border dark:border-border"
+									? "border-background/30 bg-background text-foreground"
+									: "border-border/70"
 							}`}
 						>
 							{tagCounts[tag]}
@@ -74,7 +74,7 @@ function MobileTagFilter({
 }: MobileTagFilterProps) {
 	return (
 		<Drawer>
-			<DrawerTrigger className="md:hidden w-full flex items-center justify-between px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors">
+			<DrawerTrigger className="md:hidden flex w-full items-center justify-between rounded-2xl border border-border/70 bg-card/80 px-4 py-3 backdrop-blur transition-colors hover:bg-muted">
 				<span className="capitalize text-sm font-medium">{selectedTag}</span>
 				<ChevronDown className="h-4 w-4" />
 			</DrawerTrigger>

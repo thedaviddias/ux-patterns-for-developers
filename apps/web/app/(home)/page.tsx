@@ -2,17 +2,28 @@ import {
 	JsonLd,
 	StructuredDataGenerator,
 } from "@ux-patterns/seo/structured-data";
-import { NewsletterForm } from "@ux-patterns/ui/components/custom/newsletter";
 import type { Metadata } from "next";
-import { ComingSoonPatterns } from "@/components/sections/coming-soon-patterns";
+import { SubscribeForm } from "@/components/subscribe";
+import { BlogHighlights } from "@/components/sections/blog-highlights";
+import { ContentEntryPoints } from "@/components/sections/content-entry-points";
 import { FAQ } from "@/components/sections/faq";
 import { FeaturedPatterns } from "@/components/sections/featured-patterns";
-import { Features } from "@/components/sections/features";
+import { FeaturedGuides } from "@/components/sections/featured-guides";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { GlossarySpotlight } from "@/components/sections/glossary-spotlight";
 import Hero from "@/components/sections/hero";
 import { StatsBar } from "@/components/sections/stats-bar";
+import { getBlogPosts, getPages } from "@/lib/content";
 import { siteConfig } from "@/lib/site.config";
+import { getGlossaryTerms } from "@/utils/get-glossary-terms";
 import { getPatternCategories } from "@/utils/get-pattern-categories";
+
+const FEATURED_GUIDE_SLUGS = [
+	"pattern-guide/modal-vs-popover-guide",
+	"pattern-guide/pagination-vs-infinite-scroll-vs-load-more",
+	"pattern-guide/search-field-vs-command-palette",
+	"pattern-guide/table-vs-list-vs-cards",
+];
 
 export const metadata: Metadata = {
 	title: `${siteConfig.name} - ${siteConfig.pages.home.title}`,
@@ -52,6 +63,19 @@ export default async function HomePage() {
 
 	// Fetch pattern data for components that need it
 	const categories = await getPatternCategories();
+	const allGuides = getPages({
+		filter: (page) =>
+			page.slug.startsWith("pattern-guide/") && page.slug !== "pattern-guide",
+	});
+	const allBlogPosts = getBlogPosts();
+	const featuredGuides = FEATURED_GUIDE_SLUGS.map((slug) =>
+		allGuides.find((guide) => guide.slug === slug),
+	).filter((guide): guide is (typeof allGuides)[number] => Boolean(guide));
+	const glossaryTerms = await getGlossaryTerms();
+	const glossaryHighlights = [...glossaryTerms]
+		.sort((a, b) => b.relatedPatterns.length - a.relatedPatterns.length)
+		.slice(0, 4);
+	const blogPosts = allBlogPosts.slice(0, 3);
 	const patternCount = categories.reduce(
 		(acc, cat) => acc + cat.patterns.filter((p) => p.status !== "draft").length,
 		0,
@@ -67,33 +91,25 @@ export default async function HomePage() {
 				/>
 			))}
 			<main className="flex flex-1 flex-col">
-				{/* Block 1: Hero - Value proposition + trust badge + primary CTA */}
 				<Hero />
-
-				{/* Block 2: Stats Bar - Quick credibility signals */}
+				<ContentEntryPoints
+					patternCount={patternCount}
+					glossaryCount={glossaryTerms.length}
+					guideCount={allGuides.length}
+					blogCount={allBlogPosts.length}
+				/>
+				<FeaturedPatterns categories={categories} />
+				<FeaturedGuides guides={featuredGuides} />
+				<GlossarySpotlight terms={glossaryHighlights} />
+				<BlogHighlights posts={blogPosts} />
 				<StatsBar
 					patternCount={patternCount}
 					categoryCount={categoryCount}
 					sectionsPerPattern={17}
 				/>
-
-				{/* Block 3: Features - Key differentiators */}
-				<Features />
-
-				{/* Block 4: Featured Patterns - Proof of content depth */}
-				<FeaturedPatterns categories={categories} />
-
-				{/* Block 5: Coming Soon - Show roadmap/upcoming patterns */}
-				<ComingSoonPatterns categories={categories} />
-
-				{/* Block 6: FAQ - Address objections */}
 				<FAQ />
-
-				{/* Block 6: Final CTA - Clear next action */}
 				<FinalCTA />
-
-				{/* Newsletter - Less prominent, at the end */}
-				<NewsletterForm />
+				<SubscribeForm />
 			</main>
 		</>
 	);

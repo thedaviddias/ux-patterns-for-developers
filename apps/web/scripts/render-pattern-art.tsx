@@ -567,13 +567,10 @@ function GenericScene(props: {
 					zIndex: 1,
 					display: "flex",
 					width: "100%",
-					height: size.height,
-					boxSizing: "border-box",
 					flexDirection: "column",
 					alignItems: "center",
-					justifyContent: isCover ? "center" : "flex-start",
-					paddingTop: isCover ? 0 : 54,
-					paddingBottom: isCover ? 0 : 32,
+					paddingTop: isCover ? 0 : 8,
+					paddingBottom: 0,
 					paddingLeft: isCover ? 132 : 48,
 					paddingRight: isCover ? 132 : 48,
 				}}
@@ -595,7 +592,7 @@ function GenericScene(props: {
 								letterSpacing: "0.18em",
 								textTransform: "uppercase",
 								color: props.accentColor,
-								marginBottom: 18,
+								marginBottom: 8,
 							}}
 						>
 							{props.doc.categoryLabel}
@@ -603,11 +600,11 @@ function GenericScene(props: {
 						<div
 							style={{
 								display: "flex",
-								fontSize: 78,
+								fontSize: 68,
 								fontWeight: 800,
 								letterSpacing: "-0.05em",
 								lineHeight: 1,
-								marginBottom: 14,
+								marginBottom: 6,
 							}}
 						>
 							{props.doc.title}
@@ -651,7 +648,7 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 	switch (doc.sceneKind) {
 		case "form":
 			return createSurfaceCard(
-				<div style={{ display: "grid", gap: 18, padding: "34px 40px 42px" }}>
+				<div style={{ display: "grid", gap: 14, padding: "20px 36px 22px" }}>
 					<div
 						style={{
 							fontSize: isCover ? 48 : 28,
@@ -670,7 +667,7 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 					>
 						<div
 							style={{
-								height: isCover ? 86 : 60,
+								height: isCover ? 86 : 52,
 								borderRadius: 20,
 								border: "1px solid rgba(255,255,255,0.10)",
 								backgroundColor: "rgba(255,255,255,0.05)",
@@ -678,20 +675,27 @@ function renderSceneUi(doc: PatternDoc, variant: Variant): React.ReactElement {
 						/>
 						<div
 							style={{
-								height: isCover ? 86 : 60,
+								height: isCover ? 86 : 52,
 								borderRadius: 20,
 								border: "1px solid rgba(255,255,255,0.10)",
 								backgroundColor: "rgba(255,255,255,0.05)",
 							}}
 						/>
-						<div
-							style={{
-								height: isCover ? 86 : 60,
-								borderRadius: 20,
-								border: "1px solid rgba(255,255,255,0.10)",
-								backgroundColor: "rgba(255,255,255,0.05)",
-							}}
-						/>
+					</div>
+					<div
+						style={{
+							height: isCover ? 78 : 46,
+							borderRadius: 999,
+							backgroundColor: "#d7a241",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							color: "#15110a",
+							fontSize: isCover ? 24 : 18,
+							fontWeight: 700,
+						}}
+					>
+						Submit
 					</div>
 				</div>,
 				width,

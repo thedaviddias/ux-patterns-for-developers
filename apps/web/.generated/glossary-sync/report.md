@@ -1,12 +1,12 @@
 # Glossary Sync Report
 
-- Mode: audit
+- Mode: sync
 - Patterns scanned: 96
 - Glossary entries scanned: 17
-- Findings: 3409
-- Link edits: 377
+- Findings: 3343
+- Link edits: 376
 - Synonym updates: 0
-- Drafts created: 10
+- Drafts created: 1
 - AI available: yes
 
 ## Findings
@@ -20,14 +20,122 @@
 - AI used: no
 - Source patterns: getting-started
 
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/command-palette
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: advanced/command-palette
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/command-palette
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: advanced/command-palette
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/command-palette
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: advanced/command-palette
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/command-palette
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: advanced/command-palette
+
 ### Pagination
 - Action: link-pattern
 - Confidence: 1.00
 - Match: exact-title
-- Pattern: index
+- Pattern: advanced/search-results
 - Canonical term: Pagination
 - AI used: no
-- Source patterns: index
+- Source patterns: advanced/search-results
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/search-results
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: advanced/search-results
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/search-results
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: advanced/search-results
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/search-results
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: advanced/search-results
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/search-results
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: advanced/search-results
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/wizard
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: advanced/wizard
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/wizard
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: advanced/wizard
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/wizard
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: advanced/wizard
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: advanced/wizard
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: advanced/wizard
 
 ### Touch Targets
 - Action: link-pattern
@@ -146,393 +254,6 @@
 - AI used: no
 - Source patterns: authentication/user-profile
 
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-chat
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-chat
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-chat
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-error-states
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/ai-error-states
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-error-states
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/ai-error-states
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-error-states
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/ai-error-states
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-loading-states
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/ai-loading-states
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-loading-states
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/ai-loading-states
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-loading-states
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/ai-loading-states
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-suggestions
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-suggestions
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/ai-suggestions
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/context-window
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/context-window
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/context-window
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/context-window
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/context-window
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/context-window
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/model-selector
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/model-selector
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/model-selector
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/model-selector
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/model-selector
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/model-selector
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/prompt-input
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/prompt-input
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/prompt-input
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/prompt-input
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/prompt-input
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/prompt-input
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/response-feedback
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/response-feedback
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/response-feedback
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/response-feedback
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/response-feedback
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/response-feedback
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/streaming-response
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/streaming-response
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/streaming-response
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/streaming-response
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/streaming-response
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/streaming-response
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/token-counter
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: ai-intelligence/token-counter
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/token-counter
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: ai-intelligence/token-counter
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: ai-intelligence/token-counter
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: ai-intelligence/token-counter
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/command-palette
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: advanced/command-palette
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/command-palette
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: advanced/command-palette
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/command-palette
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: advanced/command-palette
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/command-palette
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: advanced/command-palette
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/search-results
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: advanced/search-results
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/search-results
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: advanced/search-results
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/search-results
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: advanced/search-results
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/search-results
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: advanced/search-results
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/search-results
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: advanced/search-results
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/wizard
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: advanced/wizard
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/wizard
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: advanced/wizard
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/wizard
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: advanced/wizard
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: advanced/wizard
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: advanced/wizard
-
 ### ARIA Attributes
 - Action: link-pattern
 - Confidence: 1.00
@@ -884,1176 +605,6 @@
 - AI used: no
 - Source patterns: e-commerce/shopping-cart
 
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/calendar
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/calendar
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/calendar
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/calendar
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/calendar
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/calendar
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/calendar
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/calendar
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/calendar
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/calendar
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/card-grid
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/card-grid
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/card-grid
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/card-grid
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/card-grid
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/card-grid
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/card-grid
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/card-grid
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/card-grid
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/card-grid
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/chart
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/chart
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/chart
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/chart
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/chart
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/chart
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/chart
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/chart
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/chart
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/chart
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/comparison-table
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/comparison-table
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/comparison-table
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/comparison-table
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/comparison-table
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/comparison-table
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/comparison-table
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/comparison-table
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/comparison-table
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/comparison-table
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/dashboard
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/dashboard
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/dashboard
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/dashboard
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/dashboard
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/dashboard
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/dashboard
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/dashboard
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/dashboard
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/dashboard
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/filter-panel
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/filter-panel
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/filter-panel
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/filter-panel
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/filter-panel
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/filter-panel
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/filter-panel
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/filter-panel
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/filter-panel
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/filter-panel
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/kanban-board
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/kanban-board
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/kanban-board
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/kanban-board
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/kanban-board
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/kanban-board
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/kanban-board
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/kanban-board
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/kanban-board
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/kanban-board
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/list-view
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/list-view
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/list-view
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/list-view
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/list-view
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/list-view
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/list-view
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/list-view
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/list-view
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/list-view
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/statistics
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/statistics
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/statistics
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/statistics
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/statistics
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/statistics
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/statistics
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/statistics
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/statistics
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/statistics
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/table
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/table
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/table
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: data-display/table
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/table
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/table
-
-### Lazy Loading
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/table
-- Canonical term: Lazy Loading
-- AI used: no
-- Source patterns: data-display/table
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/table
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/table
-
-### ARIA Attributes
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/table
-- Canonical term: ARIA Attributes
-- AI used: no
-- Source patterns: data-display/table
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/table
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/table
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/timeline
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/timeline
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/timeline
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/timeline
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/timeline
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/timeline
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/timeline
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/timeline
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/timeline
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/timeline
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/tree-view
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: data-display/tree-view
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/tree-view
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: data-display/tree-view
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/tree-view
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: data-display/tree-view
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/tree-view
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: data-display/tree-view
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/tree-view
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: data-display/tree-view
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: data-display/tree-view
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: data-display/tree-view
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/back-to-top
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: navigation/back-to-top
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/back-to-top
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/back-to-top
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/back-to-top
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: navigation/back-to-top
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/back-to-top
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/back-to-top
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/back-to-top
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: navigation/back-to-top
-
-### Design Tokens
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/back-to-top
-- Canonical term: Design Tokens
-- AI used: no
-- Source patterns: navigation/back-to-top
-
-### Lazy Loading
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/back-to-top
-- Canonical term: Lazy Loading
-- AI used: no
-- Source patterns: navigation/back-to-top
-
-### ARIA Attributes
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/breadcrumb
-- Canonical term: ARIA Attributes
-- AI used: no
-- Source patterns: navigation/breadcrumb
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/breadcrumb
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: navigation/breadcrumb
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/breadcrumb
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/breadcrumb
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/breadcrumb
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: navigation/breadcrumb
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/breadcrumb
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: navigation/breadcrumb
-
-### Lazy Loading
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/breadcrumb
-- Canonical term: Lazy Loading
-- AI used: no
-- Source patterns: navigation/breadcrumb
-
-### Design Tokens
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/breadcrumb
-- Canonical term: Design Tokens
-- AI used: no
-- Source patterns: navigation/breadcrumb
-
-### ARIA Attributes
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/hambuger-menu
-- Canonical term: ARIA Attributes
-- AI used: no
-- Source patterns: navigation/hambuger-menu
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/hambuger-menu
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/hambuger-menu
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/hambuger-menu
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: navigation/hambuger-menu
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/infinite-scroll
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: navigation/infinite-scroll
-
-### Lazy Loading
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/infinite-scroll
-- Canonical term: Lazy Loading
-- AI used: no
-- Source patterns: navigation/infinite-scroll
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/infinite-scroll
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: navigation/infinite-scroll
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/infinite-scroll
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/infinite-scroll
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/infinite-scroll
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/infinite-scroll
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/link
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: navigation/link
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/link
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/link
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/load-more
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/load-more
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/load-more
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: navigation/load-more
-
-### ARIA Attributes
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/load-more
-- Canonical term: ARIA Attributes
-- AI used: no
-- Source patterns: navigation/load-more
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/load-more
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: navigation/load-more
-
-### Lazy Loading
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/load-more
-- Canonical term: Lazy Loading
-- AI used: no
-- Source patterns: navigation/load-more
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/load-more
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/load-more
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/megamenu
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/megamenu
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/megamenu
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/megamenu
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/megamenu
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: navigation/megamenu
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/megamenu
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: navigation/megamenu
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/navigation-menu
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: navigation/navigation-menu
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/navigation-menu
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/navigation-menu
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/navigation-menu
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/navigation-menu
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/navigation-menu
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: navigation/navigation-menu
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/navigation-menu
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: navigation/navigation-menu
-
-### Pagination
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: Pagination
-- AI used: no
-- Source patterns: navigation/pagination
-
-### ARIA Attributes
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: ARIA Attributes
-- AI used: no
-- Source patterns: navigation/pagination
-
-### Progressive Loading
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: Progressive Loading
-- AI used: no
-- Source patterns: navigation/pagination
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/pagination
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: navigation/pagination
-
-### Live Regions
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: Live Regions
-- AI used: no
-- Source patterns: navigation/pagination
-
-### Design Tokens
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: Design Tokens
-- AI used: no
-- Source patterns: navigation/pagination
-
-### Canonical Tags
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/pagination
-- Canonical term: Canonical Tags
-- AI used: no
-- Source patterns: navigation/pagination
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/sidebar
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/sidebar
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/sidebar
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/sidebar
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/sidebar
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: navigation/sidebar
-
-### Lazy Loading
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/tabs
-- Canonical term: Lazy Loading
-- AI used: no
-- Source patterns: navigation/tabs
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/tabs
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: navigation/tabs
-
-### Keyboard Navigation
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/tabs
-- Canonical term: Keyboard Navigation
-- AI used: no
-- Source patterns: navigation/tabs
-
-### Viewport
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/tabs
-- Canonical term: Viewport
-- AI used: no
-- Source patterns: navigation/tabs
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: navigation/tabs
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: navigation/tabs
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/activity-feed
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: social/activity-feed
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/activity-feed
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: social/activity-feed
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/activity-feed
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: social/activity-feed
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/comment-system
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: social/comment-system
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/comment-system
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: social/comment-system
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/comment-system
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: social/comment-system
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/like-button
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: social/like-button
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/like-button
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: social/like-button
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/like-button
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: social/like-button
-
-### Semantic HTML
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/share-dialog
-- Canonical term: Semantic HTML
-- AI used: no
-- Source patterns: social/share-dialog
-
-### Touch Targets
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/share-dialog
-- Canonical term: Touch Targets
-- AI used: no
-- Source patterns: social/share-dialog
-
-### Screen Reader
-- Action: link-pattern
-- Confidence: 1.00
-- Match: exact-title
-- Pattern: social/share-dialog
-- Canonical term: Screen Reader
-- AI used: no
-- Source patterns: social/share-dialog
-
 ### Touch Targets
 - Action: link-pattern
 - Confidence: 1.00
@@ -2143,6 +694,573 @@
 - Canonical term: Screen Reader
 - AI used: no
 - Source patterns: media/video-player
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/calendar
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/calendar
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/calendar
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/calendar
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/calendar
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/calendar
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/calendar
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/calendar
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/calendar
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/calendar
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/card-grid
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/card-grid
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/card-grid
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/card-grid
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/card-grid
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/card-grid
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/card-grid
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/card-grid
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/card-grid
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/card-grid
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/chart
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/chart
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/chart
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/chart
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/chart
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/chart
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/chart
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/chart
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/chart
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/chart
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/comparison-table
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/comparison-table
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/comparison-table
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/comparison-table
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/comparison-table
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/comparison-table
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/comparison-table
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/comparison-table
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/comparison-table
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/comparison-table
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/dashboard
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/dashboard
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/dashboard
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/dashboard
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/dashboard
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/dashboard
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/dashboard
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/dashboard
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/dashboard
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/dashboard
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/filter-panel
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/filter-panel
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/filter-panel
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/filter-panel
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/filter-panel
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/filter-panel
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/filter-panel
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/filter-panel
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/filter-panel
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/filter-panel
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/kanban-board
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/kanban-board
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/kanban-board
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/kanban-board
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/kanban-board
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/kanban-board
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/kanban-board
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/kanban-board
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/kanban-board
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/kanban-board
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/list-view
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/list-view
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/list-view
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/list-view
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/list-view
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/list-view
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/list-view
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/list-view
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/list-view
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/list-view
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/statistics
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/statistics
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/statistics
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/statistics
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/statistics
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/statistics
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/statistics
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/statistics
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/statistics
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/statistics
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/table
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/table
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/table
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: data-display/table
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/table
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/table
+
+### Lazy Loading
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/table
+- Canonical term: Lazy Loading
+- AI used: no
+- Source patterns: data-display/table
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/table
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/table
+
+### ARIA Attributes
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/table
+- Canonical term: ARIA Attributes
+- AI used: no
+- Source patterns: data-display/table
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/table
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/table
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/timeline
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/timeline
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/timeline
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/timeline
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/timeline
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/timeline
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/timeline
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/timeline
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/timeline
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/timeline
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/tree-view
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: data-display/tree-view
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/tree-view
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: data-display/tree-view
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/tree-view
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: data-display/tree-view
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/tree-view
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: data-display/tree-view
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/tree-view
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: data-display/tree-view
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: data-display/tree-view
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: data-display/tree-view
 
 ### Keyboard Navigation
 - Action: link-pattern
@@ -2918,6 +2036,879 @@
 - AI used: no
 - Source patterns: forms/toggle
 
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/back-to-top
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: navigation/back-to-top
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/back-to-top
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/back-to-top
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/back-to-top
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: navigation/back-to-top
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/back-to-top
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/back-to-top
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/back-to-top
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: navigation/back-to-top
+
+### Design Tokens
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/back-to-top
+- Canonical term: Design Tokens
+- AI used: no
+- Source patterns: navigation/back-to-top
+
+### Lazy Loading
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/back-to-top
+- Canonical term: Lazy Loading
+- AI used: no
+- Source patterns: navigation/back-to-top
+
+### ARIA Attributes
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/breadcrumb
+- Canonical term: ARIA Attributes
+- AI used: no
+- Source patterns: navigation/breadcrumb
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/breadcrumb
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: navigation/breadcrumb
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/breadcrumb
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/breadcrumb
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/breadcrumb
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: navigation/breadcrumb
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/breadcrumb
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: navigation/breadcrumb
+
+### Lazy Loading
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/breadcrumb
+- Canonical term: Lazy Loading
+- AI used: no
+- Source patterns: navigation/breadcrumb
+
+### Design Tokens
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/breadcrumb
+- Canonical term: Design Tokens
+- AI used: no
+- Source patterns: navigation/breadcrumb
+
+### ARIA Attributes
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/hambuger-menu
+- Canonical term: ARIA Attributes
+- AI used: no
+- Source patterns: navigation/hambuger-menu
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/hambuger-menu
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/hambuger-menu
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/hambuger-menu
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: navigation/hambuger-menu
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/infinite-scroll
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: navigation/infinite-scroll
+
+### Lazy Loading
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/infinite-scroll
+- Canonical term: Lazy Loading
+- AI used: no
+- Source patterns: navigation/infinite-scroll
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/infinite-scroll
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: navigation/infinite-scroll
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/infinite-scroll
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/infinite-scroll
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/infinite-scroll
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/infinite-scroll
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/link
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: navigation/link
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/link
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/link
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/load-more
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/load-more
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/load-more
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: navigation/load-more
+
+### ARIA Attributes
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/load-more
+- Canonical term: ARIA Attributes
+- AI used: no
+- Source patterns: navigation/load-more
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/load-more
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: navigation/load-more
+
+### Lazy Loading
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/load-more
+- Canonical term: Lazy Loading
+- AI used: no
+- Source patterns: navigation/load-more
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/load-more
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/load-more
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/megamenu
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/megamenu
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/megamenu
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/megamenu
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/megamenu
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: navigation/megamenu
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/megamenu
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: navigation/megamenu
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/navigation-menu
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: navigation/navigation-menu
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/navigation-menu
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/navigation-menu
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/navigation-menu
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/navigation-menu
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/navigation-menu
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: navigation/navigation-menu
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/navigation-menu
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: navigation/navigation-menu
+
+### Pagination
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: Pagination
+- AI used: no
+- Source patterns: navigation/pagination
+
+### ARIA Attributes
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: ARIA Attributes
+- AI used: no
+- Source patterns: navigation/pagination
+
+### Progressive Loading
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: Progressive Loading
+- AI used: no
+- Source patterns: navigation/pagination
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/pagination
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: navigation/pagination
+
+### Live Regions
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: Live Regions
+- AI used: no
+- Source patterns: navigation/pagination
+
+### Design Tokens
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: Design Tokens
+- AI used: no
+- Source patterns: navigation/pagination
+
+### Canonical Tags
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/pagination
+- Canonical term: Canonical Tags
+- AI used: no
+- Source patterns: navigation/pagination
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/sidebar
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/sidebar
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/sidebar
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/sidebar
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/sidebar
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: navigation/sidebar
+
+### Lazy Loading
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/tabs
+- Canonical term: Lazy Loading
+- AI used: no
+- Source patterns: navigation/tabs
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/tabs
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: navigation/tabs
+
+### Keyboard Navigation
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/tabs
+- Canonical term: Keyboard Navigation
+- AI used: no
+- Source patterns: navigation/tabs
+
+### Viewport
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/tabs
+- Canonical term: Viewport
+- AI used: no
+- Source patterns: navigation/tabs
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: navigation/tabs
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: navigation/tabs
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/activity-feed
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: social/activity-feed
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/activity-feed
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: social/activity-feed
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/activity-feed
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: social/activity-feed
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/comment-system
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: social/comment-system
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/comment-system
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: social/comment-system
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/comment-system
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: social/comment-system
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/like-button
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: social/like-button
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/like-button
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: social/like-button
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/like-button
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: social/like-button
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/share-dialog
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: social/share-dialog
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/share-dialog
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: social/share-dialog
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: social/share-dialog
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: social/share-dialog
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-chat
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-chat
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-chat
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-error-states
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/ai-error-states
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-error-states
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/ai-error-states
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-error-states
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/ai-error-states
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-loading-states
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/ai-loading-states
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-loading-states
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/ai-loading-states
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-loading-states
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/ai-loading-states
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-suggestions
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/ai-suggestions
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-suggestions
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/ai-suggestions
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/ai-suggestions
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/ai-suggestions
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/context-window
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/context-window
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/context-window
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/context-window
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/context-window
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/context-window
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/model-selector
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/model-selector
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/model-selector
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/model-selector
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/model-selector
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/model-selector
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/prompt-input
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/prompt-input
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/prompt-input
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/prompt-input
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/prompt-input
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/prompt-input
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/response-feedback
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/response-feedback
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/response-feedback
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/response-feedback
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/response-feedback
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/response-feedback
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/streaming-response
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/streaming-response
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/streaming-response
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/streaming-response
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/streaming-response
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/streaming-response
+
+### Semantic HTML
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/token-counter
+- Canonical term: Semantic HTML
+- AI used: no
+- Source patterns: ai-intelligence/token-counter
+
+### Touch Targets
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/token-counter
+- Canonical term: Touch Targets
+- AI used: no
+- Source patterns: ai-intelligence/token-counter
+
+### Screen Reader
+- Action: link-pattern
+- Confidence: 1.00
+- Match: exact-title
+- Pattern: ai-intelligence/token-counter
+- Canonical term: Screen Reader
+- AI used: no
+- Source patterns: ai-intelligence/token-counter
+
 ### Viewport
 - Action: link-pattern
 - Confidence: 1.00
@@ -3219,6 +3210,60 @@
 - Action: link-pattern
 - Confidence: 0.98
 - Match: exact-slug
+- Pattern: forms/code-confirmation
+- Canonical term: DOM (Document Object Model)
+- AI used: no
+- Source patterns: forms/code-confirmation
+
+### dom
+- Action: link-pattern
+- Confidence: 0.98
+- Match: exact-slug
+- Pattern: forms/color-picker
+- Canonical term: DOM (Document Object Model)
+- AI used: no
+- Source patterns: forms/color-picker
+
+### index
+- Action: link-pattern
+- Confidence: 0.98
+- Match: exact-slug
+- Pattern: forms/date-picker
+- Canonical term: UX Patterns Glossary
+- AI used: no
+- Source patterns: forms/date-picker
+
+### dom
+- Action: link-pattern
+- Confidence: 0.98
+- Match: exact-slug
+- Pattern: forms/date-picker
+- Canonical term: DOM (Document Object Model)
+- AI used: no
+- Source patterns: forms/date-picker
+
+### dom
+- Action: link-pattern
+- Confidence: 0.98
+- Match: exact-slug
+- Pattern: forms/file-input
+- Canonical term: DOM (Document Object Model)
+- AI used: no
+- Source patterns: forms/file-input
+
+### dom
+- Action: link-pattern
+- Confidence: 0.98
+- Match: exact-slug
+- Pattern: forms/multi-select-input
+- Canonical term: DOM (Document Object Model)
+- AI used: no
+- Source patterns: forms/multi-select-input
+
+### dom
+- Action: link-pattern
+- Confidence: 0.98
+- Match: exact-slug
 - Pattern: navigation/infinite-scroll
 - Canonical term: DOM (Document Object Model)
 - AI used: no
@@ -3305,60 +3350,6 @@
 - AI used: no
 - Source patterns: navigation/tabs
 
-### dom
-- Action: link-pattern
-- Confidence: 0.98
-- Match: exact-slug
-- Pattern: forms/code-confirmation
-- Canonical term: DOM (Document Object Model)
-- AI used: no
-- Source patterns: forms/code-confirmation
-
-### dom
-- Action: link-pattern
-- Confidence: 0.98
-- Match: exact-slug
-- Pattern: forms/color-picker
-- Canonical term: DOM (Document Object Model)
-- AI used: no
-- Source patterns: forms/color-picker
-
-### index
-- Action: link-pattern
-- Confidence: 0.98
-- Match: exact-slug
-- Pattern: forms/date-picker
-- Canonical term: UX Patterns Glossary
-- AI used: no
-- Source patterns: forms/date-picker
-
-### dom
-- Action: link-pattern
-- Confidence: 0.98
-- Match: exact-slug
-- Pattern: forms/date-picker
-- Canonical term: DOM (Document Object Model)
-- AI used: no
-- Source patterns: forms/date-picker
-
-### dom
-- Action: link-pattern
-- Confidence: 0.98
-- Match: exact-slug
-- Pattern: forms/file-input
-- Canonical term: DOM (Document Object Model)
-- AI used: no
-- Source patterns: forms/file-input
-
-### dom
-- Action: link-pattern
-- Confidence: 0.98
-- Match: exact-slug
-- Pattern: forms/multi-select-input
-- Canonical term: DOM (Document Object Model)
-- AI used: no
-- Source patterns: forms/multi-select-input
-
 ### Page navigation
 - Action: link-pattern
 - Confidence: 0.97
@@ -3419,7 +3410,7 @@
 - Match: ai-new-term
 - Proposed term: Color Alone
 - AI used: yes
-- Source patterns: authentication/account-settings, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/link, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/code-confirmation, forms/color-picker, forms/date-picker, forms/date-range, forms/form-validation, forms/multi-select-input, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/account-settings, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/code-confirmation, forms/color-picker, forms/date-picker, forms/date-range, forms/form-validation, forms/multi-select-input, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/breadcrumb, navigation/link, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### focus states
 - Action: create-glossary-draft
@@ -3427,7 +3418,7 @@
 - Match: ai-new-term
 - Proposed term: Focus States
 - AI used: yes
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, navigation/back-to-top, navigation/link, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/button, forms/date-input, forms/form-validation, forms/password, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/selection-input, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, forms/button, forms/date-input, forms/form-validation, forms/password, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/selection-input, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/back-to-top, navigation/link, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### visible focus
 - Action: create-glossary-draft
@@ -3435,7 +3426,7 @@
 - Match: ai-new-term
 - Proposed term: Visible Focus
 - AI used: yes
-- Source patterns: authentication/user-profile, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/color-picker, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/user-profile, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/color-picker, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### assistive technologies
 - Action: create-glossary-draft
@@ -3443,7 +3434,7 @@
 - Match: ai-new-term
 - Proposed term: Assistive Technologies
 - AI used: yes
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/back-to-top, navigation/infinite-scroll, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/button, forms/date-range, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/button, forms/date-range, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, navigation/back-to-top, navigation/infinite-scroll, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### helper text
 - Action: create-glossary-draft
@@ -3451,7 +3442,7 @@
 - Match: ai-new-term
 - Proposed term: Helper Text
 - AI used: yes
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/selection-input, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/selection-input, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### state management
 - Action: create-glossary-draft
@@ -3459,23 +3450,7 @@
 - Match: ai-new-term
 - Proposed term: State Management
 - AI used: yes
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### state changes
-- Action: create-glossary-draft
-- Confidence: 0.92
-- Match: ai-new-term
-- Proposed term: State Changes
-- AI used: yes
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/hambuger-menu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/button, forms/checkbox, forms/form-validation, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Ensure touch targets
-- Action: create-glossary-draft
-- Confidence: 0.92
-- Match: ai-new-term
-- Proposed term: Ensure Touch Targets
-- AI used: yes
-- Source patterns: authentication/social-login, authentication/user-profile, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### focus styles
 - Action: create-glossary-draft
@@ -3483,17 +3458,33 @@
 - Match: ai-new-term
 - Proposed term: Focus Styles
 - AI used: yes
-- Source patterns: authentication/login, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/back-to-top, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/login, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, navigation/back-to-top, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Ensure touch
+### focus order
 - Action: create-glossary-draft
 - Confidence: 0.92
 - Match: ai-new-term
-- Proposed term: Touch Target Size
+- Proposed term: Focus Order
 - AI used: yes
-- Source patterns: authentication/social-login, authentication/user-profile, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/carousel, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### keyboard navigation Tab
+### Visual States
+- Action: create-glossary-draft
+- Confidence: 0.92
+- Match: ai-new-term
+- Proposed term: Visual States
+- AI used: yes
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/back-to-top, navigation/pagination, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### semantic elements
+- Action: create-glossary-draft
+- Confidence: 0.92
+- Match: ai-new-term
+- Proposed term: Semantic Elements
+- AI used: yes
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/navigation-menu, navigation/pagination, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### Keyboard Navigation
 - Action: review
 - Confidence: 0.75
 - Match: fuzzy
@@ -3516,13 +3507,6 @@
 - AI used: no
 - Source patterns: data-display/table, navigation/megamenu
 
-### Use semantic HTML:
-- Action: review
-- Confidence: 0.72
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, navigation/back-to-top, navigation/hambuger-menu
-
 ### screen readers Don
 - Action: review
 - Confidence: 0.72
@@ -3544,19 +3528,12 @@
 - AI used: no
 - Source patterns: content-management/popover, forms/checkbox
 
-### Ensure keyboard navigation
-- Action: review
-- Confidence: 0.70
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/autocomplete, forms/button, forms/radio
-
 ### screen reader users
 - Action: review
 - Confidence: 0.69
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, content-management/expandable-text, data-display/table, navigation/load-more, navigation/navigation-menu, forms/code-confirmation, forms/date-input, forms/date-range, forms/text-field
+- Source patterns: authentication/signup, content-management/expandable-text, data-display/table, forms/code-confirmation, forms/date-input, forms/date-range, forms/text-field, navigation/load-more, navigation/navigation-menu
 
 ### Place navigation
 - Action: review
@@ -3565,28 +3542,7 @@
 - AI used: no
 - Source patterns: content-management/carousel, navigation/navigation-menu
 
-### Make touch targets
-- Action: review
-- Confidence: 0.69
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup, data-display/table
-
 ### touch target size
-- Action: review
-- Confidence: 0.69
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/checkbox, forms/text-field
-
-### supports keyboard navigation
-- Action: review
-- Confidence: 0.69
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, content-management/expandable-text, content-management/tooltip, data-display/table, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, forms/autocomplete, forms/date-input, forms/password, forms/text-field
-
-### Provide keyboard navigation
 - Action: review
 - Confidence: 0.69
 - Match: unresolved
@@ -3612,7 +3568,7 @@
 - Confidence: 0.67
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, navigation/hambuger-menu, forms/checkbox, forms/radio
+- Source patterns: content-management/accordion, forms/checkbox, forms/radio, navigation/hambuger-menu
 
 ### manage ARIA attributes
 - Action: review
@@ -3626,21 +3582,21 @@
 - Confidence: 0.67
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Required ARIA attributes:
+### Required ARIA attributes
 - Action: review
 - Confidence: 0.67
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/expandable-text, content-management/popover, data-display/table, navigation/load-more, forms/button, forms/checkbox
+- Source patterns: content-management/carousel, content-management/expandable-text, content-management/popover, data-display/table, forms/button, forms/checkbox, navigation/load-more
 
 ### minimum touch targets
 - Action: review
 - Confidence: 0.67
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, navigation/back-to-top, navigation/hambuger-menu, forms/checkbox, forms/radio
+- Source patterns: authentication/account-settings, forms/checkbox, forms/radio, navigation/back-to-top, navigation/hambuger-menu
 
 ### screen readers Support
 - Action: review
@@ -3710,7 +3666,7 @@
 - Confidence: 0.67
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/autocomplete
+- Source patterns: forms/autocomplete, navigation/pagination
 
 ### touch targets Reduced
 - Action: review
@@ -3731,7 +3687,7 @@
 - Confidence: 0.65
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, forms/date-picker
+- Source patterns: forms/date-picker, navigation/megamenu
 
 ### main navigation
 - Action: review
@@ -3752,7 +3708,7 @@
 - Confidence: 0.63
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Canonical URLs
 - Action: review
@@ -3780,7 +3736,7 @@
 - Confidence: 0.60
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, content-management/modal, content-management/popover, content-management/tooltip, navigation/pagination, forms/autocomplete, forms/button, forms/checkbox
+- Source patterns: content-management/accordion, content-management/carousel, content-management/modal, content-management/popover, content-management/tooltip, forms/autocomplete, forms/button, forms/checkbox, navigation/pagination
 
 ### secondary navigation
 - Action: review
@@ -3822,7 +3778,7 @@
 - Confidence: 0.59
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/navigation-menu, forms/date-picker
+- Source patterns: forms/date-picker, navigation/navigation-menu
 
 ### landmark navigation
 - Action: review
@@ -3836,7 +3792,7 @@
 - Confidence: 0.58
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### idle loading
 - Action: review
@@ -3851,13 +3807,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Shows loading
-- Action: review
-- Confidence: 0.58
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup, authentication/social-login, data-display/table, media/video-player
 
 ### design works
 - Action: review
@@ -3899,21 +3848,21 @@
 - Confidence: 0.58
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/code-confirmation
+- Source patterns: forms/code-confirmation, navigation/link
 
 ### keyboard arrow-key navigation
 - Action: review
 - Confidence: 0.58
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/tabs, forms/color-picker, forms/date-picker
+- Source patterns: forms/color-picker, forms/date-picker, navigation/tabs
 
 ### semantics alone
 - Action: review
 - Confidence: 0.57
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Lazy Rendering
 - Action: review
@@ -3943,13 +3892,6 @@
 - AI used: no
 - Source patterns: content-management/carousel, data-display/table
 
-### semantic elements
-- Action: review
-- Confidence: 0.56
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, navigation/navigation-menu, navigation/pagination, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### page interactions
 - Action: review
 - Confidence: 0.56
@@ -3969,21 +3911,21 @@
 - Confidence: 0.56
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### design systems
 - Action: review
 - Confidence: 0.56
 - Match: unresolved
 - AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, navigation/back-to-top, navigation/hambuger-menu, forms/date-input, forms/date-picker, forms/file-input, forms/text-field
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, forms/date-input, forms/date-picker, forms/file-input, forms/text-field, navigation/back-to-top, navigation/hambuger-menu
 
 ### design answer
 - Action: review
 - Confidence: 0.56
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/radio, forms/text-field
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, forms/autocomplete, forms/button, forms/radio, forms/text-field, navigation/infinite-scroll
 
 ### screens Don
 - Action: review
@@ -4011,7 +3953,7 @@
 - Confidence: 0.55
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/tooltip, navigation/hambuger-menu, forms/checkbox, forms/radio
+- Source patterns: content-management/tooltip, forms/checkbox, forms/radio, navigation/hambuger-menu
 
 ### small screens
 - Action: review
@@ -4032,7 +3974,7 @@
 - Confidence: 0.55
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/breadcrumb, forms/checkbox
+- Source patterns: content-management/carousel, forms/checkbox, navigation/breadcrumb
 
 ### pages question
 - Action: review
@@ -4081,28 +4023,28 @@
 - Confidence: 0.54
 - Match: unresolved
 - AI used: no
-- Source patterns: user-feedback/loading-indicator
+- Source patterns: authentication/login, authentication/signup, authentication/social-login, media/video-player, data-display/table
 
 ### keyboard alone
 - Action: review
 - Confidence: 0.54
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### keyboard handling
 - Action: review
 - Confidence: 0.54
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### during loading
 - Action: review
 - Confidence: 0.54
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/button, user-feedback/skeleton
+- Source patterns: forms/button, navigation/pagination, user-feedback/skeleton
 
 ### horizontal navigation
 - Action: review
@@ -4144,14 +4086,14 @@
 - Confidence: 0.52
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/button, forms/checkbox
+- Source patterns: forms/button, forms/checkbox, navigation/link
 
 ### narrow screens
 - Action: review
 - Confidence: 0.52
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/megamenu, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/account-settings, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/megamenu, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### viewport shrinks
 - Action: review
@@ -4214,7 +4156,7 @@
 - Confidence: 0.51
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, content-management/accordion, content-management/carousel, content-management/tooltip, navigation/load-more, forms/checkbox, forms/file-input, forms/password, forms/radio, forms/selection-input
+- Source patterns: authentication/user-profile, content-management/accordion, content-management/carousel, content-management/tooltip, forms/checkbox, forms/file-input, forms/password, forms/radio, forms/selection-input, navigation/load-more
 
 ### keyboard support
 - Action: review
@@ -4230,13 +4172,6 @@
 - AI used: no
 - Source patterns: forms/date-input, forms/date-picker
 
-### confirmation screen
-- Action: review
-- Confidence: 0.51
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/password-reset, forms/code-confirmation
-
 ### keyboard input
 - Action: review
 - Confidence: 0.51
@@ -4249,14 +4184,7 @@
 - Confidence: 0.51
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/popover, navigation/back-to-top, forms/button, forms/text-field
-
-### avoid layout shift
-- Action: review
-- Confidence: 0.51
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
+- Source patterns: content-management/popover, forms/button, forms/text-field, navigation/back-to-top
 
 ### avoiding layout shifts
 - Action: review
@@ -4265,75 +4193,82 @@
 - AI used: no
 - Source patterns: content-management/carousel, navigation/link
 
+### touch
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/social-login, authentication/user-profile, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### where semantics
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### ARIA only
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### add ARIA
+### ARIA
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### targets remain
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### loading errors
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### pointer touch
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### state keyboard
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### layout shifts
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/expandable-text, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/link, navigation/load-more, navigation/navigation-menu, media/image-gallery, media/image-upload, media/video-player
+- Source patterns: content-management/carousel, content-management/expandable-text, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/link, navigation/load-more, navigation/navigation-menu
 
 ### touch devices
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/popover, content-management/tooltip, data-display/table, navigation/link, navigation/navigation-menu, navigation/sidebar, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: content-management/carousel, content-management/popover, content-management/tooltip, data-display/table, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/link, navigation/navigation-menu, navigation/sidebar
 
-### supports keyboard
+### keyboard
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, content-management/expandable-text, content-management/popover, content-management/tooltip, data-display/table, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, forms/autocomplete, forms/button, forms/date-input, forms/password, forms/text-field
+- Source patterns: content-management/accordion, content-management/carousel, content-management/expandable-text, content-management/popover, content-management/tooltip, data-display/table, forms/autocomplete, forms/button, forms/date-input, forms/password, forms/text-field, navigation/megamenu, navigation/navigation-menu, navigation/sidebar
 
 ### pagination windowing
 - Action: review
@@ -4356,12 +4291,12 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
-### Loading States:
+### Loading States
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, authentication/signup, authentication/social-login, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/streaming-response, data-display/table, navigation/infinite-scroll, navigation/load-more, forms/button
+- Source patterns: authentication/login, authentication/signup, authentication/social-login, data-display/table, forms/button, navigation/infinite-scroll, navigation/load-more, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/streaming-response
 
 ### token usage
 - Action: review
@@ -4375,7 +4310,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, navigation/hambuger-menu, navigation/megamenu, navigation/sidebar, navigation/tabs, forms/button, forms/checkbox, forms/radio
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, forms/button, forms/checkbox, forms/radio, navigation/hambuger-menu, navigation/megamenu, navigation/sidebar, navigation/tabs
 
 ### latency token
 - Action: review
@@ -4389,7 +4324,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/load-more, navigation/pagination, media/video-player, forms/button, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: media/video-player, forms/button, navigation/infinite-scroll, navigation/load-more, navigation/pagination, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### page content
 - Action: review
@@ -4403,23 +4338,23 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, content-management/expandable-text, data-display/table, navigation/load-more, navigation/navigation-menu, forms/code-confirmation, forms/date-input, forms/date-range, forms/text-field
+- Source patterns: authentication/signup, content-management/expandable-text, data-display/table, forms/code-confirmation, forms/date-input, forms/date-range, forms/text-field, navigation/load-more, navigation/navigation-menu
 
-### Keyboard Focus:
+### Keyboard Focus
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/modal, data-display/table, navigation/link, navigation/load-more, navigation/pagination, forms/color-picker, forms/date-picker
+- Source patterns: content-management/carousel, content-management/modal, data-display/table, forms/color-picker, forms/date-picker, navigation/link, navigation/load-more, navigation/pagination
 
 ### web design
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/text-field
+- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, forms/autocomplete, forms/button, forms/text-field, navigation/infinite-scroll
 
-### Current Page:
+### Current Page
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
@@ -4431,7 +4366,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, navigation/pagination, forms/checkbox, forms/text-field
+- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, forms/checkbox, forms/text-field, navigation/pagination
 
 ### Design reversible
 - Action: review
@@ -4452,7 +4387,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/expandable-text, content-management/popover, data-display/table, navigation/load-more, forms/button, forms/checkbox
+- Source patterns: content-management/carousel, content-management/expandable-text, content-management/popover, data-display/table, forms/button, forms/checkbox, navigation/load-more
 
 ### live content
 - Action: review
@@ -4480,14 +4415,14 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/popover, navigation/pagination, forms/date-picker, forms/date-range, forms/radio, forms/text-field
+- Source patterns: content-management/popover, forms/date-picker, forms/date-range, forms/radio, forms/text-field, navigation/pagination
 
 ### HTML elements
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/modal, navigation/breadcrumb, navigation/link, forms/button, forms/checkbox
+- Source patterns: content-management/accordion, content-management/modal, forms/button, forms/checkbox, navigation/breadcrumb, navigation/link
 
 ### task Design
 - Action: review
@@ -4503,19 +4438,19 @@
 - AI used: no
 - Source patterns: authentication/account-settings, navigation/hambuger-menu, navigation/megamenu, navigation/navigation-menu, navigation/sidebar
 
-### Target Metrics:
+### Target Metrics
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/tooltip, navigation/back-to-top, navigation/load-more, forms/checkbox, forms/radio
+- Source patterns: content-management/tooltip, forms/checkbox, forms/radio, navigation/back-to-top, navigation/load-more
 
 ### navigation controls
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, data-display/calendar, navigation/pagination, media/image-gallery, forms/date-picker
+- Source patterns: content-management/carousel, media/image-gallery, data-display/calendar, forms/date-picker, navigation/pagination
 
 ### keyboard accessibility
 - Action: review
@@ -4529,21 +4464,14 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/modal, navigation/megamenu, navigation/tabs, forms/autocomplete
-
-### ensure keyboard
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/expandable-text, navigation/breadcrumb, forms/autocomplete, forms/button, forms/radio
+- Source patterns: content-management/expandable-text, content-management/modal, forms/autocomplete, navigation/megamenu, navigation/tabs
 
 ### minimum touch
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, navigation/back-to-top, navigation/hambuger-menu, forms/checkbox, forms/radio
+- Source patterns: authentication/account-settings, forms/checkbox, forms/radio, navigation/back-to-top, navigation/hambuger-menu
 
 ### navigation links
 - Action: review
@@ -4552,19 +4480,19 @@
 - AI used: no
 - Source patterns: navigation/hambuger-menu, navigation/link, navigation/megamenu, navigation/sidebar
 
-### Navigation start:
+### Navigation start
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, authentication/password-reset, authentication/social-login, navigation/link
 
-### Provide keyboard
+### loading state
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/drag-and-drop, content-management/modal, forms/checkbox, forms/text-field
+- Source patterns: authentication/login, authentication/signup, authentication/social-login, data-display/table
 
 ### readers announce
 - Action: review
@@ -4599,14 +4527,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/password-reset, content-management/tooltip, navigation/infinite-scroll, forms/file-input
-
-### navigation menus
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/tree-view, navigation/navigation-menu, navigation/sidebar
+- Source patterns: authentication/password-reset, content-management/tooltip, forms/file-input, navigation/infinite-scroll
 
 ### page titles
 - Action: review
@@ -4615,7 +4536,7 @@
 - AI used: no
 - Source patterns: navigation/breadcrumb, navigation/megamenu, navigation/navigation-menu
 
-### DOM nodes:
+### DOM nodes
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
@@ -4655,7 +4576,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/megamenu, forms/autocomplete
+- Source patterns: data-display/table, forms/autocomplete, navigation/megamenu
 
 ### navigation elements
 - Action: review
@@ -4670,6 +4591,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/tooltip, navigation/breadcrumb, navigation/infinite-scroll
+
+### layout shift
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player
 
 ### Performance Touch
 - Action: review
@@ -4692,26 +4620,19 @@
 - AI used: no
 - Source patterns: content-management/modal, content-management/popover, forms/checkbox
 
-### Announce loading
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, navigation/pagination, forms/autocomplete
-
-### viewport without
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, navigation/navigation-menu, forms/color-picker
-
 ### navigation works
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/autocomplete, forms/button, forms/radio
+
+### viewport without
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/color-picker, navigation/megamenu, navigation/navigation-menu
 
 ### email keyboard
 - Action: review
@@ -4748,13 +4669,6 @@
 - AI used: no
 - Source patterns: forms/currency-input, forms/date-picker, forms/multi-select-input
 
-### Make touch
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup, data-display/table
-
 ### ARIA labels
 - Action: review
 - Confidence: 0.50
@@ -4762,7 +4676,7 @@
 - AI used: no
 - Source patterns: content-management/carousel, data-display/table, forms/button
 
-### Touch response:
+### Touch response
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
@@ -4782,6 +4696,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/hambuger-menu, navigation/sidebar
+
+### Navigation Menu
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/tree-view, navigation/navigation-menu
 
 ### navigation bar
 - Action: review
@@ -4902,6 +4823,13 @@
 - AI used: no
 - Source patterns: content-management/carousel, navigation/sidebar
 
+### navigation between
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-input, navigation/tabs
+
 ### navigation options
 - Action: review
 - Confidence: 0.50
@@ -4909,19 +4837,19 @@
 - AI used: no
 - Source patterns: navigation/infinite-scroll, navigation/megamenu
 
-### navigation between
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/tabs, forms/date-input
-
 ### surrounding page
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, content-management/popover
+
+### loading immediately
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/login, authentication/signup
 
 ### animations Progressive
 - Action: review
@@ -4943,13 +4871,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/megamenu, navigation/sidebar
-
-### loading immediately
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup
 
 ### navigation levels
 - Action: review
@@ -4991,7 +4912,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/checkbox
+- Source patterns: forms/checkbox, navigation/link
 
 ### navigable screen
 - Action: review
@@ -5007,19 +4928,12 @@
 - AI used: no
 - Source patterns: content-management/modal, content-management/popover
 
-### navigation Mark
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, navigation/navigation-menu
-
 ### readers Include
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/autocomplete
+- Source patterns: forms/autocomplete, navigation/pagination
 
 ### targets Reduced
 - Action: review
@@ -5027,6 +4941,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### navigation Mark
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/breadcrumb, navigation/navigation-menu
 
 ### dedicated page
 - Action: review
@@ -5041,13 +4962,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/tooltip, forms/button
-
-### Allow keyboard
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/tooltip, forms/date-range
 
 ### navigation Don
 - Action: review
@@ -5091,19 +5005,19 @@
 - AI used: no
 - Source patterns: forms/autocomplete, forms/search-field
 
-### pages Ensure
-- Action: review
-- Confidence: 0.50
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, navigation/hambuger-menu
-
 ### 100 keyboard
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### pages Ensure
+- Action: review
+- Confidence: 0.50
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/breadcrumb, navigation/hambuger-menu
 
 ### target size
 - Action: review
@@ -5131,7 +5045,7 @@
 - Confidence: 0.50
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/file-input
+- Source patterns: forms/file-input, navigation/pagination
 
 ### HTML CSS
 - Action: review
@@ -5147,7 +5061,7 @@
 - AI used: no
 - Source patterns: content-management/accordion, navigation/pagination
 
-### Icon semantics:
+### Icon semantics
 - Action: review
 - Confidence: 0.50
 - Match: unresolved
@@ -5201,7 +5115,7 @@
 - Confidence: 0.47
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/tabs, forms/color-picker, forms/date-picker
+- Source patterns: forms/color-picker, forms/date-picker, navigation/tabs
 
 ### keyboard alternative Don
 - Action: review
@@ -5264,7 +5178,7 @@
 - Confidence: 0.43
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/tabs, forms/color-picker, forms/date-picker
+- Source patterns: forms/color-picker, forms/date-picker, navigation/tabs
 
 ### 200ms navigation start
 - Action: review
@@ -5287,13 +5201,6 @@
 - AI used: no
 - Source patterns: authentication/login, navigation/navigation-menu, navigation/pagination
 
-### support keyboard interactions
-- Action: review
-- Confidence: 0.42
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/popover, forms/button
-
 ### Progressive Enhancement Core
 - Action: review
 - Confidence: 0.42
@@ -5306,14 +5213,14 @@
 - Confidence: 0.42
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/sidebar, forms/button
+- Source patterns: forms/button, navigation/sidebar
 
 ### standard keyboard interactions
 - Action: review
 - Confidence: 0.41
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, navigation/pagination, forms/checkbox
+- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, forms/checkbox, navigation/pagination
 
 ### Compare content loading
 - Action: review
@@ -5327,21 +5234,21 @@
 - Confidence: 0.40
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### pattern opens
 - Action: review
 - Confidence: 0.40
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### narrow screens enter
 - Action: review
 - Confidence: 0.40
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Design idle loading
 - Action: review
@@ -5383,14 +5290,14 @@
 - Confidence: 0.40
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, forms/multi-select-input
+- Source patterns: forms/multi-select-input, navigation/megamenu
 
 ### web design answer
 - Action: review
 - Confidence: 0.40
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/text-field
+- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, forms/autocomplete, forms/button, forms/text-field, navigation/infinite-scroll
 
 ### click keyboard alternative
 - Action: review
@@ -5404,14 +5311,14 @@
 - Confidence: 0.39
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### where semantics alone
 - Action: review
 - Confidence: 0.39
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Design density levels
 - Action: review
@@ -5432,14 +5339,7 @@
 - Confidence: 0.39
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Shows loading state
-- Action: review
-- Confidence: 0.39
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup, authentication/social-login, data-display/table
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### task Design idle
 - Action: review
@@ -5467,7 +5367,7 @@
 - Confidence: 0.38
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### different screen sizes
 - Action: review
@@ -5488,21 +5388,14 @@
 - Confidence: 0.38
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### pattern helps
 - Action: review
 - Confidence: 0.38
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### patterns this
-- Action: review
-- Confidence: 0.38
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Indicate loading state
 - Action: review
@@ -5516,7 +5409,7 @@
 - Confidence: 0.37
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### viewport shrinks Keep
 - Action: review
@@ -5551,7 +5444,7 @@
 - Confidence: 0.36
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### states Loading Indicator
 - Action: review
@@ -5581,6 +5474,20 @@
 - AI used: no
 - Source patterns: content-management/carousel, data-display/table
 
+### spacing
+- Action: review
+- Confidence: 0.36
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/load-more, navigation/pagination
+
+### placing
+- Action: review
+- Confidence: 0.36
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, forms/checkbox, forms/text-field
+
 ### network latency token
 - Action: review
 - Confidence: 0.36
@@ -5594,20 +5501,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
-
-### this pattern
-- Action: review
-- Confidence: 0.35
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/hambuger-menu, navigation/infinite-scroll, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### patterns this pattern
-- Action: review
-- Confidence: 0.35
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### jumps Design density
 - Action: review
@@ -5628,7 +5521,7 @@
 - Confidence: 0.35
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/rating-input, forms/tag-input, forms/time-input
+- Source patterns: forms/rating-input, forms/tag-input, forms/time-input, ai-intelligence/prompt-input
 
 ### View pattern helps
 - Action: review
@@ -5643,6 +5536,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/card-grid, data-display/list-view
+
+### validation
+- Action: review
+- Confidence: 0.35
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/signup, forms/checkbox, forms/date-input, forms/selection-input
 
 ### display patterns before
 - Action: review
@@ -5684,7 +5584,7 @@
 - Confidence: 0.34
 - Match: unresolved
 - AI used: no
-- Source patterns: advanced/command-palette, content-management/modal, content-management/popover, content-management/tooltip, data-display/card-grid, data-display/list-view, data-display/table, navigation/infinite-scroll, navigation/load-more, navigation/pagination, forms/checkbox, forms/search-field, forms/text-field
+- Source patterns: advanced/command-palette, content-management/modal, content-management/popover, content-management/tooltip, data-display/card-grid, data-display/list-view, data-display/table, forms/checkbox, forms/search-field, forms/text-field, navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
 ### content loading patterns
 - Action: review
@@ -5707,13 +5607,6 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
-### show loading immediately
-- Action: review
-- Confidence: 0.33
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup
-
 ### current page question
 - Action: review
 - Confidence: 0.33
@@ -5726,70 +5619,56 @@
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### only where semantics
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### then add ARIA
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### add ARIA only
-- Action: review
-- Confidence: 0.33
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### adjacent patterns this
-- Action: review
-- Confidence: 0.33
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### adjacent patterns
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### targets remain comfortable
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### assume pointer touch
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### enabled Ensure touch
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### structured state keyboard
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### layout jumps Design
 - Action: review
@@ -5831,7 +5710,7 @@
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/rating-input, forms/tag-input, forms/time-input
+- Source patterns: forms/rating-input, forms/tag-input, forms/time-input, ai-intelligence/prompt-input
 
 ### initial page load
 - Action: review
@@ -5854,19 +5733,19 @@
 - AI used: no
 - Source patterns: media/video-player, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### States pattern helps
-- Action: review
-- Confidence: 0.33
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, user-feedback/empty-states
-
 ### all overlay patterns
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/modal, content-management/popover, content-management/tooltip
+
+### States pattern helps
+- Action: review
+- Confidence: 0.33
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, user-feedback/empty-states
 
 ### overlay patterns
 - Action: review
@@ -5931,7 +5810,7 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/modal, forms/button
 
-### Loading Indicators Optional:
+### Loading Indicators Optional
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
@@ -5987,13 +5866,6 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### viewport without scrolling
-- Action: review
-- Confidence: 0.33
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, forms/color-picker
-
 ### Accessibility 100 keyboard
 - Action: review
 - Confidence: 0.33
@@ -6007,6 +5879,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### viewport without scrolling
+- Action: review
+- Confidence: 0.33
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/color-picker, navigation/megamenu
 
 ### navigation works properly
 - Action: review
@@ -6029,13 +5908,6 @@
 - AI used: no
 - Source patterns: navigation/megamenu, navigation/navigation-menu
 
-### navigation Tab between
-- Action: review
-- Confidence: 0.33
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/sidebar
-
 ### targets Reduced Motion
 - Action: review
 - Confidence: 0.33
@@ -6043,12 +5915,12 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Support full keyboard
+### navigation Tab between
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, forms/autocomplete
+- Source patterns: navigation/navigation-menu, navigation/sidebar
 
 ### Target Metrics Render
 - Action: review
@@ -6064,13 +5936,6 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Token Counter answer
-- Action: review
-- Confidence: 0.33
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
-
 ### proper ARIA labeling
 - Action: review
 - Confidence: 0.33
@@ -6078,12 +5943,12 @@
 - AI used: no
 - Source patterns: navigation/megamenu, navigation/sidebar
 
-### Loading States will
+### Token Counter answer
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
+- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
 
 ### trap keyboard focus
 - Action: review
@@ -6105,6 +5970,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/navigation-menu, navigation/tabs
+
+### Loading States will
+- Action: review
+- Confidence: 0.33
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
 
 ### mobile Make touch
 - Action: review
@@ -6134,7 +6006,7 @@
 - AI used: no
 - Source patterns: navigation/breadcrumb, navigation/hambuger-menu
 
-### Navigation Success Rate:
+### Navigation Success Rate
 - Action: review
 - Confidence: 0.33
 - Match: unresolved
@@ -6218,19 +6090,12 @@
 - AI used: no
 - Source patterns: authentication/login, authentication/password-reset
 
-### Manages layout
+### manages layout
 - Action: review
 - Confidence: 0.31
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/currency-input
-
-### Keep headers
-- Action: review
-- Confidence: 0.31
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, data-display/table
+- Source patterns: forms/currency-input, navigation/pagination
 
 ### prompts model
 - Action: review
@@ -6252,13 +6117,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
-### avoid layout jumps
-- Action: review
-- Confidence: 0.29
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### desktop layout
 - Action: review
@@ -6300,14 +6158,14 @@
 - Confidence: 0.29
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/tabs, forms/checkbox
+- Source patterns: forms/checkbox, navigation/tabs
 
-### Optimization:
+### Optimization
 - Action: review
 - Confidence: 0.29
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/tooltip, navigation/breadcrumb, forms/checkbox, forms/radio
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/tooltip, forms/checkbox, forms/radio, navigation/breadcrumb
 
 ### login options
 - Action: review
@@ -6350,13 +6208,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states
-
-### avoid layout
-- Action: review
-- Confidence: 0.27
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, media/image-gallery, media/image-upload, media/video-player
 
 ### layout will
 - Action: review
@@ -6405,7 +6256,7 @@
 - Confidence: 0.27
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/response-feedback, content-management/popover, navigation/link, social/like-button
+- Source patterns: content-management/popover, navigation/link, social/like-button, ai-intelligence/response-feedback
 
 ### decision tree
 - Action: review
@@ -6414,7 +6265,7 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/carousel, data-display/table
 
-### Form render:
+### Form render
 - Action: review
 - Confidence: 0.27
 - Match: unresolved
@@ -6440,7 +6291,7 @@
 - Confidence: 0.27
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/checkbox, forms/date-range, forms/form-validation, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/checkbox, forms/date-range, forms/form-validation, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### form validation
 - Action: review
@@ -6469,13 +6320,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### Keep identity object
-- Action: review
-- Confidence: 0.27
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### object details
 - Action: review
@@ -6526,12 +6370,12 @@
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/user-profile, forms/checkbox
 
-### progress bar
+### Progress Bar
 - Action: review
 - Confidence: 0.26
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/load-more, forms/file-input
+- Source patterns: forms/file-input, navigation/infinite-scroll, navigation/load-more
 
 ### without navigating
 - Action: review
@@ -6552,7 +6396,7 @@
 - Confidence: 0.26
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, navigation/infinite-scroll, navigation/load-more, navigation/pagination, forms/checkbox, forms/text-field
+- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, forms/checkbox, forms/text-field, navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
 ### layouts Keep
 - Action: review
@@ -6582,40 +6426,54 @@
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
+### moving
+- Action: review
+- Confidence: 0.25
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### selection state Test
 - Action: review
 - Confidence: 0.25
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### level medium
 - Action: review
 - Confidence: 0.25
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, media/image-gallery, media/image-upload, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
-### Timing:
+### Timing
 - Action: review
 - Confidence: 0.25
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/carousel, content-management/tooltip, data-display/table, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/text-field
+- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/carousel, content-management/tooltip, data-display/table, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/text-field, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs
 
-### Implementation:
+### Implementation
 - Action: review
 - Confidence: 0.25
 - Match: unresolved
 - AI used: no
-- Source patterns: getting-started, index, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/carousel, content-management/tooltip, data-display/table, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, forms/code-confirmation, forms/text-field
+- Source patterns: getting-started, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/carousel, content-management/tooltip, data-display/table, forms/code-confirmation, forms/text-field, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs
 
 ### primary actions
 - Action: review
 - Confidence: 0.25
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/tree-view, navigation/link, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/empty-states
+- Source patterns: data-display/tree-view, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/link, user-feedback/empty-states
+
+### layout
+- Action: review
+- Confidence: 0.25
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### adding side-by-side layouts
 - Action: review
@@ -6778,6 +6636,13 @@
 - AI used: no
 - Source patterns: authentication/account-settings, forms/button, forms/checkbox
 
+### captions
+- Action: review
+- Confidence: 0.25
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player
+
 ### shift Keep
 - Action: review
 - Confidence: 0.25
@@ -6827,6 +6692,13 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/button
 
+### suggestions
+- Action: review
+- Confidence: 0.25
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/autocomplete, ai-intelligence/ai-suggestions
+
 ### Contains action
 - Action: review
 - Confidence: 0.25
@@ -6854,6 +6726,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/expandable-text, navigation/sidebar
+
+### hiding
+- Action: review
+- Confidence: 0.25
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/expandable-text, navigation/infinite-scroll
 
 ### Layout Mirroring
 - Action: review
@@ -6883,13 +6762,6 @@
 - AI used: no
 - Source patterns: data-display/card-grid, data-display/list-view, data-display/table
 
-### avoid excessive scrolling
-- Action: review
-- Confidence: 0.24
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, navigation/pagination
-
 ### Progress Indicator will
 - Action: review
 - Confidence: 0.24
@@ -6916,21 +6788,7 @@
 - Confidence: 0.24
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/password-reset, advanced/wizard, navigation/load-more, forms/button, forms/file-input, user-feedback/loading-indicator, user-feedback/progress-indicator
-
-### Keep transitions
-- Action: review
-- Confidence: 0.24
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Announce validation
-- Action: review
-- Confidence: 0.24
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/signup, forms/checkbox, forms/date-input, forms/selection-input
+- Source patterns: advanced/wizard, authentication/password-reset, forms/button, forms/file-input, navigation/load-more, user-feedback/loading-indicator, user-feedback/progress-indicator
 
 ### smooth animations
 - Action: review
@@ -6944,7 +6802,7 @@
 - Confidence: 0.24
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, navigation/pagination, forms/selection-input
+- Source patterns: authentication/account-settings, forms/selection-input, navigation/pagination
 
 ### responsive handling
 - Action: review
@@ -7007,7 +6865,7 @@
 - Confidence: 0.24
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/password-reset, content-management/accordion, data-display/table, navigation/breadcrumb, navigation/infinite-scroll, navigation/load-more, navigation/megamenu, forms/button, forms/checkbox
+- Source patterns: authentication/password-reset, content-management/accordion, data-display/table, forms/button, forms/checkbox, navigation/breadcrumb, navigation/infinite-scroll, navigation/load-more, navigation/megamenu
 
 ### high-stakes actions
 - Action: review
@@ -7030,7 +6888,7 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
-### Toggle response:
+### Toggle response
 - Action: review
 - Confidence: 0.24
 - Match: unresolved
@@ -7126,7 +6984,7 @@
 - Confidence: 0.23
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/infinite-scroll, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/button, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/button, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, navigation/breadcrumb, navigation/infinite-scroll, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### density levels
 - Action: review
@@ -7143,13 +7001,6 @@
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
 ### strong reason
-- Action: review
-- Confidence: 0.23
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
-### Keep helper
 - Action: review
 - Confidence: 0.23
 - Match: unresolved
@@ -7233,7 +7084,7 @@
 - AI used: no
 - Source patterns: authentication/account-settings, forms/currency-input
 
-### Resend Rate:
+### Resend Rate
 - Action: review
 - Confidence: 0.23
 - Match: unresolved
@@ -7245,7 +7096,7 @@
 - Confidence: 0.23
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/link, navigation/load-more, forms/button
+- Source patterns: content-management/expandable-text, forms/button, navigation/link, navigation/load-more
 
 ### one option
 - Action: review
@@ -7310,7 +7161,7 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
-### Animation duration:
+### Animation duration
 - Action: review
 - Confidence: 0.22
 - Match: unresolved
@@ -7338,6 +7189,13 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, forms/radio
 
+### disabling
+- Action: review
+- Confidence: 0.22
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/password, forms/text-field
+
 ### Progress Indicator answer
 - Action: review
 - Confidence: 0.22
@@ -7350,14 +7208,14 @@
 - Confidence: 0.22
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### completion states
 - Action: review
 - Confidence: 0.22
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, media/image-gallery, media/image-upload, media/video-player, user-feedback/progress-indicator
+- Source patterns: media/image-gallery, media/image-upload, media/video-player, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/progress-indicator
 
 ### otherwise render
 - Action: review
@@ -7379,13 +7237,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### meaningful status
-- Action: review
-- Confidence: 0.22
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### validation errors
 - Action: review
@@ -7415,6 +7266,13 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/checkbox, forms/radio
 
+### zoom orientation
+- Action: review
+- Confidence: 0.22
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player
+
 ### differences refer
 - Action: review
 - Confidence: 0.22
@@ -7423,13 +7281,6 @@
 - Source patterns: content-management/accordion, content-management/carousel, data-display/table
 
 ### file requirements
-- Action: review
-- Confidence: 0.22
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
-
-### zoom orientation
 - Action: review
 - Confidence: 0.22
 - Match: unresolved
@@ -7469,14 +7320,14 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Initial render:
+### Initial render
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/breadcrumb, navigation/navigation-menu, navigation/sidebar, navigation/tabs, forms/code-confirmation, forms/currency-input, forms/date-input, forms/text-field
+- Source patterns: data-display/table, forms/code-confirmation, forms/currency-input, forms/date-input, forms/text-field, navigation/breadcrumb, navigation/navigation-menu, navigation/sidebar, navigation/tabs
 
 ### core task information
 - Action: review
@@ -7492,12 +7343,26 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
+### slowing
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### important information
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/modal, content-management/tooltip, data-display/table, navigation/link
+
+### context
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-picker, forms/radio, navigation/breadcrumb, social/activity-feed
 
 ### related options
 - Action: review
@@ -7518,7 +7383,7 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, data-display/statistics
+- Source patterns: data-display/statistics, ai-intelligence/ai-chat
 
 ### inline editing
 - Action: review
@@ -7574,7 +7439,7 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/button
+- Source patterns: forms/button, navigation/back-to-top
 
 ### prevent sudden
 - Action: review
@@ -7602,14 +7467,21 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/carousel, content-management/drag-and-drop, content-management/modal, content-management/popover, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-picker, forms/date-range, forms/form-validation, forms/password, forms/phone-number, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/accordion, content-management/carousel, content-management/drag-and-drop, content-management/modal, content-management/popover, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-picker, forms/date-range, forms/form-validation, forms/password, forms/phone-number, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/time-input, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### lighter interaction
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### progress
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player, navigation/pagination, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### levels intentionally
 - Action: review
@@ -7617,13 +7489,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
-
-### Keep primary actions
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
 ### nested actions
 - Action: review
@@ -7637,7 +7502,7 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Reserve strong
 - Action: review
@@ -7658,7 +7523,7 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/popover, navigation/breadcrumb, forms/checkbox, forms/radio
+- Source patterns: content-management/popover, forms/checkbox, forms/radio, navigation/breadcrumb
 
 ### distinctions between
 - Action: review
@@ -7673,13 +7538,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/accordion, content-management/carousel, data-display/table
-
-### Keep captions
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
 
 ### collapsible sections
 - Action: review
@@ -7751,6 +7609,13 @@
 - AI used: no
 - Source patterns: content-management/carousel, navigation/infinite-scroll
 
+### positioning
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, forms/selection-input
+
 ### clear separation
 - Action: review
 - Confidence: 0.21
@@ -7763,42 +7628,21 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, forms/text-field
+- Source patterns: forms/text-field, navigation/breadcrumb
 
-### Mobile Optimization:
+### Mobile Optimization
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/back-to-top, navigation/pagination
 
-### focus order
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/carousel, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### keep moving
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### labels hints
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Keep spacing
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, navigation/pagination, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### labels legends
 - Action: review
@@ -7840,14 +7684,14 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, navigation/navigation-menu, navigation/sidebar, forms/button
+- Source patterns: forms/button, navigation/hambuger-menu, navigation/navigation-menu, navigation/sidebar
 
-### move between
+### Move between
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, navigation/navigation-menu, navigation/tabs, media/image-gallery
+- Source patterns: media/image-gallery, navigation/megamenu, navigation/navigation-menu, navigation/tabs
 
 ### close button
 - Action: review
@@ -7870,6 +7714,13 @@
 - AI used: no
 - Source patterns: data-display/card-grid, data-display/list-view, data-display/table
 
+### descriptive
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/account-settings, forms/button, forms/date-picker
+
 ### View instead
 - Action: review
 - Confidence: 0.21
@@ -7877,19 +7728,12 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/list-view, data-display/tree-view
 
-### focus after
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/table, navigation/back-to-top, forms/button
-
 ### too narrow
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, navigation/sidebar, forms/selection-input
+- Source patterns: authentication/two-factor, forms/selection-input, navigation/sidebar
 
 ### radio buttons
 - Action: review
@@ -7903,14 +7747,7 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/button
-
-### Provide smooth animations
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text
+- Source patterns: forms/button, navigation/link
 
 ### Newly Loaded
 - Action: review
@@ -7933,12 +7770,12 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states
 
-### wrapping Don
+### structure
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/navigation-menu, navigation/sidebar
+- Source patterns: forms/textarea, navigation/navigation-menu
 
 ### Manages open
 - Action: review
@@ -7947,19 +7784,19 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/date-picker
 
+### wrapping Don
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/navigation-menu, navigation/sidebar
+
 ### message Don
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-range, forms/multi-select-input
-
-### reason Don
-- Action: review
-- Confidence: 0.21
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/tabs, forms/password
 
 ### very large
 - Action: review
@@ -7975,12 +7812,19 @@
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/date-input
 
+### reason Don
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/password, navigation/tabs
+
 ### maintain question
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### short enough
 - Action: review
@@ -7988,6 +7832,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/login, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### meaningful status
+- Action: review
+- Confidence: 0.21
+- Match: unresolved
+- AI used: no
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### large promotional
 - Action: review
@@ -8022,7 +7873,7 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, authentication/signup, content-management/expandable-text, navigation/back-to-top, forms/code-confirmation
+- Source patterns: authentication/login, authentication/signup, content-management/expandable-text, forms/code-confirmation, navigation/back-to-top
 
 ### choose one
 - Action: review
@@ -8050,7 +7901,7 @@
 - Confidence: 0.21
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/sidebar, forms/multi-select-input
+- Source patterns: forms/multi-select-input, navigation/back-to-top, navigation/sidebar
 
 ### validation secure
 - Action: review
@@ -8101,7 +7952,7 @@
 - AI used: no
 - Source patterns: authentication/social-login, authentication/user-profile
 
-### Reading Direction:
+### Reading Direction
 - Action: review
 - Confidence: 0.21
 - Match: unresolved
@@ -8162,14 +8013,21 @@
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/signup, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### low description
 - Action: review
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/tooltip, data-display/statistics, navigation/back-to-top, navigation/link, social/like-button, forms/button, forms/checkbox, forms/rating-input, forms/text-field, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: content-management/expandable-text, content-management/tooltip, data-display/statistics, forms/button, forms/checkbox, forms/rating-input, forms/text-field, forms/textarea, forms/toggle, navigation/back-to-top, navigation/link, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+
+### supporting
+- Action: review
+- Confidence: 0.20
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### advanced options
 - Action: review
@@ -8199,26 +8057,19 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
-### focus management
-- Action: review
-- Confidence: 0.20
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, content-management/modal, content-management/popover, forms/button, forms/code-confirmation, forms/date-input, forms/date-picker, forms/radio
-
 ### alternatives Don
 - Action: review
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/breadcrumb, navigation/link, navigation/megamenu, navigation/navigation-menu, forms/button, forms/checkbox, forms/file-input
+- Source patterns: data-display/table, forms/button, forms/checkbox, forms/file-input, navigation/breadcrumb, navigation/link, navigation/megamenu, navigation/navigation-menu
 
 ### spacing between
 - Action: review
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, content-management/accordion, content-management/carousel, navigation/link, forms/button, forms/checkbox, forms/text-field
+- Source patterns: authentication/signup, content-management/accordion, content-management/carousel, forms/button, forms/checkbox, forms/text-field, navigation/link
 
 ### transactional details
 - Action: review
@@ -8226,6 +8077,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+
+### transitions
+- Action: review
+- Confidence: 0.20
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/load-more, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### through unclear
 - Action: review
@@ -8281,7 +8139,7 @@
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/popover, navigation/hambuger-menu, forms/button
+- Source patterns: content-management/popover, forms/button, navigation/hambuger-menu
 
 ### states Ensure
 - Action: review
@@ -8289,13 +8147,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/accordion, forms/button, forms/checkbox
-
-### previous content
-- Action: review
-- Confidence: 0.20
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
 ### selected dates
 - Action: review
@@ -8346,14 +8197,14 @@
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/user-profile
 
-### avoids ambiguity
+### selected
 - Action: review
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, forms/time-input
+- Source patterns: forms/date-range, forms/multi-select-input
 
-### Social providers:
+### Social providers
 - Action: review
 - Confidence: 0.20
 - Match: unresolved
@@ -8428,7 +8279,7 @@
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/date-picker
+- Source patterns: forms/date-picker, navigation/link
 
 ### Strategies Event Delegation
 - Action: review
@@ -8437,13 +8288,6 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Streaming Response answer
-- Action: review
-- Confidence: 0.20
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-loading-states, ai-intelligence/streaming-response
-
 ### supplementary information
 - Action: review
 - Confidence: 0.20
@@ -8451,19 +8295,19 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, content-management/tooltip
 
+### Streaming Response answer
+- Action: review
+- Confidence: 0.20
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-loading-states, ai-intelligence/streaming-response
+
 ### fetching new content
 - Action: review
 - Confidence: 0.20
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/load-more, navigation/pagination
-
-### Keeps suggestions
-- Action: review
-- Confidence: 0.20
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/autocomplete
 
 ### users who prefer
 - Action: review
@@ -8527,6 +8371,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/autocomplete, forms/text-field
+
+### new
+- Action: review
+- Confidence: 0.20
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll, navigation/load-more
 
 ### place icons
 - Action: review
@@ -8638,7 +8489,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/table, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, forms/button
+- Source patterns: authentication/account-settings, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/table, forms/button, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### different geometry
 - Action: review
@@ -8647,19 +8498,12 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Mobile Performance:
+### Mobile Performance
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/tooltip, navigation/back-to-top, forms/checkbox, forms/radio
-
-### provides additional
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, content-management/popover, content-management/tooltip, forms/text-field
+- Source patterns: content-management/tooltip, forms/checkbox, forms/radio, navigation/back-to-top
 
 ### additional content
 - Action: review
@@ -8668,7 +8512,7 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, content-management/popover, navigation/load-more
 
-### Scroll Performance:
+### Scroll Performance
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
@@ -8694,7 +8538,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu, forms/checkbox
+- Source patterns: forms/checkbox, navigation/link, navigation/navigation-menu
 
 ### Streaming Response
 - Action: review
@@ -8729,21 +8573,21 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/response-feedback, social/like-button
+- Source patterns: social/like-button, ai-intelligence/response-feedback
 
 ### teams create
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### state rules
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### before adding
 - Action: review
@@ -8764,28 +8608,28 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, authentication/social-login, content-management/popover, navigation/pagination, forms/form-validation, forms/password, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: authentication/signup, authentication/social-login, content-management/popover, forms/form-validation, forms/password, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/pagination
 
 ### async data
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### current state
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, social/like-button, forms/toggle
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, forms/toggle, social/like-button, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### while keeping
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, ai-intelligence/ai-suggestions, content-management/expandable-text, content-management/popover, navigation/hambuger-menu, navigation/sidebar, navigation/tabs, social/comment-system, forms/rich-text-editor, forms/slider, forms/text-field, forms/textarea
+- Source patterns: authentication/account-settings, content-management/expandable-text, content-management/popover, forms/rich-text-editor, forms/slider, forms/text-field, forms/textarea, navigation/hambuger-menu, navigation/sidebar, navigation/tabs, social/comment-system, ai-intelligence/ai-suggestions
 
 ### subtle borders
 - Action: review
@@ -8836,21 +8680,7 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
-### Keep filters
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
-
 ### subtle motion
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### Keep request
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
@@ -8869,7 +8699,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, content-management/accordion, navigation/hambuger-menu, navigation/link, forms/button, forms/checkbox, forms/radio, forms/text-field
+- Source patterns: authentication/account-settings, content-management/accordion, forms/button, forms/checkbox, forms/radio, forms/text-field, navigation/hambuger-menu, navigation/link
 
 ### permanent ones
 - Action: review
@@ -8906,13 +8736,6 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### avoid slowing
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### force users
 - Action: review
 - Confidence: 0.19
@@ -8932,7 +8755,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, content-management/modal, data-display/table, navigation/load-more, forms/button
+- Source patterns: authentication/user-profile, content-management/modal, data-display/table, forms/button, navigation/load-more
 
 ### user enters
 - Action: review
@@ -8955,26 +8778,12 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
-### Keep labels
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
 ### Treat hover
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
-### focus trapping
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/modal, navigation/hambuger-menu, forms/color-picker
 
 ### labels support
 - Action: review
@@ -8983,19 +8792,19 @@
 - AI used: no
 - Source patterns: forms/button, forms/password, forms/text-field
 
-### success error
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, authentication/two-factor, user-feedback/loading-indicator
-
 ### states Search
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, data-display/filter-panel
+
+### success error
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/account-settings, authentication/two-factor, user-feedback/loading-indicator
 
 ### related items
 - Action: review
@@ -9004,13 +8813,6 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/carousel, navigation/hambuger-menu
 
-### Avoid placing
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, forms/checkbox, forms/text-field
-
 ### some browsers
 - Action: review
 - Confidence: 0.19
@@ -9018,12 +8820,12 @@
 - AI used: no
 - Source patterns: content-management/accordion, forms/code-confirmation, forms/text-field
 
-### System answer
+### system answer
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: social/activity-feed, social/comment-system, forms/file-input
+- Source patterns: forms/file-input, social/activity-feed, social/comment-system
 
 ### tree below
 - Action: review
@@ -9032,7 +8834,7 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/carousel, data-display/table
 
-### Response Times:
+### Response Times
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
@@ -9067,7 +8869,7 @@
 - AI used: no
 - Source patterns: authentication/signup, forms/rich-text-editor
 
-### Frame rate:
+### Frame rate
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
@@ -9109,12 +8911,12 @@
 - AI used: no
 - Source patterns: navigation/hambuger-menu, navigation/megamenu
 
-### Separators:
+### Separators
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, forms/code-confirmation
+- Source patterns: forms/code-confirmation, navigation/breadcrumb
 
 ### being loaded
 - Action: review
@@ -9130,6 +8932,20 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/selection-input
 
+### clear labels
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/password, forms/radio
+
+### technical
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, forms/checkbox
+
 ### needs question
 - Action: review
 - Confidence: 0.19
@@ -9142,7 +8958,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/autocomplete
+- Source patterns: forms/autocomplete, navigation/link
 
 ### clear divider
 - Action: review
@@ -9172,20 +8988,6 @@
 - AI used: no
 - Source patterns: content-management/carousel, navigation/back-to-top
 
-### logical focus
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/expandable-text, navigation/back-to-top
-
-### text question
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/password
-
 ### typing effort
 - Action: review
 - Confidence: 0.19
@@ -9200,6 +9002,20 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/currency-input
 
+### text question
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/password, navigation/breadcrumb
+
+### headers
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, data-display/table
+
 ### controls Don
 - Action: review
 - Confidence: 0.19
@@ -9212,7 +9028,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/button
+- Source patterns: forms/button, navigation/pagination
 
 ### Place helper
 - Action: review
@@ -9220,13 +9036,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/text-field
-
-### States will
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
 
 ### clear hover
 - Action: review
@@ -9249,6 +9058,13 @@
 - AI used: no
 - Source patterns: navigation/navigation-menu, navigation/sidebar
 
+### States will
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
+
 ### Email Sent
 - Action: review
 - Confidence: 0.19
@@ -9262,13 +9078,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/signup, authentication/social-login
-
-### Avoid long
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/modal, forms/text-field
 
 ### Label Content
 - Action: review
@@ -9296,14 +9105,14 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/tooltip, data-display/statistics, navigation/back-to-top, navigation/link, social/like-button, forms/button, forms/checkbox, forms/rating-input, forms/text-field, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: content-management/expandable-text, content-management/tooltip, data-display/statistics, forms/button, forms/checkbox, forms/rating-input, forms/text-field, forms/textarea, forms/toggle, navigation/back-to-top, navigation/link, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### content Don
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, content-management/carousel, content-management/expandable-text, content-management/modal, data-display/table, navigation/link, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, forms/selection-input, forms/text-field
+- Source patterns: authentication/login, content-management/carousel, content-management/expandable-text, content-management/modal, data-display/table, forms/selection-input, forms/text-field, navigation/link, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs
 
 ### client-side rendering
 - Action: review
@@ -9338,14 +9147,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, authentication/two-factor, navigation/tabs, forms/button
-
-### add extra interaction
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
+- Source patterns: authentication/login, authentication/two-factor, forms/button, navigation/tabs
 
 ### hide file restrictions
 - Action: review
@@ -9387,14 +9189,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, forms/color-picker
-
-### Maintain logical focus
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/expandable-text, navigation/back-to-top
+- Source patterns: forms/color-picker, navigation/megamenu
 
 ### Rendering Only render
 - Action: review
@@ -9417,14 +9212,14 @@
 - AI used: no
 - Source patterns: authentication/signup, navigation/load-more
 
-### Long Interaction Times?
+### Long Interaction Times
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### RequestAnimationFrame:
+### RequestAnimationFrame
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
@@ -9443,7 +9238,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/table, data-display/tree-view, navigation/infinite-scroll, navigation/megamenu, social/activity-feed, social/comment-system, media/video-player, forms/color-picker, forms/date-picker, forms/date-range, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, authentication/two-factor, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/table, data-display/tree-view, forms/color-picker, forms/date-picker, forms/date-range, forms/rich-text-editor, navigation/infinite-scroll, navigation/megamenu, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### data matters Keep
 - Action: review
@@ -9480,6 +9275,20 @@
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
+### helper
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+
+### focus management
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, content-management/carousel, content-management/modal, content-management/popover, forms/button, forms/code-confirmation, forms/date-input, forms/date-picker, forms/radio
+
 ### gamify high-stakes actions
 - Action: review
 - Confidence: 0.19
@@ -9506,7 +9315,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, navigation/link, navigation/navigation-menu, forms/checkbox, forms/password, forms/radio
+- Source patterns: authentication/signup, forms/checkbox, forms/password, forms/radio, navigation/link, navigation/navigation-menu
 
 ### before adding decoration
 - Action: review
@@ -9541,7 +9350,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/load-more, forms/button, forms/checkbox
+- Source patterns: content-management/expandable-text, forms/button, forms/checkbox, navigation/load-more
 
 ### decoration alone
 - Action: review
@@ -9550,12 +9359,19 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
+### errors
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/password-reset, authentication/social-login, authentication/two-factor, forms/date-range
+
 ### while preserving
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/response-feedback, content-management/drag-and-drop, e-commerce/checkout
+- Source patterns: content-management/drag-and-drop, e-commerce/checkout, ai-intelligence/response-feedback
 
 ### account creation
 - Action: review
@@ -9564,19 +9380,19 @@
 - AI used: no
 - Source patterns: authentication/signup, forms/form-validation, forms/password
 
-### available options
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/model-selector, forms/multi-select-input, forms/selection-input
-
 ### actions disappear
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
+
+### available options
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/multi-select-input, forms/selection-input, ai-intelligence/model-selector
 
 ### without contrast
 - Action: review
@@ -9585,12 +9401,19 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
-### Abandonment Rate:
+### previous content
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, forms/code-confirmation, forms/date-range
+- Source patterns: navigation/infinite-scroll, navigation/load-more, navigation/pagination
+
+### Abandonment Rate
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/code-confirmation, forms/date-range, navigation/megamenu
 
 ### logical grouping
 - Action: review
@@ -9605,6 +9428,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-range, forms/file-input
+
+### error
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/code-confirmation, forms/text-field
 
 ### Grid description
 - Action: review
@@ -9653,7 +9483,7 @@
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/selection-input
+- Source patterns: forms/selection-input, navigation/pagination
 
 ### visually jarring
 - Action: review
@@ -9683,19 +9513,26 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/text-field
 
-### navigate between
-- Action: review
-- Confidence: 0.19
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/tabs, forms/radio
-
 ### Message optional
 - Action: review
 - Confidence: 0.19
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/currency-input
+
+### Navigate between
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/radio, navigation/tabs
+
+### removing
+- Action: review
+- Confidence: 0.19
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/button, forms/checkbox
 
 ### unless absolutely necessary
 - Action: review
@@ -9718,75 +9555,68 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Reduced motion:
+### Reduced motion
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/back-to-top, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/checkbox, forms/form-validation, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/checkbox, forms/form-validation, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/back-to-top, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### severity completion
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### implementation risk
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### working well answer
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### medium description
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, media/image-gallery, media/image-upload, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### Reserves space
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-loading-states, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/skeleton
+- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, ai-intelligence/ai-loading-states, user-feedback/skeleton
 
 ### actions close
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### supporting metadata
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, media/image-gallery, media/image-upload, media/video-player
+- Source patterns: media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### description Compare
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: advanced/command-palette, content-management/modal, content-management/popover, content-management/tooltip, data-display/card-grid, data-display/list-view, data-display/table, navigation/infinite-scroll, navigation/load-more, navigation/pagination, forms/checkbox, forms/search-field, forms/text-field
-
-### provides clear
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, authentication/password-reset, authentication/user-profile, content-management/carousel, content-management/expandable-text, navigation/infinite-scroll, navigation/navigation-menu, forms/button, forms/date-range, forms/password, forms/radio
+- Source patterns: advanced/command-palette, content-management/modal, content-management/popover, content-management/tooltip, data-display/card-grid, data-display/list-view, data-display/table, forms/checkbox, forms/search-field, forms/text-field, navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
 ### filters summaries
 - Action: review
@@ -9837,14 +9667,14 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
-### provenance status
+### request streaming
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
-### request streaming
+### provenance status
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
@@ -9863,14 +9693,21 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### descriptive labels
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/megamenu, forms/autocomplete, forms/button, forms/checkbox, forms/color-picker, forms/radio, forms/text-field
+- Source patterns: content-management/carousel, forms/autocomplete, forms/button, forms/checkbox, forms/color-picker, forms/radio, forms/text-field, navigation/megamenu
+
+### trust-building
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### before acting
 - Action: review
@@ -9893,12 +9730,19 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Validation feedback:
+### Validation feedback
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, forms/currency-input, forms/file-input, forms/multi-select-input, forms/text-field
+
+### overwhelming
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/tooltip, forms/autocomplete, forms/checkbox, forms/text-field, navigation/load-more
 
 ### social login
 - Action: review
@@ -9912,21 +9756,14 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, data-display/card-grid, navigation/sidebar, forms/checkbox
-
-### provides context
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, social/activity-feed, forms/date-picker, forms/radio
+- Source patterns: content-management/accordion, data-display/card-grid, forms/checkbox, navigation/sidebar
 
 ### open close
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, navigation/hambuger-menu, navigation/megamenu, forms/multi-select-input
+- Source patterns: content-management/accordion, forms/multi-select-input, navigation/hambuger-menu, navigation/megamenu
 
 ### Preserve proximity
 - Action: review
@@ -9940,7 +9777,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/navigation-menu, forms/button, forms/checkbox, forms/text-field
+- Source patterns: forms/button, forms/checkbox, forms/text-field, navigation/navigation-menu
 
 ### between primary
 - Action: review
@@ -9989,14 +9826,14 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/hambuger-menu, forms/password
+- Source patterns: forms/password, navigation/back-to-top, navigation/hambuger-menu
 
 ### receives focus
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/hambuger-menu, forms/selection-input
+- Source patterns: content-management/carousel, forms/selection-input, navigation/hambuger-menu
 
 ### action starts
 - Action: review
@@ -10019,19 +9856,19 @@
 - AI used: no
 - Source patterns: forms/rating-input, forms/slider
 
-### Battery impact:
+### Battery impact
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/back-to-top, navigation/pagination
 
-### consistent naming
+### Consistent Naming
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, forms/radio
+- Source patterns: forms/radio, navigation/breadcrumb
 
 ### Proper Labels
 - Action: review
@@ -10046,13 +9883,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/color-picker, forms/date-input
-
-### Provide ample
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, forms/selection-input
 
 ### active link
 - Action: review
@@ -10089,7 +9919,7 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/checkbox
 
-### adds unnecessary
+### unnecessary
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
@@ -10115,7 +9945,14 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/multi-select-input
+- Source patterns: forms/multi-select-input, navigation/load-more
+
+### Focuses attention
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, navigation/hambuger-menu
 
 ### re-renders during
 - Action: review
@@ -10152,19 +9989,12 @@
 - AI used: no
 - Source patterns: content-management/drag-and-drop, data-display/kanban-board
 
-### Avoid hiding
+### users always
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/infinite-scroll
-
-### users Always
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/pagination, forms/date-input
+- Source patterns: forms/date-input, navigation/pagination
 
 ### purpose Add
 - Action: review
@@ -10199,44 +10029,30 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### level high description
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/table, data-display/tree-view, navigation/infinite-scroll, navigation/megamenu, social/activity-feed, social/comment-system, media/video-player, forms/color-picker, forms/date-picker, forms/date-range, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, authentication/two-factor, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/table, data-display/tree-view, forms/color-picker, forms/date-picker, forms/date-range, forms/rich-text-editor, navigation/infinite-scroll, navigation/megamenu, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### level high
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/table, data-display/tree-view, navigation/infinite-scroll, navigation/megamenu, social/activity-feed, social/comment-system, media/video-player, forms/color-picker, forms/date-picker, forms/date-range, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, authentication/two-factor, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/table, data-display/tree-view, forms/color-picker, forms/date-picker, forms/date-range, forms/rich-text-editor, navigation/infinite-scroll, navigation/megamenu, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### level low
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/tooltip, data-display/statistics, navigation/back-to-top, navigation/link, social/like-button, forms/button, forms/checkbox, forms/rating-input, forms/text-field, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Make retries
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
+- Source patterns: content-management/expandable-text, content-management/tooltip, data-display/statistics, forms/button, forms/checkbox, forms/rating-input, forms/text-field, forms/textarea, forms/toggle, navigation/back-to-top, navigation/link, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### reading does
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### Keep prompt
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
@@ -10262,7 +10078,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/popover, content-management/tooltip, navigation/tabs, forms/date-picker
+- Source patterns: content-management/expandable-text, content-management/popover, content-management/tooltip, forms/date-picker, navigation/tabs
 
 ### Complex implementation
 - Action: review
@@ -10283,7 +10099,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, content-management/expandable-text, navigation/link, forms/multi-select-input
+- Source patterns: authentication/signup, content-management/expandable-text, forms/multi-select-input, navigation/link
 
 ### file restrictions until
 - Action: review
@@ -10341,12 +10157,19 @@
 - AI used: no
 - Source patterns: forms/file-input, user-feedback/progress-indicator
 
-### This section
+### Maintain logical focus
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, data-display/table
+- Source patterns: content-management/expandable-text, navigation/back-to-top
+
+### hide toggle
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/login, authentication/signup
 
 ### links inside
 - Action: review
@@ -10362,19 +10185,19 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### hide toggle
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup
-
 ### each button
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, forms/date-range
+
+### never rely
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/password, navigation/pagination
 
 ### values Don
 - Action: review
@@ -10383,26 +10206,12 @@
 - AI used: no
 - Source patterns: navigation/link, navigation/navigation-menu
 
-### Never rely
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/pagination, forms/password
-
 ### Obstructs other content
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/popover, content-management/tooltip
-
-### Overview
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: getting-started, index
 
 ### hover hint
 - Action: review
@@ -10416,7 +10225,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### key controls move
 - Action: review
@@ -10438,13 +10247,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Announce validation errors
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/signup, forms/checkbox, forms/date-input
 
 ### different aspect ratios
 - Action: review
@@ -10488,19 +10290,12 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Announce state
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/hambuger-menu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### still readable
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### hide essential
 - Action: review
@@ -10542,14 +10337,14 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: advanced/wizard, data-display/card-grid, data-display/filter-panel, media/image-gallery, forms/tag-input
+- Source patterns: advanced/wizard, media/image-gallery, data-display/card-grid, data-display/filter-panel, forms/tag-input
 
 ### trigger buttons
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/megamenu, forms/color-picker, forms/date-picker
+- Source patterns: content-management/expandable-text, forms/color-picker, forms/date-picker, navigation/megamenu
 
 ### same container
 - Action: review
@@ -10563,14 +10358,21 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/tooltip, navigation/back-to-top, forms/checkbox, forms/radio
+- Source patterns: content-management/tooltip, forms/checkbox, forms/radio, navigation/back-to-top
 
 ### error handling
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, navigation/load-more, forms/radio
+- Source patterns: authentication/two-factor, forms/radio, navigation/load-more
+
+### focus trapping
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, forms/color-picker, navigation/hambuger-menu
 
 ### user interface
 - Action: review
@@ -10600,13 +10402,6 @@
 - AI used: no
 - Source patterns: data-display/comparison-table, data-display/table
 
-### Previous buttons
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, navigation/pagination
-
 ### avatar images
 - Action: review
 - Confidence: 0.18
@@ -10628,7 +10423,7 @@
 - AI used: no
 - Source patterns: navigation/infinite-scroll, navigation/load-more
 
-### Input response:
+### Input response
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
@@ -10640,7 +10435,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/tabs, forms/checkbox
+- Source patterns: forms/checkbox, navigation/tabs
 
 ### List container
 - Action: review
@@ -10649,7 +10444,7 @@
 - AI used: no
 - Source patterns: data-display/list-view, forms/tag-input
 
-### Hidden content:
+### Hidden content
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
@@ -10747,13 +10542,6 @@
 - AI used: no
 - Source patterns: data-display/tree-view, forms/multi-select-input
 
-### states Textarea
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: social/comment-system, forms/rich-text-editor
-
 ### complex options
 - Action: review
 - Confidence: 0.18
@@ -10761,12 +10549,12 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/selection-input
 
-### explaining why
+### states Textarea
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, forms/date-picker
+- Source patterns: forms/rich-text-editor, social/comment-system
 
 ### visible button
 - Action: review
@@ -10775,12 +10563,12 @@
 - AI used: no
 - Source patterns: advanced/command-palette, forms/file-input
 
-### Provide smooth
+### explaining why
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text
+- Source patterns: authentication/login, forms/date-picker
 
 ### down rendering
 - Action: review
@@ -10810,19 +10598,26 @@
 - AI used: no
 - Source patterns: content-management/modal, forms/color-picker
 
+### visible during
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/button, navigation/back-to-top
+
+### understand Don
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/checkbox, forms/selection-input
+
 ### behind complex
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/back-to-top, navigation/megamenu
-
-### visible during
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, forms/button
 
 ### relying solely
 - Action: review
@@ -10838,13 +10633,6 @@
 - AI used: no
 - Source patterns: navigation/infinite-scroll, navigation/load-more
 
-### understand Don
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/checkbox, forms/selection-input
-
 ### area Contains
 - Action: review
 - Confidence: 0.18
@@ -10857,7 +10645,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, forms/autocomplete
+- Source patterns: forms/autocomplete, navigation/breadcrumb
 
 ### flip above
 - Action: review
@@ -10871,7 +10659,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/code-confirmation, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/code-confirmation, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### guidePath pattern-guide pagination-vs-infinite-scroll-vs-load-more
 - Action: review
@@ -10880,47 +10668,40 @@
 - AI used: no
 - Source patterns: navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
-### remove focus styles
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### reveals additional
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### recovery behavior
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### close enough
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### coordinated state
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### accessible answer
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/checkbox, forms/color-picker, forms/radio, forms/text-field
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, forms/autocomplete, forms/button, forms/checkbox, forms/color-picker, forms/radio, forms/text-field, navigation/infinite-scroll
 
 ### actions where they
 - Action: review
@@ -10971,13 +10752,6 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
-### Show enough
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
 ### move around
 - Action: review
 - Confidence: 0.18
@@ -11018,14 +10792,14 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, content-management/accordion, content-management/carousel, navigation/back-to-top, navigation/hambuger-menu, forms/code-confirmation
+- Source patterns: authentication/two-factor, content-management/accordion, content-management/carousel, forms/code-confirmation, navigation/back-to-top, navigation/hambuger-menu
 
 ### without providing
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, navigation/navigation-menu, forms/autocomplete, forms/button, forms/checkbox
+- Source patterns: forms/autocomplete, forms/button, forms/checkbox, navigation/back-to-top, navigation/link, navigation/navigation-menu
 
 ### cover key controls
 - Action: review
@@ -11046,14 +10820,14 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, navigation/pagination, forms/checkbox
+- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, forms/checkbox, navigation/pagination
 
 ### toggle buttons
 - Action: review
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, navigation/navigation-menu, navigation/sidebar, forms/button, forms/toggle
+- Source patterns: forms/button, forms/toggle, navigation/hambuger-menu, navigation/navigation-menu, navigation/sidebar
 
 ### unrelated content
 - Action: review
@@ -11067,7 +10841,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, forms/code-confirmation, forms/date-input, forms/file-input, forms/multi-select-input
+- Source patterns: forms/code-confirmation, forms/date-input, forms/file-input, forms/multi-select-input, navigation/megamenu
 
 ### states Don
 - Action: review
@@ -11095,7 +10869,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, content-management/expandable-text, navigation/back-to-top, forms/file-input
+- Source patterns: authentication/login, content-management/expandable-text, forms/file-input, navigation/back-to-top
 
 ### smooth transitions
 - Action: review
@@ -11111,6 +10885,13 @@
 - AI used: no
 - Source patterns: data-display/chart, data-display/dashboard, data-display/statistics
 
+### clear focus states
+- Action: review
+- Confidence: 0.18
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, forms/password, forms/selection-input
+
 ### restrictions until
 - Action: review
 - Confidence: 0.18
@@ -11123,7 +10904,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, navigation/navigation-menu, forms/text-field
+- Source patterns: content-management/modal, forms/text-field, navigation/navigation-menu
 
 ### logical sequence
 - Action: review
@@ -11144,7 +10925,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, navigation/hambuger-menu, forms/button
+- Source patterns: content-management/accordion, forms/button, navigation/hambuger-menu
 
 ### table below
 - Action: review
@@ -11221,7 +11002,7 @@
 - Confidence: 0.18
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/button
+- Source patterns: forms/button, navigation/link
 
 ### individual options
 - Action: review
@@ -11236,20 +11017,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/table, navigation/pagination
-
-### This order ensures
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, data-display/table
-
-### Provides structure
-- Action: review
-- Confidence: 0.18
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, forms/textarea
 
 ### pre-select options
 - Action: review
@@ -11396,7 +11163,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### primary actions close
 - Action: review
@@ -11419,19 +11186,19 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
-### single generic error
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
 ### completely different
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### single generic error
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### media contains before
 - Action: review
@@ -11480,14 +11247,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, forms/button
-
-### Ensure error messages
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/code-confirmation, forms/text-field
+- Source patterns: forms/button, navigation/hambuger-menu
 
 ### without confirmation
 - Action: review
@@ -11531,19 +11291,12 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/timeline
 
-### enough space between
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/radio
-
 ### Default Normal state
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/button
+- Source patterns: forms/button, navigation/pagination
 
 ### Usage Minimal impact
 - Action: review
@@ -11558,6 +11311,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### enough space between
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/radio, navigation/breadcrumb
 
 ### assume everyone already
 - Action: review
@@ -11579,13 +11339,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### meaningful status changes
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### controls unless blocking
 - Action: review
@@ -11641,7 +11394,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### completion states recognizable
 - Action: review
@@ -11685,152 +11438,145 @@
 - AI used: no
 - Source patterns: navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
-### Announce state changes
+### remove focus styles
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/hambuger-menu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/login, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### first then
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### visible focus state
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### elements first then
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### alone Keep focus
+### focus order
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### elements first
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### alone Keep
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Connect labels hints
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### structural headings
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Watch whether users
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### remain comfortable
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### convey severity
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### without pausing
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### enabled Ensure
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### intended job
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### well answer
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### fewer states
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### level medium description
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, media/image-gallery, media/image-upload, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/date-input, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### resilient feedback
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### error states
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, authentication/social-login, ai-intelligence/ai-error-states, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, forms/autocomplete, forms/checkbox, forms/code-confirmation, forms/date-input, forms/file-input, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/selection-input, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/signup, authentication/social-login, content-management/drag-and-drop, forms/autocomplete, forms/checkbox, forms/code-confirmation, forms/date-input, forms/file-input, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/selection-input, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, ai-intelligence/ai-error-states
 
 ### high description Requires
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, navigation/megamenu, social/activity-feed, social/comment-system, media/video-player, forms/date-picker, forms/date-range, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, authentication/two-factor, content-management/carousel, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/date-picker, forms/date-range, forms/rich-text-editor, navigation/megamenu, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### multiple competing
 - Action: review
@@ -11838,13 +11584,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### focus indicators
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/user-profile, content-management/carousel, content-management/expandable-text, content-management/tooltip, data-display/table, navigation/breadcrumb, navigation/hambuger-menu, navigation/infinite-scroll, navigation/navigation-menu, navigation/sidebar, forms/autocomplete, forms/button, forms/checkbox, forms/color-picker, forms/radio, forms/selection-input
 
 ### key controls
 - Action: review
@@ -11858,42 +11597,35 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/modal, navigation/back-to-top, navigation/load-more, navigation/pagination, forms/autocomplete, forms/button, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/selection-input
+- Source patterns: content-management/carousel, content-management/modal, forms/autocomplete, forms/button, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/selection-input, navigation/back-to-top, navigation/load-more, navigation/pagination
 
 ### empty states
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, advanced/command-palette, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, user-feedback/empty-states
-
-### Keep supporting
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, media/image-gallery, media/image-upload, media/video-player
+- Source patterns: advanced/command-palette, authentication/user-profile, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, user-feedback/empty-states
 
 ### rely solely
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, content-management/popover, navigation/back-to-top, navigation/breadcrumb, navigation/hambuger-menu, forms/button, forms/checkbox, forms/code-confirmation, forms/currency-input, forms/password, forms/selection-input, forms/text-field
+- Source patterns: content-management/accordion, content-management/carousel, content-management/popover, forms/button, forms/checkbox, forms/code-confirmation, forms/currency-input, forms/password, forms/selection-input, forms/text-field, navigation/back-to-top, navigation/breadcrumb, navigation/hambuger-menu
 
 ### items question What
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, navigation/breadcrumb, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/multi-select-input, forms/password, forms/text-field
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, forms/autocomplete, forms/button, forms/multi-select-input, forms/password, forms/text-field, navigation/breadcrumb, navigation/infinite-scroll
 
 ### options users
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, forms/multi-select-input
+- Source patterns: forms/multi-select-input, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### everyone already understands
 - Action: review
@@ -11915,6 +11647,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
+
+### spacing consistent
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
 ### hide critical context
 - Action: review
@@ -11945,13 +11684,6 @@
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
 ### edge-case guidance
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
-### spacing consistent
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
@@ -12028,6 +11760,13 @@
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
+### filters
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
+
 ### switch label
 - Action: review
 - Confidence: 0.17
@@ -12040,7 +11779,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, content-management/expandable-text
+- Source patterns: content-management/expandable-text, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### data behind
 - Action: review
@@ -12140,33 +11879,26 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
+### prompt
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
+
 ### description Primarily
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
-
-### status indicators
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, authentication/user-profile, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### fields answer
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, advanced/command-palette, advanced/search-results, forms/form-validation, forms/password, forms/phone-number, forms/search-field, forms/text-field, forms/textarea
-
-### status changes
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, forms/button
+- Source patterns: advanced/command-palette, advanced/search-results, forms/form-validation, forms/password, forms/phone-number, forms/search-field, forms/text-field, forms/textarea, ai-intelligence/prompt-input
 
 ### actions look
 - Action: review
@@ -12180,14 +11912,21 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/navigation-menu, navigation/sidebar, forms/button, forms/checkbox
+- Source patterns: authentication/login, forms/button, forms/checkbox, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/navigation-menu, navigation/sidebar
 
 ### elements like
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, navigation/hambuger-menu, forms/button
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, forms/button, navigation/hambuger-menu
+
+### meaningful status changes
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### summary views Preserve
 - Action: review
@@ -12252,6 +11991,13 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
+### counts prices
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+
 ### moderation pricing
 - Action: review
 - Confidence: 0.17
@@ -12285,7 +12031,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, authentication/signup, content-management/popover, navigation/hambuger-menu, navigation/load-more, navigation/pagination, forms/color-picker
+- Source patterns: authentication/login, authentication/signup, content-management/popover, forms/color-picker, navigation/hambuger-menu, navigation/load-more, navigation/pagination
 
 ### let promotional
 - Action: review
@@ -12295,13 +12041,6 @@
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### always succeed
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
-
-### counts prices
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
@@ -12322,47 +12061,33 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### make primary
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
-
-### Keep counts
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
-
 ### user experience
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/popover, navigation/back-to-top, navigation/breadcrumb, forms/autocomplete
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/popover, forms/autocomplete, navigation/back-to-top, navigation/breadcrumb
 
 ### text labels
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, content-management/expandable-text, navigation/link, navigation/navigation-menu, navigation/sidebar, forms/color-picker
+- Source patterns: authentication/signup, content-management/expandable-text, forms/color-picker, navigation/link, navigation/navigation-menu, navigation/sidebar
 
 ### descriptive text
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/back-to-top, forms/autocomplete, forms/button, forms/date-picker, forms/radio
+- Source patterns: data-display/table, forms/autocomplete, forms/button, forms/date-picker, forms/radio, navigation/back-to-top
 
 ### all interactive
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, content-management/carousel, data-display/table, navigation/navigation-menu, forms/button, forms/color-picker
+- Source patterns: authentication/user-profile, content-management/carousel, data-display/table, forms/button, forms/color-picker, navigation/navigation-menu
 
 ### color-only severity mapping
 - Action: review
@@ -12418,7 +12143,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, navigation/load-more, navigation/sidebar, forms/code-confirmation, forms/multi-select-input, forms/selection-input
+- Source patterns: authentication/user-profile, forms/code-confirmation, forms/multi-select-input, forms/selection-input, navigation/load-more, navigation/sidebar
 
 ### learn where
 - Action: review
@@ -12446,7 +12171,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/modal, navigation/link, navigation/load-more, forms/button
+- Source patterns: content-management/expandable-text, content-management/modal, forms/button, navigation/link, navigation/load-more
 
 ### secondary metadata
 - Action: review
@@ -12460,21 +12185,28 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/token-counter, forms/phone-number, forms/time-input
+- Source patterns: forms/phone-number, forms/time-input, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/token-counter
+
+### focus outlines without
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/autocomplete, forms/button, navigation/back-to-top, navigation/link, navigation/navigation-menu
 
 ### currently selected
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/comparison-table, navigation/pagination, media/image-gallery, forms/color-picker, forms/selection-input
+- Source patterns: media/image-gallery, data-display/comparison-table, forms/color-picker, forms/selection-input, navigation/pagination
 
 ### outlines without
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, navigation/navigation-menu, forms/autocomplete, forms/button
+- Source patterns: forms/autocomplete, forms/button, navigation/back-to-top, navigation/link, navigation/navigation-menu
 
 ### fixed heights
 - Action: review
@@ -12488,7 +12220,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/social-login, content-management/expandable-text, navigation/load-more, forms/button, forms/checkbox
+- Source patterns: authentication/social-login, content-management/expandable-text, forms/button, forms/checkbox, navigation/load-more
 
 ### same visual
 - Action: review
@@ -12502,7 +12234,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, data-display/table, navigation/load-more, forms/multi-select-input
+- Source patterns: content-management/carousel, data-display/table, forms/multi-select-input, navigation/load-more
 
 ### main content
 - Action: review
@@ -12523,28 +12255,28 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, navigation/back-to-top, navigation/hambuger-menu, forms/text-field
+- Source patterns: authentication/two-factor, forms/text-field, navigation/back-to-top, navigation/hambuger-menu
 
 ### returns focus
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, data-display/table, navigation/hambuger-menu, forms/date-picker
+- Source patterns: content-management/modal, data-display/table, forms/date-picker, navigation/hambuger-menu
 
 ### accessibility considerations
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, data-display/table, navigation/load-more, forms/autocomplete
+- Source patterns: content-management/expandable-text, data-display/table, forms/autocomplete, navigation/load-more
 
 ### clear visual feedback
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/button, forms/date-range, forms/radio
+- Source patterns: forms/button, forms/date-range, forms/radio, navigation/load-more
 
 ### Indicators Optional
 - Action: review
@@ -12574,13 +12306,6 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/multi-select-input, forms/radio, forms/text-field
 
-### emphasis without
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
 ### before layering
 - Action: review
 - Confidence: 0.17
@@ -12607,14 +12332,14 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/back-to-top, navigation/link, forms/checkbox
+- Source patterns: content-management/expandable-text, forms/checkbox, navigation/back-to-top, navigation/link
 
 ### buttons answer
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/response-feedback, social/like-button, forms/button, forms/checkbox
+- Source patterns: forms/button, forms/checkbox, social/like-button, ai-intelligence/response-feedback
 
 ### steps without
 - Action: review
@@ -12637,20 +12362,6 @@
 - AI used: no
 - Source patterns: content-management/carousel, data-display/table, forms/file-input, forms/text-field
 
-### ensure they
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/expandable-text, content-management/modal, content-management/tooltip, navigation/link
-
-### add extra
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
 ### Date ranges
 - Action: review
 - Confidence: 0.17
@@ -12658,7 +12369,7 @@
 - AI used: no
 - Source patterns: forms/date-input, forms/date-picker, forms/date-range
 
-### Optimization Strategies:
+### Optimization Strategies
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
@@ -12670,7 +12381,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, navigation/sidebar, forms/date-picker
+- Source patterns: content-management/modal, forms/date-picker, navigation/sidebar
 
 ### Clear Button
 - Action: review
@@ -12692,13 +12403,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/expandable-text, content-management/popover, social/comment-system
-
-### include additional
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/checkbox, forms/password, forms/text-field
 
 ### consistent styling
 - Action: review
@@ -12740,7 +12444,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, navigation/load-more, forms/button
+- Source patterns: content-management/accordion, forms/button, navigation/load-more
 
 ### starts typing
 - Action: review
@@ -12748,13 +12452,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/signup, forms/autocomplete, forms/text-field
-
-### include icons
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/sidebar, forms/selection-input
 
 ### description Compare content
 - Action: review
@@ -12770,19 +12467,19 @@
 - AI used: no
 - Source patterns: authentication/account-settings, content-management/accordion, navigation/back-to-top
 
-### switch between
+### Switch between
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/tabs, media/video-player, forms/toggle
+- Source patterns: media/video-player, forms/toggle, navigation/tabs
 
 ### context about
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, navigation/link, forms/date-picker
+- Source patterns: forms/date-picker, navigation/breadcrumb, navigation/link
 
 ### select multiple
 - Action: review
@@ -12810,7 +12507,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, navigation/link, forms/checkbox
+- Source patterns: authentication/signup, forms/checkbox, navigation/link
 
 ### set expectations early
 - Action: review
@@ -12820,20 +12517,6 @@
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
 ### hover-only affordances
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
-
-### Test zoom orientation
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
-
-### Keep captions labels
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
@@ -12859,7 +12542,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/sidebar, forms/date-picker
+- Source patterns: data-display/table, forms/date-picker, navigation/sidebar
 
 ### elements Provide
 - Action: review
@@ -12887,14 +12570,14 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, navigation/megamenu, forms/text-field
+- Source patterns: authentication/account-settings, forms/text-field, navigation/megamenu
 
 ### other important
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/back-to-top, forms/selection-input
+- Source patterns: content-management/carousel, forms/selection-input, navigation/back-to-top
 
 ### contains before
 - Action: review
@@ -12910,19 +12593,19 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
+### elements Align
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/selection-input, navigation/link, navigation/navigation-menu
+
 ### States instead
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, user-feedback/empty-states
-
-### elements Align
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu, forms/selection-input
 
 ### states during
 - Action: review
@@ -12938,20 +12621,6 @@
 - AI used: no
 - Source patterns: authentication/user-profile, navigation/back-to-top, navigation/sidebar
 
-### items without
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu
-
-### space between
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/radio, forms/text-field
-
 ### duration size
 - Action: review
 - Confidence: 0.17
@@ -12966,12 +12635,33 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
+### space between
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/radio, forms/text-field, navigation/breadcrumb
+
+### items without
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu
+
 ### content only
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/popover, navigation/megamenu, navigation/tabs
+
+### legible over
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player
 
 ### exact values
 - Action: review
@@ -12985,14 +12675,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, forms/checkbox, forms/code-confirmation
-
-### legible over
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
+- Source patterns: forms/checkbox, forms/code-confirmation, navigation/infinite-scroll
 
 ### buttons far
 - Action: review
@@ -13006,7 +12689,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/back-to-top, forms/button
+- Source patterns: content-management/expandable-text, forms/button, navigation/back-to-top
 
 ### they commit
 - Action: review
@@ -13022,6 +12705,13 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
+### focus after
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/table, forms/button, navigation/back-to-top
+
 ### Escape key
 - Action: review
 - Confidence: 0.17
@@ -13034,7 +12724,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu, forms/checkbox
+- Source patterns: forms/checkbox, navigation/link, navigation/navigation-menu
 
 ### size 3KB
 - Action: review
@@ -13055,21 +12745,21 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/infinite-scroll, forms/text-field
+- Source patterns: data-display/table, forms/text-field, navigation/infinite-scroll
 
-### Animation Performance:
+### Animation Performance
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/back-to-top, navigation/hambuger-menu, navigation/load-more
 
-### Completion Rate:
+### Completion Rate
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/password-reset, navigation/load-more, forms/date-input
+- Source patterns: authentication/password-reset, forms/date-input, navigation/load-more
 
 ### Date/Time
 - Action: review
@@ -13127,6 +12817,13 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### Previous buttons
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, navigation/pagination
+
 ### prevent accidental
 - Action: review
 - Confidence: 0.17
@@ -13162,6 +12859,13 @@
 - AI used: no
 - Source patterns: content-management/accordion, forms/checkbox
 
+### paste
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/code-confirmation, forms/password
+
 ### multi-line input
 - Action: review
 - Confidence: 0.17
@@ -13195,14 +12899,14 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, forms/date-input
+- Source patterns: forms/date-input, navigation/infinite-scroll
 
 ### items Provides
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/navigation-menu, forms/multi-select-input
+- Source patterns: forms/multi-select-input, navigation/navigation-menu
 
 ### Custom styled
 - Action: review
@@ -13210,13 +12914,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
-
-### Show clear
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, navigation/load-more
 
 ### all digits
 - Action: review
@@ -13288,7 +12985,7 @@
 - AI used: no
 - Source patterns: authentication/login, authentication/user-profile
 
-### CPU usage:
+### CPU usage
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
@@ -13414,13 +13111,6 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Comment System answer
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: social/activity-feed, social/comment-system
-
 ### implementation Memory
 - Action: review
 - Confidence: 0.17
@@ -13435,6 +13125,20 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### Comment System answer
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: social/activity-feed, social/comment-system
+
+### Manages focus states
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, forms/button
+
 ### Contains text images
 - Action: review
 - Confidence: 0.17
@@ -13447,14 +13151,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/button
-
-### Provides accessible
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/signup, forms/checkbox
+- Source patterns: forms/button, navigation/back-to-top
 
 ### action buttons Edit
 - Action: review
@@ -13497,13 +13194,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/accordion, navigation/link
-
-### Avoid low contrast
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, forms/text-field
 
 ### background Provide
 - Action: review
@@ -13554,6 +13244,13 @@
 - AI used: no
 - Source patterns: data-display/chart, data-display/dashboard
 
+### alternative focus
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/autocomplete, navigation/back-to-top
+
 ### transparent about
 - Action: review
 - Confidence: 0.17
@@ -13589,6 +13286,20 @@
 - AI used: no
 - Source patterns: data-display/table, forms/file-input
 
+### options consider
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/checkbox, forms/radio
+
+### Individual items
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/selection-input, navigation/sidebar
+
 ### additional items
 - Action: review
 - Confidence: 0.17
@@ -13603,20 +13314,6 @@
 - AI used: no
 - Source patterns: navigation/link, navigation/navigation-menu
 
-### Individual items
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/sidebar, forms/selection-input
-
-### options consider
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/checkbox, forms/radio
-
 ### via third-party
 - Action: review
 - Confidence: 0.17
@@ -13630,13 +13327,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, authentication/signup
-
-### Response answer
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-loading-states, ai-intelligence/streaming-response
 
 ### without needing
 - Action: review
@@ -13666,6 +13356,13 @@
 - AI used: no
 - Source patterns: content-management/popover, forms/password
 
+### without forcing
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, forms/currency-input
+
 ### Timeline answer
 - Action: review
 - Confidence: 0.17
@@ -13685,21 +13382,14 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/autocomplete
+- Source patterns: forms/autocomplete, navigation/pagination
 
-### without forcing
+### Response answer
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: media/image-gallery, forms/currency-input
-
-### Avoid disabling
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/password, forms/text-field
+- Source patterns: ai-intelligence/ai-loading-states, ai-intelligence/streaming-response
 
 ### context Ensure
 - Action: review
@@ -13720,14 +13410,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, forms/checkbox
-
-### cues underline
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/link, navigation/pagination
+- Source patterns: forms/checkbox, navigation/breadcrumb
 
 ### labels too far
 - Action: review
@@ -13735,6 +13418,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/text-field
+
+### cues underline
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/link, navigation/pagination
 
 ### button during
 - Action: review
@@ -13764,20 +13454,6 @@
 - AI used: no
 - Source patterns: authentication/two-factor, user-feedback/cookie-consent
 
-### states Prompt
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector
-
-### Shows current
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/context-window, advanced/wizard
-
 ### users relying
 - Action: review
 - Confidence: 0.17
@@ -13792,40 +13468,12 @@
 - AI used: no
 - Source patterns: content-management/modal, content-management/popover
 
-### Keeps content
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/popover, navigation/load-more
-
-### option Ensure
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, forms/selection-input
-
 ### sentence case
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/button
-
-### panel Manages
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/tabs, forms/color-picker
-
-### panels Ensure
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/tabs, forms/date-range
+- Source patterns: forms/button, navigation/link
 
 ### Usage Minimal
 - Action: review
@@ -13834,12 +13482,26 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### panel Manages
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/color-picker, navigation/tabs
+
 ### mobile answer
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-picker, forms/date-range
+
+### panels Ensure
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-range, navigation/tabs
 
 ### option labels
 - Action: review
@@ -13848,12 +13510,19 @@
 - AI used: no
 - Source patterns: forms/radio, forms/selection-input
 
-### Provide text
+### option Ensure
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, forms/color-picker
+- Source patterns: forms/selection-input, navigation/infinite-scroll
+
+### states Prompt
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector
 
 ### user consent
 - Action: review
@@ -13861,41 +13530,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, forms/checkbox
-
-### text changes
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, forms/text-field
-
-### enough space
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/radio
-
-### group labels
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, forms/selection-input
-
-### focus leaves
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, forms/color-picker
-
-### color weight
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/tabs
 
 ### text showing
 - Action: review
@@ -13918,12 +13552,40 @@
 - AI used: no
 - Source patterns: forms/date-picker, forms/date-range
 
+### enough space
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/radio, navigation/breadcrumb
+
 ### labels Avoid
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/selection-input, forms/text-field
+
+### group labels
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/selection-input, navigation/megamenu
+
+### text changes
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/text-field, navigation/back-to-top
+
+### color weight
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/navigation-menu, navigation/tabs
 
 ### mobile Make
 - Action: review
@@ -13995,13 +13657,6 @@
 - AI used: no
 - Source patterns: authentication/two-factor, navigation/link
 
-### This order
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, data-display/table
-
 ### button too
 - Action: review
 - Confidence: 0.17
@@ -14009,19 +13664,19 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, navigation/load-more
 
+### long
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, forms/text-field
+
 ### tabs Arrow
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/table, navigation/tabs
-
-### Never make
-- Action: review
-- Confidence: 0.17
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, navigation/pagination
 
 ### they might
 - Action: review
@@ -14037,6 +13692,27 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### focus open
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-picker, forms/multi-select-input
+
+### day
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-picker, forms/date-range
+
+### Never make
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/load-more, navigation/pagination
+
 ### via Enter
 - Action: review
 - Confidence: 0.17
@@ -14044,12 +13720,12 @@
 - AI used: no
 - Source patterns: authentication/login, navigation/back-to-top
 
-### key press
+### low
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, navigation/tabs
+- Source patterns: content-management/carousel, forms/text-field
 
 ### too short
 - Action: review
@@ -14058,12 +13734,12 @@
 - AI used: no
 - Source patterns: forms/date-range, forms/textarea
 
-### size 5KB
+### key press
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, navigation/sidebar
+- Source patterns: navigation/hambuger-menu, navigation/tabs
 
 ### Size 2KB
 - Action: review
@@ -14071,6 +13747,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### size 5KB
+- Action: review
+- Confidence: 0.17
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/megamenu, navigation/sidebar
 
 ### Better readability
 - Action: review
@@ -14086,14 +13769,14 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, content-management/tooltip
 
-### Low Completion Rate?
+### Low Completion Rate
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/modal, navigation/load-more
 
-### Low Selection Rates?
+### Low Selection Rates
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
@@ -14105,7 +13788,7 @@
 - Confidence: 0.17
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/date-range
+- Source patterns: forms/date-range, navigation/pagination
 
 ### Group Alignment
 - Action: review
@@ -14114,7 +13797,7 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Label length:
+### Label length
 - Action: review
 - Confidence: 0.17
 - Match: unresolved
@@ -14149,7 +13832,7 @@
 - AI used: no
 - Source patterns: user-feedback/notification
 
-### Reduced Motion Considerations:
+### Reduced Motion Considerations
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
@@ -14161,7 +13844,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### consistent between label
 - Action: review
@@ -14217,7 +13900,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, navigation/navigation-menu, forms/autocomplete, forms/button
+- Source patterns: forms/autocomplete, forms/button, navigation/back-to-top, navigation/link, navigation/navigation-menu
 
 ### primary content secondary
 - Action: review
@@ -14301,7 +13984,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/search-field
+- Source patterns: forms/search-field, ai-intelligence/ai-suggestions
 
 ### together without adequate
 - Action: review
@@ -14350,14 +14033,14 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### maintain question What
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### constraints until after
 - Action: review
@@ -14408,26 +14091,12 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
-### Show enough provenance
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### Keep request streaming
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
 ### Primarily markup state
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### indicators synchronized
 - Action: review
@@ -14469,14 +14138,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/tooltip, navigation/back-to-top, forms/checkbox, forms/radio
-
-### focus indicators without
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/button, forms/checkbox
+- Source patterns: content-management/tooltip, forms/checkbox, forms/radio, navigation/back-to-top
 
 ### clear visual indicators
 - Action: review
@@ -14490,21 +14152,14 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, navigation/megamenu, forms/checkbox
+- Source patterns: authentication/user-profile, forms/checkbox, navigation/megamenu
 
-### Redirect after success:
+### Redirect after success
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, authentication/password-reset
-
-### Ensure focus management
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/popover
 
 ### teams need long-running
 - Action: review
@@ -14512,13 +14167,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-loading-states, ai-intelligence/context-window
-
-### proper focus management
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, content-management/modal
 
 ### maintains accessibility
 - Action: review
@@ -14555,13 +14203,6 @@
 - AI used: no
 - Source patterns: content-management/popover, forms/button
 
-### Textarea answer Choose
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: social/comment-system, forms/rich-text-editor
-
 ### during rapid selection
 - Action: review
 - Confidence: 0.16
@@ -14576,61 +14217,82 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### Textarea answer Choose
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/rich-text-editor, social/comment-system
+
 ### remove focus
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/sidebar, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/button, forms/color-picker, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/login, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/button, forms/color-picker, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, navigation/breadcrumb, navigation/sidebar, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### visible focus state
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### visible replacement
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### coarse pointers
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### whether users
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### whether state
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### actions close enough
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### Requires coordinated
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/code-confirmation, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/code-confirmation, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
+
+### focus indicators
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/user-profile, content-management/carousel, content-management/expandable-text, content-management/tooltip, data-display/table, forms/autocomplete, forms/button, forms/checkbox, forms/color-picker, forms/radio, forms/selection-input, navigation/breadcrumb, navigation/hambuger-menu, navigation/infinite-scroll, navigation/navigation-menu, navigation/sidebar
 
 ### interactive elements
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, content-management/carousel, content-management/modal, content-management/popover, content-management/tooltip, data-display/table, navigation/back-to-top, navigation/link, navigation/navigation-menu, navigation/pagination, forms/button, forms/file-input
+- Source patterns: authentication/user-profile, content-management/carousel, content-management/modal, content-management/popover, content-management/tooltip, data-display/table, forms/button, forms/file-input, navigation/back-to-top, navigation/link, navigation/navigation-menu, navigation/pagination
 
 ### messages far
 - Action: review
@@ -14638,13 +14300,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/form-validation, forms/password, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
-### Keep filters summaries
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### exactly what belongs
 - Action: review
@@ -14688,13 +14343,6 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
-### Support narrow
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
 ### matters Keep
 - Action: review
 - Confidence: 0.16
@@ -14735,7 +14383,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/popover, navigation/back-to-top, navigation/link, navigation/tabs, forms/button, forms/checkbox, forms/date-picker, forms/radio
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/popover, forms/button, forms/checkbox, forms/date-picker, forms/radio, navigation/back-to-top, navigation/link, navigation/tabs
 
 ### follow-up actions
 - Action: review
@@ -14814,12 +14462,19 @@
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/login, authentication/signup, authentication/user-profile, content-management/popover, forms/currency-input, forms/date-input, forms/form-validation
 
-### Promotional content:
+### Promotional content
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, navigation/megamenu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+
+### excessive
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/account-settings, content-management/tooltip, forms/code-confirmation, forms/multi-select-input, forms/text-field, navigation/infinite-scroll, navigation/pagination
 
 ### views Preserve space
 - Action: review
@@ -14849,13 +14504,6 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### Show trust-building
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
-
 ### crowded feeds lists
 - Action: review
 - Confidence: 0.16
@@ -14864,13 +14512,6 @@
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### key details Keep
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
-
-### Keep identity
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
@@ -14905,19 +14546,19 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
+### accessibility
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, content-management/carousel, content-management/modal, content-management/popover, forms/text-field
+
 ### concise labels
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/breadcrumb, navigation/navigation-menu, navigation/pagination, forms/selection-input
-
-### Accessibility
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: getting-started, index, forms/checkbox, forms/radio
+- Source patterns: content-management/expandable-text, forms/selection-input, navigation/breadcrumb, navigation/navigation-menu, navigation/pagination
 
 ### form submission
 - Action: review
@@ -14926,26 +14567,12 @@
 - AI used: no
 - Source patterns: authentication/login, forms/checkbox, forms/currency-input, forms/text-field
 
-### Provides visual
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/modal, navigation/infinite-scroll, navigation/pagination, forms/button
-
 ### breakpoints Preserve
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
-### Provide helpful
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, data-display/table, forms/checkbox, forms/text-field
 
 ### across common
 - Action: review
@@ -14959,14 +14586,14 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/infinite-scroll, media/image-gallery
+- Source patterns: content-management/carousel, media/image-gallery, navigation/infinite-scroll
 
 ### improves readability
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/link, forms/selection-input
+- Source patterns: content-management/expandable-text, forms/selection-input, navigation/link
 
 ### options logically
 - Action: review
@@ -14989,13 +14616,6 @@
 - AI used: no
 - Source patterns: content-management/carousel, content-management/modal, forms/text-field
 
-### clear concise labels
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, navigation/navigation-menu, navigation/pagination
-
 ### pre-selected options
 - Action: review
 - Confidence: 0.16
@@ -15003,12 +14623,12 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio, forms/selection-input
 
-### Provide descriptive
+### clear concise labels
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, forms/button, forms/date-picker
+- Source patterns: navigation/breadcrumb, navigation/navigation-menu, navigation/pagination
 
 ### Search Field answer
 - Action: review
@@ -15050,7 +14670,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, navigation/pagination, forms/password
+- Source patterns: content-management/modal, forms/password, navigation/pagination
 
 ### related links
 - Action: review
@@ -15085,7 +14705,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, navigation/load-more, forms/button
+- Source patterns: authentication/login, forms/button, navigation/load-more
 
 ### Requires JavaScript
 - Action: review
@@ -15094,7 +14714,7 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/modal, content-management/popover
 
-### Internal linking:
+### Internal linking
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
@@ -15136,7 +14756,7 @@
 - AI used: no
 - Source patterns: media/image-upload, forms/file-input
 
-### Avatar upload:
+### Avatar upload
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
@@ -15206,19 +14826,12 @@
 - AI used: no
 - Source patterns: authentication/signup, forms/text-field
 
-### Provide immediate
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/table, forms/checkbox
-
 ### contrast ratios
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/button
+- Source patterns: forms/button, navigation/link
 
 ### styling enhancements
 - Action: review
@@ -15241,19 +14854,12 @@
 - AI used: no
 - Source patterns: authentication/signup, forms/autocomplete
 
-### This section outlines
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, data-display/table
-
 ### technologies question
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, forms/autocomplete
+- Source patterns: forms/autocomplete, navigation/infinite-scroll
 
 ### Toggle response 50ms
 - Action: review
@@ -15262,13 +14868,6 @@
 - AI used: no
 - Source patterns: authentication/account-settings, navigation/hambuger-menu
 
-### States answer Choose
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
-
 ### without alternatives
 - Action: review
 - Confidence: 0.16
@@ -15276,12 +14875,19 @@
 - AI used: no
 - Source patterns: data-display/table, navigation/breadcrumb
 
-### Maintain focus after
+### groups Accessibility
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, forms/button
+- Source patterns: forms/checkbox, forms/radio
+
+### states Textarea will
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/rich-text-editor, social/comment-system
 
 ### icons alongside text
 - Action: review
@@ -15297,19 +14903,12 @@
 - AI used: no
 - Source patterns: navigation/sidebar, navigation/tabs
 
-### states Textarea will
+### States answer Choose
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: social/comment-system, forms/rich-text-editor
-
-### groups Accessibility
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/checkbox, forms/radio
+- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
 
 ### Kanban Board answer
 - Action: review
@@ -15325,20 +14924,6 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, navigation/infinite-scroll
 
-### visible alternative
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu
-
-### unless implementing
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, forms/date-picker
-
 ### helper text showing
 - Action: review
 - Confidence: 0.16
@@ -15346,12 +14931,19 @@
 - AI used: no
 - Source patterns: forms/currency-input, forms/date-input
 
-### Avoid positioning
+### unless implementing
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, forms/selection-input
+- Source patterns: forms/date-picker, navigation/megamenu
+
+### visible alternative
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/link, navigation/navigation-menu
 
 ### containers Ensure
 - Action: review
@@ -15359,13 +14951,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/popover, forms/checkbox
-
-### alternative focus
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, forms/autocomplete
 
 ### browser behavior
 - Action: review
@@ -15395,13 +14980,6 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/file-input
 
-### Counter answer
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
-
 ### whether search
 - Action: review
 - Confidence: 0.16
@@ -15416,12 +14994,12 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/button
 
-### Avoid removing
+### Counter answer
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: forms/button, forms/checkbox
+- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
 
 ### unsorted list
 - Action: review
@@ -15449,7 +15027,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/currency-input
+- Source patterns: forms/currency-input, navigation/link
 
 ### states Card
 - Action: review
@@ -15472,13 +15050,6 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/expandable-text
 
-### continuous scrolling
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll
-
 ### Read More/Read Less
 - Action: review
 - Confidence: 0.16
@@ -15486,19 +15057,26 @@
 - AI used: no
 - Source patterns: content-management/expandable-text
 
+### alone Keep focus
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### helps teams create
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### structured state
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### placeholder text
 - Action: review
@@ -15512,7 +15090,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### after submission
 - Action: review
@@ -15575,7 +15153,14 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, navigation/infinite-scroll, navigation/load-more, navigation/pagination, forms/checkbox, forms/text-field
+- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, forms/checkbox, forms/text-field, navigation/infinite-scroll, navigation/load-more, navigation/pagination
+
+### status indicators
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/account-settings, authentication/user-profile, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### implies completion
 - Action: review
@@ -15617,7 +15202,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/form-validation, forms/phone-number, forms/textarea
+- Source patterns: forms/form-validation, forms/phone-number, forms/textarea, ai-intelligence/prompt-input
 
 ### reduce ambiguity
 - Action: review
@@ -15626,12 +15211,12 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
-### clear focus states
+### emphasis without
 - Action: review
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, forms/password, forms/selection-input
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
 ### Form render 100ms
 - Action: review
@@ -15659,7 +15244,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/load-more, forms/button
+- Source patterns: content-management/expandable-text, forms/button, navigation/load-more
 
 ### clearly indicate
 - Action: review
@@ -15673,14 +15258,7 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/back-to-top, forms/checkbox
-
-### Submission state
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/response-feedback, forms/form-validation
+- Source patterns: content-management/expandable-text, forms/checkbox, navigation/back-to-top
 
 ### Dismiss Behavior
 - Action: review
@@ -15688,6 +15266,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/popover, content-management/tooltip
+
+### Submission state
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, ai-intelligence/response-feedback
 
 ### clear affordance
 - Action: review
@@ -15766,13 +15351,6 @@
 - AI used: no
 - Source patterns: forms/date-input, forms/text-field
 
-### show hide toggle
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup
-
 ### maintain context
 - Action: review
 - Confidence: 0.16
@@ -15786,20 +15364,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/card-grid, data-display/list-view
-
-### spinner progress
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/load-more
-
-### together without
-- Action: review
-- Confidence: 0.16
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu
 
 ### Indicator Custom
 - Action: review
@@ -15815,6 +15379,20 @@
 - AI used: no
 - Source patterns: forms/selection-input, forms/text-field
 
+### spinner progress
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll, navigation/load-more
+
+### together without
+- Action: review
+- Confidence: 0.16
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/link, navigation/navigation-menu
+
 ### promotional content overpower
 - Action: review
 - Confidence: 0.16
@@ -15827,84 +15405,91 @@
 - Confidence: 0.16
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, forms/autocomplete
+- Source patterns: forms/autocomplete, navigation/infinite-scroll
 
 ### question What
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/breadcrumb, navigation/infinite-scroll, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/button, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/date-input, forms/date-range, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/autocomplete, forms/button, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/date-input, forms/date-range, forms/file-input, forms/form-validation, forms/multi-select-input, forms/password, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, navigation/breadcrumb, navigation/infinite-scroll, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### state changes
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/button, forms/checkbox, forms/form-validation, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/hambuger-menu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### state Test
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/accordion, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### order logical
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### opens updates
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### status text
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### convey severity completion
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### styles without
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Watch whether
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### changes feel
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### cases behave
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### medium description Requires
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, media/image-gallery, media/image-upload, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/form-validation, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/user-profile, content-management/accordion, content-management/modal, content-management/popover, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/autocomplete, forms/code-confirmation, forms/currency-input, forms/form-validation, forms/password, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, navigation/breadcrumb, navigation/hambuger-menu, navigation/load-more, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### labels controls
 - Action: review
@@ -15920,13 +15505,6 @@
 - AI used: no
 - Source patterns: authentication/password-reset, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
-### Shows progress
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, navigation/pagination, media/image-gallery, media/image-upload, media/video-player
-
 ### exactly what
 - Action: review
 - Confidence: 0.15
@@ -15934,12 +15512,19 @@
 - AI used: no
 - Source patterns: e-commerce/product-card, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
+### clear
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/account-settings, authentication/password-reset, authentication/user-profile, content-management/carousel, content-management/expandable-text, forms/button, forms/date-range, forms/password, forms/radio, navigation/infinite-scroll, navigation/navigation-menu
+
 ### across all
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/password-reset, authentication/social-login, data-display/table, navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu, navigation/sidebar, forms/checkbox, forms/code-confirmation, forms/date-range
+- Source patterns: authentication/account-settings, authentication/password-reset, authentication/social-login, data-display/table, forms/checkbox, forms/code-confirmation, forms/date-range, navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu, navigation/sidebar
 
 ### before adding side-by-side
 - Action: review
@@ -15949,13 +15534,6 @@
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
 ### inline filters
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
-
-### metric status
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -15997,19 +15575,19 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
-### states such
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, forms/toggle
-
 ### treat empty
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
+
+### states such
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/toggle, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### card chart
 - Action: review
@@ -16065,7 +15643,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### active states
 - Action: review
@@ -16081,12 +15659,19 @@
 - AI used: no
 - Source patterns: forms/button, forms/color-picker, forms/file-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
+### status changes
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, forms/button, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+
 ### where users
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, navigation/infinite-scroll, forms/checkbox, forms/date-input, forms/radio, forms/text-field
+- Source patterns: content-management/accordion, content-management/carousel, forms/checkbox, forms/date-input, forms/radio, forms/text-field, navigation/infinite-scroll
 
 ### transactional details where
 - Action: review
@@ -16116,13 +15701,6 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### Manages focus
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/modal, content-management/popover, navigation/back-to-top, navigation/tabs, forms/button, forms/multi-select-input
-
 ### visible state
 - Action: review
 - Confidence: 0.15
@@ -16131,6 +15709,13 @@
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### pricing close
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+
+### identity
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -16193,6 +15778,13 @@
 - AI used: no
 - Source patterns: advanced/search-results, e-commerce/product-card, data-display/filter-panel, navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
+### local
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### cover key
 - Action: review
 - Confidence: 0.15
@@ -16205,28 +15797,14 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/two-factor, navigation/hambuger-menu, forms/code-confirmation, forms/phone-number, forms/text-field
+- Source patterns: authentication/two-factor, forms/code-confirmation, forms/phone-number, forms/text-field, navigation/hambuger-menu
 
 ### states Text
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/form-validation, forms/phone-number, forms/textarea, forms/toggle
-
-### Ensures proper
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, navigation/pagination, forms/checkbox, forms/radio, forms/text-field
-
-### ensures users
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/tooltip, data-display/table, navigation/infinite-scroll, forms/password
+- Source patterns: forms/form-validation, forms/phone-number, forms/textarea, forms/toggle, ai-intelligence/prompt-input
 
 ### search fields
 - Action: review
@@ -16240,7 +15818,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, forms/button, forms/text-field
+- Source patterns: forms/button, forms/text-field, navigation/back-to-top, navigation/link
 
 ### current value
 - Action: review
@@ -16254,7 +15832,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/token-counter, content-management/tooltip, forms/password, forms/text-field
+- Source patterns: content-management/tooltip, forms/password, forms/text-field, ai-intelligence/token-counter
 
 ### hovers over
 - Action: review
@@ -16275,7 +15853,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, navigation/infinite-scroll, navigation/load-more, forms/date-picker
+- Source patterns: forms/date-picker, navigation/breadcrumb, navigation/infinite-scroll, navigation/load-more
 
 ### content secondary metadata
 - Action: review
@@ -16283,13 +15861,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
-### Input instead
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/rating-input, forms/tag-input, forms/time-input
 
 ### visual rhythm
 - Action: review
@@ -16331,21 +15902,28 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, navigation/navigation-menu, navigation/pagination, forms/button
+- Source patterns: forms/button, navigation/breadcrumb, navigation/navigation-menu, navigation/pagination
 
 ### Appears after
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/file-input, forms/rich-text-editor, forms/text-field
+- Source patterns: forms/file-input, forms/rich-text-editor, forms/text-field, navigation/load-more
+
+### Input instead
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/rating-input, forms/tag-input, forms/time-input, ai-intelligence/prompt-input
 
 ### vague labels
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/load-more, forms/button, forms/checkbox
+- Source patterns: content-management/expandable-text, forms/button, forms/checkbox, navigation/load-more
 
 ### same mental
 - Action: review
@@ -16389,12 +15967,12 @@
 - AI used: no
 - Source patterns: forms/date-input, forms/phone-number, forms/time-input
 
-### high-contrast
+### high contrast
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/password, forms/text-field
+- Source patterns: forms/password, forms/text-field, navigation/load-more
 
 ### control over
 - Action: review
@@ -16417,19 +15995,19 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/carousel, navigation/infinite-scroll
 
-### Shows whether
+### controls
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/model-selector, social/like-button, forms/form-validation
+- Source patterns: media/image-gallery, media/image-upload, media/video-player
 
-### Text Optional
+### Text optional
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/code-confirmation, forms/currency-input
+- Source patterns: forms/code-confirmation, forms/currency-input, navigation/back-to-top
 
 ### dark imagery
 - Action: review
@@ -16501,13 +16079,6 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/file-input
 
-### Maintain focus
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/table, forms/button
-
 ### maximum ranges
 - Action: review
 - Confidence: 0.15
@@ -16536,12 +16107,12 @@
 - AI used: no
 - Source patterns: content-management/tooltip, navigation/megamenu
 
-### system will
+### System will
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/context-window, social/activity-feed
+- Source patterns: social/activity-feed, ai-intelligence/context-window
 
 ### close controls
 - Action: review
@@ -16549,13 +16120,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/modal, navigation/hambuger-menu
-
-### Show password
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/signup, forms/password
 
 ### visible label
 - Action: review
@@ -16569,14 +16133,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, forms/multi-select-input
-
-### Ensure error
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/code-confirmation, forms/text-field
+- Source patterns: forms/multi-select-input, navigation/hambuger-menu
 
 ### active item
 - Action: review
@@ -16618,7 +16175,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, forms/text-field
+- Source patterns: forms/text-field, navigation/hambuger-menu
 
 ### email input
 - Action: review
@@ -16627,19 +16184,12 @@
 - AI used: no
 - Source patterns: authentication/password-reset, forms/text-field
 
-### state Focus
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, navigation/hambuger-menu
-
 ### quick way
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/response-feedback, navigation/back-to-top
+- Source patterns: navigation/back-to-top, ai-intelligence/response-feedback
 
 ### change pre-selected options
 - Action: review
@@ -16648,13 +16198,6 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Autocomplete answer Choose
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/search-field
-
 ### sufficient spacing between
 - Action: review
 - Confidence: 0.15
@@ -16662,12 +16205,12 @@
 - AI used: no
 - Source patterns: forms/button, forms/text-field
 
-### Explains limits
+### Autocomplete answer Choose
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/rich-text-editor
+- Source patterns: forms/search-field, ai-intelligence/ai-suggestions
 
 ### lists 100 items
 - Action: review
@@ -16676,12 +16219,12 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### make passwords
+### Explains limits
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/signup, forms/password
+- Source patterns: forms/rich-text-editor, ai-intelligence/prompt-input
 
 ### Results answer
 - Action: review
@@ -16689,6 +16232,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/search-results, data-display/filter-panel
+
+### smooth
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, content-management/expandable-text
 
 ### actions within
 - Action: review
@@ -16711,20 +16261,6 @@
 - AI used: no
 - Source patterns: data-display/table, navigation/pagination
 
-### content states
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, user-feedback/loading-indicator
-
-### click handlers
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu
-
 ### messages below
 - Action: review
 - Confidence: 0.15
@@ -16739,19 +16275,26 @@
 - AI used: no
 - Source patterns: forms/date-picker, forms/date-range
 
+### content states
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll, user-feedback/loading-indicator
+
+### click handlers
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/link, navigation/navigation-menu
+
 ### sizing across
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/social-login, forms/checkbox
-
-### Window answer
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
 
 ### contains many
 - Action: review
@@ -16774,12 +16317,26 @@
 - AI used: no
 - Source patterns: content-management/carousel, data-display/table
 
+### logical focus
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/expandable-text, navigation/back-to-top
+
 ### content Users
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/popover, navigation/tabs
+
+### content
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/popover, navigation/load-more
 
 ### answer Common
 - Action: review
@@ -16794,34 +16351,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/chart, data-display/statistics
-
-### direction LTR
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/hambuger-menu, forms/currency-input
-
-### being fetched
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/pagination
-
-### hover without
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, navigation/navigation-menu
-
-### visible panel
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, navigation/tabs
 
 ### visible Avoid
 - Action: review
@@ -16844,26 +16373,47 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/date-picker
 
+### direction LTR
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/currency-input, navigation/hambuger-menu
+
+### being fetched
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll, navigation/pagination
+
+### hover without
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/megamenu, navigation/navigation-menu
+
+### visible panel
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/megamenu, navigation/tabs
+
+### Window answer
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
+
 ### buttons Edit
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/user-profile, data-display/table
-
-### between text
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/text-field
-
-### Announce new
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/load-more
 
 ### smaller than
 - Action: review
@@ -16879,12 +16429,26 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### focus leaves
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/color-picker, navigation/megamenu
+
 ### range picker
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-picker, forms/date-range
+
+### between text
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/text-field, navigation/breadcrumb
 
 ### render 50ms
 - Action: review
@@ -16921,13 +16485,6 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/shopping-cart
 
-### within each
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, navigation/sidebar
-
 ### states File
 - Action: review
 - Confidence: 0.15
@@ -16942,6 +16499,13 @@
 - AI used: no
 - Source patterns: forms/rating-input, forms/slider
 
+### within each
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/megamenu, navigation/sidebar
+
 ### who prefer
 - Action: review
 - Confidence: 0.15
@@ -16949,12 +16513,19 @@
 - AI used: no
 - Source patterns: content-management/carousel, content-management/popover
 
+### button Add
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/autocomplete, navigation/sidebar
+
 ### same color
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/button
+- Source patterns: forms/button, navigation/link
 
 ### Order tabs
 - Action: review
@@ -16962,34 +16533,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: navigation/pagination, navigation/tabs
-
-### button Add
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/sidebar, forms/autocomplete
-
-### ensure day
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/date-picker, forms/date-range
-
-### Avoid low
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, forms/text-field
-
-### allow Tab
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, navigation/tabs
 
 ### Schema Markup
 - Action: review
@@ -17003,7 +16546,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### move edge-case guidance
 - Action: review
@@ -17011,20 +16554,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
-### Keep spacing consistent
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
-### enough provenance status
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### grouped Preserve enough
 - Action: review
@@ -17089,20 +16618,6 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### avoid overwhelming users
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/tooltip, navigation/load-more, forms/autocomplete, forms/checkbox, forms/text-field
-
-### emphasis without meaning
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
 ### clear hierarchy between
 - Action: review
 - Confidence: 0.15
@@ -17124,19 +16639,12 @@
 - AI used: no
 - Source patterns: navigation/navigation-menu, navigation/pagination, navigation/tabs
 
-### Provides visual feedback
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/modal, navigation/infinite-scroll, forms/button
-
 ### enhances user experience
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/popover, navigation/breadcrumb, forms/autocomplete
+- Source patterns: content-management/popover, forms/autocomplete, navigation/breadcrumb
 
 ### restrictions until after
 - Action: review
@@ -17159,6 +16667,13 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
+### focus indicators without
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/button, forms/checkbox, navigation/breadcrumb
+
 ### Verification Code Input
 - Action: review
 - Confidence: 0.15
@@ -17166,12 +16681,12 @@
 - AI used: no
 - Source patterns: authentication/two-factor, forms/code-confirmation
 
-### states Autocomplete will
+### proper focus management
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/search-field
+- Source patterns: content-management/carousel, content-management/modal
 
 ### without alternatives Don
 - Action: review
@@ -17193,6 +16708,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### states Autocomplete will
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/search-field, ai-intelligence/ai-suggestions
 
 ### password strength meter
 - Action: review
@@ -17241,28 +16763,28 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### answer Watch whether
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### description Requires structured
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, navigation/breadcrumb, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, navigation/breadcrumb, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### strong accessibility
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### horizontal scrolling
 - Action: review
@@ -17279,6 +16801,20 @@
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### label control helper
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+
+### narrow
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+
+### primary
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -17348,19 +16884,19 @@
 - AI used: no
 - Source patterns: navigation/hambuger-menu, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### provides clear visual
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, content-management/expandable-text, forms/button, forms/date-range, forms/radio
-
 ### date inputs
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-input, forms/date-picker, forms/date-range, forms/time-input
+
+### additional
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, content-management/popover, content-management/tooltip, forms/text-field
 
 ### stable across common
 - Action: review
@@ -17383,12 +16919,12 @@
 - AI used: no
 - Source patterns: authentication/account-settings, forms/checkbox, forms/radio
 
-### clear focus indicators
+### icons
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/tooltip, navigation/infinite-scroll
+- Source patterns: forms/selection-input, navigation/navigation-menu, navigation/sidebar
 
 ### users about
 - Action: review
@@ -17409,7 +16945,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, forms/selection-input
+- Source patterns: forms/selection-input, navigation/back-to-top, navigation/link
 
 ### Helper Text optional
 - Action: review
@@ -17425,7 +16961,7 @@
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/form-validation
 
-### Active:
+### Active
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -17446,19 +16982,19 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### third-party providers
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup
-
 ### fewer states Progress
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/wizard, user-feedback/loading-indicator
+
+### third-party providers
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/login, authentication/signup
 
 ### single unsorted list
 - Action: review
@@ -17495,26 +17031,19 @@
 - AI used: no
 - Source patterns: content-management/tooltip, e-commerce/checkout
 
-### spinner progress bar
+### Maintain focus after
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/load-more
-
-### Announce new content
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/load-more
+- Source patterns: data-display/table, forms/button
 
 ### alignment consistent
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/button
+- Source patterns: forms/button, navigation/load-more
 
 ### comfortable clicking
 - Action: review
@@ -17522,6 +17051,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/color-picker, forms/date-picker
+
+### spinner progress bar
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll, navigation/load-more
+
+### disrupting
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/currency-input, navigation/load-more
 
 ### forms short
 - Action: review
@@ -17537,19 +17080,26 @@
 - AI used: no
 - Source patterns: forms/currency-input, forms/date-input
 
+### continuous scrolling
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll
+
 ### biggest implementation risk
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### focus styles without
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### stack multiple competing
 - Action: review
@@ -17607,13 +17157,6 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### focus outlines without
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, navigation/navigation-menu, forms/autocomplete, forms/button
-
 ### all interactive elements
 - Action: review
 - Confidence: 0.15
@@ -17621,12 +17164,12 @@
 - AI used: no
 - Source patterns: authentication/user-profile, content-management/carousel, data-display/table, navigation/navigation-menu
 
-### Autocomplete answer
+### autocomplete answer
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/autocomplete, forms/multi-select-input, forms/search-field
+- Source patterns: forms/autocomplete, forms/multi-select-input, forms/search-field, ai-intelligence/ai-suggestions
 
 ### active focused
 - Action: review
@@ -17761,89 +17304,89 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### The Problem:
+### The Problem
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/carousel, content-management/drag-and-drop, content-management/modal, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, navigation/back-to-top, navigation/breadcrumb, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/form-validation, forms/multi-select-input, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/carousel, content-management/drag-and-drop, content-management/modal, content-management/tooltip, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/form-validation, forms/multi-select-input, forms/phone-number, forms/radio, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, navigation/back-to-top, navigation/breadcrumb, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### changes such
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### paths people
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### people need
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### state changes feel
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### well answer Watch
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### interface whether
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### behavior once
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### whether edge
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### job depends
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### error messages
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-range, forms/file-input, forms/multi-select-input, forms/password, forms/text-field
+- Source patterns: authentication/login, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-range, forms/file-input, forms/multi-select-input, forms/password, forms/text-field, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### state async
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### users exactly what
 - Action: review
@@ -17894,14 +17437,14 @@
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
-### limits Show enough
+### enough provenance
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
-### enough provenance
+### limits Show enough
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -17934,7 +17477,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, navigation/infinite-scroll, navigation/load-more, navigation/pagination, forms/checkbox, forms/text-field
+- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, forms/checkbox, forms/text-field, navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
 ### Optimistic Updates
 - Action: review
@@ -17943,12 +17486,12 @@
 - AI used: no
 - Source patterns: authentication/account-settings, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### hover focus
+### transitions smooth
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, content-management/tooltip, navigation/back-to-top, navigation/link
+- Source patterns: navigation/load-more, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### details Keep counts
 - Action: review
@@ -17964,19 +17507,12 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### transitions smooth
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### important content
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/expandable-text, navigation/back-to-top, media/image-gallery, media/image-upload, media/video-player, forms/selection-input
+- Source patterns: content-management/carousel, content-management/expandable-text, media/image-gallery, media/image-upload, media/video-player, forms/selection-input, navigation/back-to-top
 
 ### assume optimistic
 - Action: review
@@ -17992,6 +17528,13 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
+### local feedback
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### direct language
 - Action: review
 - Confidence: 0.15
@@ -18006,33 +17549,26 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### local feedback
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### without scrolling
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, navigation/hambuger-menu, navigation/load-more, navigation/megamenu, forms/color-picker
+- Source patterns: content-management/accordion, forms/color-picker, navigation/hambuger-menu, navigation/load-more, navigation/megamenu
 
 ### Visually distinct
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, navigation/load-more, navigation/navigation-menu, forms/file-input, forms/selection-input
+- Source patterns: authentication/account-settings, forms/file-input, forms/selection-input, navigation/load-more, navigation/navigation-menu
 
 ### virtual scrolling
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/sidebar, forms/checkbox, forms/radio
+- Source patterns: data-display/table, forms/checkbox, forms/radio, navigation/sidebar
 
 ### clickable elements
 - Action: review
@@ -18042,13 +17578,6 @@
 - Source patterns: content-management/accordion, navigation/back-to-top, navigation/pagination, navigation/tabs
 
 ### hierarchy between
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
-### Treat hover focus
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -18088,7 +17617,7 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/button, forms/currency-input, forms/text-field
+- Source patterns: forms/button, forms/currency-input, forms/text-field, navigation/back-to-top
 
 ### One-time use
 - Action: review
@@ -18104,19 +17633,19 @@
 - AI used: no
 - Source patterns: authentication/user-profile, content-management/tooltip, forms/text-field
 
-### indicators without
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/button, forms/checkbox
-
 ### landscape contexts
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
+
+### indicators without
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/button, forms/checkbox, navigation/breadcrumb
 
 ### date inputs answer
 - Action: review
@@ -18223,19 +17752,12 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, forms/text-field
 
-### Manages focus states
+### Search Field will
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, forms/button
-
-### continuous content
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, navigation/infinite-scroll
+- Source patterns: advanced/command-palette, advanced/search-results
 
 ### unsorted list Don
 - Action: review
@@ -18251,20 +17773,6 @@
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/signup
 
-### Prompt Input will
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector
-
-### Search Field will
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results
-
 ### border background
 - Action: review
 - Confidence: 0.15
@@ -18272,19 +17780,19 @@
 - AI used: no
 - Source patterns: content-management/carousel, forms/file-input
 
-### background change
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/table, navigation/pagination
-
 ### File Input answer
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-upload, forms/signature-pad
+
+### background change
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/table, navigation/pagination
 
 ### Prevent excessive
 - Action: review
@@ -18314,6 +17822,13 @@
 - AI used: no
 - Source patterns: forms/date-picker, forms/multi-select-input
 
+### Prompt Input will
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector
+
 ### Strategies Event
 - Action: review
 - Confidence: 0.15
@@ -18335,13 +17850,6 @@
 - AI used: no
 - Source patterns: advanced/wizard, social/activity-feed
 
-### context such
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: social/activity-feed, forms/date-picker
-
 ### Choose image
 - Action: review
 - Confidence: 0.15
@@ -18355,6 +17863,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### context such
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-picker, social/activity-feed
 
 ### toggle 50ms
 - Action: review
@@ -18391,14 +17906,14 @@
 - AI used: no
 - Source patterns: authentication/signup, authentication/social-login
 
-### 2FA Adoption Rate:
+### 2FA Adoption Rate
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/two-factor
 
-### Icon choice:
+### Icon choice
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -18417,28 +17932,21 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### right politeness Connect
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Requires structured state
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
-
-### Keep supporting metadata
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, media/image-gallery, media/image-upload, media/video-player
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### low-contrast environments
 - Action: review
@@ -18453,6 +17961,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+
+### enough provenance status
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### assume optimistic updates
 - Action: review
@@ -18473,9 +17988,16 @@
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/tooltip, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/checkbox, forms/text-field
+- Source patterns: content-management/expandable-text, content-management/tooltip, forms/autocomplete, forms/button, forms/checkbox, forms/text-field, navigation/infinite-scroll
 
 ### across common breakpoints
+- Action: review
+- Confidence: 0.15
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
+
+### emphasis without meaning
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
@@ -18538,26 +18060,12 @@
 - AI used: no
 - Source patterns: authentication/login, authentication/two-factor
 
-### fewer states Autocomplete
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/search-field
-
 ### obstructs other important
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, forms/selection-input
-
-### provides sufficient color
-- Action: review
-- Confidence: 0.15
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, forms/text-field
 
 ### Updates Prevent excessive
 - Action: review
@@ -18566,124 +18074,117 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### Provide immediate visual
+### fewer states Autocomplete
 - Action: review
 - Confidence: 0.15
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, forms/checkbox
-
-### Visual States
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/back-to-top, navigation/pagination, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/autocomplete, forms/button, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: forms/search-field, ai-intelligence/ai-suggestions
 
 ### enough Announce state
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### state changes such
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### first then add
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### right place
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### recovery paths people
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### without hiding
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### motion enabled Ensure
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### disappears before
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### assume pointer
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### motion enabled
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### default visual
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### all interact
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### job without
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Trigger:
+### Trigger
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, advanced/command-palette, content-management/tooltip, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, navigation/tabs
+- Source patterns: advanced/command-palette, authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/tooltip, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, navigation/tabs
 
 ### metadata close
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, media/image-gallery, media/image-upload, media/video-player
+- Source patterns: media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### primary values
 - Action: review
@@ -18811,13 +18312,6 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
-### Separate system status
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
 ### critical notices below
 - Action: review
 - Confidence: 0.14
@@ -18833,13 +18327,6 @@
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### generic error message
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### show progress without
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
@@ -18893,7 +18380,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### actions without
 - Action: review
@@ -18907,14 +18394,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, navigation/breadcrumb, navigation/infinite-scroll, forms/autocomplete, forms/button
-
-### status indicators synchronized
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, content-management/tooltip, forms/autocomplete, forms/button, navigation/breadcrumb, navigation/infinite-scroll
 
 ### translate directly
 - Action: review
@@ -18937,47 +18417,33 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
-### clear focus
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, content-management/expandable-text, content-management/popover, content-management/tooltip, navigation/infinite-scroll, forms/password, forms/selection-input
-
 ### color contrast
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, forms/button, forms/checkbox, forms/radio, forms/text-field
-
-### focus outlines
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, navigation/link, navigation/navigation-menu, forms/autocomplete, forms/button, forms/text-field
+- Source patterns: forms/button, forms/checkbox, forms/radio, forms/text-field, navigation/back-to-top, navigation/link
 
 ### visual cues
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, navigation/back-to-top, navigation/link, navigation/pagination, forms/text-field, user-feedback/loading-indicator
+- Source patterns: content-management/accordion, forms/text-field, navigation/back-to-top, navigation/link, navigation/pagination, user-feedback/loading-indicator
 
 ### following table
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, navigation/pagination, forms/checkbox
+- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, forms/checkbox, navigation/pagination
 
 ### content without
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/load-more, navigation/sidebar, media/image-gallery, media/image-upload, media/video-player
+- Source patterns: content-management/carousel, media/image-gallery, media/image-upload, media/video-player, navigation/load-more, navigation/sidebar
 
 ### Indicator will
 - Action: review
@@ -18993,19 +18459,12 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### visual emphasis
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, navigation/megamenu
-
 ### clear feedback
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, content-management/drag-and-drop, navigation/hambuger-menu, forms/radio
+- Source patterns: authentication/account-settings, content-management/drag-and-drop, forms/radio, navigation/hambuger-menu
 
 ### content while
 - Action: review
@@ -19026,14 +18485,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-loading-states, data-display/table, forms/checkbox, forms/radio
-
-### Announce errors
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/password-reset, authentication/social-login, authentication/two-factor, forms/date-range
+- Source patterns: data-display/table, forms/checkbox, forms/radio, ai-intelligence/ai-loading-states
 
 ### content updates
 - Action: review
@@ -19077,6 +18529,13 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector, ai-intelligence/prompt-input
 
+### clear focus indicators
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/expandable-text, content-management/tooltip, navigation/infinite-scroll
+
 ### media frame
 - Action: review
 - Confidence: 0.14
@@ -19089,7 +18548,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/model-selector, ai-intelligence/prompt-input, forms/date-input
+- Source patterns: forms/date-input, ai-intelligence/model-selector, ai-intelligence/prompt-input
 
 ### visually hidden
 - Action: review
@@ -19124,14 +18583,14 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, navigation/navigation-menu, forms/multi-select-input
+- Source patterns: forms/multi-select-input, navigation/megamenu, navigation/navigation-menu
 
 ### dropdown menus
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, navigation/navigation-menu, forms/button
+- Source patterns: forms/button, navigation/megamenu, navigation/navigation-menu
 
 ### stays visible
 - Action: review
@@ -19180,7 +18639,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: social/comment-system, forms/rich-text-editor, forms/textarea
+- Source patterns: forms/rich-text-editor, forms/textarea, social/comment-system
 
 ### Display answer
 - Action: review
@@ -19201,7 +18660,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu, forms/checkbox
+- Source patterns: forms/checkbox, navigation/link, navigation/navigation-menu
 
 ### metadata such
 - Action: review
@@ -19231,12 +18690,12 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
-### High Abandonment Rate?
+### High Abandonment Rate
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, forms/checkbox, forms/radio
+- Source patterns: forms/checkbox, forms/radio, navigation/megamenu
 
 ### Close Button Optional
 - Action: review
@@ -19266,6 +18725,13 @@
 - AI used: no
 - Source patterns: forms/date-input, forms/date-picker
 
+### Maintain focus
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/table, forms/button
+
 ### visual clarity
 - Action: review
 - Confidence: 0.14
@@ -19278,7 +18744,14 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/megamenu, forms/color-picker
+- Source patterns: forms/color-picker, navigation/megamenu
+
+### immediate
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/table, forms/checkbox
 
 ### picker controls
 - Action: review
@@ -19369,7 +18842,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, forms/code-confirmation
+- Source patterns: forms/code-confirmation, navigation/infinite-scroll
 
 ### expand collapse state
 - Action: review
@@ -19385,6 +18858,13 @@
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/date-input
 
+### removing focus
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/button, forms/checkbox
+
 ### state changes Bundle
 - Action: review
 - Confidence: 0.14
@@ -19398,6 +18878,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-input, forms/text-field
+
+### accessible
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/signup, forms/checkbox
 
 ### changes Bundle Size
 - Action: review
@@ -19420,19 +18907,19 @@
 - AI used: no
 - Source patterns: data-display/table, forms/file-input
 
-### format Supports
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/user-profile, forms/date-input
-
 ### states Progress
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/wizard, user-feedback/loading-indicator
+
+### format Supports
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/user-profile, forms/date-input
 
 ### intuitive icons
 - Action: review
@@ -19447,20 +18934,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, content-management/modal
-
-### buttons Support
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/hambuger-menu, navigation/megamenu
-
-### distinct values
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, forms/date-range
 
 ### options Provide
 - Action: review
@@ -19489,6 +18962,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/color-picker
+
+### distinct values
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-range, navigation/navigation-menu
+
+### buttons Support
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/hambuger-menu, navigation/megamenu
 
 ### clear specific
 - Action: review
@@ -19553,47 +19040,19 @@
 - AI used: no
 - Source patterns: data-display/table, forms/button
 
-### visual styling
+### Default Normal
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, navigation/navigation-menu
+- Source patterns: forms/button, navigation/pagination
 
 ### mobile minimum
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, forms/button
-
-### content exists
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, navigation/pagination
-
-### containing all
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/tabs
-
-### alongside text
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/sidebar
-
-### Default Normal
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/pagination, forms/button
+- Source patterns: forms/button, navigation/hambuger-menu
 
 ### Minimal impact
 - Action: review
@@ -19615,6 +19074,34 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### visual styling
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/breadcrumb, navigation/navigation-menu
+
+### content exists
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/load-more, navigation/pagination
+
+### containing all
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/navigation-menu, navigation/tabs
+
+### alongside text
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/navigation-menu, navigation/sidebar
 
 ### content Avoid
 - Action: review
@@ -19663,16 +19150,16 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/text-field
+- Source patterns: forms/text-field, navigation/load-more
 
-### first item
+### First item
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/multi-select-input
+- Source patterns: forms/multi-select-input, navigation/pagination
 
-### Rendering Performance:
+### Rendering Performance
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
@@ -19707,7 +19194,7 @@
 - AI used: no
 - Source patterns: authentication/social-login, data-display/table
 
-### Low Expand Rate?
+### Low Expand Rate
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
@@ -19726,42 +19213,35 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Keep focus order
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### assistive technologies will
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Common scenarios include:
+### Common scenarios include
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/expandable-text, content-management/modal, content-management/popover, navigation/back-to-top, navigation/breadcrumb, navigation/hambuger-menu, navigation/infinite-scroll, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, forms/checkbox
+- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/expandable-text, content-management/modal, content-management/popover, forms/checkbox, navigation/back-to-top, navigation/breadcrumb, navigation/hambuger-menu, navigation/infinite-scroll, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs
 
 ### Requires coordinated state
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### supporting metadata close
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, media/image-gallery, media/image-upload, media/video-player
+- Source patterns: media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### around between breakpoints
 - Action: review
@@ -19782,14 +19262,14 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Keep counts prices
+### focus outlines
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+- Source patterns: forms/autocomplete, forms/button, forms/text-field, navigation/back-to-top, navigation/link, navigation/navigation-menu
 
 ### multiple competing banners
 - Action: review
@@ -19810,7 +19290,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/breadcrumb, navigation/pagination, forms/color-picker, forms/text-field
+- Source patterns: forms/color-picker, forms/text-field, navigation/back-to-top, navigation/breadcrumb, navigation/pagination
 
 ### form component
 - Action: review
@@ -19845,7 +19325,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/button, forms/checkbox, forms/text-field
+- Source patterns: forms/button, forms/checkbox, forms/text-field, navigation/back-to-top
 
 ### form controls
 - Action: review
@@ -19853,6 +19333,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio, forms/selection-input
+
+### focus moves
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/popover, data-display/table, forms/code-confirmation
 
 ### Most common
 - Action: review
@@ -19945,13 +19432,6 @@
 - AI used: no
 - Source patterns: navigation/navigation-menu, navigation/sidebar
 
-### provide clear labels
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/password, forms/radio
-
 ### Manages open closed
 - Action: review
 - Confidence: 0.14
@@ -19992,14 +19472,14 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Requires structured
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, navigation/breadcrumb, social/share-dialog, media/image-gallery, media/image-upload, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: advanced/wizard, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, data-display/card-grid, data-display/comparison-table, data-display/filter-panel, data-display/list-view, data-display/timeline, forms/form-validation, forms/phone-number, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, navigation/breadcrumb, social/share-dialog, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/notification
 
 ### already understands
 - Action: review
@@ -20027,7 +19507,7 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### actions differently
 - Action: review
@@ -20050,14 +19530,7 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### avoid overwhelming
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/tooltip, navigation/load-more, forms/autocomplete, forms/checkbox, forms/text-field
-
-### Keep labels controls
+### rearrangements hide
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
@@ -20070,20 +19543,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/user-profile, data-display/table, navigation/back-to-top
-
-### rearrangements hide
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
-### provides sufficient
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/modal, navigation/back-to-top, forms/text-field
 
 ### aspect-ratio space
 - Action: review
@@ -20098,13 +19557,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/expandable-text, forms/button
-
-### Avoid inconsistent
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, forms/checkbox
 
 ### teams need activity
 - Action: review
@@ -20127,27 +19579,6 @@
 - AI used: no
 - Source patterns: data-display/chart, data-display/statistics
 
-### Input response 50ms
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/two-factor
-
-### fewer states Prompt
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector
-
-### states Autocomplete
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/search-field
-
 ### states Search Field
 - Action: review
 - Confidence: 0.14
@@ -20155,19 +19586,19 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results
 
+### Input response 50ms
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/login, authentication/two-factor
+
 ### individual elements
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, content-management/tooltip
-
-### CSS pseudo-elements
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, navigation/pagination
 
 ### functionality works
 - Action: review
@@ -20183,12 +19614,40 @@
 - AI used: no
 - Source patterns: forms/date-range, forms/text-field
 
+### states Autocomplete
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/search-field, ai-intelligence/ai-suggestions
+
+### CSS pseudo-elements
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/breadcrumb, navigation/pagination
+
+### fewer states Prompt
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector
+
 ### Visually separated
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, navigation/navigation-menu
+
+### continuous content
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, navigation/infinite-scroll
 
 ### visually connected
 - Action: review
@@ -20204,12 +19663,26 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/text-field
 
+### know whether image
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload
+
 ### View answer Choose
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/card-grid, data-display/timeline
+
+### sufficient spacing
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/button, forms/text-field
 
 ### infinite scrolling
 - Action: review
@@ -20225,19 +19698,12 @@
 - AI used: no
 - Source patterns: navigation/navigation-menu, navigation/tabs
 
-### know whether image
+### status indicators synchronized
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: media/image-gallery, media/image-upload
-
-### sufficient spacing
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/button, forms/text-field
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### without providing alternatives
 - Action: review
@@ -20258,21 +19724,21 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### accessibility coverage
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### Explains why
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-error-states, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, user-feedback/empty-states
+- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, ai-intelligence/ai-error-states, user-feedback/empty-states
 
 ### single view
 - Action: review
@@ -20323,6 +19789,20 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
+### helper text
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+
+### Separate system status
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
+
 ### long prompts
 - Action: review
 - Confidence: 0.14
@@ -20337,26 +19817,19 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
-### Bundle size:
+### Bundle size
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, navigation/hambuger-menu, navigation/link, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, navigation/tabs, forms/checkbox, forms/radio
+- Source patterns: forms/checkbox, forms/radio, navigation/breadcrumb, navigation/hambuger-menu, navigation/link, navigation/megamenu, navigation/navigation-menu, navigation/sidebar, navigation/tabs
 
 ### right choice guidePath
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, navigation/infinite-scroll, navigation/load-more, navigation/pagination, forms/checkbox, forms/text-field
-
-### visible focus indicators
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/user-profile, content-management/carousel, data-display/table, navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu, forms/color-picker
+- Source patterns: content-management/modal, content-management/popover, content-management/tooltip, data-display/table, forms/checkbox, forms/text-field, navigation/infinite-scroll, navigation/load-more, navigation/pagination
 
 ### actions through unclear
 - Action: review
@@ -20364,13 +19837,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
-
-### Keep transitions smooth
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### understand immediately
 - Action: review
@@ -20421,40 +19887,33 @@
 - AI used: no
 - Source patterns: authentication/login, authentication/password-reset, authentication/signup, navigation/megamenu, navigation/sidebar, navigation/tabs
 
-### focus inside
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, navigation/hambuger-menu, navigation/megamenu, forms/code-confirmation, forms/color-picker, forms/date-picker
-
 ### Field will
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, advanced/command-palette, advanced/search-results, forms/form-validation, forms/phone-number, forms/textarea
+- Source patterns: advanced/command-palette, advanced/search-results, forms/form-validation, forms/phone-number, forms/textarea, ai-intelligence/prompt-input
 
 ### inform users
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, forms/file-input, forms/password, user-feedback/cookie-consent, user-feedback/notification
+- Source patterns: forms/file-input, forms/password, navigation/infinite-scroll, user-feedback/cookie-consent, user-feedback/notification
+
+### move focus
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/popover, data-display/table, forms/code-confirmation, forms/radio, navigation/pagination
 
 ### while still
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/tree-view, social/like-button, forms/rating-input, forms/text-field
-
-### visual emphasis without
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
+- Source patterns: data-display/tree-view, forms/rating-input, forms/text-field, social/like-button
 
 ### without meaning behind
 - Action: review
@@ -20475,21 +19934,21 @@
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/button, forms/radio
+- Source patterns: forms/button, forms/radio, navigation/back-to-top
 
 ### what happens
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/token-counter, e-commerce/checkout, forms/file-input
+- Source patterns: e-commerce/checkout, forms/file-input, ai-intelligence/token-counter
 
 ### users expect
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/tabs, forms/date-input
+- Source patterns: forms/date-input, navigation/infinite-scroll, navigation/tabs
 
 ### final media
 - Action: review
@@ -20498,19 +19957,19 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
+### inconsistent alignment
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, forms/checkbox
+
 ### Next button
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, navigation/pagination
-
-### Allow paste
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/code-confirmation, forms/password
 
 ### icons buttons
 - Action: review
@@ -20519,13 +19978,6 @@
 - AI used: no
 - Source patterns: content-management/tooltip, forms/date-picker
 
-### include icons alongside
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/sidebar
-
 ### giving users
 - Action: review
 - Confidence: 0.14
@@ -20533,19 +19985,12 @@
 - AI used: no
 - Source patterns: authentication/user-profile, navigation/navigation-menu
 
-### provides clear feedback
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, forms/radio
-
 ### keeping all
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/sidebar, forms/text-field
+- Source patterns: forms/text-field, navigation/sidebar
 
 ### same group
 - Action: review
@@ -20554,7 +19999,7 @@
 - AI used: no
 - Source patterns: authentication/social-login, forms/radio
 
-### Hover:
+### Hover
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
@@ -20575,6 +20020,13 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### remove focus indicators
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/breadcrumb, navigation/sidebar
+
 ### logical grouping group
 - Action: review
 - Confidence: 0.14
@@ -20589,33 +20041,12 @@
 - AI used: no
 - Source patterns: content-management/accordion, forms/radio
 
-### inconsistent alignment
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, forms/checkbox
-
 ### infinite scroll answer
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/carousel, navigation/infinite-scroll
-
-### Avoid hiding essential
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/expandable-text, navigation/infinite-scroll
-
-### close together without
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/link, navigation/navigation-menu
 
 ### smart positioning flip
 - Action: review
@@ -20624,12 +20055,12 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/multi-select-input
 
-### items within
+### close together without
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, forms/selection-input
+- Source patterns: navigation/link, navigation/navigation-menu
 
 ### inputs after
 - Action: review
@@ -20638,19 +20069,19 @@
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/date-input
 
+### items within
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/selection-input, navigation/hambuger-menu
+
 ### labels Show
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, authentication/signup
-
-### support Tab
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/popover, forms/checkbox
 
 ### minimum 8px
 - Action: review
@@ -20659,13 +20090,6 @@
 - AI used: no
 - Source patterns: data-display/table, forms/button
 
-### Tab between
-- Action: review
-- Confidence: 0.14
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/sidebar
-
 ### field Avoid
 - Action: review
 - Confidence: 0.14
@@ -20673,12 +20097,19 @@
 - AI used: no
 - Source patterns: forms/selection-input, forms/text-field
 
+### Tab between
+- Action: review
+- Confidence: 0.14
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/navigation-menu, navigation/sidebar
+
 ### list after
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/file-input
+- Source patterns: forms/file-input, navigation/load-more
 
 ### lists 100
 - Action: review
@@ -20687,7 +20118,7 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### First Contentful Paint:
+### First Contentful Paint
 - Action: review
 - Confidence: 0.14
 - Match: unresolved
@@ -20790,7 +20221,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/button
+- Source patterns: forms/button, navigation/back-to-top
 
 ### easily change pre-selected
 - Action: review
@@ -20804,63 +20235,56 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### technologies will
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### edge cases behave
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### allows users
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/password-reset, authentication/social-login, authentication/two-factor, content-management/accordion, content-management/carousel, content-management/expandable-text, content-management/modal, content-management/tooltip, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/password, forms/radio, forms/selection-input, forms/signature-pad, forms/text-field
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Users understand
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/popover, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/dashboard, data-display/filter-panel, navigation/breadcrumb, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: content-management/popover, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/dashboard, data-display/filter-panel, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/text-field, forms/textarea, forms/time-input, forms/toggle, navigation/breadcrumb, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### will translate
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
 ### coverage across
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### where they
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/password-reset, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, navigation/navigation-menu, forms/button, forms/checkbox
+- Source patterns: authentication/password-reset, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/button, forms/checkbox, navigation/navigation-menu
 
 ### too small
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/accordion, content-management/expandable-text, navigation/hambuger-menu, navigation/load-more, navigation/pagination, forms/checkbox, forms/code-confirmation, forms/multi-select-input, forms/text-field
+- Source patterns: authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/accordion, content-management/expandable-text, forms/checkbox, forms/code-confirmation, forms/multi-select-input, forms/text-field, navigation/hambuger-menu, navigation/load-more, navigation/pagination
 
 ### priorities differ
 - Action: review
@@ -20965,7 +20389,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/autocomplete, forms/date-input, forms/form-validation, forms/password, forms/phone-number, forms/selection-input, forms/text-field, forms/textarea
+- Source patterns: forms/autocomplete, forms/date-input, forms/form-validation, forms/password, forms/phone-number, forms/selection-input, forms/text-field, forms/textarea, ai-intelligence/prompt-input
 
 ### let placeholders
 - Action: review
@@ -20979,14 +20403,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/tooltip, navigation/infinite-scroll, forms/autocomplete, forms/button, forms/checkbox, forms/password, forms/text-field
-
-### avoid excessive
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, content-management/tooltip, navigation/infinite-scroll, navigation/pagination, forms/code-confirmation, forms/multi-select-input, forms/text-field
+- Source patterns: content-management/expandable-text, content-management/tooltip, forms/autocomplete, forms/button, forms/checkbox, forms/password, forms/text-field, navigation/infinite-scroll
 
 ### understand immediately Surface
 - Action: review
@@ -21023,19 +20440,19 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Keep local
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
 ### event listeners
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/tooltip, navigation/back-to-top, forms/checkbox, forms/radio
+- Source patterns: content-management/carousel, content-management/tooltip, forms/checkbox, forms/radio, navigation/back-to-top
+
+### visual emphasis
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, navigation/megamenu
 
 ### response 50ms
 - Action: review
@@ -21058,20 +20475,6 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
-### accessible text
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/social-login, forms/checkbox, forms/date-range, forms/text-field
-
-### Text Field will
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/form-validation, forms/phone-number, forms/textarea
-
 ### supporting text
 - Action: review
 - Confidence: 0.13
@@ -21086,12 +20489,26 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
+### accessible text
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/social-login, forms/checkbox, forms/date-range, forms/text-field
+
 ### like Click Here
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, navigation/link, navigation/load-more, forms/button
+- Source patterns: content-management/expandable-text, forms/button, navigation/link, navigation/load-more
+
+### Text Field will
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/textarea, ai-intelligence/prompt-input
 
 ### infer system
 - Action: review
@@ -21112,7 +20529,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-loading-states, ai-intelligence/streaming-response, content-management/carousel
+- Source patterns: content-management/carousel, ai-intelligence/ai-loading-states, ai-intelligence/streaming-response
 
 ### where users need
 - Action: review
@@ -21142,12 +20559,26 @@
 - AI used: no
 - Source patterns: content-management/accordion, content-management/expandable-text, navigation/sidebar
 
+### visual language
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: media/image-gallery, media/image-upload, media/video-player
+
 ### every keystroke
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/table, forms/color-picker, forms/currency-input
+
+### buttons instead
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/button, forms/checkbox, social/like-button
 
 ### Bundle size 3KB
 - Action: review
@@ -21156,20 +20587,6 @@
 - AI used: no
 - Source patterns: navigation/hambuger-menu, navigation/navigation-menu, navigation/tabs
 
-### buttons instead
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: social/like-button, forms/button, forms/checkbox
-
-### visual language
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
-
 ### users control
 - Action: review
 - Confidence: 0.13
@@ -21177,26 +20594,12 @@
 - AI used: no
 - Source patterns: authentication/user-profile, navigation/load-more, navigation/sidebar
 
-### Keep controls
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
-
 ### core controls
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
-
-### focus within
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, content-management/modal, forms/date-picker
 
 ### easy access
 - Action: review
@@ -21240,6 +20643,13 @@
 - AI used: no
 - Source patterns: forms/date-input, forms/date-range
 
+### inconsistent
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, forms/checkbox
+
 ### highlight states
 - Action: review
 - Confidence: 0.13
@@ -21247,19 +20657,26 @@
 - AI used: no
 - Source patterns: data-display/comparison-table, navigation/pagination
 
+### Status feedback
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: media/video-player, forms/button
+
+### ambiguity
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, forms/time-input
+
 ### password toggle
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, forms/password
-
-### Shows selected
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/date-range, forms/multi-select-input
 
 ### legitimate users
 - Action: review
@@ -21324,13 +20741,6 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### ensure day cells
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/date-picker, forms/date-range
-
 ### Confirms whether
 - Action: review
 - Confidence: 0.13
@@ -21387,20 +20797,6 @@
 - AI used: no
 - Source patterns: content-management/popover, navigation/load-more
 
-### Bundle size 5KB
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/megamenu, navigation/sidebar
-
-### activate Escape
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/navigation-menu, navigation/sidebar
-
 ### File Input will
 - Action: review
 - Confidence: 0.13
@@ -21422,6 +20818,20 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/text-field
 
+### Bundle size 5KB
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/megamenu, navigation/sidebar
+
+### activate Escape
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/navigation-menu, navigation/sidebar
+
 ### dialogs answer
 - Action: review
 - Confidence: 0.13
@@ -21429,19 +20839,19 @@
 - AI used: no
 - Source patterns: content-management/modal, social/share-dialog
 
-### internal links
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, navigation/link
-
 ### search queries
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/autocomplete, forms/text-field
+
+### internal links
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/breadcrumb, navigation/link
 
 ### after success
 - Action: review
@@ -21499,13 +20909,6 @@
 - AI used: no
 - Source patterns: content-management/modal, navigation/infinite-scroll
 
-### panel Must
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/hambuger-menu, navigation/megamenu
-
 ### answer Set
 - Action: review
 - Confidence: 0.13
@@ -21513,12 +20916,19 @@
 - AI used: no
 - Source patterns: forms/code-confirmation, forms/date-input
 
+### panel Must
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/hambuger-menu, navigation/megamenu
+
 ### proper contrast
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/button
+- Source patterns: forms/button, navigation/load-more
 
 ### Privacy concerns
 - Action: review
@@ -21539,70 +20949,70 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### reliable way
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### technologies will all
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### job without pausing
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### biggest risk
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### answer Choose
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Explains what
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, media/image-gallery, forms/checkbox, forms/signature-pad, forms/textarea, forms/toggle, user-feedback/cookie-consent, user-feedback/progress-indicator
+- Source patterns: advanced/command-palette, media/image-gallery, forms/checkbox, forms/signature-pad, forms/textarea, forms/toggle, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/progress-indicator
 
-### Memory usage:
+### Memory usage
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/tooltip, data-display/table, navigation/back-to-top, navigation/breadcrumb, navigation/infinite-scroll, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/radio, forms/text-field
+- Source patterns: content-management/carousel, content-management/tooltip, data-display/table, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/radio, forms/text-field, navigation/back-to-top, navigation/breadcrumb, navigation/infinite-scroll
 
 ### clear visual
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, authentication/social-login, authentication/user-profile, content-management/accordion, content-management/carousel, content-management/expandable-text, content-management/popover, navigation/back-to-top, navigation/load-more, navigation/megamenu, navigation/navigation-menu, forms/button, forms/checkbox, forms/code-confirmation, forms/date-range, forms/radio
+- Source patterns: authentication/login, authentication/social-login, authentication/user-profile, content-management/accordion, content-management/carousel, content-management/expandable-text, content-management/popover, forms/button, forms/checkbox, forms/code-confirmation, forms/date-range, forms/radio, navigation/back-to-top, navigation/load-more, navigation/megamenu, navigation/navigation-menu
 
 ### inputs answer
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector, ai-intelligence/prompt-input, media/image-upload, forms/currency-input, forms/date-input, forms/date-picker, forms/rating-input, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input
+- Source patterns: media/image-upload, forms/currency-input, forms/date-input, forms/date-picker, forms/rating-input, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, ai-intelligence/ai-chat, ai-intelligence/model-selector, ai-intelligence/prompt-input
 
 ### controls jump around
 - Action: review
@@ -21667,13 +21077,6 @@
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
-### Keep primary
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
 ### prompt entry
 - Action: review
 - Confidence: 0.13
@@ -21714,14 +21117,14 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/statistics, social/like-button, forms/rating-input, forms/textarea, forms/toggle, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: data-display/statistics, forms/rating-input, forms/textarea, forms/toggle, social/like-button, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### Maintain consistent
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/social-login, content-management/accordion, navigation/back-to-top, navigation/breadcrumb, navigation/link, navigation/megamenu, forms/button, forms/checkbox
+- Source patterns: authentication/social-login, content-management/accordion, forms/button, forms/checkbox, navigation/back-to-top, navigation/breadcrumb, navigation/link, navigation/megamenu
 
 ### details where needed
 - Action: review
@@ -21763,14 +21166,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, navigation/breadcrumb, navigation/infinite-scroll, forms/autocomplete, forms/button
-
-### Ensure all
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/account-settings, authentication/password-reset, content-management/carousel, content-management/popover, navigation/breadcrumb, navigation/megamenu, forms/color-picker
+- Source patterns: content-management/expandable-text, content-management/modal, content-management/popover, forms/autocomplete, forms/button, navigation/breadcrumb, navigation/infinite-scroll
 
 ### across too
 - Action: review
@@ -21784,23 +21180,16 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, content-management/modal, navigation/breadcrumb, forms/autocomplete, forms/checkbox, forms/multi-select-input, forms/text-field
+- Source patterns: content-management/carousel, content-management/modal, forms/autocomplete, forms/checkbox, forms/multi-select-input, forms/text-field, navigation/breadcrumb
 
 ### Field answer Choose
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, advanced/command-palette, advanced/search-results, forms/form-validation, forms/phone-number, forms/textarea
+- Source patterns: advanced/command-palette, advanced/search-results, forms/form-validation, forms/phone-number, forms/textarea, ai-intelligence/prompt-input
 
 ### color-only severity
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
-
-### Keep local feedback
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
@@ -21828,20 +21217,6 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Best Practices
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: getting-started, index, content-management/accordion, forms/password, forms/text-field
-
-### Ensure focus
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, content-management/popover, content-management/tooltip, forms/code-confirmation
-
 ### Accessibility issues
 - Action: review
 - Confidence: 0.13
@@ -21855,6 +21230,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: content-management/accordion, content-management/expandable-text, navigation/hambuger-menu, navigation/sidebar
+
+### Best Practices
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: getting-started, content-management/accordion, forms/password, forms/text-field
+
+### users focus
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, data-display/timeline, navigation/tabs, social/activity-feed
 
 ### Maintain sufficient
 - Action: review
@@ -21889,7 +21278,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/popover, navigation/breadcrumb, navigation/infinite-scroll, forms/autocomplete
+- Source patterns: content-management/popover, forms/autocomplete, navigation/breadcrumb, navigation/infinite-scroll
 
 ### user profile
 - Action: review
@@ -21903,7 +21292,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/load-more, forms/multi-select-input
+- Source patterns: content-management/carousel, forms/multi-select-input, navigation/load-more
 
 ### Compare all overlay
 - Action: review
@@ -21917,7 +21306,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/login, navigation/tabs, forms/text-field
+- Source patterns: authentication/login, forms/text-field, navigation/tabs
 
 ### Compare all
 - Action: review
@@ -21954,19 +21343,19 @@
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
 
-### Prompt Input answer
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector, ai-intelligence/prompt-input
-
 ### fewer states Search
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, data-display/filter-panel
+
+### Prompt Input answer
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector, ai-intelligence/prompt-input
 
 ### before they commit
 - Action: review
@@ -21980,7 +21369,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, navigation/breadcrumb, forms/selection-input
+- Source patterns: authentication/user-profile, forms/selection-input, navigation/breadcrumb
 
 ### inputs Display
 - Action: review
@@ -21994,21 +21383,14 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/navigation-menu, navigation/pagination, forms/multi-select-input
+- Source patterns: forms/multi-select-input, navigation/navigation-menu, navigation/pagination
 
-### mobile views
+### focus within
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, navigation/megamenu, forms/button
-
-### operable via
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/sidebar, forms/color-picker, forms/file-input
+- Source patterns: content-management/carousel, content-management/modal, forms/date-picker
 
 ### imagery Show
 - Action: review
@@ -22016,6 +21398,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
+
+### mobile views
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/table, forms/button, navigation/megamenu
+
+### operable via
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/color-picker, forms/file-input, navigation/sidebar
 
 ### user Clicks
 - Action: review
@@ -22094,6 +21490,13 @@
 - AI used: no
 - Source patterns: data-display/table, forms/form-validation
 
+### password
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/signup, forms/password
+
 ### between links
 - Action: review
 - Confidence: 0.13
@@ -22157,6 +21560,13 @@
 - AI used: no
 - Source patterns: forms/currency-input, forms/text-field
 
+### state Focus
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/back-to-top, navigation/hambuger-menu
+
 ### neglecting accessibility considerations
 - Action: review
 - Confidence: 0.13
@@ -22164,19 +21574,12 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, forms/autocomplete
 
-### remove focus outlines
+### know whether search
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: forms/autocomplete, forms/text-field
-
-### Avoid removing focus
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/button, forms/checkbox
+- Source patterns: advanced/search-results, forms/search-field
 
 ### helpful placeholder
 - Action: review
@@ -22184,20 +21587,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, forms/text-field
-
-### States will usually
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
-
-### know whether search
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: advanced/search-results, forms/search-field
 
 ### requiring excessive
 - Action: review
@@ -22220,6 +21609,13 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### States will usually
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-error-states, ai-intelligence/streaming-response
+
 ### contrasting colors
 - Action: review
 - Confidence: 0.13
@@ -22240,13 +21636,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: e-commerce/product-card, data-display/list-view
-
-### Transform opacity
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, navigation/hambuger-menu
 
 ### fewer states File
 - Action: review
@@ -22269,12 +21658,12 @@
 - AI used: no
 - Source patterns: forms/password, forms/text-field
 
-### Avoid disrupting
+### Transform opacity
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/load-more, forms/currency-input
+- Source patterns: navigation/back-to-top, navigation/hambuger-menu
 
 ### frustrate users
 - Action: review
@@ -22297,6 +21686,13 @@
 - AI used: no
 - Source patterns: authentication/login, forms/date-input
 
+### passwords
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/signup, forms/password
+
 ### fields clearly
 - Action: review
 - Confidence: 0.13
@@ -22304,19 +21700,19 @@
 - AI used: no
 - Source patterns: authentication/two-factor, forms/text-field
 
-### symbol without
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, forms/currency-input
-
 ### render visible
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
+
+### symbol without
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/currency-input, navigation/back-to-top
 
 ### other content
 - Action: review
@@ -22332,27 +21728,6 @@
 - AI used: no
 - Source patterns: content-management/expandable-text, navigation/back-to-top
 
-### reachable via
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/megamenu
-
-### Support Arrow
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/tabs, forms/date-picker
-
-### Textarea will
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: social/comment-system, forms/rich-text-editor
-
 ### whether image
 - Action: review
 - Confidence: 0.13
@@ -22366,6 +21741,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-upload, forms/file-input
+
+### Textarea will
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/rich-text-editor, social/comment-system
+
+### reachable via
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll, navigation/megamenu
 
 ### stacked list
 - Action: review
@@ -22409,13 +21798,6 @@
 - AI used: no
 - Source patterns: forms/date-picker, forms/date-range
 
-### native CSS
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/back-to-top, navigation/link
-
 ### assume all
 - Action: review
 - Confidence: 0.13
@@ -22430,7 +21812,14 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
-### High Dismissal Rate?
+### native CSS
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/back-to-top, navigation/link
+
+### High Dismissal Rate
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
@@ -22470,28 +21859,28 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### friction without hiding
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### changes feel trustworthy
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### coordinated state async
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### adding richer adornments
 - Action: review
@@ -22528,6 +21917,13 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
+### visible focus indicators
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/user-profile, content-management/carousel, data-display/table, forms/color-picker, navigation/breadcrumb, navigation/hambuger-menu, navigation/navigation-menu
+
 ### will translate directly
 - Action: review
 - Confidence: 0.13
@@ -22547,7 +21943,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, navigation/pagination, forms/checkbox
+- Source patterns: content-management/accordion, content-management/modal, content-management/popover, content-management/tooltip, forms/checkbox, navigation/pagination
 
 ### Indicator answer Choose
 - Action: review
@@ -22555,6 +21951,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/wizard, media/video-player, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### visual emphasis without
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
 ### proximity between cause
 - Action: review
@@ -22603,7 +22006,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### behind horizontal scrolling
 - Action: review
@@ -22638,14 +22041,14 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/user-profile, navigation/megamenu, forms/button, forms/checkbox, forms/date-range
+- Source patterns: authentication/user-profile, forms/button, forms/checkbox, forms/date-range, navigation/megamenu
 
 ### states Text Field
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/form-validation, forms/phone-number, forms/textarea
+- Source patterns: forms/form-validation, forms/phone-number, forms/textarea, ai-intelligence/prompt-input
 
 ### completely different aspect
 - Action: review
@@ -22668,7 +22071,7 @@
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/login, authentication/signup
 
-### High Collapse Rate?
+### High Collapse Rate
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
@@ -22717,13 +22120,6 @@
 - AI used: no
 - Source patterns: data-display/card-grid, data-display/list-view
 
-### supports both
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/user-profile
-
 ### password requirements before
 - Action: review
 - Confidence: 0.13
@@ -22759,19 +22155,19 @@
 - AI used: no
 - Source patterns: forms/date-picker, forms/date-range
 
-### Autocomplete will
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/ai-suggestions, forms/search-field
-
 ### states File Input
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-upload, forms/signature-pad
+
+### Autocomplete will
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/search-field, ai-intelligence/ai-suggestions
 
 ### Associated via
 - Action: review
@@ -22787,61 +22183,75 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### state
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/hambuger-menu, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### right politeness
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### only where
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### paths people need
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### feel trustworthy
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### working well
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### happy path
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### 200 zoom
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Effect:
+### Effect
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/carousel, content-management/tooltip, data-display/table, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/text-field
+- Source patterns: authentication/account-settings, authentication/login, authentication/password-reset, authentication/signup, authentication/social-login, authentication/two-factor, authentication/user-profile, content-management/carousel, content-management/tooltip, data-display/table, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/text-field, navigation/back-to-top, navigation/hambuger-menu, navigation/link, navigation/load-more, navigation/megamenu, navigation/navigation-menu, navigation/pagination, navigation/sidebar, navigation/tabs
+
+### users
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/password-reset, authentication/social-login, authentication/two-factor, content-management/accordion, content-management/carousel, content-management/expandable-text, content-management/modal, content-management/tooltip, forms/autocomplete, forms/button, forms/checkbox, forms/code-confirmation, forms/color-picker, forms/currency-input, forms/date-input, forms/date-picker, forms/date-range, forms/file-input, forms/multi-select-input, forms/password, forms/radio, forms/selection-input, forms/signature-pad, forms/text-field, navigation/infinite-scroll
 
 ### default view
 - Action: review
@@ -22877,13 +22287,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
-
-### Keep helper text
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
 ### data refresh
 - Action: review
@@ -22927,7 +22330,28 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
 
+### request
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
+
 ### entry result
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
+
+### retries
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
+
+### enough
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
@@ -22939,14 +22363,14 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, content-management/modal, forms/code-confirmation, forms/color-picker, forms/date-input, forms/date-picker, forms/date-range, forms/multi-select-input, forms/textarea
+- Source patterns: content-management/modal, forms/code-confirmation, forms/color-picker, forms/date-input, forms/date-picker, forms/date-range, forms/multi-select-input, forms/textarea, ai-intelligence/prompt-input
 
 ### arrow keys
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, data-display/table, navigation/megamenu, navigation/pagination, navigation/tabs, forms/code-confirmation, forms/date-picker, forms/radio, forms/selection-input
+- Source patterns: content-management/accordion, data-display/table, forms/code-confirmation, forms/date-picker, forms/radio, forms/selection-input, navigation/megamenu, navigation/pagination, navigation/tabs
 
 ### language users understand
 - Action: review
@@ -22976,7 +22400,21 @@
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
+### Manages focus
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, content-management/modal, content-management/popover, forms/button, forms/multi-select-input, navigation/back-to-top, navigation/tabs
+
 ### signals such
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+
+### counts
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
@@ -23011,40 +22449,47 @@
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
-### Password requirements:
+### focus inside
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, forms/code-confirmation, forms/color-picker, forms/date-picker, navigation/hambuger-menu, navigation/megamenu
+
+### Password requirements
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, authentication/password-reset, authentication/signup, forms/password, forms/text-field
 
-### ensure accessibility
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, content-management/carousel, content-management/modal, content-management/popover, forms/text-field
-
 ### helps users understand
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/dashboard, data-display/filter-panel, navigation/breadcrumb, forms/slider, forms/text-field
+- Source patterns: data-display/dashboard, data-display/filter-panel, forms/slider, forms/text-field, navigation/breadcrumb
 
-### trap focus inside
+### proper
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, navigation/hambuger-menu, navigation/megamenu, forms/code-confirmation, forms/date-picker
+- Source patterns: forms/checkbox, forms/radio, forms/text-field, navigation/load-more, navigation/pagination
 
-### Time to Complete:
+### Time to Complete
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/password-reset, authentication/signup, forms/code-confirmation, forms/date-input, forms/text-field
+
+### visual
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, forms/button, navigation/infinite-scroll, navigation/pagination
 
 ### form inputs
 - Action: review
@@ -23060,12 +22505,40 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
+### helpful
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/login, data-display/table, forms/checkbox, forms/text-field
+
 ### visual styles
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/hambuger-menu, forms/button, forms/date-range, forms/selection-input
+- Source patterns: forms/button, forms/date-range, forms/selection-input, navigation/hambuger-menu
+
+### labels
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
+
+### they
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/expandable-text, content-management/modal, content-management/tooltip, navigation/link
+
+### extra
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
 ### Search input
 - Action: review
@@ -23102,13 +22575,6 @@
 - AI used: no
 - Source patterns: data-display/chart, data-display/dashboard, data-display/statistics
 
-### Keep controls legible
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: media/image-gallery, media/image-upload, media/video-player
-
 ### Information overload
 - Action: review
 - Confidence: 0.13
@@ -23137,13 +22603,6 @@
 - AI used: no
 - Source patterns: e-commerce/product-card, data-display/card-grid, data-display/list-view
 
-### immediate visual
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/table, forms/checkbox, user-feedback/loading-indicator
-
 ### contrast support
 - Action: review
 - Confidence: 0.13
@@ -23157,6 +22616,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: media/image-gallery, media/image-upload, media/video-player
+
+### immediate visual
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/table, forms/checkbox, user-feedback/loading-indicator
+
+### whether
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, social/like-button, ai-intelligence/model-selector
 
 ### answer Yes
 - Action: review
@@ -23172,13 +22645,6 @@
 - AI used: no
 - Source patterns: authentication/two-factor, forms/code-confirmation
 
-### Avoid inconsistent alignment
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/accordion, forms/checkbox
-
 ### Visually distinguishable
 - Action: review
 - Confidence: 0.13
@@ -23191,7 +22657,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/context-window, social/activity-feed
+- Source patterns: social/activity-feed, ai-intelligence/context-window
 
 ### Typically placed
 - Action: review
@@ -23207,7 +22673,7 @@
 - AI used: no
 - Source patterns: forms/date-picker, forms/date-range
 
-### Default:
+### Default
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
@@ -23233,7 +22699,7 @@
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/code-confirmation
+- Source patterns: forms/code-confirmation, navigation/pagination
 
 ### Card
 - Action: review
@@ -23256,12 +22722,12 @@
 - AI used: no
 - Source patterns: data-display/card-grid, data-display/list-view
 
-### hover focus states
+### both
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, navigation/link
+- Source patterns: authentication/login, authentication/user-profile
 
 ### all others
 - Action: review
@@ -23291,19 +22757,26 @@
 - AI used: no
 - Source patterns: authentication/login, forms/text-field
 
-### Response Feedback answer
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/response-feedback, social/like-button
-
 ### inconsistent terminology
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, forms/button
+- Source patterns: forms/button, navigation/breadcrumb
+
+### Response Feedback answer
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: social/like-button, ai-intelligence/response-feedback
+
+### hiding essential
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/expandable-text, navigation/infinite-scroll
 
 ### answer Best practices
 - Action: review
@@ -23312,19 +22785,12 @@
 - AI used: no
 - Source patterns: content-management/accordion, forms/text-field
 
-### visual cues underline
+### remove focus outlines
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, navigation/pagination
-
-### fewer states Textarea
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: social/comment-system, forms/rich-text-editor
+- Source patterns: forms/autocomplete, forms/text-field
 
 ### dynamic announcements
 - Action: review
@@ -23332,6 +22798,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-input, forms/file-input
+
+### fewer states Textarea
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/rich-text-editor, social/comment-system
+
+### visual cues underline
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/link, navigation/pagination
 
 ### answer Choose search
 - Action: review
@@ -23382,20 +22862,6 @@
 - AI used: no
 - Source patterns: authentication/signup, forms/password
 
-### hiding essential
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/expandable-text, navigation/infinite-scroll
-
-### without specific
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/infinite-scroll, navigation/tabs
-
 ### where they might
 - Action: review
 - Confidence: 0.13
@@ -23410,12 +22876,26 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/multi-select-input
 
-### Focus Provides
+### day cells
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, navigation/pagination
+- Source patterns: forms/date-picker, forms/date-range
+
+### without specific
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/infinite-scroll, navigation/tabs
+
+### current
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/wizard, ai-intelligence/context-window
 
 ### values change
 - Action: review
@@ -23424,12 +22904,26 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/currency-input
 
+### clearly
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/load-more, navigation/pagination
+
 ### invalid code
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/social-login, authentication/two-factor
+
+### text
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/two-factor, forms/color-picker
 
 ### Display will
 - Action: review
@@ -23438,12 +22932,12 @@
 - AI used: no
 - Source patterns: data-display/chart, data-display/dashboard
 
-### Support full
+### hidden input
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
-- Source patterns: data-display/table, forms/autocomplete
+- Source patterns: forms/currency-input, forms/file-input
 
 ### fetching new
 - Action: review
@@ -23452,19 +22946,19 @@
 - AI used: no
 - Source patterns: navigation/load-more, navigation/pagination
 
-### hidden input
-- Action: review
-- Confidence: 0.13
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/currency-input, forms/file-input
-
 ### both color
 - Action: review
 - Confidence: 0.13
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/signup, forms/date-input
+
+### Focus must
+- Action: review
+- Confidence: 0.13
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, data-display/table
 
 ### accessibility complexity
 - Action: review
@@ -23513,23 +23007,16 @@
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response, advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, social/activity-feed, social/comment-system, media/video-player, forms/rich-text-editor
+- Source patterns: advanced/command-palette, advanced/search-results, content-management/drag-and-drop, e-commerce/checkout, media/video-player, data-display/calendar, data-display/chart, data-display/dashboard, data-display/kanban-board, data-display/tree-view, forms/rich-text-editor, social/activity-feed, social/comment-system, ai-intelligence/ai-chat, ai-intelligence/context-window, ai-intelligence/streaming-response
 
 ### most useful
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### vertically Support narrow
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
-
-### Support narrow mobile
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
@@ -23562,14 +23049,14 @@
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, navigation/infinite-scroll, forms/password, forms/text-field
+- Source patterns: content-management/accordion, content-management/expandable-text, content-management/modal, forms/password, forms/text-field, navigation/infinite-scroll
 
 ### sufficient color contrast
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/tooltip, navigation/back-to-top, forms/button, forms/checkbox, forms/radio, forms/text-field
+- Source patterns: content-management/tooltip, forms/button, forms/checkbox, forms/radio, forms/text-field, navigation/back-to-top
 
 ### transient messages without
 - Action: review
@@ -23591,6 +23078,20 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### trap focus inside
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, forms/code-confirmation, forms/date-picker, navigation/hambuger-menu, navigation/megamenu
+
+### Treat hover focus
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
 ### most ideal
 - Action: review
@@ -23627,6 +23128,13 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
 
+### hover focus states
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: navigation/back-to-top, navigation/link
+
 ### forms short enough
 - Action: review
 - Confidence: 0.12
@@ -23634,12 +23142,12 @@
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/login
 
-### indicators Provide
+### indicators provide
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/breadcrumb, forms/password
+- Source patterns: forms/password, navigation/breadcrumb
 
 ### Tab between items
 - Action: review
@@ -23648,33 +23156,40 @@
 - AI used: no
 - Source patterns: navigation/navigation-menu, navigation/sidebar
 
+### Focus Provides
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, navigation/pagination
+
 ### context Avoid
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/link, forms/checkbox
+- Source patterns: forms/checkbox, navigation/link
 
 ### whether edge cases
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### will all interact
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### visual feedback
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: authentication/account-settings, authentication/password-reset, content-management/modal, data-display/table, navigation/hambuger-menu, navigation/infinite-scroll, navigation/link, navigation/load-more, forms/button, forms/checkbox, forms/color-picker, forms/date-range, forms/radio
+- Source patterns: authentication/account-settings, authentication/password-reset, content-management/modal, data-display/table, forms/button, forms/checkbox, forms/color-picker, forms/date-range, forms/radio, navigation/hambuger-menu, navigation/infinite-scroll, navigation/link, navigation/load-more
 
 ### richer adornments such
 - Action: review
@@ -23690,6 +23205,13 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
+### hover focus
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, content-management/expandable-text, content-management/tooltip, navigation/back-to-top, navigation/link
+
 ### what happened
 - Action: review
 - Confidence: 0.12
@@ -23697,12 +23219,26 @@
 - AI used: no
 - Source patterns: ai-intelligence/ai-error-states, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
+### trap focus
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/accordion, content-management/modal, forms/code-confirmation, forms/color-picker, forms/date-picker, navigation/hambuger-menu, navigation/megamenu
+
 ### trust-building signals
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
 - Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
+
+### clear focus
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, content-management/expandable-text, content-management/popover, content-management/tooltip, forms/password, forms/selection-input, navigation/infinite-scroll
 
 ### auto-dismiss critical
 - Action: review
@@ -23779,14 +23315,7 @@
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/response-feedback, social/like-button
-
-### Auto-advances focus
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/code-confirmation, forms/date-input
+- Source patterns: social/like-button, ai-intelligence/response-feedback
 
 ### minimum maximum ranges
 - Action: review
@@ -23795,33 +23324,12 @@
 - AI used: no
 - Source patterns: forms/currency-input, forms/date-range
 
-### Status feedback
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: media/video-player, forms/button
-
 ### controls public
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/account-settings, authentication/user-profile
-
-### remove focus indicators
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, navigation/sidebar
-
-### Context Window answer
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
 
 ### Display answer Choose
 - Action: review
@@ -23835,21 +23343,28 @@
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/back-to-top, forms/button
-
-### contrast between text
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/text-field
+- Source patterns: forms/button, navigation/back-to-top
 
 ### Textarea will usually
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: social/comment-system, forms/rich-text-editor
+- Source patterns: forms/rich-text-editor, social/comment-system
+
+### contrast between text
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/text-field, navigation/breadcrumb
+
+### Context Window answer
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: ai-intelligence/context-window, ai-intelligence/token-counter
 
 ### related links each
 - Action: review
@@ -23865,26 +23380,12 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/date-range
 
-### removing focus
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/button, forms/checkbox
-
 ### Performance issues
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/infinite-scroll, forms/autocomplete
-
-### tells users exactly
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
+- Source patterns: forms/autocomplete, navigation/infinite-scroll
 
 ### narrow mobile
 - Action: review
@@ -23893,12 +23394,12 @@
 - AI used: no
 - Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
-### Keep prompt entry
+### tells users exactly
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
+- Source patterns: forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle
 
 ### logically grouped
 - Action: review
@@ -23914,19 +23415,19 @@
 - AI used: no
 - Source patterns: forms/checkbox, forms/date-input, forms/file-input, forms/radio, forms/text-field
 
-### text fields answer
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/prompt-input, forms/form-validation, forms/phone-number, forms/text-field, forms/textarea
-
 ### overwhelming users
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/tooltip, navigation/load-more, forms/autocomplete, forms/checkbox, forms/text-field
+- Source patterns: content-management/tooltip, forms/autocomplete, forms/checkbox, forms/text-field, navigation/load-more
+
+### text fields answer
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/form-validation, forms/phone-number, forms/text-field, forms/textarea, ai-intelligence/prompt-input
 
 ### visual complexity
 - Action: review
@@ -23934,13 +23435,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
-
-### Ensure sufficient
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/breadcrumb, forms/checkbox, forms/text-field
 
 ### heading hierarchy
 - Action: review
@@ -23961,14 +23455,7 @@
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/carousel, navigation/sidebar, forms/checkbox
-
-### Shows which
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: data-display/tree-view, forms/rich-text-editor, user-feedback/loading-indicator
+- Source patterns: content-management/carousel, forms/checkbox, navigation/sidebar
 
 ### Currency
 - Action: review
@@ -24004,6 +23491,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/social-login, forms/checkbox
+
+### Trap focus within
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/modal, forms/date-picker
 
 ### Grid will usually
 - Action: review
@@ -24052,14 +23546,21 @@
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### answer Watch
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### metric status
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
 ### collapse key
 - Action: review
@@ -24081,13 +23582,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter
-
-### Show trust-building signals
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, social/activity-feed, social/comment-system, social/like-button, social/share-dialog
 
 ### trust-building signals such
 - Action: review
@@ -24115,7 +23609,7 @@
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector, media/image-upload, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input
+- Source patterns: media/image-upload, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, ai-intelligence/ai-chat, ai-intelligence/model-selector
 
 ### next whenever
 - Action: review
@@ -24123,6 +23617,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
+### complexity
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/login, authentication/signup, authentication/user-profile, navigation/tabs
 
 ### equally well
 - Action: review
@@ -24145,12 +23646,19 @@
 - AI used: no
 - Source patterns: content-management/modal, forms/autocomplete, forms/text-field
 
+### sufficient
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/checkbox, forms/text-field, navigation/breadcrumb
+
 ### confuse users
 - Action: review
 - Confidence: 0.12
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/pagination, forms/checkbox, forms/text-field
+- Source patterns: forms/checkbox, forms/text-field, navigation/pagination
 
 ### 50ms visual
 - Action: review
@@ -24158,6 +23666,13 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/account-settings, navigation/hambuger-menu, navigation/link
+
+### which
+- Action: review
+- Confidence: 0.12
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/tree-view, forms/rich-text-editor, user-feedback/loading-indicator
 
 ### Checkout Flow
 - Action: review
@@ -24222,13 +23737,6 @@
 - AI used: no
 - Source patterns: authentication/login, authentication/password-reset
 
-### shows clearly
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: navigation/load-more, navigation/pagination
-
 ### answer Limit
 - Action: review
 - Confidence: 0.12
@@ -24257,13 +23765,6 @@
 - AI used: no
 - Source patterns: content-management/accordion, forms/text-field
 
-### follow this
-- Action: review
-- Confidence: 0.12
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/carousel, data-display/table
-
 ### visual complexity Keep
 - Action: review
 - Confidence: 0.11
@@ -24276,7 +23777,7 @@
 - Confidence: 0.11
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### stack multiple
 - Action: review
@@ -24304,14 +23805,7 @@
 - Confidence: 0.11
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/prompt-input, advanced/command-palette, advanced/search-results, forms/form-validation, forms/phone-number, forms/textarea
-
-### adds complexity
-- Action: review
-- Confidence: 0.11
-- Match: unresolved
-- AI used: no
-- Source patterns: authentication/login, authentication/signup, authentication/user-profile, navigation/tabs
+- Source patterns: advanced/command-palette, advanced/search-results, forms/form-validation, forms/phone-number, forms/textarea, ai-intelligence/prompt-input
 
 ### infer system state
 - Action: review
@@ -24320,7 +23814,7 @@
 - AI used: no
 - Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop
 
-### Activity feed:
+### Activity feed
 - Action: review
 - Confidence: 0.11
 - Match: unresolved
@@ -24333,13 +23827,6 @@
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/date-input, forms/file-input
-
-### Focus Provides visual
-- Action: review
-- Confidence: 0.11
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/modal, navigation/pagination
 
 ### Backdrop Overlay
 - Action: review
@@ -24446,6 +23933,13 @@
 - AI used: no
 - Source patterns: navigation/infinite-scroll, navigation/load-more
 
+### Arrow
+- Action: review
+- Confidence: 0.11
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/date-picker, navigation/tabs
+
 ### all checkbox
 - Action: review
 - Confidence: 0.11
@@ -24472,7 +23966,7 @@
 - Confidence: 0.11
 - Match: unresolved
 - AI used: no
-- Source patterns: navigation/navigation-menu, forms/code-confirmation
+- Source patterns: forms/code-confirmation, navigation/navigation-menu
 
 ### 100 items
 - Action: review
@@ -24486,14 +23980,14 @@
 - Confidence: 0.11
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector, media/image-upload, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input
+- Source patterns: media/image-upload, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, ai-intelligence/ai-chat, ai-intelligence/model-selector
 
 ### Input will usually
 - Action: review
 - Confidence: 0.11
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/model-selector, media/image-upload, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input
+- Source patterns: media/image-upload, forms/signature-pad, forms/slider, forms/tag-input, forms/time-input, ai-intelligence/ai-chat, ai-intelligence/model-selector
 
 ### next steps below
 - Action: review
@@ -24530,26 +24024,19 @@
 - AI used: no
 - Source patterns: authentication/login, authentication/two-factor
 
+### over focuses
+- Action: review
+- Confidence: 0.11
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/tooltip, forms/button
+
 ### Only render visible
 - Action: review
 - Confidence: 0.11
 - Match: unresolved
 - AI used: no
 - Source patterns: forms/checkbox, forms/radio
-
-### Trap focus within
-- Action: review
-- Confidence: 0.11
-- Match: unresolved
-- AI used: no
-- Source patterns: content-management/modal, forms/date-picker
-
-### Feedback answer
-- Action: review
-- Confidence: 0.11
-- Match: unresolved
-- AI used: no
-- Source patterns: ai-intelligence/response-feedback, social/like-button
 
 ### four-digit year
 - Action: review
@@ -24558,6 +24045,13 @@
 - AI used: no
 - Source patterns: forms/date-input, forms/date-picker
 
+### Feedback answer
+- Action: review
+- Confidence: 0.11
+- Match: unresolved
+- AI used: no
+- Source patterns: social/like-button, ai-intelligence/response-feedback
+
 ### Interrupts user flow
 - Action: review
 - Confidence: 0.11
@@ -24565,12 +24059,19 @@
 - AI used: no
 - Source patterns: content-management/modal, navigation/pagination
 
+### focus
+- Action: review
+- Confidence: 0.10
+- Match: unresolved
+- AI used: no
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, authentication/login, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/table, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/selection-input, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, navigation/load-more, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+
 ### intended job without
 - Action: review
 - Confidence: 0.10
 - Match: unresolved
 - AI used: no
-- Source patterns: ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, media/image-gallery, media/image-upload, media/video-player, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
+- Source patterns: advanced/command-palette, advanced/search-results, advanced/wizard, content-management/drag-and-drop, e-commerce/checkout, e-commerce/product-card, e-commerce/shopping-cart, media/image-gallery, media/image-upload, media/video-player, data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view, forms/form-validation, forms/phone-number, forms/rating-input, forms/rich-text-editor, forms/search-field, forms/signature-pad, forms/slider, forms/tag-input, forms/textarea, forms/time-input, forms/toggle, social/activity-feed, social/comment-system, social/like-button, social/share-dialog, ai-intelligence/ai-chat, ai-intelligence/ai-error-states, ai-intelligence/ai-loading-states, ai-intelligence/ai-suggestions, ai-intelligence/context-window, ai-intelligence/model-selector, ai-intelligence/prompt-input, ai-intelligence/response-feedback, ai-intelligence/streaming-response, ai-intelligence/token-counter, user-feedback/cookie-consent, user-feedback/empty-states, user-feedback/loading-indicator, user-feedback/notification, user-feedback/progress-indicator, user-feedback/skeleton
 
 ### works equally well
 - Action: review
@@ -24586,7 +24087,7 @@
 - AI used: no
 - Source patterns: forms/button, forms/checkbox, forms/radio
 
-### Fix:
+### Fix
 - Action: review
 - Confidence: 0.10
 - Match: unresolved
@@ -24607,12 +24108,12 @@
 - AI used: no
 - Source patterns: forms/color-picker, forms/text-field
 
-### avoid technical
+### Focus Provides visual
 - Action: review
 - Confidence: 0.10
 - Match: unresolved
 - AI used: no
-- Source patterns: content-management/modal, forms/checkbox
+- Source patterns: content-management/modal, navigation/pagination
 
 ### 44x44px minimum
 - Action: review
@@ -24628,6 +24129,13 @@
 - AI used: no
 - Source patterns: content-management/modal
 
+### Auto-advances focus
+- Action: review
+- Confidence: 0.10
+- Match: unresolved
+- AI used: no
+- Source patterns: forms/code-confirmation, forms/date-input
+
 ### look equally
 - Action: review
 - Confidence: 0.09
@@ -24635,10 +24143,38 @@
 - AI used: no
 - Source patterns: data-display/calendar, data-display/card-grid, data-display/chart, data-display/comparison-table, data-display/dashboard, data-display/filter-panel, data-display/kanban-board, data-display/list-view, data-display/statistics, data-display/timeline, data-display/tree-view
 
+### all
+- Action: review
+- Confidence: 0.08
+- Match: unresolved
+- AI used: no
+- Source patterns: authentication/account-settings, authentication/password-reset, content-management/carousel, content-management/popover, forms/color-picker, navigation/breadcrumb, navigation/megamenu
+
+### ample
+- Action: review
+- Confidence: 0.08
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/carousel, forms/selection-input
+
 ### after success 200ms
 - Action: review
 - Confidence: 0.08
 - Match: unresolved
 - AI used: no
 - Source patterns: authentication/login, authentication/password-reset
+
+### Tab
+- Action: review
+- Confidence: 0.08
+- Match: unresolved
+- AI used: no
+- Source patterns: content-management/popover, forms/checkbox
+
+### full
+- Action: review
+- Confidence: 0.06
+- Match: unresolved
+- AI used: no
+- Source patterns: data-display/table, forms/autocomplete
 
