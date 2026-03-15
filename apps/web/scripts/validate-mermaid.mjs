@@ -6,7 +6,8 @@ import { validateContentMermaidDiagrams } from "./validate-mermaid-lib.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const repoRelative = (filePath) => path.relative(path.join(__dirname, ".."), filePath);
+const repoRelative = (filePath) =>
+	path.relative(path.join(__dirname, ".."), filePath);
 
 async function main() {
 	console.log("Validating Mermaid diagrams in MDX content...");
@@ -14,7 +15,9 @@ async function main() {
 	const result = await validateContentMermaidDiagrams();
 
 	if (result.failures.length === 0) {
-		console.log(`Validated Mermaid diagrams in ${result.filesChecked} MDX files.`);
+		console.log(
+			`Validated Mermaid diagrams in ${result.filesChecked} MDX files.`,
+		);
 		return;
 	}
 
@@ -24,7 +27,9 @@ async function main() {
 
 	for (const failure of result.failures) {
 		const summary = failure.message.split("\n")[0];
-		console.error(`- ${repoRelative(failure.filePath)}:${failure.line} ${summary}`);
+		console.error(
+			`- ${repoRelative(failure.filePath)}:${failure.line} ${summary}`,
+		);
 	}
 
 	process.exitCode = 1;

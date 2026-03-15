@@ -3,7 +3,7 @@ import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { PageTreeNode } from "@/lib/content";
 import { Sidebar } from "./sidebar";
-import { SidebarProvider } from "./sidebar-context";
+import { SidebarProvider, useSidebar } from "./sidebar-context";
 
 let mockPathname = "/patterns/navigation/sidebar";
 
@@ -44,6 +44,30 @@ function renderSidebar() {
 	return render(
 		<SidebarProvider defaultOpenLevel={2}>
 			<Sidebar tree={tree} variant="desktop" />
+		</SidebarProvider>,
+	);
+}
+
+function MobileSidebarHarness() {
+	const { setOpen } = useSidebar();
+
+	return (
+		<>
+			<button type="button" onClick={() => setOpen(true)}>
+				Open mobile sidebar
+			</button>
+			<button type="button" onClick={() => setOpen(false)}>
+				Close mobile sidebar
+			</button>
+			<Sidebar tree={tree} variant="mobile" />
+		</>
+	);
+}
+
+function renderMobileSidebar() {
+	return render(
+		<SidebarProvider defaultOpenLevel={2}>
+			<MobileSidebarHarness />
 		</SidebarProvider>,
 	);
 }
@@ -97,5 +121,31 @@ describe("Sidebar", () => {
 				}).scrollTop,
 			).toBe(180);
 		});
+	});
+
+	it("keeps the mobile drawer hidden at md and toggles the off-canvas transform", () => {
+		const { container } = renderMobileSidebar();
+		const drawer = container.querySelector("aside");
+
+		expect(drawer).not.toBeNull();
+		expect(drawer).toHaveClass("md:hidden");
+		expect(drawer).toHaveClass("-translate-x-[calc(100%+1rem)]");
+		expect(container.querySelector("div[aria-hidden='true']")).toBeNull();
+
+		fireEvent.click(
+			screen.getByRole("button", { name: "Open mobile sidebar" }),
+		);
+
+		expect(drawer).toHaveClass("translate-x-0");
+		expect(drawer).toHaveClass("md:hidden");
+		expect(container.querySelector("div[aria-hidden='true']")).toHaveClass(
+			"md:hidden",
+		);
+
+		fireEvent.click(
+			screen.getByRole("button", { name: "Close mobile sidebar" }),
+		);
+
+		expect(drawer).toHaveClass("-translate-x-[calc(100%+1rem)]");
 	});
 });

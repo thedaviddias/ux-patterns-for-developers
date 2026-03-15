@@ -46,7 +46,11 @@ async function writeRelevanceReport(outputRoot, candidates) {
 }
 
 async function writeApprovalConfig(root, approvedMediumTerms = []) {
-	const configPath = path.join(root, "config", "glossary-medium-approvals.json");
+	const configPath = path.join(
+		root,
+		"config",
+		"glossary-medium-approvals.json",
+	);
 	await writeFile(
 		configPath,
 		`${JSON.stringify({ approvedMediumTerms }, null, 2)}\n`,
@@ -56,7 +60,7 @@ async function writeApprovalConfig(root, approvedMediumTerms = []) {
 
 function glossarySource({
 	title,
-	slug,
+	slug: _slug,
 	description = `${title} definition.`,
 	synonyms = [],
 }) {
@@ -73,7 +77,13 @@ ${title} glossary entry.
 `;
 }
 
-function patternSource({ title, body, aliases = [], keywords = [], tags = [] }) {
+function patternSource({
+	title,
+	body,
+	aliases = [],
+	keywords = [],
+	tags = [],
+}) {
 	return `---
 title: "${title}"
 description: "${title} pattern"
@@ -88,7 +98,11 @@ ${body}
 }
 
 test("insertGlossaryLink skips inline code and existing links", () => {
-	const inlineCode = insertGlossaryLink("Use `Pagination` in code.", "Pagination", "pagination");
+	const inlineCode = insertGlossaryLink(
+		"Use `Pagination` in code.",
+		"Pagination",
+		"pagination",
+	);
 	assert.equal(inlineCode.changed, false);
 
 	const existingLink = insertGlossaryLink(
@@ -132,7 +146,11 @@ test("audit mode produces reports without editing source files", async () => {
 		path.join(fixture.glossaryRoot, "p", "pagination.mdx"),
 		glossarySource({ title: "Pagination", slug: "pagination" }),
 	);
-	const patternPath = path.join(fixture.patternsRoot, "navigation", "pagination.mdx");
+	const patternPath = path.join(
+		fixture.patternsRoot,
+		"navigation",
+		"pagination.mdx",
+	);
 	const originalPattern = patternSource({
 		title: "Pagination Pattern",
 		body: "## Overview\n\nPagination helps users move through large result sets.\n",
@@ -164,7 +182,11 @@ test("sync mode links glossary terms once and ignores headings, code, tables, js
 		path.join(fixture.glossaryRoot, "p", "pagination.mdx"),
 		glossarySource({ title: "Pagination", slug: "pagination" }),
 	);
-	const patternPath = path.join(fixture.patternsRoot, "navigation", "load-more.mdx");
+	const patternPath = path.join(
+		fixture.patternsRoot,
+		"navigation",
+		"load-more.mdx",
+	);
 	await writeFile(
 		patternPath,
 		patternSource({
@@ -197,14 +219,23 @@ Read [Pagination](/glossary/pagination) for the linked version.
 	});
 
 	const updated = await fs.readFile(patternPath, "utf8");
-	assert.match(updated, /\[Pagination\]\(\/glossary\/pagination\) keeps large datasets manageable\./);
+	assert.match(
+		updated,
+		/\[Pagination\]\(\/glossary\/pagination\) keeps large datasets manageable\./,
+	);
 	assert.equal(
 		(updated.match(/\]\(\/glossary\/pagination\)/g) ?? []).length,
 		2,
 	);
 	assert.match(updated, /`Pagination` inside code should stay untouched\./);
-	assert.match(updated, /<InfoBox>Pagination inside JSX should stay untouched\.<\/InfoBox>/);
-	assert.match(updated, /\| Pagination \| Table content should stay untouched \|/);
+	assert.match(
+		updated,
+		/<InfoBox>Pagination inside JSX should stay untouched\.<\/InfoBox>/,
+	);
+	assert.match(
+		updated,
+		/\| Pagination \| Table content should stay untouched \|/,
+	);
 	assert.match(updated, /^## Pagination$/m);
 });
 
@@ -273,7 +304,9 @@ test("instructional phrases map to canonical glossary terms instead of becoming 
 	});
 
 	assert.equal(
-		report.findings.some((finding) => finding.action === "create-glossary-draft"),
+		report.findings.some(
+			(finding) => finding.action === "create-glossary-draft",
+		),
 		false,
 	);
 
@@ -312,7 +345,9 @@ test("ambiguous phrases are reported for review and not edited", async () => {
 		ai: null,
 	});
 
-	const flowFinding = report.findings.find((finding) => finding.phrase === "Flow");
+	const flowFinding = report.findings.find(
+		(finding) => finding.phrase === "Flow",
+	);
 	assert.equal(flowFinding?.action, "review");
 
 	const updated = await fs.readFile(patternPath, "utf8");
@@ -339,7 +374,11 @@ test("sync mode can create a new glossary draft with AI summaries", async () => 
 		}),
 	);
 	await writeAuditReport(fixture.outputRoot, [
-		{ action: "create-glossary-draft", phrase: "prompt budget", proposedTerm: "Prompt Budget" },
+		{
+			action: "create-glossary-draft",
+			phrase: "prompt budget",
+			proposedTerm: "Prompt Budget",
+		},
 	]);
 	await writeRelevanceReport(fixture.outputRoot, [
 		{
@@ -359,7 +398,8 @@ test("sync mode can create a new glossary draft with AI summaries", async () => 
 					return {
 						text: JSON.stringify({
 							title: "Prompt Budget",
-							description: "The token or context allowance reserved for a prompt or conversation turn.",
+							description:
+								"The token or context allowance reserved for a prompt or conversation turn.",
 							definition:
 								"Prompt budget defines how much context or token space a prompt can consume before the interface trims, warns, or rejects additional input.",
 							synonyms: ["Context budget"],
@@ -390,11 +430,7 @@ test("sync mode can create a new glossary draft with AI summaries", async () => 
 
 	assert.equal(report.summary.draftsCreated, 1);
 
-	const draftPath = path.join(
-		fixture.glossaryRoot,
-		"p",
-		"prompt-budget.mdx",
-	);
+	const draftPath = path.join(fixture.glossaryRoot, "p", "prompt-budget.mdx");
 	const draft = await fs.readFile(draftPath, "utf8");
 	assert.match(draft, /title: "Prompt Budget"/);
 	assert.match(draft, /status: draft/);
@@ -422,7 +458,9 @@ test("structural documentation phrases do not become AI draft glossary terms", a
 	const ai = {
 		models: {
 			generateContent: async () => {
-				throw new Error("AI should not be called for blocked boilerplate phrases");
+				throw new Error(
+					"AI should not be called for blocked boilerplate phrases",
+				);
 			},
 		},
 	};
@@ -436,7 +474,9 @@ test("structural documentation phrases do not become AI draft glossary terms", a
 	});
 
 	assert.equal(
-		report.findings.some((finding) => finding.action === "create-glossary-draft"),
+		report.findings.some(
+			(finding) => finding.action === "create-glossary-draft",
+		),
 		false,
 	);
 });
@@ -537,7 +577,10 @@ Focus order should remain logical when sections expand.
 			action: "create-glossary-draft",
 			phrase: "focus order",
 			proposedTerm: "Focus Order",
-			sourcePatterns: ["content-management/accordion", "content-management/faq"],
+			sourcePatterns: [
+				"content-management/accordion",
+				"content-management/faq",
+			],
 		},
 	]);
 
@@ -602,7 +645,11 @@ Touch targets should remain easy to tap.
 
 test("glossary relevance writes deterministic reports without editing content", async () => {
 	const fixture = await createFixtureWorkspace();
-	const patternPath = path.join(fixture.patternsRoot, "forms", "text-field.mdx");
+	const patternPath = path.join(
+		fixture.patternsRoot,
+		"forms",
+		"text-field.mdx",
+	);
 	const source = patternSource({
 		title: "Text Field",
 		body: "## Overview\n\nHelper text improves completion.\n",
@@ -666,7 +713,11 @@ test("sync creates high relevance drafts without allowlist approval", async () =
 		}),
 	);
 	await writeAuditReport(fixture.outputRoot, [
-		{ action: "create-glossary-draft", phrase: "prompt budget", proposedTerm: "Prompt Budget" },
+		{
+			action: "create-glossary-draft",
+			phrase: "prompt budget",
+			proposedTerm: "Prompt Budget",
+		},
 	]);
 	await writeRelevanceReport(fixture.outputRoot, [
 		{
@@ -686,8 +737,10 @@ test("sync creates high relevance drafts without allowlist approval", async () =
 					return {
 						text: JSON.stringify({
 							title: "Prompt Budget",
-							description: "The token or context allowance reserved for a prompt or conversation turn.",
-							definition: "Prompt budget defines how much context or token space a prompt can consume before the interface trims, warns, or rejects additional input.",
+							description:
+								"The token or context allowance reserved for a prompt or conversation turn.",
+							definition:
+								"Prompt budget defines how much context or token space a prompt can consume before the interface trims, warns, or rejects additional input.",
 							synonyms: ["Context budget"],
 							category: ["Technical"],
 						}),
@@ -741,7 +794,11 @@ test("sync blocks medium relevance drafts when they are not allowlisted", async 
 		}),
 	);
 	await writeAuditReport(fixture.outputRoot, [
-		{ action: "create-glossary-draft", phrase: "helper text", proposedTerm: "Helper Text" },
+		{
+			action: "create-glossary-draft",
+			phrase: "helper text",
+			proposedTerm: "Helper Text",
+		},
 	]);
 	await writeRelevanceReport(fixture.outputRoot, [
 		{
@@ -761,8 +818,10 @@ test("sync blocks medium relevance drafts when they are not allowlisted", async 
 					return {
 						text: JSON.stringify({
 							title: "Helper Text",
-							description: "Concise inline text that provides additional guidance.",
-							definition: "Helper text provides extra guidance near a control or field.",
+							description:
+								"Concise inline text that provides additional guidance.",
+							definition:
+								"Helper text provides extra guidance near a control or field.",
 							synonyms: ["Guidance text"],
 							category: ["UX"],
 						}),
@@ -790,7 +849,10 @@ test("sync blocks medium relevance drafts when they are not allowlisted", async 
 
 	assert.equal(report.summary.draftsCreated, 0);
 	await assert.rejects(
-		fs.readFile(path.join(fixture.glossaryRoot, "h", "helper-text.mdx"), "utf8"),
+		fs.readFile(
+			path.join(fixture.glossaryRoot, "h", "helper-text.mdx"),
+			"utf8",
+		),
 	);
 	const finding = report.findings.find(
 		(item) => item.proposedTerm === "Helper Text",
@@ -818,7 +880,11 @@ test("sync creates allowlisted medium relevance drafts", async () => {
 		}),
 	);
 	await writeAuditReport(fixture.outputRoot, [
-		{ action: "create-glossary-draft", phrase: "helper text", proposedTerm: "Helper Text" },
+		{
+			action: "create-glossary-draft",
+			phrase: "helper text",
+			proposedTerm: "Helper Text",
+		},
 	]);
 	await writeRelevanceReport(fixture.outputRoot, [
 		{
@@ -838,8 +904,10 @@ test("sync creates allowlisted medium relevance drafts", async () => {
 					return {
 						text: JSON.stringify({
 							title: "Helper Text",
-							description: "Concise inline text that provides additional guidance.",
-							definition: "Helper text provides extra guidance near a control or field.",
+							description:
+								"Concise inline text that provides additional guidance.",
+							definition:
+								"Helper text provides extra guidance near a control or field.",
 							synonyms: ["Guidance text"],
 							category: ["UX"],
 						}),
@@ -920,7 +988,8 @@ test("sync never creates low relevance drafts even if allowlisted", async () => 
 				text: JSON.stringify({
 					title: "Semantic Elements",
 					description: "Elements with inherent semantic meaning.",
-					definition: "Semantic elements carry meaning for users and assistive tech.",
+					definition:
+						"Semantic elements carry meaning for users and assistive tech.",
 					synonyms: [],
 					category: ["Technical"],
 				}),
@@ -970,7 +1039,11 @@ test("sync fails clearly when relevance report is missing", async () => {
 		}),
 	);
 	await writeAuditReport(fixture.outputRoot, [
-		{ action: "create-glossary-draft", phrase: "prompt budget", proposedTerm: "Prompt Budget" },
+		{
+			action: "create-glossary-draft",
+			phrase: "prompt budget",
+			proposedTerm: "Prompt Budget",
+		},
 	]);
 	const ai = {
 		models: {
@@ -980,8 +1053,10 @@ test("sync fails clearly when relevance report is missing", async () => {
 					return {
 						text: JSON.stringify({
 							title: "Prompt Budget",
-							description: "The token or context allowance reserved for a prompt or conversation turn.",
-							definition: "Prompt budget defines how much context or token space a prompt can consume before the interface trims, warns, or rejects additional input.",
+							description:
+								"The token or context allowance reserved for a prompt or conversation turn.",
+							definition:
+								"Prompt budget defines how much context or token space a prompt can consume before the interface trims, warns, or rejects additional input.",
 							synonyms: ["Context budget"],
 							category: ["Technical"],
 						}),
@@ -999,7 +1074,10 @@ test("sync fails clearly when relevance report is missing", async () => {
 			glossaryRoot: fixture.glossaryRoot,
 			outputRoot: fixture.outputRoot,
 			auditReportPath: path.join(fixture.outputRoot, "report.json"),
-			relevanceReportPath: path.join(fixture.outputRoot, "relevance-report.json"),
+			relevanceReportPath: path.join(
+				fixture.outputRoot,
+				"relevance-report.json",
+			),
 			approvalConfigPath: path.join(
 				fixture.root,
 				"config",
@@ -1031,7 +1109,11 @@ test("sync fails clearly when relevance report is older than the audit report", 
 		}),
 	);
 	await writeAuditReport(fixture.outputRoot, [
-		{ action: "create-glossary-draft", phrase: "prompt budget", proposedTerm: "Prompt Budget" },
+		{
+			action: "create-glossary-draft",
+			phrase: "prompt budget",
+			proposedTerm: "Prompt Budget",
+		},
 	]);
 	await writeRelevanceReport(fixture.outputRoot, [
 		{
@@ -1051,8 +1133,10 @@ test("sync fails clearly when relevance report is older than the audit report", 
 					return {
 						text: JSON.stringify({
 							title: "Prompt Budget",
-							description: "The token or context allowance reserved for a prompt or conversation turn.",
-							definition: "Prompt budget defines how much context or token space a prompt can consume before the interface trims, warns, or rejects additional input.",
+							description:
+								"The token or context allowance reserved for a prompt or conversation turn.",
+							definition:
+								"Prompt budget defines how much context or token space a prompt can consume before the interface trims, warns, or rejects additional input.",
 							synonyms: ["Context budget"],
 							category: ["Technical"],
 						}),
@@ -1070,7 +1154,10 @@ test("sync fails clearly when relevance report is older than the audit report", 
 			glossaryRoot: fixture.glossaryRoot,
 			outputRoot: fixture.outputRoot,
 			auditReportPath: path.join(fixture.outputRoot, "report.json"),
-			relevanceReportPath: path.join(fixture.outputRoot, "relevance-report.json"),
+			relevanceReportPath: path.join(
+				fixture.outputRoot,
+				"relevance-report.json",
+			),
 			approvalConfigPath: path.join(
 				fixture.root,
 				"config",
@@ -1113,7 +1200,11 @@ test("sync still applies link updates when draft creation is blocked", async () 
 		}),
 	);
 	await writeAuditReport(fixture.outputRoot, [
-		{ action: "create-glossary-draft", phrase: "helper text", proposedTerm: "Helper Text" },
+		{
+			action: "create-glossary-draft",
+			phrase: "helper text",
+			proposedTerm: "Helper Text",
+		},
 	]);
 	await writeRelevanceReport(fixture.outputRoot, [
 		{

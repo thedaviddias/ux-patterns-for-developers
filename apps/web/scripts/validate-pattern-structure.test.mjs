@@ -1,11 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import {
-	TARGET_PATTERN_DOC_CONTRACTS,
-} from "./pattern-doc-contract.mjs";
-import {
-	validatePatternStructureSource,
-} from "./validate-pattern-structure-lib.mjs";
+import { TARGET_PATTERN_DOC_CONTRACTS } from "./pattern-doc-contract.mjs";
+import { validatePatternStructureSource } from "./validate-pattern-structure-lib.mjs";
 
 const SAMPLE_CONTRACT = TARGET_PATTERN_DOC_CONTRACTS.find(
 	(contract) => contract.file === "forms/search-field.mdx",

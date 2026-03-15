@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
 import { AlertCircle, AlertTriangle, Info, Lightbulb } from "lucide-react";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 export type CalloutType = "info" | "warning" | "error" | "tip";
 
@@ -79,7 +79,7 @@ export function Callout({
 			className={cn(
 				"my-6 flex gap-3 rounded-lg border p-4",
 				config.containerClass,
-				className
+				className,
 			)}
 			role="note"
 		>

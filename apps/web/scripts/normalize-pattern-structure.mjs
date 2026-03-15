@@ -12,7 +12,9 @@ const PATTERNS_ROOT = path.join(__dirname, "..", "content", "patterns");
 function parseSections(source) {
 	const firstHeading = source.search(/^##\s+/m);
 	const preamble =
-		firstHeading === -1 ? source.trimEnd() : source.slice(0, firstHeading).trimEnd();
+		firstHeading === -1
+			? source.trimEnd()
+			: source.slice(0, firstHeading).trimEnd();
 	const matches = [...source.matchAll(/^##\s+(.+)$/gm)];
 	const sections = new Map();
 
@@ -76,7 +78,9 @@ async function main() {
 		}
 	}
 
-	console.log(`Normalized ${changed} pattern docs using the structure contract.`);
+	console.log(
+		`Normalized ${changed} pattern docs using the structure contract.`,
+	);
 }
 
 main().catch((error) => {

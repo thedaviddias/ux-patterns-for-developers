@@ -1,6 +1,6 @@
+import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
 import Link from "next/link";
 import { Header } from "@/components/layout/header";
-import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
 import { SearchToggle } from "@/components/search";
 import { TRACKING_EVENTS } from "@/lib/tracking";
 

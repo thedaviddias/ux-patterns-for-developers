@@ -1,8 +1,8 @@
 "use client";
 
+import { useMemo } from "react";
 import { docs } from "@/.velite";
 import { TermsList } from "./terms-list";
-import { useMemo } from "react";
 
 interface GlossaryTerm {
 	title: string;
@@ -23,7 +23,7 @@ export function TermsListClient() {
 			(doc) =>
 				doc.slug.startsWith("glossary/") &&
 				doc.slug !== "glossary" &&
-				doc.slug.split("/").length > 1
+				doc.slug.split("/").length > 1,
 		);
 
 		return glossaryPages.map((page) => {

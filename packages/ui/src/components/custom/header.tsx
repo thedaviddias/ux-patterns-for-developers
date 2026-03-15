@@ -19,20 +19,26 @@ import { cn } from "@ux-patterns/ui/lib/utils";
 import Link from "fumadocs-core/link";
 import {
 	type BaseLayoutProps,
-	resolveLinkItems,
 	type LinkItemType,
 	type NavOptions,
+	resolveLinkItems,
 } from "fumadocs-ui/layouts/shared";
 import { ChevronDown } from "lucide-react";
 import { Fragment, type HTMLAttributes, type ReactNode, useMemo } from "react";
 
 // Placeholder components for fumadocs v16 migration
 // TODO: Import real components when fumadocs-ui exports are fixed
-function LargeSearchToggle(_props: { className?: string; hideIfDisabled?: boolean }): ReactNode {
+function LargeSearchToggle(_props: {
+	className?: string;
+	hideIfDisabled?: boolean;
+}): ReactNode {
 	return null;
 }
 
-function SearchToggle(_props: { className?: string; hideIfDisabled?: boolean }): ReactNode {
+function SearchToggle(_props: {
+	className?: string;
+	hideIfDisabled?: boolean;
+}): ReactNode {
 	return null;
 }
 
@@ -104,10 +110,14 @@ export function Header({
 	// Render functions are not supported - warn in development
 	if (process.env.NODE_ENV === "development") {
 		if (typeof nav.title === "function") {
-			console.warn("Header: nav.title as a render function is not supported. Pass a ReactNode instead.");
+			console.warn(
+				"Header: nav.title as a render function is not supported. Pass a ReactNode instead.",
+			);
 		}
 		if (typeof nav.children === "function") {
-			console.warn("Header: nav.children as a render function is not supported. Pass a ReactNode instead.");
+			console.warn(
+				"Header: nav.children as a render function is not supported. Pass a ReactNode instead.",
+			);
 		}
 	}
 	const navTitle = typeof nav.title === "function" ? null : nav.title;

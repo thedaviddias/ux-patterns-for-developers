@@ -13,7 +13,9 @@ async function main() {
 	const mode = modeArg?.split("=")[1] ?? "audit";
 
 	if (!["audit", "relevance", "sync"].includes(mode)) {
-		console.error(`Invalid mode "${mode}". Expected audit, relevance, or sync.`);
+		console.error(
+			`Invalid mode "${mode}". Expected audit, relevance, or sync.`,
+		);
 		process.exit(1);
 	}
 

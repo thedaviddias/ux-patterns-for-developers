@@ -24,10 +24,7 @@ const RELEVANCE_REPORT_JSON_PATH = path.join(
 	OUTPUT_ROOT,
 	"relevance-report.json",
 );
-const RELEVANCE_REPORT_MD_PATH = path.join(
-	OUTPUT_ROOT,
-	"relevance-report.md",
-);
+const RELEVANCE_REPORT_MD_PATH = path.join(OUTPUT_ROOT, "relevance-report.md");
 const MEDIUM_APPROVALS_PATH = path.join(
 	APP_ROOT,
 	"config",
@@ -224,7 +221,11 @@ function categoryForPhrase(phrase) {
 	if (upper.includes("ARIA") || upper.includes("SCREEN")) {
 		return ["Accessibility"];
 	}
-	if (upper.includes("LOAD") || upper.includes("CLS") || upper.includes("PERFORMANCE")) {
+	if (
+		upper.includes("LOAD") ||
+		upper.includes("CLS") ||
+		upper.includes("PERFORMANCE")
+	) {
 		return ["Performance"];
 	}
 	return ["UX"];
@@ -398,7 +399,9 @@ function isBoilerplatePhrase(phrase) {
 
 	if (
 		tokens.some((token) => STRUCTURAL_TOKENS.has(token)) &&
-		tokens.every((token) => STRUCTURAL_TOKENS.has(token) || STOPWORDS.has(token))
+		tokens.every(
+			(token) => STRUCTURAL_TOKENS.has(token) || STOPWORDS.has(token),
+		)
 	) {
 		return true;
 	}
@@ -502,7 +505,9 @@ async function analyzeMarkdownPhrases(markdown) {
 	const result = {
 		keywords,
 		keyphrases,
-		normalizedKeywords: new Set(keywords.map((value) => normalizePhrase(value))),
+		normalizedKeywords: new Set(
+			keywords.map((value) => normalizePhrase(value)),
+		),
 		normalizedKeyphrases: new Set(
 			keyphrases.map((value) => normalizePhrase(value)),
 		),
@@ -580,16 +585,24 @@ function extractNgramCandidates(text, weight) {
 				continue;
 			}
 
-			const phrase = slice.map((token) => token.raw).join(" ").trim();
+			const phrase = slice
+				.map((token) => token.raw)
+				.join(" ")
+				.trim();
 			if (isNoisePhrase(phrase)) continue;
 			if (
 				slice.some(
-					(token) => STOPWORDS.has(token.normalized) || token.normalized.length < 3,
+					(token) =>
+						STOPWORDS.has(token.normalized) || token.normalized.length < 3,
 				)
 			) {
 				continue;
 			}
-			if (!slice.some((token) => token.normalized.length >= 5 || isAcronym(token.raw))) {
+			if (
+				!slice.some(
+					(token) => token.normalized.length >= 5 || isAcronym(token.raw),
+				)
+			) {
 				continue;
 			}
 
@@ -607,17 +620,15 @@ function addAggregatedCandidate(map, phrase, occurrence) {
 	const normalized = normalizePhrase(cleanedPhrase);
 	if (!normalized) return;
 
-	const existing =
-		map.get(normalized) ??
-		{
-			phrase: cleanedPhrase,
-			normalized,
-			patternSlugs: new Set(),
-			sourcePatterns: [],
-			occurrences: [],
-			weightedScore: 0,
-			hasFrontmatterSignal: false,
-		};
+	const existing = map.get(normalized) ?? {
+		phrase: cleanedPhrase,
+		normalized,
+		patternSlugs: new Set(),
+		sourcePatterns: [],
+		occurrences: [],
+		weightedScore: 0,
+		hasFrontmatterSignal: false,
+	};
 
 	if (!existing.sourcePatterns.includes(occurrence.patternSlug)) {
 		existing.sourcePatterns.push(occurrence.patternSlug);
@@ -686,16 +697,15 @@ function extractPatternCandidates(patternDoc, aliasIndex) {
 			const aliasLower = alias.alias.toLowerCase();
 			if (!paragraphLower.includes(aliasLower)) continue;
 
-			const occurrenceCount = countWholePhraseMatches(paragraph.text, alias.alias);
+			const occurrenceCount = countWholePhraseMatches(
+				paragraph.text,
+				alias.alias,
+			);
 			if (occurrenceCount === 0) continue;
 
 			const key = `${patternDoc.slug}:${alias.entry.slug}`;
 			const confidence =
-				alias.origin === "title"
-					? 1
-					: alias.origin === "slug"
-						? 0.98
-						: 0.97;
+				alias.origin === "title" ? 1 : alias.origin === "slug" ? 0.98 : 0.97;
 
 			const previous = directMatches.get(key);
 			const next = {
@@ -729,7 +739,10 @@ function extractPatternCandidates(patternDoc, aliasIndex) {
 			});
 		}
 
-		for (const phrase of extractNgramCandidates(paragraph.text, paragraph.weight)) {
+		for (const phrase of extractNgramCandidates(
+			paragraph.text,
+			paragraph.weight,
+		)) {
 			if (matchedCanonicals.has(slugify(phrase))) continue;
 			addAggregatedCandidate(discoveredCandidates, phrase, {
 				patternSlug: patternDoc.slug,
@@ -817,7 +830,10 @@ export function matchGlossaryPhrase(phrase, glossaryEntries) {
 		const aliasCandidates = [
 			{ value: entry.title, origin: "title" },
 			{ value: entry.slug.replace(/-/g, " "), origin: "slug" },
-			...entry.synonyms.map((synonym) => ({ value: synonym, origin: "synonym" })),
+			...entry.synonyms.map((synonym) => ({
+				value: synonym,
+				origin: "synonym",
+			})),
 		];
 
 		let best = { score: 0, origin: "fuzzy", value: entry.title };
@@ -834,7 +850,11 @@ export function matchGlossaryPhrase(phrase, glossaryEntries) {
 							? 0.98
 							: 0.97;
 				if (score > best.score) {
-					best = { score, origin: `exact-${candidate.origin}`, value: candidate.value };
+					best = {
+						score,
+						origin: `exact-${candidate.origin}`,
+						value: candidate.value,
+					};
 				}
 				continue;
 			}
@@ -861,15 +881,12 @@ function needsSynonymAppend(phrase, entry) {
 	const lowerPhrase = phrase.toLowerCase();
 	if (entry.title.toLowerCase() === lowerPhrase) return false;
 	if (entry.slug.replace(/-/g, " ").toLowerCase() === lowerPhrase) return false;
-	return !entry.synonyms.some((synonym) => synonym.toLowerCase() === lowerPhrase);
+	return !entry.synonyms.some(
+		(synonym) => synonym.toLowerCase() === lowerPhrase,
+	);
 }
 
-async function maybeAdjudicateWithAI({
-	ai,
-	phrase,
-	contexts,
-	candidates,
-}) {
+async function maybeAdjudicateWithAI({ ai, phrase, contexts, candidates }) {
 	if (!ai || candidates.length === 0) return null;
 
 	const prompt = `You are resolving glossary terminology for a UX patterns documentation site.
@@ -951,7 +968,12 @@ function createAIClientFromEnv() {
 	return new GoogleGenAI({ apiKey });
 }
 
-function rankFindingAction({ candidate, match, runnerUp, glossaryEntries }) {
+function rankFindingAction({
+	candidate,
+	match,
+	runnerUp,
+	glossaryEntries: _glossaryEntries,
+}) {
 	const topScore = match?.score ?? 0;
 	const gap = topScore - (runnerUp?.score ?? 0);
 
@@ -991,11 +1013,7 @@ function rankFindingAction({ candidate, match, runnerUp, glossaryEntries }) {
 export function insertGlossaryLink(text, phrase, slug) {
 	const protectedRanges = [];
 
-	for (const regex of [
-		/\[[^\]]+\]\([^)]+\)/g,
-		/`[^`]+`/g,
-		/https?:\/\/\S+/g,
-	]) {
+	for (const regex of [/\[[^\]]+\]\([^)]+\)/g, /`[^`]+`/g, /https?:\/\/\S+/g]) {
 		for (const match of text.matchAll(regex)) {
 			protectedRanges.push([match.index, match.index + match[0].length]);
 		}
@@ -1022,8 +1040,7 @@ export function insertGlossaryLink(text, phrase, slug) {
 	const replacement = `[${match[2]}](/glossary/${slug})`;
 	return {
 		changed: true,
-		text:
-			text.slice(0, phraseStart) + replacement + text.slice(phraseEnd),
+		text: text.slice(0, phraseStart) + replacement + text.slice(phraseEnd),
 	};
 }
 
@@ -1033,7 +1050,9 @@ function findEligibleLinkParagraph(patternDoc, phrase, slug) {
 	);
 	const candidates = [
 		...overviewParagraphs,
-		...patternDoc.paragraphs.filter((paragraph) => paragraph.section !== "Resources"),
+		...patternDoc.paragraphs.filter(
+			(paragraph) => paragraph.section !== "Resources",
+		),
 	];
 
 	for (const paragraph of candidates) {
@@ -1088,8 +1107,7 @@ export function appendSynonymToSource(source, synonym) {
 	}
 
 	const insertionPoint =
-		frontmatter.match(/^status:.*$/m)?.index ??
-		frontmatter.lastIndexOf("---");
+		frontmatter.match(/^status:.*$/m)?.index ?? frontmatter.lastIndexOf("---");
 	const nextFrontmatter =
 		frontmatter.slice(0, insertionPoint) +
 		`synonyms: ["${synonym}"]\n` +
@@ -1219,7 +1237,9 @@ function dedupeFindings(findings) {
 		}
 	}
 
-	return [...byKey.values()].sort((left, right) => right.confidence - left.confidence);
+	return [...byKey.values()].sort(
+		(left, right) => right.confidence - left.confidence,
+	);
 }
 
 function shouldCreateNewTermDraft(candidate) {
@@ -1274,7 +1294,9 @@ function countPhraseMentions(text, phrases) {
 export async function extractCandidatePhraseEvidence(patternDocs, candidate) {
 	const patternMap = new Map(patternDocs.map((doc) => [doc.slug, doc]));
 	const variants = getCandidateVariants(candidate);
-	const normalizedVariants = new Set(variants.map((value) => normalizePhrase(value)));
+	const normalizedVariants = new Set(
+		variants.map((value) => normalizePhrase(value)),
+	);
 	const sourcePatterns =
 		candidate.sourcePatterns?.length > 0
 			? candidate.sourcePatterns
@@ -1286,7 +1308,10 @@ export async function extractCandidatePhraseEvidence(patternDocs, candidate) {
 		if (!patternDoc) continue;
 
 		for (const paragraph of patternDoc.paragraphs) {
-			if (isMdxDataParagraph(paragraph.raw) || isHeadingLikeParagraph(paragraph.raw)) {
+			if (
+				isMdxDataParagraph(paragraph.raw) ||
+				isHeadingLikeParagraph(paragraph.raw)
+			) {
 				continue;
 			}
 
@@ -1321,7 +1346,9 @@ export async function extractCandidatePhraseEvidence(patternDocs, candidate) {
 }
 
 function computePhraseQuality(candidate, evidence) {
-	const normalized = normalizePhrase(candidate.proposedTerm ?? candidate.phrase);
+	const normalized = normalizePhrase(
+		candidate.proposedTerm ?? candidate.phrase,
+	);
 	const tokens = normalized.split(" ").filter(Boolean);
 	let score = 0;
 
@@ -1329,7 +1356,8 @@ function computePhraseQuality(candidate, evidence) {
 	else if (tokens.length === 1 && tokens[0]?.length >= 6) score += 0.2;
 	else if (tokens.length === 4) score += 0.1;
 
-	if (!isBoilerplatePhrase(candidate.proposedTerm ?? candidate.phrase)) score += 0.25;
+	if (!isBoilerplatePhrase(candidate.proposedTerm ?? candidate.phrase))
+		score += 0.25;
 	if (scoreInstructionalPhraseRisk(candidate.phrase) === 0) score += 0.1;
 	if (
 		titleCasePhrase(candidate.proposedTerm ?? candidate.phrase) ===
@@ -1395,9 +1423,7 @@ export function scoreGlossaryCandidateRelevance(
 	const listMentions = mentions.filter(
 		(mention) => mention.contextType === "list",
 	).length;
-	const faqMentions = mentions.filter(
-		(mention) => mention.isFaq,
-	).length;
+	const faqMentions = mentions.filter((mention) => mention.isFaq).length;
 	const checklistMentions = mentions.filter(
 		(mention) => mention.isChecklist,
 	).length;
@@ -1407,13 +1433,17 @@ export function scoreGlossaryCandidateRelevance(
 			: mentions.reduce((sum, mention) => sum + mention.sectionWeight, 0) /
 				mentions.length;
 	const nearestGlossaryMatch =
-		matchGlossaryPhrase(candidate.proposedTerm ?? candidate.phrase, glossaryEntries)[0] ??
-		null;
+		matchGlossaryPhrase(
+			candidate.proposedTerm ?? candidate.phrase,
+			glossaryEntries,
+		)[0] ?? null;
 	const existingGlossarySimilarity = nearestGlossaryMatch
 		? roundSignal(nearestGlossaryMatch.score)
 		: 0;
 	const boilerplateRisk = scoreBoilerplateRisk(candidate.phrase);
-	const instructionalPhraseRisk = scoreInstructionalPhraseRisk(candidate.phrase);
+	const instructionalPhraseRisk = scoreInstructionalPhraseRisk(
+		candidate.phrase,
+	);
 	const phraseQuality = computePhraseQuality(candidate, evidence);
 	const keyphraseMentions = mentions.filter(
 		(mention) => mention.keyphraseAligned,
@@ -1528,7 +1558,9 @@ function renderRelevanceMarkdownReport(report) {
 	];
 
 	for (const tier of ["high", "medium", "low"]) {
-		const candidates = report.candidates.filter((candidate) => candidate.tier === tier);
+		const candidates = report.candidates.filter(
+			(candidate) => candidate.tier === tier,
+		);
 		lines.push(`## ${tier.charAt(0).toUpperCase() + tier.slice(1)}`);
 		lines.push("");
 
@@ -1539,9 +1571,7 @@ function renderRelevanceMarkdownReport(report) {
 		}
 
 		for (const candidate of candidates) {
-			lines.push(
-				`### ${candidate.proposedTerm} (${candidate.relevanceScore})`,
-			);
+			lines.push(`### ${candidate.proposedTerm} (${candidate.relevanceScore})`);
 			lines.push(`- Phrase: ${candidate.phrase}`);
 			lines.push(`- Action: ${candidate.recommendedAction}`);
 			lines.push(`- Draft eligibility: ${candidate.draftEligibility}`);
@@ -1581,7 +1611,9 @@ async function loadMediumApprovalConfig(configPath = MEDIUM_APPROVALS_PATH) {
 			configPath,
 			approvedMediumTerms,
 			approvedKeys: new Set(
-				approvedMediumTerms.map((value) => normalizeDraftKey(value)).filter(Boolean),
+				approvedMediumTerms
+					.map((value) => normalizeDraftKey(value))
+					.filter(Boolean),
 			),
 		};
 	} catch (error) {
@@ -1771,8 +1803,10 @@ function renderMarkdownReport(report) {
 		lines.push(`- Confidence: ${finding.confidence.toFixed(2)}`);
 		lines.push(`- Match: ${finding.matchType}`);
 		if (finding.patternSlug) lines.push(`- Pattern: ${finding.patternSlug}`);
-		if (finding.canonicalTerm) lines.push(`- Canonical term: ${finding.canonicalTerm}`);
-		if (finding.proposedTerm) lines.push(`- Proposed term: ${finding.proposedTerm}`);
+		if (finding.canonicalTerm)
+			lines.push(`- Canonical term: ${finding.canonicalTerm}`);
+		if (finding.proposedTerm)
+			lines.push(`- Proposed term: ${finding.proposedTerm}`);
 		lines.push(`- AI used: ${finding.usedAI ? "yes" : "no"}`);
 		if (finding.sourcePatterns?.length) {
 			lines.push(`- Source patterns: ${finding.sourcePatterns.join(", ")}`);
@@ -1864,7 +1898,10 @@ export async function runGlossaryRelevanceReport({
 
 	const scoredCandidates = [];
 	for (const candidate of candidates) {
-		const evidence = await extractCandidatePhraseEvidence(patternDocs, candidate);
+		const evidence = await extractCandidatePhraseEvidence(
+			patternDocs,
+			candidate,
+		);
 		const scoredCandidate = scoreGlossaryCandidateRelevance(
 			candidate,
 			evidence,
@@ -1876,14 +1913,20 @@ export async function runGlossaryRelevanceReport({
 		});
 	}
 
-	scoredCandidates.sort((left, right) => right.relevanceScore - left.relevanceScore);
+	scoredCandidates.sort(
+		(left, right) => right.relevanceScore - left.relevanceScore,
+	);
 
 	const report = {
 		summary: {
 			candidates: scoredCandidates.length,
-			high: scoredCandidates.filter((candidate) => candidate.tier === "high").length,
-			medium: scoredCandidates.filter((candidate) => candidate.tier === "medium").length,
-			low: scoredCandidates.filter((candidate) => candidate.tier === "low").length,
+			high: scoredCandidates.filter((candidate) => candidate.tier === "high")
+				.length,
+			medium: scoredCandidates.filter(
+				(candidate) => candidate.tier === "medium",
+			).length,
+			low: scoredCandidates.filter((candidate) => candidate.tier === "low")
+				.length,
 			autoEligible: scoredCandidates.filter(
 				(candidate) => candidate.draftEligibility === "auto",
 			).length,
@@ -1917,7 +1960,9 @@ async function applyFindings({
 	dryRun,
 }) {
 	const patternMap = new Map(patternDocs.map((doc) => [doc.slug, doc]));
-	const glossaryMap = new Map(glossaryEntries.map((entry) => [entry.slug, entry]));
+	const glossaryMap = new Map(
+		glossaryEntries.map((entry) => [entry.slug, entry]),
+	);
 	const pendingPatternSources = new Map();
 	const pendingGlossarySources = new Map();
 	const drafts = [];
@@ -1926,7 +1971,11 @@ async function applyFindings({
 	let draftsCreated = 0;
 
 	for (const finding of findings) {
-		if (finding.action === "link-pattern" && finding.canonicalSlug && finding.patternSlug) {
+		if (
+			finding.action === "link-pattern" &&
+			finding.canonicalSlug &&
+			finding.patternSlug
+		) {
 			const patternDoc = patternMap.get(finding.patternSlug);
 			if (!patternDoc) continue;
 
@@ -1950,7 +1999,10 @@ async function applyFindings({
 				currentDoc.body.slice(0, selected.paragraph.start) +
 				selected.nextRaw +
 				currentDoc.body.slice(selected.paragraph.end);
-			const frontmatter = currentSource.slice(0, findFrontmatterEnd(currentSource));
+			const frontmatter = currentSource.slice(
+				0,
+				findFrontmatterEnd(currentSource),
+			);
 			const nextSource = `${frontmatter}${nextBody}`;
 			pendingPatternSources.set(patternDoc.filePath, nextSource);
 			linkEdits += 1;
@@ -1962,7 +2014,8 @@ async function applyFindings({
 			if (!glossaryEntry) continue;
 
 			const currentSource =
-				pendingGlossarySources.get(glossaryEntry.filePath) ?? glossaryEntry.source;
+				pendingGlossarySources.get(glossaryEntry.filePath) ??
+				glossaryEntry.source;
 			const result = appendSynonymToSource(currentSource, finding.phrase);
 			if (!result.changed) continue;
 
@@ -2070,13 +2123,15 @@ export async function runGlossarySync({
 		}
 	}
 
-	const candidateQueue = [...aggregatedCandidates.values()].sort((left, right) => {
-		return (
-			right.patternSlugs.size - left.patternSlugs.size ||
-			right.weightedScore - left.weightedScore ||
-			right.phrase.length - left.phrase.length
-		);
-	});
+	const candidateQueue = [...aggregatedCandidates.values()].sort(
+		(left, right) => {
+			return (
+				right.patternSlugs.size - left.patternSlugs.size ||
+				right.weightedScore - left.weightedScore ||
+				right.phrase.length - left.phrase.length
+			);
+		},
+	);
 	let aiMatchDecisions = 0;
 	let aiNewTermSummaries = 0;
 
@@ -2088,7 +2143,11 @@ export async function runGlossarySync({
 			continue;
 		}
 
-		if (findings.some((finding) => normalizePhrase(finding.phrase) === candidate.normalized)) {
+		if (
+			findings.some(
+				(finding) => normalizePhrase(finding.phrase) === candidate.normalized,
+			)
+		) {
 			continue;
 		}
 

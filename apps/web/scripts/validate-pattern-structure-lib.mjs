@@ -12,7 +12,9 @@ const REPO_ROOT = path.join(__dirname, "..", "..", "..");
 const PATTERNS_ROOT = path.join(REPO_ROOT, "apps/web/content/patterns");
 
 function extractSections(source) {
-	const headings = [...source.matchAll(/^##\s+(.+)$/gm)].map((match) => match[1]);
+	const headings = [...source.matchAll(/^##\s+(.+)$/gm)].map(
+		(match) => match[1],
+	);
 	const sections = new Map();
 	const matches = [...source.matchAll(/^##\s+(.+)$/gm)];
 
@@ -51,7 +53,9 @@ export function validatePatternStructureSource(source, contract) {
 	}
 
 	const relatedPatternsSection = sections.get("Related Patterns") || "";
-	if (!/<RelatedPatternsCard[\s\S]*patterns=\{\[/m.test(relatedPatternsSection)) {
+	if (
+		!/<RelatedPatternsCard[\s\S]*patterns=\{\[/m.test(relatedPatternsSection)
+	) {
 		failures.push(
 			"Related Patterns must use <RelatedPatternsCard patterns={[...]} />.",
 		);
@@ -77,7 +81,9 @@ export function validatePatternStructureSource(source, contract) {
 	if (contract.requiresPlayground) {
 		const examplesSection = sections.get("Examples") || "";
 		if (!examplesSection.includes("<Playground")) {
-			failures.push("Examples must include <Playground ... /> for this pattern.");
+			failures.push(
+				"Examples must include <Playground ... /> for this pattern.",
+			);
 		}
 	}
 

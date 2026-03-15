@@ -3,11 +3,11 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+	getResourceProfile,
 	NON_PATTERN_RESOURCE_EXCLUSIONS,
 	OPTIONAL_RESOURCE_SECTION_ORDER,
 	RESOURCE_MINIMUMS,
 	RESOURCE_SECTION_ORDER,
-	getResourceProfile,
 } from "./pattern-resources-config.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -18,7 +18,9 @@ export const PATTERNS_ROOT = path.join(WEB_ROOT, "content", "patterns");
 function parseTopLevelSections(source) {
 	const firstHeading = source.search(/^##\s+/m);
 	const preamble =
-		firstHeading === -1 ? source.trimEnd() : source.slice(0, firstHeading).trimEnd();
+		firstHeading === -1
+			? source.trimEnd()
+			: source.slice(0, firstHeading).trimEnd();
 	const matches = [...source.matchAll(/^##\s+(.+)$/gm)];
 	const sections = [];
 
@@ -38,7 +40,9 @@ function parseTopLevelSections(source) {
 }
 
 function buildMarkdownList(items) {
-	return items.map((item) => `- [${item.title}](${item.url}) - ${item.description}`);
+	return items.map(
+		(item) => `- [${item.title}](${item.url}) - ${item.description}`,
+	);
 }
 
 export function renderResources(relativeFile) {
@@ -46,9 +50,8 @@ export function renderResources(relativeFile) {
 	const lines = ["## Resources", ""];
 
 	for (const heading of RESOURCE_SECTION_ORDER) {
-		const key = heading === "NPM Packages"
-			? "npmPackages"
-			: heading.toLowerCase();
+		const key =
+			heading === "NPM Packages" ? "npmPackages" : heading.toLowerCase();
 		const items = profile[key] ?? [];
 		lines.push(`### ${heading}`);
 		lines.push("");
@@ -125,7 +128,9 @@ export function extractNpmPackageNames(source) {
 	}
 
 	const subsections = parseResourceSubsections(resources.body);
-	const npmSection = subsections.find((section) => section.title === "NPM Packages");
+	const npmSection = subsections.find(
+		(section) => section.title === "NPM Packages",
+	);
 
 	if (!npmSection) {
 		return [];
@@ -142,7 +147,10 @@ export function extractNpmPackageNames(source) {
 	return [...new Set(names)];
 }
 
-export function validatePatternResourcesSource(source, relativeFile = "unknown") {
+export function validatePatternResourcesSource(
+	source,
+	relativeFile = "unknown",
+) {
 	const failures = [];
 	const { sections } = parseTopLevelSections(source);
 
@@ -199,9 +207,8 @@ export function validatePatternResourcesSource(source, relativeFile = "unknown")
 	let totalExternalLinks = 0;
 
 	for (const heading of RESOURCE_SECTION_ORDER) {
-		const key = heading === "NPM Packages"
-			? "npmPackages"
-			: heading.toLowerCase();
+		const key =
+			heading === "NPM Packages" ? "npmPackages" : heading.toLowerCase();
 		const subsection = subsections.find((section) => section.title === heading);
 
 		if (!subsection) {
@@ -219,9 +226,7 @@ export function validatePatternResourcesSource(source, relativeFile = "unknown")
 		}
 
 		if (heading === "NPM Packages") {
-			for (const match of subsection.body.matchAll(
-				/\[[^\]]+\]\(([^)]+)\)/g,
-			)) {
+			for (const match of subsection.body.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
 				if (!match[1].startsWith("https://www.npmjs.com/package/")) {
 					failures.push(
 						"`NPM Packages` links must point to npm package pages.",
@@ -241,7 +246,9 @@ export function validatePatternResourcesSource(source, relativeFile = "unknown")
 }
 
 export async function getPublishedPatternFiles(patternsRoot = PATTERNS_ROOT) {
-	const categoryEntries = await fs.readdir(patternsRoot, { withFileTypes: true });
+	const categoryEntries = await fs.readdir(patternsRoot, {
+		withFileTypes: true,
+	});
 	const files = [];
 
 	for (const entry of categoryEntries) {
@@ -288,7 +295,9 @@ export async function syncPatternResourceFiles(patternsRoot = PATTERNS_ROOT) {
 	return { files, changed };
 }
 
-export async function validatePatternResourceFiles(patternsRoot = PATTERNS_ROOT) {
+export async function validatePatternResourceFiles(
+	patternsRoot = PATTERNS_ROOT,
+) {
 	const files = await getPublishedPatternFiles(patternsRoot);
 	const failures = [];
 
@@ -305,7 +314,9 @@ export async function validatePatternResourceFiles(patternsRoot = PATTERNS_ROOT)
 	return { filesChecked: files.length, failures };
 }
 
-export async function writeExternalResourcesTempFile(patternsRoot = PATTERNS_ROOT) {
+export async function writeExternalResourcesTempFile(
+	patternsRoot = PATTERNS_ROOT,
+) {
 	const files = await getPublishedPatternFiles(patternsRoot);
 	const urls = new Set();
 

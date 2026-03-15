@@ -1,24 +1,6 @@
 import Link from "next/link";
 import { source } from "@/lib/source";
 
-interface BlogData {
-	title: string;
-	description: string;
-	date: string;
-	tags?: string[];
-	featured?: boolean;
-	readTime?: string;
-	author?: string;
-	authorImage?: string;
-	thumbnail?: string;
-}
-
-interface BlogPage {
-	url: string;
-	slugs: string[];
-	data: BlogData;
-}
-
 interface ReadMoreSectionProps {
 	currentSlug: string[];
 	currentTags?: string[];

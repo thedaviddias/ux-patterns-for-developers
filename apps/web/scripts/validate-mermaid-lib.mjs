@@ -110,7 +110,9 @@ export async function validateMermaidFile(filePath) {
 	return validateMermaidBlocksInSource(source, filePath);
 }
 
-export async function validateContentMermaidDiagrams(contentRoot = CONTENT_ROOT) {
+export async function validateContentMermaidDiagrams(
+	contentRoot = CONTENT_ROOT,
+) {
 	const files = await walkMdxFiles(contentRoot);
 	const failures = [];
 

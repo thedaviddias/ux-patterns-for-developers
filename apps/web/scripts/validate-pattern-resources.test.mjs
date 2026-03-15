@@ -46,7 +46,9 @@ Intro
 	const failures = validatePatternResourcesSource(source, SAMPLE_FILE);
 
 	assert.ok(
-		failures.some((failure) => failure.includes("Required resource subsection order mismatch")),
+		failures.some((failure) =>
+			failure.includes("Required resource subsection order mismatch"),
+		),
 	);
 });
 
@@ -78,7 +80,9 @@ Intro
 	const failures = validatePatternResourcesSource(source, SAMPLE_FILE);
 
 	assert.ok(
-		failures.some((failure) => failure.includes("Resources must only contain external https links")),
+		failures.some((failure) =>
+			failure.includes("Resources must only contain external https links"),
+		),
 	);
 });
 

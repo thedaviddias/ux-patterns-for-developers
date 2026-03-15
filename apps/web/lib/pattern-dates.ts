@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 interface PatternDates {
 	created: string | null;
@@ -24,7 +24,7 @@ export function getPatternDates(): Record<string, PatternDates> {
 		if (fs.existsSync(jsonPath)) {
 			const data = fs.readFileSync(jsonPath, "utf-8");
 			patternDatesCache = JSON.parse(data) as Record<string, PatternDates>;
-			return patternDatesCache!;
+			return patternDatesCache;
 		}
 	} catch (error) {
 		console.warn("Failed to load pattern dates:", error);

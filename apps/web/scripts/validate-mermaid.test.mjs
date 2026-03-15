@@ -33,7 +33,10 @@ end
 \`\`\`
 `;
 
-	const failures = await validateMermaidBlocksInSource(source, "/tmp/example.mdx");
+	const failures = await validateMermaidBlocksInSource(
+		source,
+		"/tmp/example.mdx",
+	);
 
 	assert.equal(failures.length, 1);
 	assert.equal(failures[0].line, 6);

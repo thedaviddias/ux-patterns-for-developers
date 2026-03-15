@@ -2,11 +2,11 @@
 
 import {
 	createContext,
+	type ReactNode,
 	useCallback,
 	useContext,
 	useEffect,
 	useState,
-	type ReactNode,
 } from "react";
 
 interface SidebarContextValue {
@@ -104,7 +104,7 @@ export function SidebarProvider({
 		try {
 			localStorage.setItem(
 				STORAGE_KEY_EXPANDED,
-				JSON.stringify([...expandedPaths])
+				JSON.stringify([...expandedPaths]),
 			);
 		} catch {
 			// Ignore localStorage errors
@@ -118,7 +118,7 @@ export function SidebarProvider({
 			try {
 				localStorage.setItem(
 					STORAGE_KEY_SCROLL,
-					JSON.stringify(scrollPosition)
+					JSON.stringify(scrollPosition),
 				);
 			} catch {
 				// Ignore localStorage errors

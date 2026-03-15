@@ -1,9 +1,9 @@
 "use client";
 
-import * as runtime from "react/jsx-runtime";
-import { useEffect, useState, useMemo, useRef } from "react";
-import { getMDXComponents } from "@/mdx-components";
 import type { MDXComponents } from "mdx/types";
+import { useEffect, useMemo, useRef, useState } from "react";
+import * as runtime from "react/jsx-runtime";
+import { getMDXComponents } from "@/mdx-components";
 
 /**
  * MDX Content Component
@@ -23,7 +23,7 @@ interface MDXContentProps {
 }
 
 // Create AsyncFunction constructor for evaluating async code
-const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+const AsyncFunction = Object.getPrototypeOf(async () => {}).constructor;
 
 // Cache for evaluated MDX components to avoid re-evaluation on hot reload
 const mdxCache = new Map<string, React.ComponentType<any>>();
@@ -49,21 +49,21 @@ function preprocessMdxCode(code: string, components: MDXComponents): string {
 		// Uses non-greedy .+? to match the wrapper function body
 		const wrapperPattern = new RegExp(
 			`const\\{${name}:(\\w+)\\}=await import\\(.+?\\(["']@\\/[^"']+["']\\)\\)`,
-			'g'
+			"g",
 		);
 		processedCode = processedCode.replace(
 			wrapperPattern,
-			`const{${name}:$1}={${name}:_components.${name}}`
+			`const{${name}:$1}={${name}:_components.${name}}`,
 		);
 
 		// Direct dynamic import: const{Name:x}=await import("@/...")
 		const directImportPattern = new RegExp(
 			`const\\{${name}:(\\w+)\\}=await import\\(["']@\\/[^"']+["']\\)`,
-			'g'
+			"g",
 		);
 		processedCode = processedCode.replace(
 			directImportPattern,
-			`const{${name}:$1}={${name}:_components.${name}}`
+			`const{${name}:$1}={${name}:_components.${name}}`,
 		);
 	}
 
@@ -71,13 +71,13 @@ function preprocessMdxCode(code: string, components: MDXComponents): string {
 	// Matches: await import(<anything>("@/..."))
 	processedCode = processedCode.replace(
 		/await import\(.+?\(["']@\/[^"']+["']\)\)/g,
-		'({})'
+		"({})",
 	);
 
 	// Catch-all: Replace direct @/ imports with empty object
 	processedCode = processedCode.replace(
 		/await import\(["']@\/[^"']+["']\)/g,
-		'({})'
+		"({})",
 	);
 
 	return processedCode;
@@ -90,9 +90,10 @@ export function MDXContent({ code, components = {} }: MDXContentProps) {
 	// Check cache first to avoid loader flash on hot reload
 	const cachedComponent = mdxCache.get(code);
 	// Only use cached component if it's a valid function
-	const validCachedComponent = typeof cachedComponent === 'function' ? cachedComponent : null;
+	const validCachedComponent =
+		typeof cachedComponent === "function" ? cachedComponent : null;
 	const [Component, setComponent] = useState<React.ComponentType<any> | null>(
-		validCachedComponent
+		validCachedComponent,
 	);
 	const [error, setError] = useState<Error | null>(null);
 	const hasEvaluated = useRef(!!validCachedComponent);
@@ -102,7 +103,7 @@ export function MDXContent({ code, components = {} }: MDXContentProps) {
 			...getMDXComponents(),
 			...components,
 		}),
-		[components]
+		[components],
 	);
 
 	useEffect(() => {
@@ -125,15 +126,21 @@ export function MDXContent({ code, components = {} }: MDXContentProps) {
 						...runtime,
 						baseUrl: import.meta.url,
 					},
-					mergedComponents
+					mergedComponents,
 				);
 
 				if (!cancelled) {
 					const comp = result.default || result;
 					// Validate the component before caching
-					if (typeof comp !== 'function') {
-						console.error("MDX evaluation returned non-function:", typeof comp, comp);
-						throw new Error(`MDX evaluation returned ${typeof comp} instead of a component function`);
+					if (typeof comp !== "function") {
+						console.error(
+							"MDX evaluation returned non-function:",
+							typeof comp,
+							comp,
+						);
+						throw new Error(
+							`MDX evaluation returned ${typeof comp} instead of a component function`,
+						);
 					}
 					mdxCache.set(code, comp);
 					setComponent(() => comp);

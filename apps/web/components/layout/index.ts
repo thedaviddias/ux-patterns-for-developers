@@ -1,12 +1,12 @@
 // Layout components - Velite-based replacement for fumadocs-ui layouts
 
-export { ThemeProvider } from "./theme-provider";
-export { SidebarProvider, useSidebar } from "./sidebar-context";
-export { Sidebar, SidebarTrigger } from "./sidebar";
-export { Toc, TocWrapper } from "./toc";
 export {
-	DocsLayout,
 	DocsBreadcrumb,
+	DocsLayout,
 	DocsPageHeader,
 } from "./docs-layout";
 export { Header } from "./header";
+export { Sidebar, SidebarTrigger } from "./sidebar";
+export { SidebarProvider, useSidebar } from "./sidebar-context";
+export { ThemeProvider } from "./theme-provider";
+export { Toc, TocWrapper } from "./toc";

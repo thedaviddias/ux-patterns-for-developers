@@ -7,7 +7,7 @@
 		"prebuild": "velite build && node scripts/validate-mermaid.mjs && node scripts/generate-pattern-dates.mjs",
 		"build": "next build",
 		"check": "node scripts/validate-mermaid.mjs && node scripts/validate-pattern-structure.mjs && node scripts/validate-pattern-resources.mjs && tsc --noEmit",
-		"dev": "portless run next dev --turbo -p 3060",
+		"dev": "portless uxpatterns next dev --turbo -p 3060",
 		"dev:velite": "velite --watch",
 		"sync:pattern-resources": "node scripts/sync-pattern-resources.mjs",
 		"skills:generate": "node scripts/generate-pattern-skills.mjs",

@@ -206,9 +206,7 @@ export default function GlobalError({
 						<p className="error-description">
 							An unexpected error occurred. Our team has been notified.
 						</p>
-						{error.message && (
-							<p className="error-message">{error.message}</p>
-						)}
+						{error.message && <p className="error-message">{error.message}</p>}
 						{error.digest && (
 							<p className="error-digest">Error ID: {error.digest}</p>
 						)}

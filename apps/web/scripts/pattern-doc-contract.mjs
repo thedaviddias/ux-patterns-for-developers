@@ -877,11 +877,7 @@ export const TARGET_PATTERN_DOC_CONTRACTS = [
 				"/patterns/social/like-button",
 				"Like and reaction buttons",
 			),
-			r(
-				"Slider",
-				"/patterns/forms/slider",
-				"Select values from a range",
-			),
+			r("Slider", "/patterns/forms/slider", "Select values from a range"),
 		],
 	}),
 	entry({
@@ -896,11 +892,7 @@ export const TARGET_PATTERN_DOC_CONTRACTS = [
 				"Multi-line text input for longer content",
 			),
 			r("Button", "/patterns/forms/button", "Trigger actions and submit forms"),
-			r(
-				"Tag Input",
-				"/patterns/forms/tag-input",
-				"Enter and format tags",
-			),
+			r("Tag Input", "/patterns/forms/tag-input", "Enter and format tags"),
 		],
 	}),
 	entry({
@@ -932,11 +924,7 @@ export const TARGET_PATTERN_DOC_CONTRACTS = [
 		sectionFamily: "forms",
 		requiresPlayground: true,
 		relatedPatterns: [
-			r(
-				"File Input",
-				"/patterns/forms/file-input",
-				"Upload and handle files",
-			),
+			r("File Input", "/patterns/forms/file-input", "Upload and handle files"),
 			r("Button", "/patterns/forms/button", "Trigger actions and submit forms"),
 			r(
 				"Form Validation",
@@ -961,11 +949,7 @@ export const TARGET_PATTERN_DOC_CONTRACTS = [
 				"/patterns/forms/rating-input",
 				"Rate something with a number of stars",
 			),
-			r(
-				"Toggle",
-				"/patterns/forms/toggle",
-				"Switch between two states",
-			),
+			r("Toggle", "/patterns/forms/toggle", "Switch between two states"),
 		],
 	}),
 	entry({
@@ -1085,11 +1069,7 @@ export const TARGET_PATTERN_DOC_CONTRACTS = [
 		sectionFamily: "media",
 		requiresPlayground: true,
 		relatedPatterns: [
-			r(
-				"File Input",
-				"/patterns/forms/file-input",
-				"Upload and handle files",
-			),
+			r("File Input", "/patterns/forms/file-input", "Upload and handle files"),
 			r(
 				"Drag and Drop",
 				"/patterns/content-management/drag-and-drop",
@@ -1233,11 +1213,7 @@ export const TARGET_PATTERN_DOC_CONTRACTS = [
 				"/patterns/content-management/modal",
 				"Display focused content or actions",
 			),
-			r(
-				"Toggle",
-				"/patterns/forms/toggle",
-				"Switch between two states",
-			),
+			r("Toggle", "/patterns/forms/toggle", "Switch between two states"),
 		],
 	}),
 	entry({

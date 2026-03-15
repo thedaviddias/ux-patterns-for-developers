@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { execSync } from "child_process";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { execSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -79,8 +79,8 @@ function getGitDates(filePath) {
 
 			if (diffStat && diffStat !== "0 0" && diffStat !== "") {
 				const parts = diffStat.split("\t");
-				const additions = parseInt(parts[0]) || 0;
-				const deletions = parseInt(parts[1]) || 0;
+				const additions = parseInt(parts[0], 10) || 0;
+				const deletions = parseInt(parts[1], 10) || 0;
 				linesChanged = additions + deletions;
 
 				// Major update if more than 50 lines changed

@@ -1,7 +1,7 @@
 "use client";
 
 import { SOCIAL_LINKS } from "@ux-patterns/constants/social";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";

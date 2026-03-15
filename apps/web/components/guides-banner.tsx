@@ -48,6 +48,8 @@ export const GuidesBanner = ({
 			<svg
 				className="absolute inset-0 w-full h-full opacity-10"
 				xmlns="http://www.w3.org/2000/svg"
+				aria-hidden="true"
+				focusable="false"
 			>
 				<defs>
 					<pattern

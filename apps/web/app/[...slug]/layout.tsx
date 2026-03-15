@@ -1,12 +1,12 @@
+import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
 import type { ReactNode } from "react";
 import { DocsLayout } from "@/components/layout";
 import { SearchToggle } from "@/components/search";
 import {
-	getPatternsPageTree,
-	getPatternGuidePageTree,
 	getGlossaryPageTree,
+	getPatternGuidePageTree,
+	getPatternsPageTree,
 } from "@/lib/content";
-import { GitHubStarsWrapper } from "@ux-patterns/ui/components/custom/github-stars-wrapper";
 import { TRACKING_EVENTS } from "@/lib/tracking";
 
 interface LayoutProps {
@@ -19,7 +19,7 @@ export default async function Layout({ children, params }: LayoutProps) {
 	const section = slug[0];
 
 	// Get section-specific page tree
-	let tree;
+	let tree = getPatternsPageTree();
 	switch (section) {
 		case "patterns":
 			tree = getPatternsPageTree();
@@ -30,8 +30,6 @@ export default async function Layout({ children, params }: LayoutProps) {
 		case "glossary":
 			tree = getGlossaryPageTree();
 			break;
-		default:
-			tree = getPatternsPageTree();
 	}
 
 	return (

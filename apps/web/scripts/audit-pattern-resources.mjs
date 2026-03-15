@@ -1,21 +1,23 @@
 #!/usr/bin/env node
 
+import { execFile as execFileCallback } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { execFile as execFileCallback } from "node:child_process";
 import { promisify } from "node:util";
 import {
-	PATTERNS_ROOT,
-	WEB_ROOT,
 	extractNpmPackageNames,
 	getPublishedPatternFiles,
+	PATTERNS_ROOT,
+	WEB_ROOT,
 	writeExternalResourcesTempFile,
 } from "./pattern-resources-lib.mjs";
 
 const execFile = promisify(execFileCallback);
 const AUDIT_NOW = new Date("2026-03-13T00:00:00.000Z");
 const PACKAGE_FRESHNESS_CUTOFF = new Date(AUDIT_NOW);
-PACKAGE_FRESHNESS_CUTOFF.setUTCMonth(PACKAGE_FRESHNESS_CUTOFF.getUTCMonth() - 36);
+PACKAGE_FRESHNESS_CUTOFF.setUTCMonth(
+	PACKAGE_FRESHNESS_CUTOFF.getUTCMonth() - 36,
+);
 
 async function auditPackages() {
 	const files = await getPublishedPatternFiles();
@@ -55,7 +57,9 @@ async function auditPackages() {
 		}
 
 		if (!modified) {
-			failures.push(`${packageName} does not expose \`time.modified\` metadata.`);
+			failures.push(
+				`${packageName} does not expose \`time.modified\` metadata.`,
+			);
 			continue;
 		}
 
@@ -88,7 +92,7 @@ async function main() {
 			],
 			{
 				cwd: WEB_ROOT,
-			maxBuffer: 1024 * 1024 * 16,
+				maxBuffer: 1024 * 1024 * 16,
 			},
 		);
 	} catch (error) {

@@ -35,9 +35,7 @@ function SelectionPopover({
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, [onClose]);
 
-	const generateImage = async (
-		platform: "twitter" | "linkedin",
-	) => {
+	const generateImage = async (platform: "twitter" | "linkedin") => {
 		setIsGenerating(true);
 
 		// Track button click
@@ -118,8 +116,8 @@ function SelectionPopover({
 				marginTop: "-8px",
 			}}
 		>
-		<div className="flex items-center gap-1">
-			<button
+			<div className="flex items-center gap-1">
+				<button
 					type="button"
 					onClick={() => generateImage("twitter")}
 					disabled={isGenerating}

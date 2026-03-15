@@ -15,7 +15,10 @@ function profile(base, extension = {}) {
 		references: [...(base.references ?? []), ...(extension.references ?? [])],
 		guides: [...(base.guides ?? []), ...(extension.guides ?? [])],
 		articles: [...(base.articles ?? []), ...(extension.articles ?? [])],
-		npmPackages: [...(base.npmPackages ?? []), ...(extension.npmPackages ?? [])],
+		npmPackages: [
+			...(base.npmPackages ?? []),
+			...(extension.npmPackages ?? []),
+		],
 	};
 }
 
@@ -392,120 +395,462 @@ const L = {
 };
 
 const PKG = {
-	ai: pkg("ai", "Vercel AI SDK primitives for chat, streaming UI, tools, and model integrations."),
-	assistantUi: pkg("assistant-ui", "Composable chat UI primitives for production-grade AI assistants."),
-	reactMarkdown: pkg("react-markdown", "Render markdown-rich responses, citations, and structured assistant output."),
-	gptTokenizer: pkg("gpt-tokenizer", "Estimate token usage for prompts, responses, and context budgeting."),
-	jsTiktoken: pkg("js-tiktoken", "Tokenizer implementation for token counting, truncation, and budget previews."),
-	cmdk: pkg("cmdk", "Command menu primitives for palettes, pickers, and searchable lists."),
-	kbar: pkg("kbar", "Action-command layer for searchable app navigation and power-user workflows."),
-	algoliasearch: pkg("algoliasearch", "Search API client for fast, ranked search results and filtering flows."),
-	reactInstantsearch: pkg("react-instantsearch", "React bindings for search results, faceting, and query-state UIs."),
-	rhf: pkg("react-hook-form", "Low-friction form state and validation wiring for complex input flows."),
-	zod: pkg("zod", "Schema validation for typed parsing, normalization, and field-level error handling."),
-	zxcvbnTs: pkg("@zxcvbn-ts/core", "Modern password-strength estimation for inline guidance and reveal-time feedback."),
-	tanstackForm: pkg("@tanstack/react-form", "Typed form state and validation workflows for advanced form UIs."),
-	clerk: pkg("@clerk/nextjs", "Hosted authentication flows and account-management building blocks for Next.js apps."),
-	nextAuth: pkg("next-auth", "Open-source authentication framework for session, provider, and credential flows."),
-	auth0React: pkg("@auth0/auth0-react", "Hosted OAuth and enterprise identity integration for React apps."),
-	simpleWebauthn: pkg("@simplewebauthn/browser", "Passkey and WebAuthn browser primitives for MFA and passwordless flows."),
-	otplib: pkg("otplib", "TOTP/HOTP helpers for two-factor enrollment and code verification flows."),
-	inputOtp: pkg("input-otp", "Accessible one-time-code inputs with segmented cells and paste handling."),
-	reactOtpInput: pkg("react-otp-input", "OTP field helper for segmented verification-code entry."),
-	reactEasyCrop: pkg("react-easy-crop", "Image cropping primitives for avatar and profile-photo editing flows."),
-	reactSelect: pkg("react-select", "Flexible combobox and async selection building blocks."),
-	downshift: pkg("downshift", "Headless combobox, autocomplete, and selection primitives."),
-	radixSelect: pkg("@radix-ui/react-select", "Accessible custom select primitive with keyboard and screen-reader support."),
-	radixCheckbox: pkg("@radix-ui/react-checkbox", "Checkbox primitive for custom visuals without losing semantics."),
-	radixRadio: pkg("@radix-ui/react-radio-group", "Radio-group primitive for custom layouts and keyboard support."),
-	radixSwitch: pkg("@radix-ui/react-switch", "Switch/toggle primitive for on-off states with good accessibility defaults."),
-	radixSlider: pkg("@radix-ui/react-slider", "Slider primitive for single-value and range controls."),
-	radixDialog: pkg("@radix-ui/react-dialog", "Dialog primitive for modals, sheet-style overlays, and focus management."),
-	radixPopover: pkg("@radix-ui/react-popover", "Popover primitive for anchored overlays and inline helpers."),
-	radixTooltip: pkg("@radix-ui/react-tooltip", "Tooltip primitive with delay, dismissal, and focus handling."),
-	radixNavigationMenu: pkg("@radix-ui/react-navigation-menu", "Structured menu primitive for complex site navigation."),
-	radixTabs: pkg("@radix-ui/react-tabs", "Tablist primitive for in-page content switching."),
-	radixProgress: pkg("@radix-ui/react-progress", "Accessible progress primitive for determinate and indeterminate states."),
-	radixAccordion: pkg("@radix-ui/react-accordion", "Accordion primitive for collapsible content and disclosure groups."),
-	radixSlot: pkg("@radix-ui/react-slot", "Polymorphic slotting for composable buttons and interactive surfaces."),
-	reactAriaComponents: pkg("react-aria-components", "Headless accessible components covering many form and overlay patterns."),
-	headlessUi: pkg("@headlessui/react", "Headless primitives for menus, tabs, popovers, and disclosure controls."),
-	floatingUi: pkg("@floating-ui/react", "Positioning engine for tooltips, popovers, dropdowns, and anchored surfaces."),
-	focusTrap: pkg("focus-trap", "Keeps keyboard focus inside active modal and popover surfaces."),
-	framerMotion: pkg("framer-motion", "Motion primitives for affordance, feedback, and progressive reveal."),
-	tanstackQuery: pkg("@tanstack/react-query", "Server-state management for async data, optimistic UI, and background refresh."),
-	tanstackTable: pkg("@tanstack/react-table", "Headless table engine for sorting, filtering, grouping, and row models."),
-	tanstackVirtual: pkg("@tanstack/react-virtual", "Virtualization primitives for large lists, tables, and feeds."),
-	reactVirtuoso: pkg("react-virtuoso", "Virtualized list and table components for large feeds and long result sets."),
-	dateFns: pkg("date-fns", "Date parsing, formatting, and range math for calendars and schedule interfaces."),
-	reactDayPicker: pkg("react-day-picker", "Calendar and date-range primitives for custom date pickers."),
-	internationalizedDate: pkg("@internationalized/date", "Locale-aware date calculations used in robust date/time selection UIs."),
-	reactImask: pkg("react-imask", "Structured masking for currency, phone, date, and segmented time inputs."),
-	reactDropzone: pkg("react-dropzone", "Drag-and-drop and click-to-upload file selection helpers."),
-	uppy: pkg("uppy", "File upload orchestration with progress, retries, and remote provider support."),
-	filepond: pkg("filepond", "Polished upload UI with previews, validation, and async processing hooks."),
-	libPhoneNumberJs: pkg("libphonenumber-js", "Phone parsing, formatting, and validation based on international numbering plans."),
-	reactPhoneNumberInput: pkg("react-phone-number-input", "Phone input component with country selection and formatting."),
-	reactNumberFormat: pkg("react-number-format", "Masked number and currency entry with formatting and caret handling."),
-	dinero: pkg("dinero.js", "Money modeling helpers for prices, formatting, rounding, and calculations."),
-	githubTextareaAutosize: pkg("@github/textarea-autosize", "Textarea autosizing utility used for note, prompt, and long-form inputs."),
-	signaturePad: pkg("signature_pad", "Canvas-based signature capture with smoothing and export helpers."),
-	reactSignatureCanvas: pkg("react-signature-canvas", "React wrapper for signature-pad-based capture components."),
-	perfectFreehand: pkg("perfect-freehand", "Smooth stroke rendering for drawing, annotation, and signature experiences."),
-	uiwReactColor: pkg("@uiw/react-color", "Modern color input and picker primitives for brand and theme tooling."),
-	tinycolor: pkg("tinycolor2", "Color parsing and manipulation helpers for previews, contrast, and validation."),
-	smastromRating: pkg("@smastrom/react-rating", "Accessible star-rating component for rating and review flows."),
-	tiptap: pkg("@tiptap/react", "Extensible rich-text editor framework for structured editing experiences."),
-	slate: pkg("slate", "Composable editor framework for custom rich-text and block editors."),
-	lexical: pkg("lexical", "Modern editor framework from Meta for extensible rich-text surfaces."),
-	reactTextareaAutosize: pkg("react-textarea-autosize", "Autosizing textarea component for prompt, note, and feedback inputs."),
-	embla: pkg("embla-carousel-react", "Carousel engine with strong swipe support and minimal API surface."),
-	swiper: pkg("swiper", "Full-featured touch slider with pagination, looping, and responsive breakpoints."),
-	lightgallery: pkg("lightgallery", "Gallery/lightbox components for zoomable image and mixed media collections."),
-	photoswipe: pkg("photoswipe", "Lightbox engine for touch-first image viewing and zoom interactions."),
-	yarl: pkg("yet-another-react-lightbox", "React lightbox for galleries, captions, zoom, and keyboard navigation."),
-	videojs: pkg("video.js", "Customizable video player with plugin ecosystem and accessibility support."),
-	plyr: pkg("plyr", "Media player UI for video and audio with captions and consistent cross-provider controls."),
-	hlsjs: pkg("hls.js", "HTTP Live Streaming playback for adaptive video delivery in the browser."),
-	nprogress: pkg("nprogress", "Top-of-page progress bar for route changes and async loading feedback."),
-	spinjs: pkg("spin.js", "Loading spinners when indeterminate progress needs a compact inline affordance."),
-	reactLoadingSkeleton: pkg("react-loading-skeleton", "Skeleton placeholders for content loading states."),
-	sonner: pkg("sonner", "Toast/notification system with accessible defaults and modern interaction patterns."),
-	reactHotToast: pkg("react-hot-toast", "Lightweight toast system for async status and ephemeral confirmation."),
-	notistack: pkg("notistack", "Snackbar queueing and dismissal control for React apps."),
-	vanillaCookieConsent: pkg("vanilla-cookieconsent", "Consent banner and preference-center primitives without framework lock-in."),
-	jsCookie: pkg("js-cookie", "Cookie read/write helpers for preference persistence and consent gates."),
-	lucide: pkg("lucide-react", "Icon system for empty states, status chips, and action affordances."),
-	lottie: pkg("lottie-react", "Animation playback for illustrative loading and empty-state treatments."),
-	reactUseCart: pkg("react-use-cart", "Cart state helpers for add/remove/update flows and totals."),
-	stripeReact: pkg("@stripe/react-stripe-js", "Stripe Elements integration for secure checkout collection flows."),
-	stripeJs: pkg("@stripe/stripe-js", "Stripe.js loading and client-side payment primitives."),
-	reactShare: pkg("react-share", "Share buttons for social networks, native share fallback, and copy actions."),
-	giscus: pkg("giscus", "GitHub Discussions-powered comments for documentation and community threads."),
-	giscusReact: pkg("@giscus/react", "React wrapper for Giscus embeds in article and documentation comment threads."),
-	reactArborist: pkg("react-arborist", "Virtualized tree view with keyboard navigation and drag support."),
-	headlessTree: pkg("@headless-tree/core", "Headless tree-state primitives for custom hierarchical navigation."),
-	reactComplexTree: pkg("react-complex-tree", "Accessible tree view for file explorers and nested knowledge structures."),
-	fullcalendar: pkg("@fullcalendar/react", "Full-featured calendar component for scheduling and agenda views."),
-	reactBigCalendar: pkg("react-big-calendar", "Calendar layouts for week, month, and agenda displays."),
-	recharts: pkg("recharts", "Chart primitives for dashboards, trend views, and KPI summaries."),
-	victory: pkg("victory", "Charting library with accessible SVG-based visualization primitives."),
-	visx: pkg("@visx/visx", "Composable visualization building blocks for custom data displays."),
-	visTimeline: pkg("vis-timeline", "Timeline visualization for schedules, history views, and temporal data."),
-	reactChrono: pkg("react-chrono", "Timeline component for milestone flows, process history, and chronological storytelling."),
-	masonic: pkg("masonic", "Virtualized masonry grid for card-dense layouts and galleries."),
-	dndKitCore: pkg("@dnd-kit/core", "Headless drag-and-drop primitives for lists, cards, and board interactions."),
-	dndKitSortable: pkg("@dnd-kit/sortable", "Sortable helpers for drag-reorder patterns and Kanban-style boards."),
-	sortablejs: pkg("sortablejs", "Framework-agnostic drag sorting for simple reorder and transfer interactions."),
-	reactUse: pkg("react-use", "Interaction helpers and micro-state hooks useful in optimistic and feedback-heavy UIs."),
-	swr: pkg("swr", "Lightweight remote-state hooks for optimistic feedback and periodic updates."),
-	reactScroll: pkg("react-scroll", "Animated scrolling helpers for page navigation and back-to-top patterns."),
-	lenis: pkg("lenis", "Smooth-scrolling utility for long-page navigation, section jumps, and return-to-top controls."),
-	rcPagination: pkg("rc-pagination", "Pagination control primitive for server-driven page navigation."),
-	reactPaginate: pkg("react-paginate", "Pagination UI component for client- or server-driven page switching."),
-	reactRouter: pkg("react-router-dom", "Client-side route primitives useful for links, breadcrumbs, and tab navigation."),
-	tanstackRouter: pkg("@tanstack/react-router", "Typed route primitives for navigation-heavy interfaces."),
-	next: pkg("next", "Routing, image, and navigation primitives commonly used in app shell and commerce UIs."),
+	ai: pkg(
+		"ai",
+		"Vercel AI SDK primitives for chat, streaming UI, tools, and model integrations.",
+	),
+	assistantUi: pkg(
+		"assistant-ui",
+		"Composable chat UI primitives for production-grade AI assistants.",
+	),
+	reactMarkdown: pkg(
+		"react-markdown",
+		"Render markdown-rich responses, citations, and structured assistant output.",
+	),
+	gptTokenizer: pkg(
+		"gpt-tokenizer",
+		"Estimate token usage for prompts, responses, and context budgeting.",
+	),
+	jsTiktoken: pkg(
+		"js-tiktoken",
+		"Tokenizer implementation for token counting, truncation, and budget previews.",
+	),
+	cmdk: pkg(
+		"cmdk",
+		"Command menu primitives for palettes, pickers, and searchable lists.",
+	),
+	kbar: pkg(
+		"kbar",
+		"Action-command layer for searchable app navigation and power-user workflows.",
+	),
+	algoliasearch: pkg(
+		"algoliasearch",
+		"Search API client for fast, ranked search results and filtering flows.",
+	),
+	reactInstantsearch: pkg(
+		"react-instantsearch",
+		"React bindings for search results, faceting, and query-state UIs.",
+	),
+	rhf: pkg(
+		"react-hook-form",
+		"Low-friction form state and validation wiring for complex input flows.",
+	),
+	zod: pkg(
+		"zod",
+		"Schema validation for typed parsing, normalization, and field-level error handling.",
+	),
+	zxcvbnTs: pkg(
+		"@zxcvbn-ts/core",
+		"Modern password-strength estimation for inline guidance and reveal-time feedback.",
+	),
+	tanstackForm: pkg(
+		"@tanstack/react-form",
+		"Typed form state and validation workflows for advanced form UIs.",
+	),
+	clerk: pkg(
+		"@clerk/nextjs",
+		"Hosted authentication flows and account-management building blocks for Next.js apps.",
+	),
+	nextAuth: pkg(
+		"next-auth",
+		"Open-source authentication framework for session, provider, and credential flows.",
+	),
+	auth0React: pkg(
+		"@auth0/auth0-react",
+		"Hosted OAuth and enterprise identity integration for React apps.",
+	),
+	simpleWebauthn: pkg(
+		"@simplewebauthn/browser",
+		"Passkey and WebAuthn browser primitives for MFA and passwordless flows.",
+	),
+	otplib: pkg(
+		"otplib",
+		"TOTP/HOTP helpers for two-factor enrollment and code verification flows.",
+	),
+	inputOtp: pkg(
+		"input-otp",
+		"Accessible one-time-code inputs with segmented cells and paste handling.",
+	),
+	reactOtpInput: pkg(
+		"react-otp-input",
+		"OTP field helper for segmented verification-code entry.",
+	),
+	reactEasyCrop: pkg(
+		"react-easy-crop",
+		"Image cropping primitives for avatar and profile-photo editing flows.",
+	),
+	reactSelect: pkg(
+		"react-select",
+		"Flexible combobox and async selection building blocks.",
+	),
+	downshift: pkg(
+		"downshift",
+		"Headless combobox, autocomplete, and selection primitives.",
+	),
+	radixSelect: pkg(
+		"@radix-ui/react-select",
+		"Accessible custom select primitive with keyboard and screen-reader support.",
+	),
+	radixCheckbox: pkg(
+		"@radix-ui/react-checkbox",
+		"Checkbox primitive for custom visuals without losing semantics.",
+	),
+	radixRadio: pkg(
+		"@radix-ui/react-radio-group",
+		"Radio-group primitive for custom layouts and keyboard support.",
+	),
+	radixSwitch: pkg(
+		"@radix-ui/react-switch",
+		"Switch/toggle primitive for on-off states with good accessibility defaults.",
+	),
+	radixSlider: pkg(
+		"@radix-ui/react-slider",
+		"Slider primitive for single-value and range controls.",
+	),
+	radixDialog: pkg(
+		"@radix-ui/react-dialog",
+		"Dialog primitive for modals, sheet-style overlays, and focus management.",
+	),
+	radixPopover: pkg(
+		"@radix-ui/react-popover",
+		"Popover primitive for anchored overlays and inline helpers.",
+	),
+	radixTooltip: pkg(
+		"@radix-ui/react-tooltip",
+		"Tooltip primitive with delay, dismissal, and focus handling.",
+	),
+	radixNavigationMenu: pkg(
+		"@radix-ui/react-navigation-menu",
+		"Structured menu primitive for complex site navigation.",
+	),
+	radixTabs: pkg(
+		"@radix-ui/react-tabs",
+		"Tablist primitive for in-page content switching.",
+	),
+	radixProgress: pkg(
+		"@radix-ui/react-progress",
+		"Accessible progress primitive for determinate and indeterminate states.",
+	),
+	radixAccordion: pkg(
+		"@radix-ui/react-accordion",
+		"Accordion primitive for collapsible content and disclosure groups.",
+	),
+	radixSlot: pkg(
+		"@radix-ui/react-slot",
+		"Polymorphic slotting for composable buttons and interactive surfaces.",
+	),
+	reactAriaComponents: pkg(
+		"react-aria-components",
+		"Headless accessible components covering many form and overlay patterns.",
+	),
+	headlessUi: pkg(
+		"@headlessui/react",
+		"Headless primitives for menus, tabs, popovers, and disclosure controls.",
+	),
+	floatingUi: pkg(
+		"@floating-ui/react",
+		"Positioning engine for tooltips, popovers, dropdowns, and anchored surfaces.",
+	),
+	focusTrap: pkg(
+		"focus-trap",
+		"Keeps keyboard focus inside active modal and popover surfaces.",
+	),
+	framerMotion: pkg(
+		"framer-motion",
+		"Motion primitives for affordance, feedback, and progressive reveal.",
+	),
+	tanstackQuery: pkg(
+		"@tanstack/react-query",
+		"Server-state management for async data, optimistic UI, and background refresh.",
+	),
+	tanstackTable: pkg(
+		"@tanstack/react-table",
+		"Headless table engine for sorting, filtering, grouping, and row models.",
+	),
+	tanstackVirtual: pkg(
+		"@tanstack/react-virtual",
+		"Virtualization primitives for large lists, tables, and feeds.",
+	),
+	reactVirtuoso: pkg(
+		"react-virtuoso",
+		"Virtualized list and table components for large feeds and long result sets.",
+	),
+	dateFns: pkg(
+		"date-fns",
+		"Date parsing, formatting, and range math for calendars and schedule interfaces.",
+	),
+	reactDayPicker: pkg(
+		"react-day-picker",
+		"Calendar and date-range primitives for custom date pickers.",
+	),
+	internationalizedDate: pkg(
+		"@internationalized/date",
+		"Locale-aware date calculations used in robust date/time selection UIs.",
+	),
+	reactImask: pkg(
+		"react-imask",
+		"Structured masking for currency, phone, date, and segmented time inputs.",
+	),
+	reactDropzone: pkg(
+		"react-dropzone",
+		"Drag-and-drop and click-to-upload file selection helpers.",
+	),
+	uppy: pkg(
+		"uppy",
+		"File upload orchestration with progress, retries, and remote provider support.",
+	),
+	filepond: pkg(
+		"filepond",
+		"Polished upload UI with previews, validation, and async processing hooks.",
+	),
+	libPhoneNumberJs: pkg(
+		"libphonenumber-js",
+		"Phone parsing, formatting, and validation based on international numbering plans.",
+	),
+	reactPhoneNumberInput: pkg(
+		"react-phone-number-input",
+		"Phone input component with country selection and formatting.",
+	),
+	reactNumberFormat: pkg(
+		"react-number-format",
+		"Masked number and currency entry with formatting and caret handling.",
+	),
+	dinero: pkg(
+		"dinero.js",
+		"Money modeling helpers for prices, formatting, rounding, and calculations.",
+	),
+	githubTextareaAutosize: pkg(
+		"@github/textarea-autosize",
+		"Textarea autosizing utility used for note, prompt, and long-form inputs.",
+	),
+	signaturePad: pkg(
+		"signature_pad",
+		"Canvas-based signature capture with smoothing and export helpers.",
+	),
+	reactSignatureCanvas: pkg(
+		"react-signature-canvas",
+		"React wrapper for signature-pad-based capture components.",
+	),
+	perfectFreehand: pkg(
+		"perfect-freehand",
+		"Smooth stroke rendering for drawing, annotation, and signature experiences.",
+	),
+	uiwReactColor: pkg(
+		"@uiw/react-color",
+		"Modern color input and picker primitives for brand and theme tooling.",
+	),
+	tinycolor: pkg(
+		"tinycolor2",
+		"Color parsing and manipulation helpers for previews, contrast, and validation.",
+	),
+	smastromRating: pkg(
+		"@smastrom/react-rating",
+		"Accessible star-rating component for rating and review flows.",
+	),
+	tiptap: pkg(
+		"@tiptap/react",
+		"Extensible rich-text editor framework for structured editing experiences.",
+	),
+	slate: pkg(
+		"slate",
+		"Composable editor framework for custom rich-text and block editors.",
+	),
+	lexical: pkg(
+		"lexical",
+		"Modern editor framework from Meta for extensible rich-text surfaces.",
+	),
+	reactTextareaAutosize: pkg(
+		"react-textarea-autosize",
+		"Autosizing textarea component for prompt, note, and feedback inputs.",
+	),
+	embla: pkg(
+		"embla-carousel-react",
+		"Carousel engine with strong swipe support and minimal API surface.",
+	),
+	swiper: pkg(
+		"swiper",
+		"Full-featured touch slider with pagination, looping, and responsive breakpoints.",
+	),
+	lightgallery: pkg(
+		"lightgallery",
+		"Gallery/lightbox components for zoomable image and mixed media collections.",
+	),
+	photoswipe: pkg(
+		"photoswipe",
+		"Lightbox engine for touch-first image viewing and zoom interactions.",
+	),
+	yarl: pkg(
+		"yet-another-react-lightbox",
+		"React lightbox for galleries, captions, zoom, and keyboard navigation.",
+	),
+	videojs: pkg(
+		"video.js",
+		"Customizable video player with plugin ecosystem and accessibility support.",
+	),
+	plyr: pkg(
+		"plyr",
+		"Media player UI for video and audio with captions and consistent cross-provider controls.",
+	),
+	hlsjs: pkg(
+		"hls.js",
+		"HTTP Live Streaming playback for adaptive video delivery in the browser.",
+	),
+	nprogress: pkg(
+		"nprogress",
+		"Top-of-page progress bar for route changes and async loading feedback.",
+	),
+	spinjs: pkg(
+		"spin.js",
+		"Loading spinners when indeterminate progress needs a compact inline affordance.",
+	),
+	reactLoadingSkeleton: pkg(
+		"react-loading-skeleton",
+		"Skeleton placeholders for content loading states.",
+	),
+	sonner: pkg(
+		"sonner",
+		"Toast/notification system with accessible defaults and modern interaction patterns.",
+	),
+	reactHotToast: pkg(
+		"react-hot-toast",
+		"Lightweight toast system for async status and ephemeral confirmation.",
+	),
+	notistack: pkg(
+		"notistack",
+		"Snackbar queueing and dismissal control for React apps.",
+	),
+	vanillaCookieConsent: pkg(
+		"vanilla-cookieconsent",
+		"Consent banner and preference-center primitives without framework lock-in.",
+	),
+	jsCookie: pkg(
+		"js-cookie",
+		"Cookie read/write helpers for preference persistence and consent gates.",
+	),
+	lucide: pkg(
+		"lucide-react",
+		"Icon system for empty states, status chips, and action affordances.",
+	),
+	lottie: pkg(
+		"lottie-react",
+		"Animation playback for illustrative loading and empty-state treatments.",
+	),
+	reactUseCart: pkg(
+		"react-use-cart",
+		"Cart state helpers for add/remove/update flows and totals.",
+	),
+	stripeReact: pkg(
+		"@stripe/react-stripe-js",
+		"Stripe Elements integration for secure checkout collection flows.",
+	),
+	stripeJs: pkg(
+		"@stripe/stripe-js",
+		"Stripe.js loading and client-side payment primitives.",
+	),
+	reactShare: pkg(
+		"react-share",
+		"Share buttons for social networks, native share fallback, and copy actions.",
+	),
+	giscus: pkg(
+		"giscus",
+		"GitHub Discussions-powered comments for documentation and community threads.",
+	),
+	giscusReact: pkg(
+		"@giscus/react",
+		"React wrapper for Giscus embeds in article and documentation comment threads.",
+	),
+	reactArborist: pkg(
+		"react-arborist",
+		"Virtualized tree view with keyboard navigation and drag support.",
+	),
+	headlessTree: pkg(
+		"@headless-tree/core",
+		"Headless tree-state primitives for custom hierarchical navigation.",
+	),
+	reactComplexTree: pkg(
+		"react-complex-tree",
+		"Accessible tree view for file explorers and nested knowledge structures.",
+	),
+	fullcalendar: pkg(
+		"@fullcalendar/react",
+		"Full-featured calendar component for scheduling and agenda views.",
+	),
+	reactBigCalendar: pkg(
+		"react-big-calendar",
+		"Calendar layouts for week, month, and agenda displays.",
+	),
+	recharts: pkg(
+		"recharts",
+		"Chart primitives for dashboards, trend views, and KPI summaries.",
+	),
+	victory: pkg(
+		"victory",
+		"Charting library with accessible SVG-based visualization primitives.",
+	),
+	visx: pkg(
+		"@visx/visx",
+		"Composable visualization building blocks for custom data displays.",
+	),
+	visTimeline: pkg(
+		"vis-timeline",
+		"Timeline visualization for schedules, history views, and temporal data.",
+	),
+	reactChrono: pkg(
+		"react-chrono",
+		"Timeline component for milestone flows, process history, and chronological storytelling.",
+	),
+	masonic: pkg(
+		"masonic",
+		"Virtualized masonry grid for card-dense layouts and galleries.",
+	),
+	dndKitCore: pkg(
+		"@dnd-kit/core",
+		"Headless drag-and-drop primitives for lists, cards, and board interactions.",
+	),
+	dndKitSortable: pkg(
+		"@dnd-kit/sortable",
+		"Sortable helpers for drag-reorder patterns and Kanban-style boards.",
+	),
+	sortablejs: pkg(
+		"sortablejs",
+		"Framework-agnostic drag sorting for simple reorder and transfer interactions.",
+	),
+	reactUse: pkg(
+		"react-use",
+		"Interaction helpers and micro-state hooks useful in optimistic and feedback-heavy UIs.",
+	),
+	swr: pkg(
+		"swr",
+		"Lightweight remote-state hooks for optimistic feedback and periodic updates.",
+	),
+	reactScroll: pkg(
+		"react-scroll",
+		"Animated scrolling helpers for page navigation and back-to-top patterns.",
+	),
+	lenis: pkg(
+		"lenis",
+		"Smooth-scrolling utility for long-page navigation, section jumps, and return-to-top controls.",
+	),
+	rcPagination: pkg(
+		"rc-pagination",
+		"Pagination control primitive for server-driven page navigation.",
+	),
+	reactPaginate: pkg(
+		"react-paginate",
+		"Pagination UI component for client- or server-driven page switching.",
+	),
+	reactRouter: pkg(
+		"react-router-dom",
+		"Client-side route primitives useful for links, breadcrumbs, and tab navigation.",
+	),
+	tanstackRouter: pkg(
+		"@tanstack/react-router",
+		"Typed route primitives for navigation-heavy interfaces.",
+	),
+	next: pkg(
+		"next",
+		"Routing, image, and navigation primitives commonly used in app shell and commerce UIs.",
+	),
 };
 
 const BASE = {
@@ -617,7 +962,11 @@ const PROFILES = {
 	}),
 	disclosure: profile(BASE.overlays, {
 		articles: [L.nngroupAccordionIcons],
-		npmPackages: [PKG.radixAccordion, PKG.reactAriaComponents, PKG.framerMotion],
+		npmPackages: [
+			PKG.radixAccordion,
+			PKG.reactAriaComponents,
+			PKG.framerMotion,
+		],
 	}),
 	carousel: {
 		references: [L.wcag, L.mediaA11y],
@@ -673,7 +1022,14 @@ const PROFILES = {
 		npmPackages: [PKG.visTimeline, PKG.reactChrono, PKG.dateFns],
 	}),
 	treeView: {
-		references: [L.wcag, link("WAI Tree View Pattern", "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/", "Keyboard, selection, and focus expectations for hierarchical navigation.")],
+		references: [
+			L.wcag,
+			link(
+				"WAI Tree View Pattern",
+				"https://www.w3.org/WAI/ARIA/apg/patterns/treeview/",
+				"Keyboard, selection, and focus expectations for hierarchical navigation.",
+			),
+		],
 		guides: [L.ariaBasics],
 		articles: [L.webdevRendering],
 		npmPackages: [PKG.reactArborist, PKG.headlessTree, PKG.reactComplexTree],
@@ -802,13 +1158,21 @@ const PROFILES = {
 		references: [L.wcag, L.mdnTel],
 		guides: [L.formsTips],
 		articles: [L.smashingForms],
-		npmPackages: [PKG.libPhoneNumberJs, PKG.reactPhoneNumberInput, PKG.reactImask],
+		npmPackages: [
+			PKG.libPhoneNumberJs,
+			PKG.reactPhoneNumberInput,
+			PKG.reactImask,
+		],
 	},
 	ratingInput: {
 		references: [L.wcag, L.mdnRadio],
 		guides: [L.formsTutorial],
 		articles: [L.smashingForms],
-		npmPackages: [PKG.smastromRating, PKG.reactAriaComponents, PKG.framerMotion],
+		npmPackages: [
+			PKG.smastromRating,
+			PKG.reactAriaComponents,
+			PKG.framerMotion,
+		],
 	},
 	richTextEditor: {
 		references: [L.wcag, L.mdnContenteditable],
@@ -826,7 +1190,11 @@ const PROFILES = {
 		references: [L.wcag, L.mdnCanvas],
 		guides: [L.mdnPointerEvents],
 		articles: [L.webdevRendering],
-		npmPackages: [PKG.signaturePad, PKG.reactSignatureCanvas, PKG.perfectFreehand],
+		npmPackages: [
+			PKG.signaturePad,
+			PKG.reactSignatureCanvas,
+			PKG.perfectFreehand,
+		],
 	},
 	slider: {
 		references: [L.wcag, L.mdnRange],
@@ -844,7 +1212,11 @@ const PROFILES = {
 		references: [L.wcag, L.mdnTextarea],
 		guides: [L.formsTutorial],
 		articles: [L.smashingForms],
-		npmPackages: [PKG.rhf, PKG.githubTextareaAutosize, PKG.reactTextareaAutosize],
+		npmPackages: [
+			PKG.rhf,
+			PKG.githubTextareaAutosize,
+			PKG.reactTextareaAutosize,
+		],
 	},
 	imageGallery: {
 		references: [L.wcag, L.mediaA11y],
@@ -949,7 +1321,14 @@ const PROFILES = {
 		npmPackages: [PKG.reactShare, PKG.radixDialog, PKG.reactUse],
 	},
 	cookieConsent: {
-		references: [L.wcag, link("MDN HTTP cookies", "https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies", "Cookie fundamentals, storage behavior, and privacy-related implementation details.")],
+		references: [
+			L.wcag,
+			link(
+				"MDN HTTP cookies",
+				"https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies",
+				"Cookie fundamentals, storage behavior, and privacy-related implementation details.",
+			),
+		],
 		guides: [L.formsTips],
 		articles: [L.deceptiveDesign],
 		npmPackages: [PKG.vanillaCookieConsent, PKG.jsCookie, PKG.radixDialog],
@@ -970,70 +1349,116 @@ const PROFILES = {
 	}),
 	skeleton: profile(BASE.userFeedback, {
 		articles: [L.webdevLcpLazy],
-		npmPackages: [PKG.reactLoadingSkeleton, PKG.tanstackQuery, PKG.framerMotion],
+		npmPackages: [
+			PKG.reactLoadingSkeleton,
+			PKG.tanstackQuery,
+			PKG.framerMotion,
+		],
 	}),
 };
 
 const profileByFile = {};
 
-assignProfile(profileByFile, ["advanced/command-palette.mdx"], "commandPalette");
+assignProfile(
+	profileByFile,
+	["advanced/command-palette.mdx"],
+	"commandPalette",
+);
 assignProfile(profileByFile, ["advanced/search-results.mdx"], "searchResults");
 assignProfile(profileByFile, ["advanced/wizard.mdx"], "wizard");
 
 assignProfile(profileByFile, ["ai-intelligence/ai-chat.mdx"], "aiChat");
-assignProfile(profileByFile, [
-	"ai-intelligence/ai-suggestions.mdx",
-	"ai-intelligence/prompt-input.mdx",
-], "aiInput");
-assignProfile(profileByFile, [
-	"ai-intelligence/response-feedback.mdx",
-	"ai-intelligence/streaming-response.mdx",
-], "aiOutput");
-assignProfile(profileByFile, [
-	"ai-intelligence/ai-error-states.mdx",
-	"ai-intelligence/ai-loading-states.mdx",
-], "aiState");
-assignProfile(profileByFile, [
-	"ai-intelligence/context-window.mdx",
-	"ai-intelligence/token-counter.mdx",
-], "aiBudget");
-assignProfile(profileByFile, ["ai-intelligence/model-selector.mdx"], "aiModelSelector");
+assignProfile(
+	profileByFile,
+	["ai-intelligence/ai-suggestions.mdx", "ai-intelligence/prompt-input.mdx"],
+	"aiInput",
+);
+assignProfile(
+	profileByFile,
+	[
+		"ai-intelligence/response-feedback.mdx",
+		"ai-intelligence/streaming-response.mdx",
+	],
+	"aiOutput",
+);
+assignProfile(
+	profileByFile,
+	[
+		"ai-intelligence/ai-error-states.mdx",
+		"ai-intelligence/ai-loading-states.mdx",
+	],
+	"aiState",
+);
+assignProfile(
+	profileByFile,
+	["ai-intelligence/context-window.mdx", "ai-intelligence/token-counter.mdx"],
+	"aiBudget",
+);
+assignProfile(
+	profileByFile,
+	["ai-intelligence/model-selector.mdx"],
+	"aiModelSelector",
+);
 
 assignProfile(profileByFile, ["authentication/login.mdx"], "authLogin");
 assignProfile(profileByFile, ["authentication/signup.mdx"], "authSignup");
 assignProfile(profileByFile, ["authentication/social-login.mdx"], "authSocial");
-assignProfile(profileByFile, ["authentication/password-reset.mdx"], "authPasswordReset");
-assignProfile(profileByFile, ["authentication/two-factor.mdx"], "authTwoFactor");
-assignProfile(profileByFile, [
-	"authentication/account-settings.mdx",
-	"authentication/user-profile.mdx",
-], "authProfile");
+assignProfile(
+	profileByFile,
+	["authentication/password-reset.mdx"],
+	"authPasswordReset",
+);
+assignProfile(
+	profileByFile,
+	["authentication/two-factor.mdx"],
+	"authTwoFactor",
+);
+assignProfile(
+	profileByFile,
+	["authentication/account-settings.mdx", "authentication/user-profile.mdx"],
+	"authProfile",
+);
 
-assignProfile(profileByFile, [
-	"content-management/accordion.mdx",
-	"content-management/expandable-text.mdx",
-], "disclosure");
+assignProfile(
+	profileByFile,
+	[
+		"content-management/accordion.mdx",
+		"content-management/expandable-text.mdx",
+	],
+	"disclosure",
+);
 assignProfile(profileByFile, ["content-management/carousel.mdx"], "carousel");
-assignProfile(profileByFile, ["content-management/drag-and-drop.mdx"], "dragDrop");
-assignProfile(profileByFile, [
-	"content-management/modal.mdx",
-	"content-management/popover.mdx",
-	"content-management/tooltip.mdx",
-], "modalPopoverTooltip");
+assignProfile(
+	profileByFile,
+	["content-management/drag-and-drop.mdx"],
+	"dragDrop",
+);
+assignProfile(
+	profileByFile,
+	[
+		"content-management/modal.mdx",
+		"content-management/popover.mdx",
+		"content-management/tooltip.mdx",
+	],
+	"modalPopoverTooltip",
+);
 
 assignProfile(profileByFile, ["data-display/calendar.mdx"], "calendar");
-assignProfile(profileByFile, [
-	"data-display/card-grid.mdx",
-	"data-display/list-view.mdx",
-], "cardList");
-assignProfile(profileByFile, [
-	"data-display/chart.mdx",
-	"data-display/statistics.mdx",
-], "charts");
-assignProfile(profileByFile, [
-	"data-display/comparison-table.mdx",
-	"data-display/table.mdx",
-], "tableLike");
+assignProfile(
+	profileByFile,
+	["data-display/card-grid.mdx", "data-display/list-view.mdx"],
+	"cardList",
+);
+assignProfile(
+	profileByFile,
+	["data-display/chart.mdx", "data-display/statistics.mdx"],
+	"charts",
+);
+assignProfile(
+	profileByFile,
+	["data-display/comparison-table.mdx", "data-display/table.mdx"],
+	"tableLike",
+);
 assignProfile(profileByFile, ["data-display/filter-panel.mdx"], "filterPanel");
 assignProfile(profileByFile, ["data-display/kanban-board.mdx"], "kanban");
 assignProfile(profileByFile, ["data-display/timeline.mdx"], "timeline");
@@ -1049,7 +1474,11 @@ assignProfile(profileByFile, ["forms/button.mdx"], "button");
 assignProfile(profileByFile, ["forms/checkbox.mdx"], "booleanControl");
 assignProfile(profileByFile, ["forms/radio.mdx"], "radioControl");
 assignProfile(profileByFile, ["forms/toggle.mdx"], "switchControl");
-assignProfile(profileByFile, ["forms/code-confirmation.mdx"], "codeConfirmation");
+assignProfile(
+	profileByFile,
+	["forms/code-confirmation.mdx"],
+	"codeConfirmation",
+);
 assignProfile(profileByFile, ["forms/color-picker.mdx"], "colorPicker");
 assignProfile(profileByFile, ["forms/currency-input.mdx"], "currencyInput");
 assignProfile(profileByFile, ["forms/date-input.mdx"], "dateInput");
@@ -1059,10 +1488,11 @@ assignProfile(profileByFile, ["forms/date-range.mdx"], "dateRange");
 assignProfile(profileByFile, ["forms/file-input.mdx"], "fileInput");
 assignProfile(profileByFile, ["forms/form-validation.mdx"], "formValidation");
 assignProfile(profileByFile, ["forms/selection-input.mdx"], "selectionInput");
-assignProfile(profileByFile, [
-	"forms/multi-select-input.mdx",
-	"forms/tag-input.mdx",
-], "multiSelect");
+assignProfile(
+	profileByFile,
+	["forms/multi-select-input.mdx", "forms/tag-input.mdx"],
+	"multiSelect",
+);
 assignProfile(profileByFile, ["forms/password.mdx"], "passwordField");
 assignProfile(profileByFile, ["forms/phone-number.mdx"], "phoneNumber");
 assignProfile(profileByFile, ["forms/rating-input.mdx"], "ratingInput");
@@ -1080,13 +1510,18 @@ assignProfile(profileByFile, ["media/video-player.mdx"], "videoPlayer");
 assignProfile(profileByFile, ["navigation/back-to-top.mdx"], "backToTop");
 assignProfile(profileByFile, ["navigation/breadcrumb.mdx"], "breadcrumb");
 assignProfile(profileByFile, ["navigation/hambuger-menu.mdx"], "hamburgerMenu");
-assignProfile(profileByFile, ["navigation/infinite-scroll.mdx"], "infiniteScroll");
+assignProfile(
+	profileByFile,
+	["navigation/infinite-scroll.mdx"],
+	"infiniteScroll",
+);
 assignProfile(profileByFile, ["navigation/link.mdx"], "link");
 assignProfile(profileByFile, ["navigation/load-more.mdx"], "loadMore");
-assignProfile(profileByFile, [
-	"navigation/megamenu.mdx",
-	"navigation/navigation-menu.mdx",
-], "menuNavigation");
+assignProfile(
+	profileByFile,
+	["navigation/megamenu.mdx", "navigation/navigation-menu.mdx"],
+	"menuNavigation",
+);
 assignProfile(profileByFile, ["navigation/pagination.mdx"], "pagination");
 assignProfile(profileByFile, ["navigation/sidebar.mdx"], "sidebar");
 assignProfile(profileByFile, ["navigation/tabs.mdx"], "tabs");
@@ -1096,11 +1531,27 @@ assignProfile(profileByFile, ["social/comment-system.mdx"], "commentSystem");
 assignProfile(profileByFile, ["social/like-button.mdx"], "likeButton");
 assignProfile(profileByFile, ["social/share-dialog.mdx"], "shareDialog");
 
-assignProfile(profileByFile, ["user-feedback/cookie-consent.mdx"], "cookieConsent");
+assignProfile(
+	profileByFile,
+	["user-feedback/cookie-consent.mdx"],
+	"cookieConsent",
+);
 assignProfile(profileByFile, ["user-feedback/empty-states.mdx"], "emptyState");
-assignProfile(profileByFile, ["user-feedback/loading-indicator.mdx"], "loadingIndicator");
-assignProfile(profileByFile, ["user-feedback/notification.mdx"], "notification");
-assignProfile(profileByFile, ["user-feedback/progress-indicator.mdx"], "progressIndicator");
+assignProfile(
+	profileByFile,
+	["user-feedback/loading-indicator.mdx"],
+	"loadingIndicator",
+);
+assignProfile(
+	profileByFile,
+	["user-feedback/notification.mdx"],
+	"notification",
+);
+assignProfile(
+	profileByFile,
+	["user-feedback/progress-indicator.mdx"],
+	"progressIndicator",
+);
 assignProfile(profileByFile, ["user-feedback/skeleton.mdx"], "skeleton");
 
 export function getResourceProfileName(relativeFile) {

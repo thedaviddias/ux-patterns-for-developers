@@ -5,23 +5,6 @@ import { TagFilter } from "@/components/tag-filter";
 import { source } from "@/lib/source";
 import { formatDate } from "@/utils/date";
 
-interface BlogData {
-	title: string;
-	description: string;
-	date: string;
-	tags?: string[];
-	featured?: boolean;
-	readTime?: string;
-	author?: string;
-	authorImage?: string;
-	thumbnail?: string;
-}
-
-interface BlogPage {
-	url: string;
-	data: BlogData;
-}
-
 export default async function HomePage({
 	searchParams,
 }: {

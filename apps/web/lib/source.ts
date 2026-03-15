@@ -15,14 +15,17 @@ const rawSource = docs.toFumadocsSource();
 const filteredSource = {
 	...rawSource,
 	files: rawSource.files.filter((file) => {
-		const data = file.data as {
-			status?: "draft" | "published" | "complete" | "coming-soon";
-			hideFromNav?: boolean;
-		} | undefined;
+		const data = file.data as
+			| {
+					status?: "draft" | "published" | "complete" | "coming-soon";
+					hideFromNav?: boolean;
+			  }
+			| undefined;
 		// Only hide items that are explicitly drafts/coming-soon or have hideFromNav: true
 		// Show everything else by default (including blog posts without status)
 		if (data?.hideFromNav === true) return false;
-		if (data?.status === "draft" || data?.status === "coming-soon") return false;
+		if (data?.status === "draft" || data?.status === "coming-soon")
+			return false;
 		return true;
 	}),
 };

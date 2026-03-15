@@ -27,6 +27,7 @@ export default async function Image() {
 					background: "black",
 				}}
 			>
+				{/* biome-ignore lint/performance/noImgElement: next/og ImageResponse supports img elements directly */}
 				<img
 					src={`${baseUrl}/og.png`}
 					alt={alt}

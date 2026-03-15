@@ -1,13 +1,13 @@
 import "dotenv/config";
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
 import { GoogleGenAI } from "@google/genai";
-import { existsSync } from "fs";
-import { mkdir, readFile, writeFile } from "fs/promises";
 import { glob } from "glob";
-import mime from "mime";
-import path from "path";
 import sharp from "sharp";
 
 async function main() {
+	const apiKey = process.env.GEMINI_API_KEY;
 	const args = process.argv.slice(2);
 	const isDryRun = args.includes("--dry-run");
 	const isForce = args.includes("--force");
@@ -20,7 +20,7 @@ async function main() {
 	const targetPairArg = args.find((arg) => arg.startsWith("--pair="));
 	const targetPair = targetPairArg ? targetPairArg.split("=")[1] : null;
 
-	if (!process.env["GEMINI_API_KEY"]) {
+	if (!apiKey) {
 		console.error(
 			"Error: GEMINI_API_KEY environment variable is not set in .env",
 		);
@@ -28,7 +28,7 @@ async function main() {
 	}
 
 	const ai = new GoogleGenAI({
-		apiKey: process.env["GEMINI_API_KEY"]!,
+		apiKey,
 	});
 
 	const config = {
@@ -49,7 +49,7 @@ async function main() {
 	if (existsSync(promptsFile)) {
 		try {
 			promptsConfig = JSON.parse(await readFile(promptsFile, "utf8"));
-		} catch (e) {
+		} catch (_e) {
 			console.warn("Could not parse prompts.json. Starting fresh.");
 		}
 	}
@@ -155,7 +155,7 @@ Return ONLY the index number of the best pair.`;
 							bestPairIndex = parseInt(match[0], 10);
 							if (bestPairIndex >= numPairs) bestPairIndex = 0;
 						}
-					} catch (e) {
+					} catch (_e) {
 						console.warn(
 							`  Failed AI selection for "${subTitle}", defaulting to first pair.`,
 						);
