@@ -1,5 +1,5 @@
 ---
-name: Share Dialog
+name: share-dialog
 description: "Use when implementing social sharing functionality."
 metadata:
   id: share-dialog

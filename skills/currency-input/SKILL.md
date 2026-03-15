@@ -1,5 +1,5 @@
 ---
-name: Currency Input
+name: currency-input
 description: "Use when implementing enter and format monetary values."
 metadata:
   id: currency-input

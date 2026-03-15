@@ -1,5 +1,5 @@
 ---
-name: Image Upload
+name: image-upload
 description: "Use when you need to upload and preview images."
 metadata:
   id: image-upload

@@ -1,5 +1,5 @@
 ---
-name: Color Picker
+name: color-picker
 description: "Use when implementing select colors with visual feedback."
 metadata:
   id: color-picker
@@ -67,8 +67,7 @@ Color pickers are used wherever users need to choose or define colors: theme cus
 ### Relying Solely on Canvas for Color Selection
 
 **The Problem:**
-A canvas-only hue/saturation picker is completely inaccessible to keyboard and screen reader users.
-
+A canvas-only hue/saturation picker is completely inaccessible to keyboard and [screen reader](/glossary/screen-reader) users.
 **How to Fix It?** Always pair canvas controls with equivalent `range` inputs or text inputs.
 
 ```html

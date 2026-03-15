@@ -47,10 +47,9 @@ Use modals to **interrupt user flow** for important information or required user
 
 - **Disrupts user flow** – forces interaction before continuing with main content
 - **Difficult dismissal** – especially without clear close buttons
-- **Accessibility challenges** – focus trapping and keyboard navigation need proper management
+- **Accessibility challenges** – focus trapping and [keyboard navigation](/glossary/keyboard-navigation) need proper management
 - **Mobile issues** – modals don't fit well on small screens
 - **Overuse frustrates** – particularly for non-essential content
-
 ## Anatomy
 
 ```mermaid
@@ -134,9 +133,8 @@ graph TD
 
 - **Requires JavaScript**—needs scripting for open/close behavior.
 - **Manual focus management needed**—must ensure focus stays within the modal.
-- **Must handle accessibility manually**—requires ARIA attributes (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`).
+- **Must handle accessibility manually**—requires [ARIA attributes](/glossary/aria-attributes) (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`).
 - **Backdrop needs to be implemented separately**.
-
 ### Method 2: Native Modal
 
 **Pros ✅**
@@ -468,8 +466,7 @@ The following table outlines the standard keyboard interactions for modal compon
 - [ ] Test that focus is **trapped inside the modal** while it is open.
 - [ ] Ensure that pressing the **Escape key closes the modal**.
 - [ ] Confirm that **focus returns to the triggering element** when the modal closes.
-- [ ] Verify that **modals do not interfere with screen reader navigation**.
-
+- [ ] Verify that **modals do not interfere with [screen reader](/glossary/screen-reader) navigation**.
 ### Icon & Close Button Testing
 
 **Should ✓**
@@ -495,8 +492,7 @@ The following table outlines the standard keyboard interactions for modal compon
 - [ ] Verify that modal animations **do not cause lag**.
 - [ ] Ensure modals **load efficiently** and do not block page rendering.
 - [ ] Test modal performance when **multiple modals are triggered in succession**.
-- [ ] Confirm that **closing the modal correctly removes it from the DOM** (if dynamically inserted).
-
+- [ ] Confirm that **closing the modal correctly removes it from the [DOM](/glossary/dom)** (if dynamically inserted).
 ## [Design Tokens](/glossary/design-tokens)
 
 These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -566,7 +562,6 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
     },
   ]}
 />
-
 ## Related Patterns
 
 ## Resources

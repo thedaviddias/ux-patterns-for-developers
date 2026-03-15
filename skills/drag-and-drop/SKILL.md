@@ -1,5 +1,5 @@
 ---
-name: Drag and Drop
+name: drag-and-drop
 description: "Use when implementing allow users to reorder items intuitively."
 metadata:
   id: drag-and-drop

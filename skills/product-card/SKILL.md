@@ -1,5 +1,5 @@
 ---
-name: Product Card
+name: product-card
 description: "Use when implementing product display cards for e-commerce."
 metadata:
   id: product-card

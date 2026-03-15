@@ -1,5 +1,5 @@
 ---
-name: List View
+name: list-view
 description: "Use when you need to display data in vertical lists."
 metadata:
   id: list-view
@@ -54,7 +54,7 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 ## Performance guardrails
 
 - Measure the cost of rendering the default view before adding richer adornments such as nested actions, charts, or inline filters.
-- Use pagination, windowing, or progressive disclosure when the layout would otherwise render too many items at once.
+- Use [pagination](/glossary/pagination), windowing, or progressive disclosure when the layout would otherwise render too many items at once.
 - Stabilize heights and placeholder geometry so loading and data refresh states do not cause large layout shifts.
 
 ## Common mistakes

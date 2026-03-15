@@ -1,5 +1,5 @@
 ---
-name: Sidebar
+name: sidebar
 description: "Use when you need to organize and structure site navigation."
 metadata:
   id: sidebar
@@ -49,7 +49,7 @@ Use **Sidebar** to **provide persistent, structured access to many navigation it
 - Use `<nav>` or `<aside>` with `aria-label` for the sidebar landmark
 - Mark the current page with `aria-current="page"` on the active link
 - Use `aria-expanded` on collapsible section toggles
-- Support keyboard navigation: Tab between items, Enter to activate, Escape to collapse
+- Support [keyboard navigation](/glossary/keyboard-navigation): Tab between items, Enter to activate, Escape to collapse
 - Ensure the sidebar is scrollable independently when content overflows
 **Don'ts ❌**
 - Don't make the sidebar only operable via mouse or touch

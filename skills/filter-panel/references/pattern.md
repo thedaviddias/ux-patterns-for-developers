@@ -140,10 +140,9 @@ Uses compact controls near the results header.
 
 ### Implementation Notes
 
-- Start with semantic HTML and only add JavaScript where the interaction truly requires it.
+- Start with [semantic HTML](/glossary/semantic-html) and only add JavaScript where the interaction truly requires it.
 - Keep styling tokens and spacing consistent with adjacent controls or layouts.
 - If the live implementation introduces async behavior, mirror those states in the code example rather than documenting them only in prose.
-
 ## Best Practices
 
 ### Content
@@ -194,10 +193,9 @@ Uses compact controls near the results header.
 
 **Do's ✅**
 
-- Preserve scannability as the viewport shrinks.
+- Preserve scannability as the [viewport](/glossary/viewport) shrinks.
 - Keep filters, summaries, and data visibly connected.
 - Choose stable ordering and grouping rules so users can build muscle memory.
-
 **Don'ts ❌**
 
 - Do not let controls jump around between breakpoints.
@@ -270,8 +268,7 @@ Define a mobile strategy such as stacked cards, progressive disclosure, or alter
 
 - [ ] Do not rely on color alone to convey severity, completion, or selection state.
 - [ ] Test the pattern at 200% zoom and with reduced motion enabled.
-- [ ] Ensure touch targets remain comfortable on mobile and coarse pointers.
-
+- [ ] Ensure [touch targets](/glossary/touch-targets) remain comfortable on mobile and coarse pointers.
 ## Testing Guidelines
 
 ### Functional Testing
@@ -282,10 +279,9 @@ Define a mobile strategy such as stacked cards, progressive disclosure, or alter
 
 ### Accessibility Testing
 
-- [ ] Run keyboard-only checks and at least one screen reader pass on the final implementation.
+- [ ] Run keyboard-only checks and at least one [screen reader](/glossary/screen-reader) pass on the final implementation.
 - [ ] Validate headings, labels, and announcement behavior with real content rather than lorem ipsum.
 - [ ] Check color contrast and focus visibility in both default and stressed states.
-
 ### Edge Cases
 
 - [ ] Test empty, long, duplicated, and unexpectedly formatted content.

@@ -1,5 +1,5 @@
 ---
-name: Megamenu
+name: megamenu
 description: "Use when you need to display a large number of links in a single menu."
 metadata:
   id: megamenu

@@ -1,5 +1,5 @@
 ---
-name: Login Form
+name: login
 description: "Use when implementing user authentication and sign-in forms."
 metadata:
   id: login

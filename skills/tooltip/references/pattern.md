@@ -53,9 +53,8 @@ Use a tooltip when you need to provide **additional context or explanations** wi
 
 - **Reduces clutter** by providing contextual information without crowding the UI.
 - **Improves user understanding** of complex actions or terminology.
-- **Enhances accessibility** when used correctly with keyboard and screen reader support.
+- **Enhances accessibility** when used correctly with keyboard and [screen reader](/glossary/screen-reader) support.
 - **Provides instant feedback** without disrupting the user's flow.
-
 ## Drawbacks
 
 - Can be **difficult to trigger** on mobile devices due to the lack of hover interactions.
@@ -136,8 +135,7 @@ graph TD
 
 - **Use when additional context is needed** (e.g., explanations, formatted text).
 - **Ensure it remains visible until dismissed**, if interactive.
-- **Allow keyboard navigation** if containing buttons or links.
-
+- **Allow [keyboard navigation](/glossary/keyboard-navigation)** if containing buttons or links.
 **Don'ts ❌**
 
 - **Avoid tooltips for critical information**—users might miss them.
@@ -235,8 +233,7 @@ Keep tooltips **brief (max 2 lines)**. For more details, link to a help page or 
 Tooltips that appear on mouse hover but lack ARIA attributes aren't announced to screen reader users.
 
 **How to Fix It?**
-Use `role="tooltip"` for the tooltip element and link it to the trigger with `aria-describedby="tooltipId"`. Keep the tooltip in the DOM while it’s visible so assistive tech can detect it.
-
+Use `role="tooltip"` for the tooltip element and link it to the trigger with `aria-describedby="tooltipId"`. Keep the tooltip in the [DOM](/glossary/dom) while it’s visible so assistive tech can detect it.
 ---
 
 ### Insufficient Color Contrast or Tiny Font (Accessibility)

@@ -1,5 +1,5 @@
 ---
-name: Tooltip
+name: tooltip
 description: "Use when implementing provide additional context on hover or focus."
 metadata:
   id: tooltip

@@ -1,5 +1,5 @@
 ---
-name: AI Loading States
+name: ai-loading-states
 description: "Use when implementing loading states for AI operations."
 metadata:
   id: ai-loading-states

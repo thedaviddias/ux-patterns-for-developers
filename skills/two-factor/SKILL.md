@@ -1,5 +1,5 @@
 ---
-name: Two-Factor Authentication
+name: two-factor
 description: "Use when implementing two-factor authentication setup and verification."
 metadata:
   id: two-factor

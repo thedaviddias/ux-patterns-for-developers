@@ -1,5 +1,5 @@
 ---
-name: Link
+name: link
 description: "Use when you need to create accessible and interactive links."
 metadata:
   id: link

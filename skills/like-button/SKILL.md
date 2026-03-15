@@ -1,5 +1,5 @@
 ---
-name: Like Button
+name: like-button
 description: "Use when implementing like and reaction buttons."
 metadata:
   id: like-button

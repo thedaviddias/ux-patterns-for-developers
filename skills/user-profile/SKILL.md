@@ -1,5 +1,5 @@
 ---
-name: User Profile
+name: user-profile
 description: "Use when implementing user profile and account management."
 metadata:
   id: user-profile

@@ -253,11 +253,10 @@ Prompts users to link a social account to an existing email-based account.
 
 **Do's ✅**
 
-- Ensure touch targets are at least 44×44px for all buttons
+- Ensure [touch targets](/glossary/touch-targets) are at least 44×44px for all buttons
 - Use full-page redirect instead of popup OAuth on mobile
 - Test deep linking back to the app from the provider's consent screen
 - Support "Sign in with Apple" when required by Apple for iOS apps
-
 **Don'ts ❌**
 
 - Don't use popup OAuth flows on mobile — they break frequently

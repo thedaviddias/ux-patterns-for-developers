@@ -1,5 +1,5 @@
 ---
-name: Button
+name: button
 description: "Use when you need to trigger actions and submit forms."
 metadata:
   id: button
@@ -46,7 +46,7 @@ Trigger actions and submit forms
 ## Accessibility guardrails
 
 ### ARIA Attributes
-**Required ARIA attributes:**
+**Required [ARIA attributes](/glossary/aria-attributes):**
 - Use `aria-label` for icon-only buttons
 - Use `aria-pressed` for toggle buttons
 - Use `aria-expanded` for buttons that control expandable content

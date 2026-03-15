@@ -84,10 +84,9 @@ E --> F[Another Load More Button - Optional]
 
 3. **Load More Button**
 
-   - Primary trigger for **loading additional content**
+- Primary trigger for **loading additional content**
    - Must show **clear affordance** that more content exists
-   - Often includes **ARIA attributes** to indicate loading state
-
+   - Often includes **[ARIA attributes](/glossary/aria-attributes)** to indicate loading state
 4. **Loading Indicator (Optional)**
 
    - Shows **visual feedback** while fetching new content
@@ -157,8 +156,7 @@ Shows placeholder content while real content loads.
 - Announce new content to screen readers (`aria-live="polite"`)
 - Give feedback (loading indicators) to show content retrieval
 - **Keep keyboard focus logical** – After clicking Load More, focus shifts **to the newly loaded content**, not back to the button
-- **Alert assistive technologies** – `aria-live="polite"` tells screen reader users that additional items loaded
-
+- **Alert assistive technologies** – `aria-live="polite"` tells [screen reader](/glossary/screen-reader) users that additional items loaded
 **Don'ts ❌**
 
 - Keep focus on the **Load More** button after clicking (skip `disabled`)
@@ -551,16 +549,14 @@ Based on usability studies, users expect:
 - **Initial button render**: < 50ms after page load
 - **Loading state feedback**: < 100ms after click (immediate visual response)
 - **Content fetch time**: 200-500ms for typical batch (10-20 items)
-- **DOM update after fetch**: < 100ms for smooth insertion
+- **[DOM](/glossary/dom) update after fetch**: < 100ms for smooth insertion
 - **Total time to new content visible**: < 600ms ideal, < 1000ms acceptable
-
 **Memory Considerations:**
 
 - **Items per batch**: 10-20 items optimal (balance between requests and memory)
 - **DOM nodes**: Monitor total count, consider virtualization after 100+ items
-- **Image lazy loading**: Load images only when approaching [viewport](/glossary/viewport)
+- **Image [lazy loading](/glossary/lazy-loading)**: Load images only when approaching [viewport](/glossary/viewport)
 - **Previous content**: Keep in DOM for scroll position preservation
-
 **Network Optimization:**
 
 - **Prefetch next batch**: Start loading when user is 80% through current content
@@ -581,8 +577,7 @@ Based on usability studies, users expect:
 - Use progressive enhancement to allow content visibility even if JavaScript is disabled.
 - Provide a paginated alternative if necessary for deep content navigation.
 - Ensure that dynamically loaded content is **crawlable by search engines** by using progressive enhancement techniques or **server-side rendering**.
-- If SEO visibility is a priority, consider **implementing paginated URLs** as a fallback to allow search engines to index all content properly.
-
+- If SEO visibility is a priority, consider **implementing paginated URLs** as a fallback to allow search engines to [index](/glossary/index) all content properly.
 ## [Design Tokens](/glossary/design-tokens)
 
 These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
@@ -654,7 +649,6 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
 
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
 - [MDN Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) - Viewport observation for lazy loading, infinite lists, and progressive reveal patterns.
-
 ### Guides
 
 - [web.dev: Virtualize large lists](https://web.dev/articles/virtualize-long-lists-react-window) - Rendering and scrolling guidance for large result sets, feeds, and data-heavy interfaces.

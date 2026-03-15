@@ -1,5 +1,5 @@
 ---
-name: Breadcrumb
+name: breadcrumb
 description: "Use when implementing help users understand their current location."
 metadata:
   id: breadcrumb
@@ -50,7 +50,7 @@ Use **Breadcrumbs** to **show users their location within a website's structure 
 - Use `<nav>` with `aria-label="Breadcrumb"` for landmark navigation
 - Mark current page with `aria-current="page"`
 - Use ordered list `<ol>` to convey sequence
-- Ensure keyboard navigation with visible focus indicators
+- Ensure [keyboard navigation](/glossary/keyboard-navigation) with visible focus indicators
 - Provide skip links for lengthy breadcrumb trails
 - Announce dynamic breadcrumb updates to screen readers
 **Don'ts ❌**
@@ -66,7 +66,7 @@ Target performance metrics for breadcrumb navigation:
 - **Bundle size**: < 5KB for breadcrumb component with styles
 - **Memory usage**: < 1MB for complex breadcrumb trails
 ### Optimization Strategies
-**Lazy Loading for Deep Hierarchies**
+**[Lazy Loading](/glossary/lazy-loading) for Deep Hierarchies**
 ```javascript
 // Load intermediate levels only when needed
 const BreadcrumbTrail = ({ path }) => {

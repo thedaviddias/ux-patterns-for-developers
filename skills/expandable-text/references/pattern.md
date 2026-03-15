@@ -72,9 +72,8 @@ E[Hidden Content] -->|Expands| F[Visible Content]
 2. **Content Section**
 
 - Contains the **expandable/collapsible** text.
-- Remains in the **DOM at all times** to maintain accessibility.
+- Remains in the **[DOM](/glossary/dom) at all times** to maintain accessibility.
 - Should be **visually styled** to clearly indicate expandable behavior.
-
 3. **Hidden Content**
 
 - The part of the text that is **initially collapsed**.
@@ -149,8 +148,7 @@ E[Hidden Content] -->|Expands| F[Visible Content]
 
 - Don't rely on color alone to indicate the expanded state.
 - Don't remove focus styles on the trigger button.
-- Don't make expandable content difficult to navigate for screen reader users.
-
+- Don't make expandable content difficult to navigate for [screen reader](/glossary/screen-reader) users.
 ### Visual Design
 
 **Do's ✅**
@@ -255,8 +253,7 @@ By continuously monitoring these metrics, we can refine expandable text usabilit
 
 ### ARIA Attributes
 
-**Required ARIA attributes:**
-
+**Required [ARIA attributes](/glossary/aria-attributes):**
 - `aria-expanded="false"` on the button (updated dynamically).
 - `aria-controls="id-of-content"` to link the button to the expandable content.
 - `hidden` attribute on the expandable content when collapsed.
@@ -268,9 +265,8 @@ By continuously monitoring these metrics, we can refine expandable text usabilit
 
 ## SEO
 
-- Ensure that expandable text is still **present in the DOM** so search engines can index it.
+- Ensure that expandable text is still **present in the DOM** so search engines can [index](/glossary/index) it.
 - Avoid hiding critical content that users or crawlers need upfront.
-
 ## Testing Guidelines
 
 ### Functional Testing
@@ -294,8 +290,7 @@ By continuously monitoring these metrics, we can refine expandable text usabilit
 - [ ] Ensure `aria-expanded` updates dynamically and is announced correctly.
 - [ ] Check that **expanded content is navigable via keyboard** and follows logical tab order.
 - [ ] Validate that expandable content does **not rely solely on color** for visual cues.
-- [ ] Confirm that **touch targets** meet WCAG guidelines (minimum 44x44px).
-
+- [ ] Confirm that **[touch targets](/glossary/touch-targets)** meet WCAG guidelines (minimum 44x44px).
 ### Visual Testing
 
 **Should ✓**

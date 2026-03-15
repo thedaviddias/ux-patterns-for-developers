@@ -1,5 +1,5 @@
 ---
-name: Time Input
+name: time-input
 description: "Use when implementing enter time in a structured format."
 metadata:
   id: time-input

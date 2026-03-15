@@ -1,5 +1,5 @@
 ---
-name: Response Feedback
+name: response-feedback
 description: "Use when implementing feedback mechanisms for AI responses."
 metadata:
   id: response-feedback

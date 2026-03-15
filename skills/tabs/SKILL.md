@@ -1,5 +1,5 @@
 ---
-name: Tabs
+name: tabs
 description: "Use when you need to switch between different views."
 metadata:
   id: tabs

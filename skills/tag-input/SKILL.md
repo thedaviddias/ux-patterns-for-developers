@@ -1,5 +1,5 @@
 ---
-name: Tag Input
+name: tag-input
 description: "Use when implementing enter and format tags."
 metadata:
   id: tag-input

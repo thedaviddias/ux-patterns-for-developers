@@ -120,10 +120,9 @@ B -.->|separator| C[Current Page]
 - Use `<nav>` with `aria-label="Breadcrumb"` for landmark navigation
 - Mark current page with `aria-current="page"`
 - Use ordered list `<ol>` to convey sequence
-- Ensure keyboard navigation with visible focus indicators
+- Ensure [keyboard navigation](/glossary/keyboard-navigation) with visible focus indicators
 - Provide skip links for lengthy breadcrumb trails
 - Announce dynamic breadcrumb updates to screen readers
-
 **Don'ts ❌**
 
 - Don't make the current page title clickable
@@ -262,8 +261,7 @@ Use progressive disclosure or collapsed breadcrumbs on mobile to show only essen
 
 ### Missing Semantic Markup
 **The Problem:**
-Using generic divs without proper ARIA labels breaks screen reader navigation.
-
+Using generic divs without proper ARIA labels breaks [screen reader](/glossary/screen-reader) navigation.
 ```html
 <!-- Bad -->
 <div class="breadcrumb">...</div>
@@ -275,8 +273,7 @@ Using generic divs without proper ARIA labels breaks screen reader navigation.
 ```
 
 **How to Fix It:**
-Use semantic HTML with `<nav>` and `<ol>` elements, plus proper ARIA labels for accessibility.
-
+Use [semantic HTML](/glossary/semantic-html) with `<nav>` and `<ol>` elements, plus proper ARIA labels for accessibility.
 ## Tracking
 
 Tracking breadcrumb interactions helps measure how users navigate through a site, whether they rely on breadcrumbs for backtracking, and if they help reduce friction in multi-level navigation. By analyzing usage patterns, we can optimize the breadcrumb structure and placement.
@@ -357,7 +354,8 @@ Target performance metrics for breadcrumb navigation:
 
 ### Optimization Strategies
 
-**Lazy Loading for Deep Hierarchies**
+**[Lazy Loading](/glossary/lazy-loading) for Deep Hierarchies**
+
 ```javascript
 // Load intermediate levels only when needed
 const BreadcrumbTrail = ({ path }) => {

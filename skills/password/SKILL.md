@@ -1,5 +1,5 @@
 ---
-name: Password
+name: password
 description: "Use when implementing secure password entry with feedback."
 metadata:
   id: password

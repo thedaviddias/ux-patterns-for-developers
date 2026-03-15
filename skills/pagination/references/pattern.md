@@ -12,14 +12,13 @@
 **[Pagination](/glossary/pagination)** divides large content collections into manageable chunks or pages.
 Users navigate through data sets, search results, or product listings without getting overwhelmed by too much information at once.
 
-Pagination works well, but consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain content types. Your choice between pagination and infinite scroll depends on content nature, user behavior, and interface goals.
+[Pagination](/glossary/pagination) works well, but consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain content types. Your choice between pagination and infinite scroll depends on content nature, user behavior, and interface goals.
 
 ## Use Cases
 
 ### When to use:
 
-Use pagination when content needs structured, progressive loading for smoother user experience and better performance.
-
+Use pagination when content needs structured, [progressive loading](/glossary/progressive-loading) for smoother user experience and better performance.
 Pagination helps users navigate large information sets without getting overwhelmed.
 
 **Common scenarios include:**
@@ -71,8 +70,7 @@ A --> G[Last Page Button - Optional]
 
 - Wraps all pagination controls
 - Manages layout and spacing
-- Handles ARIA labeling and keyboard navigation
-
+- Handles ARIA labeling and [keyboard navigation](/glossary/keyboard-navigation)
 2. **Previous Button**
 
 - Navigates to the preceding page
@@ -282,8 +280,7 @@ This example demonstrates:
 - Never make interactive elements too small for mobile tapping
 - Skip decorative styles that hurt content readability
 - Avoid blocking entire page interaction during loading unless necessary
-- Don't add separator elements to the DOM; render separators with CSS pseudo-elements instead
-
+- Don't add separator elements to the [DOM](/glossary/dom); render separators with CSS pseudo-elements instead
 ### Layout & Positioning
 
 **Do's ✅**
@@ -325,8 +322,7 @@ Distinguish the active page with contrasting colors, borders, or size.
 Page numbers and controls are too small for easy clicking, especially on mobile.
 
 **How to Fix It:**
-Use minimum 44x44px touch targets with adequate spacing between elements.
-
+Use minimum 44x44px [touch targets](/glossary/touch-targets) with adequate spacing between elements.
 ---
 
 ### **No Keyboard Navigation**
@@ -343,8 +339,7 @@ Add full keyboard support with Tab navigation and Enter/Space activation.
 Page changes trigger unexpected scroll to top, disorienting users.
 
 **How to Fix It:**
-Keep scroll position or smoothly animate to top with clear indication. Use `scroll-behavior: smooth` or JavaScript smooth scrolling, and announce page changes via ARIA live regions to inform users of the navigation change.
-
+Keep scroll position or smoothly animate to top with clear indication. Use `scroll-behavior: smooth` or JavaScript smooth scrolling, and announce page changes via ARIA [live regions](/glossary/live-regions) to inform users of the navigation change.
 ### **Poor Mobile Adaptation**
 **The Problem:**
 Desktop pagination with many page numbers fails on mobile.
@@ -587,8 +582,7 @@ The following table outlines the standard keyboard interactions for pagination c
 
 ## Design Tokens
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
-
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 ### Pagination Tokens in DTF Format
 
 ```json
@@ -619,7 +613,6 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
     },
   ]}
 />
-
 ## Related Patterns
 
 ## Resources

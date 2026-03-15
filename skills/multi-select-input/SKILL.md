@@ -1,5 +1,5 @@
 ---
-name: Multi-select Input
+name: multi-select-input
 description: "Use when you need to choose multiple items from a list."
 metadata:
   id: multi-select-input

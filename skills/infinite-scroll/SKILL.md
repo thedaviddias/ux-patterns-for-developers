@@ -1,5 +1,5 @@
 ---
-name: Infinite scroll
+name: infinite-scroll
 description: "Use when implementing loads additional content automatically as users scroll down."
 metadata:
   id: infinite-scroll
@@ -16,7 +16,7 @@ Loads additional content automatically as users scroll down.
 
 ## What it solves
 
-**Infinite Scroll** is a UI pattern that dynamically loads more content as users scroll down a page, eliminating the need for pagination or manual interaction. It provides a seamless browsing experience by continuously appending new items to the current view.
+**Infinite Scroll** is a UI pattern that dynamically loads more content as users scroll down a page, eliminating the need for [pagination](/glossary/pagination) or manual interaction. It provides a seamless browsing experience by continuously appending new items to the current view.
 This pattern is commonly used in **social media feeds, search results, and content-heavy websites** to keep users engaged without interruptions.
 
 ## When to use
@@ -47,7 +47,7 @@ Use Infinite Scroll when you need to dynamically load more content as users scro
 ## Accessibility guardrails
 
 **Do's ✅**
-- **Ensure content is focusable** – New items should be reachable via keyboard navigation.
+- **Ensure content is focusable** – New items should be reachable via [keyboard navigation](/glossary/keyboard-navigation).
 - **Announce new content dynamically** using ARIA [live regions](/glossary/live-regions) (`aria-live="polite"`).
 - **Provide an alternative to infinite scrolling** – Offer pagination or a "Load More" option.
 - **Ensure users can pause or stop loading** – Unexpected content updates can be disorienting.
@@ -57,7 +57,6 @@ Use Infinite Scroll when you need to dynamically load more content as users scro
 
 ## Related patterns
 
-- https://uxpatterns.dev/patterns/navigation/back-to-top
 - https://uxpatterns.dev/patterns/navigation/load-more
 - https://uxpatterns.dev/patterns/navigation/pagination
 

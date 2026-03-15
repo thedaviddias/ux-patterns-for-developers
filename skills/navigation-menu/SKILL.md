@@ -1,5 +1,5 @@
 ---
-name: Navigation Menu
+name: navigation-menu
 description: "Use when you need to organize and structure site navigation."
 metadata:
   id: navigation-menu
@@ -17,7 +17,7 @@ Organize and structure site navigation
 ## What it solves
 
 **Navigation Menu** is the primary horizontal or vertical bar of links that helps users move between the main sections of a website or application. It is the backbone of site architecture, giving users a persistent map of what the site offers and where they currently are.
-A well-built navigation menu balances visibility, hierarchy, and responsiveness — always adapting to viewport size while remaining accessible to keyboard and screen reader users.
+A well-built navigation menu balances visibility, hierarchy, and responsiveness — always adapting to [viewport](/glossary/viewport) size while remaining accessible to keyboard and [screen reader](/glossary/screen-reader) users.
 
 ## When to use
 
@@ -65,15 +65,9 @@ Use **Navigation Menu** to **provide persistent, structured access to the main s
 - **Bundle size:** < 3KB for navigation component with styles
 - **Layout shift:** CLS of 0 — navigation should never shift after initial render
 ### Optimization Strategies
-**Semantic HTML (No JS Needed for Basic Nav)**
-```html
+**[Semantic HTML](/glossary/semantic-html) (No JS Needed for Basic Nav)**```html
 <nav aria-label="Main navigation">
   <ul>
-    <li><a href="/" aria-current="page">Home</a></li>
-    <li><a href="/about">About</a></li>
-  </ul>
-</nav>
-```
 
 ## Common mistakes
 

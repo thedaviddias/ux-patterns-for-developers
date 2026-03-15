@@ -1,5 +1,5 @@
 ---
-name: Selection Input
+name: selection-input
 description: "Use when you need to choose from predefined options."
 metadata:
   id: selection-input
@@ -42,15 +42,11 @@ The selected option is typically displayed in a single-line text field, with the
 
 ## Accessibility guardrails
 
-**Do's ✅**
-- Ensure the selection input is keyboard accessible (arrow keys to navigate, Enter to select)
-- Provide a clear focus state for the text field and individual options
-- Use ARIA attributes to communicate the component's state and purpose
-- Allow users to filter or search the list of options if the list is long
-**Don'ts ❌**
-- Don't rely solely on color to convey the state or purpose of the component
-- Avoid using auto-selection or auto-submission when an option is highlighted
-- Don't change the order or content of options unexpectedly
+- Use a visible label connected to the control via `for`/`id`.
+- Prefer native `<select>` for simple cases to inherit built-in accessibility.
+- Provide group labels for long lists (`<optgroup>`) and descriptive helper text when needed.
+- Keep focus indicators highly visible and maintain sufficient text/background contrast.
+- Announce validation and error states using `aria-invalid` and `aria-describedby`.
 
 ## Related patterns
 

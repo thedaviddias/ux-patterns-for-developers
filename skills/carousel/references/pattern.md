@@ -48,10 +48,9 @@ Use carousels to display **related content or images in limited space** while ke
 
 - **Low engagement rates** – users often ignore or miss slides
 - **Performance-heavy** – especially with large images or auto-rotation
-- **Accessibility issues** – particularly for keyboard and screen reader users
+- **Accessibility issues** – particularly for keyboard and [screen reader](/glossary/screen-reader) users
 - **Poor for critical content** – users might not interact with all slides
 - **Auto-rotation frustrates** – especially without pause control
-
 ## Anatomy
 
 ```mermaid
@@ -103,8 +102,7 @@ graph TD
 - Typically placed on the left and right sides of the carousel
 - Should have clear hover and focus states for accessibility
 
-5. **Pagination Dots**
-
+5. **[Pagination](/glossary/pagination) Dots**
 - Indicate the total number of slides and the current active slide
 - Allow users to quickly jump to a specific slide
 - Often placed below the carousel content for easy access
@@ -263,9 +261,8 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 - Don't load **off-screen images immediately**—defer loading until they are about to be displayed.
 - Avoid **complex animations** that trigger layout recalculations (e.g., changing `width` or `height` dynamically).
 - Don't overuse **box shadows and filters**, as they can slow down rendering performance.
-- Avoid **large DOM structures**—if the carousel contains many slides, use virtualized rendering.
+- Avoid **large [DOM](/glossary/dom) structures**—if the carousel contains many slides, use virtualized rendering.
 - Don't use **excessive animations** that could impact performance on lower-powered devices.
-
 ## Common Mistakes & Anti-Patterns 🚫
 
 ### Auto-Play Without Controls
@@ -303,8 +300,7 @@ The Grouped Carousel displays multiple items simultaneously, allowing users to b
 
 **The Problem:** If navigation buttons and slides lack descriptive labels, screen readers can't convey their function or content.
 
-**How to Fix It?** Use attributes like `aria-label="Next slide"` on arrows and `aria-roledescription="carousel"` on the container. For Tabbed Carousels, the slide panels use `role="tabpanel"` (see "ARIA Attributes for Tabbed Carousels"); for standard carousels, treat slides as groups with clear labels (e.g., "Slide 2 of 5").
-
+**How to Fix It?** Use attributes like `aria-label="Next slide"` on arrows and `aria-roledescription="carousel"` on the container. For Tabbed Carousels, the slide panels use `role="tabpanel"` (see "[ARIA Attributes](/glossary/aria-attributes) for Tabbed Carousels"); for standard carousels, treat slides as groups with clear labels (e.g., "Slide 2 of 5").
 ---
 
 ### No Clear Focus Indicator
@@ -717,12 +713,11 @@ Research shows that users:
 
 - Ensure all slide content is present in the DOM for crawlability
 - Avoid lazy loading the first slide's content
-- Use semantic HTML for better content understanding
+- Use [semantic HTML](/glossary/semantic-html) for better content understanding
 - Include descriptive alt text for all images
 - Implement structured data for carousel content when applicable
 - Ensure content is accessible without JavaScript
 - Avoid hiding important SEO content in later slides
-
 ## Performance Metrics
 
 Target performance metrics for carousels:

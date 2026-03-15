@@ -1,5 +1,5 @@
 ---
-name: Password Reset
+name: password-reset
 description: "Use when implementing password recovery and reset flows."
 metadata:
   id: password-reset

@@ -1,5 +1,5 @@
 ---
-name: Phone Number
+name: phone-number
 description: "Use when implementing format and validate phone numbers."
 metadata:
   id: phone-number

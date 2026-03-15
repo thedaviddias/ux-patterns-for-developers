@@ -1,5 +1,5 @@
 ---
-name: Model Selector
+name: model-selector
 description: "Use when implementing aI model selection interface."
 metadata:
   id: model-selector

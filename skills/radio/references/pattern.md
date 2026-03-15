@@ -18,9 +18,8 @@ Radio buttons are essential for forms where users must make a single choice from
 - **Mutually Exclusive**: Only one option can be selected at a time
 - **Grouped Behavior**: All radio buttons with the same `name` attribute work together
 - **Keyboard Accessible**: Navigate with arrow keys, select with Space
-- **Screen Reader Friendly**: Properly announced with current selection state
+- **[Screen Reader](/glossary/screen-reader) Friendly**: Properly announced with current selection state
 - **Visual Feedback**: Clear indication of selected vs unselected states
-
 ## Use Cases
 
 ### ✅ **Do Use Radio Buttons For:**
@@ -79,16 +78,14 @@ Radio buttons are essential for forms where users must make a single choice from
 
 - **Proper Labels**: Associate each radio button with a descriptive label
 - **Keyboard Navigation**: Ensure arrow keys work for navigation within the group
-- **Screen Reader Support**: Use proper ARIA attributes and semantic HTML
+- **Screen Reader Support**: Use proper ARIA attributes and [semantic HTML](/glossary/semantic-html)
 - **Focus Management**: Provide clear visual focus indicators
-
 ### **Visual Design**
 
 - **Clear States**: Distinguish between selected, unselected, and disabled states
 - **Adequate Spacing**: Provide enough space between options for easy selection
-- **Touch Targets**: Ensure minimum 44x44px touch targets on mobile
+- **[Touch Targets](/glossary/touch-targets)**: Ensure minimum 44x44px touch targets on mobile
 - **Color Contrast**: Meet WCAG contrast requirements for all states
-
 ### **User Experience**
 
 - **Default Selection**: Consider pre-selecting the most common option
@@ -391,8 +388,7 @@ By continuously monitoring these metrics, we can refine radio button usability a
 
 ## Design Tokens
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
-
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 ```json
 {
   "$schema": "https://design-tokens.org/schema.json",

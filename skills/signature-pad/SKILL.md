@@ -1,5 +1,5 @@
 ---
-name: Signature Pad
+name: signature-pad
 description: "Use when implementing allow users to sign their name."
 metadata:
   id: signature-pad

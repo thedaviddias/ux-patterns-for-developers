@@ -346,8 +346,7 @@ Complete hue/saturation/lightness canvas-based picker (typically implemented via
 - Show a **checkerboard background** behind transparent/alpha colors.
 - Use a **clear selected indicator** on swatches (ring, checkmark, or border).
 - Maintain **4.5:1 contrast** between the swatch label/hex text and background.
-- Size swatches at least **32×32px** for comfortable clicking, **44×44px** for touch targets.
-
+- Size swatches at least **32×32px** for comfortable clicking, **44×44px** for [touch targets](/glossary/touch-targets).
 **Don'ts ❌**
 
 - Don't use very thin borders as the only selected indicator on swatches.
@@ -360,10 +359,9 @@ Complete hue/saturation/lightness canvas-based picker (typically implemented via
 
 **Do's ✅**
 
-- Position the picker panel using smart positioning (flip above if below overflows viewport).
+- Position the picker panel using smart positioning (flip above if below overflows [viewport](/glossary/viewport)).
 - Keep the panel compact on mobile — a full-width bottom sheet works well.
 - Close the panel when focus leaves the component entirely.
-
 **Don'ts ❌**
 
 - Don't let the panel overflow the viewport without scrolling.
@@ -374,8 +372,7 @@ Complete hue/saturation/lightness canvas-based picker (typically implemented via
 ### Relying Solely on Canvas for Color Selection
 
 **The Problem:**
-A canvas-only hue/saturation picker is completely inaccessible to keyboard and screen reader users.
-
+A canvas-only hue/saturation picker is completely inaccessible to keyboard and [screen reader](/glossary/screen-reader) users.
 **How to Fix It?** Always pair canvas controls with equivalent `range` inputs or text inputs.
 
 ```html
@@ -622,9 +619,8 @@ If users only need to choose from 8 brand colors, launching a full color wheel i
 
 **Should ✓**
 
-- [ ] Hex input sanitizes entered values before applying to the DOM (prevent CSS injection via `style` attribute).
+- [ ] Hex input sanitizes entered values before applying to the [DOM](/glossary/dom) (prevent CSS injection via `style` attribute).
 - [ ] Eyedropper usage does not expose sensitive screen content to untrusted origins.
-
 ---
 
 ### Mobile & Touch Testing

@@ -1,5 +1,5 @@
 ---
-name: Account Settings
+name: account-settings
 description: "Use when implementing user account configuration and preferences."
 metadata:
   id: account-settings

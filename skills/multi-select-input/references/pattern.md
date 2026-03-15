@@ -335,9 +335,8 @@ For selections that include additional metadata (e.g., avatars for user selectio
 
 - Allow the tag container to grow vertically as more items are selected (wrap tags to new lines).
 - Position the dropdown directly below the input area, aligned to its left edge.
-- Use smart positioning: flip dropdown above the input if it would overflow below the viewport.
+- Use smart positioning: flip dropdown above the input if it would overflow below the [viewport](/glossary/viewport).
 - On mobile, use a bottom sheet or modal for the option list.
-
 **Don'ts ❌**
 
 - Don't let the tag container grow unboundedly without a max height and scroll.
@@ -452,9 +451,8 @@ function focusOption(optionElement) {
 ```
 
 ### Tag Removal Animation
-- **Effect:** Tag shrinks and fades out before being removed from the DOM
+- **Effect:** Tag shrinks and fades out before being removed from the [DOM](/glossary/dom)
 - **Timing:** 100ms ease-in
-
 ```css
 @keyframes tag-disappear {
   to { opacity: 0; transform: scale(0.85); width: 0; padding: 0; margin: 0; }
@@ -606,14 +604,13 @@ function focusOption(optionElement) {
 
 **Should ✓**
 
-- [ ] Screen reader announces each option as selected/deselected when toggled.
+- [ ] [Screen reader](/glossary/screen-reader) announces each option as selected/deselected when toggled.
 - [ ] `aria-activedescendant` updates as keyboard focus moves through options.
 - [ ] Tags have an announced remove button ("Remove [name]").
 - [ ] `aria-live` region announces the total count when it changes.
 - [ ] The dropdown has `role="listbox"` with `aria-multiselectable="true"`.
 - [ ] All options have `role="option"` with `aria-selected="true/false"`.
 - [ ] Component is navigable with keyboard only (no mouse required).
-
 ---
 
 ### Performance Testing

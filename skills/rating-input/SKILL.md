@@ -1,5 +1,5 @@
 ---
-name: Rating Input
+name: rating-input
 description: "Use when implementing rate something with a number of stars."
 metadata:
   id: rating-input

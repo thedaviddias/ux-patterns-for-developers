@@ -1,5 +1,5 @@
 ---
-name: Comment System
+name: comment-system
 description: "Use when implementing user comments and discussion threads."
 metadata:
   id: comment-system

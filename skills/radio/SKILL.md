@@ -1,5 +1,5 @@
 ---
-name: Radio Button
+name: radio
 description: "Use when implementing select a single option from a group."
 metadata:
   id: radio
@@ -22,7 +22,7 @@ Radio buttons are essential for forms where users must make a single choice from
 - **Mutually Exclusive**: Only one option can be selected at a time
 - **Grouped Behavior**: All radio buttons with the same `name` attribute work together
 - **Keyboard Accessible**: Navigate with arrow keys, select with Space
-- **Screen Reader Friendly**: Properly announced with current selection state
+- **[Screen Reader](/glossary/screen-reader) Friendly**: Properly announced with current selection state
 - **Visual Feedback**: Clear indication of selected vs unselected states
 
 ## Implementation workflow

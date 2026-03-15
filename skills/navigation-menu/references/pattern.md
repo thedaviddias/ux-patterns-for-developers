@@ -11,8 +11,7 @@
 
 **Navigation Menu** is the primary horizontal or vertical bar of links that helps users move between the main sections of a website or application. It is the backbone of site architecture, giving users a persistent map of what the site offers and where they currently are.
 
-A well-built navigation menu balances visibility, hierarchy, and responsiveness — always adapting to viewport size while remaining accessible to keyboard and screen reader users.
-
+A well-built navigation menu balances visibility, hierarchy, and responsiveness — always adapting to [viewport](/glossary/viewport) size while remaining accessible to keyboard and [screen reader](/glossary/screen-reader) users.
 ## Use Cases
 
 ### When to use:
@@ -268,10 +267,9 @@ Horizontal on desktop, collapses into a [hamburger menu](/patterns/navigation/ha
 **Do's ✅**
 
 - Collapse the navigation into a [hamburger menu](/patterns/navigation/hambuger-menu) on mobile
-- Ensure touch targets are at least 44×44px
+- Ensure [touch targets](/glossary/touch-targets) are at least 44×44px
 - Use tap-to-expand for dropdown items on touch devices
 - Provide a clear visual toggle button to reveal collapsed navigation
-
 **Don'ts ❌**
 
 - Don't attempt to display a full horizontal navigation bar on mobile screens
@@ -358,9 +356,8 @@ Add `aria-label="Main navigation"` and `aria-label="Utility navigation"` to each
 ### Active Item Indicator
 - **Effect:** An underline or bar slides to the active item position
 - **Timing:** 250ms ease-in-out
-- **Trigger:** Route change or page navigation
+- **Trigger:** Route change or [page navigation](/glossary/pagination)
 - **Implementation:** CSS transition on a pseudo-element's width/position
-
 ### Hover Highlight
 - **Effect:** Background color fills subtly behind the hovered item
 - **Timing:** 100ms ease
@@ -477,8 +474,7 @@ Add `aria-label="Main navigation"` and `aria-label="Utility navigation"` to each
 
 ### Optimization Strategies
 
-**Semantic HTML (No JS Needed for Basic Nav)**
-```html
+**[Semantic HTML](/glossary/semantic-html) (No JS Needed for Basic Nav)**```html
 <nav aria-label="Main navigation">
   <ul>
     <li><a href="/" aria-current="page">Home</a></li>

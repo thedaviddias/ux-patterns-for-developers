@@ -1,5 +1,5 @@
 ---
-name: Autocomplete
+name: autocomplete
 description: "Use when implementing suggest options as users type."
 metadata:
   id: autocomplete
@@ -44,16 +44,17 @@ Autocomplete combines [text input](/patterns/forms/text-field) flexibility with 
 
 ## Accessibility guardrails
 
-**Do's ✅**
-- Use `aria-controls`, `aria-autocomplete`, and other relevant ARIA attributes to help screen readers
-- Include a visually hidden label or descriptive text if you rely on an icon-only clear button
-- Add a debounce delay to the input field to avoid triggering a fetch request too often
-**Don'ts ❌**
-- Don't remove focus outlines without providing alternative focus indicators
-- Don't assume all users can use a mouse; ensure keyboard navigation works properly
+- Ensure the input is labeled and announced as a combobox (`role="combobox"`, `aria-expanded`, `aria-controls`).
+- Support full keyboard interaction: `ArrowUp/ArrowDown`, `Enter`, `Escape`, and `Tab`.
+- Expose active option context with `aria-activedescendant` and stable option IDs.
+- Announce loading, empty, and error states to screen readers.
+- Keep suggestions readable with strong contrast and visible focus styles.
 
 ## Related patterns
 
+- https://uxpatterns.dev/patterns/autocomplete/do-dont-accessibility-1
+- https://uxpatterns.dev/patterns/autocomplete/do-dont-content-1
+- https://uxpatterns.dev/patterns/autocomplete/do-dont-visual-design-2
 - https://uxpatterns.dev/patterns/forms/date-picker
 - https://uxpatterns.dev/patterns/forms/multi-select-input
 - https://uxpatterns.dev/patterns/forms/text-field

@@ -1,5 +1,5 @@
 ---
-name: Modal
+name: modal
 description: "Use when you need to display focused content or actions."
 metadata:
   id: modal
@@ -82,7 +82,6 @@ Add a **focus trap** inside the modal and prevent background interaction until i
 
 ## Related patterns
 
-- https://uxpatterns.dev/patterns/content-management/accordion
 - https://uxpatterns.dev/patterns/content-management/popover
 - https://uxpatterns.dev/patterns/content-management/tooltip
 - https://uxpatterns.dev/patterns/user-feedback/loading-indicator

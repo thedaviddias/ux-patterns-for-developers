@@ -1,5 +1,5 @@
 ---
-name: Loading Indicator
+name: loading-indicator
 description: "Use when implementing show users that content is being loaded."
 metadata:
   id: loading-indicator
@@ -72,8 +72,7 @@ Pick the lightest possible feedback for the wait length and keep the pattern hon
 ### **Skipping announcement strategy**
 
 **The Problem:**
-Screen reader users miss transient changes when live-region behavior is inconsistent or absent.
-
+[Screen reader](/glossary/screen-reader) users miss transient changes when live-region behavior is inconsistent or absent.
 **How to Fix It?**
 Define how each state is announced and test polite versus assertive updates with real assistive technology.
 

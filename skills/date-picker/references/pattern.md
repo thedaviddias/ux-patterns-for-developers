@@ -41,12 +41,10 @@ Unlike a [Date Input](/patterns/forms/date-input) (which is optimized for direct
 ## Drawbacks
 
 - **Slower for known dates** – Navigating a calendar to a known date takes more time than typing.
-- **Complex implementation** – Focus management, keyboard navigation, and ARIA roles are non-trivial.
-- **Modal/overlay complexity** – Popup positioning, z-index management, and dismissal logic.
+- **Complex implementation** – Focus management, [keyboard navigation](/glossary/keyboard-navigation), and ARIA roles are non-trivial.
+- **Modal/overlay complexity** – Popup positioning, z-[index](/glossary/index) management, and dismissal logic.
 - **Accessibility burden** – Full ARIA Calendar grid pattern requires careful implementation.
-- **Mobile overlap** – Competes with the native date picker experience on mobile.
-
-## Anatomy
+- **Mobile overlap** – Competes with the native date picker experience on mobile.## Anatomy
 
 ```mermaid
 graph TD
@@ -336,8 +334,7 @@ For dedicated date selection screens where a popup isn't needed.
 - Position the calendar popup below the input by default; flip above when space is limited.
 - Align the popup left-edge with the input field (or right-edge in RTL).
 - On mobile, use a bottom sheet or full-width popup instead of a floating overlay.
-- Ensure the popup does not overflow the viewport.
-
+- Ensure the popup does not overflow the [viewport](/glossary/viewport).
 **Don'ts ❌**
 
 - Don't position the popup far from the input that triggered it.
@@ -371,8 +368,7 @@ calendarButton.addEventListener('keydown', (e) => {
 ### No Keyboard Navigation in Calendar Grid
 
 **The Problem:**
-A calendar that requires mouse interaction is inaccessible to keyboard and screen reader users.
-
+A calendar that requires mouse interaction is inaccessible to keyboard and [screen reader](/glossary/screen-reader) users.
 **How to Fix It?** Implement the full ARIA grid keyboard navigation pattern.
 
 ```javascript
@@ -602,8 +598,7 @@ Always use `Intl.Locale` or a locale database to determine the correct first day
 - **Month navigation**: < 50ms to render new month grid
 - **Day selection**: < 16ms from click to input update and popup close
 - **Memory usage**: < 20KB per date picker instance
-- **DOM size**: < 50 nodes for a single month calendar grid
-
+- **[DOM](/glossary/dom) size**: < 50 nodes for a single month calendar grid
 ## Testing Guidelines
 
 ### Functional Testing
@@ -660,10 +655,9 @@ Always use `Intl.Locale` or a locale database to determine the correct first day
 **Should ✓**
 
 - [ ] Calendar popup opens as a bottom sheet on small screens.
-- [ ] Day cells have touch targets of at least 44×44px.
+- [ ] Day cells have [touch targets](/glossary/touch-targets) of at least 44×44px.
 - [ ] The calendar is usable on screens as narrow as 320px.
 - [ ] Swipe gestures are considered for month navigation (optional).
-
 ---
 
 ### Edge Cases

@@ -1,5 +1,5 @@
 ---
-name: Image Gallery
+name: image-gallery
 description: "Use when you need to display and browse image collections."
 metadata:
   id: image-gallery

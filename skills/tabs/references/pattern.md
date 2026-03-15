@@ -294,9 +294,8 @@ Tabs that synchronize the active tab with a URL hash or query parameter for deep
 
 - Don't use Tab key to navigate between tabs — Arrow keys are the correct pattern per WAI-ARIA
 - Don't use links (`<a>`) for tabs unless they navigate to a different URL
-- Don't remove the panel from the DOM when hidden — use `hidden` attribute instead
+- Don't remove the panel from the [DOM](/glossary/dom) when hidden — use `hidden` attribute instead
 - Don't forget `aria-label` on the tablist to describe the tab group's purpose
-
 ### Visual Design
 
 **Do's ✅**
@@ -317,10 +316,9 @@ Tabs that synchronize the active tab with a URL hash or query parameter for deep
 **Do's ✅**
 
 - Make tab list horizontally scrollable when tabs overflow on mobile
-- Ensure touch targets are at least 44×44px
+- Ensure [touch targets](/glossary/touch-targets) are at least 44×44px
 - Show a subtle scroll indicator (gradient fade or arrow) to signal more tabs
 - Consider converting to an accordion on very narrow screens
-
 **Don'ts ❌**
 
 - Don't allow tab list to wrap to multiple lines — it breaks the tab metaphor
@@ -476,9 +474,8 @@ Use `hidden` attribute or `display: none` to hide panels instead of removing the
 - 🔄 **High Default Tab Retention?**
   → Most users only see the first tab. Ensure the most important content is there, or add visual hints about other tabs.
 
-- ♿ **Low Keyboard Navigation Rate?**
+- ♿ **Low [Keyboard Navigation](/glossary/keyboard-navigation) Rate?**
   → Arrow key navigation may not be implemented. Verify the ARIA tab pattern is correctly applied.
-
 - 📜 **High Scroll Discovery Rate?**
   → Too many tabs overflow the container. Consider grouping, using fewer tabs, or switching to a different pattern.
 
@@ -591,8 +588,7 @@ function LazyTabPanel({ isActive, children }) {
 - [ ] Hover state is visible on inactive tabs
 - [ ] Tab list and panel appear visually connected
 - [ ] Scrollable tabs show overflow indicators
-- [ ] Tab interface renders correctly across viewport sizes
-
+- [ ] Tab interface renders correctly across [viewport](/glossary/viewport) sizes
 ### Performance Testing
 
 **Should ✓**

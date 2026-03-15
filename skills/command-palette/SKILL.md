@@ -1,5 +1,5 @@
 ---
-name: Command Palette
+name: command-palette
 description: "Use when implementing quick command execution interface."
 metadata:
   id: command-palette
@@ -23,7 +23,7 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 - Editor and workspace commands
 - Settings and preference shortcuts
-- Object or page navigation for power users
+- Object or [page navigation](/glossary/pagination) for power users
 
 ## When to avoid
 

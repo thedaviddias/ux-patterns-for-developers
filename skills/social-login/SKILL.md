@@ -1,5 +1,5 @@
 ---
-name: Social Login
+name: social-login
 description: "Use when implementing oAuth and social media authentication."
 metadata:
   id: social-login

@@ -352,13 +352,12 @@ Data grouped by categories with collapsible sections.
 
 - Make **column headers clickable for sorting** with clear indicators
 - **Show sort direction** with intuitive icons (▲▼)
-- Support **keyboard navigation** (Tab, Arrow keys, Enter)
+- Support **[keyboard navigation](/glossary/keyboard-navigation)** (Tab, Arrow keys, Enter)
 - Enable **multi-select** with Shift+Click and Ctrl/Cmd+Click
 - **Persist user preferences** (sort, filter, columns) in localStorage
 - Provide **immediate visual feedback** for actions
 - Include **undo for bulk destructive actions**
 - Show **[Notifications](/patterns/user-feedback/notification)** for completed operations
-
 ```jsx
 // Good: Clear sort indicator
 <th onClick={handleSort} className="sortable">
@@ -387,9 +386,8 @@ Data grouped by categories with collapsible sections.
 - Use **horizontal scroll with frozen first column** for essential data
 - **Convert to stacked cards** on small screens
 - **Prioritize most important columns** on mobile
-- Make **touch targets at least 44x44px**
+- Make **[touch targets](/glossary/touch-targets) at least 44x44px**
 - Consider **accordion pattern** for row details
-
 ```jsx
 // Good: Mobile card view using Card Grid pattern
 <div className="md:hidden">
@@ -418,12 +416,11 @@ Data grouped by categories with collapsible sections.
 **Do's ✅**
 
 - Implement **virtual scrolling** for 100+ rows
-- Use **pagination or lazy loading** for large datasets
+- Use **pagination or [lazy loading](/glossary/lazy-loading)** for large datasets
 - **Debounce search/filter inputs** (300ms delay)
 - **Memoize expensive computations**
 - Show **[Skeleton](/patterns/user-feedback/skeleton) loading states** during data fetch
 - **Cache sorted/filtered results**
-
 ```jsx
 // Good: Debounced search
 const debouncedSearch = useMemo(
@@ -434,12 +431,11 @@ const debouncedSearch = useMemo(
 
 **Don'ts ❌**
 
-- **Don't render thousands of DOM nodes** at once
+- **Don't render thousands of [DOM](/glossary/dom) nodes** at once
 - Don't **re-sort/filter on every keystroke**
 - **Don't fetch all data upfront** for large datasets
 - Don't **block UI** during sort/filter operations
 - **Don't re-render entire table** for single cell updates
-
 ```jsx
 // Bad: No debouncing
 <input onChange={(e) => filterData(e.target.value)} />
@@ -449,14 +445,13 @@ const debouncedSearch = useMemo(
 
 **Do's ✅**
 
-- Use **semantic HTML table elements**
+- Use **[semantic HTML](/glossary/semantic-html) table elements**
 - Include **caption or aria-label** for table purpose
 - Add **scope attributes** to headers
 - Provide **aria-sort** on sortable columns
 - **Announce changes** to screen readers
 - Support **full keyboard navigation**
 - **Maintain focus** after actions
-
 ```html
 <!-- Good: Accessible table -->
 <table aria-label="User accounts">
@@ -523,10 +518,8 @@ Displaying a blank table when no data matches filters or searches leaves users c
 
 ### Poor Accessibility Structure
 **The Problem:**
-Using divs instead of semantic table elements or omitting proper ARIA attributes makes tables incomprehensible to screen reader users.
-
+Using divs instead of semantic table elements or omitting proper [ARIA attributes](/glossary/aria-attributes) makes tables incomprehensible to [screen reader](/glossary/screen-reader) users.
 **How to Fix It?** Use semantic HTML (`<table>`, `<thead>`, `<tbody>`), add **scope attributes** to headers, provide **ARIA labels** for the table and controls, and announce state changes (sorting, filtering) to assistive technologies.
-
 ## Micro-Interactions & Animations
 
 For a data table component, implement these specific animations to enhance user experience while maintaining performance:
@@ -637,8 +630,7 @@ By analyzing tracking data, we can optimize the table experience:
   → Users need features the table doesn't provide. Consider adding more in-table analysis tools.
 
 - 🔎 **Repeated Failed Searches?**
-  → Search might not index all necessary fields or users need fuzzy matching.
-
+  → Search might not [index](/glossary/index) all necessary fields or users need fuzzy matching.
 - 👁️ **Consistent Column Hiding?**
   → Some columns might be unnecessary by default. Consider progressive disclosure or user preferences.
 

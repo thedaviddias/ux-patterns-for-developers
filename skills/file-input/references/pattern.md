@@ -660,15 +660,13 @@ When a form with a file input fails server-side validation (e.g., a required tex
 
 **Should ✓**
 
-- [ ] Screen reader announces file name after selection via `aria-live`.
+- [ ] [Screen reader](/glossary/screen-reader) announces file name after selection via `aria-live`.
 - [ ] Drop zone is operable via keyboard (`Enter`/`Space`).
 - [ ] Remove buttons have `aria-label="Remove [filename]"`.
-- [ ] Progress bar has correct ARIA attributes (`role="progressbar"`, `aria-valuenow`).
+- [ ] Progress bar has correct [ARIA attributes](/glossary/aria-attributes) (`role="progressbar"`, `aria-valuenow`).
 - [ ] Error messages are announced via `aria-live="polite"` or `aria-live="assertive"`.
 - [ ] Focus is managed correctly after removing a file item.
-
 ---
-
 ### Performance Testing
 
 **Should ✓**
@@ -697,10 +695,9 @@ When a form with a file input fails server-side validation (e.g., a required tex
 **Should ✓**
 
 - [ ] File picker opens the correct source (camera, gallery, files) based on `accept` attribute.
-- [ ] Touch targets for remove buttons are at least 44×44px.
+- [ ] [Touch targets](/glossary/touch-targets) for remove buttons are at least 44×44px.
 - [ ] Drag-and-drop is gracefully skipped on mobile (where it's not natively supported).
 - [ ] File upload works correctly on iOS Safari and Android Chrome.
-
 ---
 
 ### Edge Cases

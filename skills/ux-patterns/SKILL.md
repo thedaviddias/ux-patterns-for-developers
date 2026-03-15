@@ -1,5 +1,5 @@
 ---
-name: "UX Patterns Global"
+name: ux-patterns
 description: "Use when choosing, comparing, or implementing UX patterns across the UX Patterns for Developers corpus."
 metadata:
   id: ux-patterns

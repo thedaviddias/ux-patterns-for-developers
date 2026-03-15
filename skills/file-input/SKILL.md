@@ -1,5 +1,5 @@
 ---
-name: File Input
+name: file-input
 description: "Use when you need to upload and handle files."
 metadata:
   id: file-input

@@ -1,5 +1,5 @@
 ---
-name: Text Field
+name: text-field
 description: "Use when implementing enter and edit text content."
 metadata:
   id: text-field

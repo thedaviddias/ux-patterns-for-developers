@@ -1,5 +1,5 @@
 ---
-name: Textarea
+name: textarea
 description: "Use when implementing multi-line text input for longer content."
 metadata:
   id: textarea

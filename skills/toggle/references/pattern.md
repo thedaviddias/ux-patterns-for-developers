@@ -137,11 +137,10 @@ Pairs the control with a short description in a settings list.
 
 ### Implementation Notes
 
-- Start with semantic HTML and default to native form controls when the toggle represents a stored setting.
+- Start with [semantic HTML](/glossary/semantic-html) and default to native form controls when the toggle represents a stored setting.
 - Keep styling tokens and spacing consistent with adjacent controls or layouts.
 - Treat "toggle" here as the visual switch pattern; use `aria-pressed` only when the control is actually a toggle button.
 - If the live implementation introduces async behavior, mirror those states in the code example rather than documenting them only in prose.
-
 ## Best Practices
 
 ### Content
@@ -250,8 +249,7 @@ Test the control with autofill, paste, zoom, and on-screen keyboards before call
 
 - [ ] Do not rely on color alone to convey severity, completion, or selection state.
 - [ ] Test the pattern at 200% zoom and with reduced motion enabled.
-- [ ] Ensure touch targets remain comfortable on mobile and coarse pointers.
-
+- [ ] Ensure [touch targets](/glossary/touch-targets) remain comfortable on mobile and coarse pointers.
 ## Validation Rules
 
 ### What to validate
@@ -282,10 +280,9 @@ Test the control with autofill, paste, zoom, and on-screen keyboards before call
 
 ### Accessibility Testing
 
-- [ ] Run keyboard-only checks and at least one screen reader pass on the final implementation.
+- [ ] Run keyboard-only checks and at least one [screen reader](/glossary/screen-reader) pass on the final implementation.
 - [ ] Validate headings, labels, and announcement behavior with real content rather than lorem ipsum.
 - [ ] Check color contrast and focus visibility in both default and stressed states.
-
 ### Edge Cases
 
 - [ ] Test empty, long, duplicated, and unexpectedly formatted content.

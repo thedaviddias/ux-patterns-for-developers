@@ -1,5 +1,5 @@
 ---
-name: Wizard / Stepper
+name: wizard
 description: "Use when implementing multi-step forms and processes."
 metadata:
   id: wizard

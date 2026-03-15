@@ -1,5 +1,5 @@
 ---
-name: Search Field
+name: search-field
 description: "Use when you need to search through content efficiently."
 metadata:
   id: search-field
@@ -79,6 +79,7 @@ Test the control with autofill, paste, zoom, and on-screen keyboards before call
 
 ## Related patterns
 
+- https://uxpatterns.dev/patterns/advanced/command-palette
 - https://uxpatterns.dev/patterns/advanced/search-results
 - https://uxpatterns.dev/patterns/forms/autocomplete
 - https://uxpatterns.dev/patterns/forms/text-field

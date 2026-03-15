@@ -1,5 +1,5 @@
 ---
-name: Rich Text Editor
+name: rich-text-editor
 description: "Use when implementing edit and format text content."
 metadata:
   id: rich-text-editor

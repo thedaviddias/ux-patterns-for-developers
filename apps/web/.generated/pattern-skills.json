@@ -1,1690 +1,1731 @@
 {
-	"generatedAt": "2026-03-12T20:23:44.797Z",
-	"installSource": "https://github.com/thedaviddias/ux-patterns-for-developers",
-	"globalSkill": {
-		"skillSlug": "ux-patterns",
-		"title": "UX Patterns Global",
-		"description": "Use when choosing, comparing, or implementing UX patterns across the UX Patterns for Developers corpus.",
-		"url": "https://uxpatterns.dev/skills/ux-patterns",
-		"referencePath": "skills/ux-patterns/references/categories.md",
-		"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ux-patterns"
-	},
-	"patterns": [
-		{
-			"skillSlug": "command-palette",
-			"patternSlug": "patterns/advanced/command-palette",
-			"category": "advanced",
-			"title": "Command Palette",
-			"summary": "Quick command execution interface",
-			"description": "Learn how to implement command palettes. Discover best practices for keyboard shortcuts, fuzzy search, and command discovery.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/advanced/command-palette",
-			"sourcePath": "apps/web/content/patterns/advanced/command-palette.mdx",
-			"referencePath": "skills/command-palette/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill command-palette",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/forms/search-field",
-				"https://uxpatterns.dev/patterns/navigation/navigation-menu"
-			]
-		},
-		{
-			"skillSlug": "search-results",
-			"patternSlug": "patterns/advanced/search-results",
-			"category": "advanced",
-			"title": "Search Results",
-			"summary": "Display and filter search results",
-			"description": "Learn how to implement search results pages. Discover best practices for result ranking, filtering, and pagination.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/advanced/search-results",
-			"sourcePath": "apps/web/content/patterns/advanced/search-results.mdx",
-			"referencePath": "skills/search-results/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill search-results",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/filter-panel",
-				"https://uxpatterns.dev/patterns/forms/search-field",
-				"https://uxpatterns.dev/patterns/navigation/pagination"
-			]
-		},
-		{
-			"skillSlug": "wizard",
-			"patternSlug": "patterns/advanced/wizard",
-			"category": "advanced",
-			"title": "Wizard / Stepper",
-			"summary": "Multi-step forms and processes",
-			"description": "Learn how to implement wizards and steppers. Discover best practices for multi-step forms, progress tracking, and step validation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/advanced/wizard",
-			"sourcePath": "apps/web/content/patterns/advanced/wizard.mdx",
-			"referencePath": "skills/wizard/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill wizard",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/e-commerce/checkout",
-				"https://uxpatterns.dev/patterns/forms/form-validation",
-				"https://uxpatterns.dev/patterns/user-feedback/progress-indicator"
-			]
-		},
-		{
-			"skillSlug": "ai-chat",
-			"patternSlug": "patterns/ai-intelligence/ai-chat",
-			"category": "ai-intelligence",
-			"title": "AI Chat Interface",
-			"summary": "Conversational AI chat interfaces",
-			"description": "Learn how to implement AI chat interfaces. Discover best practices for message threading, context management, and conversational UX.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-chat",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/ai-chat.mdx",
-			"referencePath": "skills/ai-chat/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-chat",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
-				"https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
-				"https://uxpatterns.dev/patterns/ai-intelligence/streaming-response"
-			]
-		},
-		{
-			"skillSlug": "ai-error-states",
-			"patternSlug": "patterns/ai-intelligence/ai-error-states",
-			"category": "ai-intelligence",
-			"title": "AI Error States",
-			"summary": "Handling AI-specific errors",
-			"description": "Learn how to implement AI error states. Discover best practices for rate limits, model errors, and graceful degradation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-error-states",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/ai-error-states.mdx",
-			"referencePath": "skills/ai-error-states/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-error-states",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/ai-loading-states",
-				"https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "ai-loading-states",
-			"patternSlug": "patterns/ai-intelligence/ai-loading-states",
-			"category": "ai-intelligence",
-			"title": "AI Loading States",
-			"summary": "Loading states for AI operations",
-			"description": "Learn how to implement AI-specific loading states. Discover best practices for thinking animations, progress indicators, and stream initialization.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-loading-states",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/ai-loading-states.mdx",
-			"referencePath": "skills/ai-loading-states/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-loading-states",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/streaming-response",
-				"https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
-				"https://uxpatterns.dev/patterns/user-feedback/skeleton"
-			]
-		},
-		{
-			"skillSlug": "ai-suggestions",
-			"patternSlug": "patterns/ai-intelligence/ai-suggestions",
-			"category": "ai-intelligence",
-			"title": "AI Suggestions",
-			"summary": "AI-powered autocomplete and suggestions",
-			"description": "Learn how to implement AI suggestions. Discover best practices for predictive text, smart completions, and recommendation interfaces.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-suggestions",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/ai-suggestions.mdx",
-			"referencePath": "skills/ai-suggestions/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-suggestions",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/model-selector",
-				"https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
-				"https://uxpatterns.dev/patterns/forms/autocomplete"
-			]
-		},
-		{
-			"skillSlug": "context-window",
-			"patternSlug": "patterns/ai-intelligence/context-window",
-			"category": "ai-intelligence",
-			"title": "Context Window",
-			"summary": "Managing AI conversation context",
-			"description": "Learn how to implement context window management. Discover best practices for conversation history, context limits, and memory management.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/context-window",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/context-window.mdx",
-			"referencePath": "skills/context-window/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill context-window",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/ai-chat",
-				"https://uxpatterns.dev/patterns/ai-intelligence/streaming-response",
-				"https://uxpatterns.dev/patterns/ai-intelligence/token-counter"
-			]
-		},
-		{
-			"skillSlug": "model-selector",
-			"patternSlug": "patterns/ai-intelligence/model-selector",
-			"category": "ai-intelligence",
-			"title": "Model Selector",
-			"summary": "AI model selection interface",
-			"description": "Learn how to implement model selectors. Discover best practices for model comparison, capability display, and settings management.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/model-selector",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/model-selector.mdx",
-			"referencePath": "skills/model-selector/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill model-selector",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
-				"https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
-				"https://uxpatterns.dev/patterns/ai-intelligence/token-counter"
-			]
-		},
-		{
-			"skillSlug": "prompt-input",
-			"patternSlug": "patterns/ai-intelligence/prompt-input",
-			"category": "ai-intelligence",
-			"title": "Prompt Input",
-			"summary": "Enhanced text inputs for AI prompts",
-			"description": "Learn how to implement prompt input interfaces. Discover best practices for multiline inputs, prompt templates, and input enhancements.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/prompt-input.mdx",
-			"referencePath": "skills/prompt-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill prompt-input",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/ai-suggestions",
-				"https://uxpatterns.dev/patterns/forms/text-field",
-				"https://uxpatterns.dev/patterns/forms/textarea"
-			]
-		},
-		{
-			"skillSlug": "response-feedback",
-			"patternSlug": "patterns/ai-intelligence/response-feedback",
-			"category": "ai-intelligence",
-			"title": "Response Feedback",
-			"summary": "Feedback mechanisms for AI responses",
-			"description": "Learn how to implement response feedback. Discover best practices for ratings, regeneration, and improvement signals.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/response-feedback.mdx",
-			"referencePath": "skills/response-feedback/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill response-feedback",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/ai-error-states",
-				"https://uxpatterns.dev/patterns/social/like-button",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "streaming-response",
-			"patternSlug": "patterns/ai-intelligence/streaming-response",
-			"category": "ai-intelligence",
-			"title": "Streaming Response",
-			"summary": "Real-time AI response streaming",
-			"description": "Learn how to implement streaming AI responses. Discover best practices for progressive rendering, markdown formatting, and stream interruption.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/streaming-response",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/streaming-response.mdx",
-			"referencePath": "skills/streaming-response/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill streaming-response",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/ai-chat",
-				"https://uxpatterns.dev/patterns/ai-intelligence/ai-loading-states",
-				"https://uxpatterns.dev/patterns/ai-intelligence/context-window"
-			]
-		},
-		{
-			"skillSlug": "token-counter",
-			"patternSlug": "patterns/ai-intelligence/token-counter",
-			"category": "ai-intelligence",
-			"title": "Token Counter",
-			"summary": "Display token usage and limits",
-			"description": "Learn how to implement token counters. Discover best practices for usage indicators, limit warnings, and cost estimation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/ai-intelligence/token-counter",
-			"sourcePath": "apps/web/content/patterns/ai-intelligence/token-counter.mdx",
-			"referencePath": "skills/token-counter/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill token-counter",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/context-window",
-				"https://uxpatterns.dev/patterns/ai-intelligence/model-selector",
-				"https://uxpatterns.dev/patterns/ai-intelligence/prompt-input"
-			]
-		},
-		{
-			"skillSlug": "account-settings",
-			"patternSlug": "patterns/authentication/account-settings",
-			"category": "authentication",
-			"title": "Account Settings",
-			"summary": "User account configuration and preferences",
-			"description": "Learn how to implement account settings. Discover best practices for preference management, privacy controls, and account configuration.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/authentication/account-settings",
-			"sourcePath": "apps/web/content/patterns/authentication/account-settings.mdx",
-			"referencePath": "skills/account-settings/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill account-settings",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/authentication/password-reset",
-				"https://uxpatterns.dev/patterns/authentication/social-login",
-				"https://uxpatterns.dev/patterns/authentication/two-factor",
-				"https://uxpatterns.dev/patterns/authentication/user-profile"
-			]
-		},
-		{
-			"skillSlug": "login",
-			"patternSlug": "patterns/authentication/login",
-			"category": "authentication",
-			"title": "Login Form",
-			"summary": "User authentication and sign-in forms",
-			"description": "Learn how to implement secure and user-friendly login forms. Discover best practices for authentication, password fields, and remember me functionality.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/authentication/login",
-			"sourcePath": "apps/web/content/patterns/authentication/login.mdx",
-			"referencePath": "skills/login/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill login",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/authentication/password-reset",
-				"https://uxpatterns.dev/patterns/authentication/signup",
-				"https://uxpatterns.dev/patterns/authentication/social-login",
-				"https://uxpatterns.dev/patterns/authentication/two-factor"
-			]
-		},
-		{
-			"skillSlug": "password-reset",
-			"patternSlug": "patterns/authentication/password-reset",
-			"category": "authentication",
-			"title": "Password Reset",
-			"summary": "Password recovery and reset flows",
-			"description": "Learn how to implement secure password reset functionality. Discover best practices for recovery emails, token validation, and security considerations.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/authentication/password-reset",
-			"sourcePath": "apps/web/content/patterns/authentication/password-reset.mdx",
-			"referencePath": "skills/password-reset/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill password-reset",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/authentication/login",
-				"https://uxpatterns.dev/patterns/authentication/social-login",
-				"https://uxpatterns.dev/patterns/authentication/two-factor"
-			]
-		},
-		{
-			"skillSlug": "signup",
-			"patternSlug": "patterns/authentication/signup",
-			"category": "authentication",
-			"title": "Sign Up Flow",
-			"summary": "User registration and account creation",
-			"description": "Learn how to implement effective sign-up flows. Discover best practices for user registration, form validation, and onboarding experiences.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/authentication/signup",
-			"sourcePath": "apps/web/content/patterns/authentication/signup.mdx",
-			"referencePath": "skills/signup/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill signup",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/authentication/account-settings",
-				"https://uxpatterns.dev/patterns/authentication/login",
-				"https://uxpatterns.dev/patterns/authentication/social-login"
-			]
-		},
-		{
-			"skillSlug": "social-login",
-			"patternSlug": "patterns/authentication/social-login",
-			"category": "authentication",
-			"title": "Social Login",
-			"summary": "OAuth and social media authentication",
-			"description": "Learn how to implement social login. Discover best practices for OAuth flows, provider integration, and account linking.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/authentication/social-login",
-			"sourcePath": "apps/web/content/patterns/authentication/social-login.mdx",
-			"referencePath": "skills/social-login/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill social-login",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/authentication/login",
-				"https://uxpatterns.dev/patterns/authentication/signup",
-				"https://uxpatterns.dev/patterns/authentication/two-factor"
-			]
-		},
-		{
-			"skillSlug": "two-factor",
-			"patternSlug": "patterns/authentication/two-factor",
-			"category": "authentication",
-			"title": "Two-Factor Authentication",
-			"summary": "Two-factor authentication setup and verification",
-			"description": "Learn how to implement two-factor authentication. Discover best practices for TOTP, SMS verification, and security keys.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/authentication/two-factor",
-			"sourcePath": "apps/web/content/patterns/authentication/two-factor.mdx",
-			"referencePath": "skills/two-factor/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill two-factor",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/authentication/account-settings",
-				"https://uxpatterns.dev/patterns/authentication/login",
-				"https://uxpatterns.dev/patterns/authentication/password-reset",
-				"https://uxpatterns.dev/patterns/authentication/social-login"
-			]
-		},
-		{
-			"skillSlug": "user-profile",
-			"patternSlug": "patterns/authentication/user-profile",
-			"category": "authentication",
-			"title": "User Profile",
-			"summary": "User profile and account management",
-			"description": "Learn how to implement user profile interfaces. Discover best practices for displaying user information, avatars, and account settings.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/authentication/user-profile",
-			"sourcePath": "apps/web/content/patterns/authentication/user-profile.mdx",
-			"referencePath": "skills/user-profile/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill user-profile",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/authentication/account-settings",
-				"https://uxpatterns.dev/patterns/authentication/login",
-				"https://uxpatterns.dev/patterns/authentication/signup"
-			]
-		},
-		{
-			"skillSlug": "accordion",
-			"patternSlug": "patterns/content-management/accordion",
-			"category": "content-management",
-			"title": "Accordion",
-			"summary": "Expand and collapse content sections",
-			"description": "Create effective accordion components for your web applications. Learn best practices for implementing expandable content sections with proper accessibility and keyboard support.",
-			"aliases": ["collapsible panels"],
-			"url": "https://uxpatterns.dev/patterns/content-management/accordion",
-			"sourcePath": "apps/web/content/patterns/content-management/accordion.mdx",
-			"referencePath": "skills/accordion/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill accordion",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/expandable-text",
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/navigation/tabs"
-			]
-		},
-		{
-			"skillSlug": "carousel",
-			"patternSlug": "patterns/content-management/carousel",
-			"category": "content-management",
-			"title": "Carousel",
-			"summary": "Display multiple items in a rotating view",
-			"description": "Build effective carousel components for your web applications. Learn best practices for implementing accessible, responsive carousels with proper navigation and touch support.",
-			"aliases": ["slider", "slideshow", "image rotator"],
-			"url": "https://uxpatterns.dev/patterns/content-management/carousel",
-			"sourcePath": "apps/web/content/patterns/content-management/carousel.mdx",
-			"referencePath": "skills/carousel/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill carousel",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/accordion",
-				"https://uxpatterns.dev/patterns/content-management/expandable-text",
-				"https://uxpatterns.dev/patterns/data-display/card-grid",
-				"https://uxpatterns.dev/patterns/navigation/infinite-scroll",
-				"https://uxpatterns.dev/patterns/navigation/load-more",
-				"https://uxpatterns.dev/patterns/navigation/pagination",
-				"https://uxpatterns.dev/patterns/navigation/tabs"
-			]
-		},
-		{
-			"skillSlug": "drag-and-drop",
-			"patternSlug": "patterns/content-management/drag-and-drop",
-			"category": "content-management",
-			"title": "Drag and Drop",
-			"summary": "Allow users to reorder items intuitively",
-			"description": "Build intuitive drag and drop functionality with accessibility and touch support.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/content-management/drag-and-drop",
-			"sourcePath": "apps/web/content/patterns/content-management/drag-and-drop.mdx",
-			"referencePath": "skills/drag-and-drop/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill drag-and-drop",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/kanban-board",
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/media/image-upload"
-			]
-		},
-		{
-			"skillSlug": "expandable-text",
-			"patternSlug": "patterns/content-management/expandable-text",
-			"category": "content-management",
-			"title": "Expandable Text",
-			"summary": "Show or hide additional text content on demand",
-			"description": "Create expandable text components with progressive disclosure and accessibility features for better content management.",
-			"aliases": ["collapsible text", "Read More/Read Less"],
-			"url": "https://uxpatterns.dev/patterns/content-management/expandable-text",
-			"sourcePath": "apps/web/content/patterns/content-management/expandable-text.mdx",
-			"referencePath": "skills/expandable-text/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill expandable-text",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/accordion",
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/content-management/tooltip"
-			]
-		},
-		{
-			"skillSlug": "modal",
-			"patternSlug": "patterns/content-management/modal",
-			"category": "content-management",
-			"title": "Modal",
-			"summary": "Display focused content or actions",
-			"description": "Build accessible modal dialogs with proper focus management, keyboard interactions, and user experience best practices.",
-			"aliases": ["dialog", "dialog box", "overlay", "popup"],
-			"url": "https://uxpatterns.dev/patterns/content-management/modal",
-			"sourcePath": "apps/web/content/patterns/content-management/modal.mdx",
-			"referencePath": "skills/modal/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill modal",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/accordion",
-				"https://uxpatterns.dev/patterns/content-management/popover",
-				"https://uxpatterns.dev/patterns/content-management/tooltip",
-				"https://uxpatterns.dev/patterns/user-feedback/loading-indicator"
-			]
-		},
-		{
-			"skillSlug": "popover",
-			"patternSlug": "patterns/content-management/popover",
-			"category": "content-management",
-			"title": "Popover",
-			"summary": "Display focused content or actions",
-			"description": "Implement user-friendly popover components in your web applications. Learn best practices for contextual information display, positioning, and accessibility with practical examples.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/content-management/popover",
-			"sourcePath": "apps/web/content/patterns/content-management/popover.mdx",
-			"referencePath": "skills/popover/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill popover",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/content-management/tooltip",
-				"https://uxpatterns.dev/patterns/forms/selection-input"
-			]
-		},
-		{
-			"skillSlug": "tooltip",
-			"patternSlug": "patterns/content-management/tooltip",
-			"category": "content-management",
-			"title": "Tooltip",
-			"summary": "Provide additional context on hover or focus",
-			"description": "Implement effective tooltip components in your web applications. Learn best practices for contextual help, positioning strategies, and accessibility considerations.",
-			"aliases": ["hover hint", "info bubble"],
-			"url": "https://uxpatterns.dev/patterns/content-management/tooltip",
-			"sourcePath": "apps/web/content/patterns/content-management/tooltip.mdx",
-			"referencePath": "skills/tooltip/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tooltip",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/content-management/popover",
-				"https://uxpatterns.dev/patterns/forms/selection-input"
-			]
-		},
-		{
-			"skillSlug": "calendar",
-			"patternSlug": "patterns/data-display/calendar",
-			"category": "data-display",
-			"title": "Calendar View",
-			"summary": "Display dates and events in calendar format",
-			"description": "Learn how to implement calendar views. Discover best practices for date navigation, event display, and calendar interactions.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/calendar",
-			"sourcePath": "apps/web/content/patterns/data-display/calendar.mdx",
-			"referencePath": "skills/calendar/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill calendar",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/filter-panel",
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/data-display/timeline"
-			]
-		},
-		{
-			"skillSlug": "card-grid",
-			"patternSlug": "patterns/data-display/card-grid",
-			"category": "data-display",
-			"title": "Card Grid",
-			"summary": "Display content in a responsive card layout",
-			"description": "Learn how to implement card grids for content display. Discover best practices for responsive layouts, card designs, and grid systems.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/card-grid",
-			"sourcePath": "apps/web/content/patterns/data-display/card-grid.mdx",
-			"referencePath": "skills/card-grid/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill card-grid",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/data-display/table",
-				"https://uxpatterns.dev/patterns/e-commerce/product-card"
-			]
-		},
-		{
-			"skillSlug": "chart",
-			"patternSlug": "patterns/data-display/chart",
-			"category": "data-display",
-			"title": "Charts & Graphs",
-			"summary": "Visualize data with graphs and charts",
-			"description": "Learn how to implement accessible charts and graphs. Discover best practices for data visualization, chart types, and responsive designs.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/chart",
-			"sourcePath": "apps/web/content/patterns/data-display/chart.mdx",
-			"referencePath": "skills/chart/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill chart",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/dashboard",
-				"https://uxpatterns.dev/patterns/data-display/statistics",
-				"https://uxpatterns.dev/patterns/data-display/table"
-			]
-		},
-		{
-			"skillSlug": "comparison-table",
-			"patternSlug": "patterns/data-display/comparison-table",
-			"category": "data-display",
-			"title": "Comparison Table",
-			"summary": "Compare features and options side-by-side",
-			"description": "Learn how to implement comparison tables. Discover best practices for feature comparisons, pricing tables, and decision matrices.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/comparison-table",
-			"sourcePath": "apps/web/content/patterns/data-display/comparison-table.mdx",
-			"referencePath": "skills/comparison-table/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill comparison-table",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/data-display/table",
-				"https://uxpatterns.dev/patterns/e-commerce/product-card"
-			]
-		},
-		{
-			"skillSlug": "dashboard",
-			"patternSlug": "patterns/data-display/dashboard",
-			"category": "data-display",
-			"title": "Dashboard Layout",
-			"summary": "Comprehensive dashboard layouts",
-			"description": "Learn how to implement dashboard layouts. Discover best practices for widget organization, responsive grids, and data visualization.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/dashboard",
-			"sourcePath": "apps/web/content/patterns/data-display/dashboard.mdx",
-			"referencePath": "skills/dashboard/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill dashboard",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/chart",
-				"https://uxpatterns.dev/patterns/data-display/filter-panel",
-				"https://uxpatterns.dev/patterns/data-display/statistics"
-			]
-		},
-		{
-			"skillSlug": "filter-panel",
-			"patternSlug": "patterns/data-display/filter-panel",
-			"category": "data-display",
-			"title": "Filter Panel",
-			"summary": "Filter and refine data displays",
-			"description": "Learn how to implement filter panels for data refinement. Discover best practices for faceted search, filter UI, and dynamic filtering.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/filter-panel",
-			"sourcePath": "apps/web/content/patterns/data-display/filter-panel.mdx",
-			"referencePath": "skills/filter-panel/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill filter-panel",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/advanced/search-results",
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/navigation/pagination"
-			]
-		},
-		{
-			"skillSlug": "kanban-board",
-			"patternSlug": "patterns/data-display/kanban-board",
-			"category": "data-display",
-			"title": "Kanban Board",
-			"summary": "Organize tasks in columns and swimlanes",
-			"description": "Learn how to implement kanban boards. Discover best practices for drag-and-drop, task management, and workflow visualization.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/kanban-board",
-			"sourcePath": "apps/web/content/patterns/data-display/kanban-board.mdx",
-			"referencePath": "skills/kanban-board/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill kanban-board",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/drag-and-drop",
-				"https://uxpatterns.dev/patterns/data-display/dashboard",
-				"https://uxpatterns.dev/patterns/data-display/list-view"
-			]
-		},
-		{
-			"skillSlug": "list-view",
-			"patternSlug": "patterns/data-display/list-view",
-			"category": "data-display",
-			"title": "List View",
-			"summary": "Display data in vertical lists",
-			"description": "Learn how to implement list views for data display. Discover best practices for list layouts, item selection, and virtual scrolling.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/list-view",
-			"sourcePath": "apps/web/content/patterns/data-display/list-view.mdx",
-			"referencePath": "skills/list-view/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill list-view",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/card-grid",
-				"https://uxpatterns.dev/patterns/data-display/table",
-				"https://uxpatterns.dev/patterns/data-display/timeline"
-			]
-		},
-		{
-			"skillSlug": "statistics",
-			"patternSlug": "patterns/data-display/statistics",
-			"category": "data-display",
-			"title": "Statistics Display",
-			"summary": "Display key metrics and statistics",
-			"description": "Learn how to implement statistics displays. Discover best practices for metric cards, KPI dashboards, and data visualization.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/statistics",
-			"sourcePath": "apps/web/content/patterns/data-display/statistics.mdx",
-			"referencePath": "skills/statistics/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill statistics",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/chart",
-				"https://uxpatterns.dev/patterns/data-display/comparison-table",
-				"https://uxpatterns.dev/patterns/data-display/dashboard"
-			]
-		},
-		{
-			"skillSlug": "table",
-			"patternSlug": "patterns/data-display/table",
-			"category": "data-display",
-			"title": "Data Table",
-			"summary": "Display structured data in rows and columns",
-			"description": "Learn how to implement accessible and performant data tables. Discover best practices for sorting, filtering, pagination, and responsive table designs.",
-			"aliases": ["data grids"],
-			"url": "https://uxpatterns.dev/patterns/data-display/table",
-			"sourcePath": "apps/web/content/patterns/data-display/table.mdx",
-			"referencePath": "skills/table/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill table",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/accordion",
-				"https://uxpatterns.dev/patterns/content-management/expandable-text",
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/content-management/tooltip",
-				"https://uxpatterns.dev/patterns/data-display/card-grid",
-				"https://uxpatterns.dev/patterns/data-display/dashboard",
-				"https://uxpatterns.dev/patterns/data-display/filter-panel",
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/data-display/tree-view",
-				"https://uxpatterns.dev/patterns/forms/checkbox",
-				"https://uxpatterns.dev/patterns/forms/search-field",
-				"https://uxpatterns.dev/patterns/navigation/pagination",
-				"https://uxpatterns.dev/patterns/user-feedback/empty-states",
-				"https://uxpatterns.dev/patterns/user-feedback/notification",
-				"https://uxpatterns.dev/patterns/user-feedback/skeleton"
-			]
-		},
-		{
-			"skillSlug": "timeline",
-			"patternSlug": "patterns/data-display/timeline",
-			"category": "data-display",
-			"title": "Timeline",
-			"summary": "Display chronological events and activities",
-			"description": "Learn how to implement timelines for showing chronological data. Discover best practices for activity feeds, history logs, and event sequences.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/timeline",
-			"sourcePath": "apps/web/content/patterns/data-display/timeline.mdx",
-			"referencePath": "skills/timeline/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill timeline",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/calendar",
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/social/activity-feed"
-			]
-		},
-		{
-			"skillSlug": "tree-view",
-			"patternSlug": "patterns/data-display/tree-view",
-			"category": "data-display",
-			"title": "Tree View",
-			"summary": "Display hierarchical data structures",
-			"description": "Learn how to implement tree views for hierarchical data. Discover best practices for expandable nodes, selection states, and keyboard navigation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/data-display/tree-view",
-			"sourcePath": "apps/web/content/patterns/data-display/tree-view.mdx",
-			"referencePath": "skills/tree-view/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tree-view",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/list-view",
-				"https://uxpatterns.dev/patterns/data-display/table",
-				"https://uxpatterns.dev/patterns/navigation/navigation-menu"
-			]
-		},
-		{
-			"skillSlug": "checkout",
-			"patternSlug": "patterns/e-commerce/checkout",
-			"category": "e-commerce",
-			"title": "Checkout Flow",
-			"summary": "Multi-step checkout process",
-			"description": "Learn how to implement checkout flows. Discover best practices for payment forms, order review, and conversion optimization.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/e-commerce/checkout",
-			"sourcePath": "apps/web/content/patterns/e-commerce/checkout.mdx",
-			"referencePath": "skills/checkout/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill checkout",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/advanced/wizard",
-				"https://uxpatterns.dev/patterns/e-commerce/shopping-cart",
-				"https://uxpatterns.dev/patterns/forms/form-validation"
-			]
-		},
-		{
-			"skillSlug": "product-card",
-			"patternSlug": "patterns/e-commerce/product-card",
-			"category": "e-commerce",
-			"title": "Product Card",
-			"summary": "Product display cards for e-commerce",
-			"description": "Learn how to implement effective product cards. Discover best practices for product images, pricing display, and quick actions.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/e-commerce/product-card",
-			"sourcePath": "apps/web/content/patterns/e-commerce/product-card.mdx",
-			"referencePath": "skills/product-card/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill product-card",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/card-grid",
-				"https://uxpatterns.dev/patterns/data-display/comparison-table",
-				"https://uxpatterns.dev/patterns/e-commerce/shopping-cart"
-			]
-		},
-		{
-			"skillSlug": "shopping-cart",
-			"patternSlug": "patterns/e-commerce/shopping-cart",
-			"category": "e-commerce",
-			"title": "Shopping Cart",
-			"summary": "Shopping cart and item management",
-			"description": "Learn how to implement shopping cart functionality. Discover best practices for cart management, item updates, and persistent storage.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/e-commerce/shopping-cart",
-			"sourcePath": "apps/web/content/patterns/e-commerce/shopping-cart.mdx",
-			"referencePath": "skills/shopping-cart/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill shopping-cart",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/e-commerce/checkout",
-				"https://uxpatterns.dev/patterns/e-commerce/product-card",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "autocomplete",
-			"patternSlug": "patterns/forms/autocomplete",
-			"category": "forms",
-			"title": "Autocomplete",
-			"summary": "Suggest options as users type",
-			"description": "Build user-friendly autocomplete with search suggestions, keyboard navigation, and accessibility features.",
-			"aliases": ["autosuggest"],
-			"url": "https://uxpatterns.dev/patterns/forms/autocomplete",
-			"sourcePath": "apps/web/content/patterns/forms/autocomplete.mdx",
-			"referencePath": "skills/autocomplete/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill autocomplete",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/date-picker",
-				"https://uxpatterns.dev/patterns/forms/multi-select-input",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "button",
-			"patternSlug": "patterns/forms/button",
-			"category": "forms",
-			"title": "Button",
-			"summary": "Trigger actions and submit forms",
-			"description": "Create accessible and user-friendly buttons with proper states, design patterns, and implementation guidelines.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/button",
-			"sourcePath": "apps/web/content/patterns/forms/button.mdx",
-			"referencePath": "skills/button/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill button",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/toggle",
-				"https://uxpatterns.dev/patterns/navigation/link"
-			]
-		},
-		{
-			"skillSlug": "checkbox",
-			"patternSlug": "patterns/forms/checkbox",
-			"category": "forms",
-			"title": "Checkbox",
-			"summary": "Enable single or multiple selections",
-			"description": "Learn how to implement accessible checkbox inputs in your web applications. Discover best practices for multiple selection controls, states handling, and accessibility.",
-			"aliases": ["tick box", "selection box"],
-			"url": "https://uxpatterns.dev/patterns/forms/checkbox",
-			"sourcePath": "apps/web/content/patterns/forms/checkbox.mdx",
-			"referencePath": "skills/checkbox/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill checkbox",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/button",
-				"https://uxpatterns.dev/patterns/forms/form-validation",
-				"https://uxpatterns.dev/patterns/forms/multi-select-input",
-				"https://uxpatterns.dev/patterns/forms/radio",
-				"https://uxpatterns.dev/patterns/forms/selection-input",
-				"https://uxpatterns.dev/patterns/forms/toggle",
-				"https://uxpatterns.dev/patterns/navigation/pagination"
-			]
-		},
-		{
-			"skillSlug": "code-confirmation",
-			"patternSlug": "patterns/forms/code-confirmation",
-			"category": "forms",
-			"title": "Code Confirmation",
-			"summary": "Verify codes with segmented input",
-			"description": "Implement user-friendly code confirmation inputs for verification codes and OTPs. Learn best practices for segmented inputs, auto-focus behavior, and accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/code-confirmation",
-			"sourcePath": "apps/web/content/patterns/forms/code-confirmation.mdx",
-			"referencePath": "skills/code-confirmation/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill code-confirmation",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/code-confirmation/do",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "color-picker",
-			"patternSlug": "patterns/forms/color-picker",
-			"category": "forms",
-			"title": "Color Picker",
-			"summary": "Select colors with visual feedback",
-			"description": "Select colors with visual feedback",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/color-picker",
-			"sourcePath": "apps/web/content/patterns/forms/color-picker.mdx",
-			"referencePath": "skills/color-picker/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill color-picker",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/selection-input",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "currency-input",
-			"patternSlug": "patterns/forms/currency-input",
-			"category": "forms",
-			"title": "Currency Input",
-			"summary": "Enter and format monetary values",
-			"description": "Create currency input fields with number formatting and international currency handling.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/currency-input",
-			"sourcePath": "apps/web/content/patterns/forms/currency-input.mdx",
-			"referencePath": "skills/currency-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill currency-input",
-			"relatedPatternUrls": ["https://uxpatterns.dev/patterns/forms/text-field"]
-		},
-		{
-			"skillSlug": "date-input",
-			"patternSlug": "patterns/forms/date-input",
-			"category": "forms",
-			"title": "Date Input",
-			"summary": "Enter dates in a structured text format",
-			"description": "Build date input fields with validation, formatting, and localization features.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/date-input",
-			"sourcePath": "apps/web/content/patterns/forms/date-input.mdx",
-			"referencePath": "skills/date-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-input",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/date-picker",
-				"https://uxpatterns.dev/patterns/forms/date-range",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "date-picker",
-			"patternSlug": "patterns/forms/date-picker",
-			"category": "forms",
-			"title": "Date Picker",
-			"summary": "Select dates from a calendar interface",
-			"description": "Create user-friendly date pickers with calendar interfaces and keyboard navigation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/date-picker",
-			"sourcePath": "apps/web/content/patterns/forms/date-picker.mdx",
-			"referencePath": "skills/date-picker/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-picker",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/date-input",
-				"https://uxpatterns.dev/patterns/forms/date-range",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "date-range",
-			"patternSlug": "patterns/forms/date-range",
-			"category": "forms",
-			"title": "Date Range",
-			"summary": "Select a range between two dates",
-			"description": "Build date range selection with calendar interfaces and validation features.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/date-range",
-			"sourcePath": "apps/web/content/patterns/forms/date-range.mdx",
-			"referencePath": "skills/date-range/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-range",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/date-input",
-				"https://uxpatterns.dev/patterns/forms/date-picker",
-				"https://uxpatterns.dev/patterns/forms/selection-input"
-			]
-		},
-		{
-			"skillSlug": "file-input",
-			"patternSlug": "patterns/forms/file-input",
-			"category": "forms",
-			"title": "File Input",
-			"summary": "Upload and handle files",
-			"description": "Create user-friendly file upload components for your web applications. Learn best practices for file selection, drag-and-drop, progress indicators, and validation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/file-input",
-			"sourcePath": "apps/web/content/patterns/forms/file-input.mdx",
-			"referencePath": "skills/file-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill file-input",
-			"relatedPatternUrls": ["https://uxpatterns.dev/patterns/forms/text-field"]
-		},
-		{
-			"skillSlug": "form-validation",
-			"patternSlug": "patterns/forms/form-validation",
-			"category": "forms",
-			"title": "Form Validation",
-			"summary": "Validate and provide feedback",
-			"description": "Learn how to implement effective form validation in your web applications. Discover best practices for error handling, real-time validation, and user feedback.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/form-validation",
-			"sourcePath": "apps/web/content/patterns/forms/form-validation.mdx",
-			"referencePath": "skills/form-validation/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill form-validation",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/button",
-				"https://uxpatterns.dev/patterns/forms/date-input",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "multi-select-input",
-			"patternSlug": "patterns/forms/multi-select-input",
-			"category": "forms",
-			"title": "Multi-select Input",
-			"summary": "Choose multiple items from a list",
-			"description": "Implement multi-select components for multiple item selection in your web applications. Learn best practices for list management, keyboard navigation, and accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/multi-select-input",
-			"sourcePath": "apps/web/content/patterns/forms/multi-select-input.mdx",
-			"referencePath": "skills/multi-select-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill multi-select-input",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/autocomplete",
-				"https://uxpatterns.dev/patterns/forms/checkbox",
-				"https://uxpatterns.dev/patterns/forms/radio",
-				"https://uxpatterns.dev/patterns/forms/selection-input"
-			]
-		},
-		{
-			"skillSlug": "password",
-			"patternSlug": "patterns/forms/password",
-			"category": "forms",
-			"title": "Password",
-			"summary": "Secure password entry with feedback",
-			"description": "Build secure and user-friendly password fields with validation, strength indicators, and accessibility features.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/password",
-			"sourcePath": "apps/web/content/patterns/forms/password.mdx",
-			"referencePath": "skills/password/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill password",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/code-confirmation",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "phone-number",
-			"patternSlug": "patterns/forms/phone-number",
-			"category": "forms",
-			"title": "Phone Number",
-			"summary": "Format and validate phone numbers",
-			"description": "Create phone number inputs with international format support and validation features.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/phone-number",
-			"sourcePath": "apps/web/content/patterns/forms/phone-number.mdx",
-			"referencePath": "skills/phone-number/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill phone-number",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/form-validation",
-				"https://uxpatterns.dev/patterns/forms/selection-input",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "radio",
-			"patternSlug": "patterns/forms/radio",
-			"category": "forms",
-			"title": "Radio Button",
-			"summary": "Select a single option from a group",
-			"description": "Implement accessible radio button groups in your web applications. Learn best practices for single-choice selection controls, keyboard navigation, and ARIA attributes.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/radio",
-			"sourcePath": "apps/web/content/patterns/forms/radio.mdx",
-			"referencePath": "skills/radio/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill radio",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/checkbox",
-				"https://uxpatterns.dev/patterns/forms/form-validation",
-				"https://uxpatterns.dev/patterns/forms/selection-input",
-				"https://uxpatterns.dev/patterns/forms/toggle"
-			]
-		},
-		{
-			"skillSlug": "rating-input",
-			"patternSlug": "patterns/forms/rating-input",
-			"category": "forms",
-			"title": "Rating Input",
-			"summary": "Rate something with a number of stars",
-			"description": "Build user-friendly rating components with star ratings and accessibility features.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/rating-input",
-			"sourcePath": "apps/web/content/patterns/forms/rating-input.mdx",
-			"referencePath": "skills/rating-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill rating-input",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/radio",
-				"https://uxpatterns.dev/patterns/forms/slider",
-				"https://uxpatterns.dev/patterns/social/like-button"
-			]
-		},
-		{
-			"skillSlug": "rich-text-editor",
-			"patternSlug": "patterns/forms/rich-text-editor",
-			"category": "forms",
-			"title": "Rich Text Editor",
-			"summary": "Edit and format text content",
-			"description": "Create accessible rich text editors with text formatting tools and keyboard shortcuts.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/rich-text-editor",
-			"sourcePath": "apps/web/content/patterns/forms/rich-text-editor.mdx",
-			"referencePath": "skills/rich-text-editor/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill rich-text-editor",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/button",
-				"https://uxpatterns.dev/patterns/forms/tag-input",
-				"https://uxpatterns.dev/patterns/forms/textarea"
-			]
-		},
-		{
-			"skillSlug": "search-field",
-			"patternSlug": "patterns/forms/search-field",
-			"category": "forms",
-			"title": "Search Field",
-			"summary": "Search through content efficiently",
-			"description": "Learn how to implement effective search fields in your web applications. Discover best practices for search input design, real-time suggestions, and accessibility.",
-			"aliases": ["search input"],
-			"url": "https://uxpatterns.dev/patterns/forms/search-field",
-			"sourcePath": "apps/web/content/patterns/forms/search-field.mdx",
-			"referencePath": "skills/search-field/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill search-field",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/advanced/search-results",
-				"https://uxpatterns.dev/patterns/forms/autocomplete",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "selection-input",
-			"patternSlug": "patterns/forms/selection-input",
-			"category": "forms",
-			"title": "Selection Input",
-			"summary": "Choose from predefined options",
-			"description": "Learn how to implement user-friendly selection inputs in your web applications. Discover best practices for dropdowns, comboboxes, and list boxes with accessibility and usability guidelines.",
-			"aliases": ["dropdown", "select"],
-			"url": "https://uxpatterns.dev/patterns/forms/selection-input",
-			"sourcePath": "apps/web/content/patterns/forms/selection-input.mdx",
-			"referencePath": "skills/selection-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill selection-input",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/autocomplete",
-				"https://uxpatterns.dev/patterns/forms/multi-select-input"
-			]
-		},
-		{
-			"skillSlug": "signature-pad",
-			"patternSlug": "patterns/forms/signature-pad",
-			"category": "forms",
-			"title": "Signature Pad",
-			"summary": "Allow users to sign their name",
-			"description": "Build touch-enabled signature capture with canvas drawing and validation features.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/signature-pad",
-			"sourcePath": "apps/web/content/patterns/forms/signature-pad.mdx",
-			"referencePath": "skills/signature-pad/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill signature-pad",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/button",
-				"https://uxpatterns.dev/patterns/forms/file-input",
-				"https://uxpatterns.dev/patterns/forms/form-validation"
-			]
-		},
-		{
-			"skillSlug": "slider",
-			"patternSlug": "patterns/forms/slider",
-			"category": "forms",
-			"title": "Slider",
-			"summary": "Select values from a range",
-			"description": "Learn how to implement accessible range slider inputs in your web applications. Discover best practices for continuous value selection, touch interactions, and accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/slider",
-			"sourcePath": "apps/web/content/patterns/forms/slider.mdx",
-			"referencePath": "skills/slider/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill slider",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/rating-input",
-				"https://uxpatterns.dev/patterns/forms/selection-input",
-				"https://uxpatterns.dev/patterns/forms/toggle"
-			]
-		},
-		{
-			"skillSlug": "tag-input",
-			"patternSlug": "patterns/forms/tag-input",
-			"category": "forms",
-			"title": "Tag Input",
-			"summary": "Enter and format tags",
-			"description": "Create tag input components for dynamic keyword entry with validation and accessibility support.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/tag-input",
-			"sourcePath": "apps/web/content/patterns/forms/tag-input.mdx",
-			"referencePath": "skills/tag-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tag-input",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/autocomplete",
-				"https://uxpatterns.dev/patterns/forms/multi-select-input",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "text-field",
-			"patternSlug": "patterns/forms/text-field",
-			"category": "forms",
-			"title": "Text Field",
-			"summary": "Enter and edit text content",
-			"description": "Implement accessible text input fields with validation, error handling, and user experience best practices.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/text-field",
-			"sourcePath": "apps/web/content/patterns/forms/text-field.mdx",
-			"referencePath": "skills/text-field/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill text-field",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/autocomplete",
-				"https://uxpatterns.dev/patterns/forms/checkbox",
-				"https://uxpatterns.dev/patterns/forms/currency-input",
-				"https://uxpatterns.dev/patterns/forms/date-picker",
-				"https://uxpatterns.dev/patterns/forms/multi-select-input",
-				"https://uxpatterns.dev/patterns/forms/radio",
-				"https://uxpatterns.dev/patterns/forms/selection-input"
-			]
-		},
-		{
-			"skillSlug": "textarea",
-			"patternSlug": "patterns/forms/textarea",
-			"category": "forms",
-			"title": "Textarea",
-			"summary": "Multi-line text input for longer content",
-			"description": "Learn how to implement accessible textarea components for collecting long-form content, comments, and detailed responses. Discover best practices for multi-line text input with proper validation and user experience.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/textarea",
-			"sourcePath": "apps/web/content/patterns/forms/textarea.mdx",
-			"referencePath": "skills/textarea/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill textarea",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/form-validation",
-				"https://uxpatterns.dev/patterns/forms/rich-text-editor",
-				"https://uxpatterns.dev/patterns/forms/text-field"
-			]
-		},
-		{
-			"skillSlug": "time-input",
-			"patternSlug": "patterns/forms/time-input",
-			"category": "forms",
-			"title": "Time Input",
-			"summary": "Enter time in a structured format",
-			"description": "Build user-friendly time input fields with validation and accessibility features.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/time-input",
-			"sourcePath": "apps/web/content/patterns/forms/time-input.mdx",
-			"referencePath": "skills/time-input/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill time-input",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/date-input",
-				"https://uxpatterns.dev/patterns/forms/date-picker",
-				"https://uxpatterns.dev/patterns/forms/form-validation"
-			]
-		},
-		{
-			"skillSlug": "toggle",
-			"patternSlug": "patterns/forms/toggle",
-			"category": "forms",
-			"title": "Toggle",
-			"summary": "Switch between two states",
-			"description": "Implement toggle switches for binary state control in your web applications. Learn best practices for toggle buttons, state management, and accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/forms/toggle",
-			"sourcePath": "apps/web/content/patterns/forms/toggle.mdx",
-			"referencePath": "skills/toggle/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill toggle",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/button",
-				"https://uxpatterns.dev/patterns/forms/checkbox",
-				"https://uxpatterns.dev/patterns/forms/radio"
-			]
-		},
-		{
-			"skillSlug": "image-gallery",
-			"patternSlug": "patterns/media/image-gallery",
-			"category": "media",
-			"title": "Image Gallery",
-			"summary": "Display and browse image collections",
-			"description": "Learn how to implement image galleries. Discover best practices for lightboxes, thumbnails, and image navigation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/media/image-gallery",
-			"sourcePath": "apps/web/content/patterns/media/image-gallery.mdx",
-			"referencePath": "skills/image-gallery/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill image-gallery",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/carousel",
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/media/image-upload"
-			]
-		},
-		{
-			"skillSlug": "image-upload",
-			"patternSlug": "patterns/media/image-upload",
-			"category": "media",
-			"title": "Image Upload",
-			"summary": "Upload and preview images",
-			"description": "Learn how to implement image upload interfaces. Discover best practices for drag-and-drop, preview, and validation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/media/image-upload",
-			"sourcePath": "apps/web/content/patterns/media/image-upload.mdx",
-			"referencePath": "skills/image-upload/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill image-upload",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/drag-and-drop",
-				"https://uxpatterns.dev/patterns/forms/file-input",
-				"https://uxpatterns.dev/patterns/user-feedback/progress-indicator"
-			]
-		},
-		{
-			"skillSlug": "video-player",
-			"patternSlug": "patterns/media/video-player",
-			"category": "media",
-			"title": "Video Player",
-			"summary": "Video playback with controls",
-			"description": "Learn how to implement video players. Discover best practices for playback controls, captions, and responsive video.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/media/video-player",
-			"sourcePath": "apps/web/content/patterns/media/video-player.mdx",
-			"referencePath": "skills/video-player/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill video-player",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/media/image-gallery",
-				"https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
-				"https://uxpatterns.dev/patterns/user-feedback/progress-indicator"
-			]
-		},
-		{
-			"skillSlug": "back-to-top",
-			"patternSlug": "patterns/navigation/back-to-top",
-			"category": "navigation",
-			"title": "Back to Top",
-			"summary": "Quickly navigate back to the top of the page",
-			"description": "Implement a Back to Top button for enhanced navigation on long pages with best practices for placement and accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/back-to-top",
-			"sourcePath": "apps/web/content/patterns/navigation/back-to-top.mdx",
-			"referencePath": "skills/back-to-top/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill back-to-top",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/breadcrumb",
-				"https://uxpatterns.dev/patterns/navigation/infinite-scroll",
-				"https://uxpatterns.dev/patterns/navigation/pagination"
-			]
-		},
-		{
-			"skillSlug": "breadcrumb",
-			"patternSlug": "patterns/navigation/breadcrumb",
-			"category": "navigation",
-			"title": "Breadcrumb",
-			"summary": "Help users understand their current location",
-			"description": "Create effective breadcrumb navigation for better site orientation. Learn implementation techniques, accessibility requirements, and design best practices for clear hierarchical navigation.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/breadcrumb",
-			"sourcePath": "apps/web/content/patterns/navigation/breadcrumb.mdx",
-			"referencePath": "skills/breadcrumb/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill breadcrumb",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/back-to-top",
-				"https://uxpatterns.dev/patterns/navigation/pagination",
-				"https://uxpatterns.dev/patterns/navigation/tabs"
-			]
-		},
-		{
-			"skillSlug": "hambuger-menu",
-			"patternSlug": "patterns/navigation/hambuger-menu",
-			"category": "navigation",
-			"title": "Hamburger Menu",
-			"summary": "Display a menu icon for mobile devices",
-			"description": "Create accessible mobile menus with smooth animations and touch-friendly interactions.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
-			"sourcePath": "apps/web/content/patterns/navigation/hambuger-menu.mdx",
-			"referencePath": "skills/hambuger-menu/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill hambuger-menu",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/navigation-menu",
-				"https://uxpatterns.dev/patterns/navigation/sidebar",
-				"https://uxpatterns.dev/patterns/navigation/tabs"
-			]
-		},
-		{
-			"skillSlug": "infinite-scroll",
-			"patternSlug": "patterns/navigation/infinite-scroll",
-			"category": "navigation",
-			"title": "Infinite scroll",
-			"summary": "Loads additional content automatically as users scroll down.",
-			"description": "Create seamless content loading with infinite scroll, focusing on performance, accessibility, and user experience best practices.",
-			"aliases": ["continuous scrolling"],
-			"url": "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
-			"sourcePath": "apps/web/content/patterns/navigation/infinite-scroll.mdx",
-			"referencePath": "skills/infinite-scroll/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill infinite-scroll",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/back-to-top",
-				"https://uxpatterns.dev/patterns/navigation/load-more",
-				"https://uxpatterns.dev/patterns/navigation/pagination"
-			]
-		},
-		{
-			"skillSlug": "link",
-			"patternSlug": "patterns/navigation/link",
-			"category": "navigation",
-			"title": "Link",
-			"summary": "Create accessible and interactive links",
-			"description": "Build accessible links with proper styling, hover states, and keyboard navigation support.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/link",
-			"sourcePath": "apps/web/content/patterns/navigation/link.mdx",
-			"referencePath": "skills/link/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill link",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/button",
-				"https://uxpatterns.dev/patterns/navigation/breadcrumb",
-				"https://uxpatterns.dev/patterns/navigation/navigation-menu"
-			]
-		},
-		{
-			"skillSlug": "load-more",
-			"patternSlug": "patterns/navigation/load-more",
-			"category": "navigation",
-			"title": "Load More",
-			"summary": "Load additional content on user demand",
-			"description": "Build efficient content loading with the Load More pattern, focusing on user experience and performance optimization.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/load-more",
-			"sourcePath": "apps/web/content/patterns/navigation/load-more.mdx",
-			"referencePath": "skills/load-more/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill load-more",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/accordion",
-				"https://uxpatterns.dev/patterns/forms/button",
-				"https://uxpatterns.dev/patterns/navigation/infinite-scroll",
-				"https://uxpatterns.dev/patterns/navigation/pagination"
-			]
-		},
-		{
-			"skillSlug": "megamenu",
-			"patternSlug": "patterns/navigation/megamenu",
-			"category": "navigation",
-			"title": "Megamenu",
-			"summary": "Display a large number of links in a single menu",
-			"description": "Build accessible and responsive megamenus with keyboard navigation and mobile-friendly adaptations.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/megamenu",
-			"sourcePath": "apps/web/content/patterns/navigation/megamenu.mdx",
-			"referencePath": "skills/megamenu/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill megamenu",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/hambuger-menu",
-				"https://uxpatterns.dev/patterns/navigation/navigation-menu",
-				"https://uxpatterns.dev/patterns/navigation/sidebar"
-			]
-		},
-		{
-			"skillSlug": "navigation-menu",
-			"patternSlug": "patterns/navigation/navigation-menu",
-			"category": "navigation",
-			"title": "Navigation Menu",
-			"summary": "Organize and structure site navigation",
-			"description": "Build effective navigation menus for your website. Learn best practices for creating accessible, responsive navigation with proper keyboard support and mobile-friendly interactions.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/navigation-menu",
-			"sourcePath": "apps/web/content/patterns/navigation/navigation-menu.mdx",
-			"referencePath": "skills/navigation-menu/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill navigation-menu",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/breadcrumb",
-				"https://uxpatterns.dev/patterns/navigation/hambuger-menu",
-				"https://uxpatterns.dev/patterns/navigation/sidebar",
-				"https://uxpatterns.dev/patterns/navigation/tabs"
-			]
-		},
-		{
-			"skillSlug": "pagination",
-			"patternSlug": "patterns/navigation/pagination",
-			"category": "navigation",
-			"title": "Pagination",
-			"summary": "Navigate through multiple pages of content",
-			"description": "Learn best practices for building accessible, user-friendly page navigation with clear guidelines for design and performance.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/pagination",
-			"sourcePath": "apps/web/content/patterns/navigation/pagination.mdx",
-			"referencePath": "skills/pagination/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill pagination",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/infinite-scroll",
-				"https://uxpatterns.dev/patterns/navigation/load-more",
-				"https://uxpatterns.dev/patterns/navigation/tabs"
-			]
-		},
-		{
-			"skillSlug": "sidebar",
-			"patternSlug": "patterns/navigation/sidebar",
-			"category": "navigation",
-			"title": "Sidebar",
-			"summary": "Organize and structure site navigation",
-			"description": "Build responsive and accessible sidebar navigation with collapsible sections and keyboard navigation support.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/sidebar",
-			"sourcePath": "apps/web/content/patterns/navigation/sidebar.mdx",
-			"referencePath": "skills/sidebar/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill sidebar",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/hambuger-menu",
-				"https://uxpatterns.dev/patterns/navigation/navigation-menu",
-				"https://uxpatterns.dev/patterns/navigation/tabs"
-			]
-		},
-		{
-			"skillSlug": "tabs",
-			"patternSlug": "patterns/navigation/tabs",
-			"category": "navigation",
-			"title": "Tabs",
-			"summary": "Switch between different views",
-			"description": "Create accessible tab interfaces with keyboard navigation, ARIA attributes, and responsive design patterns.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/navigation/tabs",
-			"sourcePath": "apps/web/content/patterns/navigation/tabs.mdx",
-			"referencePath": "skills/tabs/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tabs",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/advanced/wizard",
-				"https://uxpatterns.dev/patterns/content-management/accordion",
-				"https://uxpatterns.dev/patterns/navigation/navigation-menu",
-				"https://uxpatterns.dev/patterns/navigation/sidebar"
-			]
-		},
-		{
-			"skillSlug": "activity-feed",
-			"patternSlug": "patterns/social/activity-feed",
-			"category": "social",
-			"title": "Activity Feed",
-			"summary": "Social activity and updates stream",
-			"description": "Learn how to implement activity feeds. Discover best practices for real-time updates, infinite scrolling, and engagement tracking.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/social/activity-feed",
-			"sourcePath": "apps/web/content/patterns/social/activity-feed.mdx",
-			"referencePath": "skills/activity-feed/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill activity-feed",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/navigation/infinite-scroll",
-				"https://uxpatterns.dev/patterns/social/comment-system",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "comment-system",
-			"patternSlug": "patterns/social/comment-system",
-			"category": "social",
-			"title": "Comment System",
-			"summary": "User comments and discussion threads",
-			"description": "Learn how to implement comment systems. Discover best practices for threaded discussions, moderation, and user interactions.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/social/comment-system",
-			"sourcePath": "apps/web/content/patterns/social/comment-system.mdx",
-			"referencePath": "skills/comment-system/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill comment-system",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/forms/textarea",
-				"https://uxpatterns.dev/patterns/social/activity-feed",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "like-button",
-			"patternSlug": "patterns/social/like-button",
-			"category": "social",
-			"title": "Like Button",
-			"summary": "Like and reaction buttons",
-			"description": "Learn how to implement like buttons and reactions. Discover best practices for engagement tracking, animations, and accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/social/like-button",
-			"sourcePath": "apps/web/content/patterns/social/like-button.mdx",
-			"referencePath": "skills/like-button/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill like-button",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
-				"https://uxpatterns.dev/patterns/forms/rating-input",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "share-dialog",
-			"patternSlug": "patterns/social/share-dialog",
-			"category": "social",
-			"title": "Share Dialog",
-			"summary": "Social sharing functionality",
-			"description": "Learn how to implement share dialogs. Discover best practices for social media integration, copy links, and sharing analytics.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/social/share-dialog",
-			"sourcePath": "apps/web/content/patterns/social/share-dialog.mdx",
-			"referencePath": "skills/share-dialog/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill share-dialog",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/social/like-button",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "cookie-consent",
-			"patternSlug": "patterns/user-feedback/cookie-consent",
-			"category": "user-feedback",
-			"title": "Cookie Consent",
-			"summary": "Inform users about the use of cookies",
-			"description": "Implement effective cookie consent banners in your web applications. Learn best practices for GDPR compliance, user privacy, and consent management.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/user-feedback/cookie-consent",
-			"sourcePath": "apps/web/content/patterns/user-feedback/cookie-consent.mdx",
-			"referencePath": "skills/cookie-consent/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill cookie-consent",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/forms/toggle",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "empty-states",
-			"patternSlug": "patterns/user-feedback/empty-states",
-			"category": "user-feedback",
-			"title": "Empty States",
-			"summary": "Guide users when no content is available",
-			"description": "Create effective empty state experiences in your web applications. Learn best practices for handling no-content scenarios with helpful messaging and clear actions.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/user-feedback/empty-states",
-			"sourcePath": "apps/web/content/patterns/user-feedback/empty-states.mdx",
-			"referencePath": "skills/empty-states/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill empty-states",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/filter-panel",
-				"https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
-				"https://uxpatterns.dev/patterns/user-feedback/notification"
-			]
-		},
-		{
-			"skillSlug": "loading-indicator",
-			"patternSlug": "patterns/user-feedback/loading-indicator",
-			"category": "user-feedback",
-			"title": "Loading Indicator",
-			"summary": "Show users that content is being loaded",
-			"description": "Build effective loading indicators for your web applications. Learn best practices for implementing loading states, spinners, and progress feedback with proper accessibility.",
-			"aliases": ["loader", "loading", "spinner"],
-			"url": "https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
-			"sourcePath": "apps/web/content/patterns/user-feedback/loading-indicator.mdx",
-			"referencePath": "skills/loading-indicator/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill loading-indicator",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/user-feedback/notification",
-				"https://uxpatterns.dev/patterns/user-feedback/progress-indicator",
-				"https://uxpatterns.dev/patterns/user-feedback/skeleton"
-			]
-		},
-		{
-			"skillSlug": "notification",
-			"patternSlug": "patterns/user-feedback/notification",
-			"category": "user-feedback",
-			"title": "Notification",
-			"summary": "Inform users about important updates",
-			"description": "Implement effective notification systems in your web applications. Learn best practices for toast messages, alerts, and user notifications with proper timing and accessibility.",
-			"aliases": ["toast"],
-			"url": "https://uxpatterns.dev/patterns/user-feedback/notification",
-			"sourcePath": "apps/web/content/patterns/user-feedback/notification.mdx",
-			"referencePath": "skills/notification/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill notification",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/content-management/modal",
-				"https://uxpatterns.dev/patterns/forms/form-validation",
-				"https://uxpatterns.dev/patterns/user-feedback/loading-indicator"
-			]
-		},
-		{
-			"skillSlug": "progress-indicator",
-			"patternSlug": "patterns/user-feedback/progress-indicator",
-			"category": "user-feedback",
-			"title": "Progress Indicator",
-			"summary": "Show completion status of an operation",
-			"description": "Create effective progress indicators for your web applications. Learn best practices for implementing progress bars, step indicators, and completion feedback with proper accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/user-feedback/progress-indicator",
-			"sourcePath": "apps/web/content/patterns/user-feedback/progress-indicator.mdx",
-			"referencePath": "skills/progress-indicator/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill progress-indicator",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/advanced/wizard",
-				"https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
-				"https://uxpatterns.dev/patterns/user-feedback/skeleton"
-			]
-		},
-		{
-			"skillSlug": "skeleton",
-			"patternSlug": "patterns/user-feedback/skeleton",
-			"category": "user-feedback",
-			"title": "Skeleton",
-			"summary": "Show users that content is being loaded",
-			"description": "Build effective skeleton loading states for your web applications. Learn best practices for implementing content placeholders and loading animations with proper accessibility.",
-			"aliases": [],
-			"url": "https://uxpatterns.dev/patterns/user-feedback/skeleton",
-			"sourcePath": "apps/web/content/patterns/user-feedback/skeleton.mdx",
-			"referencePath": "skills/skeleton/references/pattern.md",
-			"installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill skeleton",
-			"relatedPatternUrls": [
-				"https://uxpatterns.dev/patterns/data-display/card-grid",
-				"https://uxpatterns.dev/patterns/user-feedback/empty-states",
-				"https://uxpatterns.dev/patterns/user-feedback/loading-indicator"
-			]
-		}
-	]
+  "generatedAt": "2026-03-12T20:23:44.797Z",
+  "installSource": "https://github.com/thedaviddias/ux-patterns-for-developers",
+  "globalSkill": {
+    "skillSlug": "ux-patterns",
+    "title": "UX Patterns Global",
+    "description": "Use when choosing, comparing, or implementing UX patterns across the UX Patterns for Developers corpus.",
+    "url": "https://uxpatterns.dev/skills/ux-patterns",
+    "referencePath": "skills/ux-patterns/references/categories.md",
+    "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ux-patterns"
+  },
+  "patterns": [
+    {
+      "skillSlug": "command-palette",
+      "patternSlug": "patterns/advanced/command-palette",
+      "category": "advanced",
+      "title": "Command Palette",
+      "summary": "Quick command execution interface",
+      "description": "Learn how to implement command palettes. Discover best practices for keyboard shortcuts, fuzzy search, and command discovery.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/advanced/command-palette",
+      "sourcePath": "apps/web/content/patterns/advanced/command-palette.mdx",
+      "referencePath": "skills/command-palette/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill command-palette",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/forms/search-field",
+        "https://uxpatterns.dev/patterns/navigation/navigation-menu"
+      ]
+    },
+    {
+      "skillSlug": "search-results",
+      "patternSlug": "patterns/advanced/search-results",
+      "category": "advanced",
+      "title": "Search Results",
+      "summary": "Display and filter search results",
+      "description": "Learn how to implement search results pages. Discover best practices for result ranking, filtering, and pagination.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/advanced/search-results",
+      "sourcePath": "apps/web/content/patterns/advanced/search-results.mdx",
+      "referencePath": "skills/search-results/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill search-results",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/filter-panel",
+        "https://uxpatterns.dev/patterns/forms/search-field",
+        "https://uxpatterns.dev/patterns/navigation/pagination"
+      ]
+    },
+    {
+      "skillSlug": "wizard",
+      "patternSlug": "patterns/advanced/wizard",
+      "category": "advanced",
+      "title": "Wizard / Stepper",
+      "summary": "Multi-step forms and processes",
+      "description": "Learn how to implement wizards and steppers. Discover best practices for multi-step forms, progress tracking, and step validation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/advanced/wizard",
+      "sourcePath": "apps/web/content/patterns/advanced/wizard.mdx",
+      "referencePath": "skills/wizard/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill wizard",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/e-commerce/checkout",
+        "https://uxpatterns.dev/patterns/forms/form-validation",
+        "https://uxpatterns.dev/patterns/user-feedback/progress-indicator"
+      ]
+    },
+    {
+      "skillSlug": "ai-chat",
+      "patternSlug": "patterns/ai-intelligence/ai-chat",
+      "category": "ai-intelligence",
+      "title": "AI Chat Interface",
+      "summary": "Conversational AI chat interfaces",
+      "description": "Learn how to implement AI chat interfaces. Discover best practices for message threading, context management, and conversational UX.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-chat",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/ai-chat.mdx",
+      "referencePath": "skills/ai-chat/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-chat",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
+        "https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
+        "https://uxpatterns.dev/patterns/ai-intelligence/streaming-response"
+      ]
+    },
+    {
+      "skillSlug": "ai-error-states",
+      "patternSlug": "patterns/ai-intelligence/ai-error-states",
+      "category": "ai-intelligence",
+      "title": "AI Error States",
+      "summary": "Handling AI-specific errors",
+      "description": "Learn how to implement AI error states. Discover best practices for rate limits, model errors, and graceful degradation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-error-states",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/ai-error-states.mdx",
+      "referencePath": "skills/ai-error-states/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-error-states",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/ai-loading-states",
+        "https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "ai-loading-states",
+      "patternSlug": "patterns/ai-intelligence/ai-loading-states",
+      "category": "ai-intelligence",
+      "title": "AI Loading States",
+      "summary": "Loading states for AI operations",
+      "description": "Learn how to implement AI-specific loading states. Discover best practices for thinking animations, progress indicators, and stream initialization.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-loading-states",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/ai-loading-states.mdx",
+      "referencePath": "skills/ai-loading-states/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-loading-states",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/streaming-response",
+        "https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
+        "https://uxpatterns.dev/patterns/user-feedback/skeleton"
+      ]
+    },
+    {
+      "skillSlug": "ai-suggestions",
+      "patternSlug": "patterns/ai-intelligence/ai-suggestions",
+      "category": "ai-intelligence",
+      "title": "AI Suggestions",
+      "summary": "AI-powered autocomplete and suggestions",
+      "description": "Learn how to implement AI suggestions. Discover best practices for predictive text, smart completions, and recommendation interfaces.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/ai-suggestions",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/ai-suggestions.mdx",
+      "referencePath": "skills/ai-suggestions/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ai-suggestions",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/model-selector",
+        "https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
+        "https://uxpatterns.dev/patterns/forms/autocomplete"
+      ]
+    },
+    {
+      "skillSlug": "context-window",
+      "patternSlug": "patterns/ai-intelligence/context-window",
+      "category": "ai-intelligence",
+      "title": "Context Window",
+      "summary": "Managing AI conversation context",
+      "description": "Learn how to implement context window management. Discover best practices for conversation history, context limits, and memory management.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/context-window",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/context-window.mdx",
+      "referencePath": "skills/context-window/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill context-window",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/ai-chat",
+        "https://uxpatterns.dev/patterns/ai-intelligence/streaming-response",
+        "https://uxpatterns.dev/patterns/ai-intelligence/token-counter"
+      ]
+    },
+    {
+      "skillSlug": "model-selector",
+      "patternSlug": "patterns/ai-intelligence/model-selector",
+      "category": "ai-intelligence",
+      "title": "Model Selector",
+      "summary": "AI model selection interface",
+      "description": "Learn how to implement model selectors. Discover best practices for model comparison, capability display, and settings management.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/model-selector",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/model-selector.mdx",
+      "referencePath": "skills/model-selector/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill model-selector",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
+        "https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
+        "https://uxpatterns.dev/patterns/ai-intelligence/token-counter"
+      ]
+    },
+    {
+      "skillSlug": "prompt-input",
+      "patternSlug": "patterns/ai-intelligence/prompt-input",
+      "category": "ai-intelligence",
+      "title": "Prompt Input",
+      "summary": "Enhanced text inputs for AI prompts",
+      "description": "Learn how to implement prompt input interfaces. Discover best practices for multiline inputs, prompt templates, and input enhancements.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/prompt-input",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/prompt-input.mdx",
+      "referencePath": "skills/prompt-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill prompt-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/ai-suggestions",
+        "https://uxpatterns.dev/patterns/forms/text-field",
+        "https://uxpatterns.dev/patterns/forms/textarea"
+      ]
+    },
+    {
+      "skillSlug": "response-feedback",
+      "patternSlug": "patterns/ai-intelligence/response-feedback",
+      "category": "ai-intelligence",
+      "title": "Response Feedback",
+      "summary": "Feedback mechanisms for AI responses",
+      "description": "Learn how to implement response feedback. Discover best practices for ratings, regeneration, and improvement signals.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/response-feedback.mdx",
+      "referencePath": "skills/response-feedback/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill response-feedback",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/ai-error-states",
+        "https://uxpatterns.dev/patterns/social/like-button",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "streaming-response",
+      "patternSlug": "patterns/ai-intelligence/streaming-response",
+      "category": "ai-intelligence",
+      "title": "Streaming Response",
+      "summary": "Real-time AI response streaming",
+      "description": "Learn how to implement streaming AI responses. Discover best practices for progressive rendering, markdown formatting, and stream interruption.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/streaming-response",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/streaming-response.mdx",
+      "referencePath": "skills/streaming-response/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill streaming-response",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/ai-chat",
+        "https://uxpatterns.dev/patterns/ai-intelligence/ai-loading-states",
+        "https://uxpatterns.dev/patterns/ai-intelligence/context-window"
+      ]
+    },
+    {
+      "skillSlug": "token-counter",
+      "patternSlug": "patterns/ai-intelligence/token-counter",
+      "category": "ai-intelligence",
+      "title": "Token Counter",
+      "summary": "Display token usage and limits",
+      "description": "Learn how to implement token counters. Discover best practices for usage indicators, limit warnings, and cost estimation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/ai-intelligence/token-counter",
+      "sourcePath": "apps/web/content/patterns/ai-intelligence/token-counter.mdx",
+      "referencePath": "skills/token-counter/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill token-counter",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/context-window",
+        "https://uxpatterns.dev/patterns/ai-intelligence/model-selector",
+        "https://uxpatterns.dev/patterns/ai-intelligence/prompt-input"
+      ]
+    },
+    {
+      "skillSlug": "account-settings",
+      "patternSlug": "patterns/authentication/account-settings",
+      "category": "authentication",
+      "title": "Account Settings",
+      "summary": "User account configuration and preferences",
+      "description": "Learn how to implement account settings. Discover best practices for preference management, privacy controls, and account configuration.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/authentication/account-settings",
+      "sourcePath": "apps/web/content/patterns/authentication/account-settings.mdx",
+      "referencePath": "skills/account-settings/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill account-settings",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/authentication/password-reset",
+        "https://uxpatterns.dev/patterns/authentication/social-login",
+        "https://uxpatterns.dev/patterns/authentication/two-factor",
+        "https://uxpatterns.dev/patterns/authentication/user-profile"
+      ]
+    },
+    {
+      "skillSlug": "login",
+      "patternSlug": "patterns/authentication/login",
+      "category": "authentication",
+      "title": "Login Form",
+      "summary": "User authentication and sign-in forms",
+      "description": "Learn how to implement secure and user-friendly login forms. Discover best practices for authentication, password fields, and remember me functionality.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/authentication/login",
+      "sourcePath": "apps/web/content/patterns/authentication/login.mdx",
+      "referencePath": "skills/login/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill login",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/authentication/password-reset",
+        "https://uxpatterns.dev/patterns/authentication/signup",
+        "https://uxpatterns.dev/patterns/authentication/social-login",
+        "https://uxpatterns.dev/patterns/authentication/two-factor"
+      ]
+    },
+    {
+      "skillSlug": "password-reset",
+      "patternSlug": "patterns/authentication/password-reset",
+      "category": "authentication",
+      "title": "Password Reset",
+      "summary": "Password recovery and reset flows",
+      "description": "Learn how to implement secure password reset functionality. Discover best practices for recovery emails, token validation, and security considerations.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/authentication/password-reset",
+      "sourcePath": "apps/web/content/patterns/authentication/password-reset.mdx",
+      "referencePath": "skills/password-reset/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill password-reset",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/authentication/login",
+        "https://uxpatterns.dev/patterns/authentication/social-login",
+        "https://uxpatterns.dev/patterns/authentication/two-factor"
+      ]
+    },
+    {
+      "skillSlug": "signup",
+      "patternSlug": "patterns/authentication/signup",
+      "category": "authentication",
+      "title": "Sign Up Flow",
+      "summary": "User registration and account creation",
+      "description": "Learn how to implement effective sign-up flows. Discover best practices for user registration, form validation, and onboarding experiences.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/authentication/signup",
+      "sourcePath": "apps/web/content/patterns/authentication/signup.mdx",
+      "referencePath": "skills/signup/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill signup",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/authentication/account-settings",
+        "https://uxpatterns.dev/patterns/authentication/login",
+        "https://uxpatterns.dev/patterns/authentication/social-login"
+      ]
+    },
+    {
+      "skillSlug": "social-login",
+      "patternSlug": "patterns/authentication/social-login",
+      "category": "authentication",
+      "title": "Social Login",
+      "summary": "OAuth and social media authentication",
+      "description": "Learn how to implement social login. Discover best practices for OAuth flows, provider integration, and account linking.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/authentication/social-login",
+      "sourcePath": "apps/web/content/patterns/authentication/social-login.mdx",
+      "referencePath": "skills/social-login/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill social-login",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/authentication/login",
+        "https://uxpatterns.dev/patterns/authentication/signup",
+        "https://uxpatterns.dev/patterns/authentication/two-factor"
+      ]
+    },
+    {
+      "skillSlug": "two-factor",
+      "patternSlug": "patterns/authentication/two-factor",
+      "category": "authentication",
+      "title": "Two-Factor Authentication",
+      "summary": "Two-factor authentication setup and verification",
+      "description": "Learn how to implement two-factor authentication. Discover best practices for TOTP, SMS verification, and security keys.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/authentication/two-factor",
+      "sourcePath": "apps/web/content/patterns/authentication/two-factor.mdx",
+      "referencePath": "skills/two-factor/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill two-factor",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/authentication/account-settings",
+        "https://uxpatterns.dev/patterns/authentication/login",
+        "https://uxpatterns.dev/patterns/authentication/password-reset",
+        "https://uxpatterns.dev/patterns/authentication/social-login"
+      ]
+    },
+    {
+      "skillSlug": "user-profile",
+      "patternSlug": "patterns/authentication/user-profile",
+      "category": "authentication",
+      "title": "User Profile",
+      "summary": "User profile and account management",
+      "description": "Learn how to implement user profile interfaces. Discover best practices for displaying user information, avatars, and account settings.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/authentication/user-profile",
+      "sourcePath": "apps/web/content/patterns/authentication/user-profile.mdx",
+      "referencePath": "skills/user-profile/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill user-profile",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/authentication/account-settings",
+        "https://uxpatterns.dev/patterns/authentication/login",
+        "https://uxpatterns.dev/patterns/authentication/signup"
+      ]
+    },
+    {
+      "skillSlug": "accordion",
+      "patternSlug": "patterns/content-management/accordion",
+      "category": "content-management",
+      "title": "Accordion",
+      "summary": "Expand and collapse content sections",
+      "description": "Create effective accordion components for your web applications. Learn best practices for implementing expandable content sections with proper accessibility and keyboard support.",
+      "aliases": [
+        "collapsible panels"
+      ],
+      "url": "https://uxpatterns.dev/patterns/content-management/accordion",
+      "sourcePath": "apps/web/content/patterns/content-management/accordion.mdx",
+      "referencePath": "skills/accordion/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill accordion",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/expandable-text",
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/navigation/tabs"
+      ]
+    },
+    {
+      "skillSlug": "carousel",
+      "patternSlug": "patterns/content-management/carousel",
+      "category": "content-management",
+      "title": "Carousel",
+      "summary": "Display multiple items in a rotating view",
+      "description": "Build effective carousel components for your web applications. Learn best practices for implementing accessible, responsive carousels with proper navigation and touch support.",
+      "aliases": [
+        "slider",
+        "slideshow",
+        "image rotator"
+      ],
+      "url": "https://uxpatterns.dev/patterns/content-management/carousel",
+      "sourcePath": "apps/web/content/patterns/content-management/carousel.mdx",
+      "referencePath": "skills/carousel/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill carousel",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/accordion",
+        "https://uxpatterns.dev/patterns/content-management/expandable-text",
+        "https://uxpatterns.dev/patterns/data-display/card-grid",
+        "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
+        "https://uxpatterns.dev/patterns/navigation/load-more",
+        "https://uxpatterns.dev/patterns/navigation/pagination",
+        "https://uxpatterns.dev/patterns/navigation/tabs"
+      ]
+    },
+    {
+      "skillSlug": "drag-and-drop",
+      "patternSlug": "patterns/content-management/drag-and-drop",
+      "category": "content-management",
+      "title": "Drag and Drop",
+      "summary": "Allow users to reorder items intuitively",
+      "description": "Build intuitive drag and drop functionality with accessibility and touch support.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/content-management/drag-and-drop",
+      "sourcePath": "apps/web/content/patterns/content-management/drag-and-drop.mdx",
+      "referencePath": "skills/drag-and-drop/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill drag-and-drop",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/kanban-board",
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/media/image-upload"
+      ]
+    },
+    {
+      "skillSlug": "expandable-text",
+      "patternSlug": "patterns/content-management/expandable-text",
+      "category": "content-management",
+      "title": "Expandable Text",
+      "summary": "Show or hide additional text content on demand",
+      "description": "Create expandable text components with progressive disclosure and accessibility features for better content management.",
+      "aliases": [
+        "collapsible text",
+        "Read More/Read Less"
+      ],
+      "url": "https://uxpatterns.dev/patterns/content-management/expandable-text",
+      "sourcePath": "apps/web/content/patterns/content-management/expandable-text.mdx",
+      "referencePath": "skills/expandable-text/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill expandable-text",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/accordion",
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/content-management/tooltip"
+      ]
+    },
+    {
+      "skillSlug": "modal",
+      "patternSlug": "patterns/content-management/modal",
+      "category": "content-management",
+      "title": "Modal",
+      "summary": "Display focused content or actions",
+      "description": "Build accessible modal dialogs with proper focus management, keyboard interactions, and user experience best practices.",
+      "aliases": [
+        "dialog",
+        "dialog box",
+        "overlay",
+        "popup"
+      ],
+      "url": "https://uxpatterns.dev/patterns/content-management/modal",
+      "sourcePath": "apps/web/content/patterns/content-management/modal.mdx",
+      "referencePath": "skills/modal/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill modal",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/popover",
+        "https://uxpatterns.dev/patterns/content-management/tooltip",
+        "https://uxpatterns.dev/patterns/user-feedback/loading-indicator"
+      ]
+    },
+    {
+      "skillSlug": "popover",
+      "patternSlug": "patterns/content-management/popover",
+      "category": "content-management",
+      "title": "Popover",
+      "summary": "Display focused content or actions",
+      "description": "Implement user-friendly popover components in your web applications. Learn best practices for contextual information display, positioning, and accessibility with practical examples.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/content-management/popover",
+      "sourcePath": "apps/web/content/patterns/content-management/popover.mdx",
+      "referencePath": "skills/popover/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill popover",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/content-management/tooltip",
+        "https://uxpatterns.dev/patterns/forms/selection-input"
+      ]
+    },
+    {
+      "skillSlug": "tooltip",
+      "patternSlug": "patterns/content-management/tooltip",
+      "category": "content-management",
+      "title": "Tooltip",
+      "summary": "Provide additional context on hover or focus",
+      "description": "Implement effective tooltip components in your web applications. Learn best practices for contextual help, positioning strategies, and accessibility considerations.",
+      "aliases": [
+        "hover hint",
+        "info bubble"
+      ],
+      "url": "https://uxpatterns.dev/patterns/content-management/tooltip",
+      "sourcePath": "apps/web/content/patterns/content-management/tooltip.mdx",
+      "referencePath": "skills/tooltip/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tooltip",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/content-management/popover",
+        "https://uxpatterns.dev/patterns/forms/selection-input"
+      ]
+    },
+    {
+      "skillSlug": "calendar",
+      "patternSlug": "patterns/data-display/calendar",
+      "category": "data-display",
+      "title": "Calendar View",
+      "summary": "Display dates and events in calendar format",
+      "description": "Learn how to implement calendar views. Discover best practices for date navigation, event display, and calendar interactions.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/calendar",
+      "sourcePath": "apps/web/content/patterns/data-display/calendar.mdx",
+      "referencePath": "skills/calendar/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill calendar",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/filter-panel",
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/data-display/timeline"
+      ]
+    },
+    {
+      "skillSlug": "card-grid",
+      "patternSlug": "patterns/data-display/card-grid",
+      "category": "data-display",
+      "title": "Card Grid",
+      "summary": "Display content in a responsive card layout",
+      "description": "Learn how to implement card grids for content display. Discover best practices for responsive layouts, card designs, and grid systems.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/card-grid",
+      "sourcePath": "apps/web/content/patterns/data-display/card-grid.mdx",
+      "referencePath": "skills/card-grid/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill card-grid",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/data-display/table",
+        "https://uxpatterns.dev/patterns/e-commerce/product-card"
+      ]
+    },
+    {
+      "skillSlug": "chart",
+      "patternSlug": "patterns/data-display/chart",
+      "category": "data-display",
+      "title": "Charts & Graphs",
+      "summary": "Visualize data with graphs and charts",
+      "description": "Learn how to implement accessible charts and graphs. Discover best practices for data visualization, chart types, and responsive designs.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/chart",
+      "sourcePath": "apps/web/content/patterns/data-display/chart.mdx",
+      "referencePath": "skills/chart/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill chart",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/dashboard",
+        "https://uxpatterns.dev/patterns/data-display/statistics",
+        "https://uxpatterns.dev/patterns/data-display/table"
+      ]
+    },
+    {
+      "skillSlug": "comparison-table",
+      "patternSlug": "patterns/data-display/comparison-table",
+      "category": "data-display",
+      "title": "Comparison Table",
+      "summary": "Compare features and options side-by-side",
+      "description": "Learn how to implement comparison tables. Discover best practices for feature comparisons, pricing tables, and decision matrices.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/comparison-table",
+      "sourcePath": "apps/web/content/patterns/data-display/comparison-table.mdx",
+      "referencePath": "skills/comparison-table/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill comparison-table",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/data-display/table",
+        "https://uxpatterns.dev/patterns/e-commerce/product-card"
+      ]
+    },
+    {
+      "skillSlug": "dashboard",
+      "patternSlug": "patterns/data-display/dashboard",
+      "category": "data-display",
+      "title": "Dashboard Layout",
+      "summary": "Comprehensive dashboard layouts",
+      "description": "Learn how to implement dashboard layouts. Discover best practices for widget organization, responsive grids, and data visualization.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/dashboard",
+      "sourcePath": "apps/web/content/patterns/data-display/dashboard.mdx",
+      "referencePath": "skills/dashboard/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill dashboard",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/chart",
+        "https://uxpatterns.dev/patterns/data-display/filter-panel",
+        "https://uxpatterns.dev/patterns/data-display/statistics"
+      ]
+    },
+    {
+      "skillSlug": "filter-panel",
+      "patternSlug": "patterns/data-display/filter-panel",
+      "category": "data-display",
+      "title": "Filter Panel",
+      "summary": "Filter and refine data displays",
+      "description": "Learn how to implement filter panels for data refinement. Discover best practices for faceted search, filter UI, and dynamic filtering.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/filter-panel",
+      "sourcePath": "apps/web/content/patterns/data-display/filter-panel.mdx",
+      "referencePath": "skills/filter-panel/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill filter-panel",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/advanced/search-results",
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/navigation/pagination"
+      ]
+    },
+    {
+      "skillSlug": "kanban-board",
+      "patternSlug": "patterns/data-display/kanban-board",
+      "category": "data-display",
+      "title": "Kanban Board",
+      "summary": "Organize tasks in columns and swimlanes",
+      "description": "Learn how to implement kanban boards. Discover best practices for drag-and-drop, task management, and workflow visualization.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/kanban-board",
+      "sourcePath": "apps/web/content/patterns/data-display/kanban-board.mdx",
+      "referencePath": "skills/kanban-board/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill kanban-board",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/drag-and-drop",
+        "https://uxpatterns.dev/patterns/data-display/dashboard",
+        "https://uxpatterns.dev/patterns/data-display/list-view"
+      ]
+    },
+    {
+      "skillSlug": "list-view",
+      "patternSlug": "patterns/data-display/list-view",
+      "category": "data-display",
+      "title": "List View",
+      "summary": "Display data in vertical lists",
+      "description": "Learn how to implement list views for data display. Discover best practices for list layouts, item selection, and virtual scrolling.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/list-view",
+      "sourcePath": "apps/web/content/patterns/data-display/list-view.mdx",
+      "referencePath": "skills/list-view/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill list-view",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/card-grid",
+        "https://uxpatterns.dev/patterns/data-display/table",
+        "https://uxpatterns.dev/patterns/data-display/timeline"
+      ]
+    },
+    {
+      "skillSlug": "statistics",
+      "patternSlug": "patterns/data-display/statistics",
+      "category": "data-display",
+      "title": "Statistics Display",
+      "summary": "Display key metrics and statistics",
+      "description": "Learn how to implement statistics displays. Discover best practices for metric cards, KPI dashboards, and data visualization.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/statistics",
+      "sourcePath": "apps/web/content/patterns/data-display/statistics.mdx",
+      "referencePath": "skills/statistics/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill statistics",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/chart",
+        "https://uxpatterns.dev/patterns/data-display/comparison-table",
+        "https://uxpatterns.dev/patterns/data-display/dashboard"
+      ]
+    },
+    {
+      "skillSlug": "table",
+      "patternSlug": "patterns/data-display/table",
+      "category": "data-display",
+      "title": "Data Table",
+      "summary": "Display structured data in rows and columns",
+      "description": "Learn how to implement accessible and performant data tables. Discover best practices for sorting, filtering, pagination, and responsive table designs.",
+      "aliases": [
+        "data grids"
+      ],
+      "url": "https://uxpatterns.dev/patterns/data-display/table",
+      "sourcePath": "apps/web/content/patterns/data-display/table.mdx",
+      "referencePath": "skills/table/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill table",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/accordion",
+        "https://uxpatterns.dev/patterns/content-management/expandable-text",
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/content-management/tooltip",
+        "https://uxpatterns.dev/patterns/data-display/card-grid",
+        "https://uxpatterns.dev/patterns/data-display/dashboard",
+        "https://uxpatterns.dev/patterns/data-display/filter-panel",
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/data-display/tree-view",
+        "https://uxpatterns.dev/patterns/forms/checkbox",
+        "https://uxpatterns.dev/patterns/forms/search-field",
+        "https://uxpatterns.dev/patterns/navigation/pagination",
+        "https://uxpatterns.dev/patterns/user-feedback/empty-states",
+        "https://uxpatterns.dev/patterns/user-feedback/notification",
+        "https://uxpatterns.dev/patterns/user-feedback/skeleton"
+      ]
+    },
+    {
+      "skillSlug": "timeline",
+      "patternSlug": "patterns/data-display/timeline",
+      "category": "data-display",
+      "title": "Timeline",
+      "summary": "Display chronological events and activities",
+      "description": "Learn how to implement timelines for showing chronological data. Discover best practices for activity feeds, history logs, and event sequences.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/timeline",
+      "sourcePath": "apps/web/content/patterns/data-display/timeline.mdx",
+      "referencePath": "skills/timeline/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill timeline",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/calendar",
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/social/activity-feed"
+      ]
+    },
+    {
+      "skillSlug": "tree-view",
+      "patternSlug": "patterns/data-display/tree-view",
+      "category": "data-display",
+      "title": "Tree View",
+      "summary": "Display hierarchical data structures",
+      "description": "Learn how to implement tree views for hierarchical data. Discover best practices for expandable nodes, selection states, and keyboard navigation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/data-display/tree-view",
+      "sourcePath": "apps/web/content/patterns/data-display/tree-view.mdx",
+      "referencePath": "skills/tree-view/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tree-view",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/list-view",
+        "https://uxpatterns.dev/patterns/data-display/table",
+        "https://uxpatterns.dev/patterns/navigation/navigation-menu"
+      ]
+    },
+    {
+      "skillSlug": "checkout",
+      "patternSlug": "patterns/e-commerce/checkout",
+      "category": "e-commerce",
+      "title": "Checkout Flow",
+      "summary": "Multi-step checkout process",
+      "description": "Learn how to implement checkout flows. Discover best practices for payment forms, order review, and conversion optimization.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/e-commerce/checkout",
+      "sourcePath": "apps/web/content/patterns/e-commerce/checkout.mdx",
+      "referencePath": "skills/checkout/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill checkout",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/advanced/wizard",
+        "https://uxpatterns.dev/patterns/e-commerce/shopping-cart",
+        "https://uxpatterns.dev/patterns/forms/form-validation"
+      ]
+    },
+    {
+      "skillSlug": "product-card",
+      "patternSlug": "patterns/e-commerce/product-card",
+      "category": "e-commerce",
+      "title": "Product Card",
+      "summary": "Product display cards for e-commerce",
+      "description": "Learn how to implement effective product cards. Discover best practices for product images, pricing display, and quick actions.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/e-commerce/product-card",
+      "sourcePath": "apps/web/content/patterns/e-commerce/product-card.mdx",
+      "referencePath": "skills/product-card/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill product-card",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/card-grid",
+        "https://uxpatterns.dev/patterns/data-display/comparison-table",
+        "https://uxpatterns.dev/patterns/e-commerce/shopping-cart"
+      ]
+    },
+    {
+      "skillSlug": "shopping-cart",
+      "patternSlug": "patterns/e-commerce/shopping-cart",
+      "category": "e-commerce",
+      "title": "Shopping Cart",
+      "summary": "Shopping cart and item management",
+      "description": "Learn how to implement shopping cart functionality. Discover best practices for cart management, item updates, and persistent storage.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/e-commerce/shopping-cart",
+      "sourcePath": "apps/web/content/patterns/e-commerce/shopping-cart.mdx",
+      "referencePath": "skills/shopping-cart/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill shopping-cart",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/e-commerce/checkout",
+        "https://uxpatterns.dev/patterns/e-commerce/product-card",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "autocomplete",
+      "patternSlug": "patterns/forms/autocomplete",
+      "category": "forms",
+      "title": "Autocomplete",
+      "summary": "Suggest options as users type",
+      "description": "Build user-friendly autocomplete with search suggestions, keyboard navigation, and accessibility features.",
+      "aliases": [
+        "autosuggest"
+      ],
+      "url": "https://uxpatterns.dev/patterns/forms/autocomplete",
+      "sourcePath": "apps/web/content/patterns/forms/autocomplete.mdx",
+      "referencePath": "skills/autocomplete/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill autocomplete",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/autocomplete/do-dont-accessibility-1",
+        "https://uxpatterns.dev/patterns/autocomplete/do-dont-content-1",
+        "https://uxpatterns.dev/patterns/autocomplete/do-dont-visual-design-2",
+        "https://uxpatterns.dev/patterns/forms/date-picker",
+        "https://uxpatterns.dev/patterns/forms/multi-select-input",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "button",
+      "patternSlug": "patterns/forms/button",
+      "category": "forms",
+      "title": "Button",
+      "summary": "Trigger actions and submit forms",
+      "description": "Create accessible and user-friendly buttons with proper states, design patterns, and implementation guidelines.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/button",
+      "sourcePath": "apps/web/content/patterns/forms/button.mdx",
+      "referencePath": "skills/button/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill button",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/toggle",
+        "https://uxpatterns.dev/patterns/navigation/link"
+      ]
+    },
+    {
+      "skillSlug": "checkbox",
+      "patternSlug": "patterns/forms/checkbox",
+      "category": "forms",
+      "title": "Checkbox",
+      "summary": "Enable single or multiple selections",
+      "description": "Learn how to implement accessible checkbox inputs in your web applications. Discover best practices for multiple selection controls, states handling, and accessibility.",
+      "aliases": [
+        "tick box",
+        "selection box"
+      ],
+      "url": "https://uxpatterns.dev/patterns/forms/checkbox",
+      "sourcePath": "apps/web/content/patterns/forms/checkbox.mdx",
+      "referencePath": "skills/checkbox/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill checkbox",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/button",
+        "https://uxpatterns.dev/patterns/forms/form-validation",
+        "https://uxpatterns.dev/patterns/forms/multi-select-input",
+        "https://uxpatterns.dev/patterns/forms/radio",
+        "https://uxpatterns.dev/patterns/forms/selection-input",
+        "https://uxpatterns.dev/patterns/forms/toggle",
+        "https://uxpatterns.dev/patterns/navigation/pagination"
+      ]
+    },
+    {
+      "skillSlug": "code-confirmation",
+      "patternSlug": "patterns/forms/code-confirmation",
+      "category": "forms",
+      "title": "Code Confirmation",
+      "summary": "Verify codes with segmented input",
+      "description": "Implement user-friendly code confirmation inputs for verification codes and OTPs. Learn best practices for segmented inputs, auto-focus behavior, and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/code-confirmation",
+      "sourcePath": "apps/web/content/patterns/forms/code-confirmation.mdx",
+      "referencePath": "skills/code-confirmation/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill code-confirmation",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "color-picker",
+      "patternSlug": "patterns/forms/color-picker",
+      "category": "forms",
+      "title": "Color Picker",
+      "summary": "Select colors with visual feedback",
+      "description": "Select colors with visual feedback",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/color-picker",
+      "sourcePath": "apps/web/content/patterns/forms/color-picker.mdx",
+      "referencePath": "skills/color-picker/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill color-picker",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/selection-input",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "currency-input",
+      "patternSlug": "patterns/forms/currency-input",
+      "category": "forms",
+      "title": "Currency Input",
+      "summary": "Enter and format monetary values",
+      "description": "Create currency input fields with number formatting and international currency handling.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/currency-input",
+      "sourcePath": "apps/web/content/patterns/forms/currency-input.mdx",
+      "referencePath": "skills/currency-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill currency-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "date-input",
+      "patternSlug": "patterns/forms/date-input",
+      "category": "forms",
+      "title": "Date Input",
+      "summary": "Enter dates in a structured text format",
+      "description": "Build date input fields with validation, formatting, and localization features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/date-input",
+      "sourcePath": "apps/web/content/patterns/forms/date-input.mdx",
+      "referencePath": "skills/date-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/date-picker",
+        "https://uxpatterns.dev/patterns/forms/date-range",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "date-picker",
+      "patternSlug": "patterns/forms/date-picker",
+      "category": "forms",
+      "title": "Date Picker",
+      "summary": "Select dates from a calendar interface",
+      "description": "Create user-friendly date pickers with calendar interfaces and keyboard navigation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/date-picker",
+      "sourcePath": "apps/web/content/patterns/forms/date-picker.mdx",
+      "referencePath": "skills/date-picker/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-picker",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/date-input",
+        "https://uxpatterns.dev/patterns/forms/date-range",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "date-range",
+      "patternSlug": "patterns/forms/date-range",
+      "category": "forms",
+      "title": "Date Range",
+      "summary": "Select a range between two dates",
+      "description": "Build date range selection with calendar interfaces and validation features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/date-range",
+      "sourcePath": "apps/web/content/patterns/forms/date-range.mdx",
+      "referencePath": "skills/date-range/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill date-range",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/date-input",
+        "https://uxpatterns.dev/patterns/forms/date-picker",
+        "https://uxpatterns.dev/patterns/forms/selection-input"
+      ]
+    },
+    {
+      "skillSlug": "file-input",
+      "patternSlug": "patterns/forms/file-input",
+      "category": "forms",
+      "title": "File Input",
+      "summary": "Upload and handle files",
+      "description": "Create user-friendly file upload components for your web applications. Learn best practices for file selection, drag-and-drop, progress indicators, and validation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/file-input",
+      "sourcePath": "apps/web/content/patterns/forms/file-input.mdx",
+      "referencePath": "skills/file-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill file-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "form-validation",
+      "patternSlug": "patterns/forms/form-validation",
+      "category": "forms",
+      "title": "Form Validation",
+      "summary": "Validate and provide feedback",
+      "description": "Learn how to implement effective form validation in your web applications. Discover best practices for error handling, real-time validation, and user feedback.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/form-validation",
+      "sourcePath": "apps/web/content/patterns/forms/form-validation.mdx",
+      "referencePath": "skills/form-validation/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill form-validation",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/button",
+        "https://uxpatterns.dev/patterns/forms/date-input",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "multi-select-input",
+      "patternSlug": "patterns/forms/multi-select-input",
+      "category": "forms",
+      "title": "Multi-select Input",
+      "summary": "Choose multiple items from a list",
+      "description": "Implement multi-select components for multiple item selection in your web applications. Learn best practices for list management, keyboard navigation, and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/multi-select-input",
+      "sourcePath": "apps/web/content/patterns/forms/multi-select-input.mdx",
+      "referencePath": "skills/multi-select-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill multi-select-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/autocomplete",
+        "https://uxpatterns.dev/patterns/forms/checkbox",
+        "https://uxpatterns.dev/patterns/forms/radio",
+        "https://uxpatterns.dev/patterns/forms/selection-input"
+      ]
+    },
+    {
+      "skillSlug": "password",
+      "patternSlug": "patterns/forms/password",
+      "category": "forms",
+      "title": "Password",
+      "summary": "Secure password entry with feedback",
+      "description": "Build secure and user-friendly password fields with validation, strength indicators, and accessibility features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/password",
+      "sourcePath": "apps/web/content/patterns/forms/password.mdx",
+      "referencePath": "skills/password/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill password",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/code-confirmation",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "phone-number",
+      "patternSlug": "patterns/forms/phone-number",
+      "category": "forms",
+      "title": "Phone Number",
+      "summary": "Format and validate phone numbers",
+      "description": "Create phone number inputs with international format support and validation features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/phone-number",
+      "sourcePath": "apps/web/content/patterns/forms/phone-number.mdx",
+      "referencePath": "skills/phone-number/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill phone-number",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/form-validation",
+        "https://uxpatterns.dev/patterns/forms/selection-input",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "radio",
+      "patternSlug": "patterns/forms/radio",
+      "category": "forms",
+      "title": "Radio Button",
+      "summary": "Select a single option from a group",
+      "description": "Implement accessible radio button groups in your web applications. Learn best practices for single-choice selection controls, keyboard navigation, and ARIA attributes.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/radio",
+      "sourcePath": "apps/web/content/patterns/forms/radio.mdx",
+      "referencePath": "skills/radio/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill radio",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/checkbox",
+        "https://uxpatterns.dev/patterns/forms/form-validation",
+        "https://uxpatterns.dev/patterns/forms/selection-input",
+        "https://uxpatterns.dev/patterns/forms/toggle"
+      ]
+    },
+    {
+      "skillSlug": "rating-input",
+      "patternSlug": "patterns/forms/rating-input",
+      "category": "forms",
+      "title": "Rating Input",
+      "summary": "Rate something with a number of stars",
+      "description": "Build user-friendly rating components with star ratings and accessibility features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/rating-input",
+      "sourcePath": "apps/web/content/patterns/forms/rating-input.mdx",
+      "referencePath": "skills/rating-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill rating-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/radio",
+        "https://uxpatterns.dev/patterns/forms/slider",
+        "https://uxpatterns.dev/patterns/social/like-button"
+      ]
+    },
+    {
+      "skillSlug": "rich-text-editor",
+      "patternSlug": "patterns/forms/rich-text-editor",
+      "category": "forms",
+      "title": "Rich Text Editor",
+      "summary": "Edit and format text content",
+      "description": "Create accessible rich text editors with text formatting tools and keyboard shortcuts.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/rich-text-editor",
+      "sourcePath": "apps/web/content/patterns/forms/rich-text-editor.mdx",
+      "referencePath": "skills/rich-text-editor/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill rich-text-editor",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/button",
+        "https://uxpatterns.dev/patterns/forms/tag-input",
+        "https://uxpatterns.dev/patterns/forms/textarea"
+      ]
+    },
+    {
+      "skillSlug": "search-field",
+      "patternSlug": "patterns/forms/search-field",
+      "category": "forms",
+      "title": "Search Field",
+      "summary": "Search through content efficiently",
+      "description": "Learn how to implement effective search fields in your web applications. Discover best practices for search input design, real-time suggestions, and accessibility.",
+      "aliases": [
+        "search input"
+      ],
+      "url": "https://uxpatterns.dev/patterns/forms/search-field",
+      "sourcePath": "apps/web/content/patterns/forms/search-field.mdx",
+      "referencePath": "skills/search-field/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill search-field",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/advanced/command-palette",
+        "https://uxpatterns.dev/patterns/advanced/search-results",
+        "https://uxpatterns.dev/patterns/forms/autocomplete",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "selection-input",
+      "patternSlug": "patterns/forms/selection-input",
+      "category": "forms",
+      "title": "Selection Input",
+      "summary": "Choose from predefined options",
+      "description": "Learn how to implement user-friendly selection inputs in your web applications. Discover best practices for dropdowns, comboboxes, and list boxes with accessibility and usability guidelines.",
+      "aliases": [
+        "dropdown",
+        "select"
+      ],
+      "url": "https://uxpatterns.dev/patterns/forms/selection-input",
+      "sourcePath": "apps/web/content/patterns/forms/selection-input.mdx",
+      "referencePath": "skills/selection-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill selection-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/autocomplete",
+        "https://uxpatterns.dev/patterns/forms/multi-select-input"
+      ]
+    },
+    {
+      "skillSlug": "signature-pad",
+      "patternSlug": "patterns/forms/signature-pad",
+      "category": "forms",
+      "title": "Signature Pad",
+      "summary": "Allow users to sign their name",
+      "description": "Build touch-enabled signature capture with canvas drawing and validation features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/signature-pad",
+      "sourcePath": "apps/web/content/patterns/forms/signature-pad.mdx",
+      "referencePath": "skills/signature-pad/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill signature-pad",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/button",
+        "https://uxpatterns.dev/patterns/forms/file-input",
+        "https://uxpatterns.dev/patterns/forms/form-validation"
+      ]
+    },
+    {
+      "skillSlug": "slider",
+      "patternSlug": "patterns/forms/slider",
+      "category": "forms",
+      "title": "Slider",
+      "summary": "Select values from a range",
+      "description": "Learn how to implement accessible range slider inputs in your web applications. Discover best practices for continuous value selection, touch interactions, and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/slider",
+      "sourcePath": "apps/web/content/patterns/forms/slider.mdx",
+      "referencePath": "skills/slider/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill slider",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/rating-input",
+        "https://uxpatterns.dev/patterns/forms/selection-input",
+        "https://uxpatterns.dev/patterns/forms/toggle"
+      ]
+    },
+    {
+      "skillSlug": "tag-input",
+      "patternSlug": "patterns/forms/tag-input",
+      "category": "forms",
+      "title": "Tag Input",
+      "summary": "Enter and format tags",
+      "description": "Create tag input components for dynamic keyword entry with validation and accessibility support.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/tag-input",
+      "sourcePath": "apps/web/content/patterns/forms/tag-input.mdx",
+      "referencePath": "skills/tag-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tag-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/autocomplete",
+        "https://uxpatterns.dev/patterns/forms/multi-select-input",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "text-field",
+      "patternSlug": "patterns/forms/text-field",
+      "category": "forms",
+      "title": "Text Field",
+      "summary": "Enter and edit text content",
+      "description": "Implement accessible text input fields with validation, error handling, and user experience best practices.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/text-field",
+      "sourcePath": "apps/web/content/patterns/forms/text-field.mdx",
+      "referencePath": "skills/text-field/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill text-field",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/autocomplete",
+        "https://uxpatterns.dev/patterns/forms/checkbox",
+        "https://uxpatterns.dev/patterns/forms/currency-input",
+        "https://uxpatterns.dev/patterns/forms/date-picker",
+        "https://uxpatterns.dev/patterns/forms/multi-select-input",
+        "https://uxpatterns.dev/patterns/forms/radio",
+        "https://uxpatterns.dev/patterns/forms/selection-input"
+      ]
+    },
+    {
+      "skillSlug": "textarea",
+      "patternSlug": "patterns/forms/textarea",
+      "category": "forms",
+      "title": "Textarea",
+      "summary": "Multi-line text input for longer content",
+      "description": "Learn how to implement accessible textarea components for collecting long-form content, comments, and detailed responses. Discover best practices for multi-line text input with proper validation and user experience.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/textarea",
+      "sourcePath": "apps/web/content/patterns/forms/textarea.mdx",
+      "referencePath": "skills/textarea/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill textarea",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/form-validation",
+        "https://uxpatterns.dev/patterns/forms/rich-text-editor",
+        "https://uxpatterns.dev/patterns/forms/text-field"
+      ]
+    },
+    {
+      "skillSlug": "time-input",
+      "patternSlug": "patterns/forms/time-input",
+      "category": "forms",
+      "title": "Time Input",
+      "summary": "Enter time in a structured format",
+      "description": "Build user-friendly time input fields with validation and accessibility features.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/time-input",
+      "sourcePath": "apps/web/content/patterns/forms/time-input.mdx",
+      "referencePath": "skills/time-input/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill time-input",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/date-input",
+        "https://uxpatterns.dev/patterns/forms/date-picker",
+        "https://uxpatterns.dev/patterns/forms/form-validation"
+      ]
+    },
+    {
+      "skillSlug": "toggle",
+      "patternSlug": "patterns/forms/toggle",
+      "category": "forms",
+      "title": "Toggle",
+      "summary": "Switch between two states",
+      "description": "Implement toggle switches for binary state control in your web applications. Learn best practices for toggle buttons, state management, and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/forms/toggle",
+      "sourcePath": "apps/web/content/patterns/forms/toggle.mdx",
+      "referencePath": "skills/toggle/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill toggle",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/button",
+        "https://uxpatterns.dev/patterns/forms/checkbox",
+        "https://uxpatterns.dev/patterns/forms/radio"
+      ]
+    },
+    {
+      "skillSlug": "image-gallery",
+      "patternSlug": "patterns/media/image-gallery",
+      "category": "media",
+      "title": "Image Gallery",
+      "summary": "Display and browse image collections",
+      "description": "Learn how to implement image galleries. Discover best practices for lightboxes, thumbnails, and image navigation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/media/image-gallery",
+      "sourcePath": "apps/web/content/patterns/media/image-gallery.mdx",
+      "referencePath": "skills/image-gallery/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill image-gallery",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/carousel",
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/media/image-upload"
+      ]
+    },
+    {
+      "skillSlug": "image-upload",
+      "patternSlug": "patterns/media/image-upload",
+      "category": "media",
+      "title": "Image Upload",
+      "summary": "Upload and preview images",
+      "description": "Learn how to implement image upload interfaces. Discover best practices for drag-and-drop, preview, and validation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/media/image-upload",
+      "sourcePath": "apps/web/content/patterns/media/image-upload.mdx",
+      "referencePath": "skills/image-upload/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill image-upload",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/drag-and-drop",
+        "https://uxpatterns.dev/patterns/forms/file-input",
+        "https://uxpatterns.dev/patterns/user-feedback/progress-indicator"
+      ]
+    },
+    {
+      "skillSlug": "video-player",
+      "patternSlug": "patterns/media/video-player",
+      "category": "media",
+      "title": "Video Player",
+      "summary": "Video playback with controls",
+      "description": "Learn how to implement video players. Discover best practices for playback controls, captions, and responsive video.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/media/video-player",
+      "sourcePath": "apps/web/content/patterns/media/video-player.mdx",
+      "referencePath": "skills/video-player/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill video-player",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/media/image-gallery",
+        "https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
+        "https://uxpatterns.dev/patterns/user-feedback/progress-indicator"
+      ]
+    },
+    {
+      "skillSlug": "back-to-top",
+      "patternSlug": "patterns/navigation/back-to-top",
+      "category": "navigation",
+      "title": "Back to Top",
+      "summary": "Quickly navigate back to the top of the page",
+      "description": "Implement a Back to Top button for enhanced navigation on long pages with best practices for placement and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/back-to-top",
+      "sourcePath": "apps/web/content/patterns/navigation/back-to-top.mdx",
+      "referencePath": "skills/back-to-top/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill back-to-top",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/breadcrumb",
+        "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
+        "https://uxpatterns.dev/patterns/navigation/pagination"
+      ]
+    },
+    {
+      "skillSlug": "breadcrumb",
+      "patternSlug": "patterns/navigation/breadcrumb",
+      "category": "navigation",
+      "title": "Breadcrumb",
+      "summary": "Help users understand their current location",
+      "description": "Create effective breadcrumb navigation for better site orientation. Learn implementation techniques, accessibility requirements, and design best practices for clear hierarchical navigation.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/breadcrumb",
+      "sourcePath": "apps/web/content/patterns/navigation/breadcrumb.mdx",
+      "referencePath": "skills/breadcrumb/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill breadcrumb",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/back-to-top",
+        "https://uxpatterns.dev/patterns/navigation/pagination",
+        "https://uxpatterns.dev/patterns/navigation/tabs"
+      ]
+    },
+    {
+      "skillSlug": "hambuger-menu",
+      "patternSlug": "patterns/navigation/hambuger-menu",
+      "category": "navigation",
+      "title": "Hamburger Menu",
+      "summary": "Display a menu icon for mobile devices",
+      "description": "Create accessible mobile menus with smooth animations and touch-friendly interactions.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
+      "sourcePath": "apps/web/content/patterns/navigation/hambuger-menu.mdx",
+      "referencePath": "skills/hambuger-menu/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill hambuger-menu",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/navigation-menu",
+        "https://uxpatterns.dev/patterns/navigation/sidebar",
+        "https://uxpatterns.dev/patterns/navigation/tabs"
+      ]
+    },
+    {
+      "skillSlug": "infinite-scroll",
+      "patternSlug": "patterns/navigation/infinite-scroll",
+      "category": "navigation",
+      "title": "Infinite scroll",
+      "summary": "Loads additional content automatically as users scroll down.",
+      "description": "Create seamless content loading with infinite scroll, focusing on performance, accessibility, and user experience best practices.",
+      "aliases": [
+        "continuous scrolling"
+      ],
+      "url": "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
+      "sourcePath": "apps/web/content/patterns/navigation/infinite-scroll.mdx",
+      "referencePath": "skills/infinite-scroll/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill infinite-scroll",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/load-more",
+        "https://uxpatterns.dev/patterns/navigation/pagination"
+      ]
+    },
+    {
+      "skillSlug": "link",
+      "patternSlug": "patterns/navigation/link",
+      "category": "navigation",
+      "title": "Link",
+      "summary": "Create accessible and interactive links",
+      "description": "Build accessible links with proper styling, hover states, and keyboard navigation support.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/link",
+      "sourcePath": "apps/web/content/patterns/navigation/link.mdx",
+      "referencePath": "skills/link/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill link",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/button",
+        "https://uxpatterns.dev/patterns/navigation/breadcrumb",
+        "https://uxpatterns.dev/patterns/navigation/navigation-menu"
+      ]
+    },
+    {
+      "skillSlug": "load-more",
+      "patternSlug": "patterns/navigation/load-more",
+      "category": "navigation",
+      "title": "Load More",
+      "summary": "Load additional content on user demand",
+      "description": "Build efficient content loading with the Load More pattern, focusing on user experience and performance optimization.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/load-more",
+      "sourcePath": "apps/web/content/patterns/navigation/load-more.mdx",
+      "referencePath": "skills/load-more/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill load-more",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/accordion",
+        "https://uxpatterns.dev/patterns/forms/button",
+        "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
+        "https://uxpatterns.dev/patterns/navigation/pagination"
+      ]
+    },
+    {
+      "skillSlug": "megamenu",
+      "patternSlug": "patterns/navigation/megamenu",
+      "category": "navigation",
+      "title": "Megamenu",
+      "summary": "Display a large number of links in a single menu",
+      "description": "Build accessible and responsive megamenus with keyboard navigation and mobile-friendly adaptations.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/megamenu",
+      "sourcePath": "apps/web/content/patterns/navigation/megamenu.mdx",
+      "referencePath": "skills/megamenu/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill megamenu",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
+        "https://uxpatterns.dev/patterns/navigation/navigation-menu",
+        "https://uxpatterns.dev/patterns/navigation/sidebar"
+      ]
+    },
+    {
+      "skillSlug": "navigation-menu",
+      "patternSlug": "patterns/navigation/navigation-menu",
+      "category": "navigation",
+      "title": "Navigation Menu",
+      "summary": "Organize and structure site navigation",
+      "description": "Build effective navigation menus for your website. Learn best practices for creating accessible, responsive navigation with proper keyboard support and mobile-friendly interactions.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/navigation-menu",
+      "sourcePath": "apps/web/content/patterns/navigation/navigation-menu.mdx",
+      "referencePath": "skills/navigation-menu/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill navigation-menu",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/breadcrumb",
+        "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
+        "https://uxpatterns.dev/patterns/navigation/sidebar",
+        "https://uxpatterns.dev/patterns/navigation/tabs"
+      ]
+    },
+    {
+      "skillSlug": "pagination",
+      "patternSlug": "patterns/navigation/pagination",
+      "category": "navigation",
+      "title": "Pagination",
+      "summary": "Navigate through multiple pages of content",
+      "description": "Learn best practices for building accessible, user-friendly page navigation with clear guidelines for design and performance.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/pagination",
+      "sourcePath": "apps/web/content/patterns/navigation/pagination.mdx",
+      "referencePath": "skills/pagination/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill pagination",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
+        "https://uxpatterns.dev/patterns/navigation/load-more"
+      ]
+    },
+    {
+      "skillSlug": "sidebar",
+      "patternSlug": "patterns/navigation/sidebar",
+      "category": "navigation",
+      "title": "Sidebar",
+      "summary": "Organize and structure site navigation",
+      "description": "Build responsive and accessible sidebar navigation with collapsible sections and keyboard navigation support.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/sidebar",
+      "sourcePath": "apps/web/content/patterns/navigation/sidebar.mdx",
+      "referencePath": "skills/sidebar/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill sidebar",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/hambuger-menu",
+        "https://uxpatterns.dev/patterns/navigation/navigation-menu",
+        "https://uxpatterns.dev/patterns/navigation/tabs"
+      ]
+    },
+    {
+      "skillSlug": "tabs",
+      "patternSlug": "patterns/navigation/tabs",
+      "category": "navigation",
+      "title": "Tabs",
+      "summary": "Switch between different views",
+      "description": "Create accessible tab interfaces with keyboard navigation, ARIA attributes, and responsive design patterns.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/navigation/tabs",
+      "sourcePath": "apps/web/content/patterns/navigation/tabs.mdx",
+      "referencePath": "skills/tabs/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tabs",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/advanced/wizard",
+        "https://uxpatterns.dev/patterns/content-management/accordion",
+        "https://uxpatterns.dev/patterns/navigation/navigation-menu",
+        "https://uxpatterns.dev/patterns/navigation/sidebar"
+      ]
+    },
+    {
+      "skillSlug": "activity-feed",
+      "patternSlug": "patterns/social/activity-feed",
+      "category": "social",
+      "title": "Activity Feed",
+      "summary": "Social activity and updates stream",
+      "description": "Learn how to implement activity feeds. Discover best practices for real-time updates, infinite scrolling, and engagement tracking.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/social/activity-feed",
+      "sourcePath": "apps/web/content/patterns/social/activity-feed.mdx",
+      "referencePath": "skills/activity-feed/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill activity-feed",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/navigation/infinite-scroll",
+        "https://uxpatterns.dev/patterns/social/comment-system",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "comment-system",
+      "patternSlug": "patterns/social/comment-system",
+      "category": "social",
+      "title": "Comment System",
+      "summary": "User comments and discussion threads",
+      "description": "Learn how to implement comment systems. Discover best practices for threaded discussions, moderation, and user interactions.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/social/comment-system",
+      "sourcePath": "apps/web/content/patterns/social/comment-system.mdx",
+      "referencePath": "skills/comment-system/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill comment-system",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/forms/textarea",
+        "https://uxpatterns.dev/patterns/social/activity-feed",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "like-button",
+      "patternSlug": "patterns/social/like-button",
+      "category": "social",
+      "title": "Like Button",
+      "summary": "Like and reaction buttons",
+      "description": "Learn how to implement like buttons and reactions. Discover best practices for engagement tracking, animations, and accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/social/like-button",
+      "sourcePath": "apps/web/content/patterns/social/like-button.mdx",
+      "referencePath": "skills/like-button/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill like-button",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/ai-intelligence/response-feedback",
+        "https://uxpatterns.dev/patterns/forms/rating-input",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "share-dialog",
+      "patternSlug": "patterns/social/share-dialog",
+      "category": "social",
+      "title": "Share Dialog",
+      "summary": "Social sharing functionality",
+      "description": "Learn how to implement share dialogs. Discover best practices for social media integration, copy links, and sharing analytics.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/social/share-dialog",
+      "sourcePath": "apps/web/content/patterns/social/share-dialog.mdx",
+      "referencePath": "skills/share-dialog/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill share-dialog",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/social/like-button",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "cookie-consent",
+      "patternSlug": "patterns/user-feedback/cookie-consent",
+      "category": "user-feedback",
+      "title": "Cookie Consent",
+      "summary": "Inform users about the use of cookies",
+      "description": "Implement effective cookie consent banners in your web applications. Learn best practices for GDPR compliance, user privacy, and consent management.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/user-feedback/cookie-consent",
+      "sourcePath": "apps/web/content/patterns/user-feedback/cookie-consent.mdx",
+      "referencePath": "skills/cookie-consent/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill cookie-consent",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/forms/toggle",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "empty-states",
+      "patternSlug": "patterns/user-feedback/empty-states",
+      "category": "user-feedback",
+      "title": "Empty States",
+      "summary": "Guide users when no content is available",
+      "description": "Create effective empty state experiences in your web applications. Learn best practices for handling no-content scenarios with helpful messaging and clear actions.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/user-feedback/empty-states",
+      "sourcePath": "apps/web/content/patterns/user-feedback/empty-states.mdx",
+      "referencePath": "skills/empty-states/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill empty-states",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/filter-panel",
+        "https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
+        "https://uxpatterns.dev/patterns/user-feedback/notification"
+      ]
+    },
+    {
+      "skillSlug": "loading-indicator",
+      "patternSlug": "patterns/user-feedback/loading-indicator",
+      "category": "user-feedback",
+      "title": "Loading Indicator",
+      "summary": "Show users that content is being loaded",
+      "description": "Build effective loading indicators for your web applications. Learn best practices for implementing loading states, spinners, and progress feedback with proper accessibility.",
+      "aliases": [
+        "loader",
+        "loading",
+        "spinner"
+      ],
+      "url": "https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
+      "sourcePath": "apps/web/content/patterns/user-feedback/loading-indicator.mdx",
+      "referencePath": "skills/loading-indicator/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill loading-indicator",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/user-feedback/notification",
+        "https://uxpatterns.dev/patterns/user-feedback/progress-indicator",
+        "https://uxpatterns.dev/patterns/user-feedback/skeleton"
+      ]
+    },
+    {
+      "skillSlug": "notification",
+      "patternSlug": "patterns/user-feedback/notification",
+      "category": "user-feedback",
+      "title": "Notification",
+      "summary": "Inform users about important updates",
+      "description": "Implement effective notification systems in your web applications. Learn best practices for toast messages, alerts, and user notifications with proper timing and accessibility.",
+      "aliases": [
+        "toast"
+      ],
+      "url": "https://uxpatterns.dev/patterns/user-feedback/notification",
+      "sourcePath": "apps/web/content/patterns/user-feedback/notification.mdx",
+      "referencePath": "skills/notification/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill notification",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/content-management/modal",
+        "https://uxpatterns.dev/patterns/forms/form-validation",
+        "https://uxpatterns.dev/patterns/user-feedback/loading-indicator"
+      ]
+    },
+    {
+      "skillSlug": "progress-indicator",
+      "patternSlug": "patterns/user-feedback/progress-indicator",
+      "category": "user-feedback",
+      "title": "Progress Indicator",
+      "summary": "Show completion status of an operation",
+      "description": "Create effective progress indicators for your web applications. Learn best practices for implementing progress bars, step indicators, and completion feedback with proper accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/user-feedback/progress-indicator",
+      "sourcePath": "apps/web/content/patterns/user-feedback/progress-indicator.mdx",
+      "referencePath": "skills/progress-indicator/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill progress-indicator",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/advanced/wizard",
+        "https://uxpatterns.dev/patterns/user-feedback/loading-indicator",
+        "https://uxpatterns.dev/patterns/user-feedback/skeleton"
+      ]
+    },
+    {
+      "skillSlug": "skeleton",
+      "patternSlug": "patterns/user-feedback/skeleton",
+      "category": "user-feedback",
+      "title": "Skeleton",
+      "summary": "Show users that content is being loaded",
+      "description": "Build effective skeleton loading states for your web applications. Learn best practices for implementing content placeholders and loading animations with proper accessibility.",
+      "aliases": [],
+      "url": "https://uxpatterns.dev/patterns/user-feedback/skeleton",
+      "sourcePath": "apps/web/content/patterns/user-feedback/skeleton.mdx",
+      "referencePath": "skills/skeleton/references/pattern.md",
+      "installCommand": "npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill skeleton",
+      "relatedPatternUrls": [
+        "https://uxpatterns.dev/patterns/data-display/card-grid",
+        "https://uxpatterns.dev/patterns/user-feedback/empty-states",
+        "https://uxpatterns.dev/patterns/user-feedback/loading-indicator"
+      ]
+    }
+  ]
 }

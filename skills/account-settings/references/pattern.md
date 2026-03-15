@@ -295,9 +295,8 @@ A guided step-by-step flow for initial configuration or comprehensive review.
 **Do's ✅**
 
 - Stack the settings navigation horizontally or collapse it on mobile
-- Ensure all toggle switches and buttons have 44×44px minimum touch targets
+- Ensure all toggle switches and buttons have 44×44px minimum [touch targets](/glossary/touch-targets)
 - Keep forms short enough to avoid excessive scrolling per section
-
 **Don'ts ❌**
 
 - Don't use a fixed sidebar that takes too much space on narrow screens
@@ -559,12 +558,11 @@ const debouncedSave = useMemo(
 
 **Should ✓**
 
-- [ ] Settings layout is responsive across viewport sizes
+- [ ] Settings layout is responsive across [viewport](/glossary/viewport) sizes
 - [ ] Save feedback is clearly visible
 - [ ] Danger zone is visually distinct
 - [ ] Toggle switches reflect current state accurately
 - [ ] Active navigation item is highlighted
-
 ## SEO Considerations
 
 - **Noindex all settings pages** — Account settings are behind authentication and should not be indexed

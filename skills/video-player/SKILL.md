@@ -1,5 +1,5 @@
 ---
-name: Video Player
+name: video-player
 description: "Use when implementing video playback with controls."
 metadata:
   id: video-player

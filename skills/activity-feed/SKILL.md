@@ -1,5 +1,5 @@
 ---
-name: Activity Feed
+name: activity-feed
 description: "Use when implementing social activity and updates stream."
 metadata:
   id: activity-feed

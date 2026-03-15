@@ -1,5 +1,5 @@
 ---
-name: Slider
+name: slider
 description: "Use when implementing select values from a range."
 metadata:
   id: slider

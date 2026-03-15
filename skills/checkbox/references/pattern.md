@@ -105,6 +105,7 @@ flowchart TB
 ## Best Practices
 
 ### Content
+
 **Do's ✅**
 - **Use clear, descriptive labels** that explain what the checkbox does
 - **Group related options** logically with proper headings or sections
@@ -118,6 +119,7 @@ flowchart TB
 - **Avoid negative phrasing** that can confuse users
 
 ### Accessibility
+
 **Do's ✅**
 - **Associate labels properly** using `for` attribute or wrapping
 - **Provide keyboard navigation** support (Tab, Space, Enter)
@@ -132,6 +134,7 @@ flowchart TB
 - **Avoid auto-checking** without user consent
 
 ### Visual Design
+
 **Do's ✅**
 - **Maintain consistent sizing** across all checkboxes (minimum 44x44px touch target)
 - **Use clear visual hierarchy** with proper spacing between options
@@ -146,6 +149,7 @@ flowchart TB
 - **Avoid poor contrast** that makes states hard to distinguish
 
 ### Layout & Positioning
+
 **Do's ✅**
 - **Align checkboxes consistently** (usually left-aligned with labels)
 - **Provide adequate spacing** between options for easy selection
@@ -282,8 +286,7 @@ Ensure minimum touch target size and consider expanding the clickable area beyon
 - **Render Time**: < 16ms for checkbox state changes
 - **Bundle Size**: < 2KB for basic checkbox implementation
 - **Memory Usage**: Minimal impact for standard checkbox groups
-- **Accessibility**: 100% keyboard navigable, screen reader compatible
-
+- **Accessibility**: 100% keyboard navigable, [screen reader](/glossary/screen-reader) compatible
 **Optimization Strategies:**
 - **Event Delegation**: Use single event listener for checkbox groups
 - **Lazy Rendering**: Only render visible checkboxes in long lists
@@ -291,10 +294,9 @@ Ensure minimum touch target size and consider expanding the clickable area beyon
 - **Virtual Scrolling**: For very large checkbox lists (100+ items)
 
 **Mobile Performance:**
-- **Touch Optimization**: 44x44px minimum touch targets
+- **Touch Optimization**: 44x44px minimum [touch targets](/glossary/touch-targets)
 - **Reduced Motion**: Respect `prefers-reduced-motion` for animations
 - **Progressive Enhancement**: Core functionality works without JavaScript
-
 ## Tracking
 
 Tracking checkbox interactions helps measure their effectiveness, determine whether users find them useful, and identify potential usability issues. By analyzing checkbox engagement, we can assess whether checkboxes enhance form completion or if users find them confusing.
@@ -412,11 +414,10 @@ The following table outlines the standard keyboard interactions for checkbox com
 
 ## SEO Considerations
 
-- **Form Structure**: Use semantic HTML with proper form elements
+- **Form Structure**: Use [semantic HTML](/glossary/semantic-html) with proper form elements
 - **Label Content**: Include relevant keywords in checkbox labels
 - **Schema Markup**: Use structured data for form elements when appropriate
 - **Progressive Enhancement**: Ensure core functionality works without JavaScript
-
 ## Testing Guidelines
 
 ### Functional Testing
@@ -479,8 +480,7 @@ The following table outlines the standard keyboard interactions for checkbox com
 
 ## Design Tokens
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
-
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 ```json
 {
   "$schema": "https://design-tokens.org/schema.json",

@@ -9,8 +9,7 @@
 
 ## Overview
 
-**Infinite Scroll** is a UI pattern that dynamically loads more content as users scroll down a page, eliminating the need for pagination or manual interaction. It provides a seamless browsing experience by continuously appending new items to the current view.
-
+**Infinite Scroll** is a UI pattern that dynamically loads more content as users scroll down a page, eliminating the need for [pagination](/glossary/pagination) or manual interaction. It provides a seamless browsing experience by continuously appending new items to the current view.
 This pattern is commonly used in **social media feeds, search results, and content-heavy websites** to keep users engaged without interruptions.
 
 ## Use Cases
@@ -45,11 +44,9 @@ Use Infinite Scroll when you need to dynamically load more content as users scro
 ## Drawbacks
 
 - **Navigation challenges** – Users may struggle to return to a previous position.
-- **Performance issues** – Excessive DOM elements can lead to lag and slow rendering.
-- **Accessibility concerns** – Keyboard and screen reader users may find it harder to navigate.
-- **Disrupts footer visibility** – Users may never reach the footer if content loads indefinitely.
-
-## Anatomy
+- **Performance issues** – Excessive [DOM](/glossary/dom) elements can lead to lag and slow rendering.
+- **Accessibility concerns** – Keyboard and [screen reader](/glossary/screen-reader) users may find it harder to navigate.
+- **Disrupts footer visibility** – Users may never reach the footer if content loads indefinitely.## Anatomy
 
 ```mermaid
 flowchart TB
@@ -121,11 +118,10 @@ D --> E[Next Trigger Point - Optional]
 
 **Do's ✅**
 
-- **Ensure content is focusable** – New items should be reachable via keyboard navigation.
+- **Ensure content is focusable** – New items should be reachable via [keyboard navigation](/glossary/keyboard-navigation).
 - **Announce new content dynamically** using ARIA [live regions](/glossary/live-regions) (`aria-live="polite"`).
 - **Provide an alternative to infinite scrolling** – Offer pagination or a "Load More" option.
 - **Ensure users can pause or stop loading** – Unexpected content updates can be disorienting.
-
 **Don'ts ❌**
 
 - **Avoid relying solely on scrolling** – Users with assistive technologies may need alternative navigation.
@@ -160,9 +156,8 @@ D --> E[Next Trigger Point - Optional]
 ## SEO Considerations
 
 - Ensure **search engines can access all content** by implementing **server-side rendering (SSR)** or an accessible paginated alternative.
-- Provide a **static link to all content pages** to ensure crawlers can index them.
+- Provide a **static link to all content pages** to ensure crawlers can [index](/glossary/index) them.
 - Ensure that critical content is **available without JavaScript**.
-
 ## Testing Guidelines
 
 ### Functional Testing
@@ -200,7 +195,6 @@ D --> E[Next Trigger Point - Optional]
 
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/) - Accessibility baseline for keyboard support, focus management, and readable state changes.
 - [MDN Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) - Viewport observation for lazy loading, infinite lists, and progressive reveal patterns.
-
 ### Guides
 
 - [web.dev: Virtualize large lists](https://web.dev/articles/virtualize-long-lists-react-window) - Rendering and scrolling guidance for large result sets, feeds, and data-heavy interfaces.

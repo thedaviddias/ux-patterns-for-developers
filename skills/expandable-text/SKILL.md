@@ -1,5 +1,5 @@
 ---
-name: Expandable Text
+name: expandable-text
 description: "Use when implementing show or hide additional text content on demand."
 metadata:
   id: expandable-text
@@ -45,7 +45,7 @@ Use **Expandable Text** when you need to **manage lengthy content while keeping 
 ## Accessibility guardrails
 
 ### ARIA Attributes
-**Required ARIA attributes:**
+**Required [ARIA attributes](/glossary/aria-attributes):**
 - `aria-expanded="false"` on the button (updated dynamically).
 - `aria-controls="id-of-content"` to link the button to the expandable content.
 - `hidden` attribute on the expandable content when collapsed.

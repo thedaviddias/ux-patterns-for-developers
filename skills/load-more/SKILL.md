@@ -1,5 +1,5 @@
 ---
-name: Load More
+name: load-more
 description: "Use when implementing load additional content on user demand."
 metadata:
   id: load-more
@@ -60,12 +60,12 @@ For better usability, make sure the Load More button gets **removed when all con
 - **Initial button render**: < 50ms after page load
 - **Loading state feedback**: < 100ms after click (immediate visual response)
 - **Content fetch time**: 200-500ms for typical batch (10-20 items)
-- **DOM update after fetch**: < 100ms for smooth insertion
+- **[DOM](/glossary/dom) update after fetch**: < 100ms for smooth insertion
 - **Total time to new content visible**: < 600ms ideal, < 1000ms acceptable
 **Memory Considerations:**
 - **Items per batch**: 10-20 items optimal (balance between requests and memory)
 - **DOM nodes**: Monitor total count, consider virtualization after 100+ items
-- **Image lazy loading**: Load images only when approaching [viewport](/glossary/viewport)
+- **Image [lazy loading](/glossary/lazy-loading)**: Load images only when approaching [viewport](/glossary/viewport)
 
 ## Common mistakes
 

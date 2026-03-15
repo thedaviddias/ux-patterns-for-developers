@@ -1,5 +1,5 @@
 ---
-name: Back to Top
+name: back-to-top
 description: "Use when implementing quickly navigate back to the top of the page."
 metadata:
   id: back-to-top

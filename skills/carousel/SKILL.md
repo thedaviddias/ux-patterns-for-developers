@@ -1,5 +1,5 @@
 ---
-name: Carousel
+name: carousel
 description: "Use when you need to display multiple items in a rotating view."
 metadata:
   id: carousel

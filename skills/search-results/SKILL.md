@@ -1,5 +1,5 @@
 ---
-name: Search Results
+name: search-results
 description: "Use when you need to display and filter search results."
 metadata:
   id: search-results

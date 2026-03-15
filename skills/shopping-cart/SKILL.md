@@ -1,5 +1,5 @@
 ---
-name: Shopping Cart
+name: shopping-cart
 description: "Use when implementing shopping cart and item management."
 metadata:
   id: shopping-cart

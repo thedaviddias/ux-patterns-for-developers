@@ -111,9 +111,8 @@ graph TD
 
 - Ensure the selection input is keyboard accessible (arrow keys to navigate, Enter to select)
 - Provide a clear focus state for the text field and individual options
-- Use ARIA attributes to communicate the component's state and purpose
+- Use [ARIA attributes](/glossary/aria-attributes) to communicate the component's state and purpose
 - Allow users to filter or search the list of options if the list is long
-
 **Don'ts ❌**
 
 - Don't rely solely on color to convey the state or purpose of the component
@@ -164,8 +163,7 @@ graph TD
 
 ## Design Tokens
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
-
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 ### Selection Input Tokens in DTF Format
 
 ```json
@@ -236,6 +234,41 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
   }
 }
 ```
+
+## Accessibility
+
+- Use a visible label connected to the control via `for`/`id`.
+- Prefer native `<select>` for simple cases to inherit built-in accessibility.
+- Provide group labels for long lists (`<optgroup>`) and descriptive helper text when needed.
+- Keep focus indicators highly visible and maintain sufficient text/background contrast.
+- Announce validation and error states using `aria-invalid` and `aria-describedby`.
+
+## Testing Guidelines
+
+### Functional Testing
+
+**Should ✓**
+
+- [ ] Verify opening/closing behavior for mouse, keyboard, and touch input.
+- [ ] Confirm selecting an option updates form state and submitted value.
+- [ ] Validate placeholder/default option behavior and required-field handling.
+- [ ] Ensure disabled options and disabled states are enforced correctly.
+
+### Accessibility Testing
+
+**Should ✓**
+
+- [ ] Confirm associated labels are announced by screen readers.
+- [ ] Verify [keyboard navigation](/glossary/keyboard-navigation) (`Tab`, arrows, `Enter`, `Escape`) works predictably.
+- [ ] Check error/help text is announced after invalid selection attempts.
+- [ ] Ensure option text remains readable at 200% zoom and high-contrast modes.
+### Cross-Browser Testing
+
+**Should ✓**
+
+- [ ] Validate native select behavior across Chrome, Safari, Firefox, and Edge.
+- [ ] Confirm mobile pickers behave correctly on iOS and Android.
+- [ ] Ensure custom styling does not break native affordances on platform controls.
 
 ## Libraries
 

@@ -1,5 +1,5 @@
 ---
-name: Popover
+name: popover
 description: "Use when you need to display focused content or actions."
 metadata:
   id: popover

@@ -1,5 +1,5 @@
 ---
-name: AI Error States
+name: ai-error-states
 description: "Use when implementing handling AI-specific errors."
 metadata:
   id: ai-error-states

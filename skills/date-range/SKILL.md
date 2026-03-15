@@ -1,5 +1,5 @@
 ---
-name: Date Range
+name: date-range
 description: "Use when implementing select a range between two dates."
 metadata:
   id: date-range

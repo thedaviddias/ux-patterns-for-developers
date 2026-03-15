@@ -41,14 +41,14 @@ Use **Links** to **navigate users to another page, resource, or section within t
 - Navigation menu items linking to site sections
 - "Read more" links on content cards or teasers
 - Footer links to policies, terms, and legal pages
-- Skip navigation links for keyboard and screen reader users
+- Skip navigation links for keyboard and [screen reader](/glossary/screen-reader) users
 
 ## Benefits
 
 - The most fundamental and well-understood web interaction pattern
-- Native browser support with built-in keyboard navigation, history, and bookmarking
+- Native browser support with built-in [keyboard navigation](/glossary/keyboard-navigation), history, and bookmarking
 - Screen readers announce links and allow users to list all links on a page
-- Search engines follow links to discover and index content
+- Search engines follow links to discover and [index](/glossary/index) content
 - Progressive enhancement — links work without JavaScript
 
 ## Drawbacks
@@ -234,10 +234,9 @@ A link that initiates a file download instead of navigating to a new page.
 
 **Do's ✅**
 
-- Position skip links at the very top of the DOM (first focusable element)
+- Position skip links at the very top of the [DOM](/glossary/dom) (first focusable element)
 - Align inline links with surrounding text baseline
 - Group related links together with proper list semantics
-
 **Don'ts ❌**
 
 - Don't wrap block-level content inside inline `<a>` elements without setting `display: block` or `display: inline-block`

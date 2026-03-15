@@ -1,5 +1,5 @@
 ---
-name: Date Input
+name: date-input
 description: "Use when implementing enter dates in a structured text format."
 metadata:
   id: date-input

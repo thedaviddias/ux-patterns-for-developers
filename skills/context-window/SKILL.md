@@ -1,5 +1,5 @@
 ---
-name: Context Window
+name: context-window
 description: "Use when implementing managing AI conversation context."
 metadata:
   id: context-window

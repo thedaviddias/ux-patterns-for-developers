@@ -13,9 +13,6 @@ A **Code Confirmation** (also called an OTP input or verification code input) is
 
 The defining characteristic is the **segmented layout**: each character occupies its own individual input box, providing a clear visual structure that guides users digit-by-digit and reduces transcription errors.
 
-![2FA Code Confirmation](/patterns/code-confirmation/do/paypal.jpg)
-_Good example of a 2FA code confirmation screen from PayPal_
-
 ## Use Cases
 
 ### When to use:
@@ -44,10 +41,9 @@ _Good example of a 2FA code confirmation screen from PayPal_
 ## Drawbacks
 
 - **Complex implementation** – Coordinating focus across multiple inputs requires careful event handling.
-- **Accessibility challenges** – Requires extra ARIA attributes and live region announcements.
+- **Accessibility challenges** – Requires extra [ARIA attributes](/glossary/aria-attributes) and live region announcements.
 - **Fixed length assumption** – The component must know the exact code length at render time.
 - **Edge cases with paste** – Partial pastes, non-numeric characters, and whitespace must all be handled.
-
 ## Anatomy
 
 ```mermaid
@@ -241,8 +237,7 @@ For gift card codes or invite keys that mix letters and numbers.
 - Use `aria-live="polite"` on error messages so screen readers announce failures without interrupting.
 - Announce remaining digits as users fill each box (e.g., "3 of 6 entered") via a visually-hidden live region.
 - Support `autocomplete="one-time-code"` for OS-level autofill integration.
-- Ensure focus moves predictably when using keyboard navigation.
-
+- Ensure focus moves predictably when using [keyboard navigation](/glossary/keyboard-navigation).
 **Don'ts ❌**
 
 - Don't use `aria-hidden="true"` on individual inputs.
@@ -582,8 +577,7 @@ lastInput.addEventListener('input', () => {
 - [ ] Code input does not persist in browser history or autocomplete suggestions.
 - [ ] Rate limiting prevents brute-force attempts on the server.
 - [ ] Expired codes are rejected server-side, not just client-side.
-- [ ] The component does not expose the expected code in the DOM or JavaScript state.
-
+- [ ] The component does not expose the expected code in the [DOM](/glossary/dom) or JavaScript state.
 ---
 
 ### Mobile & Touch Testing
@@ -591,11 +585,10 @@ lastInput.addEventListener('input', () => {
 **Should ✓**
 
 - [ ] Numeric keypad appears automatically for numeric codes.
-- [ ] Touch targets are at least 44×44px per digit box.
+- [ ] [Touch targets](/glossary/touch-targets) are at least 44×44px per digit box.
 - [ ] SMS autofill works on iOS Safari and Android Chrome.
 - [ ] Pasting from the SMS notification banner fills all boxes correctly.
 - [ ] The digit group does not overflow on small screens (320px width).
-
 ---
 
 ### Error Handling & Edge Cases

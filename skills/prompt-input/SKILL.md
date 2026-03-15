@@ -1,5 +1,5 @@
 ---
-name: Prompt Input
+name: prompt-input
 description: "Use when implementing enhanced text inputs for AI prompts."
 metadata:
   id: prompt-input

@@ -245,9 +245,8 @@ Multi-currency input allowing users to choose their currency.
 - Don't use `<input type="number">` — it shows browser steppers, rejects comma separators used in some locales, and has inconsistent decimal behavior.
 - Don't reformat the value while the user is actively typing — format on blur.
 - Don't silently accept values outside allowed ranges; show validation feedback.
-- Don't discard the currency context when the field is read by a screen reader.
+- Don't discard the currency context when the field is read by a [screen reader](/glossary/screen-reader).
 - Don't use a fixed decimal separator — detect locale and use the appropriate one.
-
 ---
 
 ### Accessibility

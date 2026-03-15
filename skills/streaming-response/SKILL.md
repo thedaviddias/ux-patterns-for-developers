@@ -1,5 +1,5 @@
 ---
-name: Streaming Response
+name: streaming-response
 description: "Use when implementing real-time AI response streaming."
 metadata:
   id: streaming-response

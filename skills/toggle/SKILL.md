@@ -1,5 +1,5 @@
 ---
-name: Toggle
+name: toggle
 description: "Use when you need to switch between two states."
 metadata:
   id: toggle

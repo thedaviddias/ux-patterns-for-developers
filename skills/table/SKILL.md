@@ -1,5 +1,5 @@
 ---
-name: Data Table
+name: table
 description: "Use when you need to display structured data in rows and columns."
 metadata:
   id: table

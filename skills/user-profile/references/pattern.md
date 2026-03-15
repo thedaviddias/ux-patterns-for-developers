@@ -116,8 +116,7 @@ Content --> Stats[Statistics / Badges]
 
 - Recent actions, posts, contributions, or orders
 - May use a timeline, card grid, or list format
-- Supports pagination or "load more" for long histories
-
+- Supports [pagination](/glossary/pagination) or "load more" for long histories
 8. **Statistics / Badges**
 
 - Numerical stats: posts, followers, contributions, reputation
@@ -291,11 +290,9 @@ A profile page with tabbed content sections (Posts, Repositories, Activity, Sett
 
 - Stack the profile header vertically on mobile (avatar above name and bio)
 - Make action buttons full-width on mobile for easy tapping
-- Ensure touch targets are at least 44×44px for all interactive elements
-- Use a compact layout for stats that fits within the mobile viewport
-
+- Ensure [touch targets](/glossary/touch-targets) are at least 44×44px for all interactive elements
+- Use a compact layout for stats that fits within the mobile [viewport](/glossary/viewport)
 **Don'ts ❌**
-
 - Don't show a cover image that pushes the profile content below the fold
 - Don't require horizontal scrolling for profile metadata
 

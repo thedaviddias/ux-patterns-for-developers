@@ -1,5 +1,5 @@
 ---
-name: Form Validation
+name: form-validation
 description: "Use when you need to validate and provide feedback."
 metadata:
   id: form-validation

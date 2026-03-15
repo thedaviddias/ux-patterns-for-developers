@@ -226,9 +226,8 @@ graph TD
 **Pros ✅**
 
 - Full styling flexibility—no browser-imposed limitations.
-- Explicit aria-expanded handling—better screen reader support.
+- Explicit aria-expanded handling—better [screen reader](/glossary/screen-reader) support.
 - More customization options—e.g., "only one section open at a time" behavior.
-
 **Cons ❌**
 
 - Requires JavaScript to toggle states.
@@ -374,13 +373,11 @@ graph TD
 
 **Do's ✅**
 
-- **Use semantic HTML**—accordion triggers should be `button` elements.
+- **Use [semantic HTML](/glossary/semantic-html)**—accordion triggers should be `button` elements.
 - **Implement `aria-expanded`** to indicate open/closed states.
 - **Ensure focus management**—moving between sections should be intuitive.
-- **Support keyboard navigation**—allow arrow keys for cycling and `Enter` or `Space` to toggle.
-
+- **Support [keyboard navigation](/glossary/keyboard-navigation)**—allow arrow keys for cycling and `Enter` or `Space` to toggle.
 **Don'ts ❌**
-
 - **Don't trap focus** inside an expanded panel.
 - **Avoid using `display: none;` on content**—instead, use `visibility` or `aria-hidden` for screen readers.
 
@@ -741,10 +738,9 @@ The following table outlines the standard keyboard interactions for accordion co
 **Should ✓**
 
 - [ ] Ensure that **accordion interactions are smooth** and do not introduce lag.
-- [ ] Confirm that excessive DOM updates **do not slow down rendering**.
+- [ ] Confirm that excessive [DOM](/glossary/dom) updates **do not slow down rendering**.
 - [ ] Verify that accordions **do not cause unnecessary reflows** when toggled.
 - [ ] Test large datasets inside the accordion to ensure **acceptable performance**.
-
 ## [Design Tokens](/glossary/design-tokens)
 
 These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.

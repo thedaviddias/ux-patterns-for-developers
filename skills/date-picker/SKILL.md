@@ -1,5 +1,5 @@
 ---
-name: Date Picker
+name: date-picker
 description: "Use when implementing select dates from a calendar interface."
 metadata:
   id: date-picker
@@ -60,7 +60,7 @@ Unlike a [Date Input](/patterns/forms/date-input) (which is optimized for direct
 - **Month navigation**: < 50ms to render new month grid
 - **Day selection**: < 16ms from click to input update and popup close
 - **Memory usage**: < 20KB per date picker instance
-- **DOM size**: < 50 nodes for a single month calendar grid
+- **[DOM](/glossary/dom) size**: < 50 nodes for a single month calendar grid
 
 ## Common mistakes
 
@@ -88,8 +88,7 @@ calendarButton.addEventListener('keydown', (e) => {
 ### No Keyboard Navigation in Calendar Grid
 
 **The Problem:**
-A calendar that requires mouse interaction is inaccessible to keyboard and screen reader users.
-
+A calendar that requires mouse interaction is inaccessible to keyboard and [screen reader](/glossary/screen-reader) users.
 **How to Fix It?** Implement the full ARIA grid keyboard navigation pattern.
 
 ```javascript

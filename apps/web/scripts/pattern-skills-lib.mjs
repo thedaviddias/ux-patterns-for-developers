@@ -238,7 +238,7 @@ function buildSkillDescription(frontmatter, title) {
 function buildPerPatternSkill(pattern) {
 	const lines = [
 		"---",
-		`name: ${pattern.title.replace(/"/g, "'")}`,
+		`name: ${pattern.skillSlug}`,
 		`description: "${buildSkillDescription(pattern.frontmatter, pattern.title).replace(/"/g, "'")}"`,
 		"metadata:",
 		`  id: ${pattern.skillSlug}`,
@@ -341,7 +341,7 @@ function buildGlobalSkill(patterns) {
 
 	const lines = [
 		"---",
-		'name: "UX Patterns Global"',
+		`name: ${PATTERN_SKILLS_GLOBAL_SLUG}`,
 		'description: "Use when choosing, comparing, or implementing UX patterns across the UX Patterns for Developers corpus."',
 		"metadata:",
 		`  id: ${PATTERN_SKILLS_GLOBAL_SLUG}`,

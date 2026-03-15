@@ -1,5 +1,5 @@
 ---
-name: Pagination
+name: pagination
 description: "Use when implementing navigate through multiple pages of content."
 metadata:
   id: pagination
@@ -18,11 +18,11 @@ Navigate through multiple pages of content
 
 **[Pagination](/glossary/pagination)** divides large content collections into manageable chunks or pages.
 Users navigate through data sets, search results, or product listings without getting overwhelmed by too much information at once.
-Pagination works well, but consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain content types. Your choice between pagination and infinite scroll depends on content nature, user behavior, and interface goals.
+[Pagination](/glossary/pagination) works well, but consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain content types. Your choice between pagination and infinite scroll depends on content nature, user behavior, and interface goals.
 
 ## When to use
 
-Use pagination when content needs structured, progressive loading for smoother user experience and better performance.
+Use pagination when content needs structured, [progressive loading](/glossary/progressive-loading) for smoother user experience and better performance.
 Pagination helps users navigate large information sets without getting overwhelmed.
 **Common scenarios include:**
 - **Content lists** need browsing (search results, blog archives, product listings)
@@ -90,13 +90,12 @@ Distinguish the active page with contrasting colors, borders, or size.
 Page numbers and controls are too small for easy clicking, especially on mobile.
 
 **How to Fix It:**
-Use minimum 44x44px touch targets with adequate spacing between elements.
+Use minimum 44x44px [touch targets](/glossary/touch-targets) with adequate spacing between elements.
 
 ## Related patterns
 
 - https://uxpatterns.dev/patterns/navigation/infinite-scroll
 - https://uxpatterns.dev/patterns/navigation/load-more
-- https://uxpatterns.dev/patterns/navigation/tabs
 
 ---
 

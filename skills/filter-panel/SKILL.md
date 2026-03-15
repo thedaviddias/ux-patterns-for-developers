@@ -1,5 +1,5 @@
 ---
-name: Filter Panel
+name: filter-panel
 description: "Use when implementing filter and refine data displays."
 metadata:
   id: filter-panel

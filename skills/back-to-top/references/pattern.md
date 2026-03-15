@@ -88,9 +88,8 @@ Container --> Label[Label Text <optional>]
 - **Default**: Visible when the user scrolls past a certain threshold
 - **Hover**: Provides a visual cue (e.g. change in background color)
 - **Active**: Pressed or clicked state
-- **Focus**: Outline or highlight for keyboard navigation
+- **Focus**: Outline or highlight for [keyboard navigation](/glossary/keyboard-navigation)
 - **Hidden**: Button is invisible or removed when the user is near the top of the page
-
 #### Summary of Components
 
 | Component     | Required? | Purpose                                                     |
@@ -144,8 +143,7 @@ This example showcases:
 - Throttled scroll events for performance
 - Keyboard support (Tab to focus, Enter/Space to activate)
 - Respects `prefers-reduced-motion` for accessibility
-- Mobile-optimized touch targets
-
+- Mobile-optimized [touch targets](/glossary/touch-targets)
 ### Basic Implementation (HTML + minimal JS)
 
 ```html
@@ -242,10 +240,9 @@ This example showcases:
 
 **Do's ✅**
 
-- Fix its position to the viewport so it remains visible during scrolling
+- Fix its position to the [viewport](/glossary/viewport) so it remains visible during scrolling
 - Use consistent margin or spacing from edges for aesthetic alignment
 - Keep in mind other fixed UI elements such as sticky footers or chat widgets
-
 **Don'ts ❌**
 
 - Don't move it around the page as the user scrolls
@@ -567,13 +564,11 @@ Performance Testing
 - **No direct SEO impact** - Back to Top is a UX feature that doesn't affect content indexing
 - **Indirect benefits:** Improved user engagement metrics (time on page, bounce rate)
 - **Ensure button doesn't hide content** from search engine crawlers
-- **Use semantic HTML** (`<button>` element) for better accessibility signals
+- **Use [semantic HTML](/glossary/semantic-html)** (`<button>` element) for better accessibility signals
 - **Avoid keyword stuffing** in button text or ARIA labels
-
 ## Design Tokens
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
-
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 ### Button Tokens in DTF Format
 
 ```json
@@ -646,7 +641,6 @@ These design tokens follow the [Design Tokens Format](https://design-tokens.gith
 ### Guides
 
 - [MDN Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) - Viewport observation for lazy loading, infinite lists, and progressive reveal patterns.
-
 ### Articles
 
 - [Nielsen Norman Group: Back-to-top links](https://www.nngroup.com/articles/back-to-top/) - Why and when an explicit return-to-top control improves long-page navigation.

@@ -1,5 +1,5 @@
 ---
-name: AI Suggestions
+name: ai-suggestions
 description: "Use when implementing aI-powered autocomplete and suggestions."
 metadata:
   id: ai-suggestions

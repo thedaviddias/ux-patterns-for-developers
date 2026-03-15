@@ -1,5 +1,5 @@
 ---
-name: Hamburger Menu
+name: hambuger-menu
 description: "Use when you need to display a menu icon for mobile devices."
 metadata:
   id: hambuger-menu

@@ -1,5 +1,5 @@
 ---
-name: Checkout Flow
+name: checkout
 description: "Use when implementing multi-step checkout process."
 metadata:
   id: checkout

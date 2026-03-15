@@ -1,5 +1,5 @@
 ---
-name: Sign Up Flow
+name: signup
 description: "Use when implementing user registration and account creation."
 metadata:
   id: signup
@@ -54,7 +54,7 @@ Use **Sign Up Flow** to **create new user accounts and collect the minimum infor
 **Don'ts ❌**
 - Don't rely on color alone for password strength indication — pair with text labels
 - Don't auto-submit the form when the last field is filled
-- Don't use CAPTCHAs that are inaccessible to screen reader users (use invisible reCAPTCHA or hCaptcha)
+- Don't use CAPTCHAs that are inaccessible to [screen reader](/glossary/screen-reader) users (use invisible reCAPTCHA or hCaptcha)
 
 ## Performance guardrails
 

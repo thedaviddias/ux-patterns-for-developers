@@ -277,15 +277,13 @@ Optimized for search with specific styling and behavior.
 
 **Pros ✅**
 - Works for **all users**, including screen readers and color-blind users.
-- No need for extra ARIA attributes.
-
+- No need for extra [ARIA attributes](/glossary/aria-attributes).
 **Cons ❌**
 - Takes slightly more space in the UI.
 
 #### 2️⃣ Alternative: Asterisk (*) with ARIA Explanation
 
-✅ **Common practice**, but needs `aria-describedby` for screen reader users.
-
+✅ **Common practice**, but needs `aria-describedby` for [screen reader](/glossary/screen-reader) users.
 ```html
 <label for="username"> Username <span aria-hidden="true">*</span> </label>
 <input
@@ -801,9 +799,8 @@ Target performance metrics for text field components:
 - [ ] Check **browser compatibility across different devices** (Chrome, Firefox, Safari, Edge, mobile browsers).
 - [ ] Test mobile usability, including **touch input, autocorrect behavior, and focus handling**.
 - [ ] Ensure input fields **don't trigger layout shifts** (Cumulative Layout Shift - CLS).
-- [ ] Validate **lazy loading and deferred scripts** do not delay field interactions.
+- [ ] Validate **[lazy loading](/glossary/lazy-loading) and deferred scripts** do not delay field interactions.
 - [ ] Check memory usage when dynamically adding or removing fields.
-
 ---
 
 ### Security Testing
@@ -822,13 +819,12 @@ Target performance metrics for text field components:
 **Should ✓**
 
 - [ ] Ensure the **correct keyboard type appears** for each input (e.g., numeric for phone numbers, email keyboard for email fields).
-- [ ] Validate touch targets are **large enough (at least 44x44px)** for usability.
+- [ ] Validate [touch targets](/glossary/touch-targets) are **large enough (at least 44x44px)** for usability.
 - [ ] Test how input behaves in **dark mode** and ensure readability.
 - [ ] Check if input fields adjust correctly when the **virtual keyboard opens** (avoiding overlapping content).
 - [ ] Ensure users can **easily dismiss the keyboard** after typing (e.g., tapping outside the input).
 - [ ] Verify that **autocorrect and autocomplete work properly** without interfering with expected input behavior.
 - [ ] Confirm that **multi-line inputs (`textarea`) scroll correctly** without hiding text on smaller screens.
-
 ---
 
 ### Error Handling & Validation Testing

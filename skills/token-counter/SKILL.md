@@ -1,5 +1,5 @@
 ---
-name: Token Counter
+name: token-counter
 description: "Use when you need to display token usage and limits."
 metadata:
   id: token-counter

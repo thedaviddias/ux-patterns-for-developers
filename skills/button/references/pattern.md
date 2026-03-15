@@ -45,10 +45,8 @@
 - Provides clear, actionable interactions for users to accomplish tasks
 - Maintains consistency in user interface interactions across the application
 - Offers visual feedback and states (hover, focus, active, disabled) to enhance usability
-- Supports accessibility through keyboard navigation and screen reader compatibility
-- Reduces cognitive load by making actions immediately recognizable
-
-## Drawbacks
+- Supports accessibility through [keyboard navigation](/glossary/keyboard-navigation) and [screen reader](/glossary/screen-reader) compatibility
+- Reduces cognitive load by making actions immediately recognizable## Drawbacks
 
 - **Overuse can lead to UI clutter** – Too many buttons in an interface can confuse users.
 - **Styling inconsistencies** – Needs proper theming and responsive considerations for different screen sizes.
@@ -430,8 +428,7 @@ Each variation can be combined with different visual styles (primary, secondary,
 
 ### ARIA Attributes
 
-**Required ARIA attributes:**
-
+**Required [ARIA attributes](/glossary/aria-attributes):**
 - Use `aria-label` for icon-only buttons
 - Use `aria-pressed` for toggle buttons
 - Use `aria-expanded` for buttons that control expandable content
@@ -653,7 +650,6 @@ These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format]
     },
   ]}
 />
-
 ## Related Patterns
 
 ## Resources

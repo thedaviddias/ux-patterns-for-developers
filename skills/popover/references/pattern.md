@@ -44,10 +44,9 @@ Use popovers for context-specific information or quick actions that complement t
 
 - **Needs precise interaction** – difficult for some users
 - **Obstructs other content** – harder page interaction
-- **Accessibility issues** – without proper keyboard navigation and focus management
+- **Accessibility issues** – without proper [keyboard navigation](/glossary/keyboard-navigation) and focus management
 - **Positioning problems** – popover appears off-screen
 - **Accidental dismissal** – frustrates users needing the information again
-
 ## Anatomy
 
 ```mermaid
@@ -255,8 +254,7 @@ C --> F[Body Content]
 - **Light dismiss support**—closes when clicking outside by default.
 - **Keyboard accessible by default**—supports `Escape` key to close.
 - **Simpler implementation**—requires minimal JavaScript.
-- **Stacking context management**—handles z-index automatically.
-
+- **Stacking context management**—handles z-[index](/glossary/index) automatically.
 **Cons ❌**
 
 - **Limited browser support**—not available in all browsers yet.
@@ -327,10 +325,9 @@ The following table outlines the standard keyboard interactions for popover comp
 
 **Should ✓**
 
-- [ ] Validate that screen reader users are notified when the popover is opened.
+- [ ] Validate that [screen reader](/glossary/screen-reader) users are notified when the popover is opened.
 - [ ] Test that focus is not lost when navigating through popover content.
 - [ ] Ensure the popover closes with the Esc key and returns focus to the trigger.
-
 ### Visual Testing
 
 **Should ✓**
@@ -344,12 +341,10 @@ The following table outlines the standard keyboard interactions for popover comp
 **Should ✓**
 
 - [ ] Ensure that opening and closing the popover does not induce performance lags.
-- [ ] Verify that the dynamic positioning adapts swiftly as the viewport changes.
-
+- [ ] Verify that the dynamic positioning adapts swiftly as the [viewport](/glossary/viewport) changes.
 ## Design Tokens
 
-These design tokens follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
-
+These [design tokens](/glossary/design-tokens) follow the [Design Tokens Format](https://design-tokens.github.io/community-group/format/) specification and can be used with various token transformation tools to generate platform-specific variables.
 ### Popover Tokens in DTF Format
 
 ```json

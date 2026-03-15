@@ -1,5 +1,5 @@
 ---
-name: Accordion
+name: accordion
 description: "Use when implementing expand and collapse content sections."
 metadata:
   id: accordion

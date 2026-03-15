@@ -120,8 +120,7 @@ The navigation panel slides in from the left or right edge of the screen, pushin
 **When to use:** Standard mobile navigation where the menu contains many items or nested sections.
 
 ### 2. Full-Screen Overlay
-The menu expands to cover the entire viewport with navigation options centered or listed.
-
+The menu expands to cover the entire [viewport](/glossary/viewport) with navigation options centered or listed.
 **When to use:** Marketing sites, portfolios, or minimal designs where the menu is a design statement.
 
 ### 3. Dropdown Panel
@@ -547,10 +546,9 @@ const open = () => { setHasOpened(true); setIsOpen(true); };
 ## SEO Considerations
 
 - **Hidden content:** Search engines generally crawl content inside `hidden` attributes or `display: none`, but verify your navigation links are in the static HTML (not JS-only rendered)
-- **Use semantic HTML:** `<nav>` with `<ul>/<li>` structure helps crawlers understand site hierarchy
+- **Use [semantic HTML](/glossary/semantic-html):** `<nav>` with `<ul>/<li>` structure helps crawlers understand site hierarchy
 - **Internal linking:** Ensure all navigation links use proper `<a>` tags with `href` attributes for crawlability
 - **Mobile-first indexing:** Google uses mobile rendering, so hamburger menu content is indexed—but ensure it's not behind JavaScript-only rendering
-
 ## Design Tokens
 
 ```json

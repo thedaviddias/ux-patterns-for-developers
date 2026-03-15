@@ -1,5 +1,5 @@
 ---
-name: Checkbox
+name: checkbox
 description: "Use when implementing enable single or multiple selections."
 metadata:
   id: checkbox
@@ -65,7 +65,7 @@ The following table outlines the standard keyboard interactions for checkbox com
 - **Render Time**: < 16ms for checkbox state changes
 - **Bundle Size**: < 2KB for basic checkbox implementation
 - **Memory Usage**: Minimal impact for standard checkbox groups
-- **Accessibility**: 100% keyboard navigable, screen reader compatible
+- **Accessibility**: 100% keyboard navigable, [screen reader](/glossary/screen-reader) compatible
 **Optimization Strategies:**
 - **Event Delegation**: Use single event listener for checkbox groups
 - **Lazy Rendering**: Only render visible checkboxes in long lists

@@ -1,5 +1,5 @@
 ---
-name: AI Chat Interface
+name: ai-chat
 description: "Use when implementing conversational AI chat interfaces."
 metadata:
   id: ai-chat

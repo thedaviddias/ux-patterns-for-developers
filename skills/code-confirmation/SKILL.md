@@ -1,5 +1,5 @@
 ---
-name: Code Confirmation
+name: code-confirmation
 description: "Use when implementing verify codes with segmented input."
 metadata:
   id: code-confirmation
@@ -18,8 +18,6 @@ Verify codes with segmented input
 
 A **Code Confirmation** (also called an OTP input or verification code input) is a specialized form component that allows users to enter short numeric or alphanumeric codes — typically 4–8 characters — sent via SMS, email, or authenticator app to verify identity.
 The defining characteristic is the **segmented layout**: each character occupies its own individual input box, providing a clear visual structure that guides users digit-by-digit and reduces transcription errors.
-![2FA Code Confirmation](/patterns/code-confirmation/do/paypal.jpg)
-_Good example of a 2FA code confirmation screen from PayPal_
 
 ## When to use
 
@@ -131,7 +129,6 @@ input.addEventListener('keydown', (e) => {
 
 ## Related patterns
 
-- https://uxpatterns.dev/patterns/code-confirmation/do
 - https://uxpatterns.dev/patterns/forms/text-field
 
 ---
