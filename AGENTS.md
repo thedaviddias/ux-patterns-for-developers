@@ -6,7 +6,7 @@ This file provides collaborative guidance and philosophy when using the Codex Se
 
 **Core Principles**:
 - **Investigate patterns** - Look for existing examples, understand established conventions, don't reinvent what already exists
-- **Confirm approach** - Explain your reasoning, show what you found in the codebase, get consensus before proceeding  
+- **Confirm approach** - Explain your reasoning, show what you found in the codebase, get consensus before proceeding
 - **State your case if you disagree** - Present multiple viewpoints when architectural decisions have trade-offs
 - When working on highly standardized tasks: Provide SOTA (State of the Art) best practices
 - When working on paradigm-breaking approaches: Generate "opinion" through rigorous deductive reasoning from available evidence
@@ -15,7 +15,7 @@ This file provides collaborative guidance and philosophy when using the Codex Se
 
 ### Best Practices
 - One task at a time (check .Codex/state/current_task.json)
-- Update work logs as you progress  
+- Update work logs as you progress
 - Mark todos as completed immediately after finishing
 
 ### Quick State Checks
@@ -38,7 +38,7 @@ git branch --show-current             # Current branch/task
 
 **Common mistakes to avoid:**
 - ❌ Using `"task_file"` instead of `"task"`
-- ❌ Using `"branch_name"` instead of `"branch"`  
+- ❌ Using `"branch_name"` instead of `"branch"`
 - ❌ Including path like `"tasks/m-task.md"`
 - ❌ Including `.md` file extension
 
@@ -119,7 +119,7 @@ These protocols guide specific workflows:
    - EXPLICIT: "create a new task", "let's make a task for X"
    - VAGUE: "we should track this", "might need a task for that"
 
-2. **sessions/protocols/task-startup.md** - Beginning work on existing tasks  
+2. **sessions/protocols/task-startup.md** - Beginning work on existing tasks
    - EXPLICIT: "switch to task X", "let's work on task Y"
    - VAGUE: "maybe we should look at the other thing"
 
@@ -142,3 +142,21 @@ These protocols guide specific workflows:
 - You: "Would you like me to run the task completion protocol?"
 - User: "Yes"
 - You: [NOW read task-completion.md] → "I'll complete the task now..."
+
+## Learned User Preferences
+
+- When asked to "fix" something, make the minimal targeted change — never rewrite or replace surrounding content
+- Preserve original user-authored text exactly — only modify what was specifically reported as broken
+- When 1Password GPG signing fails during commit, retry with `--no-gpg-sign`
+- Skill `name` fields must use lowercase-dashed slug format (e.g., `ai-chat`), not human-readable titles
+
+## Learned Workspace Facts
+
+- Pattern content pages follow a strict ~25-section MDX structure in `apps/web/content/patterns/<category>/<pattern>.mdx`
+- Authentication patterns require an additional "Security Considerations" section beyond the base template
+- Skills are generated from pattern MDX via `pnpm skills:generate` → `apps/web/scripts/generate-pattern-skills.mjs`
+- Skill output goes to `skills/<slug>/SKILL.md` + `skills/<slug>/references/pattern.md` per pattern, plus a global skill and manifest at `apps/web/.generated/pattern-skills.json`
+- Pre-commit hooks run via lefthook v1.12.2 (format, lint, organize-imports, sync-gallery-metadata)
+- GPG commit signing is configured via 1Password and may intermittently fail with "failed to fill whole buffer"
+- The filename `hambuger-menu.mdx` has a known typo (missing 'r') that is preserved intentionally
+- `apps/web/scripts/ux-covers/prompts.json` contains image generation prompts — inner double quotes must be JSON-escaped with backslashes
