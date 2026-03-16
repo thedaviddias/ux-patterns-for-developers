@@ -8,7 +8,10 @@ const REGISTRY_JSON_PATH = path.join(
 	"packages/registry/dist/r/registry.json",
 );
 const OUTPUT_PATH = path.join(PROJECT_ROOT, "packages/registry/.generated");
-const REGISTRY_PUBLIC_PATH = path.join(PROJECT_ROOT, "packages/registry/dist/r");
+const REGISTRY_PUBLIC_PATH = path.join(
+	PROJECT_ROOT,
+	"packages/registry/dist/r",
+);
 
 async function buildRegistryIndex() {
 	// Ensure output directory exists

@@ -59,10 +59,7 @@ export function ComponentPreview({
 		>
 			{/* Preview Section */}
 			<div className="relative rounded-md">
-				<ComponentWrapper
-					name={name}
-					height={height}
-				>
+				<ComponentWrapper name={name} height={height}>
 					<React.Suspense
 						fallback={
 							<div className="flex items-center text-sm text-muted-foreground">

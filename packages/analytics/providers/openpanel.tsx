@@ -46,10 +46,7 @@ export function OpenPanelAnalyticsComponent({
 
 	return (
 		<>
-			<script
-				nonce={nonce}
-				dangerouslySetInnerHTML={{ __html: initScript }}
-			/>
+			<script nonce={nonce} dangerouslySetInnerHTML={{ __html: initScript }} />
 			<script src="/api/op/op1.js" async defer nonce={nonce} />
 		</>
 	);
