@@ -91,10 +91,7 @@ export function getRouteCategory(pathname: string): {
 			? pathname.slice(0, -1)
 			: pathname;
 
-	if (
-		normalizedPathname === "/proxy/api/event" ||
-		normalizedPathname === "/api/event"
-	) {
+	if (normalizedPathname.startsWith("/api/op")) {
 		return { category: "analytics", limit: 10 };
 	}
 	if (normalizedPathname.startsWith("/api/")) {

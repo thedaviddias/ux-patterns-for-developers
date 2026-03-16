@@ -1,86 +1,54 @@
 import { unstable_cache } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 
-const PLAUSIBLE_API_URL = "https://plausible.io/api/v2/query";
-const SITE_ID = "uxpatterns.dev";
+const OPENPANEL_API_URL = "https://api.openpanel.dev";
 
-// Cache the Plausible API call for 24 hours
-const getPlausibleStats = unstable_cache(
+// Cache the OpenPanel API call for 24 hours
+const getPageStats = unstable_cache(
 	async (page: string) => {
-		const apiKey = process.env.PLAUSIBLE_API_KEY;
+		const clientId = process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID;
+		const clientSecret = process.env.OPENPANEL_CLIENT_SECRET;
 
-		if (!apiKey) {
-			console.error("PLAUSIBLE_API_KEY is not configured");
+		if (!clientId || !clientSecret) {
+			console.error("OpenPanel credentials are not configured");
 			return { pageviews: 0, visitors: 0 };
 		}
 
 		try {
-			// Prepare both paths (current and legacy with /en/)
-			const currentPath = page;
-			const legacyPath = `/en${page}`;
+			const filters = JSON.stringify([
+				{ name: "path", operator: "is", value: [page] },
+			]);
 
-			// Fetch stats for both paths
-			const response = await fetch(PLAUSIBLE_API_URL, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${apiKey}`,
+			const response = await fetch(
+				`${OPENPANEL_API_URL}/insights/${clientId}/metrics?range=90d&filters=${encodeURIComponent(filters)}`,
+				{
+					headers: {
+						"openpanel-client-id": clientId,
+						"openpanel-client-secret": clientSecret,
+					},
 				},
-				body: JSON.stringify({
-					site_id: SITE_ID,
-					metrics: ["pageviews", "visitors"],
-					date_range: "all",
-					dimensions: [],
-					filters: [["is", "event:page", [currentPath, legacyPath]]],
-				}),
-			});
+			);
 
 			if (!response.ok) {
-				throw new Error(`Plausible API error: ${response.status}`);
+				throw new Error(`OpenPanel API error: ${response.status}`);
 			}
 
 			const data = await response.json();
 
-			// Sum metrics from all results (handles multiple pages)
-			let totalPageviews = 0;
-			let totalVisitors = 0;
-
-			// Handle different response structures
-			if (data.results) {
-				if (Array.isArray(data.results)) {
-					data.results.forEach((result: any) => {
-						// Metrics array: [pageviews, visitors]
-						const [pageviews, visitors] = result.metrics || [0, 0];
-						totalPageviews += pageviews || 0;
-						totalVisitors += visitors || 0;
-					});
-				} else if (data.results.metrics) {
-					// Single result object
-					const [pageviews, visitors] = data.results.metrics || [0, 0];
-					totalPageviews = pageviews || 0;
-					totalVisitors = visitors || 0;
-				}
-			} else if (data.metrics) {
-				// Metrics might be returned directly
-				const [pageviews, visitors] = data.metrics || [0, 0];
-				totalPageviews = pageviews || 0;
-				totalVisitors = visitors || 0;
-			}
-
 			return {
-				pageviews: totalPageviews,
-				visitors: totalVisitors,
-				period: "all",
+				pageviews: data.metrics?.total_screen_views ?? 0,
+				visitors: data.metrics?.unique_visitors ?? 0,
+				period: "90d",
 			};
 		} catch (error) {
-			console.error("Error fetching Plausible stats:", error);
+			console.error("Error fetching OpenPanel stats:", error);
 			return { pageviews: 0, visitors: 0 };
 		}
 	},
-	["plausible-stats-v2"],
+	["openpanel-stats-v1"],
 	{
-		revalidate: 86400, // Cache for 24 hours (in seconds)
-		tags: ["plausible"],
+		revalidate: 86400,
+		tags: ["analytics"],
 	},
 );
 
@@ -99,11 +67,12 @@ export async function GET(request: NextRequest) {
 		);
 	}
 
-	const stats = await getPlausibleStats(page);
+	const stats = await getPageStats(page);
 
 	return NextResponse.json(stats, {
 		headers: {
-			"Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
+			"Cache-Control":
+				"public, s-maxage=86400, stale-while-revalidate=604800",
 		},
 	});
 }
