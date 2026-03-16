@@ -2,8 +2,8 @@
 
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { Download, X } from "lucide-react";
-import { usePlausible } from "next-plausible";
 import { useEffect, useId, useRef, useState } from "react";
+import { track } from "@ux-patterns/analytics/track";
 import {
 	type PatternChecklist,
 	TESTING_CHECKLISTS,
@@ -54,7 +54,6 @@ function triggerMarkdownDownload(
 }
 
 export const ChecklistDownload = ({ patternSlug }: ChecklistDownloadProps) => {
-	const plausible = usePlausible();
 	const emailId = useId();
 	const messageId = useId();
 	const [status, setStatus] = useState<FormStatus>("idle");
@@ -86,9 +85,7 @@ export const ChecklistDownload = ({ patternSlug }: ChecklistDownloadProps) => {
 	if (!checklist) return null;
 
 	const handleDownloadClick = () => {
-		plausible(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_CLICK, {
-			props: { pattern: patternSlug },
-		});
+		track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_CLICK, { pattern: patternSlug });
 
 		if (alreadyDownloaded) {
 			triggerMarkdownDownload(checklist, patternSlug);
@@ -137,24 +134,18 @@ export const ChecklistDownload = ({ patternSlug }: ChecklistDownloadProps) => {
 				localStorage.setItem(EMAIL_STORAGE_KEY, emailToUse);
 				setAlreadyDownloaded(true);
 				setStatus("success");
-				plausible(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_SUCCESS, {
-					props: { pattern: patternSlug },
-				});
+				track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_SUCCESS, { pattern: patternSlug });
 			} else {
 				setErrorMessage(
 					(data && (data.message as string)) || "Failed to subscribe.",
 				);
 				setStatus("error");
-				plausible(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_ERROR, {
-					props: { pattern: patternSlug },
-				});
+				track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_ERROR, { pattern: patternSlug });
 			}
 		} catch {
 			setErrorMessage("Network error. Please try again.");
 			setStatus("error");
-			plausible(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_ERROR, {
-				props: { pattern: patternSlug },
-			});
+			track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_ERROR, { pattern: patternSlug });
 		}
 	};
 

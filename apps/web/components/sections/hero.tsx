@@ -1,7 +1,6 @@
-import { ArrowRight, Compass, Sparkles } from "lucide-react";
-import Link from "next/link";
-import { TRACKING_CLASSES } from "@/lib/tracking";
+import { Sparkles } from "lucide-react";
 import { getPatternCategories } from "@/utils/get-pattern-categories";
+import { HeroCta } from "./hero-cta";
 
 export default async function Hero() {
 	const categories = await getPatternCategories();
@@ -37,22 +36,7 @@ export default async function Hero() {
 						between ten different resources.
 					</p>
 
-					<div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-						<Link
-							href="/patterns"
-							className={`${TRACKING_CLASSES.BROWSE_PATTERNS_CLICK} group inline-flex items-center justify-center gap-2 rounded-2xl bg-foreground px-6 py-3.5 text-base font-semibold text-background transition-all duration-200 hover:bg-foreground/92`}
-						>
-							Browse Patterns
-							<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-						</Link>
-						<Link
-							href="/pattern-guide"
-							className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-background/70 px-6 py-3.5 text-base font-semibold text-foreground backdrop-blur transition-colors hover:bg-card"
-						>
-							Open Decision Guides
-							<Compass className="h-4 w-4" />
-						</Link>
-					</div>
+					<HeroCta />
 				</div>
 			</div>
 		</section>

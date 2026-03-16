@@ -14,7 +14,6 @@ import {
 	SandpackPreview,
 	SandpackProvider,
 } from "@codesandbox/sandpack-react";
-import { usePlausible } from "next-plausible";
 import type {
 	ButtonHTMLAttributes,
 	ComponentProps,
@@ -27,6 +26,7 @@ import {
 	useEffect,
 	useState,
 } from "react";
+import { track } from "@ux-patterns/analytics/track";
 import { cn } from "@/lib/cn";
 import { TRACKING_EVENTS } from "@/lib/tracking";
 
@@ -150,15 +150,12 @@ export const SandboxTabsTrigger = ({
 	...props
 }: SandboxTabsTriggerProps) => {
 	const { selectedTab, setSelectedTab } = useSandboxTabsContext();
-	const plausible = usePlausible();
 
 	const handleClick = () => {
 		if (selectedTab === value) return;
 		setSelectedTab(value);
 		// Track tab switch
-		plausible(TRACKING_EVENTS.SANDBOX_TAB_SWITCH, {
-			props: { tab_name: value },
-		});
+		track(TRACKING_EVENTS.SANDBOX_TAB_SWITCH, { tab_name: value });
 	};
 
 	return (
@@ -213,7 +210,7 @@ export const SandboxCodeEditor = ({
 	<SandpackCodeEditor showTabs={showTabs} {...props} />
 );
 
-export type SandboxConsoleProps = ComponentProps<typeof SandpackConsole>;
+export type SandboxConsoleProps = Omit<ComponentProps<typeof SandpackConsole>, "key">;
 
 export const SandboxConsole = ({
 	className,

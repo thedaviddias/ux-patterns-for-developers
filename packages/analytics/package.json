@@ -1,0 +1,31 @@
+{
+  "name": "@ux-patterns/analytics",
+  "version": "1.0.0",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": "./index.ts",
+    "./head": "./head.tsx",
+    "./server": "./server.ts",
+    "./track": "./track.ts",
+    "./proxy": "./proxy.ts"
+  },
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@openpanel/nextjs": "^1.2.0",
+    "@openpanel/sdk": "^1.2.0",
+    "next": "16.1.1",
+    "react": "^19.2.3",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.5",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3"
+  }
+}

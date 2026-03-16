@@ -1,12 +1,8 @@
 "use client";
 
-import { usePlausible } from "next-plausible";
 import { useId, useState } from "react";
-import {
-	getTrackingClass,
-	TRACKING_EVENTS,
-	trackNewsletterEvent,
-} from "@/lib/tracking";
+import { track } from "@ux-patterns/analytics/track";
+import { TRACKING_EVENTS, trackNewsletterEvent } from "@/lib/tracking";
 
 interface SubscribeFormProps {
 	variant?: "default" | "inline";
@@ -22,7 +18,6 @@ const SECTION_CLASSES = {
 };
 
 export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
-	const plausible = usePlausible();
 	const subscribeTitleId = useId();
 	const subscribeMessageId = useId();
 	const newsletterEmailId = useId();
@@ -88,16 +83,16 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 				setStatus("success");
 				setMessage(data.message || "Subscribed successfully.");
 				setEmail("");
-				trackNewsletterEvent(plausible, "success", variant);
+				trackNewsletterEvent("success", variant);
 			} else {
 				setStatus("error");
 				setMessage((data && (data.message as string)) || "Failed to subscribe");
-				trackNewsletterEvent(plausible, "error", variant);
+				trackNewsletterEvent("error", variant);
 			}
 		} catch (_error) {
 			setStatus("error");
 			setMessage("Network error. Please try again.");
-			trackNewsletterEvent(plausible, "error", variant);
+			trackNewsletterEvent("error", variant);
 		}
 	};
 
@@ -152,7 +147,7 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 							const eventName = isInline
 								? TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS
 								: TRACKING_EVENTS.NEWSLETTER_INPUT_FOCUS;
-							plausible(eventName);
+							track(eventName);
 						}}
 						placeholder="Enter your email"
 						name="email"
@@ -166,7 +161,7 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 						aria-errormessage={
 							status === "error" ? subscribeMessageId : undefined
 						}
-						className={`${getTrackingClass(variant).newsletterInputFocus} flex-1 rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring/40 disabled:opacity-50`}
+						className="flex-1 rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring/40 disabled:opacity-50"
 					/>
 					{/* Honeypot field for basic bot mitigation */}
 					<input
@@ -181,7 +176,7 @@ export const SubscribeForm = ({ variant = "default" }: SubscribeFormProps) => {
 					<button
 						type="submit"
 						disabled={status === "loading"}
-						className={`${getTrackingClass(variant).newsletterButtonClick} rounded-2xl border border-foreground bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-foreground/92 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-ring/40 focus:ring-offset-2`}
+						className="rounded-2xl border border-foreground bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-foreground/92 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-ring/40 focus:ring-offset-2"
 					>
 						{status === "loading" ? "Subscribing..." : "Subscribe"}
 					</button>

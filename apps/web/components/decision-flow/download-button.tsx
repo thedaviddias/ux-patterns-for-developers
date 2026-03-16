@@ -3,7 +3,7 @@
 import { Panel, useReactFlow } from "@xyflow/react";
 import { toPng } from "html-to-image";
 import { Download } from "lucide-react";
-import { usePlausible } from "next-plausible";
+import { track } from "@ux-patterns/analytics/track";
 import { TRACKING_EVENTS } from "@/lib/tracking";
 
 interface DownloadButtonProps {
@@ -14,15 +14,10 @@ const DownloadButton = ({
 	title = "Decision Flow - UX Patterns for Devs",
 }: DownloadButtonProps) => {
 	const reactFlowInstance = useReactFlow();
-	const plausible = usePlausible();
 
 	const onClick = () => {
 		// Track the download event
-		plausible(TRACKING_EVENTS.DECISION_FLOW_DOWNLOAD, {
-			props: {
-				flow_title: title,
-			},
-		});
+		track(TRACKING_EVENTS.DECISION_FLOW_DOWNLOAD, { flow_title: title });
 		// Store the current viewport state
 		const currentViewport = reactFlowInstance.getViewport();
 
@@ -67,7 +62,6 @@ const DownloadButton = ({
 			})
 			.catch((err) => {
 				console.error("Decision flow download failed", err);
-				// Optionally: plausible(TRACKING_EVENTS.DECISION_FLOW_DOWNLOAD, { props: { flow_title: title, result: 'error' } });
 			});
 	};
 

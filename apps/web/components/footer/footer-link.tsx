@@ -1,6 +1,5 @@
 "use client";
 
-import { usePlausible } from "next-plausible";
 import { trackFooterClick } from "@/lib/tracking";
 import { LinkCustom } from "../link-custom";
 
@@ -19,10 +18,8 @@ export const FooterLink = ({
 	rel,
 	linkType,
 }: FooterLinkProps) => {
-	const plausible = usePlausible();
-
 	const handleClick = () => {
-		trackFooterClick(plausible, linkType, label);
+		trackFooterClick(linkType, label);
 	};
 
 	// Merge rel attribute to preserve security tokens for external links

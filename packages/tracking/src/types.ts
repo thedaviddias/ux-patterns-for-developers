@@ -4,10 +4,10 @@
 
 import type { SharedEventName } from "./events";
 
-// Plausible tracking function type
-export type PlausibleTracker = (
+// Generic tracker function type
+export type Tracker = (
 	event: SharedEventName | string,
-	options?: { props?: Record<string, string | number> },
+	properties?: Record<string, string | number>,
 ) => void;
 
 // Common tracking prop types

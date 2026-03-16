@@ -4,7 +4,7 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import { PROJECT } from "@ux-patterns/constants/author";
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
-import { usePlausible } from "next-plausible";
+import { track } from "@ux-patterns/analytics/track";
 import { NumberTicker } from "../magicui/number-ticker";
 
 type StarsProps = {
@@ -22,8 +22,6 @@ export const GitHubStars = ({
 	onClick,
 	trackingEvent,
 }: StarsProps) => {
-	const plausible = usePlausible();
-
 	const content = (
 		<>
 			<div className="flex items-center gap-1 shrink-0">
@@ -51,9 +49,9 @@ export const GitHubStars = ({
 		}
 		// Track the click event
 		if (trackingEvent) {
-			plausible(trackingEvent);
+			track(trackingEvent);
 		} else {
-			plausible("GitHub Star Click");
+			track("GitHub Star Click");
 		}
 	};
 

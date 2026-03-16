@@ -1,7 +1,6 @@
 "use client";
 
 import { Linkedin, Twitter } from "lucide-react";
-import { usePlausible } from "next-plausible";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { trackTextToSocialEvent } from "@/lib/tracking";
@@ -19,7 +18,6 @@ function SelectionPopover({
 }: SelectionPopoverProps) {
 	const [isGenerating, setIsGenerating] = useState(false);
 	const popoverRef = useRef<HTMLDivElement>(null);
-	const plausible = usePlausible();
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
@@ -39,7 +37,7 @@ function SelectionPopover({
 		setIsGenerating(true);
 
 		// Track button click
-		trackTextToSocialEvent(plausible, "button_clicked", {
+		trackTextToSocialEvent("button_clicked", {
 			platform,
 			textLength: selectedText.length,
 			patternName: document.title
@@ -81,14 +79,14 @@ function SelectionPopover({
 			URL.revokeObjectURL(url);
 
 			// Track successful generation
-			trackTextToSocialEvent(plausible, "image_generated", {
+			trackTextToSocialEvent("image_generated", {
 				platform,
 				textLength: selectedText.length,
 				patternName: pageTitle,
 			});
 
 			// Track successful image download
-			trackTextToSocialEvent(plausible, "image_download", {
+			trackTextToSocialEvent("image_download", {
 				platform,
 				textLength: selectedText.length,
 				patternName: pageTitle,
@@ -149,8 +147,6 @@ export function TextSelectionHandler() {
 	const [selectedText, setSelectedText] = useState("");
 	const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
 	const [showPopover, setShowPopover] = useState(false);
-	const plausible = usePlausible();
-
 	const handleTextSelection = useCallback(() => {
 		const selection = window.getSelection();
 		if (!selection || selection.isCollapsed) {
@@ -273,7 +269,7 @@ export function TextSelectionHandler() {
 			setShowPopover(true);
 
 			// Track popover appearance
-			trackTextToSocialEvent(plausible, "popover_shown", {
+			trackTextToSocialEvent("popover_shown", {
 				textLength: (formattedText.trim() || text).length,
 				patternName: document.title
 					.replace(" | UX Patterns for Developers", "")
@@ -282,7 +278,7 @@ export function TextSelectionHandler() {
 		} else {
 			setShowPopover(false);
 		}
-	}, [plausible]);
+	}, []);
 
 	useEffect(() => {
 		// Debounce the selection handler

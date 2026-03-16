@@ -5,7 +5,7 @@ import {
 	LargeSearchToggle,
 	SearchToggle,
 } from "@ux-patterns/ui/components/custom/fumadocs-compat";
-import { usePlausible } from "next-plausible";
+import { track } from "@ux-patterns/analytics/track";
 import type { ComponentProps } from "react";
 
 interface TrackedSearchProps {
@@ -17,12 +17,11 @@ export function TrackedLargeSearchToggle({
 	onClick,
 	...props
 }: ComponentProps<typeof LargeSearchToggle> & TrackedSearchProps) {
-	const plausible = usePlausible();
 
 	const handleClick: ComponentProps<typeof LargeSearchToggle>["onClick"] = (
 		event,
 	) => {
-		plausible(trackingEvent);
+		track(trackingEvent);
 		onClick?.(event);
 	};
 
@@ -34,12 +33,11 @@ export function TrackedSearchToggle({
 	onClick,
 	...props
 }: ComponentProps<typeof SearchToggle> & TrackedSearchProps) {
-	const plausible = usePlausible();
 
 	const handleClick: ComponentProps<typeof SearchToggle>["onClick"] = (
 		event,
 	) => {
-		plausible(trackingEvent);
+		track(trackingEvent);
 		onClick?.(event);
 	};
 

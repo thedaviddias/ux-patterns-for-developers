@@ -7,11 +7,9 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@ux-patterns/ui/components/shadcn/tooltip";
-import { usePlausible } from "next-plausible";
+import { track } from "@ux-patterns/analytics/track";
 
 export function OpenInV0Button({ url }: { url: string }) {
-	const plausible = usePlausible();
-
 	// Extract component name from URL
 	const componentName = url.split("/").pop()?.replace(".json", "") || "unknown";
 	return (
@@ -28,10 +26,8 @@ export function OpenInV0Button({ url }: { url: string }) {
 							target="_blank"
 							rel="noreferrer"
 							onClick={() => {
-								plausible("Open in V0", {
-									props: {
-										component_name: componentName,
-									},
+								track("Open in V0", {
+									component_name: componentName,
 								});
 							}}
 						>

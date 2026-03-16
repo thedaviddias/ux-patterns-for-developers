@@ -1,7 +1,6 @@
 import createBundleAnalyzer from "@next/bundle-analyzer";
 import { withBotId } from "botid/next/config";
 import { createMDX } from "fumadocs-mdx/next";
-import { withPlausibleProxy } from "next-plausible";
 
 const withMDX = createMDX();
 
@@ -162,4 +161,4 @@ const config = {
 	},
 };
 
-export default withBotId(withPlausibleProxy()(withAnalyzer(withMDX(config))));
+export default withBotId(withAnalyzer(withMDX(config)));

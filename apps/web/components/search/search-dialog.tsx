@@ -22,7 +22,6 @@ import {
 	Search,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { usePlausible } from "next-plausible";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { SearchResult } from "@/lib/search";
 import { createQuickSearchData } from "@/lib/search";
@@ -53,7 +52,6 @@ const typeIcons = {
  */
 export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 	const router = useRouter();
-	const plausible = usePlausible();
 	const [query, setQuery] = useState("");
 	const [results, setResults] = useState<SearchResult[]>([]);
 	const [isSearching, setIsSearching] = useState(false);
@@ -110,7 +108,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 				// Track search query (only if query changed to avoid duplicate events)
 				if (query !== lastTrackedQuery.current) {
 					lastTrackedQuery.current = query;
-					trackSearchEvent(plausible, "query", {
+					trackSearchEvent("query", {
 						query,
 						resultsCount: searchResults.length,
 					});
@@ -132,7 +130,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 			controller.abort();
 			clearTimeout(timeout);
 		};
-	}, [query, plausible]);
+	}, [query]);
 
 	// Combine quick results with full results
 	const displayResults = useMemo(() => {
@@ -155,7 +153,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 	// Handle selection
 	const handleSelect = useCallback(
 		(result: SearchResult, position: number) => {
-			trackSearchEvent(plausible, "result_click", {
+			trackSearchEvent("result_click", {
 				query,
 				resultTitle: result.title,
 				resultType: result.type,
@@ -166,7 +164,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
 			onOpenChange(false);
 			setQuery("");
 		},
-		[router, onOpenChange, plausible, query],
+		[router, onOpenChange, query],
 	);
 
 	// Keyboard shortcut to open

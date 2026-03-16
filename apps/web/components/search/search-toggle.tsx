@@ -1,7 +1,6 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { usePlausible } from "next-plausible";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { trackSearchEvent } from "@/lib/tracking";
@@ -20,7 +19,6 @@ interface SearchToggleProps {
 export function SearchToggle({ className }: SearchToggleProps) {
 	const [open, setOpen] = useState(false);
 	const [isMac, setIsMac] = useState(true); // Default to Mac for SSR
-	const plausible = usePlausible();
 
 	// Detect platform on mount
 	useEffect(() => {
@@ -29,7 +27,7 @@ export function SearchToggle({ className }: SearchToggleProps) {
 
 	const handleOpen = () => {
 		setOpen(true);
-		trackSearchEvent(plausible, "open");
+		trackSearchEvent("open");
 	};
 
 	return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { usePlausible } from "next-plausible";
+import { track } from "@ux-patterns/analytics/track";
 import { useId, useState } from "react";
 
 interface NewsletterFormProps {
@@ -19,7 +19,6 @@ const SECTION_CLASSES = {
 export const NewsletterForm = ({
 	variant = "default",
 }: NewsletterFormProps) => {
-	const plausible = usePlausible();
 	const subscribeTitleId = useId();
 	const subscribeMessageId = useId();
 	const newsletterEmailId = useId();
@@ -81,30 +80,24 @@ export const NewsletterForm = ({
 				setStatus("success");
 				setMessage(data.message || "Subscribed successfully.");
 				setEmail("");
-				plausible("Newsletter Subscribe", {
-					props: {
-						location: variant === "inline" ? "inline" : "section",
-						page: "kit_homepage",
-					},
+				track("Newsletter Subscribe", {
+					location: variant === "inline" ? "inline" : "section",
+					page: "kit_homepage",
 				});
 			} else {
 				setStatus("error");
 				setMessage((data && (data.message as string)) || "Failed to subscribe");
-				plausible("Newsletter Error", {
-					props: {
-						error: data?.message || "Unknown error",
-						location: variant === "inline" ? "inline" : "section",
-					},
+				track("Newsletter Error", {
+					error: data?.message || "Unknown error",
+					location: variant === "inline" ? "inline" : "section",
 				});
 			}
 		} catch (_error) {
 			setStatus("error");
 			setMessage("Network error. Please try again.");
-			plausible("Newsletter Error", {
-				props: {
-					error: "Network error",
-					location: variant === "inline" ? "inline" : "section",
-				},
+			track("Newsletter Error", {
+				error: "Network error",
+				location: variant === "inline" ? "inline" : "section",
 			});
 		}
 	};
@@ -157,11 +150,9 @@ export const NewsletterForm = ({
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						onFocus={() => {
-							plausible("Newsletter Input Focus", {
-								props: {
-									location: variant === "inline" ? "inline" : "section",
-									page: "kit_homepage",
-								},
+							track("Newsletter Input Focus", {
+								location: variant === "inline" ? "inline" : "section",
+								page: "kit_homepage",
 							});
 						}}
 						placeholder="Enter your email"
@@ -192,11 +183,9 @@ export const NewsletterForm = ({
 						type="submit"
 						disabled={status === "loading"}
 						onClick={() => {
-							plausible("Newsletter Button Click", {
-								props: {
-									location: variant === "inline" ? "inline" : "section",
-									page: "kit_homepage",
-								},
+							track("Newsletter Button Click", {
+								location: variant === "inline" ? "inline" : "section",
+								page: "kit_homepage",
 							});
 						}}
 						className={`${isInline ? "px-4 py-1.5" : "px-6 py-2"} text-sm font-medium text-black bg-white hover:bg-gray-100 disabled:bg-neutral-400 disabled:cursor-not-allowed rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-neutral-300`}

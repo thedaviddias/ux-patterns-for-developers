@@ -9,11 +9,10 @@
 	"files": [
 		"src/**"
 	],
-	"devDependencies": {
-		"next-plausible": "^3.12.5",
-		"typescript": "^5.9.3"
+	"dependencies": {
+		"@ux-patterns/analytics": "workspace:*"
 	},
-	"peerDependencies": {
-		"next-plausible": "^3.0.0"
+	"devDependencies": {
+		"typescript": "^5.9.3"
 	}
 }

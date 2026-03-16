@@ -3,24 +3,18 @@
  * These helpers ensure consistent event tracking across all apps
  */
 
+import { track } from "@ux-patterns/analytics/track";
+
 import { SHARED_TRACKING_EVENTS } from "./events";
 import type {
 	FooterLinkType,
 	NavigationType,
 	NewsletterEventType,
 	NewsletterVariant,
-	PlausibleTracker,
 } from "./types";
-
-// Helper function to convert event name to Plausible class
-export const asPlausibleClass = (eventName: string): string => {
-	const encoded = encodeURIComponent(eventName).replace(/%20/g, "+");
-	return `plausible-event-name=${encoded}`;
-};
 
 // Helper function to track footer clicks - standardized across all apps
 export const trackFooterClick = (
-	plausible: PlausibleTracker,
 	linkType: FooterLinkType,
 	linkLabel: string,
 ) => {
@@ -29,17 +23,14 @@ export const trackFooterClick = (
 			? SHARED_TRACKING_EVENTS.FOOTER_SOCIAL_CLICK
 			: SHARED_TRACKING_EVENTS.FOOTER_LINK_CLICK;
 
-	plausible(eventName, {
-		props: {
-			link_type: linkType,
-			link_label: linkLabel,
-		},
+	track(eventName, {
+		link_type: linkType,
+		link_label: linkLabel,
 	});
 };
 
 // Helper function to track navigation events - standardized across all apps
 export const trackNavigationEvent = (
-	plausible: PlausibleTracker,
 	type: NavigationType,
 	url: string,
 	label?: string,
@@ -50,17 +41,14 @@ export const trackNavigationEvent = (
 		pattern: SHARED_TRACKING_EVENTS.PATTERN_LINK_CLICK,
 	};
 
-	plausible(eventMap[type], {
-		props: {
-			url,
-			...(label && { label }),
-		},
+	track(eventMap[type], {
+		url,
+		...(label && { label }),
 	});
 };
 
 // Helper function to track newsletter events - standardized across all apps
 export const trackNewsletterEvent = (
-	plausible: PlausibleTracker,
 	type: NewsletterEventType,
 	variant: NewsletterVariant = "default",
 ) => {
@@ -73,31 +61,25 @@ export const trackNewsletterEvent = (
 				? "NEWSLETTER_SUBSCRIBE_SUCCESS"
 				: "NEWSLETTER_SUBSCRIBE_ERROR";
 
-	plausible(
+	track(
 		SHARED_TRACKING_EVENTS[eventKey as keyof typeof SHARED_TRACKING_EVENTS],
 	);
 };
 
 // Helper function to track GitHub star clicks - standardized across all apps
-export const trackGitHubStarClick = (plausible: PlausibleTracker) => {
-	plausible(SHARED_TRACKING_EVENTS.GITHUB_STAR_CLICK);
+export const trackGitHubStarClick = () => {
+	track(SHARED_TRACKING_EVENTS.GITHUB_STAR_CLICK);
 };
 
 // Helper function to track component page views - standardized across all apps
-export const trackComponentPageView = (
-	plausible: PlausibleTracker,
-	componentName: string,
-) => {
-	plausible(SHARED_TRACKING_EVENTS.COMPONENT_PAGE_VIEW, {
-		props: {
-			component_name: componentName,
-		},
+export const trackComponentPageView = (componentName: string) => {
+	track(SHARED_TRACKING_EVENTS.COMPONENT_PAGE_VIEW, {
+		component_name: componentName,
 	});
 };
 
 // Helper function to track component search - standardized across all apps
 export const trackComponentSearch = (
-	plausible: PlausibleTracker,
 	searchTerm: string,
 	resultsCount?: number,
 ) => {
@@ -109,18 +91,15 @@ export const trackComponentSearch = (
 		props.results_count = resultsCount;
 	}
 
-	plausible(SHARED_TRACKING_EVENTS.COMPONENT_SEARCH, { props });
+	track(SHARED_TRACKING_EVENTS.COMPONENT_SEARCH, props);
 };
 
 // Helper function to track docs feedback - standardized across all apps
 export const trackDocsFeedback = (
-	plausible: PlausibleTracker,
 	opinion: "good" | "bad",
 	url: string,
 	message?: string,
 ) => {
-	// Plausible doesn't support arbitrary custom properties
-	// We'll track separate events for good/bad feedback
 	const eventName =
 		opinion === "good"
 			? SHARED_TRACKING_EVENTS.DOCS_FEEDBACK_GOOD
@@ -134,46 +113,5 @@ export const trackDocsFeedback = (
 		props.message_length = message.length;
 	}
 
-	plausible(eventName, { props });
+	track(eventName, props);
 };
-
-// Helper function to get CSS classes for auto-tracking
-export const getSharedTrackingClasses = () => ({
-	GITHUB_LINK_CLICK: asPlausibleClass(SHARED_TRACKING_EVENTS.GITHUB_LINK_CLICK),
-	GITHUB_STAR_CLICK: asPlausibleClass(SHARED_TRACKING_EVENTS.GITHUB_STAR_CLICK),
-	MAIN_SITE_LINK_CLICK: asPlausibleClass(
-		SHARED_TRACKING_EVENTS.MAIN_SITE_LINK_CLICK,
-	),
-	FOOTER_LINK_CLICK: asPlausibleClass(SHARED_TRACKING_EVENTS.FOOTER_LINK_CLICK),
-	FOOTER_SOCIAL_CLICK: asPlausibleClass(
-		SHARED_TRACKING_EVENTS.FOOTER_SOCIAL_CLICK,
-	),
-	NEWSLETTER_INPUT_FOCUS: asPlausibleClass(
-		SHARED_TRACKING_EVENTS.NEWSLETTER_INPUT_FOCUS,
-	),
-	NEWSLETTER_INLINE_INPUT_FOCUS: asPlausibleClass(
-		SHARED_TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS,
-	),
-	NEWSLETTER_BUTTON_CLICK: asPlausibleClass(
-		SHARED_TRACKING_EVENTS.NEWSLETTER_BUTTON_CLICK,
-	),
-	NEWSLETTER_INLINE_BUTTON_CLICK: asPlausibleClass(
-		SHARED_TRACKING_EVENTS.NEWSLETTER_INLINE_BUTTON_CLICK,
-	),
-	PATTERN_LINK_CLICK: asPlausibleClass(
-		SHARED_TRACKING_EVENTS.PATTERN_LINK_CLICK,
-	),
-});
-
-// Helper function to get newsletter CSS classes with variant support
-export const getNewsletterTrackingClasses = (variant?: NewsletterVariant) => ({
-	newsletterInputFocus:
-		variant === "inline"
-			? asPlausibleClass(SHARED_TRACKING_EVENTS.NEWSLETTER_INLINE_INPUT_FOCUS)
-			: asPlausibleClass(SHARED_TRACKING_EVENTS.NEWSLETTER_INPUT_FOCUS),
-
-	newsletterButtonClick:
-		variant === "inline"
-			? asPlausibleClass(SHARED_TRACKING_EVENTS.NEWSLETTER_INLINE_BUTTON_CLICK)
-			: asPlausibleClass(SHARED_TRACKING_EVENTS.NEWSLETTER_BUTTON_CLICK),
-});

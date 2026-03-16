@@ -3,7 +3,7 @@
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { ArrowRight, Compass } from "lucide-react";
 import Link from "next/link";
-import { usePlausible } from "next-plausible";
+import { track } from "@ux-patterns/analytics/track";
 
 type GuidesBannerProps = {
 	title?: string;
@@ -18,8 +18,6 @@ export const GuidesBanner = ({
 	guidePath = "/pattern-guide",
 	className,
 }: GuidesBannerProps) => {
-	const plausible = usePlausible();
-
 	return (
 		<Link
 			href={guidePath}
@@ -33,11 +31,9 @@ export const GuidesBanner = ({
 				className,
 			)}
 			onClick={() => {
-				plausible("Pattern Guide Click", {
-					props: {
-						guide_path: guidePath,
-						title: title,
-					},
+				track("Pattern Guide Click", {
+					guide_path: guidePath,
+					title: title,
 				});
 			}}
 		>

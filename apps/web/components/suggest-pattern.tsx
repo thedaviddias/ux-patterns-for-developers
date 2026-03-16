@@ -1,9 +1,10 @@
 "use client";
 
+import { track } from "@ux-patterns/analytics/track";
 import { PROJECT } from "@ux-patterns/constants/author";
 import { useId } from "react";
 
-import { TRACKING_CLASSES } from "@/lib/tracking";
+import { TRACKING_EVENTS } from "@/lib/tracking";
 import { LinkCustom } from "./link-custom";
 
 export const SuggestPattern = () => {
@@ -26,7 +27,7 @@ export const SuggestPattern = () => {
 			<LinkCustom
 				href={`${PROJECT.repository.url}/discussions/new?category=suggestions`}
 				aria-label="Suggest a pattern on GitHub"
-				className={TRACKING_CLASSES.SUGGEST_PATTERN_CLICK}
+				onClick={() => track(TRACKING_EVENTS.SUGGEST_PATTERN_CLICK)}
 				variant="outline"
 			>
 				Send Suggestion

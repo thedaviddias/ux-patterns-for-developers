@@ -1,7 +1,7 @@
 import "@/app/global.css";
+import { AnalyticsHead } from "@ux-patterns/analytics/head";
 import type { Metadata } from "next";
 import { Geist_Mono, Libre_Baskerville, Outfit } from "next/font/google";
-import PlausibleProvider from "next-plausible";
 import { Footer } from "@/components/footer/footer";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { TextSelectionHandler } from "@/components/text-to-social/text-selection-handler";
@@ -33,19 +33,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			className={`${outfit.variable} ${libreBaskerville.variable} ${mono.variable}`}
 			suppressHydrationWarning
 		>
-			<head />
+			<head>
+				<AnalyticsHead openPanelClientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID} />
+			</head>
 			<Body>
-				<PlausibleProvider
-					domain="uxpatterns.dev"
-					trackOutboundLinks={true}
-					taggedEvents={true}
-				>
-					<ThemeProvider>
-						{children}
-						<TextSelectionHandler />
-						<Footer />
-					</ThemeProvider>
-				</PlausibleProvider>
+				<ThemeProvider>
+					{children}
+					<TextSelectionHandler />
+					<Footer />
+				</ThemeProvider>
 			</Body>
 		</html>
 	);

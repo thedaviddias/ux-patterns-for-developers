@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPatternTheme } from "@/constants/pattern-themes";
 import { getPatternCoverSrc } from "@/lib/pattern-cover-assets";
-import { TRACKING_CLASSES } from "@/lib/tracking";
 import type { Pattern, PatternCategory } from "@/utils/get-pattern-categories";
 
 interface FeaturedPatternsProps {
@@ -39,7 +38,7 @@ function PatternCard({ pattern }: PatternCardProps) {
 	return (
 		<Link
 			href={pattern.href}
-			className={`${TRACKING_CLASSES.VIEW_PATTERN_CLICK} group overflow-hidden rounded-[1.75rem] border border-border/70 bg-card transition-all duration-200 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-[0_28px_90px_-55px_rgba(15,23,42,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`}
+			className="group overflow-hidden rounded-[1.75rem] border border-border/70 bg-card transition-all duration-200 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-[0_28px_90px_-55px_rgba(15,23,42,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 		>
 			<div
 				className="relative min-h-[220px] overflow-hidden border-b border-border/60"
@@ -150,7 +149,7 @@ export function FeaturedPatterns({ categories }: FeaturedPatternsProps) {
 					</div>
 					<Link
 						href="/patterns"
-						className={`${TRACKING_CLASSES.VIEW_PATTERN_CLICK} inline-flex items-center gap-2 text-sm font-semibold text-foreground`}
+						className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
 					>
 						View all {totalPatternCount}+ patterns
 						<ArrowRight className="h-4 w-4" />

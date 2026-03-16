@@ -1,14 +1,11 @@
 "use client";
 
 import { AUTHOR } from "@ux-patterns/constants/author";
-import { usePlausible } from "next-plausible";
 import { trackFooterClick } from "@/lib/tracking";
 
 export const FooterCopyright = () => {
-	const plausible = usePlausible();
-
 	const handleAuthorClick = () => {
-		trackFooterClick(plausible, "social", AUTHOR.name);
+		trackFooterClick("social", AUTHOR.name);
 	};
 
 	return (

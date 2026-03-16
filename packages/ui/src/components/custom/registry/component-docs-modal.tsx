@@ -16,7 +16,7 @@ import {
 } from "@ux-patterns/ui/components/shadcn/tooltip";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import { usePlausible } from "next-plausible";
+import { track } from "@ux-patterns/analytics/track";
 import React from "react";
 import { Index } from "../../../../../registry/.generated/index";
 import { CopyActionButton } from "../copy-action-button";
@@ -31,7 +31,6 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 	const [rawContent, setRawContent] = React.useState<string | null>(null);
 	const [loading, setLoading] = React.useState(true);
 	const [open, setOpen] = React.useState(false);
-	const plausible = usePlausible();
 
 	// Commands for each package manager using v4 namespace format
 	const commands = {
@@ -49,12 +48,13 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 				// Track copy events
 				if (type.startsWith("install-")) {
 					const pm = type.slice("install-".length);
-					plausible("Install Command Copy", {
-						props: { package_manager: pm, component_name: name },
+					track("Install Command Copy", {
+						package_manager: pm,
+						component_name: name,
 					});
 				} else if (type === "code") {
-					plausible("Component Raw Code Copy", {
-						props: { component_name: name },
+					track("Component Raw Code Copy", {
+						component_name: name,
 					});
 				}
 			} catch (err) {
@@ -63,7 +63,7 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 			}
 			return true;
 		},
-		[name, plausible],
+		[name],
 	);
 
 	const packageManagers = Object.entries(commands) as Array<
@@ -113,10 +113,8 @@ export const ComponentDocsModal = ({ name }: ComponentDocsModalProps) => {
 							aria-label="Open source code"
 							onClick={() => {
 								setOpen(true);
-								plausible("Component Docs Modal Open", {
-									props: {
-										component_name: name,
-									},
+								track("Component Docs Modal Open", {
+									component_name: name,
 								});
 							}}
 						>
