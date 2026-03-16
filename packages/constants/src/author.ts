@@ -29,7 +29,5 @@ export const PROJECT = {
 	},
 	urls: {
 		main: "https://uxpatterns.dev",
-		kit: "https://kit.uxpatterns.dev",
-		gallery: "https://gallery.uxpatterns.dev",
 	},
 } as const;

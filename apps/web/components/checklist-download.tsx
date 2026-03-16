@@ -1,9 +1,9 @@
 "use client";
 
+import { track } from "@ux-patterns/analytics/track";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { Download, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
-import { track } from "@ux-patterns/analytics/track";
 import {
 	type PatternChecklist,
 	TESTING_CHECKLISTS,
@@ -134,13 +134,17 @@ export const ChecklistDownload = ({ patternSlug }: ChecklistDownloadProps) => {
 				localStorage.setItem(EMAIL_STORAGE_KEY, emailToUse);
 				setAlreadyDownloaded(true);
 				setStatus("success");
-				track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_SUCCESS, { pattern: patternSlug });
+				track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_SUCCESS, {
+					pattern: patternSlug,
+				});
 			} else {
 				setErrorMessage(
 					(data && (data.message as string)) || "Failed to subscribe.",
 				);
 				setStatus("error");
-				track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_ERROR, { pattern: patternSlug });
+				track(TRACKING_EVENTS.CHECKLIST_DOWNLOAD_ERROR, {
+					pattern: patternSlug,
+				});
 			}
 		} catch {
 			setErrorMessage("Network error. Please try again.");

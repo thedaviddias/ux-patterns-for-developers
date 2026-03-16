@@ -14,6 +14,7 @@ import {
 	SandpackPreview,
 	SandpackProvider,
 } from "@codesandbox/sandpack-react";
+import { track } from "@ux-patterns/analytics/track";
 import type {
 	ButtonHTMLAttributes,
 	ComponentProps,
@@ -26,7 +27,6 @@ import {
 	useEffect,
 	useState,
 } from "react";
-import { track } from "@ux-patterns/analytics/track";
 import { cn } from "@/lib/cn";
 import { TRACKING_EVENTS } from "@/lib/tracking";
 
@@ -210,7 +210,10 @@ export const SandboxCodeEditor = ({
 	<SandpackCodeEditor showTabs={showTabs} {...props} />
 );
 
-export type SandboxConsoleProps = Omit<ComponentProps<typeof SandpackConsole>, "key">;
+export type SandboxConsoleProps = Omit<
+	ComponentProps<typeof SandpackConsole>,
+	"key"
+>;
 
 export const SandboxConsole = ({
 	className,

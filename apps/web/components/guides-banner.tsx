@@ -1,9 +1,9 @@
 "use client";
 
+import { track } from "@ux-patterns/analytics/track";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { ArrowRight, Compass } from "lucide-react";
 import Link from "next/link";
-import { track } from "@ux-patterns/analytics/track";
 
 type GuidesBannerProps = {
 	title?: string;

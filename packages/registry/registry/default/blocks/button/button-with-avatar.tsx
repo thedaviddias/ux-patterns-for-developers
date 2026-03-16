@@ -21,7 +21,7 @@ export default function ButtonWithAvatar() {
 				decoding="async"
 				width={20}
 				height={20}
-				src="https://kit.uxpatterns.dev/avatar.jpg"
+				src="https://github.com/thedaviddias.png"
 				alt="User avatar"
 				className="h-5 w-5 rounded-full"
 			/>
@@ -58,7 +58,7 @@ export default function ButtonWithAvatar() {
 				decoding="async"
 				width={24}
 				height={24}
-				src="https://kit.uxpatterns.dev/avatar.jpg"
+				src="https://github.com/thedaviddias.png"
 				alt="User avatar"
 				className="h-6 w-6 rounded-full"
 			/>

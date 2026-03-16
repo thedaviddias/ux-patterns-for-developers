@@ -27,17 +27,6 @@ export const linkItems: LinkItemType[] = [
 		url: "/blog",
 		active: "nested-url",
 	},
-	// Temporarily hidden - Kit and Gallery access
-	// {
-	// 	text: "Kit",
-	// 	url: "https://kit.uxpatterns.dev",
-	// 	external: false,
-	// },
-	// {
-	// 	text: "Gallery",
-	// 	url: "https://gallery.uxpatterns.dev",
-	// 	external: false,
-	// },
 	...SOCIAL_LINKS.map((social) => ({
 		type: "icon" as const,
 		label: social.label,

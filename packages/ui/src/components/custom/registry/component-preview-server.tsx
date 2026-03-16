@@ -10,14 +10,8 @@ export interface ComponentPreviewServerProps
 	align?: "center" | "start" | "end";
 	preview?: boolean;
 	height?: string;
-	kit?: boolean;
 	extractJSX?: boolean;
 	showHTML?: boolean;
-	pageMetadata?: {
-		title?: string;
-		description?: string;
-		[key: string]: unknown;
-	} | null;
 }
 
 export async function ComponentPreviewServer({
@@ -27,10 +21,8 @@ export async function ComponentPreviewServer({
 	align = "center",
 	preview = false,
 	height,
-	kit = false,
 	extractJSX = true,
 	showHTML = false,
-	pageMetadata,
 	...props
 }: ComponentPreviewServerProps) {
 	const Codes = React.Children.toArray(children) as React.ReactElement[];
@@ -70,8 +62,6 @@ export async function ComponentPreviewServer({
 				<ComponentWrapper
 					name={name}
 					height={height}
-					kit={kit}
-					pageMetadata={pageMetadata}
 				>
 					<React.Suspense
 						fallback={

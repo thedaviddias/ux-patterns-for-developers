@@ -1,7 +1,7 @@
 declare global {
-  interface Window {
-    op?: (...args: unknown[]) => void
-  }
+	interface Window {
+		op?: (...args: unknown[]) => void;
+	}
 }
 
 /**
@@ -10,8 +10,11 @@ declare global {
  * Safe to call at any time -- events are queued until the SDK loads.
  * No-ops on the server (SSR) where `window` is unavailable.
  */
-export function track(event: string, properties?: Record<string, string | number>): void {
-  if (typeof window !== 'undefined' && window.op) {
-    window.op('track', event, properties)
-  }
+export function track(
+	event: string,
+	properties?: Record<string, string | number>,
+): void {
+	if (typeof window !== "undefined" && window.op) {
+		window.op("track", event, properties);
+	}
 }

@@ -1,8 +1,8 @@
-import { OpenPanelAnalyticsComponent } from './providers/openpanel'
+import { OpenPanelAnalyticsComponent } from "./providers/openpanel";
 
 interface AnalyticsProviderProps {
-  readonly openPanelClientId?: string
-  readonly nonce?: string
+	readonly openPanelClientId?: string;
+	readonly nonce?: string;
 }
 
 /**
@@ -17,10 +17,15 @@ interface AnalyticsProviderProps {
  * <AnalyticsProvider openPanelClientId="op_abc123" />
  * ```
  */
-export function AnalyticsProvider({ openPanelClientId, nonce }: AnalyticsProviderProps) {
-  if (!openPanelClientId || process.env.NODE_ENV !== 'production') {
-    return null
-  }
+export function AnalyticsProvider({
+	openPanelClientId,
+	nonce,
+}: AnalyticsProviderProps) {
+	if (!openPanelClientId || process.env.NODE_ENV !== "production") {
+		return null;
+	}
 
-  return <OpenPanelAnalyticsComponent clientId={openPanelClientId} nonce={nonce} />
+	return (
+		<OpenPanelAnalyticsComponent clientId={openPanelClientId} nonce={nonce} />
+	);
 }

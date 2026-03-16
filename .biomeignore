@@ -1,6 +1,5 @@
 # Generated registry files
 packages/registry/.generated/
-apps/kit/public/r/
 
 .next/
 out/

@@ -1,10 +1,10 @@
 "use client";
 
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { track } from "@ux-patterns/analytics/track";
 import { PROJECT } from "@ux-patterns/constants/author";
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
-import { track } from "@ux-patterns/analytics/track";
 import { NumberTicker } from "../magicui/number-ticker";
 
 type StarsProps = {

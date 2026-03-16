@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@ux-patterns/analytics/track";
 import { Icons } from "@ux-patterns/ui/components/custom/icons";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
@@ -16,7 +17,6 @@ import {
 } from "@ux-patterns/ui/components/shadcn/tooltip";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import { track } from "@ux-patterns/analytics/track";
 import React from "react";
 import { Index } from "../../../../../registry/.generated/index";
 import { CopyActionButton } from "../copy-action-button";

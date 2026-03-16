@@ -13,10 +13,3 @@ pre-commit:
       glob: "*.{js,jsx,ts,tsx}"
       exclude: "apps/web/next-env.d.ts"
       run: pnpm exec biome check --write {staged_files}
-    sync-gallery-metadata:
-      glob: "apps/gallery/content/entries/**/*.mdx"
-      run: |
-        cd apps/gallery && 
-        pnpm tsx scripts/sync-websites-metadata.ts && 
-        pnpm tsx scripts/extract-favicon-colors.ts &&
-        git add data/websites.json

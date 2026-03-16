@@ -1,7 +1,7 @@
 "use client";
 
-import { useId, useState } from "react";
 import { track } from "@ux-patterns/analytics/track";
+import { useId, useState } from "react";
 import { TRACKING_EVENTS, trackNewsletterEvent } from "@/lib/tracking";
 
 interface SubscribeFormProps {

@@ -1,8 +1,8 @@
-import { AnalyticsProvider } from './index'
+import { AnalyticsProvider } from "./index";
 
 interface AnalyticsHeadProps {
-  openPanelClientId?: string
-  nonce?: string
+	openPanelClientId?: string;
+	nonce?: string;
 }
 
 /**
@@ -22,6 +22,11 @@ interface AnalyticsHeadProps {
  * </head>
  * ```
  */
-export function AnalyticsHead({ openPanelClientId, nonce }: AnalyticsHeadProps) {
-  return <AnalyticsProvider openPanelClientId={openPanelClientId} nonce={nonce} />
+export function AnalyticsHead({
+	openPanelClientId,
+	nonce,
+}: AnalyticsHeadProps) {
+	return (
+		<AnalyticsProvider openPanelClientId={openPanelClientId} nonce={nonce} />
+	);
 }

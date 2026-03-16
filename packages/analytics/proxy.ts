@@ -1,1 +1,1 @@
-export { createRouteHandler } from '@openpanel/nextjs/server'
+export { createRouteHandler } from "@openpanel/nextjs/server";

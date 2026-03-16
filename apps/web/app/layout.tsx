@@ -34,7 +34,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			suppressHydrationWarning
 		>
 			<head>
-				<AnalyticsHead openPanelClientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID} />
+				<AnalyticsHead
+					openPanelClientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID}
+				/>
 			</head>
 			<Body>
 				<ThemeProvider>

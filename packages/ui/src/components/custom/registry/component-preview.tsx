@@ -10,14 +10,8 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	align?: "center" | "start" | "end";
 	preview?: boolean;
 	height?: string;
-	kit?: boolean;
 	extractJSX?: boolean; // If true, shows only JSX content; if false, shows full component
 	showHTML?: boolean; // If true, shows rendered HTML instead of JSX/component code
-	pageMetadata?: {
-		title?: string;
-		description?: string;
-		[key: string]: unknown;
-	} | null;
 }
 
 export function ComponentPreview({
@@ -27,10 +21,8 @@ export function ComponentPreview({
 	align = "center",
 	preview = false,
 	height,
-	kit = false,
 	extractJSX = true,
 	showHTML = false,
-	pageMetadata,
 	...props
 }: ComponentPreviewProps) {
 	const Codes = React.Children.toArray(children) as React.ReactElement[];
@@ -70,8 +62,6 @@ export function ComponentPreview({
 				<ComponentWrapper
 					name={name}
 					height={height}
-					kit={kit}
-					pageMetadata={pageMetadata}
 				>
 					<React.Suspense
 						fallback={

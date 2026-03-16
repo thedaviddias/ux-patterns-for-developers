@@ -44,14 +44,10 @@ export const TRACKING_EVENTS = {
 } as const;
 
 // Import shared helpers
-import {
-	trackNewsletterEvent as sharedTrackNewsletterEvent,
-} from "@ux-patterns/tracking/helpers";
+import { trackNewsletterEvent as sharedTrackNewsletterEvent } from "@ux-patterns/tracking/helpers";
 
 // Re-export shared utilities
-export {
-	trackGitHubStarClick,
-} from "@ux-patterns/tracking/helpers";
+export { trackGitHubStarClick } from "@ux-patterns/tracking/helpers";
 
 export const trackNewsletterEvent = (
 	type: "success" | "error",

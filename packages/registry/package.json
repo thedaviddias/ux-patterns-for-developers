@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"check:type": "tsc --noEmit",
-		"registry:generate": "npx tsx scripts/build-registry.ts && shadcn build ../../apps/kit/public/r/registry.json --output ../../apps/kit/public/r",
+		"registry:generate": "npx tsx scripts/build-registry.ts && shadcn build dist/r/registry.json --output dist/r",
 		"check": "tsc --noEmit",
 		"registry:build": "shadcn build",
 		"test": "vitest run",

@@ -7,14 +7,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const REGISTRY_BASE_PATH = path.dirname(__dirname);
-// Output directly to apps/kit/public/r for static serving
-const PUBLIC_FOLDER_BASE_PATH = path.join(
-	REGISTRY_BASE_PATH,
-	"../../apps/kit/public/r",
-);
+const PUBLIC_FOLDER_BASE_PATH = path.join(REGISTRY_BASE_PATH, "dist/r");
 const COMPLETE_REGISTRY_PATH = path.join(
 	REGISTRY_BASE_PATH,
-	"../../apps/kit/public/r/registry.json",
+	"dist/r/registry.json",
 );
 
 async function writeFileRecursive(
@@ -53,7 +49,7 @@ async function main() {
 	const cleanRegistry = {
 		$schema: "https://ui.shadcn.com/schema/registry.json",
 		name: "upkit",
-		homepage: "https://kit.uxpatterns.dev",
+		homepage: "https://uxpatterns.dev",
 		items: registryItems.map((item) => ({
 			...item,
 			files: item.files?.map(({ content, ...file }) => file),

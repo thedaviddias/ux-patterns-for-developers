@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@ux-patterns/analytics/track";
 import { Button } from "@ux-patterns/ui/components/shadcn/button";
 import {
 	Tooltip,
@@ -7,7 +8,6 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@ux-patterns/ui/components/shadcn/tooltip";
-import { track } from "@ux-patterns/analytics/track";
 
 export function OpenInV0Button({ url }: { url: string }) {
 	// Extract component name from URL

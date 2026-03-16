@@ -1,11 +1,11 @@
 // @ts-nocheck - Disabled for Fumadocs v16 migration while search toggle types stabilize
 "use client";
 
+import { track } from "@ux-patterns/analytics/track";
 import {
 	LargeSearchToggle,
 	SearchToggle,
 } from "@ux-patterns/ui/components/custom/fumadocs-compat";
-import { track } from "@ux-patterns/analytics/track";
 import type { ComponentProps } from "react";
 
 interface TrackedSearchProps {
@@ -17,7 +17,6 @@ export function TrackedLargeSearchToggle({
 	onClick,
 	...props
 }: ComponentProps<typeof LargeSearchToggle> & TrackedSearchProps) {
-
 	const handleClick: ComponentProps<typeof LargeSearchToggle>["onClick"] = (
 		event,
 	) => {
@@ -33,7 +32,6 @@ export function TrackedSearchToggle({
 	onClick,
 	...props
 }: ComponentProps<typeof SearchToggle> & TrackedSearchProps) {
-
 	const handleClick: ComponentProps<typeof SearchToggle>["onClick"] = (
 		event,
 	) => {

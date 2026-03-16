@@ -1,9 +1,9 @@
 "use client";
 
+import { track } from "@ux-patterns/analytics/track";
 import { Panel, useReactFlow } from "@xyflow/react";
 import { toPng } from "html-to-image";
 import { Download } from "lucide-react";
-import { track } from "@ux-patterns/analytics/track";
 import { TRACKING_EVENTS } from "@/lib/tracking";
 
 interface DownloadButtonProps {
