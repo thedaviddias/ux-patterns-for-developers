@@ -1,6 +1,10 @@
 ---
 name: calendar
-description: "Use when you need to display dates and events in calendar format."
+description: "Learn how to implement calendar views. Use when you need to display dates and events in calendar format."
+user-invocable: true
+triggers:
+  - calendar
+  - view
 metadata:
   id: calendar
   category: data-display
@@ -14,18 +18,33 @@ metadata:
 
 Display dates and events in calendar format
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Calendar View** pattern helps teams create a reliable way to present time-based information in a grid that helps people compare days, weeks, or months at a glance. It is most useful when teams need booking and scheduling.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card calendar-card">
+  <div class="calendar-header"><button type="button">‹</button><strong>March 2026</strong><button type="button">›</button></div>
+  <div class="calendar-grid"><span class="day">Mon</span><span class="day">Tue</span><span class="day">Wed</span><span class="day">Thu</span><span class="day">Fri</span><span class="day">Sat</span><span class="day">Sun</span><button type="button" class="date">1</button><button type="button" class="date">2</button><button type="button" class="date">3</button><button type="button" class="date">4</button><button type="button" class="date">5</button><button type="button" class="date event">6</button><button type="button" class="date">7</button><button type="button" class="date">8</button><button type="button" class="date">9</button><button type="button" class="date">10</button><button type="button" class="date">11</button><button type="button" class="date">12</button><button type="button" class="date event">13</button><button type="button" class="date">14</button><button type="button" class="date">15</button><button type="button" class="date">16</button><button type="button" class="date">17</button><button type="button" class="date">18</button><button type="button" class="date">19</button><button type="button" class="date event">20</button><button type="button" class="date">21</button><button type="button" class="date">22</button><button type="button" class="date">23</button><button type="button" class="date">24</button><button type="button" class="date">25</button><button type="button" class="date">26</button><button type="button" class="date">27</button><button type="button" class="date">28</button><button type="button" class="date">29</button><button type="button" class="date">30</button><button type="button" class="date">31</button><button type="button" class="date"></button><button type="button" class="date"></button><button type="button" class="date"></button><button type="button" class="date"></button></div>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Booking and scheduling
 - Team availability
 - Events and release planning
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler view when users only need one or two values and not the full layout.
 - Avoid this pattern when the task is creation or editing rather than interpretation.
@@ -33,10 +52,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

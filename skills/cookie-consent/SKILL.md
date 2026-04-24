@@ -1,6 +1,10 @@
 ---
 name: cookie-consent
-description: "Use when you need to inform users about the use of cookies."
+description: "Implement effective cookie consent banners in your web applications. Use when you need to inform users about the use of cookies."
+user-invocable: true
+triggers:
+  - cookie
+  - consent
 metadata:
   id: cookie-consent
   category: user-feedback
@@ -14,18 +18,39 @@ metadata:
 
 Inform users about the use of cookies
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Cookie Consent** pattern helps teams create a reliable way to explain optional tracking clearly, capture a meaningful choice, and let users revise that choice later. It is most useful when teams need websites using analytics or marketing cookies.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell">
+  <section class="card consent-banner">
+    <p><strong>We use cookies</strong> to measure usage and remember preferences. You can accept all cookies or manage optional categories.</p>
+    <div class="actions">
+      <button type="button">Accept all</button>
+      <button type="button">Reject non-essential</button>
+      <button type="button" class="secondary">Customize</button>
+    </div>
+  </section>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Websites using analytics or marketing cookies
 - Regional consent requirements
 - Privacy preference updates after the first visit
 
-## When to avoid
+**Avoid when:**
 
 - Use a quieter state when the event is too minor to interrupt the task.
 - Avoid transient feedback for events users must be able to revisit later.
@@ -33,10 +58,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

@@ -1,6 +1,10 @@
 ---
 name: currency-input
-description: "Use when implementing enter and format monetary values."
+description: "Create currency input fields with number formatting and international currency handling. Use when you need to enter and format monetary values."
+user-invocable: true
+triggers:
+  - currency
+  - input
 metadata:
   id: currency-input
   category: forms
@@ -14,12 +18,16 @@ metadata:
 
 Enter and format monetary values
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Currency Input** is a specialized numeric form field for entering monetary values. It combines the raw numeric input behavior of a number field with locale-aware formatting, currency symbol display, and financial validation constraints.
 Unlike a generic number input, a currency input formats the value as the user types (e.g., displaying `$1,299.99` instead of `1299.99`), handles decimal precision based on the currency (USD uses 2 decimal places, JPY uses 0), and positions the currency symbol or code according to locale conventions.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **E-commerce checkout** – Cart totals, discount codes, coupon amounts.
 - **Banking and finance forms** – Transfer amounts, deposit values, loan applications.
@@ -27,7 +35,7 @@ Unlike a generic number input, a currency input formats the value as the user ty
 - **Subscription and pricing configuration** – Plan pricing in admin interfaces.
 - **Budget and forecasting tools** – Financial planning inputs.
 
-## When to avoid
+**Avoid when:**
 
 - **Displaying prices (read-only)** – Use formatted text, not an input.
 - **Quantities without monetary meaning** – Use a number input instead.
@@ -36,10 +44,11 @@ Unlike a generic number input, a currency input formats the value as the user ty
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

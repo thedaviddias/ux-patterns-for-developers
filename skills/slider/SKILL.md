@@ -1,6 +1,9 @@
 ---
 name: slider
-description: "Use when implementing select values from a range."
+description: "Learn how to implement accessible range slider inputs in your web applications. Use when you need to select values from a range."
+user-invocable: true
+triggers:
+  - slider
 metadata:
   id: slider
   category: forms
@@ -14,18 +17,34 @@ metadata:
 
 Select values from a range
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Slider** pattern helps teams create a reliable way to let users choose a value from a bounded range while keeping the current position and step size easy to understand. It is most useful when teams need price and range filtering.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card slider-card">
+  <label for="slider-input">Budget preference</label>
+  <input id="slider-input" type="range" min="0" max="100" value="40" />
+  <p id="slider-value" class="muted">Current value: 40</p>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Price and range filtering
 - Volume or intensity controls
 - Score and preference selection
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler native control when the value is binary, tiny, or fully constrained.
 - Avoid custom behavior when a native browser input already solves the main job well.
@@ -33,10 +52,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

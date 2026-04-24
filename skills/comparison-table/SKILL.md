@@ -1,6 +1,10 @@
 ---
 name: comparison-table
-description: "Use when you need to compare features and options side-by-side."
+description: "Learn how to implement comparison tables. Use when you need to compare features and options side-by-side."
+user-invocable: true
+triggers:
+  - comparison
+  - table
 metadata:
   id: comparison-table
   category: data-display
@@ -14,18 +18,39 @@ metadata:
 
 Compare features and options side-by-side
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Comparison Table** pattern helps teams create a reliable way to line up options side by side so users can evaluate feature, price, or policy differences quickly. It is most useful when teams need plan and feature comparison.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card table-card">
+  <table>
+    <thead><tr><th>Feature</th><th>Starter</th><th>Team</th><th>Enterprise</th></tr></thead>
+    <tbody>
+      <tr><td>Shared components</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Design review workflows</td><td>—</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Audit history</td><td>—</td><td>—</td><td>✓</td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Plan and feature comparison
 - Vendor or tool evaluation
 - Product selection
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler view when users only need one or two values and not the full layout.
 - Avoid this pattern when the task is creation or editing rather than interpretation.
@@ -33,10 +58,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

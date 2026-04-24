@@ -118,15 +118,15 @@ test("generatePatternSkills writes pattern skill, reference, and manifest", asyn
 		manifest.patterns[0].url,
 		"https://uxpatterns.dev/patterns/navigation/tabs",
 	);
+	const skillContent = await fs.readFile(skillPath, "utf8");
 	assert.match(
-		await fs.readFile(skillPath, "utf8"),
-		/description: "Use when you need to switch between different views\."/,
+		skillContent,
+		/description: ".*Use when you need to switch between different views\./,
 	);
-	assert.match(await fs.readFile(skillPath, "utf8"), /## What it solves/);
-	assert.match(
-		await fs.readFile(skillPath, "utf8"),
-		/## Accessibility guardrails/,
-	);
+	assert.match(skillContent, /## What it solves/);
+	assert.match(skillContent, /## Accessibility guardrails/);
+	assert.match(skillContent, /user-invocable: true/);
+	assert.match(skillContent, /triggers:/);
 	assert.match(await fs.readFile(referencePath, "utf8"), /# Tabs/);
 	assert.deepEqual(
 		JSON.parse(await fs.readFile(manifestPath, "utf8")).patterns[0]

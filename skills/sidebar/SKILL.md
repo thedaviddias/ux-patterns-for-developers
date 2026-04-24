@@ -1,6 +1,9 @@
 ---
 name: sidebar
-description: "Use when you need to organize and structure site navigation."
+description: "Build responsive and accessible sidebar navigation with collapsible sections and keyboard navigation support. Use when you need to organize and structure site navigation."
+user-invocable: true
+triggers:
+  - sidebar
 metadata:
   id: sidebar
   category: navigation
@@ -14,12 +17,16 @@ metadata:
 
 Organize and structure site navigation
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Sidebar** is a persistent vertical navigation panel positioned along the left or right edge of the screen, providing access to the main sections and features of an application. Sidebars are the dominant navigation pattern in dashboards, admin panels, documentation sites, and complex web applications.
 Unlike horizontal navigation menus, sidebars accommodate deep hierarchies through nested, collapsible sections while keeping all navigation visible and accessible without obscuring page content.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Sidebar** to **provide persistent, structured access to many navigation items organized in a hierarchy**.
 **Common scenarios include:**
@@ -29,7 +36,7 @@ Use **Sidebar** to **provide persistent, structured access to many navigation it
 - File management interfaces with folder trees
 - Analytics platforms with report categories
 
-## When to avoid
+**Avoid when:**
 
 - Marketing or brochure websites where a horizontal nav is more conventional
 - Sites with fewer than 5-6 navigation items (a simple top bar is sufficient)
@@ -38,10 +45,11 @@ Use **Sidebar** to **provide persistent, structured access to many navigation it
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

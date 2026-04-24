@@ -1,6 +1,9 @@
 ---
 name: ai-suggestions
-description: "Use when implementing aI-powered autocomplete and suggestions."
+description: "Learn how to implement AI suggestions. Use when you need to aI-powered autocomplete and suggestions."
+user-invocable: true
+triggers:
+  - suggestions
 metadata:
   id: ai-suggestions
   category: ai-intelligence
@@ -14,18 +17,30 @@ metadata:
 
 AI-powered autocomplete and suggestions
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **AI Suggestions** pattern helps teams create a reliable way to offer AI-generated next steps, completions, or recommendations while keeping the user in control. It is most useful when teams need inline prompt completion.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card generic-card"><h2>AI Suggestions</h2><p class="muted">Basic demo placeholder for ai-powered autocomplete and suggestions.</p></div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Inline prompt completion
 - Recommended next actions
 - AI help inside editors and forms
 
-## When to avoid
+**Avoid when:**
 
 - Avoid adding AI-specific UI when a standard non-AI workflow would be clearer and more reliable.
 - Do not expose advanced controls unless users can actually benefit from them.
@@ -33,10 +48,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

@@ -1,6 +1,10 @@
 ---
 name: color-picker
-description: "Use when implementing select colors with visual feedback."
+description: "Select colors with visual feedback. Use when you need to select colors with visual feedback."
+user-invocable: true
+triggers:
+  - color
+  - picker
 metadata:
   id: color-picker
   category: forms
@@ -14,12 +18,16 @@ metadata:
 
 Select colors with visual feedback
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Color Picker** is a form input component that allows users to select a color value through visual interaction. It may be implemented as a native browser control (`<input type="color">`), a custom swatch palette, a hex/RGB/HSL text input, a gradient spectrum canvas, or an eyedropper tool — or any combination of these.
 Color pickers are used wherever users need to choose or define colors: theme customization, design tools, annotation systems, data visualization category assignment, and product personalization.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **Theme and brand customization** – Let users choose accent colors for their dashboard or profile.
 - **Design and creative tools** – Drawing apps, slide editors, diagramming tools.
@@ -27,7 +35,7 @@ Color pickers are used wherever users need to choose or define colors: theme cus
 - **Product configuration** – Choosing product color variants before purchase.
 - **Annotation and markup** – Highlight or pen color selection in document editors.
 
-## When to avoid
+**Avoid when:**
 
 - **When colors are fixed options** – Use a swatch selector or radio buttons with color swatches instead.
 - **When the exact color value doesn't matter to the user** – A simpler categorical selector ("Red", "Blue", "Green") reduces cognitive load.
@@ -36,10 +44,11 @@ Color pickers are used wherever users need to choose or define colors: theme cus
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 
