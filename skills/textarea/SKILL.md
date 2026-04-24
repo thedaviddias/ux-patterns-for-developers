@@ -1,6 +1,9 @@
 ---
 name: textarea
-description: "Use when implementing multi-line text input for longer content."
+description: "Learn how to implement accessible textarea components for collecting long-form content, comments, and detailed responses. Use when you need to multi-line text input for longer content."
+user-invocable: true
+triggers:
+  - textarea
 metadata:
   id: textarea
   category: forms
@@ -14,18 +17,34 @@ metadata:
 
 Multi-line text input for longer content
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Textarea** pattern helps teams create a reliable way to collect longer freeform text while keeping length, guidance, and validation manageable. It is most useful when teams need comments and support notes.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card textarea-card">
+  <label for="textarea-input">Project summary</label>
+  <textarea id="textarea-input" rows="6" maxlength="180" placeholder="Describe the work, blockers, and next step."></textarea>
+  <p id="textarea-status" class="muted">0 / 180 characters</p>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Comments and support notes
 - Descriptions and bios
 - Issue reports and feedback
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler native control when the value is binary, tiny, or fully constrained.
 - Avoid custom behavior when a native browser input already solves the main job well.
@@ -33,10 +52,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

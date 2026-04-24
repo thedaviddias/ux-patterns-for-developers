@@ -1,6 +1,10 @@
 ---
 name: tree-view
-description: "Use when you need to display hierarchical data structures."
+description: "Learn how to implement tree views for hierarchical data. Use when you need to display hierarchical data structures."
+user-invocable: true
+triggers:
+  - tree
+  - view
 metadata:
   id: tree-view
   category: data-display
@@ -14,18 +18,22 @@ metadata:
 
 Display hierarchical data structures
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Tree View** pattern helps teams create a reliable way to display nested relationships while still letting users expand, select, and navigate efficiently. It is most useful when teams need file and folder navigation.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - File and folder navigation
 - Category management
 - Nested selection and permissions
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler view when users only need one or two values and not the full layout.
 - Avoid this pattern when the task is creation or editing rather than interpretation.
@@ -33,10 +41,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

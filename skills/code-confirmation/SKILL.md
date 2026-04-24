@@ -1,6 +1,10 @@
 ---
 name: code-confirmation
-description: "Use when implementing verify codes with segmented input."
+description: "Implement user-friendly code confirmation inputs for verification codes and OTPs. Use when you need to verify codes with segmented input."
+user-invocable: true
+triggers:
+  - code
+  - confirmation
 metadata:
   id: code-confirmation
   category: forms
@@ -14,12 +18,16 @@ metadata:
 
 Verify codes with segmented input
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Code Confirmation** (also called an OTP input or verification code input) is a specialized form component that allows users to enter short numeric or alphanumeric codes — typically 4–8 characters — sent via SMS, email, or authenticator app to verify identity.
 The defining characteristic is the **segmented layout**: each character occupies its own individual input box, providing a clear visual structure that guides users digit-by-digit and reduces transcription errors.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **Two-factor authentication (2FA)** – SMS or TOTP codes used alongside password login.
 - **Email verification** – Confirm account ownership after registration.
@@ -27,7 +35,7 @@ The defining characteristic is the **segmented layout**: each character occupies
 - **Transaction confirmation** – PIN or code required before sensitive financial actions.
 - **Access codes** – Short invite or gift codes entered to unlock content.
 
-## When to avoid
+**Avoid when:**
 
 - **Long passwords or passphrases** – A standard password field is better; segmented inputs are meant for short, structured codes.
 - **Free-form text entry** – Use a text field instead.
@@ -36,10 +44,11 @@ The defining characteristic is the **segmented layout**: each character occupies
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

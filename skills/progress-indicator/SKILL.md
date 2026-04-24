@@ -1,6 +1,10 @@
 ---
 name: progress-indicator
-description: "Use when implementing show completion status of an operation."
+description: "Create effective progress indicators for your web applications. Use when you need to show completion status of an operation."
+user-invocable: true
+triggers:
+  - progress
+  - indicator
 metadata:
   id: progress-indicator
   category: user-feedback
@@ -14,18 +18,36 @@ metadata:
 
 Show completion status of an operation
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Progress Indicator** pattern helps teams create a reliable way to show how far a task has advanced and how much work remains when the system can estimate that honestly. It is most useful when teams need file upload and export jobs.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell">
+  <div class="card progress-card">
+    <button type="button" id="progress-trigger">Run export</button>
+    <div class="progress-track"><div id="progress-fill"></div></div>
+    <p id="progress-status" class="muted">0% complete</p>
+  </div>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - File upload and export jobs
 - Multi-step setup or checkout flows
 - Background tasks with measurable completion
 
-## When to avoid
+**Avoid when:**
 
 - Use a quieter state when the event is too minor to interrupt the task.
 - Avoid transient feedback for events users must be able to revisit later.
@@ -33,10 +55,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

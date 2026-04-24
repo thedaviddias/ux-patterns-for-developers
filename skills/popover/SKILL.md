@@ -1,6 +1,9 @@
 ---
 name: popover
-description: "Use when you need to display focused content or actions."
+description: "Implement user-friendly popover components in your web applications. Use when you need to display focused content or actions."
+user-invocable: true
+triggers:
+  - popover
 metadata:
   id: popover
   category: content-management
@@ -14,13 +17,17 @@ metadata:
 
 Display focused content or actions
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Popovers** overlay the main content to give users additional information or actions.
 Popovers display contextual content while keeping the surrounding page visible.
 Unlike modals blocking page interaction, popovers deliver contextual help or shortcuts while the main interface stays visible and interactive.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use popovers for context-specific information or quick actions that complement the main view without needing full user focus.
 **Common scenarios include:**
@@ -29,7 +36,7 @@ Use popovers for context-specific information or quick actions that complement t
 - Compact toolbars or menus with filters or settings appearing on demand
 - Preview or supplementary info shows image or text previews on hover/focus
 
-## When to avoid
+**Avoid when:**
 
 - Critical information must stay persistently visible
 - Large forms or complex interactions work better as modals
@@ -37,10 +44,11 @@ Use popovers for context-specific information or quick actions that complement t
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

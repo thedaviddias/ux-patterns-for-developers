@@ -1,6 +1,10 @@
 ---
 name: autocomplete
-description: "Use when implementing suggest options as users type."
+description: "Build user-friendly autocomplete with search suggestions, keyboard navigation, and accessibility features. Use when you need to suggest options as users type. Triggers: autosuggest."
+user-invocable: true
+triggers:
+  - autocomplete
+  - autosuggest
 metadata:
   id: autocomplete
   category: forms
@@ -14,12 +18,16 @@ metadata:
 
 Suggest options as users type
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Autocomplete** helps users quickly find and select values from predefined options as they type.
 Autocomplete combines [text input](/patterns/forms/text-field) flexibility with dropdown-style selection, providing real-time suggestions matching user input. This pattern reduces errors, speeds data entry, and improves form completion.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - Users select from large sets of predefined options (country selection, airport codes)
 - Users need faster option selection than scrolling through long dropdowns
@@ -27,7 +35,7 @@ Autocomplete combines [text input](/patterns/forms/text-field) flexibility with 
 - Input has finite, known valid responses
 - Combining free text input with suggestion functionality
 
-## When to avoid
+**Avoid when:**
 
 - Fewer than 10 options exist (use standard dropdown/select instead)
 - Users enter completely free-form text without restrictions
@@ -37,10 +45,11 @@ Autocomplete combines [text input](/patterns/forms/text-field) flexibility with 
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

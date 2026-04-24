@@ -1,6 +1,10 @@
 ---
 name: prompt-input
-description: "Use when implementing enhanced text inputs for AI prompts."
+description: "Learn how to implement prompt input interfaces. Use when you need to enhanced text inputs for AI prompts."
+user-invocable: true
+triggers:
+  - prompt
+  - input
 metadata:
   id: prompt-input
   category: ai-intelligence
@@ -14,18 +18,39 @@ metadata:
 
 Enhanced text inputs for AI prompts
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Prompt Input** pattern helps teams create a reliable way to collect structured prompts, follow-up instructions, and optional attachments without making the composer feel heavy. It is most useful when teams need chat composer experiences.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card prompt-card">
+  <div class="chips">
+    <span class="chip">Summarize</span><span class="chip">Rewrite</span><span class="chip">Check tone</span>
+  </div>
+  <textarea rows="6" placeholder="Ask the assistant to rewrite this update for a product launch email."></textarea>
+  <div class="prompt-footer">
+    <span class="muted">Prompt input with lightweight prompt assists</span>
+    <button type="button">Send</button>
+  </div>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Chat composer experiences
 - AI workbench prompts
 - Structured prompting with attachments or modes
 
-## When to avoid
+**Avoid when:**
 
 - Avoid adding AI-specific UI when a standard non-AI workflow would be clearer and more reliable.
 - Do not expose advanced controls unless users can actually benefit from them.
@@ -33,10 +58,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

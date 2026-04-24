@@ -1,6 +1,10 @@
 ---
 name: share-dialog
-description: "Use when implementing social sharing functionality."
+description: "Learn how to implement share dialogs. Use when you need to social sharing functionality."
+user-invocable: true
+triggers:
+  - share
+  - dialog
 metadata:
   id: share-dialog
   category: social
@@ -14,18 +18,33 @@ metadata:
 
 Social sharing functionality
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Share Dialog** pattern helps teams create a reliable way to bundle copy, native share, and explicit destination actions into one predictable handoff surface. It is most useful when teams need copying and sharing links.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card share-card">
+  <button type="button" id="share-copy">Copy link</button>
+  <div id="share-status" class="muted">Copy the current page or open a platform-native share flow.</div>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Copying and sharing links
 - Native mobile share handoff
 - Referral or invite flows
 
-## When to avoid
+**Avoid when:**
 
 - Avoid social or engagement mechanics when they do not create real user value.
 - Do not add public counts or visibility states without understanding the trust implications.
@@ -33,10 +52,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 
