@@ -1,26 +1,26 @@
-import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
+import {
+	ArrowRight,
+	BookOpen,
+	CheckSquare,
+	Code,
+	FileText,
+	Globe,
+	HelpCircle,
+	Lightbulb,
+	List,
+	Search,
+	Shield,
+	Terminal,
+	Zap,
+} from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { metadataSEO } from "@/app/metadata";
 import { generateArticleSchema, JsonLd } from "@/components/json-ld";
 import { SetupTabs } from "@/components/mcp";
 import { siteConfig } from "@/lib/site.config";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
-import {
-	Search,
-	List,
-	FileText,
-	BookOpen,
-	Zap,
-	Shield,
-	Code,
-	Lightbulb,
-	CheckSquare,
-	HelpCircle,
-	ArrowRight,
-	Terminal,
-	Globe,
-} from "lucide-react";
-import Link from "next/link";
 
 // Type definitions for better type safety
 interface ClientConfig {
@@ -155,7 +155,8 @@ const mcpTools: McpTool[] = [
 	},
 	{
 		name: "list_patterns",
-		description: "List patterns with optional filtering by category and pagination",
+		description:
+			"List patterns with optional filtering by category and pagination",
 		icon: List,
 		type: "reactive",
 	},
@@ -179,7 +180,8 @@ const mcpTools: McpTool[] = [
 	},
 	{
 		name: "get_quick_reference",
-		description: "Get token-efficient quick reference of patterns for AI context",
+		description:
+			"Get token-efficient quick reference of patterns for AI context",
 		icon: Zap,
 		type: "proactive",
 	},
@@ -219,28 +221,31 @@ export default function MCPPage() {
 	const cursorInstallUrl = getCursorInstallUrl();
 
 	const schemas = [
-		generateArticleSchema(
-			title,
-			description,
-			"/mcp",
-			undefined,
-			PAGE_PUBLISHED_DATE,
-			PAGE_PUBLISHED_DATE,
-			"Page",
-		),
-		generateBreadcrumbSchema([
-			{ name: "Home", url: "/" },
-			{ name: title, url: "/mcp" },
-		]),
+		{
+			key: "mcp-article-schema",
+			data: generateArticleSchema(
+				title,
+				description,
+				"/mcp",
+				undefined,
+				PAGE_PUBLISHED_DATE,
+				PAGE_PUBLISHED_DATE,
+				"Page",
+			),
+		},
+		{
+			key: "mcp-breadcrumb-schema",
+			data: generateBreadcrumbSchema([
+				{ name: "Home", url: "/" },
+				{ name: title, url: "/mcp" },
+			]),
+		},
 	];
 
 	return (
 		<>
-			{schemas.map((schema, index) => (
-				<JsonLd
-					key={`mcp-schema-${index}`}
-					data={schema}
-				/>
+			{schemas.map((schema) => (
+				<JsonLd key={schema.key} data={schema.data} />
 			))}
 
 			<div className="min-h-screen bg-background relative">
@@ -284,10 +289,11 @@ export default function MCPPage() {
 						</h2>
 						<div className="prose dark:prose-invert max-w-none">
 							<p className="text-muted-foreground text-lg">
-								The <strong>Model Context Protocol (MCP)</strong> is an open standard
-								that enables AI assistants to securely access external data sources
-								and tools. Our MCP server exposes UX Patterns directly to AI-powered
-								development tools like Claude Code, Cursor, and others.
+								The <strong>Model Context Protocol (MCP)</strong> is an open
+								standard that enables AI assistants to securely access external
+								data sources and tools. Our MCP server exposes UX Patterns
+								directly to AI-powered development tools like Claude Code,
+								Cursor, and others.
 							</p>
 							<p className="text-muted-foreground">
 								With 11 specialized tools, you can search patterns, check
@@ -326,8 +332,8 @@ export default function MCPPage() {
 						{/* Other Clients Note */}
 						<p className="text-sm text-muted-foreground">
 							Hundreds of other tools support MCP servers. Configure them with
-							the server URL above. Check your tool&apos;s documentation for specific
-							setup instructions.
+							the server URL above. Check your tool&apos;s documentation for
+							specific setup instructions.
 						</p>
 					</section>
 
@@ -448,13 +454,14 @@ export default function MCPPage() {
 							Usage Example
 						</h2>
 						<p className="text-muted-foreground max-w-2xl">
-							Once configured, simply ask your AI assistant about UX patterns. Here&apos;s
-							what happens behind the scenes:
+							Once configured, simply ask your AI assistant about UX patterns.
+							Here&apos;s what happens behind the scenes:
 						</p>
 						<div className="border border-border rounded-xl p-6 space-y-4 bg-muted/30">
 							<p className="text-sm font-medium">You ask:</p>
 							<p className="text-muted-foreground italic">
-								&quot;What&apos;s the best pattern for a search input with suggestions?&quot;
+								&quot;What&apos;s the best pattern for a search input with
+								suggestions?&quot;
 							</p>
 							<p className="text-sm font-medium pt-2">The AI uses:</p>
 							<pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">

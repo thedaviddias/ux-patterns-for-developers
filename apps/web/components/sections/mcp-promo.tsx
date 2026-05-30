@@ -21,10 +21,7 @@ const features = [
 
 export function MCPPromo() {
 	return (
-		<section
-			className="py-12 sm:py-16"
-			aria-labelledby="mcp-promo-heading"
-		>
+		<section className="py-12 sm:py-16" aria-labelledby="mcp-promo-heading">
 			<div className="container mx-auto px-4 md:px-6">
 				<div className="rounded-2xl border border-border bg-gradient-to-br from-card via-card to-secondary/20 p-6 sm:p-8 md:p-10 lg:p-12">
 					<div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">

@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/cn";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
+import { cn } from "@/lib/cn";
 
 interface SetupConfig {
 	id: string;
@@ -173,9 +173,8 @@ export function SetupTabs({ configs, cursorInstallUrl }: SetupTabsProps) {
 					)}
 					{activeTab === "claude_code" && (
 						<p className="mt-3 text-xs text-muted-foreground">
-							Run{" "}
-							<code className="px-1 py-0.5 rounded bg-muted">/mcp</code> in a
-							Claude Code session to authenticate after adding.
+							Run <code className="px-1 py-0.5 rounded bg-muted">/mcp</code> in
+							a Claude Code session to authenticate after adding.
 						</p>
 					)}
 				</div>
