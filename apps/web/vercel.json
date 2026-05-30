@@ -1,33 +1,43 @@
 {
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "mcp.uxpatterns.dev"
-        }
-      ],
-      "destination": "/api/mcp/:path*"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/mcp/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type"
-        }
-      ]
-    }
-  ]
+	"rewrites": [
+		{
+			"source": "/:path*",
+			"has": [
+				{
+					"type": "host",
+					"value": "mcp.uxpatterns.dev"
+				}
+			],
+			"destination": "/api/mcp"
+		}
+	],
+	"headers": [
+		{
+			"source": "/:path*",
+			"has": [
+				{
+					"type": "host",
+					"value": "mcp.uxpatterns.dev"
+				}
+			],
+			"headers": [
+				{
+					"key": "Access-Control-Allow-Origin",
+					"value": "*"
+				},
+				{
+					"key": "Access-Control-Allow-Methods",
+					"value": "GET, POST, OPTIONS"
+				},
+				{
+					"key": "Access-Control-Allow-Headers",
+					"value": "Accept, Content-Type, MCP-Protocol-Version, MCP-Session-Id"
+				},
+				{
+					"key": "Access-Control-Expose-Headers",
+					"value": "MCP-Session-Id"
+				}
+			]
+		}
+	]
 }

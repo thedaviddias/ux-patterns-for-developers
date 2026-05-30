@@ -3,54 +3,55 @@
  * Exports for programmatic usage and HTTP API integration
  */
 
-export { createServer, UXPatternsMCPServer } from "./server"
-export type { ToolHandler } from "./server"
-
+export type { ToolHandler } from "./server";
+export {
+	createServer,
+	MCP_PROTOCOL_VERSION,
+	MCP_SERVER_INFO,
+	UXPatternsMCPServer,
+} from "./server";
+// Export tool registration for HTTP API usage
+export { registerAllTools } from "./tools";
 // Re-export types
 export type {
-	// Pattern types
-	Pattern,
-	TocItem,
 	Category,
-	GlossaryTerm,
-	RelationshipType,
-	PatternRelation,
-	RelatedPattern,
-
+	CheckAccessibilityParams,
+	CheckAccessibilityResponse,
+	ErrorCode,
+	GetGlossaryTermParams,
+	GetGlossaryTermResponse,
+	GetImplementationChecklistParams,
+	GetImplementationChecklistResponse,
 	// Tool parameter/response types
 	GetPatternParams,
 	GetPatternResponse,
-	SearchPatternsParams,
-	SearchPatternsResponse,
-	ListPatternsParams,
-	ListPatternsResponse,
-	ListCategoriesResponse,
-	GetGlossaryTermParams,
-	GetGlossaryTermResponse,
-	ReviewCodeParams,
-	ReviewCodeResponse,
-	CheckAccessibilityParams,
-	CheckAccessibilityResponse,
-	SuggestPatternParams,
-	SuggestPatternResponse,
 	GetQuickReferenceParams,
 	GetQuickReferenceResponse,
-	PatternAdvisorParams,
-	PatternAdvisorInteractiveResponse,
-	PatternAdvisorRecommendationResponse,
-	GetImplementationChecklistParams,
-	GetImplementationChecklistResponse,
-
+	GlossaryTerm,
+	ListCategoriesResponse,
+	ListPatternsParams,
+	ListPatternsResponse,
 	// Error and utility types
 	MCPError,
-	ErrorCode,
-	TelemetryStats,
+	PaginatedResult,
+	PaginationOptions,
+	// Pattern types
+	Pattern,
+	PatternAdvisorInteractiveResponse,
+	PatternAdvisorParams,
+	PatternAdvisorRecommendationResponse,
+	PatternRelation,
 	RateLimitInfo,
 	RateLimitTier,
-	PaginationOptions,
-	PaginatedResult,
+	RelatedPattern,
+	RelationshipType,
+	ReviewCodeParams,
+	ReviewCodeResponse,
+	SearchPatternsParams,
+	SearchPatternsResponse,
+	SuggestPatternParams,
+	SuggestPatternResponse,
+	TelemetryStats,
+	TocItem,
 	VeliteDoc,
-} from "./types"
-
-// Export tool registration for HTTP API usage
-export { registerAllTools } from "./tools"
+} from "./types";
