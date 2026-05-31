@@ -53,12 +53,6 @@ const MCP_SERVER_URL =
 // Client configuration snippets
 const CLIENT_CONFIGS: ClientConfig[] = [
 	{
-		id: "codex",
-		title: "Codex",
-		description: "Run this command to add the remote MCP server to Codex",
-		config: `codex mcp add ux-patterns --url ${MCP_SERVER_URL}`,
-	},
-	{
 		id: "cursor",
 		title: "Cursor",
 		description: "Add to .cursor/mcp.json (supports native remote MCP)",
@@ -70,6 +64,12 @@ const CLIENT_CONFIGS: ClientConfig[] = [
     }
   }
 }`,
+	},
+	{
+		id: "claude_code",
+		title: "Claude Code",
+		description: "Run this command in your terminal",
+		config: `claude mcp add --transport http ux-patterns ${MCP_SERVER_URL}`,
 	},
 	{
 		id: "claude_desktop",
@@ -85,10 +85,10 @@ const CLIENT_CONFIGS: ClientConfig[] = [
 }`,
 	},
 	{
-		id: "claude_code",
-		title: "Claude Code",
-		description: "Run this command in your terminal",
-		config: `claude mcp add --transport http ux-patterns ${MCP_SERVER_URL}`,
+		id: "codex",
+		title: "Codex",
+		description: "Run this command to add the remote MCP server to Codex",
+		config: `codex mcp add ux-patterns --url ${MCP_SERVER_URL}`,
 	},
 	{
 		id: "vscode",
