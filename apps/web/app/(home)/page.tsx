@@ -99,6 +99,7 @@ export default async function HomePage() {
 					guideCount={allGuides.length}
 					blogCount={allBlogPosts.length}
 				/>
+				<MCPPromo />
 				<FeaturedPatterns categories={categories} />
 				<FeaturedGuides guides={featuredGuides} />
 				<GlossarySpotlight terms={glossaryHighlights} />
@@ -108,7 +109,6 @@ export default async function HomePage() {
 					categoryCount={categoryCount}
 					sectionsPerPattern={17}
 				/>
-				<MCPPromo />
 				<FAQ />
 				<FinalCTA />
 				<SubscribeForm />

@@ -40,8 +40,9 @@ export function MCPPromo() {
 							</h2>
 
 							<p className="text-muted-foreground text-lg max-w-xl">
-								Integrate UX Patterns directly into Claude, Cursor, and other
-								AI-powered development tools using the Model Context Protocol.
+								Integrate UX Patterns directly into Codex, Claude, Cursor, VS
+								Code, Cline, Roo Code, Gemini CLI, Zed, and other MCP-compatible
+								tools.
 							</p>
 
 							<div className="flex flex-wrap gap-3">
