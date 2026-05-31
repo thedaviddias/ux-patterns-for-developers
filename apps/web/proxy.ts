@@ -4,9 +4,21 @@ import { NextResponse } from "next/server";
 import { detectBot, getClientIP, getRouteCategory } from "@/lib/bot-detection";
 import { checkRateLimit, getRateLimitStore } from "@/lib/rate-limit-store";
 
+const MCP_HOST = "mcp.uxpatterns.dev";
+const MCP_ROUTE = "/api/mcp";
+
 export async function proxy(request: NextRequest) {
-	const userAgent = request.headers.get("user-agent");
 	const pathname = request.nextUrl.pathname;
+	const host = request.headers.get("host")?.split(":")[0]?.toLowerCase();
+
+	if (host === MCP_HOST && pathname !== MCP_ROUTE) {
+		const url = request.nextUrl.clone();
+		url.pathname = MCP_ROUTE;
+		url.search = "";
+		return NextResponse.rewrite(url);
+	}
+
+	const userAgent = request.headers.get("user-agent");
 	const clientIP = getClientIP(request);
 
 	const detection = detectBot(userAgent, pathname);
