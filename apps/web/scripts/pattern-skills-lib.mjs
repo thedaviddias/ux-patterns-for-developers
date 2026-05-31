@@ -495,6 +495,26 @@ async function writeFile(filePath, contents) {
 	await fs.writeFile(filePath, contents);
 }
 
+function formatManifestJson(manifest) {
+	return JSON.stringify(manifest, null, "\t")
+		.replace(
+			/(\n\t{3}"aliases": )\[\n((?:\t{4}"(?:\\.|[^"\\])*",?\n)+)\t{3}\]/g,
+			(_match, prefix, valuesBlock) => {
+				const values = valuesBlock
+					.trim()
+					.split("\n")
+					.map((line) => line.trim().replace(/,$/, ""))
+					.join(", ");
+
+				return `${prefix}[${values}]`;
+			},
+		)
+		.replace(
+			/(\n\t{3}"relatedPatternUrls": )\[\n(\t{4}"(?:\\.|[^"\\])*")\n\t{3}\]/g,
+			(_match, prefix, value) => `${prefix}[${value.trim()}]`,
+		);
+}
+
 async function removeDirIfExists(dirPath) {
 	await fs.rm(dirPath, { recursive: true, force: true });
 }
@@ -663,7 +683,7 @@ export async function generatePatternSkills(options = {}) {
 		path.join(globalSkillDir, "references/categories.md"),
 		buildGlobalReference(patterns),
 	);
-	await writeFile(`${manifestPath}`, `${JSON.stringify(manifest, null, 2)}\n`);
+	await writeFile(`${manifestPath}`, `${formatManifestJson(manifest)}\n`);
 
 	return manifest;
 }

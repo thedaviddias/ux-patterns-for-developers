@@ -52,13 +52,13 @@ export function Header({
 				{/* Logo */}
 				<Link
 					href="/"
-					className="flex items-center gap-2 font-bold text-lg mr-6"
+					className="mr-6 flex items-center gap-2 whitespace-nowrap text-lg font-bold"
 				>
 					UX Patterns
 				</Link>
 
 				{/* Desktop Navigation */}
-				<nav className="hidden md:flex items-center gap-1">
+				<nav className="hidden items-center gap-1 lg:flex">
 					{navItems.map((item) => (
 						<Link
 							key={item.href}
@@ -83,16 +83,16 @@ export function Header({
 
 					{/* Search Toggle */}
 					{searchToggle && (
-						<div className="hidden md:flex items-center max-w-[240px]">
+						<div className="hidden max-w-[240px] items-center lg:flex">
 							{searchToggle}
 						</div>
 					)}
 
 					{/* Mobile Search */}
-					{searchToggle && <div className="md:hidden">{searchToggle}</div>}
+					{searchToggle && <div className="lg:hidden">{searchToggle}</div>}
 
 					{/* Social Links - Desktop */}
-					<div className="hidden lg:flex items-center gap-1">
+					<div className="hidden items-center gap-1 xl:flex">
 						{SOCIAL_LINKS.map((social) => (
 							<a
 								key={social.label}
@@ -110,7 +110,7 @@ export function Header({
 					{/* Mobile Menu Button */}
 					<button
 						type="button"
-						className="md:hidden p-2 text-muted-foreground hover:text-foreground"
+						className="p-2 text-muted-foreground hover:text-foreground lg:hidden"
 						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
 						aria-label="Toggle menu"
 					>
@@ -125,7 +125,7 @@ export function Header({
 
 			{/* Mobile Navigation */}
 			{mobileMenuOpen && (
-				<div className="md:hidden border-t bg-background">
+				<div className="border-t bg-background lg:hidden">
 					<nav className="container mx-auto px-4 md:px-6 py-4 space-y-1">
 						{navItems.map((item) => (
 							<Link

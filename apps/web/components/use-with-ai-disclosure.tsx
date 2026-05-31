@@ -44,7 +44,8 @@ export function UseWithAIDisclosure({
 	globalSkillInstallCommand,
 	markdownUrl,
 }: UseWithAIDisclosureProps) {
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState(true);
+	const [loadedStoredPreference, setLoadedStoredPreference] = useState(false);
 	const patternId = useId().replace(/:/g, "");
 
 	useEffect(() => {
@@ -56,15 +57,19 @@ export function UseWithAIDisclosure({
 		} catch {
 			// Ignore storage access errors
 		}
+
+		setLoadedStoredPreference(true);
 	}, []);
 
 	useEffect(() => {
+		if (!loadedStoredPreference) return;
+
 		try {
 			window.localStorage.setItem(STORAGE_KEY, String(open));
 		} catch {
 			// Ignore storage access errors
 		}
-	}, [open]);
+	}, [loadedStoredPreference, open]);
 
 	return (
 		<section

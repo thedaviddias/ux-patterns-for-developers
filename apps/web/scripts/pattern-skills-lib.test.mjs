@@ -115,6 +115,14 @@ test("generatePatternSkills writes pattern skill, reference, and manifest", asyn
 	assert.equal(manifest.patterns.length, 1);
 	assert.equal(manifest.patterns[0].skillSlug, "tabs");
 	assert.equal(
+		manifest.patterns[0].installCommand,
+		"npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill tabs",
+	);
+	assert.equal(
+		manifest.globalSkill.installCommand,
+		"npx skills add https://github.com/thedaviddias/ux-patterns-for-developers --skill ux-patterns",
+	);
+	assert.equal(
 		manifest.patterns[0].url,
 		"https://uxpatterns.dev/patterns/navigation/tabs",
 	);

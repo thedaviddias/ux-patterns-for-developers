@@ -83,7 +83,8 @@ export const PatternStats = ({
 		},
 	};
 
-	const hasStats = (views && views > 0) || popularity;
+	const hasViews = typeof views === "number" && views > 0;
+	const hasStats = hasViews || popularity;
 
 	if (mode === "hidden" || !hasStats) return null;
 
@@ -107,7 +108,7 @@ export const PatternStats = ({
 				</Badge>
 			)}
 
-			{views && views > 0 && (
+			{hasViews && (
 				<div className="flex items-center gap-1.5">
 					<Eye className="w-4 h-4" />
 					<span>{loading ? "..." : formatNumber(views)} views</span>

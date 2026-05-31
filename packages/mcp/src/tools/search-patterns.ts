@@ -3,159 +3,239 @@
  * Full-text search across patterns
  */
 
-import { getPatterns } from '../data'
-import { paginate, similarityRatio } from '../utils'
-import type { SearchPatternsResponse } from '../types'
+import { getPatterns } from "../data";
+import type { SearchPatternsResponse } from "../types";
+import { paginate, similarityRatio } from "../utils";
 
 export const searchPatternsDefinition = {
-  name: 'search_patterns',
-  description: 'Search for UX patterns by keyword, with relevance scoring',
-  inputSchema: {
-    type: 'object' as const,
-    properties: {
-      query: {
-        type: 'string',
-        description: 'Search query (keywords or phrase)',
-      },
-      category: {
-        type: 'string',
-        description: 'Optional category filter',
-      },
-      tags: {
-        type: 'array',
-        items: { type: 'string' },
-        description: 'Optional tag filters',
-      },
-      limit: {
-        type: 'number',
-        description: 'Maximum results (default: 20, max: 100)',
-        default: 20,
-      },
-      cursor: {
-        type: 'string',
-        description: 'Pagination cursor',
-      },
-    },
-    required: ['query'],
-  },
-}
+	name: "search_patterns",
+	description: "Search for UX patterns by keyword, with relevance scoring",
+	inputSchema: {
+		type: "object" as const,
+		properties: {
+			query: {
+				type: "string",
+				description: "Search query (keywords or phrase)",
+			},
+			category: {
+				type: "string",
+				description: "Optional category filter",
+			},
+			tags: {
+				type: "array",
+				items: { type: "string" },
+				description: "Optional tag filters",
+			},
+			limit: {
+				type: "number",
+				description: "Maximum results (default: 20, max: 100)",
+				default: 20,
+			},
+			cursor: {
+				type: "string",
+				description: "Pagination cursor",
+			},
+		},
+		required: ["query"],
+	},
+};
 
 interface ScoredPattern {
-  slug: string
-  title: string
-  summary: string
-  category: string
-  tags: string[]
-  score: number
+	slug: string;
+	title: string;
+	summary: string;
+	category: string;
+	tags: string[];
+	score: number;
 }
 
 // Limit validation constants
-const DEFAULT_LIMIT = 20
-const MAX_LIMIT = 100
+const DEFAULT_LIMIT = 20;
+const MAX_LIMIT = 100;
+const QUERY_STOP_WORDS = new Set([
+	"a",
+	"an",
+	"and",
+	"for",
+	"in",
+	"of",
+	"on",
+	"or",
+	"the",
+	"to",
+	"with",
+]);
+
+function tokenizeSearchText(text: string): string[] {
+	return text
+		.toLowerCase()
+		.split(/[^a-z0-9]+/)
+		.filter((word) => word.length > 1 && !QUERY_STOP_WORDS.has(word));
+}
+
+function countTokenMatches(queryTokens: string[], text: string): number {
+	if (queryTokens.length === 0) return 0;
+
+	const textTokens = new Set(tokenizeSearchText(text));
+	return queryTokens.filter((token) => textTokens.has(token)).length;
+}
+
+function countUniqueTokenMatches(
+	queryTokens: string[],
+	texts: string[],
+): number {
+	const textTokens = new Set(texts.flatMap((text) => tokenizeSearchText(text)));
+	return new Set(queryTokens.filter((token) => textTokens.has(token))).size;
+}
 
 export async function searchPatterns(
-  args: Record<string, unknown>
+	args: Record<string, unknown>,
 ): Promise<SearchPatternsResponse> {
-  // Runtime validation for robustness against malformed input
-  const query = typeof args.query === 'string' ? args.query : ''
-  const category = typeof args.category === 'string' ? args.category : undefined
-  const tags = Array.isArray(args.tags) && args.tags.every((t) => typeof t === 'string')
-    ? (args.tags as string[])
-    : undefined
-  const rawLimit = args.limit
-  const cursor = typeof args.cursor === 'string' ? args.cursor : undefined
+	// Runtime validation for robustness against malformed input
+	const query = typeof args.query === "string" ? args.query : "";
+	const category =
+		typeof args.category === "string" ? args.category : undefined;
+	const tags =
+		Array.isArray(args.tags) && args.tags.every((t) => typeof t === "string")
+			? (args.tags as string[])
+			: undefined;
+	const rawLimit = args.limit;
+	const cursor = typeof args.cursor === "string" ? args.cursor : undefined;
 
-  // Validate and normalize limit (default: 20, max: 100, min: 1)
-  let limit = DEFAULT_LIMIT
-  if (typeof rawLimit === 'number' && Number.isFinite(rawLimit)) {
-    limit = Math.min(Math.max(Math.floor(rawLimit), 1), MAX_LIMIT)
-  }
+	// Validate and normalize limit (default: 20, max: 100, min: 1)
+	let limit = DEFAULT_LIMIT;
+	if (typeof rawLimit === "number" && Number.isFinite(rawLimit)) {
+		limit = Math.min(Math.max(Math.floor(rawLimit), 1), MAX_LIMIT);
+	}
 
-  if (!query || query.trim().length === 0) {
-    return {
-      results: [],
-      total: 0,
-      hasMore: false,
-    }
-  }
+	if (!query || query.trim().length === 0) {
+		return {
+			results: [],
+			total: 0,
+			hasMore: false,
+		};
+	}
 
-  // Get all patterns
-  let patterns = getPatterns()
+	// Get all patterns
+	let patterns = getPatterns();
 
-  // Apply category filter
-  if (category) {
-    patterns = patterns.filter(
-      (p) => p.category.toLowerCase() === category.toLowerCase()
-    )
-  }
+	// Apply category filter
+	if (category) {
+		patterns = patterns.filter(
+			(p) => p.category.toLowerCase() === category.toLowerCase(),
+		);
+	}
 
-  // Apply tag filter (AND logic - pattern must have ALL specified tags)
-  if (tags && tags.length > 0) {
-    const tagsLower = tags.map((t) => t.toLowerCase())
-    patterns = patterns.filter((p) =>
-      tagsLower.every((tag) => p.tags?.some((t) => t.toLowerCase() === tag))
-    )
-  }
+	// Apply tag filter (AND logic - pattern must have ALL specified tags)
+	if (tags && tags.length > 0) {
+		const tagsLower = tags.map((t) => t.toLowerCase());
+		patterns = patterns.filter((p) =>
+			tagsLower.every((tag) => p.tags?.some((t) => t.toLowerCase() === tag)),
+		);
+	}
 
-  // Score patterns based on query match
-  const queryLower = query.toLowerCase()
-  const scored: ScoredPattern[] = patterns
-    .map((pattern) => {
-      let score = 0
+	// Score patterns based on query match
+	const queryLower = query.toLowerCase();
+	const queryTokens = tokenizeSearchText(query);
+	const scored: ScoredPattern[] = patterns
+		.map((pattern) => {
+			let score = 0;
 
-      // Title exact match (highest weight)
-      if (pattern.title.toLowerCase() === queryLower) {
-        score += 100
-      } else if (pattern.title.toLowerCase().includes(queryLower)) {
-        score += 50
-      } else {
-        // Fuzzy title match
-        const titleSimilarity = similarityRatio(queryLower, pattern.title.toLowerCase())
-        score += titleSimilarity * 30
-      }
+			// Title exact match (highest weight)
+			if (pattern.title.toLowerCase() === queryLower) {
+				score += 100;
+			} else if (pattern.title.toLowerCase().includes(queryLower)) {
+				score += 50;
+			} else {
+				// Fuzzy title match
+				const titleSimilarity = similarityRatio(
+					queryLower,
+					pattern.title.toLowerCase(),
+				);
+				score += titleSimilarity * 30;
+			}
 
-      // Alias match
-      if (pattern.aliases?.some((a) => a.toLowerCase().includes(queryLower))) {
-        score += 40
-      }
+			// Alias match
+			if (pattern.aliases?.some((a) => a.toLowerCase().includes(queryLower))) {
+				score += 40;
+			}
+			if (pattern.aliases?.some((a) => queryLower.includes(a.toLowerCase()))) {
+				score += 35;
+			}
 
-      // Summary/description match
-      if (pattern.summary?.toLowerCase().includes(queryLower)) {
-        score += 20
-      }
-      if (pattern.description.toLowerCase().includes(queryLower)) {
-        score += 15
-      }
+			const titleTokenMatches = countTokenMatches(queryTokens, pattern.title);
+			const aliasTokenMatches =
+				pattern.aliases?.reduce(
+					(total, alias) => total + countTokenMatches(queryTokens, alias),
+					0,
+				) ?? 0;
+			const tagTokenMatches =
+				pattern.tags?.reduce(
+					(total, tag) => total + countTokenMatches(queryTokens, tag),
+					0,
+				) ?? 0;
+			const summaryTokenMatches = countTokenMatches(
+				queryTokens,
+				pattern.summary || "",
+			);
+			const descriptionTokenMatches = countTokenMatches(
+				queryTokens,
+				pattern.description,
+			);
+			const uniqueTokenMatches = countUniqueTokenMatches(queryTokens, [
+				pattern.title,
+				pattern.summary || "",
+				pattern.description,
+				...(pattern.aliases || []),
+				...(pattern.tags || []),
+			]);
 
-      // Tag match
-      if (pattern.tags?.some((t) => t.toLowerCase().includes(queryLower))) {
-        score += 10
-      }
+			score += titleTokenMatches * 20;
+			score += aliasTokenMatches * 18;
+			score += tagTokenMatches * 12;
+			score += summaryTokenMatches * 8;
+			score += descriptionTokenMatches * 6;
+			if (uniqueTokenMatches > 1) {
+				score += uniqueTokenMatches * 20;
+			}
 
-      // Category match
-      if (pattern.category.toLowerCase().includes(queryLower)) {
-        score += 5
-      }
+			// Summary/description match
+			if (pattern.summary?.toLowerCase().includes(queryLower)) {
+				score += 20;
+			}
+			if (pattern.description.toLowerCase().includes(queryLower)) {
+				score += 15;
+			}
 
-      return {
-        slug: pattern.slug,
-        title: pattern.title,
-        summary: pattern.summary || pattern.description.slice(0, 150),
-        category: pattern.category,
-        tags: pattern.tags || [],
-        score,
-      }
-    })
-    .filter((p) => p.score > 0)
-    .sort((a, b) => b.score - a.score)
+			// Tag match
+			if (pattern.tags?.some((t) => t.toLowerCase().includes(queryLower))) {
+				score += 10;
+			}
 
-  // Paginate results
-  const paginated = paginate(scored, { cursor, limit })
+			// Category match
+			if (pattern.category.toLowerCase().includes(queryLower)) {
+				score += 5;
+			}
 
-  return {
-    results: paginated.items,
-    total: paginated.total,
-    cursor: paginated.nextCursor,
-    hasMore: paginated.hasMore,
-  }
+			return {
+				slug: pattern.slug,
+				title: pattern.title,
+				summary: pattern.summary || pattern.description.slice(0, 150),
+				category: pattern.category,
+				tags: pattern.tags || [],
+				score,
+			};
+		})
+		.filter((p) => p.score > 0)
+		.sort((a, b) => b.score - a.score);
+
+	// Paginate results
+	const paginated = paginate(scored, { cursor, limit });
+
+	return {
+		results: paginated.items,
+		total: paginated.total,
+		cursor: paginated.nextCursor,
+		hasMore: paginated.hasMore,
+	};
 }

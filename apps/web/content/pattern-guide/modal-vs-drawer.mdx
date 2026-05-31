@@ -1,0 +1,69 @@
+---
+title: "Modal vs Drawer: Which Overlay Pattern Should You Use?"
+description: "Choose between modal and drawer patterns based on task focus, context preservation, screen size, and interruption level."
+icon: PanelRight
+---
+
+## Quick Answer
+
+- Use **Modal** when the user must stop, make a decision, complete a focused task, or acknowledge something before returning to the page.
+- Use **Drawer** when the user needs a side panel that preserves page context, supports secondary work, or lets them inspect details without leaving the current view.
+- If the task is long, multi-step, or needs a stable URL, use a full page instead of either overlay.
+
+## Compare By Criteria
+
+| Criteria | Modal | Drawer |
+| --- | --- | --- |
+| Attention demand | High | Medium |
+| Page context remains visible | Weak | Strong |
+| Best for destructive confirmation | Strong | Weak |
+| Best for inspection and editing | Medium | Strong |
+| Mobile behavior | Often full-screen | Often bottom sheet or full-screen |
+| Focus management | Required | Required when modal-like |
+| Spatial relationship to page | Weak | Strong |
+| Implementation complexity | Medium | Medium to high |
+
+## Why Each One Wins
+
+### Modal
+
+Modal wins when the product needs a clear interruption. It is the right fit for destructive confirmations, required authentication prompts, payment confirmation, blocking errors, and small forms that should be completed before the user continues.
+
+The cost is context loss. A modal dims or blocks the page, so it should not be used for side tasks users may compare against the underlying interface.
+
+### Drawer
+
+Drawer wins when the user benefits from seeing where the panel came from. It is a strong fit for item details, quick edit panels, filters, side navigation, carts, and inspector-style workflows.
+
+The cost is space. A drawer can feel cramped on small screens, so mobile implementations often become a bottom sheet or full-screen panel.
+
+## Common Decision Rule
+
+Use **Modal** for interruption. Use **Drawer** for contextual side work.
+
+If users need to compare the panel with the page behind it, drawer is usually the better choice. If users must not interact with anything else until the task is resolved, modal is usually the better choice.
+
+## Real-World Fits
+
+<Cards>
+  <Card title="Modal" href="/patterns/content-management/modal">
+    Delete confirmation, required login prompt, compact creation form
+  </Card>
+  <Card title="Sidebar" href="/patterns/navigation/sidebar">
+    Persistent or responsive side panels for navigation and inspection
+  </Card>
+  <Card title="Hamburger Menu" href="/patterns/navigation/hambuger-menu">
+    Mobile off-canvas navigation drawers and slide-in menus
+  </Card>
+</Cards>
+
+## Default Recommendation
+
+Default to **Drawer** for contextual editing, inspection, filters, and navigation. Choose **Modal** only when the user must stop and resolve the task before continuing.
+
+## Related Decisions
+
+- [Modal vs Popover vs Tooltip](/pattern-guide/modal-vs-popover-guide)
+- [Tooltip vs Popover](/pattern-guide/tooltip-vs-popover)
+- [Table vs List View vs Card Grid](/pattern-guide/table-vs-list-vs-cards)
+

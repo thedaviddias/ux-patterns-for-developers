@@ -149,6 +149,7 @@ These protocols guide specific workflows:
 - Preserve original user-authored text exactly — only modify what was specifically reported as broken
 - When 1Password GPG signing fails during commit, retry with `--no-gpg-sign`
 - Skill `name` fields must use lowercase-dashed slug format (e.g., `ai-chat`), not human-readable titles
+- Public skill installation examples should use `npx skills add ...`; the repo's pnpm-only rule applies to our project commands, not the user-facing install snippets
 
 ## Learned Workspace Facts
 

@@ -80,9 +80,9 @@ function DocsLayoutInner({
 			<Header githubStars={githubStars} searchToggle={searchToggle} />
 
 			{/* Container for sidebar + content */}
-			<div className="container mx-auto flex flex-1 px-4 pt-6 pb-10 md:px-6 md:pt-8">
+			<div className="container mx-auto flex flex-1 px-4 pt-5 pb-10 md:px-6 md:pt-6 lg:pt-8">
 				{/* Sidebar - sticky within container */}
-				<aside className="hidden w-72 shrink-0 md:block">
+				<aside className="hidden w-72 shrink-0 lg:block">
 					<div className="sticky top-[4.75rem] h-[calc(100vh-5.5rem)] overflow-hidden pr-5">
 						<Sidebar
 							tree={tree}
@@ -96,7 +96,7 @@ function DocsLayoutInner({
 				{/* Main content area */}
 				<div className="flex-1 min-w-0">
 					{/* Mobile sidebar trigger bar */}
-					<div className="sticky top-14 z-30 mb-4 flex h-12 items-center gap-4 rounded-2xl border border-border/70 bg-card/85 px-4 backdrop-blur md:hidden">
+					<div className="sticky top-14 z-30 mb-4 flex h-12 items-center gap-4 rounded-2xl border border-border/70 bg-card/85 px-4 backdrop-blur lg:hidden">
 						<SidebarTrigger />
 						<span className="text-sm font-medium text-muted-foreground">
 							Navigation
@@ -180,6 +180,15 @@ export function DocsPageHeader({
 	popularity?: "low" | "medium" | "high" | "trending";
 	actions?: ReactNode;
 }) {
+	const lastUpdatedDate =
+		typeof lastUpdated === "string" && lastUpdated.trim()
+			? new Date(lastUpdated)
+			: null;
+	const formattedLastUpdated =
+		lastUpdatedDate && !Number.isNaN(lastUpdatedDate.getTime())
+			? docsDateFormatter.format(lastUpdatedDate)
+			: null;
+
 	return (
 		<header className="mb-0 rounded-[2rem] border border-border/70 bg-card/85 px-6 py-7 backdrop-blur sm:px-8 sm:py-8">
 			{breadcrumbs && breadcrumbs.length > 0 && (
@@ -211,10 +220,8 @@ export function DocsPageHeader({
 							className="mb-0 text-sm text-muted-foreground dark:text-muted-foreground"
 						/>
 						{readTime && <span>{readTime}</span>}
-						{lastUpdated && (
-							<span>
-								Last updated: {docsDateFormatter.format(new Date(lastUpdated))}
-							</span>
+						{formattedLastUpdated && (
+							<span>Last updated: {formattedLastUpdated}</span>
 						)}
 					</div>
 					{actions && (

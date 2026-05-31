@@ -41,10 +41,28 @@ const patternGuides = [
 			"Choose the right content loading pattern for search, feeds, and browse-heavy interfaces.",
 	},
 	{
+		slug: "load-more-vs-show-more-vs-view-more",
+		title: "Load More vs Show More vs View More",
+		description:
+			"Choose the right button label for loading batches, expanding content, or linking to a larger collection.",
+	},
+	{
 		slug: "search-field-vs-command-palette",
 		title: "Search Field vs Command Palette",
 		description:
 			"Decide between visible search and a keyboard-first command surface.",
+	},
+	{
+		slug: "tooltip-vs-popover",
+		title: "Tooltip vs Popover",
+		description:
+			"Decide whether a lightweight hint or a contextual interactive panel fits the job.",
+	},
+	{
+		slug: "modal-vs-drawer",
+		title: "Modal vs Drawer",
+		description:
+			"Choose between an interruptive dialog and a contextual side panel.",
 	},
 	{
 		slug: "table-vs-list-vs-cards",

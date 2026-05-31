@@ -11,8 +11,11 @@
 		"input-selection-guide",
 		"pagination-vs-infinite-scroll",
 		"pagination-vs-infinite-scroll-vs-load-more",
+		"load-more-vs-show-more-vs-view-more",
 		"search-field-vs-command-palette",
 		"modal-vs-popover-guide",
+		"tooltip-vs-popover",
+		"modal-vs-drawer",
 		"table-vs-list-vs-cards"
 	]
 }

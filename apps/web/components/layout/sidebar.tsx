@@ -149,7 +149,7 @@ export function Sidebar({
 			{/* Mobile overlay */}
 			{open && (
 				<div
-					className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden"
+					className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm lg:hidden"
 					onClick={() => setOpen(false)}
 					aria-hidden="true"
 				/>
@@ -158,7 +158,7 @@ export function Sidebar({
 			{/* Sidebar */}
 			<aside
 				className={cn(
-					"fixed top-16 left-4 z-40 h-[calc(100vh-5rem)] w-[min(20rem,calc(100vw-2rem))] overflow-hidden rounded-[2rem] border border-border/70 bg-card/95 shadow-[0_28px_90px_-55px_rgba(15,23,42,0.65)] backdrop-blur transition-transform duration-300 ease-in-out md:hidden",
+					"fixed top-16 left-4 z-40 h-[calc(100vh-5rem)] w-[min(20rem,calc(100vw-2rem))] overflow-hidden rounded-[2rem] border border-border/70 bg-card/95 shadow-[0_28px_90px_-55px_rgba(15,23,42,0.65)] backdrop-blur transition-transform duration-300 ease-in-out lg:hidden",
 					open ? "translate-x-0" : "-translate-x-[calc(100%+1rem)]",
 				)}
 			>
@@ -434,7 +434,7 @@ export function SidebarTrigger({ className }: { className?: string }) {
 		<button
 			type="button"
 			className={cn(
-				"rounded-xl border border-border/70 bg-background/80 p-2 hover:bg-accent md:hidden",
+				"rounded-xl border border-border/70 bg-background/80 p-2 hover:bg-accent lg:hidden",
 				className,
 			)}
 			onClick={() => setOpen(true)}
