@@ -41,7 +41,7 @@ interface McpTool {
 
 const title = "MCP Server";
 const description =
-	"Integrate UX Patterns directly into Claude, Cursor, and other AI-powered development tools using the Model Context Protocol.";
+	"Integrate UX Patterns directly into Codex, Claude, Cursor, and other AI-powered development tools using the Model Context Protocol.";
 
 // Page publication date - update when content changes significantly
 const PAGE_PUBLISHED_DATE = "2025-01-15T00:00:00.000Z";
@@ -52,6 +52,12 @@ const MCP_SERVER_URL =
 
 // Client configuration snippets
 const CLIENT_CONFIGS: ClientConfig[] = [
+	{
+		id: "codex",
+		title: "Codex",
+		description: "Run this command to add the remote MCP server to Codex",
+		config: `codex mcp add ux-patterns --url ${MCP_SERVER_URL}`,
+	},
 	{
 		id: "cursor",
 		title: "Cursor",
@@ -111,6 +117,63 @@ const CLIENT_CONFIGS: ClientConfig[] = [
     }
   }
 }`,
+	},
+	{
+		id: "cline",
+		title: "Cline / Roo Code",
+		description: "Add to your MCP settings JSON or Remote Servers tab",
+		config: `{
+  "mcpServers": {
+    "ux-patterns": {
+      "url": "${MCP_SERVER_URL}",
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}`,
+	},
+	{
+		id: "gemini_cli",
+		title: "Gemini CLI",
+		description:
+			"Add to ~/.gemini/settings.json or project .gemini/settings.json",
+		config: `{
+  "mcpServers": {
+    "ux-patterns": {
+      "httpUrl": "${MCP_SERVER_URL}",
+      "timeout": 30000,
+      "trust": false
+    }
+  }
+}`,
+	},
+	{
+		id: "zed",
+		title: "Zed",
+		description: "Add as a context server in Zed settings",
+		config: `{
+  "context_servers": {
+    "ux-patterns": {
+      "url": "${MCP_SERVER_URL}"
+    }
+  }
+}`,
+	},
+	{
+		id: "generic",
+		title: "Generic MCP",
+		description: "Use native Streamable HTTP when your client supports it",
+		config: `{
+  "mcpServers": {
+    "ux-patterns": {
+      "type": "streamable-http",
+      "url": "${MCP_SERVER_URL}"
+    }
+  }
+}
+
+// If your client only supports stdio, use:
+// npx -y mcp-remote ${MCP_SERVER_URL}`,
 	},
 	{
 		id: "http",
@@ -292,8 +355,9 @@ export default function MCPPage() {
 								The <strong>Model Context Protocol (MCP)</strong> is an open
 								standard that enables AI assistants to securely access external
 								data sources and tools. Our MCP server exposes UX Patterns
-								directly to AI-powered development tools like Claude Code,
-								Cursor, and others.
+								directly to AI-powered development tools like Codex, Claude
+								Code, Cursor, Cline, Roo Code, Gemini CLI, Windsurf, VS Code,
+								Zed, and others.
 							</p>
 							<p className="text-muted-foreground">
 								With 11 specialized tools, you can search patterns, check
@@ -312,7 +376,8 @@ export default function MCPPage() {
 						<p className="text-muted-foreground max-w-2xl">
 							Choose your AI tool below and follow the setup instructions. The
 							server exposes 11 tools for searching, reviewing, and learning UX
-							patterns.
+							patterns from Codex, Claude, Cursor, Cline, Roo Code, Gemini CLI,
+							Windsurf, VS Code, Zed, or any MCP-compatible assistant.
 						</p>
 
 						{/* Server URL */}
@@ -331,9 +396,10 @@ export default function MCPPage() {
 
 						{/* Other Clients Note */}
 						<p className="text-sm text-muted-foreground">
-							Hundreds of other tools support MCP servers. Configure them with
-							the server URL above. Check your tool&apos;s documentation for
-							specific setup instructions.
+							Most MCP-compatible AI tools can use either native Streamable HTTP
+							or the stdio bridge shown in the Generic MCP tab. Configure them
+							with the server URL above and check your tool&apos;s documentation
+							for exact file locations.
 						</p>
 					</section>
 

@@ -119,6 +119,15 @@ export function SetupTabs({ configs, cursorInstallUrl }: SetupTabsProps) {
 							.
 						</p>
 					)}
+					{activeTab === "codex" && (
+						<p className="mt-3 text-xs text-muted-foreground">
+							This writes a remote server entry to{" "}
+							<code className="px-1 py-0.5 rounded bg-muted">
+								~/.codex/config.toml
+							</code>
+							. Restart Codex or start a new session after adding.
+						</p>
+					)}
 					{activeTab === "claude_desktop" && (
 						<p className="mt-3 text-xs text-muted-foreground">
 							Config:{" "}
@@ -169,6 +178,35 @@ export function SetupTabs({ configs, cursorInstallUrl }: SetupTabsProps) {
 								Node.js 18+
 							</a>
 							.
+						</p>
+					)}
+					{activeTab === "cline" && (
+						<p className="mt-3 text-xs text-muted-foreground">
+							Cline also supports adding hosted servers from the Remote Servers
+							tab. Choose Streamable HTTP when prompted for the transport.
+						</p>
+					)}
+					{activeTab === "gemini_cli" && (
+						<p className="mt-3 text-xs text-muted-foreground">
+							Gemini CLI supports project and user settings. Use{" "}
+							<code className="px-1 py-0.5 rounded bg-muted">
+								gemini mcp add
+							</code>{" "}
+							if you prefer the interactive CLI flow.
+						</p>
+					)}
+					{activeTab === "zed" && (
+						<p className="mt-3 text-xs text-muted-foreground">
+							Zed context server settings live in your Zed settings JSON.
+							Restart the assistant panel after saving the configuration.
+						</p>
+					)}
+					{activeTab === "generic" && (
+						<p className="mt-3 text-xs text-muted-foreground">
+							Use the Streamable HTTP config first. If your client only accepts
+							a local command, use the{" "}
+							<code className="px-1 py-0.5 rounded bg-muted">mcp-remote</code>{" "}
+							bridge command shown above.
 						</p>
 					)}
 					{activeTab === "claude_code" && (
