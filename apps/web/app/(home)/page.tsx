@@ -11,6 +11,7 @@ import { FeaturedPatterns } from "@/components/sections/featured-patterns";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { GlossarySpotlight } from "@/components/sections/glossary-spotlight";
 import Hero from "@/components/sections/hero";
+import { MCPPromo } from "@/components/sections/mcp-promo";
 import { StatsBar } from "@/components/sections/stats-bar";
 import { SubscribeForm } from "@/components/subscribe";
 import { getBlogPosts, getPages } from "@/lib/content";
@@ -107,6 +108,7 @@ export default async function HomePage() {
 					categoryCount={categoryCount}
 					sectionsPerPattern={17}
 				/>
+				<MCPPromo />
 				<FAQ />
 				<FinalCTA />
 				<SubscribeForm />
