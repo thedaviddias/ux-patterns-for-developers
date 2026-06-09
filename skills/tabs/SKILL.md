@@ -1,6 +1,9 @@
 ---
 name: tabs
-description: "Use when you need to switch between different views."
+description: "Create accessible tab interfaces with keyboard navigation, ARIA attributes, and responsive design patterns. Use when you need to switch between different views."
+user-invocable: true
+triggers:
+  - tabs
 metadata:
   id: tabs
   category: navigation
@@ -14,12 +17,16 @@ metadata:
 
 Switch between different views
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Tabs** organize content into multiple panels that share the same space, allowing users to switch between views without leaving the page. Only one tab panel is visible at a time, while the tab list provides persistent indicators of all available sections.
 Tabs reduce information overload by letting users focus on one content section at a time while keeping the full set of options visible and reachable with a single click or keyboard press.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Tabs** to **organize related content into parallel sections at the same hierarchy level where users benefit from switching between views**.
 **Common scenarios include:**
@@ -29,7 +36,7 @@ Use **Tabs** to **organize related content into parallel sections at the same hi
 - Code editors showing different files or language previews (HTML, CSS, JS)
 - User profiles with Activity, Projects, and Settings sections
 
-## When to avoid
+**Avoid when:**
 
 - Content that users need to see simultaneously for comparison (use side-by-side layout)
 - Sequential steps that must be completed in order (use a [wizard](/patterns/advanced/wizard) or stepper)
@@ -39,10 +46,11 @@ Use **Tabs** to **organize related content into parallel sections at the same hi
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

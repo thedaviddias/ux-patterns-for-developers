@@ -1,6 +1,10 @@
 ---
 name: social-login
-description: "Use when implementing oAuth and social media authentication."
+description: "Learn how to implement social login. Use when you need to oAuth and social media authentication."
+user-invocable: true
+triggers:
+  - social
+  - login
 metadata:
   id: social-login
   category: authentication
@@ -14,12 +18,16 @@ metadata:
 
 OAuth and social media authentication
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Social Login** allows users to authenticate using their existing accounts with third-party identity providers like Google, Apple, GitHub, or Facebook. Instead of creating a new username and password, users authorize the application to receive their profile information from a trusted provider via OAuth 2.0 or OpenID Connect.
 Social login reduces registration friction dramatically — turning a multi-field form into a single-click action — while providing the application with a verified email address and basic profile data.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Social Login** to **reduce sign-up and login friction by leveraging users' existing accounts with trusted providers**.
 **Common scenarios include:**
@@ -29,7 +37,7 @@ Use **Social Login** to **reduce sign-up and login friction by leveraging users'
 - E-commerce sites reducing checkout friction for guest users
 - Community platforms where social identity adds credibility
 
-## When to avoid
+**Avoid when:**
 
 - Enterprise or B2B applications where corporate SSO (SAML) is the norm
 - Highly regulated industries (healthcare, finance) where provider dependency is a risk
@@ -39,10 +47,11 @@ Use **Social Login** to **reduce sign-up and login friction by leveraging users'
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

@@ -1,6 +1,10 @@
 ---
 name: context-window
-description: "Use when implementing managing AI conversation context."
+description: "Learn how to implement context window management. Use when you need to managing AI conversation context."
+user-invocable: true
+triggers:
+  - context
+  - window
 metadata:
   id: context-window
   category: ai-intelligence
@@ -14,18 +18,30 @@ metadata:
 
 Managing AI conversation context
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Context Window** pattern helps teams create a reliable way to show how much conversational or working memory remains and what the system will keep, compress, or drop. It is most useful when teams need long-running AI work sessions.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card generic-card"><h2>Context Window</h2><p class="muted">Basic demo placeholder for managing ai conversation context.</p></div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Long-running AI work sessions
 - File-heavy chat and copilots
 - Systems with prompt or response truncation risk
 
-## When to avoid
+**Avoid when:**
 
 - Avoid adding AI-specific UI when a standard non-AI workflow would be clearer and more reliable.
 - Do not expose advanced controls unless users can actually benefit from them.
@@ -33,10 +49,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

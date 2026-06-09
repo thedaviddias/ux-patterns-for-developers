@@ -1,6 +1,12 @@
 ---
 name: selection-input
-description: "Use when you need to choose from predefined options."
+description: "Learn how to implement user-friendly selection inputs in your web applications. Use when you need to choose from predefined options. Triggers: dropdown, select."
+user-invocable: true
+triggers:
+  - selection
+  - input
+  - dropdown
+  - select
 metadata:
   id: selection-input
   category: forms
@@ -14,19 +20,37 @@ metadata:
 
 Choose from predefined options
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **selection input** is a form control that allows users to choose one option from a predefined list of options.
 The selected option is typically displayed in a single-line text field, with the list of options hidden until the user interacts with the control.
 
-## When to use
+## Quick-start example
+
+```html
+<label for="fruits">Choose a fruit:</label>
+<select id="fruits" name="fruits">
+  <option value="apple">Apple</option>
+  <option value="banana">Banana</option>
+  <option value="orange">Orange</option>
+  <option value="strawberry">Strawberry</option>
+</select>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - When users need to select a single option from a list of predefined choices
 - When the list of options is relatively short (less than 10-15 items)
 - When screen space is limited, and displaying all options at once is not feasible
 - When the selected option doesn't need to be visible at all times
 
-## When to avoid
+**Avoid when:**
 
 - When users need to select multiple options (use checkboxes or a [multi-select](/patterns/forms/multi-select-input) instead)
 - When the list of options is very long (consider using an [autocomplete](/patterns/forms/autocomplete) or a typeahead)
@@ -35,10 +59,11 @@ The selected option is typically displayed in a single-line text field, with the
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

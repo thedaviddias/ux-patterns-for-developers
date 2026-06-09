@@ -1,6 +1,10 @@
 ---
 name: comment-system
-description: "Use when implementing user comments and discussion threads."
+description: "Learn how to implement comment systems. Use when you need to user comments and discussion threads."
+user-invocable: true
+triggers:
+  - comment
+  - system
 metadata:
   id: comment-system
   category: social
@@ -14,18 +18,38 @@ metadata:
 
 User comments and discussion threads
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Comment System** pattern helps teams create a reliable way to support threaded discussion around content while keeping moderation, authorship, and recovery visible. It is most useful when teams need article and discussion comments.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card comment-card">
+  <label for="comment-box">Add a comment</label>
+  <textarea id="comment-box" rows="4" placeholder="Share context or ask a follow-up question."></textarea>
+  <button type="button">Post comment</button>
+  <article class="thread-item">
+    <strong>Jordan</strong>
+    <p class="muted">We should show the error summary only after submit, not on every keypress.</p>
+  </article>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Article and discussion comments
 - Team review threads
 - Support and community conversations
 
-## When to avoid
+**Avoid when:**
 
 - Avoid social or engagement mechanics when they do not create real user value.
 - Do not add public counts or visibility states without understanding the trust implications.
@@ -33,10 +57,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

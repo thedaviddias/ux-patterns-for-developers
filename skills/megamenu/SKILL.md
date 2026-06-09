@@ -1,6 +1,9 @@
 ---
 name: megamenu
-description: "Use when you need to display a large number of links in a single menu."
+description: "Build accessible and responsive megamenus with keyboard navigation and mobile-friendly adaptations. Use when you need to display a large number of links in a single menu."
+user-invocable: true
+triggers:
+  - megamenu
 metadata:
   id: megamenu
   category: navigation
@@ -14,12 +17,16 @@ metadata:
 
 Display a large number of links in a single menu
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Megamenu** is a large, multi-column dropdown panel that expands from a navigation bar to reveal a structured collection of links, categories, and sometimes promotional content. Unlike standard dropdown menus, megamenus use the full or near-full width of the page to organize many navigation options at once.
 Megamenus help users scan large navigation structures without repeated clicking, making them a staple on enterprise, e-commerce, and content-heavy websites.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Megamenu** to **expose a large set of categorized navigation options in a single, scannable panel**.
 **Common scenarios include:**
@@ -29,7 +36,7 @@ Use **Megamenu** to **expose a large set of categorized navigation options in a 
 - News portals with numerous editorial sections and subsections
 - SaaS products with complex feature sets needing organized access
 
-## When to avoid
+**Avoid when:**
 
 - Sites with fewer than 10-15 total navigation links (a simple dropdown suffices)
 - Mobile-only applications where screen width is insufficient
@@ -39,10 +46,11 @@ Use **Megamenu** to **expose a large set of categorized navigation options in a 
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

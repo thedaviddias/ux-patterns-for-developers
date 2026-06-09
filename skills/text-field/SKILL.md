@@ -1,6 +1,10 @@
 ---
 name: text-field
-description: "Use when implementing enter and edit text content."
+description: "Implement accessible text input fields with validation, error handling, and user experience best practices. Use when you need to enter and edit text content."
+user-invocable: true
+triggers:
+  - text
+  - field
 metadata:
   id: text-field
   category: forms
@@ -14,12 +18,28 @@ metadata:
 
 Enter and edit text content
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Text Field** is a fundamental form input component that allows users to enter and edit text-based data. It is commonly used in **forms, search fields, authentication fields, and messaging interfaces**.
 Text fields can accept single-line or multi-line input and may include additional features like placeholders, character counters, validation messages, and formatting assistance.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="text-field">
+  <label for="username">Username</label>
+  <input type="text" id="username" name="username" required>
+  <span class="text-field__error">Please enter a username</span>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 Use a text field when you need users to input freeform text, such as:
 - **Login and authentication fields** – Username, password, email.
@@ -28,7 +48,7 @@ Use a text field when you need users to input freeform text, such as:
 - **Messaging interfaces** – Chat applications and comment sections.
 - **Data entry fields** – User-generated content like tags, descriptions, or reviews.
 
-## When to avoid
+**Avoid when:**
 
 - **For pre-defined options** – Use [dropdowns](/patterns/forms/selection-input), [radio](/patterns/forms/radio), or [checkboxes](/patterns/forms/checkbox) instead.
 - **For structured data inputs** – Use specialized inputs like [date pickers](/patterns/forms/date-picker) or [currency fields](/patterns/forms/currency-input).
@@ -37,10 +57,11 @@ Use a text field when you need users to input freeform text, such as:
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

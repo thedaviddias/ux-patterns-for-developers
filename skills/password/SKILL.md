@@ -1,6 +1,9 @@
 ---
 name: password
-description: "Use when implementing secure password entry with feedback."
+description: "Build secure and user-friendly password fields with validation, strength indicators, and accessibility features. Use when you need to secure password entry with feedback."
+user-invocable: true
+triggers:
+  - password
 metadata:
   id: password
   category: forms
@@ -14,19 +17,23 @@ metadata:
 
 Secure password entry with feedback
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Password Input** is a specialized text field designed to securely collect user passwords. It masks characters to prevent onlookers from reading the input and may include additional security features such as password visibility toggles, strength indicators, and validation requirements.
 Password fields are commonly used in **authentication forms, account creation, and security-related input fields** where sensitive data entry is required.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **Login and authentication forms** – Securing user access to accounts.
 - **Account creation and password updates** – Ensuring users create strong, secure passwords.
 - **Two-factor authentication (2FA) or PIN entry** – Protecting access to critical information.
 - **Security-sensitive fields** – Protecting data such as encryption keys or private access codes.
 
-## When to avoid
+**Avoid when:**
 
 - **For non-sensitive text input** – Use a standard [text field](/patterns/forms/text-field) instead.
 - **For one-time codes (OTP) or PINs** – Use the [Code Confirmation](/patterns/forms/code-confirmation) pattern instead.
@@ -34,10 +41,11 @@ Password fields are commonly used in **authentication forms, account creation, a
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

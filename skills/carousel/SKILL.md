@@ -1,6 +1,12 @@
 ---
 name: carousel
-description: "Use when you need to display multiple items in a rotating view."
+description: "Build effective carousel components for your web applications. Use when you need to display multiple items in a rotating view. Triggers: slider, slideshow, image rotator."
+user-invocable: true
+triggers:
+  - carousel
+  - slider
+  - slideshow
+  - image rotator
 metadata:
   id: carousel
   category: content-management
@@ -14,12 +20,37 @@ metadata:
 
 Display multiple items in a rotating view
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **carousel** displays content or images in a rotating or sliding manner. Users navigate through content with arrows, dots, or swipe gestures on touch devices.
 Carousels showcase featured content, promotions, or image galleries in limited space.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="carousel">
+  <div class="carousel__track">
+    <div class="carousel__slide" data-slide="1">Slide 1</div>
+    <div class="carousel__slide" data-slide="2">Slide 2</div>
+    <div class="carousel__slide" data-slide="3">Slide 3</div>
+  </div>
+  <button class="carousel__nav carousel__nav--prev" aria-label="Previous slide">❮</button>
+  <button class="carousel__nav carousel__nav--next" aria-label="Next slide">❯</button>
+  <div class="carousel__indicators">
+    <button class="carousel__dot" aria-label="Go to slide 1"></button>
+    <button class="carousel__dot" aria-label="Go to slide 2"></button>
+    <button class="carousel__dot" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 Use carousels to display **related content or images in limited space** while keeping users engaged.
 **Common use cases include:**
@@ -30,7 +61,7 @@ Use carousels to display **related content or images in limited space** while ke
 - Multi-step processes or tutorials guide users
 - News updates or event announcements get featured
 
-## When to avoid
+**Avoid when:**
 
 - Critical content needs immediate user interaction
 - Content lacks clear relationship or narrative flow
@@ -40,10 +71,11 @@ Use carousels to display **related content or images in limited space** while ke
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

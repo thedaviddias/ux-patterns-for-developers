@@ -1,6 +1,11 @@
 ---
 name: hambuger-menu
-description: "Use when you need to display a menu icon for mobile devices."
+description: "Create accessible mobile menus with smooth animations and touch-friendly interactions. Use when you need to display a menu icon for mobile devices."
+user-invocable: true
+triggers:
+  - hambuger
+  - menu
+  - hamburger
 metadata:
   id: hambuger-menu
   category: navigation
@@ -14,12 +19,16 @@ metadata:
 
 Display a menu icon for mobile devices
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Hamburger Menu** is a three-line icon (☰) that toggles a hidden navigation panel, primarily on mobile and small-screen devices. Tapping or clicking the icon reveals the site's navigation, then hides it again when dismissed.
 This pattern conserves screen real estate on smaller viewports while keeping the full navigation accessible behind a single, universally recognized affordance.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Hamburger Menu** to **provide full navigation access on small screens without consuming permanent layout space**.
 **Common scenarios include:**
@@ -29,7 +38,7 @@ Use **Hamburger Menu** to **provide full navigation access on small screens with
 - Responsive redesigns of desktop navigation menus
 - Admin dashboards or complex apps with many navigation items
 
-## When to avoid
+**Avoid when:**
 
 - Sites with only 3-4 navigation items that fit comfortably in a visible bar
 - Desktop-only applications where screen space is abundant
@@ -39,10 +48,11 @@ Use **Hamburger Menu** to **provide full navigation access on small screens with
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

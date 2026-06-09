@@ -1,6 +1,10 @@
 ---
 name: activity-feed
-description: "Use when implementing social activity and updates stream."
+description: "Learn how to implement activity feeds. Use when you need to social activity and updates stream."
+user-invocable: true
+triggers:
+  - activity
+  - feed
 metadata:
   id: activity-feed
   category: social
@@ -14,18 +18,22 @@ metadata:
 
 Social activity and updates stream
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Activity Feed** pattern helps teams create a reliable way to surface recent actions in a chronological stream so users can monitor what changed without visiting each item separately. It is most useful when teams need project and team updates.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - Project and team updates
 - Community or social streams
 - Audit and changelog-style feeds
 
-## When to avoid
+**Avoid when:**
 
 - Avoid social or engagement mechanics when they do not create real user value.
 - Do not add public counts or visibility states without understanding the trust implications.
@@ -33,10 +41,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

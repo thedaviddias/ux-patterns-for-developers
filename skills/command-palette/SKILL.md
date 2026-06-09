@@ -1,6 +1,10 @@
 ---
 name: command-palette
-description: "Use when implementing quick command execution interface."
+description: "Learn how to implement command palettes. Use when you need to quick command execution interface."
+user-invocable: true
+triggers:
+  - command
+  - palette
 metadata:
   id: command-palette
   category: advanced
@@ -14,18 +18,39 @@ metadata:
 
 Quick command execution interface
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Command Palette** pattern helps teams create a reliable way to find and run commands, destinations, and recent items from a single keyboard-first surface. It is most useful when teams need editor and workspace commands.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card palette">
+  <p class="muted">Press <kbd>⌘</kbd> + <kbd>K</kbd> in many apps to open a command palette.</p>
+  <input id="palette-input" type="search" placeholder="Search commands" />
+  <ul id="palette-list">
+    <li>Open settings</li>
+    <li>Create workspace</li>
+    <li>Invite teammate</li>
+    <li>Search patterns</li>
+  </ul>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Editor and workspace commands
 - Settings and preference shortcuts
 - Object or [page navigation](/glossary/pagination) for power users
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler visible navigation or single-page flow when the product surface is still small.
 - Avoid advanced interaction patterns if the team cannot support their state complexity well.
@@ -33,10 +58,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

@@ -1,6 +1,9 @@
 ---
 name: breadcrumb
-description: "Use when implementing help users understand their current location."
+description: "Create effective breadcrumb navigation for better site orientation. Use when you need to help users understand their current location."
+user-invocable: true
+triggers:
+  - breadcrumb
 metadata:
   id: breadcrumb
   category: navigation
@@ -14,13 +17,17 @@ metadata:
 
 Help users understand their current location
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Breadcrumbs** display as horizontal link lists separated by symbols, helping users understand their website location at a glance.
 Breadcrumbs work as secondary navigation aids showing users their current location and providing easy navigation back through parent pages.
 Websites with deep hierarchical structures or complex navigation paths benefit most from breadcrumbs.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Breadcrumbs** to **show users their location within a website's structure and help easy navigation**.
 **Common scenarios include:**
@@ -29,7 +36,7 @@ Use **Breadcrumbs** to **show users their location within a website's structure 
 - Systems rely on nested file or document organization (file explorers, project management tools)
 - E-commerce stores use layered product categories
 
-## When to avoid
+**Avoid when:**
 
 - Single-level websites have flat structure
 - Landing pages or homepages don't need them
@@ -39,10 +46,11 @@ Use **Breadcrumbs** to **show users their location within a website's structure 
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

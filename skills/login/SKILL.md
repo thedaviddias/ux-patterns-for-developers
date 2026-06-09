@@ -1,6 +1,10 @@
 ---
 name: login
-description: "Use when implementing user authentication and sign-in forms."
+description: "Learn how to implement secure and user-friendly login forms. Use when you need to user authentication and sign-in forms."
+user-invocable: true
+triggers:
+  - login
+  - form
 metadata:
   id: login
   category: authentication
@@ -14,12 +18,16 @@ metadata:
 
 User authentication and sign-in forms
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Login Form** is the primary gateway through which users authenticate and gain access to protected content and features. It typically consists of an identifier field (email or username), a password field, and a submit button, often accompanied by "Remember me", "Forgot password", and social login options.
 A well-designed login form balances security with usability — minimizing friction for legitimate users while protecting against unauthorized access.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Login Form** to **authenticate returning users and grant access to protected resources**.
 **Common scenarios include:**
@@ -29,7 +37,7 @@ Use **Login Form** to **authenticate returning users and grant access to protect
 - Community or social platforms requiring identity for participation
 - Admin dashboards and internal tools with role-based access
 
-## When to avoid
+**Avoid when:**
 
 - Public-facing pages that don't require authentication
 - Read-only content that benefits from open access (blogs, documentation)
@@ -38,10 +46,11 @@ Use **Login Form** to **authenticate returning users and grant access to protect
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 
