@@ -8,6 +8,10 @@ import { DocsBreadcrumb } from "@/components/layout";
 import { source } from "@/lib/source";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
 
+export const dynamic = "force-static";
+export const dynamicParams = false;
+export const revalidate = false;
+
 export default async function PageRoute(props: {
 	params: Promise<{ pageName: string }>;
 }) {

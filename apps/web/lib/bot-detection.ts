@@ -1,12 +1,14 @@
 import type { NextRequest } from "next/server";
 
-// Good bots — aligned with robots.ts createSEORobots allowlist
+// Good bots — aligned with robots.ts createSEORobots allowlist for search/social crawlers.
+// Commercial SEO crawlers are intentionally not privileged because they can create high
+// function and ISR load on low-traffic static content sites.
 const GOOD_BOTS =
-	/Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|Lighthouse|PageSpeed|AhrefsBot|SemrushBot/i;
+	/Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|Lighthouse|PageSpeed/i;
 
 // Bad bots — from robots.ts (DotBot, MJ12bot, BlexBot) + AI scrapers + headless + scanners
 const BAD_BOTS =
-	/DotBot|MJ12bot|BlexBot|GPTBot|ClaudeBot|anthropic-ai|CCBot|HeadlessChrome|PhantomJS|Puppeteer|sqlmap|nikto|masscan|Bytespider|PetalBot|Scrapy|HTTrack|wget\/|curl\/|python-requests/i;
+	/DotBot|MJ12bot|BlexBot|AhrefsBot|SemrushBot|GPTBot|ClaudeBot|anthropic-ai|CCBot|HeadlessChrome|PhantomJS|Puppeteer|sqlmap|nikto|masscan|Bytespider|PetalBot|Scrapy|HTTrack|wget\/|curl\/|python-requests/i;
 
 // Paths commonly probed by vulnerability scanners
 const SUSPICIOUS_PATHS =

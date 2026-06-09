@@ -30,6 +30,10 @@ import { siteConfig } from "@/lib/site.config";
 import { getMDXComponents } from "@/mdx-components";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
 
+export const dynamic = "force-static";
+export const dynamicParams = false;
+export const revalidate = false;
+
 export default async function Page(props: {
 	params: Promise<{ slug: string[] }>;
 }) {
