@@ -38,7 +38,7 @@ Use **Breadcrumbs** to **show users their location within a website's structure 
 
 ### Common scenarios and examples
 
-- E-commerce: Home > Electronics > Smartphones > iPhone 15
+- E-commerce: Products > Electronics > Smartphones > iPhone 15
 - Content Management: Dashboard > Projects > Project A > Documents
 - File Systems: My Drive > Work > 2024 > Reports
 
@@ -62,7 +62,7 @@ Use **Breadcrumbs** to **show users their location within a website's structure 
 
 ```mermaid
 flowchart TB
-A[Home] -.->|separator| B[Parent Page]
+A[Optional Home] -.->|separator| B[Parent Page]
 B -.->|separator| C[Current Page]
 ```
 
@@ -106,7 +106,8 @@ B -.->|separator| C[Current Page]
 
 - Use clear, concise labels that match page titles
 - Maintain consistent naming conventions
-- Show the full hierarchy path
+- Show the full meaningful hierarchy path
+- Treat the Home item as optional; include it only when the visible breadcrumb trail and structured data both include it
 
 **Don'ts ❌**
 
@@ -150,7 +151,7 @@ B -.->|separator| C[Current Page]
 - Place the breadcrumb at the top of the page, below the global navigation and above the page title
 - Keep the breadcrumb left-aligned
 - Consider showing both icon and text on larger screens
-- Consider showing a house icon instead of text "Home" on smaller screens
+- When Home is part of the trail, consider showing a house icon instead of text "Home" on smaller screens
 
 **Don'ts ❌**
 
@@ -163,7 +164,7 @@ B -.->|separator| C[Current Page]
 Shows the page's position within the site hierarchy, most common type.
 
 ```html
-Home > Products > Electronics > Laptops > Gaming Laptops
+Products > Electronics > Laptops > Gaming Laptops
 ```
 
 **Use when:** Site has clear hierarchical structure with defined categories.
@@ -172,7 +173,7 @@ Home > Products > Electronics > Laptops > Gaming Laptops
 Shows the actual path the user took to reach the current page.
 
 ```html
-Home > Search Results > Product Details > Reviews
+Search Results > Product Details > Reviews
 ```
 
 **Use when:** Users follow varied paths and need to retrace their journey.
@@ -229,14 +230,14 @@ Breadcrumb trail doesn't match actual site structure, misleading users about the
 
 ```html
 <!-- Bad: Skipping levels -->
-Home > Product Details
+Product Details
 
 <!-- Good: Full path -->
-Home > Products > Electronics > Product Details
+Products > Electronics > Product Details
 ```
 
 **How to Fix It:**
-Show the complete hierarchical path from home to current page without skipping levels.
+Show the complete meaningful hierarchical path without skipping levels. Include Home only when it is an explicit breadcrumb item.
 
 ---
 
@@ -286,7 +287,7 @@ Each breadcrumb interaction provides valuable insights into user behavior. Below
 | ------------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------- |
 | `breadcrumb.view`        | When the breadcrumb component enters the viewport.                 | Determines visibility and whether breadcrumbs are available to users. |
 | `breadcrumb.click`       | When a user clicks on any breadcrumb link.                         | Measures engagement and breadcrumb-driven navigation.                 |
-| `breadcrumb.home_click`  | When a user clicks on the **home** link in the breadcrumb.         | Tracks how often users return to the homepage via breadcrumbs.        |
+| `breadcrumb.home_click`  | Optional: when a user clicks the **home** link in the breadcrumb.  | Tracks homepage returns only when Home is part of the visible trail.   |
 | `breadcrumb.level_click` | When a user clicks on an intermediate breadcrumb level.            | Helps assess whether users navigate back up the hierarchy.            |
 | `breadcrumb.usage`       | Captures breadcrumb interaction data relative to total page views. | Helps measure how often breadcrumbs are used when available.          |
 
@@ -313,7 +314,7 @@ Once tracking is in place, the following metrics provide actionable insights:
 - **Breadcrumb Usage Rate** → Percentage of page visits where breadcrumbs were interacted with.
 - **Breadcrumb Click-Through Rate (CTR)** → Percentage of users who interact with breadcrumbs after seeing them.
 - **Navigation Recovery Rate** → How often users navigate up using breadcrumbs instead of the browser back button.
-- **Home Click Rate** → Measures how often users return to the homepage via breadcrumbs.
+- **Home Click Rate** → Optional metric for trails that include a Home item.
 - **Intermediate Level Click Rate** → Tracks how often users use breadcrumbs to navigate back to higher levels.
 
 ### Insights & Optimization Based on Tracking
@@ -329,7 +330,7 @@ By analyzing tracking data, we can optimize breadcrumb usability:
   **Optimization:** Consider whether breadcrumbs are necessary in the current navigation structure. They may be redundant if other navigation methods are more intuitive.
 
 - 🔄 **Frequent Home Clicks?**
-  → Users might be struggling to find their way back.
+  → If the trail includes Home, users might be struggling to find their way back through intermediate levels.
   **Optimization:** Review site structure and ensure proper linking between categories.
 
 - 🔁 **More Back Button Usage Than Breadcrumb Clicks?**
@@ -436,7 +437,7 @@ Breadcrumb text can expand 30-200% when translated:
 
 ### Cultural Considerations
 
-- **Home Label:** "Home" doesn't translate literally in all languages
+- **Home Label:** When used, "Home" does not translate literally in all languages
 - **Separator Symbols:** Avoid culturally specific symbols
 - **Truncation:** Consider character-based vs word-based truncation
 - **Reading Direction:** Some cultures read hierarchy differently
@@ -450,11 +451,6 @@ This example uses semantic HTML to provide a clear structure for the breadcrumb 
 ```html
 <nav aria-label="Breadcrumb">
   <ol>
-    <li>
-      <a href="https://example.com">
-        <span>Home</span>
-      </a>
-    </li>
     <li>
       <a href="https://example.com/products">
         <span>Products</span>
@@ -470,11 +466,10 @@ This example uses semantic HTML to provide a clear structure for the breadcrumb 
 
 ### JSON-LD Structured Data
 
-This example demonstrates how to dynamically generate the breadcrumb JSON-LD structured Data using JavaScript.
+This example demonstrates how to dynamically generate breadcrumb JSON-LD structured data from the same trail shown to users.
 
 ```javascript
 const breadcrumbs = [
-  { title: "Home", url: "https://example.com" },
   { title: "Products", url: "https://example.com/products" },
   { title: "Current Page" },
 ];
@@ -508,6 +503,8 @@ function generateBreadcrumbSchema(breadcrumbs) {
 ### Structured Data
 
 - Implement breadcrumb structured data using [Schema.org markup](https://schema.org/BreadcrumbList) to help search engines understand your site's hierarchy
+- Generate `BreadcrumbList` from the same source of truth as the visible breadcrumb trail
+- Omit breadcrumb structured data when there is no visible, meaningful trail or the trail has only one item
 - This improves the way your site appears in search results and helps search engines better understand your content structure
   Example JSON-LD structured data:
 
@@ -519,18 +516,12 @@ function generateBreadcrumbSchema(breadcrumbs) {
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
-      "item": "https://example.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
       "name": "Products",
       "item": "https://example.com/products"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 2,
       "name": "Current Page"
     }
   ]
@@ -551,7 +542,7 @@ function generateBreadcrumbSchema(breadcrumbs) {
 **Should ✓**
 
 - [ ] Navigate to the correct page when clicking each breadcrumb link
-- [ ] Show the complete hierarchy path from home to current page
+- [ ] Show the complete hierarchy path from the first meaningful parent, or from Home when Home is part of the trail, to the current page
 - [ ] Update breadcrumb trail when navigating through different levels
 - [ ] Maintain state after page refresh
 - [ ] Work with browser back/forward navigation
@@ -571,7 +562,7 @@ function generateBreadcrumbSchema(breadcrumbs) {
 **Should ✓**
 
 - [ ] Adapt layout for different screen sizes
-- [ ] Show/hide home icon appropriately
+- [ ] Handle optional home labels or icons appropriately
 - [ ] Handle text overflow gracefully
 - [ ] Maintain touch target sizes on mobile (minimum 44x44px)
 - [ ] Preserve functionality across different devices
@@ -580,7 +571,7 @@ function generateBreadcrumbSchema(breadcrumbs) {
 
 **Should ✓**
 
-- [ ] Include proper Schema.org markup
+- [ ] Include proper Schema.org markup when a meaningful breadcrumb trail exists
 - [ ] Have semantic HTML structure
 - [ ] Maintain consistent URL structure
 - [ ] Include relevant meta tags

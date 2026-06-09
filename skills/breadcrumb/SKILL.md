@@ -114,14 +114,14 @@ Breadcrumb trail doesn't match actual site structure, misleading users about the
 
 ```html
 <!-- Bad: Skipping levels -->
-Home > Product Details
+Product Details
 
 <!-- Good: Full path -->
-Home > Products > Electronics > Product Details
+Products > Electronics > Product Details
 ```
 
 **How to Fix It:**
-Show the complete hierarchical path from home to current page without skipping levels.
+Show the complete meaningful hierarchical path without skipping levels. Include Home only when it is an explicit breadcrumb item.
 
 ## Related patterns
 
