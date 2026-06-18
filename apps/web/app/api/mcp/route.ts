@@ -35,12 +35,23 @@ async function getServer(): Promise<UXPatternsMCPServer> {
 }
 
 const MAX_REQUEST_SIZE = 100 * 1024;
+const MCP_METADATA_CACHE_TTL_MS = 60 * 60 * 1000;
 const PUBLIC_CACHE_HEADERS = {
 	"Cache-Control":
 		"public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
 	"CDN-Cache-Control": "max-age=86400",
 	"Vercel-CDN-Cache-Control": "max-age=86400",
 };
+
+interface CachedMcpMetadataResponse {
+	body: string;
+	expiresAt: number;
+	headers: Array<[string, string]>;
+	status: number;
+	statusText: string;
+}
+
+const metadataResponseCache = new Map<string, CachedMcpMetadataResponse>();
 
 function withResponseHeaders(
 	response: Response,
@@ -59,6 +70,44 @@ function withResponseHeaders(
 		status: response.status,
 		statusText: response.statusText,
 		headers,
+	});
+}
+
+function isCacheableMcpPostBody(body: unknown): boolean {
+	return (
+		typeof body === "object" &&
+		body !== null &&
+		Reflect.get(body, "jsonrpc") === "2.0" &&
+		Reflect.get(body, "method") === "tools/list"
+	);
+}
+
+function getCachedMetadataResponse(key: string): Response | undefined {
+	const cached = metadataResponseCache.get(key);
+	if (!cached) return undefined;
+	if (Date.now() > cached.expiresAt) {
+		metadataResponseCache.delete(key);
+		return undefined;
+	}
+
+	return new Response(cached.body, {
+		status: cached.status,
+		statusText: cached.statusText,
+		headers: new Headers(cached.headers),
+	});
+}
+
+async function cacheMetadataResponse(
+	key: string,
+	response: Response,
+): Promise<void> {
+	const clonedResponse = response.clone();
+	metadataResponseCache.set(key, {
+		body: await clonedResponse.text(),
+		expiresAt: Date.now() + MCP_METADATA_CACHE_TTL_MS,
+		headers: Array.from(clonedResponse.headers.entries()),
+		status: clonedResponse.status,
+		statusText: clonedResponse.statusText,
 	});
 }
 
@@ -158,9 +207,20 @@ export async function POST(request: NextRequest) {
 		method: request.method,
 		headers: request.headers,
 	});
+	const cacheKey = isCacheableMcpPostBody(body) ? text : undefined;
+	const cachedResponse = cacheKey
+		? getCachedMetadataResponse(cacheKey)
+		: undefined;
+
+	if (cachedResponse) {
+		return withResponseHeaders(cachedResponse, rateLimit.headers);
+	}
 
 	try {
 		const response = await mcpServer.handleHttpRequest(mcpRequest, body);
+		if (cacheKey && response.ok) {
+			await cacheMetadataResponse(cacheKey, response);
+		}
 		return withResponseHeaders(response, rateLimit.headers);
 	} catch (error) {
 		const requestId = (body as { id?: string | number })?.id ?? null;

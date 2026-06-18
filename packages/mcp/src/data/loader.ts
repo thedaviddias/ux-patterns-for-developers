@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 
 let cachedDocs: VeliteDoc[] | null = null;
 let lastLoadTime = 0;
-const CACHE_TTL = 60 * 1000; // 1 minute cache
+const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours; content changes on deployment
 
 /**
  * Get the path to the Velite output file

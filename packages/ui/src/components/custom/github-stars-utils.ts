@@ -5,28 +5,32 @@ interface GitHubRepoResponse {
 	full_name: string;
 }
 
-const fetchGitHubStars = async (): Promise<number> => {
-	const response = await fetch(
-		"https://api.github.com/repos/thedaviddias/ux-patterns-for-developers",
-		{
-			headers: {
-				Accept: "application/vnd.github.v3+json",
-				"X-GitHub-Api-Version": "2022-11-28",
-				"User-Agent": "UX-Patterns-for-Developers",
-				...(process.env.GITHUB_TOKEN
-					? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
-					: {}),
+const fetchGitHubStars = async (): Promise<number | null> => {
+	try {
+		const response = await fetch(
+			"https://api.github.com/repos/thedaviddias/ux-patterns-for-developers",
+			{
+				headers: {
+					Accept: "application/vnd.github.v3+json",
+					"X-GitHub-Api-Version": "2022-11-28",
+					"User-Agent": "UX-Patterns-for-Developers",
+					...(process.env.GITHUB_TOKEN
+						? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+						: {}),
+				},
+				signal: AbortSignal.timeout(1500),
 			},
-			signal: AbortSignal.timeout(5000),
-		},
-	);
+		);
 
-	if (!response.ok) {
-		throw new Error(`GitHub API error: ${response.status}`);
+		if (!response.ok) {
+			return null;
+		}
+
+		const data: GitHubRepoResponse = await response.json();
+		return data.stargazers_count;
+	} catch {
+		return null;
 	}
-
-	const data: GitHubRepoResponse = await response.json();
-	return data.stargazers_count;
 };
 
 // Cache the GitHub stars fetch for 1 week to avoid rate limits
