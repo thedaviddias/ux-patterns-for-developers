@@ -1,4 +1,9 @@
-import { createServer, type UXPatternsMCPServer } from "@ux-patterns/mcp";
+import {
+	createServer,
+	MCP_PROTOCOL_VERSION,
+	MCP_SERVER_INFO,
+	type UXPatternsMCPServer,
+} from "@ux-patterns/mcp";
 import { registerAllTools } from "@ux-patterns/mcp/tools";
 import { checkRateLimit, getClientIdentifier } from "@ux-patterns/mcp/utils";
 import { type NextRequest, NextResponse } from "next/server";
@@ -30,6 +35,12 @@ async function getServer(): Promise<UXPatternsMCPServer> {
 }
 
 const MAX_REQUEST_SIZE = 100 * 1024;
+const PUBLIC_CACHE_HEADERS = {
+	"Cache-Control":
+		"public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+	"CDN-Cache-Control": "max-age=86400",
+	"Vercel-CDN-Cache-Control": "max-age=86400",
+};
 
 function withResponseHeaders(
 	response: Response,
@@ -55,15 +66,29 @@ function withResponseHeaders(
  * GET /api/mcp - Server info endpoint
  */
 export async function GET() {
-	const mcpServer = await getServer();
-	const info = mcpServer.getServerInfo();
-
-	return NextResponse.json(info, {
-		headers: {
-			"Content-Type": "application/json",
-			"Access-Control-Allow-Origin": "*",
+	return NextResponse.json(
+		{
+			name: MCP_SERVER_INFO.name,
+			version: MCP_SERVER_INFO.version,
+			protocolVersion: MCP_PROTOCOL_VERSION,
+			capabilities: {
+				tools: {
+					listChanged: false,
+				},
+			},
+			serverInfo: {
+				name: "UX Patterns MCP Server",
+				version: MCP_SERVER_INFO.version,
+			},
 		},
-	});
+		{
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+				...PUBLIC_CACHE_HEADERS,
+			},
+		},
+	);
 }
 
 /**
@@ -173,6 +198,7 @@ export async function OPTIONS() {
 				"Accept, Content-Type, MCP-Protocol-Version, MCP-Session-Id",
 			"Access-Control-Expose-Headers": "MCP-Session-Id",
 			"Access-Control-Max-Age": "86400",
+			...PUBLIC_CACHE_HEADERS,
 		},
 	});
 }
