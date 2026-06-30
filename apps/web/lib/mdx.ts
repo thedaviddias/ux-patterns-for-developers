@@ -13,6 +13,7 @@ import type { MDXComponents } from "mdx/types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 import {
 	edges as dataDisplayEdges,
 	nodes as dataDisplayNodes,
@@ -84,6 +85,11 @@ const mdxScope = {
 // Content directory path
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
+// Shiki defaults to the WASM (Oniguruma) engine, whose init dominates cold-start
+// render time and pushed runtime MDX recompiles past the 15s function timeout.
+// The pure-JS regex engine has a far cheaper cold start. Shared across compiles.
+const shikiEngine = createJavaScriptRegexEngine();
+
 /**
  * Read and compile an MDX file from the content directory
  *
@@ -137,6 +143,7 @@ export async function compileMDXContent<
 					[
 						rehypeShiki,
 						{
+							engine: shikiEngine,
 							themes: {
 								light: "github-light",
 								dark: "github-dark",
@@ -190,6 +197,7 @@ export async function compileMDXString<
 					[
 						rehypeShiki,
 						{
+							engine: shikiEngine,
 							themes: {
 								light: "github-light",
 								dark: "github-dark",
