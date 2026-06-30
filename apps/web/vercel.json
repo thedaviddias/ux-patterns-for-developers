@@ -26,6 +26,22 @@
 		"app/api/newsletter/route.ts": {
 			"memory": 256,
 			"maxDuration": 10
+		},
+		"app/[...slug]/page.tsx": {
+			"memory": 3008,
+			"maxDuration": 60
+		},
+		"app/blog/[slug]/page.tsx": {
+			"memory": 3008,
+			"maxDuration": 60
+		},
+		"app/blog/page.tsx": {
+			"memory": 1024,
+			"maxDuration": 30
+		},
+		"app/pages/[pageName]/page.tsx": {
+			"memory": 1769,
+			"maxDuration": 30
 		}
 	},
 	"rewrites": [
