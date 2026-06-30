@@ -10,6 +10,12 @@ const GOOD_BOTS =
 const BAD_BOTS =
 	/DotBot|MJ12bot|BlexBot|AhrefsBot|SemrushBot|GPTBot|ClaudeBot|anthropic-ai|CCBot|HeadlessChrome|PhantomJS|Puppeteer|sqlmap|nikto|masscan|Bytespider|PetalBot|Scrapy|HTTrack|wget\/|curl\/|python-requests/i;
 
+// Malicious vulnerability/port scanners only. Used for API surfaces (e.g. the
+// MCP endpoint) that are *meant* to be hit by programmatic clients, so we must
+// NOT block generic HTTP libraries (curl, wget, python-requests) there —
+// rate limiting handles abuse. We still hard-block actual attack tooling.
+const SCANNER_UA = /sqlmap|nikto|masscan|nmap|nuclei|wpscan|zgrab|dirbuster/i;
+
 // Paths commonly probed by vulnerability scanners
 const SUSPICIOUS_PATHS =
 	/^\/(wp-admin|wp-login|wp-content|wp-includes|\.env|\.git|phpmyadmin|phpinfo|administrator|cgi-bin|\.aws)/i;
@@ -71,6 +77,15 @@ export function detectBot(
 	}
 
 	return { isBot: false, botType: "human", botName: null };
+}
+
+/**
+ * True only for known malicious scanners/attack tooling. Safe to block on
+ * programmatic API surfaces (e.g. MCP) without locking out legitimate clients.
+ */
+export function isVulnerabilityScanner(userAgent: string | null): boolean {
+	if (!userAgent) return false;
+	return SCANNER_UA.test(userAgent);
 }
 
 export function getClientIP(request: NextRequest): string | null {
