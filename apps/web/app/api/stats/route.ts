@@ -19,8 +19,19 @@ const getPageStats = unstable_cache(
 				{ name: "path", operator: "is", value: [page] },
 			]);
 
+			// OpenPanel's `range` only accepts a fixed set of presets (7d/30d/...);
+			// "90d" is not one of them and returns 400. Use an explicit 90-day
+			// startDate/endDate window instead (documented, unambiguous).
+			const endDate = new Date();
+			const startDate = new Date(endDate.getTime() - 90 * 24 * 60 * 60 * 1000);
+			const params = new URLSearchParams({
+				startDate: startDate.toISOString().slice(0, 10),
+				endDate: endDate.toISOString().slice(0, 10),
+				filters,
+			});
+
 			const response = await fetch(
-				`${OPENPANEL_API_URL}/insights/${clientId}/metrics?range=90d&filters=${encodeURIComponent(filters)}`,
+				`${OPENPANEL_API_URL}/insights/${clientId}/metrics?${params.toString()}`,
 				{
 					headers: {
 						"openpanel-client-id": clientId,
@@ -30,7 +41,14 @@ const getPageStats = unstable_cache(
 			);
 
 			if (!response.ok) {
-				throw new Error(`OpenPanel API error: ${response.status}`);
+				// Surface the upstream reason — a bare status code hides why the
+				// request was rejected and makes 400s undebuggable.
+				const errorBody = await response.text().catch(() => "");
+				throw new Error(
+					`OpenPanel API error: ${response.status}${
+						errorBody ? ` - ${errorBody.slice(0, 300)}` : ""
+					}`,
+				);
 			}
 
 			const data = await response.json();

@@ -6,6 +6,28 @@
 			"**": false
 		}
 	},
+	"functions": {
+		"app/api/mcp/route.ts": {
+			"memory": 512,
+			"maxDuration": 15
+		},
+		"app/api/op/[...path]/route.ts": {
+			"memory": 256,
+			"maxDuration": 10
+		},
+		"app/api/stats/route.ts": {
+			"memory": 256,
+			"maxDuration": 15
+		},
+		"app/api/search/route.ts": {
+			"memory": 512,
+			"maxDuration": 15
+		},
+		"app/api/newsletter/route.ts": {
+			"memory": 256,
+			"maxDuration": 10
+		}
+	},
 	"rewrites": [
 		{
 			"source": "/:path*",

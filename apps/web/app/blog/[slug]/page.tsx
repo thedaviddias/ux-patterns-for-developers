@@ -13,12 +13,23 @@ import { ReadMoreSection } from "@/components/blog/read-more-section";
 import { TableOfContents } from "@/components/blog/table-of-contents";
 import { generateBlogPostingSchema, JsonLd } from "@/components/json-ld";
 import { DocsBreadcrumb } from "@/components/layout";
-import { getBlogPost } from "@/lib/content";
+import { generateBlogStaticParams, getBlogPost } from "@/lib/content";
 import { compileMDXContent } from "@/lib/mdx";
 import { siteConfig } from "@/lib/site.config";
 import { getMDXComponents } from "@/mdx-components";
 import { formatDate } from "@/utils/date";
 import { generateBreadcrumbSchema } from "@/utils/generate-breadcrumb-schema";
+
+// Prerender every blog post at build time. Without this the route renders on
+// demand and re-runs the (expensive) MDX/Shiki compile on every request,
+// causing 15s function timeouts. Mirrors the [...slug] content route.
+export const dynamic = "force-static";
+export const dynamicParams = false;
+export const revalidate = false;
+
+export function generateStaticParams() {
+	return generateBlogStaticParams();
+}
 
 interface PageProps {
 	params: Promise<{ slug: string }>;
