@@ -1,6 +1,10 @@
 ---
 name: date-input
-description: "Use when implementing enter dates in a structured text format."
+description: "Build date input fields with validation, formatting, and localization features. Use when you need to enter dates in a structured text format."
+user-invocable: true
+triggers:
+  - date
+  - input
 metadata:
   id: date-input
   category: forms
@@ -14,12 +18,16 @@ metadata:
 
 Enter dates in a structured text format
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Date Input** is a form field specifically designed for entering date values. It encompasses two primary implementation approaches: the native `<input type="date">` control (which renders the browser's built-in date picker), and structured text inputs using masked or segmented fields (e.g., MM/DD/YYYY format with auto-advance between day, month, and year segments).
 Date Input is distinct from a **Date Picker** in that it focuses on direct keyboard entry of a date value rather than calendar-based visual selection. It is the preferred approach for entering known dates (birth dates, expiry dates) where a calendar view adds unnecessary complexity.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **Known, precise dates** – Birth dates, passport expiry dates, credit card expiry.
 - **Historical dates** – Events or records well in the past where calendar navigation would be tedious.
@@ -27,7 +35,7 @@ Date Input is distinct from a **Date Picker** in that it focuses on direct keybo
 - **High-frequency data entry** – Forms where users enter many dates quickly benefit from direct text entry.
 - **Date of birth** – Users always know this value; no calendar navigation needed.
 
-## When to avoid
+**Avoid when:**
 
 - **Scheduling and appointments** – Use a [Date Picker](/patterns/forms/date-picker) to show availability and context.
 - **Relative date selection** – "Next Monday", "In 3 weeks" — use natural language or a date picker.
@@ -36,10 +44,11 @@ Date Input is distinct from a **Date Picker** in that it focuses on direct keybo
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

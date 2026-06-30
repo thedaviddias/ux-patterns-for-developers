@@ -1,6 +1,10 @@
 ---
 name: accordion
-description: "Use when implementing expand and collapse content sections."
+description: "Create effective accordion components for your web applications. Use when you need to expand and collapse content sections. Triggers: collapsible panels."
+user-invocable: true
+triggers:
+  - accordion
+  - collapsible panels
 metadata:
   id: accordion
   category: content-management
@@ -14,12 +18,16 @@ metadata:
 
 Expand and collapse content sections
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 An **accordion** consists of vertically stacked headers that expand or collapse to reveal or hide related content. Accordions conserve screen space by displaying content in a structured, interactive way.
 Accordions work well for **FAQs, settings panels, and structured content** where users access multiple sections without scrolling through everything.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use accordions to present **structured content benefiting from progressive disclosure**.
 **Common use cases include:**
@@ -29,7 +37,7 @@ Use accordions to present **structured content benefiting from progressive discl
 - **Documentation or Guides** – Step-by-step content stays organized
 - **Navigation and Filtering** – Sidebars use them for hierarchical content
 
-## When to avoid
+**Avoid when:**
 
 - **All content needs simultaneous visibility** (comparison tables)
 - **Content is too short**—collapsing small text reduces usability
@@ -39,10 +47,11 @@ Use accordions to present **structured content benefiting from progressive discl
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

@@ -1,6 +1,12 @@
 ---
 name: expandable-text
-description: "Use when implementing show or hide additional text content on demand."
+description: "Create expandable text components with progressive disclosure and accessibility features for better content management. Use when you need to show or hide additional text content on demand. Triggers: collapsible text, Read More/Read Less."
+user-invocable: true
+triggers:
+  - expandable
+  - text
+  - collapsible text
+  - read more/read less
 metadata:
   id: expandable-text
   category: content-management
@@ -14,12 +20,34 @@ metadata:
 
 Show or hide additional text content on demand
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Expandable Text** is a content management pattern that allows users to expand and collapse sections of text. This pattern improves readability by initially hiding non-essential content while keeping it accessible on demand.
 Expandable Text is commonly used to manage lengthy descriptions, article summaries, or additional details that are helpful but not immediately necessary. It helps users scan content efficiently while maintaining a clean and minimal interface.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="expandable-text">
+  <p class="expandable-text__preview">
+    This is the preview text that is always visible...
+    <button class="expandable-text__toggle" aria-expanded="false">
+      Read more
+    </button>
+  </p>
+  <div class="expandable-text__content" hidden>
+    <!-- Hidden content here -->
+  </div>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Expandable Text** when you need to **manage lengthy content while keeping essential information visible**.
 **Common scenarios include:**
@@ -29,7 +57,7 @@ Use **Expandable Text** when you need to **manage lengthy content while keeping 
 - **Progressive disclosure** – Revealing additional information only when needed.
 - **Enhancing readability** – Preventing information overload while keeping details accessible.
 
-## When to avoid
+**Avoid when:**
 
 - **For critical information** – Users should not need to expand content to access essential details, such as pricing, terms, or important warnings.
 - **For frequently accessed content** – If most users expand the content, it may be better to display it by default.
@@ -37,10 +65,11 @@ Use **Expandable Text** when you need to **manage lengthy content while keeping 
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

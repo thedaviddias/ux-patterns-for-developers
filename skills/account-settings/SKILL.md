@@ -1,6 +1,10 @@
 ---
 name: account-settings
-description: "Use when implementing user account configuration and preferences."
+description: "Learn how to implement account settings. Use when you need to user account configuration and preferences."
+user-invocable: true
+triggers:
+  - account
+  - settings
 metadata:
   id: account-settings
   category: authentication
@@ -14,12 +18,16 @@ metadata:
 
 User account configuration and preferences
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Account Settings** is the centralized interface where authenticated users manage their account configuration, security preferences, notification settings, and personal data. It serves as the control center for everything related to the user's relationship with the application.
 A well-organized settings page groups related options logically, confirms destructive actions, and provides clear feedback when changes are saved — all while keeping sensitive operations behind re-authentication.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Account Settings** to **give users control over their account configuration, security, and preferences**.
 **Common scenarios include:**
@@ -30,7 +38,7 @@ Use **Account Settings** to **give users control over their account configuratio
 - Managing connected applications and [social login](/patterns/authentication/social-login) providers
 - Deleting or deactivating an account
 
-## When to avoid
+**Avoid when:**
 
 - Public-facing profile display (use [User Profile](/patterns/authentication/user-profile) instead)
 - Application-level settings that affect all users (use an admin panel)
@@ -39,10 +47,11 @@ Use **Account Settings** to **give users control over their account configuratio
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

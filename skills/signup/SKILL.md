@@ -1,6 +1,11 @@
 ---
 name: signup
-description: "Use when implementing user registration and account creation."
+description: "Learn how to implement effective sign-up flows. Use when you need to user registration and account creation."
+user-invocable: true
+triggers:
+  - signup
+  - sign
+  - flow
 metadata:
   id: signup
   category: authentication
@@ -14,12 +19,16 @@ metadata:
 
 User registration and account creation
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Sign Up Flow** is the registration process through which new users create an account. It collects the minimum required information (typically name, email, and password), validates inputs, and onboards users into the application.
 The best sign-up flows minimize friction by asking for only what's essential, providing real-time validation, and offering alternative registration methods like social login to reduce abandonment.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Sign Up Flow** to **create new user accounts and collect the minimum information needed to get started**.
 **Common scenarios include:**
@@ -29,7 +38,7 @@ Use **Sign Up Flow** to **create new user accounts and collect the minimum infor
 - Community platforms where identity is needed for participation
 - Subscription services requiring billing and profile information
 
-## When to avoid
+**Avoid when:**
 
 - Content that should be freely accessible without registration
 - One-time transactions where guest checkout suffices
@@ -38,10 +47,11 @@ Use **Sign Up Flow** to **create new user accounts and collect the minimum infor
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 
