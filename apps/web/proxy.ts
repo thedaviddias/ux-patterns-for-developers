@@ -1,7 +1,12 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { detectBot, getClientIP, getRouteCategory } from "@/lib/bot-detection";
+import {
+	detectBot,
+	getClientIP,
+	getRouteCategory,
+	isVulnerabilityScanner,
+} from "@/lib/bot-detection";
 import { checkRateLimit, getRateLimitStore } from "@/lib/rate-limit-store";
 
 const MCP_HOST = "mcp.uxpatterns.dev";
@@ -20,9 +25,11 @@ export async function proxy(request: NextRequest) {
 	// MCP host maps entirely to the /api/mcp function. Protect it at the edge
 	// BEFORE rewriting, otherwise the function takes every hit unthrottled.
 	if (host === MCP_HOST) {
-		// Block known-bad scrapers, but not empty/odd UAs: legit MCP HTTP
-		// clients frequently send no recognizable User-Agent.
-		if (detectBot(userAgent, pathname).botType === "bad") {
+		// Only hard-block malicious scanners here. MCP is a programmatic API hit
+		// by generic HTTP clients (curl, python-requests, custom agents), so the
+		// general bad-bot list would lock out legitimate callers. Per-IP rate
+		// limiting below is what actually contains abuse.
+		if (isVulnerabilityScanner(userAgent)) {
 			return new Response("Forbidden", { status: 403 });
 		}
 
