@@ -15,10 +15,6 @@
 			"memory": 256,
 			"maxDuration": 10
 		},
-		"app/api/stats/route.ts": {
-			"memory": 256,
-			"maxDuration": 15
-		},
 		"app/api/search/route.ts": {
 			"memory": 512,
 			"maxDuration": 15

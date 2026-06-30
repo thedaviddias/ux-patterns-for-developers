@@ -1,92 +1,47 @@
-"use client";
-
 import { Badge } from "@ux-patterns/ui/components/shadcn/badge";
-import { Eye } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 
 type PatternStatsProps = {
-	views?: number;
 	popularity?: "low" | "medium" | "high" | "trending";
 	className?: string;
 	mode?: "hidden" | "inline" | "block";
 };
 
+const popularityConfig = {
+	low: {
+		label: "Growing",
+		icon: "📈",
+		className: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
+	},
+	medium: {
+		label: "Popular",
+		icon: "⭐",
+		className: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100",
+	},
+	high: {
+		label: "Very Popular",
+		icon: "🌟",
+		className:
+			"bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100",
+	},
+	trending: {
+		label: "Trending",
+		icon: "🔥",
+		className: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100",
+	},
+};
+
+/**
+ * Renders the (frontmatter-driven) popularity badge for a pattern. View counts
+ * were removed: they relied on a per-request /api/stats call that added function
+ * load without adding value.
+ */
 export const PatternStats = ({
-	views: initialViews,
 	popularity,
 	className,
 	mode = "hidden",
 }: PatternStatsProps) => {
-	const [views, setViews] = useState<number | undefined>(initialViews);
-	const [loading, setLoading] = useState(false);
-	const pathname = usePathname();
-
-	useEffect(() => {
-		const fetchStats = async () => {
-			if (mode === "hidden") {
-				return;
-			}
-
-			// Only fetch if no initial views provided and we have a pathname
-			if (initialViews === undefined && pathname) {
-				setLoading(true);
-				try {
-					const response = await fetch(
-						`/api/stats?page=${encodeURIComponent(pathname)}`,
-					);
-					if (response.ok) {
-						const data = await response.json();
-						setViews(data.pageviews);
-					}
-				} catch (error) {
-					console.error("Failed to fetch stats:", error);
-				} finally {
-					setLoading(false);
-				}
-			}
-		};
-
-		fetchStats();
-	}, [pathname, initialViews, mode]);
-	const formatNumber = (num: number): string => {
-		if (num >= 1000) {
-			return `${(num / 1000).toFixed(1)}k`;
-		}
-		return num.toString();
-	};
-
-	const popularityConfig = {
-		low: {
-			label: "Growing",
-			icon: "📈",
-			className:
-				"bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
-		},
-		medium: {
-			label: "Popular",
-			icon: "⭐",
-			className:
-				"bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100",
-		},
-		high: {
-			label: "Very Popular",
-			icon: "🌟",
-			className:
-				"bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100",
-		},
-		trending: {
-			label: "Trending",
-			icon: "🔥",
-			className: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100",
-		},
-	};
-
-	const hasViews = typeof views === "number" && views > 0;
-	const hasStats = hasViews || popularity;
-
-	if (mode === "hidden" || !hasStats) return null;
+	if (mode === "hidden" || !popularity) return null;
 
 	return (
 		<div
@@ -96,24 +51,15 @@ export const PatternStats = ({
 				className,
 			)}
 		>
-			{popularity && (
-				<Badge
-					className={cn(
-						"px-2 py-0.5 text-xs font-medium",
-						popularityConfig[popularity].className,
-					)}
-				>
-					<span className="mr-1">{popularityConfig[popularity].icon}</span>
-					{popularityConfig[popularity].label}
-				</Badge>
-			)}
-
-			{hasViews && (
-				<div className="flex items-center gap-1.5">
-					<Eye className="w-4 h-4" />
-					<span>{loading ? "..." : formatNumber(views)} views</span>
-				</div>
-			)}
+			<Badge
+				className={cn(
+					"px-2 py-0.5 text-xs font-medium",
+					popularityConfig[popularity].className,
+				)}
+			>
+				<span className="mr-1">{popularityConfig[popularity].icon}</span>
+				{popularityConfig[popularity].label}
+			</Badge>
 		</div>
 	);
 };
