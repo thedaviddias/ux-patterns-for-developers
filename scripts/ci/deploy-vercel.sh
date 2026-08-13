@@ -3,7 +3,7 @@
 set -euo pipefail
 
 readonly vercel_cli_version="58.11.0"
-readonly project_directory="apps/web"
+readonly project_directory="."
 readonly deployment_environment="${1:-production}"
 
 case "${deployment_environment}" in
