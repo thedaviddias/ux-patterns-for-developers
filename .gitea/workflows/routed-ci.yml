@@ -19,13 +19,9 @@ jobs:
     name: Validate and deploy through Gitea
     if: ${{ vars.BUILD_PROVIDER == 'gitea' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
-    container:
-      image: node:24-bookworm
-      options: -v /var/lib/gitea-act-runner/pnpm-store:/pnpm-store -v /var/lib/gitea-act-runner/deployment-state:/ci-state
     timeout-minutes: 45
     env:
       PNPM_STORE_DIR: /pnpm-store
-      CI_DEPLOYMENT_STATE_DIR: /ci-state
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -35,6 +31,10 @@ jobs:
       - name: Check whether this commit needs deployment
         id: deployment-state
         run: bash scripts/ci/deployment-state.sh check
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
       - name: Enable pnpm
         if: ${{ steps.deployment-state.outputs.required == 'true' }}
@@ -57,7 +57,3 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
-
-      - name: Record the deployed commit
-        if: ${{ success() && steps.deployment-state.outputs.required == 'true' && github.ref == 'refs/heads/main' && vars.BUILD_PROVIDER == 'gitea' }}
-        run: bash scripts/ci/deployment-state.sh mark

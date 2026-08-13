@@ -3,21 +3,25 @@
 set -euo pipefail
 
 readonly operation="${1:-}"
-: "${CI_DEPLOYMENT_STATE_DIR:?CI_DEPLOYMENT_STATE_DIR is required}"
-: "${GITHUB_REPOSITORY:?GITHUB_REPOSITORY is required}"
 : "${GITHUB_SHA:?GITHUB_SHA is required}"
-
-readonly repository_key="${GITHUB_REPOSITORY//\//_}"
-readonly state_file="${CI_DEPLOYMENT_STATE_DIR}/${repository_key}.sha"
-
-mkdir -p "${CI_DEPLOYMENT_STATE_DIR}"
+: "${VERCEL_TOKEN:?VERCEL_TOKEN is required}"
+: "${VERCEL_ORG_ID:?VERCEL_ORG_ID is required}"
+: "${VERCEL_PROJECT_ID:?VERCEL_PROJECT_ID is required}"
 
 case "${operation}" in
   check)
-    deployed_sha=""
-    if [[ -f "${state_file}" ]]; then
-      deployed_sha="$(<"${state_file}")"
-    fi
+    deployments_file="$(mktemp)"
+    trap 'rm -f "${deployments_file}"' EXIT
+    curl --fail --silent --show-error --retry 3 \
+      --header "Authorization: Bearer ${VERCEL_TOKEN}" \
+      "https://api.vercel.com/v6/deployments?projectId=${VERCEL_PROJECT_ID}&teamId=${VERCEL_ORG_ID}&target=production&limit=10" \
+      > "${deployments_file}"
+    deployed_sha="$(node -e '
+      const fs = require("node:fs");
+      const response = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+      const deployment = response.deployments?.find((candidate) => candidate.state === "READY");
+      process.stdout.write(deployment?.meta?.gitCommitSha ?? "");
+    ' "${deployments_file}")"
     if [[ "${deployed_sha}" == "${GITHUB_SHA}" ]]; then
       echo "required=false" >> "${GITHUB_OUTPUT}"
       echo "Commit ${GITHUB_SHA} is already deployed."
@@ -26,14 +30,8 @@ case "${operation}" in
       echo "Commit ${GITHUB_SHA} needs deployment."
     fi
     ;;
-  mark)
-    temporary_file="${state_file}.tmp.$$"
-    printf '%s\n' "${GITHUB_SHA}" > "${temporary_file}"
-    mv "${temporary_file}" "${state_file}"
-    echo "Recorded deployed commit ${GITHUB_SHA}."
-    ;;
   *)
-    echo "Usage: $0 check|mark" >&2
+    echo "Usage: $0 check" >&2
     exit 2
     ;;
 esac
