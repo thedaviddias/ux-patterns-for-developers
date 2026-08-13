@@ -21,9 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:24-bookworm
-      volumes:
-        - /var/lib/gitea-act-runner/pnpm-store:/pnpm-store
-        - /var/lib/gitea-act-runner/deployment-state:/ci-state
+      options: -v /var/lib/gitea-act-runner/pnpm-store:/pnpm-store -v /var/lib/gitea-act-runner/deployment-state:/ci-state
     timeout-minutes: 45
     env:
       PNPM_STORE_DIR: /pnpm-store
