@@ -22,9 +22,9 @@ jobs:
     timeout-minutes: 45
     env:
       PNPM_STORE_DIR: /pnpm-store
-      NPM_CONFIG_REGISTRY: http://10.20.40.115:4873
-      PNPM_CONFIG_REGISTRY: http://10.20.40.115:4873
-      COREPACK_NPM_REGISTRY: http://10.20.40.115:4873
+      NPM_CONFIG_REGISTRY: http://172.17.0.1:4873
+      PNPM_CONFIG_REGISTRY: http://172.17.0.1:4873
+      COREPACK_NPM_REGISTRY: http://172.17.0.1:4873
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
