@@ -1,10 +1,7 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
 	"git": {
-		"deploymentEnabled": {
-			"main": true,
-			"**": false
-		}
+		"deploymentEnabled": false
 	},
 	"functions": {
 		"app/api/mcp/route.ts": {
