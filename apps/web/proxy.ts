@@ -119,7 +119,7 @@ export const config = {
 	matcher: [
 		{
 			source:
-				"/((?!api/health|_next/static|_next/image|_vercel|favicon\\.ico|sitemap\\.xml|robots\\.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot)$).*)",
+				"/((?!api/health|api/op|_next/static|_next/image|_vercel|favicon\\.ico|sitemap\\.xml|robots\\.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot)$).*)",
 			missing: [{ type: "header", key: "next-action" }],
 		},
 	],
