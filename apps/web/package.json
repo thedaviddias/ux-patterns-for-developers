@@ -6,7 +6,7 @@
 		"analyze": "export ANALYZE=true && next build",
 		"prebuild": "velite build && node scripts/validate-mermaid.mjs && node scripts/generate-pattern-dates.mjs",
 		"build": "next build",
-		"check": "node scripts/validate-mermaid.mjs && node scripts/validate-pattern-structure.mjs && node scripts/validate-pattern-resources.mjs && tsc --noEmit",
+		"check": "node -e \"require('node:fs').rmSync('.next/dev/types', { recursive: true, force: true })\" && next typegen && node scripts/validate-mermaid.mjs && node scripts/validate-pattern-structure.mjs && node scripts/validate-pattern-resources.mjs && tsc --noEmit",
 		"dev": "portless uxpatterns next dev --turbo -p 3060",
 		"dev:velite": "velite --watch",
 		"sync:pattern-resources": "node scripts/sync-pattern-resources.mjs",

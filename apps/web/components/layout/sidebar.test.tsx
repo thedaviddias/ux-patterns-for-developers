@@ -123,12 +123,12 @@ describe("Sidebar", () => {
 		});
 	});
 
-	it("keeps the mobile drawer hidden at md and toggles the off-canvas transform", () => {
+	it("keeps the mobile drawer hidden at lg and toggles the off-canvas transform", () => {
 		const { container } = renderMobileSidebar();
 		const drawer = container.querySelector("aside");
 
 		expect(drawer).not.toBeNull();
-		expect(drawer).toHaveClass("md:hidden");
+		expect(drawer).toHaveClass("lg:hidden");
 		expect(drawer).toHaveClass("-translate-x-[calc(100%+1rem)]");
 		expect(container.querySelector("div[aria-hidden='true']")).toBeNull();
 
@@ -137,9 +137,9 @@ describe("Sidebar", () => {
 		);
 
 		expect(drawer).toHaveClass("translate-x-0");
-		expect(drawer).toHaveClass("md:hidden");
+		expect(drawer).toHaveClass("lg:hidden");
 		expect(container.querySelector("div[aria-hidden='true']")).toHaveClass(
-			"md:hidden",
+			"lg:hidden",
 		);
 
 		fireEvent.click(
