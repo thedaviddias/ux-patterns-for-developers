@@ -1,6 +1,9 @@
 ---
 name: pagination
-description: "Use when implementing navigate through multiple pages of content."
+description: "Learn best practices for building accessible, user-friendly page navigation with clear guidelines for design and performance. Use when you need to navigate through multiple pages of content."
+user-invocable: true
+triggers:
+  - pagination
 metadata:
   id: pagination
   category: navigation
@@ -14,13 +17,17 @@ metadata:
 
 Navigate through multiple pages of content
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **[Pagination](/glossary/pagination)** divides large content collections into manageable chunks or pages.
 Users navigate through data sets, search results, or product listings without getting overwhelmed by too much information at once.
 [Pagination](/glossary/pagination) works well, but consider alternatives like [infinite scroll](/patterns/navigation/infinite-scroll) or ["Load More"](/patterns/navigation/load-more) buttons for certain content types. Your choice between pagination and infinite scroll depends on content nature, user behavior, and interface goals.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use pagination when content needs structured, [progressive loading](/glossary/progressive-loading) for smoother user experience and better performance.
 Pagination helps users navigate large information sets without getting overwhelmed.
@@ -30,7 +37,7 @@ Pagination helps users navigate large information sets without getting overwhelm
 - **User clarity** increases when large data sets become easier to navigate
 - **Sequential content** requires navigation (multi-page tutorials or articles)
 
-## When to avoid
+**Avoid when:**
 
 - All content fits better on a single page (short lists or summaries)
 - [Infinite scroll](/patterns/navigation/infinite-scroll) or ["load more"](/patterns/navigation/load-more) patterns suit the experience better
@@ -38,10 +45,11 @@ Pagination helps users navigate large information sets without getting overwhelm
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

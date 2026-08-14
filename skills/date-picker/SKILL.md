@@ -1,6 +1,10 @@
 ---
 name: date-picker
-description: "Use when implementing select dates from a calendar interface."
+description: "Create user-friendly date pickers with calendar interfaces and keyboard navigation. Use when you need to select dates from a calendar interface."
+user-invocable: true
+triggers:
+  - date
+  - picker
 metadata:
   id: date-picker
   category: forms
@@ -14,12 +18,16 @@ metadata:
 
 Select dates from a calendar interface
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Date Picker** is a form component that combines a text input (showing the selected date) with a **calendar overlay** that allows users to visually browse and select a date. The calendar provides context about surrounding dates, days of the week, and time-relative positioning that a plain text input cannot offer.
 Unlike a [Date Input](/patterns/forms/date-input) (which is optimized for direct keyboard entry of known dates), a Date Picker is designed for situations where the user benefits from seeing the calendar — scheduling appointments, choosing a future delivery date, or selecting from a constrained set of available days.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **Appointment scheduling** – Users need to see available slots in context.
 - **Delivery and shipping dates** – Shows available delivery days vs. blackout dates.
@@ -27,7 +35,7 @@ Unlike a [Date Input](/patterns/forms/date-input) (which is optimized for direct
 - **Hotel and travel booking** – Contextual date selection with pricing or availability.
 - **Report or filter date** – Selecting a specific date for data filtering.
 
-## When to avoid
+**Avoid when:**
 
 - **Known, historical dates** – Use a [Date Input](/patterns/forms/date-input) for birth dates or past records where calendar navigation is tedious.
 - **Date ranges** – Use a [Date Range](/patterns/forms/date-range) component instead.
@@ -36,10 +44,11 @@ Unlike a [Date Input](/patterns/forms/date-input) (which is optimized for direct
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

@@ -1,6 +1,12 @@
 ---
 name: multi-select-input
-description: "Use when you need to choose multiple items from a list."
+description: "Implement multi-select components for multiple item selection in your web applications. Use when you need to choose multiple items from a list."
+user-invocable: true
+triggers:
+  - multi
+  - select
+  - input
+  - multi-select
 metadata:
   id: multi-select-input
   category: forms
@@ -14,12 +20,16 @@ metadata:
 
 Choose multiple items from a list
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Multi-select Input** is a form component that allows users to select multiple items from a predefined set of options. It differs from an autocomplete (which suggests options for freeform entry) by working with a **bounded, known list of options** — users can only select what exists in the list.
 The most common visual implementation is a **tag/chip-based selector**: selected items appear as removable tags inside the input field, and remaining options are shown in a dropdown. Additional patterns include checkbox lists, dual listboxes, and native `<select multiple>`.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **Category and tag assignment** – Assigning tags, labels, or categories to content.
 - **Permissions and role management** – Selecting multiple roles for a user.
@@ -27,7 +37,7 @@ The most common visual implementation is a **tag/chip-based selector**: selected
 - **Recipient selection** – Choosing multiple email recipients from a contact list.
 - **Feature selection** – Configuring which features/modules to enable.
 
-## When to avoid
+**Avoid when:**
 
 - **Freeform text with suggestions** – Use [Autocomplete](/patterns/forms/autocomplete) instead.
 - **Single selection from a small list** – Use a [Select/Dropdown](/patterns/forms/selection-input) or [Radio](/patterns/forms/radio) group.
@@ -36,10 +46,11 @@ The most common visual implementation is a **tag/chip-based selector**: selected
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

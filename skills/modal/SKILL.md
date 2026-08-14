@@ -1,6 +1,13 @@
 ---
 name: modal
-description: "Use when you need to display focused content or actions."
+description: "Build accessible modal dialogs with proper focus management, keyboard interactions, and user experience best practices. Use when you need to display focused content or actions. Triggers: dialog, dialog box, overlay, popup."
+user-invocable: true
+triggers:
+  - modal
+  - dialog
+  - dialog box
+  - overlay
+  - popup
 metadata:
   id: modal
   category: content-management
@@ -14,12 +21,28 @@ metadata:
 
 Display focused content or actions
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **modal** appears on top of the main application screen, blocking page interaction until closed.
 Modals display important information, request user input, or confirm actions in a focused way.
 
-## When to use
+## Quick-start example
+
+```mermaid
+graph TD
+  A[Do you need full control over styling and behavior?] -->|Yes| B[Use Custom Modal with ARIA]
+  A -->|No| C[Do you want a native solution with minimal code?]
+  C -->|Yes| D[Use Native <dialog> Element]
+  C -->|No| B[Use Custom Modal with ARIA]
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 Use modals to **interrupt user flow** for important information or required user input before proceeding.
 **Common scenarios include:**
@@ -30,7 +53,7 @@ Use modals to **interrupt user flow** for important information or required user
 - **Multi-step processes** – checkout steps or onboarding flows
 - **Terms and conditions** – requiring user agreement before proceeding
 
-## When to avoid
+**Avoid when:**
 
 - Non-essential information doesn't need immediate attention
 - Content or interaction fits inline on the page
@@ -40,10 +63,11 @@ Use modals to **interrupt user flow** for important information or required user
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

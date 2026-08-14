@@ -1,6 +1,10 @@
 ---
 name: tag-input
-description: "Use when implementing enter and format tags."
+description: "Create tag input components for dynamic keyword entry with validation and accessibility support. Use when you need to enter and format tags."
+user-invocable: true
+triggers:
+  - tag
+  - input
 metadata:
   id: tag-input
   category: forms
@@ -14,18 +18,36 @@ metadata:
 
 Enter and format tags
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Tag Input** pattern helps teams create a reliable way to let users enter, review, and remove several short values without losing readability or keyboard efficiency. It is most useful when teams need labels and keywords.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card tag-card">
+  <label for="tag-input">Topics</label>
+  <div class="tag-list" id="tag-list">
+    <span class="tag">Accessibility <button type="button" aria-label="Remove Accessibility">×</button></span>
+  </div>
+  <input id="tag-input" type="text" placeholder="Type a tag and press Enter" />
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Labels and keywords
 - Recipient entry
 - Topic and taxonomy assignment
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler native control when the value is binary, tiny, or fully constrained.
 - Avoid custom behavior when a native browser input already solves the main job well.
@@ -33,10 +55,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

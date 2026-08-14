@@ -1,6 +1,10 @@
 ---
 name: back-to-top
-description: "Use when implementing quickly navigate back to the top of the page."
+description: "Implement a Back to Top button for enhanced navigation on long pages with best practices for placement and accessibility. Use when you need to quickly navigate back to the top of the page."
+user-invocable: true
+triggers:
+  - back
+  - top
 metadata:
   id: back-to-top
   category: navigation
@@ -14,12 +18,16 @@ metadata:
 
 Quickly navigate back to the top of the page
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Back to Top** gives users a quick way back to the page top after scrolling through lengthy or [infinite content](/patterns/navigation/infinite-scroll).
 This floating button or link typically sits at the bottom-right corner, improving navigation and user experience.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use **Back to Top** to **help users quickly return to long page tops without excessive scrolling**.
 **Common scenarios include:**
@@ -27,7 +35,7 @@ Use **Back to Top** to **help users quickly return to long page tops without exc
 - Quick navigation back to headers or navigation menus is essential
 - Blogs, documentation pages, or e-commerce category listings need extensive scrolling
 
-## When to avoid
+**Avoid when:**
 
 - Very short pages with minimal or unnecessary scrolling
 - Your layout already has persistent bottom navigation or sticky top menus
@@ -35,10 +43,11 @@ Use **Back to Top** to **help users quickly return to long page tops without exc
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

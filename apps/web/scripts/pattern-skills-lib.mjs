@@ -162,6 +162,19 @@ function extractCommonMistakesBlock(sectionContent, maxChunks = 3) {
 	return trimBlock(chunks.slice(0, maxChunks).join("\n\n"));
 }
 
+function extractFirstCodeBlock(sectionContent, maxLines = 15) {
+	if (!sectionContent) return "";
+
+	const markdown = stripMdxToMarkdown(sectionContent);
+	const match = markdown.match(/```[\w]*\n([\s\S]*?)```/);
+	if (!match) return "";
+
+	const codeLines = match[0].split("\n");
+	if (codeLines.length > maxLines + 2) return "";
+
+	return trimBlock(match[0]);
+}
+
 function extractRelatedPatternUrls(rawContent) {
 	return [
 		...new Set(rawContent.match(/\/patterns\/[a-z0-9-]+\/[a-z0-9-]+/gi) ?? []),
@@ -191,16 +204,14 @@ function getPatternIdentityFromFile(patternsDir, filePath) {
 	};
 }
 
-function buildSkillDescription(frontmatter, title) {
+function buildSkillDescription(frontmatter, title, aliases = []) {
+	const descSentence =
+		frontmatter.description?.split(/(?<=[.!?])\s+/)[0]?.trim() || "";
 	const summary = frontmatter.summary?.trim();
 	const candidate =
 		summary ||
-		frontmatter.description?.split(/(?<=[.!?])\s+/)[0]?.trim() ||
+		descSentence ||
 		`implement ${title} UX pattern correctly in product interfaces`;
-
-	if (candidate.trimStart().toLowerCase().startsWith("use when")) {
-		return candidate.trim();
-	}
 
 	const cleaned = candidate
 		.replace(/^learn how to\s+/i, "")
@@ -208,38 +219,49 @@ function buildSkillDescription(frontmatter, title) {
 		.replace(/[.]+$/g, "")
 		.trim();
 	const lower = `${cleaned.charAt(0).toLowerCase()}${cleaned.slice(1)}`;
-	const firstWord = lower.split(/\s+/)[0];
-	const actionVerbs = new Set([
-		"switch",
-		"display",
-		"trigger",
-		"create",
-		"validate",
-		"organize",
-		"inform",
-		"search",
-		"compare",
-		"build",
-		"manage",
-		"upload",
-		"choose",
-		"configure",
-		"stream",
-		"track",
-	]);
 
-	if (actionVerbs.has(firstWord)) {
-		return `Use when you need to ${lower}.`;
+	const what = descSentence
+		? descSentence.replace(/[.]+$/g, "")
+		: `Build accessible ${title.toLowerCase()} components for web UIs`;
+	const aliasList =
+		aliases.length > 0 ? ` Triggers: ${aliases.join(", ")}.` : "";
+
+	return `${what}. Use when you need to ${lower}.${aliasList}`;
+}
+
+function buildTriggers(slug, title, aliases = []) {
+	const terms = new Set();
+	for (const part of slug.split("-")) {
+		if (part.length > 2) terms.add(part);
 	}
-
-	return `Use when implementing ${lower}.`;
+	for (const word of title.toLowerCase().split(/\s+/)) {
+		if (word.length > 2) terms.add(word);
+	}
+	for (const alias of aliases) {
+		terms.add(alias.toLowerCase());
+	}
+	return [...terms];
 }
 
 function buildPerPatternSkill(pattern) {
+	const triggers = buildTriggers(
+		pattern.skillSlug,
+		pattern.title,
+		pattern.aliases ?? [],
+	);
 	const lines = [
 		"---",
 		`name: ${pattern.skillSlug}`,
-		`description: "${buildSkillDescription(pattern.frontmatter, pattern.title).replace(/"/g, "'")}"`,
+		`description: "${buildSkillDescription(pattern.frontmatter, pattern.title, pattern.aliases ?? []).replace(/"/g, "'")}"`,
+		"user-invocable: true",
+		`triggers:`,
+	];
+
+	for (const trigger of triggers) {
+		lines.push(`  - ${trigger}`);
+	}
+
+	lines.push(
 		"metadata:",
 		`  id: ${pattern.skillSlug}`,
 		`  category: ${pattern.category}`,
@@ -251,31 +273,47 @@ function buildPerPatternSkill(pattern) {
 		"",
 		`# ${pattern.title}`,
 		"",
-	];
+	);
 
 	if (pattern.summary) {
 		lines.push(pattern.summary, "");
 	}
 
+	lines.push(
+		"> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.",
+		"",
+	);
+
 	if (pattern.whatItSolves) {
 		lines.push("## What it solves", "", pattern.whatItSolves, "");
 	}
 
-	if (pattern.whenToUse) {
-		lines.push("## When to use", "", pattern.whenToUse, "");
+	if (pattern.codeExample) {
+		lines.push("## Quick-start example", "", pattern.codeExample, "");
+		lines.push(
+			"_More variations and full anatomy in `references/pattern.md`._",
+			"",
+		);
 	}
 
-	if (pattern.whenNotToUse) {
-		lines.push("## When to avoid", "", pattern.whenNotToUse, "");
+	if (pattern.whenToUse || pattern.whenNotToUse) {
+		lines.push("## When to use and when to avoid", "");
+		if (pattern.whenToUse) {
+			lines.push("**Use when:**", "", pattern.whenToUse, "");
+		}
+		if (pattern.whenNotToUse) {
+			lines.push("**Avoid when:**", "", pattern.whenNotToUse, "");
+		}
 	}
 
 	lines.push(
 		"## Implementation workflow",
 		"",
-		"1. Confirm the pattern matches the problem and constraints before copying the example.",
-		"2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.",
-		"3. Apply accessibility, performance, and interaction guardrails before layering visual polish.",
-		"4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.",
+		"1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.",
+		`2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.`,
+		"3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.",
+		"4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.",
+		`5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.`,
 		"",
 	);
 
@@ -475,6 +513,10 @@ async function createPatternRecord(filePath, patternsDir, slugCounts) {
 		commonMistakes: extractCommonMistakesBlock(
 			findSection(sections, ["common mistakes", "anti patterns"]),
 			3,
+		),
+		codeExample: extractFirstCodeBlock(
+			findSection(sections, ["examples"]),
+			15,
 		),
 	};
 }

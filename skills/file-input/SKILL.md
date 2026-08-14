@@ -1,6 +1,10 @@
 ---
 name: file-input
-description: "Use when you need to upload and handle files."
+description: "Create user-friendly file upload components for your web applications. Use when you need to upload and handle files."
+user-invocable: true
+triggers:
+  - file
+  - input
 metadata:
   id: file-input
   category: forms
@@ -14,12 +18,16 @@ metadata:
 
 Upload and handle files
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **File Input** is a form component that allows users to select one or more files from their device's file system and upload them to a server. It ranges from the native `<input type="file">` control to enhanced drop zones with drag-and-drop, file previews, upload progress indicators, and validation feedback.
 File inputs appear in document management, profile photo upload, e-commerce product imagery, form attachment flows, and media-rich applications.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - **Profile and avatar upload** – Users select a photo for their account.
 - **Document submission** – Forms that require attached PDFs, contracts, or ID documents.
@@ -27,7 +35,7 @@ File inputs appear in document management, profile photo upload, e-commerce prod
 - **Bulk import** – CSV or JSON files for data import workflows.
 - **Email attachments** – Web mail applications.
 
-## When to avoid
+**Avoid when:**
 
 - **Camera capture on mobile** – Use `<input type="file" capture="environment">` or `capture="user"` to open the camera directly.
 - **Cloud file selection** – Google Drive or Dropbox pickers require their own SDKs.
@@ -36,10 +44,11 @@ File inputs appear in document management, profile photo upload, e-commerce prod
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

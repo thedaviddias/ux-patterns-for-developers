@@ -1,6 +1,10 @@
 ---
 name: model-selector
-description: "Use when implementing aI model selection interface."
+description: "Learn how to implement model selectors. Use when you need to aI model selection interface."
+user-invocable: true
+triggers:
+  - model
+  - selector
 metadata:
   id: model-selector
   category: ai-intelligence
@@ -14,18 +18,22 @@ metadata:
 
 AI model selection interface
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Model Selector** pattern helps teams create a reliable way to help users pick the right model or capability tier without making them decode internal provider terminology. It is most useful when teams need multi-model AI workbenches.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 - Multi-model AI workbenches
 - Speed-versus-quality tradeoffs
 - Feature-gated AI interfaces
 
-## When to avoid
+**Avoid when:**
 
 - Avoid adding AI-specific UI when a standard non-AI workflow would be clearer and more reliable.
 - Do not expose advanced controls unless users can actually benefit from them.
@@ -33,10 +41,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

@@ -1,6 +1,10 @@
 ---
 name: wizard
-description: "Use when implementing multi-step forms and processes."
+description: "Learn how to implement wizards and steppers. Use when you need to multi-step forms and processes."
+user-invocable: true
+triggers:
+  - wizard
+  - stepper
 metadata:
   id: wizard
   category: advanced
@@ -14,18 +18,44 @@ metadata:
 
 Multi-step forms and processes
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 A **Wizard / Stepper** pattern helps teams create a reliable way to break a long process into ordered steps with visible progress and review checkpoints. It is most useful when teams need onboarding and setup.
 Compared with adjacent patterns, this pattern should reduce friction without hiding the state, rules, or recovery paths people need to keep moving.
 
-## When to use
+## Quick-start example
+
+```html
+<div class="demo-shell card wizard">
+  <ol class="steps">
+    <li class="active">Details</li>
+    <li>Members</li>
+    <li>Review</li>
+  </ol>
+  <div id="wizard-panel">
+    <h3>Workspace details</h3>
+    <p class="muted">Name the workspace and choose a short description.</p>
+  </div>
+  <div class="wizard-actions">
+    <button type="button" id="wizard-back" disabled>Back</button>
+    <button type="button" id="wizard-next">Next</button>
+  </div>
+</div>
+```
+
+_More variations and full anatomy in `references/pattern.md`._
+
+## When to use and when to avoid
+
+**Use when:**
 
 - Onboarding and setup
 - Checkout and application flows
 - Multi-step internal tooling
 
-## When to avoid
+**Avoid when:**
 
 - Use a simpler visible navigation or single-page flow when the product surface is still small.
 - Avoid advanced interaction patterns if the team cannot support their state complexity well.
@@ -33,10 +63,11 @@ Compared with adjacent patterns, this pattern should reduce friction without hid
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 

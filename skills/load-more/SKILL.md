@@ -1,6 +1,10 @@
 ---
 name: load-more
-description: "Use when implementing load additional content on user demand."
+description: "Build efficient content loading with the Load More pattern, focusing on user experience and performance optimization. Use when you need to load additional content on user demand."
+user-invocable: true
+triggers:
+  - load
+  - more
 metadata:
   id: load-more
   category: navigation
@@ -14,11 +18,15 @@ metadata:
 
 Load additional content on user demand
 
+> Full examples, anatomy diagrams, and testing notes live in `references/pattern.md`.
+
 ## What it solves
 
 **Load More** lets users request additional content dynamically instead of loading everything upfront. This pattern cuts initial page load times and gives users seamless access to more content when they need it.
 
-## When to use
+## When to use and when to avoid
+
+**Use when:**
 
 Use Load More when users should explore content progressively at their own pace without getting overwhelmed. Unlike infinite scrolling, Load More gives users clear control and lets them consciously decide when to view more items.
 For better usability, make sure the Load More button gets **removed when all content is loaded** or updates to show that no additional items remain (like **"No More Results"**).
@@ -28,7 +36,7 @@ For better usability, make sure the Load More button gets **removed when all con
 - Users browse progressively instead of needing all content at once
 - You want an alternative to infinite scrolling with more user control
 
-## When to avoid
+**Avoid when:**
 
 - The full content list is small enough to load upfront without performance issues
 - Users need to compare multiple items at once ([pagination](/patterns/navigation/pagination) works better here)
@@ -36,10 +44,11 @@ For better usability, make sure the Load More button gets **removed when all con
 
 ## Implementation workflow
 
-1. Confirm the pattern matches the problem and constraints before copying the example.
-2. Start from the anatomy and examples in `references/pattern.md`, then choose the smallest viable variation.
-3. Apply accessibility, performance, and interaction guardrails before layering visual polish.
-4. Use the testing guidance to verify behavior across keyboard, screen reader, responsive, and failure scenarios.
+1. Read `references/pattern.md` — review the anatomy section and pick the smallest variation that fits the use case.
+2. Copy the starter markup from the quick-start example above (or reference examples). Adapt element names and props to the project's component library.
+3. Wire up accessibility: apply ARIA roles, keyboard handlers, and focus management from the guardrails below.
+4. Add performance safeguards (lazy loading, virtualization) when the pattern handles large data or frequent updates.
+5. Validate: tab through the component, test with a screen reader, resize to mobile, and simulate error/empty states.
 
 ## Accessibility guardrails
 
