@@ -15,7 +15,7 @@
 		"check:links:web": "pnpm exec lychee --config ./lychee.toml --base https://uxpatterns.dev --output ./lychee-out-web.md 'apps/web/content/**/*.mdx'",
 		"clean": "git clean -xdf node_modules out .next",
 		"postinstall": "manypkg fix",
-		"test": "turbo run test",
+		"test": "turbo run test --concurrency=1",
 		"release": "auto shipit",
 		"release:first": "auto shipit --prerelease",
 		"release:verbose": "auto shipit -v",
