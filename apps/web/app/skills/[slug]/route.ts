@@ -1,10 +1,27 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { notFound } from "next/navigation";
-import { getPatternSkillBySlug } from "@/lib/pattern-skills";
+import {
+	getPatternSkillBySlug,
+	globalPatternSkill,
+	patternSkillsManifest,
+} from "@/lib/pattern-skills";
 import { findRepoRoot } from "@/lib/pattern-skills-config.mjs";
 
 export const revalidate = false;
+// Skill files only exist in the repo at build time, not in the deployed
+// function bundle — every slug must be prerendered and unknown slugs must 404
+// without invoking the handler.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+	return [
+		{ slug: globalPatternSkill.skillSlug },
+		...patternSkillsManifest.patterns.map((pattern) => ({
+			slug: pattern.skillSlug,
+		})),
+	];
+}
 
 export async function GET(
 	_req: Request,
