@@ -16,6 +16,7 @@
 		"clean": "git clean -xdf node_modules out .next",
 		"postinstall": "manypkg fix",
 		"test": "turbo run test --concurrency=1",
+		"test:ci-workflows": "node --test scripts/ci/validate-deploy-workflows.test.mjs",
 		"release": "auto shipit",
 		"release:first": "auto shipit --prerelease",
 		"release:verbose": "auto shipit -v",

@@ -1,3 +1,15 @@
+# ONE OF TWO routed-ci workflows. The sibling lives at .github/workflows/routed-ci.yml.
+# Only one runs: both jobs are gated on the `BUILD_PROVIDER` repo variable,
+# and this file is live only when BUILD_PROVIDER == "gitea".
+# The inactive one skips silently and looks perfectly healthy in review, so a
+# change made here may have no effect at all -- check which is active before
+# editing, and consider whether the sibling needs the same change.
+#
+# Note the two have genuinely diverged (the Gitea one carries the
+# deployment-state dedup guard and a mirror-poll schedule); they are not meant
+# to be identical. scripts/ci/validate-deploy-workflows.mjs enforces the one
+# invariant that must hold in both: full-history checkout for content dates.
+
 name: Routed CI
 
 on:
