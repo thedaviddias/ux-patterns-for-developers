@@ -129,6 +129,7 @@ export interface RobotsConfig {
 
 export type SchemaType =
 	| "WebSite"
+	| "WebPage"
 	| "Organization"
 	| "Person"
 	| "Article"

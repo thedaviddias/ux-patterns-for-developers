@@ -7,7 +7,6 @@ import {
 	generateBlogPostingSchema,
 	generateCollectionPageSchema,
 	generateCourseSchema,
-	generateHowToSchema,
 	generateItemListSchema,
 	generateWebSiteSchema,
 	JsonLd,
@@ -167,41 +166,14 @@ export default async function Page(props: {
 
 		schemas.push(generateCollectionPageSchema(title, description, path, items));
 	} else if (isPatternPage) {
-		// Pattern pages get both Article and HowTo schemas
 		const category = params.slug[1];
 
-		// Generate HowTo steps from metadata or default steps
-		const steps = page.steps || [
-			{
-				name: "Understand the pattern",
-				text: `Learn when and why to use the ${title} pattern in your application.`,
-			},
-			{
-				name: "Review the anatomy",
-				text: `Examine the key components and structure of the ${title} pattern.`,
-			},
-			{
-				name: "Implement the pattern",
-				text: `Follow the code examples to implement the ${title} pattern in your project.`,
-			},
-			{
-				name: "Apply best practices",
-				text: `Ensure accessibility, performance, and user experience best practices.`,
-			},
-		];
-
-		schemas.push(
-			generateHowToSchema(
-				title,
-				description,
-				path,
-				steps,
-				page.totalTime || "PT30M",
-				undefined, // image
-			),
-		);
-
-		// Also add Article schema for patterns
+		// Article only. Pattern pages used to also emit a HowTo built from four
+		// hardcoded generic steps ("Understand the pattern", "Review the
+		// anatomy", ...) that were not derived from the page at all -- no
+		// content file has ever set `steps`. Google deprecated HowTo rich
+		// results in 2023, so it earned nothing, and a second CreativeWork on
+		// the URL only muddied which date describes the page.
 		schemas.push(
 			generateArticleSchema(
 				title,
@@ -410,6 +382,12 @@ export async function generateMetadata(props: {
 				},
 			],
 		},
+		// Google lists article:modified_time as a supported date signal, and it
+		// applies to every content page, not just the two blog posts that the
+		// openGraph `article` block above covers.
+		...(page.dateModified && {
+			other: { "article:modified_time": page.dateModified },
+		}),
 	};
 
 	// Note: JSON-LD structured data is now handled in the page component

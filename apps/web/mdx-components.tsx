@@ -51,7 +51,6 @@ import { PatternStats } from "@/components/pattern-stats";
 import { Playground } from "@/components/playground";
 import { QuickDecisionBand } from "@/components/quick-decision-band";
 import { RelatedPatternsCardServer } from "@/components/related-patterns-card-server";
-import { StepsPagination } from "@/components/seo/steps-pagination";
 import { UseWithAIDisclosure } from "@/components/use-with-ai-disclosure";
 
 /**
@@ -124,7 +123,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 		Playground,
 		ChecklistDownload,
 		GuidesBanner,
-		StepsPagination,
 		TermsListContainer: TermsListClient,
 		...components,
 	};

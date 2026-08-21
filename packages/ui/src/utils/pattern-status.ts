@@ -1,7 +1,10 @@
 interface PatternMetadata {
 	createdAt?: string;
 	updatedAt?: string;
-	status?: "draft" | "published" | "complete";
+	// Mirrors the velite `patternStatus` enum. "coming-soon" is accepted so
+	// callers need no cast; it currently falls through to the badge rules
+	// below, same as before this type was widened.
+	status?: "draft" | "published" | "complete" | "coming-soon";
 	wordCount?: number;
 	hideFromNav?: boolean;
 	publishedAt?: string;

@@ -17,9 +17,11 @@ export class SitemapBuilder {
 	 */
 	add(entry: SitemapEntry | string): this {
 		if (typeof entry === "string") {
+			// No lastModified: a build timestamp is not a content-change date,
+			// and a sitemap where every URL shares one is a signal search
+			// engines discount wholesale. Omitting beats fabricating.
 			this.entries.push({
 				url: this.normalizeUrl(entry),
-				lastModified: new Date(),
 				changeFrequency: "monthly",
 				priority: 0.5,
 			});
@@ -45,11 +47,15 @@ export class SitemapBuilder {
 	/**
 	 * Add static pages with default settings
 	 */
-	addStaticPages(pages: string[], options: Partial<SitemapEntry> = {}): this {
+	addStaticPages(
+		pages: string[],
+		options: Partial<SitemapEntry> = {},
+		getLastModified?: (path: string) => Date | undefined,
+	): this {
 		pages.forEach((page) => {
 			this.add({
 				url: page,
-				lastModified: new Date(),
+				lastModified: getLastModified?.(page),
 				changeFrequency: options.changeFrequency || "monthly",
 				priority: options.priority || (page === "" || page === "/" ? 1.0 : 0.7),
 				...options,
@@ -65,11 +71,12 @@ export class SitemapBuilder {
 		pages: string[],
 		getPriority: (path: string) => number,
 		getChangeFrequency: (path: string) => SitemapEntry["changeFrequency"],
+		getLastModified?: (path: string) => Date | undefined,
 	): this {
 		pages.forEach((page) => {
 			this.add({
 				url: page,
-				lastModified: new Date(),
+				lastModified: getLastModified?.(page),
 				changeFrequency: getChangeFrequency(page),
 				priority: getPriority(page),
 			});
@@ -83,7 +90,8 @@ export class SitemapBuilder {
 	build(): MetadataRoute.Sitemap {
 		return this.entries.map((entry) => ({
 			url: entry.url,
-			lastModified: entry.lastModified,
+			// Spread so the key is absent, not `undefined`, when unknown.
+			...(entry.lastModified && { lastModified: entry.lastModified }),
 			changeFrequency: entry.changeFrequency,
 			priority: entry.priority,
 		}));

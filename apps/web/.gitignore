@@ -6,6 +6,7 @@
 .content-collections
 .source
 .velite
+.content-dates.json
 
 # test & build
 /coverage

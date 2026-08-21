@@ -1,5 +1,8 @@
 import { source } from "../lib/source";
 
+/** Mirrors the velite `patternStatus` enum. */
+type PatternStatus = "complete" | "draft" | "coming-soon" | "published";
+
 // Function to get pattern data from source
 function getPatternFromSource(path: string) {
 	const page = source.getPage(path.split("/").filter(Boolean));
@@ -12,11 +15,15 @@ function getPatternFromSource(path: string) {
 		title: pageData.title as string,
 		description: pageData.description as string,
 		icon: iconName || undefined,
-		status: pageData.status as string | undefined,
+		status: pageData.status as PatternStatus | undefined,
 		publishedAt: pageData.publishedAt as string | undefined,
 		lastMajorUpdate: pageData.lastMajorUpdate as string | undefined,
 		createdAt: pageData.createdAt as string | undefined,
 		updatedAt: pageData.updatedAt as string | undefined,
+		// Git-derived, injected by velite. Resolved here on the server so the
+		// client card never has to touch the filesystem for them.
+		gitCreated: pageData.gitCreated as string | undefined,
+		gitUpdated: pageData.gitUpdated as string | undefined,
 	};
 }
 
@@ -26,11 +33,13 @@ export type EnrichedPattern = {
 	description?: string;
 	category?: string;
 	icon?: string; // Icon name as string instead of component
-	status?: string;
+	status?: PatternStatus;
 	publishedAt?: string;
 	lastMajorUpdate?: string;
 	createdAt?: string;
 	updatedAt?: string;
+	gitCreated?: string;
+	gitUpdated?: string;
 };
 
 // Function to enrich patterns with data from source (including icons)
@@ -55,6 +64,8 @@ export function enrichPatternsWithIcons(
 			lastMajorUpdate: sourceData?.lastMajorUpdate,
 			createdAt: sourceData?.createdAt,
 			updatedAt: sourceData?.updatedAt,
+			gitCreated: sourceData?.gitCreated,
+			gitUpdated: sourceData?.gitUpdated,
 		};
 	});
 }

@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/content";
-import { formatDate } from "@/utils/date";
 
 interface BlogHighlightsProps {
 	posts: BlogPost[];
@@ -63,8 +62,12 @@ export function BlogHighlights({ posts }: BlogHighlightsProps) {
 							</div>
 							<div className="flex flex-col justify-between p-8">
 								<div>
+									{/* No date here on purpose. These cards were the only
+									    dates on the homepage, so Google used the newest post's
+									    date as the page's byline date. Dates still appear on
+									    /blog and on each post, where they describe the thing
+									    they are attached to. */}
 									<div className="mb-5 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-										<span>{formatDate(new Date(leadPost.date))}</span>
 										{leadPost.tags?.[0] && <span>{leadPost.tags[0]}</span>}
 									</div>
 									<h3 className="max-w-2xl text-3xl font-semibold text-foreground sm:text-4xl">
@@ -90,7 +93,6 @@ export function BlogHighlights({ posts }: BlogHighlightsProps) {
 								className="group rounded-[1.75rem] border border-border/70 bg-card/90 p-6 transition-all duration-200 hover:border-foreground/20 hover:-translate-y-0.5"
 							>
 								<div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-									<span>{formatDate(new Date(post.date))}</span>
 									{post.tags?.[0] && <span>{post.tags[0]}</span>}
 								</div>
 								<h3 className="text-2xl font-semibold text-foreground">

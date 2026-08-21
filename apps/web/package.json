@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"analyze": "export ANALYZE=true && next build",
-		"prebuild": "velite build && node scripts/validate-mermaid.mjs && node scripts/generate-pattern-dates.mjs",
+		"prebuild": "node scripts/generate-content-dates.mjs && velite build && node scripts/validate-mermaid.mjs",
 		"build": "next build",
 		"check": "node -e \"require('node:fs').rmSync('.next/dev/types', { recursive: true, force: true })\" && next typegen && node scripts/validate-mermaid.mjs && node scripts/validate-pattern-structure.mjs && node scripts/validate-pattern-resources.mjs && tsc --noEmit",
 		"dev": "portless uxpatterns next dev --turbo -p 3060",
@@ -18,6 +18,7 @@
 		"test": "vitest run",
 		"test:glossary-sync": "node --test scripts/glossary-sync-lib.test.mjs",
 		"test:mermaid": "node --test scripts/validate-mermaid.test.mjs",
+		"test:content-dates": "node --test scripts/content-dates-lib.test.mjs",
 		"test:watch": "vitest",
 		"test:pattern-structure": "node --test scripts/validate-pattern-structure.test.mjs",
 		"test:pattern-resources": "node --test scripts/validate-pattern-resources.test.mjs",

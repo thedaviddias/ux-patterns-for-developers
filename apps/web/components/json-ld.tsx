@@ -173,68 +173,6 @@ export function generateBlogPostingSchema(
 	};
 }
 
-// HowTo schema for pattern pages
-export function generateHowToSchema(
-	title: string,
-	description: string,
-	path: string,
-	steps: Array<{
-		name: string;
-		text: string;
-		url?: string;
-		image?: string;
-	}>,
-	totalTime?: string,
-	image?: string,
-) {
-	const imageUrl = absoluteUrl(image);
-
-	return {
-		"@context": "https://schema.org",
-		"@type": "HowTo",
-		name: title,
-		description: description,
-		url: `${BASE_URL}${path}`,
-		inLanguage: "en-US",
-		...(imageUrl && {
-			image: {
-				"@type": "ImageObject",
-				url: imageUrl,
-			},
-		}),
-		...(totalTime && { totalTime }),
-		step: steps.map((step, index) => ({
-			"@type": "HowToStep",
-			position: index + 1,
-			name: step.name,
-			text: step.text,
-			...(step.url && { url: step.url }),
-			...(step.image && {
-				image: {
-					"@type": "ImageObject",
-					url: absoluteUrl(step.image),
-				},
-			}),
-		})),
-		author: {
-			"@id": AUTHOR_ID,
-			"@type": "Person",
-			name: AUTHOR.name,
-			url: AUTHOR.website,
-		},
-		publisher: {
-			"@id": `${BASE_URL}/#organization`,
-			"@type": "Organization",
-			name: PROJECT.name,
-			url: BASE_URL,
-		},
-		mainEntityOfPage: {
-			"@type": "WebPage",
-			"@id": `${BASE_URL}${path}`,
-		},
-	};
-}
-
 // ItemList schema for category/listing pages
 export function generateItemListSchema(
 	title: string,

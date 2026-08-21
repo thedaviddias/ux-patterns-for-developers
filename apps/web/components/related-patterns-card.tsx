@@ -77,32 +77,19 @@ export const RelatedPatternsCard = ({
 											{pattern.title}
 										</h4>
 										{(() => {
-											// Extract slug from pattern path
-											const slug = pattern.path
-												.replace(/^\/patterns\//, "")
-												.replace(/\/$/, "");
-
-											// Try to get git dates (this will work at build time)
-											let gitDates = null;
-											if (typeof window === "undefined") {
-												// Server-side only
-												try {
-													const {
-														getPatternDatesBySlug,
-													} = require("../lib/pattern-dates");
-													gitDates = getPatternDatesBySlug(slug);
-												} catch {}
-											}
-
+											// Dates are resolved server-side in
+											// enrichPatternsWithIcons and arrive as props. The
+											// previous version require()'d an fs-backed module
+											// from this client component, so it always threw and
+											// the badge never rendered.
 											const badgeType = getBadgeType({
-												status: (pattern as any).status || "complete",
-												gitCreatedAt: gitDates?.created,
-												gitUpdatedAt: gitDates?.updated,
-												isMajorUpdate: gitDates?.isMajorUpdate,
-												createdAt: (pattern as any).createdAt,
-												updatedAt: (pattern as any).updatedAt,
-												publishedAt: (pattern as any).publishedAt,
-												lastMajorUpdate: (pattern as any).lastMajorUpdate,
+												status: pattern.status || "complete",
+												gitCreatedAt: pattern.gitCreated,
+												gitUpdatedAt: pattern.gitUpdated,
+												createdAt: pattern.createdAt,
+												updatedAt: pattern.updatedAt,
+												publishedAt: pattern.publishedAt,
+												lastMajorUpdate: pattern.lastMajorUpdate,
 											});
 											return badgeType ? (
 												<PatternBadge

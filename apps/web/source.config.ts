@@ -51,17 +51,6 @@ export const docs = defineDocs({
 			hideFromNav: z.boolean().optional(),
 			publishedAt: z.union([z.string(), z.date()]).optional(),
 			lastMajorUpdate: z.union([z.string(), z.date()]).optional(),
-			steps: z
-				.array(
-					z.object({
-						name: z.string(),
-						text: z.string(),
-						url: z.string().optional(),
-						image: z.string().optional(),
-					}),
-				)
-				.optional(),
-			totalTime: z.string().optional(),
 			educationalLevel: z.string().optional(),
 			timeRequired: z.string().optional(),
 			prerequisites: z.array(z.string()).optional(),

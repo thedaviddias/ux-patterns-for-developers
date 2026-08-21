@@ -6,6 +6,7 @@ import {
 	SitemapBuilder,
 } from "@ux-patterns/seo/sitemap";
 import { BASE_URL } from "@/constants/project";
+import { getBlogPosts, getPages } from "@/lib/content";
 
 interface MetaConfig {
 	title?: string;
@@ -116,6 +117,42 @@ function getContentPages(dir: string, baseDir: string = ""): string[] {
 export default function sitemap() {
 	const builder = new SitemapBuilder(BASE_URL);
 
+	// Real per-URL lastmod, from the git dates velite folds into each doc.
+	// Keyed by the same slug the sitemap walker produces below.
+	const modifiedBySlug = new Map<string, Date>();
+	for (const page of getPages()) {
+		if (!page.dateModified) continue;
+		const parsed = new Date(page.dateModified);
+		if (!Number.isNaN(parsed.getTime())) {
+			modifiedBySlug.set(page.slug, parsed);
+		}
+	}
+
+	// A few routes are served from a content file whose slug differs from the
+	// URL, so a straight slug lookup misses them.
+	const SLUG_ALIASES: Record<string, string> = {
+		about: "pages/about",
+		"privacy-policy": "pages/privacy-policy",
+	};
+
+	const getLastModified = (path: string) =>
+		modifiedBySlug.get(SLUG_ALIASES[path] ?? path);
+
+	const newestOf = (dates: Date[]) =>
+		dates.length
+			? new Date(Math.max(...dates.map((d) => d.getTime())))
+			: undefined;
+
+	// Hub pages have no file of their own, so date them by the freshest content
+	// they list. Deliberately not `new Date()` -- "the build ran today" is not
+	// the same claim as "this content changed today".
+	const newestContent = newestOf([...modifiedBySlug.values()]);
+	const newestPost = newestOf(
+		getBlogPosts()
+			.map((post) => new Date(post.dateModified ?? post.date))
+			.filter((date) => !Number.isNaN(date.getTime())),
+	);
+
 	// Configure priority calculator
 	const priorityCalc = new PriorityCalculator()
 		.addRule("", 1.0) // Homepage
@@ -146,7 +183,11 @@ export default function sitemap() {
 		"blog",
 	];
 
-	builder.addStaticPages(staticRoutes);
+	builder.addStaticPages(staticRoutes, {}, (path) => {
+		if (path === "") return newestContent;
+		if (path === "blog") return newestPost;
+		return getLastModified(path);
+	});
 
 	// Add content routes
 	const contentPages = pages.filter((page) => !staticRoutes.includes(page));
@@ -154,6 +195,7 @@ export default function sitemap() {
 		contentPages,
 		(path) => priorityCalc.calculate(path),
 		(path) => frequencyCalc.calculate(path),
+		getLastModified,
 	);
 
 	return builder.sort().build();

@@ -1,7 +1,49 @@
+import fs from "node:fs";
+import path from "node:path";
 import rehypeShiki from "@shikijs/rehype";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { defineCollection, defineConfig, s } from "velite";
+
+interface ContentDates {
+	created: string | null;
+	updated: string | null;
+	updatedSignificant: string | null;
+	path: string;
+}
+
+/**
+ * Git-derived dates written by `scripts/generate-content-dates.mjs` (runs in
+ * `prebuild`, before velite). Folding them in here rather than reading them at
+ * request time is deliberate: `lib/content.ts` imports `.velite` statically, so
+ * these dates get bundled into the server output. The previous approach read a
+ * JSON file from `.next/` via `process.cwd()` at runtime, which Next.js file
+ * tracing never bundled — so the dates silently vanished in production.
+ *
+ * Missing file is not an error: a fresh clone or `dev:velite` should still work,
+ * just without git dates until the next prebuild.
+ */
+const contentDates: Record<string, ContentDates> = (() => {
+	// velite bundles this config as ESM, so `__dirname` does not exist here.
+	// cwd is the app root, the same base velite resolves collection globs from.
+	const manifest = path.join(process.cwd(), ".content-dates.json");
+	try {
+		const parsed = JSON.parse(fs.readFileSync(manifest, "utf-8"));
+		console.log(
+			`[velite] loaded git dates for ${Object.keys(parsed).length} content files`,
+		);
+		return parsed;
+	} catch (error) {
+		// Loud on purpose. Silently falling back to {} is how the previous
+		// implementation shipped date-less pages for months without anyone
+		// noticing. A fresh clone hitting this is fine; CI hitting it is not.
+		console.warn(
+			`[velite] no git dates (${manifest}): ${error instanceof Error ? error.message : error}\n` +
+				"          Pages will ship without dateModified. Run: node scripts/generate-content-dates.mjs",
+		);
+		return {};
+	}
+})();
 
 /**
  * Pattern status enum - matches existing status field values
@@ -12,17 +54,6 @@ const patternStatus = s.enum(["complete", "draft", "coming-soon", "published"]);
  * Pattern popularity enum - for displaying popularity badges
  */
 const patternPopularity = s.enum(["low", "medium", "high", "trending"]);
-
-/**
- * Step schema for HowTo structured data
- * Used in pattern frontmatter for instructional content
- */
-const stepSchema = s.object({
-	name: s.string(),
-	text: s.string(),
-	url: s.string().optional(),
-	image: s.string().optional(),
-});
 
 const compareWithSchema = s.object({
 	name: s.string(),
@@ -78,8 +109,6 @@ const docs = defineCollection({
 			thumbnail: s.string().optional(),
 
 			// Instructional/educational fields
-			steps: s.array(stepSchema).optional(),
-			totalTime: s.string().optional(),
 			educationalLevel: s.string().optional(),
 			timeRequired: s.string().optional(),
 			prerequisites: s.array(s.string()).optional(),
@@ -113,12 +142,30 @@ const docs = defineCollection({
 				? `${Math.ceil(wordCount / 200)} min read`
 				: undefined;
 
+			// Frontmatter always wins so an author can pin a date by hand;
+			// git history is the fallback that covers the other ~129 files.
+			const git = contentDates[slug];
+
 			return {
 				...data,
 				slug,
 				slugAsParams: slug.split("/"),
 				url,
 				readTime,
+				gitCreated: git?.created ?? undefined,
+				gitUpdated: git?.updated ?? undefined,
+				datePublished:
+					data.datePublished ??
+					data.publishedAt ??
+					data.date ??
+					git?.created ??
+					undefined,
+				dateModified:
+					data.dateModified ??
+					data.lastModified ??
+					git?.updatedSignificant ??
+					git?.updated ??
+					undefined,
 			};
 		}),
 });
@@ -160,12 +207,19 @@ const blog = defineCollection({
 				? `${Math.ceil(wordCount / 200)} min read`
 				: undefined;
 
+			// Blog `date` is the authored publish date and outranks git history,
+			// which only reflects when the file landed in this repo.
+			const git = contentDates[`blog/${slug}`];
+
 			return {
 				...data,
 				slug,
 				slugAsParams: slug,
 				url: `/blog/${slug}`,
 				readTime,
+				datePublished: data.date,
+				dateModified:
+					git?.updatedSignificant ?? git?.updated ?? data.date ?? undefined,
 			};
 		}),
 });

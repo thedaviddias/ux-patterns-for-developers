@@ -62,6 +62,35 @@ export default async function HomePage() {
 		}),
 	];
 
+	// The homepage had no machine-readable date at all, so Google fell back to
+	// the only date on the page -- a blog card from December 2024 -- and used it
+	// as the byline date. Date the hub by the freshest content it indexes.
+	//
+	// Not `new Date()`: that would assert the content changed because a build
+	// ran. `WebPage`, not `WebSite`, because `dateModified` on WebSite is not a
+	// well-supported combination.
+	// Compare timestamps, not strings: git emits offsets (-04:00) while
+	// frontmatter dates are Z-normalised, so lexical ordering would be wrong.
+	const newestContentDate = getPages().reduce((newest, page) => {
+		if (!page.dateModified) return newest;
+		const time = new Date(page.dateModified).getTime();
+		return Number.isNaN(time) || time <= newest ? newest : time;
+	}, Number.NEGATIVE_INFINITY);
+
+	if (Number.isFinite(newestContentDate)) {
+		schemas.push({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"@id": `${siteConfig.url}/#webpage`,
+			url: siteConfig.url,
+			name: siteConfig.name,
+			description: siteConfig.description,
+			isPartOf: { "@id": `${siteConfig.url}/#website` },
+			dateModified: new Date(newestContentDate).toISOString(),
+			inLanguage: "en-US",
+		});
+	}
+
 	// Fetch pattern data for components that need it
 	const categories = await getPatternCategories();
 	const allGuides = getPages({
