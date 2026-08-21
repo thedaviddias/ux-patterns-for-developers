@@ -16,7 +16,9 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "*/5 * * * *"
+    # Fallback only; `push` (via Mirror Sync) is the real trigger. Offset from
+    # mirror-sync's */5 so a run starts just after a sync, not alongside it.
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -24,7 +26,10 @@ permissions:
 
 concurrency:
   group: routed-production-${{ github.ref }}
-  cancel-in-progress: true
+  # Never cancel a deploy in flight. With a scheduled trigger in the same
+  # group, `true` means every tick kills the running build -- and this build
+  # takes far longer than the interval, so it could never finish.
+  cancel-in-progress: false
 
 jobs:
   validate-and-deploy:
