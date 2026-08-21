@@ -29,6 +29,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          # Full commit history is required: scripts/generate-content-dates.mjs
+          # derives each content file's dateModified from `git log`. At the
+          # default depth of 1, git reports the single commit as adding every
+          # file, so all content collapses onto one identical date -- the
+          # generator fails the build rather than ship that.
+          # blob:none keeps this cheap - .git is ~1.3GB, and reading commit
+          # metadata + tree entries never needs the blobs themselves.
+          fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
 
       - name: Check whether this commit needs deployment
