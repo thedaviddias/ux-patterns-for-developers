@@ -1,3 +1,7 @@
+> Historical review draft: approved by David Dias on October 5, 2026.
+> The adopted public text is in apps/web/content/pages/privacy-policy.mdx.
+> Operator: David Dias. Support/privacy: hello@thedaviddias.com.
+
 # UX Patterns privacy policy — draft for review
 
 Draft prepared October 5, 2026. Do not publish until the operator, private

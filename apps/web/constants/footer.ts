@@ -36,6 +36,10 @@ export const FOOTER_RESOURCES_LINKS = [
 		path: "/privacy-policy",
 		label: "Privacy Policy",
 	},
+	{
+		path: "/terms-of-service",
+		label: "Terms of Service",
+	},
 ];
 
 export const FOOTER_OPENSOURCE_LINKS = [
