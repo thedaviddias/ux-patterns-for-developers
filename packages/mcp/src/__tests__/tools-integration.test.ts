@@ -42,6 +42,11 @@ describe("public tools against built content", () => {
 			);
 			try {
 				const list = await client.listTools();
+				for (const tool of list.tools) {
+					expect(tool.title).toMatch(/^[A-Z]/);
+					expect(tool.annotations?.readOnlyHint).toBe(true);
+					expect(tool.annotations?.destructiveHint).toBe(false);
+				}
 				expect(list.tools.map((t) => t.name).sort()).toEqual(
 					cases.map(([name]) => name).sort(),
 				);

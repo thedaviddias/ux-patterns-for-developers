@@ -71,8 +71,10 @@ support, privacy and terms URLs, listing assets, realistic positive and negative
 review cases, and supported countries. A deployed endpoint is not a published
 listing. Never invent a registered server ID or verification token.
 
-Anthropic continues to accept individual remote MCP connectors through its
-[developer submission portal](https://claude.com/blog/build-plugins-for-claude).
+Anthropic accepts remote MCP connectors through its
+[developer submission portal](https://claude.ai/directory/manage).
+Every tool includes a display title and safety annotations. Follow its
+[submission checklist](https://claude.com/docs/connectors/building/submission).
 Test first as a [custom connector](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp),
 then provide the public endpoint, publisher details, listing materials and review
 instructions. Approval and publication are separate from local verification.

@@ -106,6 +106,9 @@ export class UXPatternsMCPServer {
 			server.registerTool(
 				tool.name,
 				{
+					title: tool.name
+						.replaceAll("_", " ")
+						.replace(/\b\w/g, (letter) => letter.toUpperCase()),
 					description: tool.description,
 					annotations: {
 						readOnlyHint: true,
