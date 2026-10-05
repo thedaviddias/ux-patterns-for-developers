@@ -3,10 +3,9 @@
 `openai/` is a portable plugin draft containing the public MCP configuration,
 the existing project icon and five positive/three negative review cases.
 Publisher metadata matches the available verified portal identity, David Dias
-Digital. The package was accepted as an unpublished OpenAI draft. It is not submission-ready:
-add an approved public terms URL, verify privacy disclosures, and complete
-directory review. The metadata includes the captioned reviewer video at
-`https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4`; public playback is verified and package 2.0.1 is uploaded.
+Digital. The package was accepted as an unpublished OpenAI draft. Owner-approved terms and privacy pages are published. Package 2.0.2 includes
+the terms URL; final OpenAI binding declarations await owner confirmation. The metadata includes the captioned reviewer video at
+`https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4`; public playback is verified and package 2.0.2 is uploaded.
 Runtime version 2.0.3 adds compatibility annotation titles; modern and legacy
 production verification passed all eleven tools at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
 and discovered all eleven tools with no MCP scan issues; the plugin remains
@@ -27,7 +26,8 @@ For Anthropic, use the same endpoint, product copy and icon in
 Development tools. Authentication: none; the server exposes public content.
 Documentation: `https://uxpatterns.dev/mcp`. Privacy:
 `https://uxpatterns.dev/privacy-policy`. Support: the repository issue tracker.
-Confirm the publisher/company contact rather than inventing a legal entity.
+Legal operator: David Dias. Support/privacy: hello@thedaviddias.com.
+Terms: `https://uxpatterns.dev/terms-of-service`.
 Review guidance: the connector has eleven read-only tools, no account setup,
 and no write/deployment tools. Code and accessibility checks accept submitted
 snippets for deterministic analysis; describe request/log processing accurately.
@@ -35,5 +35,6 @@ Complete portal policy acknowledgments using verified facts, not assumptions.
 
 The walkthrough transcript is at `https://uxpatterns.dev/mcp/demo`. Actual
 ChatGPT review evidence and remaining owner decisions are documented in
-`docs/mcp-submission-evidence.md`. Plugin package version 2.0.1 and MCP runtime
-version 2.0.3 are independent. No public-directory approval is claimed.
+`docs/mcp-submission-evidence.md`. Plugin package version 2.0.2 and MCP runtime
+version 2.0.3 are independent. Anthropic management confirms Approved and Published; initial public listing
+visibility is pending propagation. OpenAI is not submitted yet.

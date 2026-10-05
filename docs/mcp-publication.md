@@ -86,8 +86,9 @@ cases completed; the captioned video and transcript are included in the
 submission assets and publicly verified at `https://uxpatterns.dev/mcp/demo`.
 The updated OpenAI package is uploaded; Anthropic discovers all eleven tools
 without title warnings. See [review evidence](mcp-submission-evidence.md) and
-[token budgets](mcp-token-budgets.md). Legal terms/privacy approval and final
-portal agreements remain prerequisites; a configured connector is not a listing.
+[token budgets](mcp-token-budgets.md). Owner-approved terms and privacy are live. Anthropic management confirms
+Published, with public listing propagation pending. OpenAI package 2.0.2 includes
+the terms URL and awaits final binding declarations.
 
 OpenAI accepts remote MCP servers as part of a plugin. Follow the
 [submission flow](https://developers.openai.com/plugins/deploy/submission),
