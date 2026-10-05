@@ -90,8 +90,12 @@ adopted repository MDX.
 
 OpenAI package 2.0.2 was uploaded with the public terms URL, unchanged five
 positive/three negative cases, video and updated release notes. Its terms URL
-error cleared; privacy review remains an advisory. Final submission awaits
-owner confirmation of the six binding declarations in the actual portal dialog.
+error cleared; privacy review remains an advisory. The owner explicitly authorized the six binding declarations at the final
+acceptance step. All six were checked and Submit clicked once. The persisted
+plugin detail page confirms metadata package 2.0.2 In review, MCP Configured
+and Not published. The plugin list labels its review version 1.0.0, but the
+detail page identifies the submitted package as 2.0.2; these display labels
+should not be confused with MCP runtime 2.0.3.
 
 The Anthropic portal was already Approved on continuation. After the legal
 pages were deployed, Publish was confirmed and management now says Published.

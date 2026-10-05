@@ -4,7 +4,7 @@
 the existing project icon and five positive/three negative review cases.
 Publisher metadata matches the available verified portal identity, David Dias
 Digital. The package was accepted as an unpublished OpenAI draft. Owner-approved terms and privacy pages are published. Package 2.0.2 includes
-the terms URL; final OpenAI binding declarations await owner confirmation. The metadata includes the captioned reviewer video at
+the terms URL; the owner authorized final declarations and OpenAI confirms package 2.0.2 In review. The metadata includes the captioned reviewer video at
 `https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4`; public playback is verified and package 2.0.2 is uploaded.
 Runtime version 2.0.3 adds compatibility annotation titles; modern and legacy
 production verification passed all eleven tools at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
@@ -37,4 +37,4 @@ The walkthrough transcript is at `https://uxpatterns.dev/mcp/demo`. Actual
 ChatGPT review evidence and remaining owner decisions are documented in
 `docs/mcp-submission-evidence.md`. Plugin package version 2.0.2 and MCP runtime
 version 2.0.3 are independent. Anthropic management confirms Approved and Published; initial public listing
-visibility is pending propagation. OpenAI is not submitted yet.
+visibility is pending propagation. OpenAI is submitted and In review; it is not published.
