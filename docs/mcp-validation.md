@@ -9,11 +9,15 @@ deployment and directory approval remain separate release steps.
 - Production Next.js build passed compilation, TypeScript and generation of
   368 static pages. Some pages retried after the 60-second worker timeout;
   all completed. Do not treat the build duration as request latency.
-- MCP: 343 tests across 15 suites, including real modern/legacy clients,
+- MCP: 347 tests across 16 suites, including real modern/legacy clients,
   all eleven tools, schema validation, request isolation and submitted-code
-  cache exclusion. Coverage: 82.13% lines, 75.2% branches.
+  cache exclusion. Coverage: 85.52% lines, 79.84% branches. Interactive
+  continuation tests verify retry safety, fresh-worker resumption and rejection
+  of invalid choices/tokens.
 - HTTP route: five tests covering malformed/oversized requests, methods,
   CORS, Origin validation, rate limits and modern header mismatches.
+- Three middleware tests verify the exact domain-verification file bypasses
+  MCP rewriting, accepts only reads and preserves limits on ordinary MCP calls.
 - Stdio: real spawned clients passed in both protocol eras on the host runtime
   and target Node 24.21.0 LTS.
 - All seven workspace typecheck tasks passed. Frozen pnpm installation,
