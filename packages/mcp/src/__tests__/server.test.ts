@@ -182,6 +182,37 @@ describe("real stateless MCP transport", () => {
 			await client.close();
 		}
 	});
+	it("retries failed public searches and caches only the recovered result", async () => {
+		const server = createServer();
+		let calls = 0;
+		server.registerTool({
+			name: "search_patterns",
+			description: "Recoverable public search",
+			inputSchema: { type: "object", properties: { query: { type: "string" } } },
+			handler: async () =>
+				++calls === 1 ? { error: "TEMPORARY_FAILURE" } : { results: ["button"] },
+		});
+		const client = new Client(
+			{ name: "cache-recovery-test", version: "1" },
+			{ versionNegotiation: { mode: "auto" } },
+		);
+		await client.connect(
+			new StreamableHTTPClientTransport(new URL("https://mcp.uxpatterns.dev"), {
+				fetch: (input, init) => server.handleHttpRequest(new Request(input, init)),
+			}),
+		);
+		try {
+			const request = { name: "search_patterns", arguments: { query: "button" } };
+			expect((await client.callTool(request)).isError).toBe(true);
+			const recovered = await client.callTool(request);
+			expect(recovered.isError).not.toBe(true);
+			expect(recovered.structuredContent).toEqual({ results: ["button"] });
+			expect(await client.callTool(request)).toEqual(recovered);
+			expect(calls).toBe(2);
+		} finally {
+			await client.close();
+		}
+	});
 	it("reuses bounded public search results but does not cache submitted code", async () => {
 		const server = createServer();
 		let searchCalls = 0;

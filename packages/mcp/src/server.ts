@@ -129,7 +129,11 @@ export class UXPatternsMCPServer {
 							? this.searchCache.get(cacheKey)
 							: undefined;
 						const result = cached ?? (await tool.handler(toolArgs));
-						if (cacheKey && cached === undefined)
+						const isError =
+							typeof result === "object" &&
+							result !== null &&
+							"error" in result;
+						if (cacheKey && cached === undefined && !isError)
 							this.searchCache.set(cacheKey, result);
 						const text = JSON.stringify(result, null, 2);
 						return {
@@ -143,12 +147,7 @@ export class UXPatternsMCPServer {
 								text.length <= this.maxResponseChars
 									? (result as Record<string, unknown>)
 									: undefined,
-							isError:
-								typeof result === "object" &&
-								result !== null &&
-								"error" in result
-									? true
-									: undefined,
+							isError: isError || undefined,
 						};
 					} catch (error) {
 						const errorPayload: MCPError = {
