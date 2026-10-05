@@ -71,30 +71,40 @@ requests. See [token budgets](mcp-token-budgets.md). The targeted search/retriev
 fixture uses about 60% fewer payload tokens than full retrieval; this does not
 predict every user's bill or plan consumption. No paid model evaluation ran.
 
-## Remaining owner-dependent submission prerequisites
+## Legal publication and directory status
 
-Both directories remain unpublished. The OpenAI MCP scan reports no issues and
-domain ownership is verified. Its plugin metadata includes the reviewer video;
-the updated package has been uploaded after verifying the hosted asset. Anthropic's draft
-uses the canonical endpoint, read-only tools, listing and real use cases.
+David Dias confirmed the legal operator name and hello@thedaviddias.com, then
+explicitly approved publishing both policy drafts. PR #272 merged as
+`c379d0401230c48b0c113314debe36a68c19f9ce`; exact source `896b9f4` and merge
+share a tree. Production deployment `dpl_BqcPQRWrTLaHjSmutcqpCrnvbx12` is Ready.
+Web typecheck and the final 372-page production build passed. Public terms and
+privacy URLs returned HTTP 200 with the approved contact and October 5 date.
+The privacy page corrects the former no-analytics assertion and describes
+providers, snippet handling, retention criteria and privacy requests without
+inventing account-specific retention durations. Historical drafts link to the
+adopted repository MDX.
 
-The owner must confirm legal operator/contact details and adopt final terms and
-accurate privacy disclosures. The terms and privacy documents remain labeled
-drafts; no invented legal contact or effective date is published. Final platform
-policy agreements require confirmation at the actual acceptance step. Directory
-acceptance and approval cannot be inferred from a healthy endpoint or test run.
+- Terms: `https://uxpatterns.dev/terms-of-service`
+- Privacy: `https://uxpatterns.dev/privacy-policy`
+- Support/privacy contact: `hello@thedaviddias.com`
+
+OpenAI package 2.0.2 was uploaded with the public terms URL, unchanged five
+positive/three negative cases, video and updated release notes. Its terms URL
+error cleared; privacy review remains an advisory. Final submission awaits
+owner confirmation of the six binding declarations in the actual portal dialog.
+
+The Anthropic portal was already Approved on continuation. After the legal
+pages were deployed, Publish was confirmed and management now says Published.
+Public URL: `https://claude.ai/directory/ux-patterns`. The public page initially
+returned unavailable; the portal warns propagation can take up to an hour.
+Publication status is confirmed; public listing visibility is not yet confirmed.
+No additional agreement was accepted during the Publish dialog.
 
 Runtime 2.0.3 adds `annotations.title` alongside each top-level title. Refreshing
 Claude's tool list and reloading/reconnecting the saved submission now shows
 all eleven read-only/idempotent tools with no missing-title suggestions.
 Reconnection resets form defaults: authentication was explicitly restored to
 None and the verified self-test declaration was checked again.
-
-The updated OpenAI package 2.0.1 was uploaded and its review information saved:
-five positive cases, three negative cases, the hosted video and release notes.
-Metadata checks still require terms and privacy review. Anthropic's filled draft
-retains three use cases, test instructions and the video link; policy agreements
-remain unchecked. Neither directory has been submitted or published.
 
 Claude also exposed non-blocking recommendation/checklist quality issues,
 tracked separately as DAV-695 and DAV-696. All-tool execution success does not
