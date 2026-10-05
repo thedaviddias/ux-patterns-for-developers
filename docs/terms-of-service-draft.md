@@ -1,6 +1,6 @@
 # UX Patterns terms of service — draft for review
 
-**Draft, not effective.** Prepared October 5, 2026. This is proposed text for a
+**Draft, not effective.** Prepared October 4, 2026. This is proposed text for a
 public terms page, not the current terms of a published service. Confirm the
 operator's legal name, contact details, privacy disclosures and applicable law
 before adopting it. Proposed publication URL: `https://uxpatterns.dev/terms-of-service`.
