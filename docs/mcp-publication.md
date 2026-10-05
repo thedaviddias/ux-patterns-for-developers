@@ -88,7 +88,7 @@ The updated OpenAI package is uploaded; Anthropic discovers all eleven tools
 without title warnings. See [review evidence](mcp-submission-evidence.md) and
 [token budgets](mcp-token-budgets.md). Owner-approved terms and privacy are live. Anthropic management confirms
 Published, with public listing propagation pending. OpenAI package 2.0.2 includes
-the terms URL and awaits final binding declarations.
+the terms URL and is submitted and In review after owner-authorized final declarations.
 
 OpenAI accepts remote MCP servers as part of a plugin. Follow the
 [submission flow](https://developers.openai.com/plugins/deploy/submission),
