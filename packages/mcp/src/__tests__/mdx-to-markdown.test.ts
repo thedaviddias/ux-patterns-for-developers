@@ -1,6 +1,11 @@
 import { mdxToMarkdown } from "../utils/mdx-to-markdown";
 
 describe("readable MCP content", () => {
+	it("preserves shorter fences and marker lines with content inside longer blocks", () => {
+		const block =
+			"````tsx\n``` <Button />\n~~~\n<Button value={state} />\n````";
+		expect(mdxToMarkdown(`${block}\n\n<Widget />`)).toBe(block);
+	});
 	it("removes complete component tags whose props contain inline code", () => {
 		const output = mdxToMarkdown(
 			'<BuildEffort description="Use `aria-live` for updates" />\n\n<FaqStructuredData items={[{ question: "How?", answer: "Use `button`" }]} />\n\nUse `aria-live` in your implementation.',

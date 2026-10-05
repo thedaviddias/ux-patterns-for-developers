@@ -11,10 +11,32 @@ export function mdxToMarkdown(content: string): string {
 	let marker = "\uE000UX_MCP_LITERAL_";
 	while (content.includes(marker)) marker += "_";
 	const literals: string[] = [];
-	const protectedContent = content.replace(
-		/```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]*`/g,
-		(literal) => `${marker}${literals.push(literal) - 1}\uE001`,
-	);
+	const protect = (literal: string) =>
+		`${marker}${literals.push(literal) - 1}\uE001`;
+	const openings = /^ {0,3}(`{3,}|~{3,})[^\n]*\n/gm;
+	let protectedContent = "";
+	let cursor = 0;
+	for (
+		let match = openings.exec(content);
+		match;
+		match = openings.exec(content)
+	) {
+		const fence = match[1];
+		const closing = new RegExp(
+			`^ {0,3}${fence[0]}{${fence.length},}[ \\t]*\\r?$`,
+			"gm",
+		);
+		closing.lastIndex = openings.lastIndex;
+		const end = closing.exec(content);
+		const blockEnd = end ? end.index + end[0].length : content.length;
+		protectedContent +=
+			content.slice(cursor, match.index) +
+			protect(content.slice(match.index, blockEnd));
+		cursor = blockEnd;
+		openings.lastIndex = blockEnd;
+	}
+	protectedContent += content.slice(cursor);
+	protectedContent = protectedContent.replace(/`[^`\n]*`/g, protect);
 	return stripMdxMarkup(protectedContent)
 		.replace(
 			new RegExp(`${marker}(\\d+)\uE001`, "g"),

@@ -8,6 +8,14 @@ import {
 } from "../../tools/check-accessibility";
 
 describe("check_accessibility tool", () => {
+	it("flags clickable spans with roles but without keyboard activation", async () => {
+		const result = await checkAccessibility({
+			code: '<span role="button" onClick={save}>Save</span>',
+		});
+		expect(result.issues.some((issue) => issue.criterion === "2.1.1")).toBe(
+			true,
+		);
+	});
 	describe("checkAccessibilityDefinition", () => {
 		it("should have correct name", () => {
 			expect(checkAccessibilityDefinition.name).toBe("check_accessibility");

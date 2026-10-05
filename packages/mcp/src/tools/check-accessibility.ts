@@ -110,13 +110,21 @@ const wcagChecks: Array<{
 		criterion: "2.1.1",
 		level: "A",
 		check: (code) => {
-			if (/<div[^>]*onClick[^>]*>/i.test(code)) {
+			const controls =
+				code.match(/<(?:div|span)\b[^>]*onclick\s*=[^>]*>/gi) || [];
+			if (
+				controls.some(
+					(tag) =>
+						!/\bonkey(?:down|up|press)\s*=/i.test(tag) ||
+						!/\btabindex\s*=/i.test(tag),
+				)
+			) {
 				return {
 					criterion: "2.1.1",
 					level: "A",
 					message: "Interactive elements must be keyboard accessible",
 					impact: "critical",
-					fix: "Use <button> instead of <div> for clickable elements, or add tabIndex and onKeyDown",
+					fix: "Prefer a native <button>, or provide focusability and keyboard activation for custom controls",
 				};
 			}
 			return null;
