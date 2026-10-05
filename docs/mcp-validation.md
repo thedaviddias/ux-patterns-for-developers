@@ -79,9 +79,22 @@ returns explicit unverified criteria and limitations. It also flags missing
 semantics on clickable divs. Tests exercise actual generated content over both
 protocol eras rather than only checking that a response is nonempty.
 
-These corrections passed local tests and typechecks. After deploying, repeat
-direct production checks and the Claude consumer flow; transport-only success
-does not establish readable or truthful tool output. A local 1,000-request
+PR #267 merged as `7634d23`; its clean source tree matches build `a6f7c4a`.
+CI run `37264067315` passed tests, types, coverage and production build.
+Version 2.0.1 is deployed at the canonical subdomain in Ready deployment
+`dpl_HZKRpw5jwMtrFL1G8kvHsLWfKXtU`. Direct production SDK checks passed all
+eleven modern tools, legacy discovery/retrieval, advisor retries and the exact
+domain challenge. Fresh Claude calls confirmed readable Markdown, intact
+examples, short-slug resolution, empty `passed`, unverified contrast/focus, and
+keyboard/name-role issues. OpenAI rescanned all eleven tools with no issues.
+These checks do not establish complete ChatGPT prompt coverage or directory
+approval. Claude also identified generated TOC titles with an `undefined`
+prefix; that separate content-generation defect is tracked in DAV-687.
+
+A ten-request production sample at concurrency two measured p50 101 ms and
+p95 1,960 ms, including one slow request; connection took 308 ms and first
+search 230 ms. This small sample is not a capacity or cold-start guarantee.
+A local 1,000-request
 sample after the corrections measured 4,504 requests/second and p95 5.26 ms,
 with about 3.9 MB retained heap growth. Host load differed from earlier runs;
 do not interpret the difference as a controlled performance improvement.
