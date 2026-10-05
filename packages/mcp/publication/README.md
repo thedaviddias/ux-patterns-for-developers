@@ -5,10 +5,12 @@ the existing project icon and five positive/three negative review cases.
 Publisher metadata matches the available verified portal identity, David Dias
 Digital. The package was accepted as an unpublished OpenAI draft. It is not submission-ready:
 add an approved public terms URL and a reviewer-accessible demo recording URL,
-verify privacy disclosures, and complete directory review. Version 2.0.0 is
+verify privacy disclosures, and complete directory review. Version 2.0.1 is
 deployed and tested at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
 and discovered all eleven tools with no MCP scan issues; the plugin remains
 unpublished.
+Fresh Claude retrieval and accessibility calls verified readable examples and
+explicit unverified criteria; this is not directory approval or certified auditing.
 No registered server IDs, challenge tokens or credentials are included.
 
 Package only the plugin contents from `openai/` after resolving these gaps.
