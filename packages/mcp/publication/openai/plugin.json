@@ -1,81 +1,81 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "ux-patterns",
-  "version": "2.0.0",
-  "description": "Public UX pattern guidance for developers: search patterns, retrieve implementation checklists, explain terminology, and check code using deterministic heuristics.",
-  "author": {
-    "name": "David Dias"
-  },
-  "homepage": "https://uxpatterns.dev/mcp",
-  "repository": "https://github.com/thedaviddias/ux-patterns-for-developers",
-  "extensions": {
-    "com.openai": {
-      "interface": {
-        "displayName": "UX Patterns",
-        "shortDescription": "Build accessible interfaces",
-        "longDescription": "Find public UX patterns, implementation guidance and glossary definitions. Get deterministic code-review and accessibility suggestions. Intended for developers designing interfaces. Checks are heuristic and do not replace a complete audit. The connector does not modify your files or deploy applications.",
-        "developerName": "David Dias",
-        "category": "Developer Tools",
-        "websiteURL": "https://uxpatterns.dev/mcp",
-        "supportURL": "https://github.com/thedaviddias/ux-patterns-for-developers/issues",
-        "privacyPolicyURL": "https://uxpatterns.dev/privacy-policy",
-        "logo": "./assets/icon.png",
-        "composerIcon": "./assets/icon.png"
-      },
-      "review": {
-        "test_cases": {
-          "positive": [
-            {
-              "description": "Search guidance",
-              "prompt": "Find a button pattern for a save action.",
-              "tools_triggered": "search_patterns",
-              "expected_behavior": "Return relevant button guidance and source links."
-            },
-            {
-              "description": "Retrieve a pattern",
-              "prompt": "Show me the button pattern and its accessibility guidance.",
-              "tools_triggered": "get_pattern",
-              "expected_behavior": "Retrieve the button pattern without inventing requirements."
-            },
-            {
-              "description": "Implementation checklist",
-              "prompt": "Give me a checklist for implementing an accessible button.",
-              "tools_triggered": "get_implementation_checklist",
-              "expected_behavior": "Provide concrete implementation checks for the button pattern."
-            },
-            {
-              "description": "Review code",
-              "prompt": "Review this markup: <div onclick=\"save()\">Save</div>.",
-              "tools_triggered": "review_code, check_accessibility",
-              "expected_behavior": "Explain heuristic accessibility findings and recommend a semantic button."
-            },
-            {
-              "description": "Terminology",
-              "prompt": "Explain Progressive Loading in UX.",
-              "tools_triggered": "get_glossary_term",
-              "expected_behavior": "Return the matching glossary definition and source."
-            }
-          ],
-          "negative": [
-            {
-              "description": "No deployment access",
-              "prompt": "Deploy my application to production.",
-              "expected_behavior": "Explain there are no deployment or write tools."
-            },
-            {
-              "description": "No certification",
-              "prompt": "Certify that my website fully complies with accessibility law.",
-              "expected_behavior": "Explain that deterministic heuristic checks do not certify compliance."
-            },
-            {
-              "description": "Missing content",
-              "prompt": "Retrieve the pattern definitely-not-a-real-pattern.",
-              "expected_behavior": "Acknowledge the missing pattern and offer search or alternatives."
-            }
-          ]
-        },
-        "commerce": false
-      }
-    }
-  }
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+	"name": "ux-patterns",
+	"version": "2.0.0",
+	"description": "Public UX pattern guidance for developers: search patterns, retrieve implementation checklists, explain terminology, and check code using deterministic heuristics.",
+	"author": {
+		"name": "David Dias"
+	},
+	"homepage": "https://uxpatterns.dev/mcp",
+	"repository": "https://github.com/thedaviddias/ux-patterns-for-developers",
+	"extensions": {
+		"com.openai": {
+			"interface": {
+				"displayName": "UX Patterns",
+				"shortDescription": "Build accessible interfaces",
+				"longDescription": "Find public UX patterns, implementation guidance and glossary definitions. Get deterministic code-review and accessibility suggestions. Intended for developers designing interfaces. Checks are heuristic and do not replace a complete audit. The connector does not modify your files or deploy applications.",
+				"developerName": "David Dias Digital",
+				"category": "Developer Tools",
+				"websiteURL": "https://uxpatterns.dev/mcp",
+				"supportURL": "https://github.com/thedaviddias/ux-patterns-for-developers/issues",
+				"privacyPolicyURL": "https://uxpatterns.dev/privacy-policy",
+				"logo": "./assets/icon.png",
+				"composerIcon": "./assets/icon.png"
+			},
+			"review": {
+				"test_cases": {
+					"positive": [
+						{
+							"description": "Search guidance",
+							"prompt": "Find a button pattern for a save action.",
+							"tools_triggered": "search_patterns",
+							"expected_behavior": "Return relevant button guidance and source links."
+						},
+						{
+							"description": "Retrieve a pattern",
+							"prompt": "Show me the button pattern and its accessibility guidance.",
+							"tools_triggered": "get_pattern",
+							"expected_behavior": "Retrieve the button pattern without inventing requirements."
+						},
+						{
+							"description": "Implementation checklist",
+							"prompt": "Give me a checklist for implementing an accessible button.",
+							"tools_triggered": "get_implementation_checklist",
+							"expected_behavior": "Provide concrete implementation checks for the button pattern."
+						},
+						{
+							"description": "Review code",
+							"prompt": "Review this markup: <div onclick=\"save()\">Save</div>.",
+							"tools_triggered": "review_code, check_accessibility",
+							"expected_behavior": "Explain heuristic accessibility findings and recommend a semantic button."
+						},
+						{
+							"description": "Terminology",
+							"prompt": "Explain Progressive Loading in UX.",
+							"tools_triggered": "get_glossary_term",
+							"expected_behavior": "Return the matching glossary definition and source."
+						}
+					],
+					"negative": [
+						{
+							"description": "No deployment access",
+							"prompt": "Deploy my application to production.",
+							"expected_behavior": "Explain there are no deployment or write tools."
+						},
+						{
+							"description": "No certification",
+							"prompt": "Certify that my website fully complies with accessibility law.",
+							"expected_behavior": "Explain that deterministic heuristic checks do not certify compliance."
+						},
+						{
+							"description": "Missing content",
+							"prompt": "Retrieve the pattern definitely-not-a-real-pattern.",
+							"expected_behavior": "Acknowledge the missing pattern and offer search or alternatives."
+						}
+					]
+				},
+				"commerce": false
+			}
+		}
+	}
 }
