@@ -133,6 +133,7 @@ export default function sitemap() {
 	const SLUG_ALIASES: Record<string, string> = {
 		about: "pages/about",
 		"privacy-policy": "pages/privacy-policy",
+		"terms-of-service": "pages/terms-of-service",
 	};
 
 	const getLastModified = (path: string) =>
@@ -180,6 +181,7 @@ export default function sitemap() {
 		"", // Homepage
 		"about",
 		"privacy-policy",
+		"terms-of-service",
 		"blog",
 	];
 
