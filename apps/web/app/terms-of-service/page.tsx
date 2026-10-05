@@ -47,10 +47,7 @@ export default async function TermsOfServicePage() {
 		<>
 			{/* Render JSON-LD schemas */}
 			{schemas.map((schema) => (
-				<JsonLd
-					key={JSON.stringify(schema)}
-					data={schema}
-				/>
+				<JsonLd key={JSON.stringify(schema)} data={schema} />
 			))}
 
 			<div className="min-h-screen bg-background relative">
