@@ -13,12 +13,12 @@
 		"check:type": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@icons-pack/react-simple-icons": "^13.8.0",
-		"react": "^19.2.3"
+		"@icons-pack/react-simple-icons": "^13.15.1",
+		"react": "^19.3.0"
 	},
 	"devDependencies": {
 		"@thedaviddias/config-typescript": "workspace:*",
-		"@types/react": "^19.2.7",
+		"@types/react": "^19.3.0",
 		"typescript": "^5.9.3"
 	}
 }

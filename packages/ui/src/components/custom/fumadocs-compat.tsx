@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "@fuma-translate/react";
 import { cn } from "@ux-patterns/ui/lib/utils";
 import { cva } from "class-variance-authority";
 import {
@@ -110,7 +111,7 @@ export function LargeSearchToggle({
 	hideIfDisabled?: boolean;
 }) {
 	const { enabled, hotKey, setOpenSearch } = useSearchContext();
-	const { text } = useI18n();
+	const t = useTranslations({ note: "search trigger" });
 
 	if (hideIfDisabled && !enabled) return null;
 
@@ -129,11 +130,11 @@ export function LargeSearchToggle({
 			}}
 		>
 			<Search className="size-4" />
-			{text.search}
+			{t("Search")}
 			<div className="ms-auto inline-flex gap-0.5">
-				{hotKey.map((key, index) => (
+				{hotKey.map((key) => (
 					<kbd
-						key={`${key.key}-${index}`}
+						key={String(key.key)}
 						className="rounded-md border bg-fd-background px-1.5"
 					>
 						{key.display}
@@ -231,6 +232,7 @@ export function LanguageToggle(
 	},
 ) {
 	const context = useI18n();
+	const t = useTranslations({ note: "language switcher" });
 
 	if (!context.locales || context.locales.length === 0) {
 		return null;
@@ -239,7 +241,7 @@ export function LanguageToggle(
 	return (
 		<Popover>
 			<PopoverTrigger
-				aria-label={context.text.chooseLanguage}
+				aria-label={t("Choose a language")}
 				{...props}
 				className={cn(
 					buttonVariants({
@@ -253,7 +255,7 @@ export function LanguageToggle(
 			</PopoverTrigger>
 			<PopoverContent className="flex flex-col overflow-x-hidden p-0">
 				<p className="mb-1 p-2 text-xs font-medium text-fd-muted-foreground">
-					{context.text.chooseLanguage}
+					{t("Choose a language")}
 				</p>
 				{context.locales.map((locale) => (
 					<button

@@ -1,20 +1,39 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
-import type { Tool } from "@modelcontextprotocol/sdk/types.js";
+import {
+	createMcpHandler,
+	McpServer,
+	originValidationResponse,
+	type Tool,
+} from "@modelcontextprotocol/server";
+import { serveStdio } from "@modelcontextprotocol/server/stdio";
 import { jsonSchemaToZod } from "./schema-utils";
 import type { MCPError } from "./types";
+import { LRUCache } from "./utils/cache";
 import {
 	capResponseText,
 	DEFAULT_MAX_RESPONSE_CHARS,
 } from "./utils/response-cap";
 
 // Server constants
-export const MCP_PROTOCOL_VERSION = "2025-06-18";
+export const MCP_PROTOCOL_VERSION = "2026-07-28";
 export const MCP_SERVER_INFO = {
 	name: "ux-patterns-mcp",
-	version: "1.0.0",
+	version: "2.0.0",
 } as const;
+
+const ALLOWED_ORIGIN_HOSTNAMES = [
+	"mcp.uxpatterns.dev",
+	"uxpatterns.dev",
+	"www.uxpatterns.dev",
+	"chatgpt.com",
+	"claude.ai",
+	"localhost",
+	"127.0.0.1",
+	"[::1]",
+];
+
+export function validateMcpOrigin(request: Request): Response | undefined {
+	return originValidationResponse(request, ALLOWED_ORIGIN_HOSTNAMES);
+}
 
 interface UXPatternsMCPServerOptions {
 	maxResponseChars?: number;
@@ -30,6 +49,19 @@ export interface ToolHandler {
 export class UXPatternsMCPServer {
 	private tools: Map<string, ToolHandler> = new Map();
 	private maxResponseChars: number;
+	private readonly searchCache = new LRUCache<unknown>(100, 5 * 60 * 1000);
+	private readonly schemas = new Map<
+		string,
+		ReturnType<typeof jsonSchemaToZod>
+	>();
+	private readonly httpHandler = createMcpHandler(
+		() => this.createSdkServer(),
+		{
+			legacy: "stateless",
+			responseMode: "auto",
+			maxRequestBodySize: 100 * 1024,
+		},
+	);
 
 	constructor(options: UXPatternsMCPServerOptions = {}) {
 		this.maxResponseChars =
@@ -40,7 +72,14 @@ export class UXPatternsMCPServer {
 	 * Register a tool with the server
 	 */
 	registerTool(tool: ToolHandler): void {
+		if (tool.name === "search_patterns") this.searchCache.clear();
 		this.tools.set(tool.name, tool);
+		this.schemas.set(
+			tool.name,
+			jsonSchemaToZod(
+				tool.inputSchema as Parameters<typeof jsonSchemaToZod>[0],
+			),
+		);
 	}
 
 	/**
@@ -58,8 +97,9 @@ export class UXPatternsMCPServer {
 	private createSdkServer(): McpServer {
 		const server = new McpServer(MCP_SERVER_INFO, {
 			capabilities: {
-				tools: {},
+				tools: { listChanged: false },
 			},
+			cacheHints: { "tools/list": { ttlMs: 3600000, cacheScope: "public" } },
 		});
 
 		for (const tool of this.tools.values()) {
@@ -67,26 +107,45 @@ export class UXPatternsMCPServer {
 				tool.name,
 				{
 					description: tool.description,
-					inputSchema: jsonSchemaToZod(
-						tool.inputSchema as Parameters<typeof jsonSchemaToZod>[0],
-					),
+					annotations: {
+						readOnlyHint: true,
+						destructiveHint: false,
+						idempotentHint: true,
+						openWorldHint: false,
+					},
+					inputSchema: this.schemas.get(tool.name),
 				},
 				async (args: unknown) => {
 					try {
-						const result = await tool.handler(
-							(args || {}) as Record<string, unknown>,
-						);
+						const toolArgs = (args || {}) as Record<string, unknown>;
+						const cacheKey =
+							tool.name === "search_patterns"
+								? LRUCache.createKey(tool.name, toolArgs)
+								: undefined;
+						const cached = cacheKey
+							? this.searchCache.get(cacheKey)
+							: undefined;
+						const result = cached ?? (await tool.handler(toolArgs));
+						if (cacheKey && cached === undefined)
+							this.searchCache.set(cacheKey, result);
+						const text = JSON.stringify(result, null, 2);
 						return {
 							content: [
 								{
 									type: "text" as const,
-									text: capResponseText(
-										JSON.stringify(result, null, 2),
-										this.maxResponseChars,
-									),
+									text: capResponseText(text, this.maxResponseChars),
 								},
 							],
-							structuredContent: result as Record<string, unknown>,
+							structuredContent:
+								text.length <= this.maxResponseChars
+									? (result as Record<string, unknown>)
+									: undefined,
+							isError:
+								typeof result === "object" &&
+								result !== null &&
+								"error" in result
+									? true
+									: undefined,
 						};
 					} catch (error) {
 						const errorPayload: MCPError = {
@@ -119,39 +178,18 @@ export class UXPatternsMCPServer {
 	 * Run the server with stdio transport
 	 */
 	async runStdio(): Promise<void> {
-		const server = this.createSdkServer();
-		const transport = new StdioServerTransport();
-		await server.connect(transport);
+		serveStdio(() => this.createSdkServer());
 	}
 
 	/**
 	 * Handle a Streamable HTTP request using the official MCP SDK transport.
 	 */
-	async handleHttpRequest(
-		request: Request,
-		parsedBody?: unknown,
-	): Promise<Response> {
-		const server = this.createSdkServer();
-		const transport = new WebStandardStreamableHTTPServerTransport({
-			sessionIdGenerator: undefined,
-			enableJsonResponse: true,
-		});
-		const normalizedRequest = withDefaultTransportHeaders(request, parsedBody);
-
-		try {
-			await server.connect(transport);
-			return await transport.handleRequest(
-				normalizedRequest,
-				parsedBody === undefined ? undefined : { parsedBody },
-			);
-		} finally {
-			await transport.close();
-			await server.close();
-		}
+	async handleHttpRequest(request: Request): Promise<Response> {
+		return validateMcpOrigin(request) ?? this.httpHandler.fetch(request);
 	}
 
 	/**
-	 * Get server info for HTTP GET endpoint
+	 * Get server metadata for local diagnostics
 	 */
 	getServerInfo(): {
 		name: string;
@@ -175,131 +213,6 @@ export class UXPatternsMCPServer {
 			},
 		};
 	}
-
-	/**
-	 * Handle a JSON-RPC request (for HTTP endpoint)
-	 */
-	async handleRequest(request: {
-		jsonrpc: string;
-		id: string | number;
-		method: string;
-		params?: Record<string, unknown>;
-	}): Promise<{
-		jsonrpc: string;
-		id: string | number | null;
-		result?: unknown;
-		error?: { code: number; message: string };
-	}> {
-		const { jsonrpc, id, method, params } = request;
-
-		// Validate request id is present
-		if (id === undefined || id === null) {
-			return {
-				jsonrpc: "2.0",
-				id: null,
-				error: { code: -32600, message: "Missing request id" },
-			};
-		}
-
-		if (jsonrpc !== "2.0") {
-			return {
-				jsonrpc: "2.0",
-				id,
-				error: { code: -32600, message: "Invalid JSON-RPC version" },
-			};
-		}
-
-		try {
-			if (method === "tools/list") {
-				const tools = Array.from(this.tools.values()).map((tool) => ({
-					name: tool.name,
-					description: tool.description,
-					inputSchema: tool.inputSchema,
-				}));
-				return { jsonrpc: "2.0", id, result: { tools } };
-			}
-
-			if (method === "tools/call") {
-				const toolName = (params as { name?: string })?.name;
-				const toolArgs = (params as { arguments?: Record<string, unknown> })
-					?.arguments;
-
-				if (!toolName) {
-					return {
-						jsonrpc: "2.0",
-						id,
-						error: { code: -32602, message: "Missing tool name" },
-					};
-				}
-
-				const tool = this.tools.get(toolName);
-				if (!tool) {
-					return {
-						jsonrpc: "2.0",
-						id,
-						error: { code: -32601, message: `Tool "${toolName}" not found` },
-					};
-				}
-
-				const result = await tool.handler(toolArgs ?? {});
-				return {
-					jsonrpc: "2.0",
-					id,
-					result: {
-						content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
-					},
-				};
-			}
-
-			return {
-				jsonrpc: "2.0",
-				id,
-				error: { code: -32601, message: `Method "${method}" not found` },
-			};
-		} catch (error) {
-			return {
-				jsonrpc: "2.0",
-				id,
-				error: {
-					code: -32603,
-					message: error instanceof Error ? error.message : "Internal error",
-				},
-			};
-		}
-	}
-}
-
-function withDefaultTransportHeaders(
-	request: Request,
-	parsedBody?: unknown,
-): Request {
-	const headers = new Headers(request.headers);
-
-	if (!headers.has("accept")) {
-		headers.set("accept", "application/json, text/event-stream");
-	}
-
-	if (!headers.has("mcp-protocol-version")) {
-		headers.set("mcp-protocol-version", MCP_PROTOCOL_VERSION);
-	}
-
-	if (
-		parsedBody === undefined &&
-		request.method !== "GET" &&
-		request.method !== "HEAD"
-	) {
-		return new Request(request.url, {
-			method: request.method,
-			headers,
-			body: request.body,
-			duplex: "half",
-		} as RequestInit & { duplex: "half" });
-	}
-
-	return new Request(request.url, {
-		method: request.method,
-		headers,
-	});
 }
 
 export function createServer(

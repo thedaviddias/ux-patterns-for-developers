@@ -1,383 +1,231 @@
-/**
- * Tests for MCP Server
- */
+import {
+	Client,
+	StreamableHTTPClientTransport,
+} from "@modelcontextprotocol/client";
+import { createServer, MCP_PROTOCOL_VERSION } from "../server";
 
-import { jest } from "@jest/globals";
-
-// Mock the MCP SDK
-jest.unstable_mockModule("@modelcontextprotocol/sdk/server/mcp.js", () => ({
-	McpServer: jest.fn().mockImplementation(() => ({
-		registerTool: jest.fn(),
-		connect: jest.fn(),
-		close: jest.fn(),
-	})),
-}));
-
-jest.unstable_mockModule("@modelcontextprotocol/sdk/server/stdio.js", () => ({
-	StdioServerTransport: jest.fn(),
-}));
-
-jest.unstable_mockModule(
-	"@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js",
-	() => ({
-		WebStandardStreamableHTTPServerTransport: jest
-			.fn()
-			.mockImplementation(() => ({
-				handleRequest: jest.fn().mockResolvedValue(new Response("{}")),
-				close: jest.fn(),
-			})),
-	}),
-);
-
-const { UXPatternsMCPServer, createServer } = await import("../server");
-
-import type { ToolHandler } from "../server";
-
-describe("MCP Server", () => {
-	describe("createServer", () => {
-		it("should create a new server instance", () => {
-			const server = createServer();
-
-			expect(server).toBeInstanceOf(UXPatternsMCPServer);
-		});
+function setup() {
+	const server = createServer();
+	server.registerTool({
+		name: "echo",
+		description: "Echo a message",
+		inputSchema: {
+			type: "object",
+			properties: { message: { type: "string" } },
+			required: ["message"],
+		},
+		handler: async (args) => ({ message: args.message }),
 	});
+	server.registerTool({
+		name: "fail",
+		description: "Failure test",
+		inputSchema: { type: "object", properties: {} },
+		handler: async () => {
+			throw new Error("Test failure");
+		},
+	});
+	return server;
+}
 
-	describe("UXPatternsMCPServer", () => {
-		let server: InstanceType<typeof UXPatternsMCPServer>;
+async function connect(mode: "legacy" | "auto") {
+	const server = setup();
+	const requests: Request[] = [];
+	const client = new Client(
+		{ name: "integration-test", version: "1.0.0" },
+		{ versionNegotiation: { mode } },
+	);
+	const transport = new StreamableHTTPClientTransport(
+		new URL("https://mcp.uxpatterns.dev"),
+		{
+			fetch: async (input, init) => {
+				const request = new Request(input, init);
+				requests.push(request.clone());
+				return server.handleHttpRequest(request);
+			},
+		},
+	);
+	await client.connect(transport);
+	return { client, requests };
+}
 
-		const mockTool: ToolHandler = {
-			name: "test_tool",
-			description: "A test tool",
+describe("real stateless MCP transport", () => {
+	for (const mode of ["legacy", "auto"] as const) {
+		it(`discovers and calls tools using ${mode} clients`, async () => {
+			const { client, requests } = await connect(mode);
+			try {
+				const list = await client.listTools();
+				expect(list.tools).toHaveLength(2);
+				expect(list.tools[0].annotations).toMatchObject({
+					readOnlyHint: true,
+					destructiveHint: false,
+				});
+				const result = await client.callTool({
+					name: "echo",
+					arguments: { message: "hello" },
+				});
+				expect(result.structuredContent).toEqual({ message: "hello" });
+				expect(client.getProtocolEra()).toBe(
+					mode === "auto" ? "modern" : "legacy",
+				);
+				expect(requests.every((r) => !r.headers.has("mcp-session-id"))).toBe(
+					true,
+				);
+				if (mode === "auto")
+					expect(list).toMatchObject({ ttlMs: 3600000, cacheScope: "public" });
+			} finally {
+				await client.close();
+			}
+		});
+	}
+	it("marks handler failures as tool errors", async () => {
+		const { client } = await connect("auto");
+		try {
+			expect(
+				await client.callTool({ name: "fail", arguments: {} }),
+			).toMatchObject({ isError: true });
+		} finally {
+			await client.close();
+		}
+	});
+	it("rejects invalid tool arguments", async () => {
+		const { client } = await connect("auto");
+		try {
+			const result = await client.callTool({
+				name: "echo",
+				arguments: { message: 42 },
+			});
+			expect(result.isError).toBe(true);
+		} finally {
+			await client.close();
+		}
+	});
+	it("rejects malformed JSON and unsupported methods", async () => {
+		const server = setup();
+		const response = await server.handleHttpRequest(
+			new Request("https://mcp.uxpatterns.dev", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json, text/event-stream",
+				},
+				body: "{",
+			}),
+		);
+		expect(response.status).toBe(400);
+		expect((await response.json()).error.code).toBe(-32700);
+		expect(
+			(
+				await server.handleHttpRequest(
+					new Request("https://mcp.uxpatterns.dev"),
+				)
+			).status,
+		).toBe(405);
+	});
+	it("does not mix request IDs or arguments under concurrency", async () => {
+		const server = setup();
+		const results = await Promise.all(
+			Array.from({ length: 40 }, async (_, id) => {
+				const response = await server.handleHttpRequest(
+					new Request("https://mcp.uxpatterns.dev", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							Accept: "application/json, text/event-stream",
+						},
+						body: JSON.stringify({
+							jsonrpc: "2.0",
+							id,
+							method: "tools/call",
+							params: { name: "echo", arguments: { message: String(id) } },
+						}),
+					}),
+				);
+				const text = await response.text();
+				const data = response.headers
+					.get("content-type")
+					?.includes("text/event-stream")
+					? JSON.parse(text.split("data: ")[1].split("\n")[0])
+					: JSON.parse(text);
+				expect(data.id).toBe(id);
+				expect(data.result.structuredContent.message).toBe(String(id));
+				return data;
+			}),
+		);
+		expect(results).toHaveLength(40);
+	});
+	it("advertises the modern protocol", () => {
+		expect(setup().getServerInfo().protocolVersion).toBe(MCP_PROTOCOL_VERSION);
+	});
+	it("caps the complete response without duplicating uncapped structured content", async () => {
+		const server = createServer({ maxResponseChars: 1000 });
+		server.registerTool({
+			name: "large",
+			description: "Large output",
+			inputSchema: { type: "object", properties: {} },
+			handler: async () => ({ text: "x".repeat(100000) }),
+		});
+		const client = new Client(
+			{ name: "cap-test", version: "1" },
+			{ versionNegotiation: { mode: "auto" } },
+		);
+		await client.connect(
+			new StreamableHTTPClientTransport(new URL("https://mcp.uxpatterns.dev"), {
+				fetch: (input, init) =>
+					server.handleHttpRequest(new Request(input, init)),
+			}),
+		);
+		try {
+			const result = await client.callTool({ name: "large", arguments: {} });
+			expect(result.structuredContent).toBeUndefined();
+			expect(JSON.stringify(result).length).toBeLessThan(1500);
+		} finally {
+			await client.close();
+		}
+	});
+	it("reuses bounded public search results but does not cache submitted code", async () => {
+		const server = createServer();
+		let searchCalls = 0;
+		let codeCalls = 0;
+		server.registerTool({
+			name: "search_patterns",
+			description: "Public search",
 			inputSchema: {
 				type: "object",
-				properties: {
-					arg1: { type: "string" },
-				},
-				required: ["arg1"],
+				properties: { query: { type: "string" } },
 			},
-			handler: jest.fn<() => Promise<{ result: string }>>().mockResolvedValue({
-				result: "success",
+			handler: async () => ({ calls: ++searchCalls }),
+		});
+		server.registerTool({
+			name: "review_code",
+			description: "Submitted code",
+			inputSchema: { type: "object", properties: { code: { type: "string" } } },
+			handler: async () => ({ calls: ++codeCalls }),
+		});
+		const client = new Client(
+			{ name: "cache-test", version: "1" },
+			{ versionNegotiation: { mode: "auto" } },
+		);
+		await client.connect(
+			new StreamableHTTPClientTransport(new URL("https://mcp.uxpatterns.dev"), {
+				fetch: (input, init) =>
+					server.handleHttpRequest(new Request(input, init)),
 			}),
-		};
-
-		const errorTool: ToolHandler = {
-			name: "error_tool",
-			description: "A tool that throws",
-			inputSchema: { type: "object", properties: {} },
-			handler: jest
-				.fn<() => Promise<never>>()
-				.mockRejectedValue(new Error("Tool error")),
-		};
-
-		beforeEach(() => {
-			jest.clearAllMocks();
-			server = new UXPatternsMCPServer();
-		});
-
-		describe("registerTool", () => {
-			it("should register a single tool", async () => {
-				server.registerTool(mockTool);
-
-				// Verify tool is accessible via tools/list
-				const response = await server.handleRequest({
-					jsonrpc: "2.0",
-					id: 1,
-					method: "tools/list",
+		);
+		try {
+			for (let i = 0; i < 2; i++) {
+				await client.callTool({
+					name: "search_patterns",
+					arguments: { query: "button" },
 				});
-
-				const result = response.result as { tools: any[] };
-				expect(result.tools).toHaveLength(1);
-				expect(result.tools[0].name).toBe("test_tool");
-				expect(result.tools[0].description).toBe("A test tool");
-			});
-
-			it("should allow overwriting existing tool", async () => {
-				server.registerTool(mockTool);
-
-				const updatedTool = {
-					...mockTool,
-					description: "Updated description",
-				};
-				server.registerTool(updatedTool);
-
-				// Verify the updated description is used
-				const response = await server.handleRequest({
-					jsonrpc: "2.0",
-					id: 1,
-					method: "tools/list",
+				await client.callTool({
+					name: "review_code",
+					arguments: { code: "private snippet" },
 				});
-
-				const result = response.result as { tools: any[] };
-				expect(result.tools).toHaveLength(1);
-				expect(result.tools[0].description).toBe("Updated description");
-			});
-		});
-
-		describe("registerTools", () => {
-			it("should register multiple tools at once", async () => {
-				const tools: ToolHandler[] = [
-					mockTool,
-					{
-						name: "another_tool",
-						description: "Another test tool",
-						inputSchema: { type: "object", properties: {} },
-						handler: jest.fn().mockResolvedValue({}),
-					},
-				];
-
-				server.registerTools(tools);
-
-				// Verify both tools are accessible via tools/list
-				const response = await server.handleRequest({
-					jsonrpc: "2.0",
-					id: 1,
-					method: "tools/list",
-				});
-
-				const result = response.result as { tools: any[] };
-				expect(result.tools).toHaveLength(2);
-
-				const toolNames = result.tools.map((t) => t.name);
-				expect(toolNames).toContain("test_tool");
-				expect(toolNames).toContain("another_tool");
-			});
-		});
-
-		describe("getServerInfo", () => {
-			it("should return server metadata", () => {
-				const info = server.getServerInfo();
-
-				expect(info.name).toBe("ux-patterns-mcp");
-				expect(info.version).toBe("1.0.0");
-				expect(info.protocolVersion).toBe("2025-06-18");
-				expect(info.capabilities.tools.listChanged).toBe(false);
-			});
-
-			it("should include serverInfo section", () => {
-				const info = server.getServerInfo();
-
-				expect(info.serverInfo.name).toBe("UX Patterns MCP Server");
-				expect(info.serverInfo.version).toBe("1.0.0");
-			});
-		});
-
-		describe("handleRequest", () => {
-			beforeEach(() => {
-				server.registerTool(mockTool);
-				server.registerTool(errorTool);
-			});
-
-			describe("request validation", () => {
-				it("should reject requests with invalid JSON-RPC version", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "1.0",
-						id: 1,
-						method: "tools/list",
-					});
-
-					expect(response.error).toBeDefined();
-					expect(response.error?.code).toBe(-32600);
-					expect(response.error?.message).toContain("Invalid JSON-RPC version");
-				});
-
-				it("should reject requests with missing id", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: null as any,
-						method: "tools/list",
-					});
-
-					expect(response.error).toBeDefined();
-					expect(response.error?.code).toBe(-32600);
-					expect(response.error?.message).toContain("Missing request id");
-					expect(response.id).toBeNull();
-				});
-
-				it("should reject requests with undefined id", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: undefined as any,
-						method: "tools/list",
-					});
-
-					expect(response.error).toBeDefined();
-					expect(response.error?.code).toBe(-32600);
-				});
-			});
-
-			describe("tools/list method", () => {
-				it("should return list of registered tools", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/list",
-					});
-
-					expect(response.jsonrpc).toBe("2.0");
-					expect(response.id).toBe(1);
-					expect(response.result).toBeDefined();
-
-					const result = response.result as { tools: any[] };
-					expect(result.tools.length).toBe(2);
-					expect(result.tools.some((t) => t.name === "test_tool")).toBe(true);
-				});
-
-				it("should include tool descriptions and schemas", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/list",
-					});
-
-					const result = response.result as { tools: any[] };
-					const testTool = result.tools.find((t) => t.name === "test_tool");
-
-					expect(testTool.description).toBe("A test tool");
-					expect(testTool.inputSchema).toEqual(mockTool.inputSchema);
-				});
-
-				it("should return empty list when no tools registered", async () => {
-					const emptyServer = new UXPatternsMCPServer();
-
-					const response = await emptyServer.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/list",
-					});
-
-					const result = response.result as { tools: any[] };
-					expect(result.tools).toEqual([]);
-				});
-			});
-
-			describe("tools/call method", () => {
-				it("should call the correct tool handler", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/call",
-						params: {
-							name: "test_tool",
-							arguments: { arg1: "test" },
-						},
-					});
-
-					expect(mockTool.handler).toHaveBeenCalledWith({ arg1: "test" });
-					expect(response.result).toBeDefined();
-				});
-
-				it("should return formatted content", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/call",
-						params: {
-							name: "test_tool",
-							arguments: {},
-						},
-					});
-
-					const result = response.result as { content: any[] };
-					expect(result.content).toBeDefined();
-					expect(result.content[0].type).toBe("text");
-					expect(JSON.parse(result.content[0].text)).toEqual({
-						result: "success",
-					});
-				});
-
-				it("should return error for missing tool name", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/call",
-						params: {},
-					});
-
-					expect(response.error).toBeDefined();
-					expect(response.error?.code).toBe(-32602);
-					expect(response.error?.message).toContain("Missing tool name");
-				});
-
-				it("should return error for non-existent tool", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/call",
-						params: {
-							name: "nonexistent",
-						},
-					});
-
-					expect(response.error).toBeDefined();
-					expect(response.error?.code).toBe(-32601);
-					expect(response.error?.message).toContain("not found");
-				});
-
-				it("should handle tool handler errors", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/call",
-						params: {
-							name: "error_tool",
-							arguments: {},
-						},
-					});
-
-					expect(response.error).toBeDefined();
-					expect(response.error?.code).toBe(-32603);
-					expect(response.error?.message).toBe("Tool error");
-				});
-
-				it("should pass empty object when no arguments provided", async () => {
-					await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "tools/call",
-						params: {
-							name: "test_tool",
-						},
-					});
-
-					expect(mockTool.handler).toHaveBeenCalledWith({});
-				});
-			});
-
-			describe("unknown method", () => {
-				it("should return method not found error", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 1,
-						method: "unknown/method",
-					});
-
-					expect(response.error).toBeDefined();
-					expect(response.error?.code).toBe(-32601);
-					expect(response.error?.message).toContain("unknown/method");
-				});
-			});
-
-			describe("request id handling", () => {
-				it("should preserve string request id", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: "request-123",
-						method: "tools/list",
-					});
-
-					expect(response.id).toBe("request-123");
-				});
-
-				it("should preserve numeric request id", async () => {
-					const response = await server.handleRequest({
-						jsonrpc: "2.0",
-						id: 42,
-						method: "tools/list",
-					});
-
-					expect(response.id).toBe(42);
-				});
-			});
-		});
+			}
+			expect(searchCalls).toBe(1);
+			expect(codeCalls).toBe(2);
+		} finally {
+			await client.close();
+		}
 	});
 });

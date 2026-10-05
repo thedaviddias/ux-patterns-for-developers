@@ -9,6 +9,7 @@ export {
 	MCP_PROTOCOL_VERSION,
 	MCP_SERVER_INFO,
 	UXPatternsMCPServer,
+	validateMcpOrigin,
 } from "./server";
 // Export tool registration for HTTP API usage
 export { registerAllTools } from "./tools";

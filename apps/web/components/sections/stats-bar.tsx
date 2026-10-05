@@ -1,6 +1,7 @@
 "use client";
 
-import { BookOpen, FolderOpen, Github, Layers } from "lucide-react";
+import { SiGithub as Github } from "@icons-pack/react-simple-icons";
+import { BookOpen, FolderOpen, Layers } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 interface StatsBarProps {
