@@ -188,9 +188,14 @@ describe("real stateless MCP transport", () => {
 		server.registerTool({
 			name: "search_patterns",
 			description: "Recoverable public search",
-			inputSchema: { type: "object", properties: { query: { type: "string" } } },
+			inputSchema: {
+				type: "object",
+				properties: { query: { type: "string" } },
+			},
 			handler: async () =>
-				++calls === 1 ? { error: "TEMPORARY_FAILURE" } : { results: ["button"] },
+				++calls === 1
+					? { error: "TEMPORARY_FAILURE" }
+					: { results: ["button"] },
 		});
 		const client = new Client(
 			{ name: "cache-recovery-test", version: "1" },
@@ -198,11 +203,15 @@ describe("real stateless MCP transport", () => {
 		);
 		await client.connect(
 			new StreamableHTTPClientTransport(new URL("https://mcp.uxpatterns.dev"), {
-				fetch: (input, init) => server.handleHttpRequest(new Request(input, init)),
+				fetch: (input, init) =>
+					server.handleHttpRequest(new Request(input, init)),
 			}),
 		);
 		try {
-			const request = { name: "search_patterns", arguments: { query: "button" } };
+			const request = {
+				name: "search_patterns",
+				arguments: { query: "button" },
+			};
 			expect((await client.callTool(request)).isError).toBe(true);
 			const recovered = await client.callTool(request);
 			expect(recovered.isError).not.toBe(true);
