@@ -1,6 +1,6 @@
 {
 	"name": "@ux-patterns/mcp",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "MCP server for UX Patterns - exposes patterns, glossary, and decision guides to AI agents",
 	"private": true,
 	"type": "module",
@@ -40,7 +40,9 @@
 		"test:coverage": "NODE_OPTIONS='--experimental-vm-modules' pnpm exec jest --coverage",
 		"typecheck": "tsc --noEmit",
 		"check:type": "tsc --noEmit",
-		"benchmark": "node scripts/benchmark.mjs"
+		"benchmark": "node scripts/benchmark.mjs",
+		"eval:tokens": "node --test evals/assertions.test.mjs && PROMPTFOO_DISABLE_TELEMETRY=1 PROMPTFOO_DISABLE_UPDATE=1 promptfoo eval --config evals/promptfooconfig.json --no-cache --no-share --no-write --no-table",
+		"report:tokens": "node evals/report.mjs"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/server": "^2.3.0",
@@ -51,7 +53,9 @@
 		"@thedaviddias/config-typescript": "workspace:*",
 		"@types/jest": "^30.0.0",
 		"@types/node": "24.19.1",
+		"gpt-tokenizer": "4.0.0",
 		"jest": "^30.5.2",
+		"promptfoo": "0.123.1",
 		"ts-jest": "^29.4.14",
 		"tsup": "^8.5.1",
 		"typescript": "^5.9.3"

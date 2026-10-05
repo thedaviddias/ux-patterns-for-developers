@@ -156,3 +156,36 @@ export function truncateContent(content: string, maxLength: number): string {
 
 	return truncated + "...";
 }
+
+/** Select complete level-two sections without interpreting headings inside code. */
+export function selectSections(
+	markdown: string,
+	requested: string[],
+): { body: string; available: string[] } {
+	const sections: Array<{ title: string; lines: string[] }> = [];
+	let current: { title: string; lines: string[] } | undefined;
+	let fence: string | undefined;
+	for (const line of markdown.split("\n")) {
+		const marker = line.match(/^ {0,3}(`{3,}|~{3,})/);
+		if (fence) {
+			if (new RegExp(`^ {0,3}${fence[0]}{${fence.length},}[ \\t]*$`).test(line))
+				fence = undefined;
+		} else if (marker) fence = marker[1];
+		else {
+			const heading = line.match(/^##\s+(.+?)\s*#*$/);
+			if (heading) {
+				current = { title: heading[1], lines: [] };
+				sections.push(current);
+			}
+		}
+		current?.lines.push(line);
+	}
+	const wanted = new Set(requested.map((s) => s.trim().toLowerCase()));
+	return {
+		body: sections
+			.filter((s) => wanted.has(s.title.toLowerCase()))
+			.map((s) => s.lines.join("\n").trim())
+			.join("\n\n"),
+		available: sections.map((s) => s.title),
+	};
+}

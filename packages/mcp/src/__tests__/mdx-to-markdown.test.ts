@@ -1,6 +1,14 @@
-import { mdxToMarkdown } from "../utils/mdx-to-markdown";
+import { mdxToMarkdown, selectSections } from "../utils/mdx-to-markdown";
 
 describe("readable MCP content", () => {
+	it("selects requested sections while retaining code headings literally", () => {
+		const markdown =
+			"## Overview\nBrief\n## Examples\n````md\n## Not a section\n```\n````\nExample\n## Accessibility\nKeyboard\n## Resources\nLinks";
+		expect(selectSections(markdown, ["examples", "Accessibility"]).body).toBe(
+			"## Examples\n````md\n## Not a section\n```\n````\nExample\n\n## Accessibility\nKeyboard",
+		);
+		expect(selectSections(markdown, ["missing"]).body).toBe("");
+	});
 	it("preserves shorter fences and marker lines with content inside longer blocks", () => {
 		const block =
 			"````tsx\n``` <Button />\n~~~\n<Button value={state} />\n````";

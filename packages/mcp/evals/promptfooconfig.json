@@ -1,0 +1,126 @@
+{
+	"description": "Offline MCP token budgets and deterministic output quality; no model calls",
+	"prompts": ["{{flow}}"],
+	"providers": ["file://provider.mjs"],
+	"tests": [
+		{
+			"description": "categories",
+			"vars": {
+				"flow": "categories"
+			}
+		},
+		{
+			"description": "list",
+			"vars": {
+				"flow": "list"
+			}
+		},
+		{
+			"description": "search",
+			"vars": {
+				"flow": "search"
+			}
+		},
+		{
+			"description": "retrieve",
+			"vars": {
+				"flow": "retrieve"
+			}
+		},
+		{
+			"description": "targeted",
+			"vars": {
+				"flow": "targeted"
+			}
+		},
+		{
+			"description": "glossary",
+			"vars": {
+				"flow": "glossary"
+			}
+		},
+		{
+			"description": "reference",
+			"vars": {
+				"flow": "reference"
+			}
+		},
+		{
+			"description": "compare",
+			"vars": {
+				"flow": "compare"
+			}
+		},
+		{
+			"description": "review",
+			"vars": {
+				"flow": "review"
+			}
+		},
+		{
+			"description": "accessibility",
+			"vars": {
+				"flow": "accessibility"
+			}
+		},
+		{
+			"description": "advisor",
+			"vars": {
+				"flow": "advisor"
+			}
+		},
+		{
+			"description": "checklist",
+			"vars": {
+				"flow": "checklist"
+			}
+		},
+		{
+			"description": "missing",
+			"vars": {
+				"flow": "missing"
+			}
+		},
+		{
+			"description": "searchRetrieve",
+			"vars": {
+				"flow": "searchRetrieve"
+			}
+		},
+		{
+			"description": "searchTargeted",
+			"vars": {
+				"flow": "searchTargeted"
+			}
+		},
+		{
+			"description": "snippetReview",
+			"vars": {
+				"flow": "snippetReview"
+			}
+		},
+		{
+			"description": "advisorRetry",
+			"vars": {
+				"flow": "advisorRetry"
+			}
+		},
+		{
+			"description": "corpus",
+			"vars": {
+				"flow": "corpus"
+			}
+		}
+	],
+	"defaultTest": {
+		"assert": [
+			{
+				"type": "javascript",
+				"value": "file://assertions.mjs"
+			}
+		]
+	},
+	"evaluateOptions": {
+		"maxConcurrency": 1
+	}
+}
