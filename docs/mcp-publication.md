@@ -14,8 +14,8 @@ public connector address. Keep the public URL stable if hosting changes.
 - MCP 2026-07-28 uses the official SDK v2 stateless request factory. Legacy
   2025 clients remain supported on the same endpoint, including `initialize`.
 - HTTP POST serves requests, OPTIONS handles CORS, and GET/DELETE return 405.
-  The subdomain root rewrites to `/api/mcp`; verification paths under
-  `/.well-known/` remain static files rather than being rewritten to MCP.
+  The subdomain root rewrites to `/api/mcp`; the exact verification file at
+  `/.well-known/openai-apps-challenge` bypasses MCP rewriting.
   No session ID is issued. Browser Origin headers are validated against UX
   Patterns, ChatGPT, Claude and loopback hosts; requests without Origin are
   accepted for cloud and CLI clients. Stdio supports both protocol eras.
@@ -71,6 +71,12 @@ accessible button; request an unknown pattern and follow its suggestions.
 Confirm tool selection, source links, empty states and no write operations.
 
 ## Directory submissions
+
+Release status on October 4, 2026: version 2.0.0 is deployed to the canonical
+subdomain from merged PR #265 (`81c8b5f`). OpenAI verified domain ownership,
+discovered all eleven tools, and reported no issues in its MCP scan. The plugin
+is configured but unpublished. Terms, privacy disclosures, demo recording and
+final directory review remain separate prerequisites.
 
 OpenAI accepts remote MCP servers as part of a plugin. Follow the
 [submission flow](https://developers.openai.com/plugins/deploy/submission),

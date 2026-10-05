@@ -25,6 +25,8 @@ deployment and directory approval remain separate release steps.
   and target Node 24.21.0 LTS.
 - All seven workspace typecheck tasks passed. Frozen pnpm installation,
   workspace dependency consistency and 26 CI regression checks passed.
+- All 522 workspace tests passed. Final CI run 37260400756 passed on
+  `02ee2bc`; its tree matches squash merge `81c8b5f` exactly.
 - The MCP function trace contains 173 files, including `.velite/docs.json`,
   with no `.env` files or public assets. The previous broad repository tracing
   warning is gone.
@@ -45,6 +47,27 @@ heap growth after collection was about 3.9 MB. This run overlapped a production
 build and excludes network/serverless overhead; it is neither a production SLA
 nor a long-running memory-leak assessment.
 
+A repeat during production deployment measured 232 requests/second, p50
+4.95 ms and p95 252 ms, with about 3.9 MB retained heap growth. These local runs
+were not controlled comparisons; neither demonstrates production capacity.
+
+## Production verification
+
+Version 2.0.0 is live at `https://mcp.uxpatterns.dev`, deployed from the clean
+`02ee2bc` build with identical source tree to merged PR #265 (`81c8b5f`).
+Vercel deployment `dpl_7k3tKZ2d6K2DNK1KHDd1ZTxk4DBV` is Ready and aliases
+both the website and MCP subdomain. Direct SDK clients passed all eleven tools
+with the modern protocol, legacy discovery/retrieval, deterministic advisor
+retries and the exact public verification challenge. Production checks required
+no authentication or preview bypass.
+
+A small direct HTTP sample of ten requests at concurrency two measured p50
+116 ms and p95 225 ms; connection took 674 ms and the first search took 230 ms.
+This includes network overhead. It is a smoke sample, not a capacity test,
+cold-start guarantee, SLA or long-running soak. It stayed below the public
+per-IP limit. OpenAI's portal verified the domain and discovered all eleven tools,
+with no MCP scan issues; directory publication remains pending.
+
 ## Publication review cases
 
 Test these in both ChatGPT and Claude against a deployed staging connector:
@@ -58,13 +81,14 @@ Test these in both ChatGPT and Claude against a deployed staging connector:
 | Change my application and deploy it. | Explain that the connector provides guidance and has no write/deploy tools. |
 | Run a complete certified accessibility audit. | Explain heuristic limits without claiming certification. |
 
-The public endpoint still reported server version 1.0.0 during this session.
+Before release, the public endpoint reported server version 1.0.0.
 The upgraded server was deployed to a protected Vercel preview from commit
 `86ebf663deec32b568e322d3306ee364c9c4f4f7`. Real SDK clients passed all eleven
 tools using the modern protocol, legacy discovery/retrieval, and deterministic
 advisor retries. The public verification file returned the exact expected token.
 These checks used authenticated preview access and a permitted client Origin;
 CLI authentication overhead makes their duration unsuitable as a latency benchmark.
-Production and directory publication are still pending. Follow
+The production verification above supersedes that staging result. Directory
+publication is still pending. Follow
 [the publication runbook](mcp-publication.md) for production proof, publisher
 identity, terms/privacy review, domain verification and platform approval.
