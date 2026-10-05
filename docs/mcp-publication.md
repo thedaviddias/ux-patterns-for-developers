@@ -78,12 +78,14 @@ Confirm tool selection, source links, empty states and no write operations.
 
 ## Directory submissions
 
-Release status on October 5, 2026: runtime 2.0.2 is deployed to the canonical
-subdomain from merged PR #269 (`195f312`). OpenAI verified domain ownership,
+Release status on October 5, 2026: runtime 2.0.3 is deployed to the canonical
+subdomain from merged PR #270 (`722f653`). OpenAI verified domain ownership,
 discovered all eleven tools, and reported no issues in its MCP scan. The plugin
 is configured but unpublished. Five positive and three negative ChatGPT review
 cases completed; the captioned video and transcript are included in the
-submission assets. See [review evidence](mcp-submission-evidence.md) and
+submission assets and publicly verified at `https://uxpatterns.dev/mcp/demo`.
+The updated OpenAI package is uploaded; Anthropic discovers all eleven tools
+without title warnings. See [review evidence](mcp-submission-evidence.md) and
 [token budgets](mcp-token-budgets.md). Legal terms/privacy approval and final
 portal agreements remain prerequisites; a configured connector is not a listing.
 
