@@ -9,9 +9,9 @@ deployment and directory approval remain separate release steps.
 - Production Next.js build passed compilation, TypeScript and generation of
   368 static pages. Some pages retried after the 60-second worker timeout;
   all completed. Do not treat the build duration as request latency.
-- MCP: 354 tests across 17 suites, including real modern/legacy clients,
+- MCP: 356 tests across 17 suites, including real modern/legacy clients,
   all eleven tools, schema validation, request isolation and submitted-code
-  cache exclusion. Coverage: 85.21% lines, 79.81% branches. Interactive
+  cache exclusion. Coverage: 85.84% lines, 80% branches. Interactive
   continuation tests verify retry safety, fresh-worker resumption and rejection
   of invalid choices/tokens. Search recovery tests ensure temporary errors are
   retried rather than cached.
@@ -25,7 +25,7 @@ deployment and directory approval remain separate release steps.
   and target Node 24.21.0 LTS.
 - All seven workspace typecheck tasks passed. Frozen pnpm installation,
   workspace dependency consistency and 26 CI regression checks passed.
-- All 528 workspace tests passed after the consumer-output corrections below.
+- All 530 workspace tests passed after the consumer-output corrections below.
   Initial release CI run 37260400756 passed on
   `02ee2bc`; its tree matches squash merge `81c8b5f` exactly.
 - The MCP function trace contains 173 files, including `.velite/docs.json`,
