@@ -26,6 +26,9 @@ export async function connect() {
 export const cases = {
 	categories: [["list_categories", {}]],
 	list: [["list_patterns", { limit: 5 }]],
+	listMax: [["list_patterns", { limit: 100 }]],
+	searchMax: [["search_patterns", { query: "a", limit: 100 }]],
+	referenceMax: [["get_quick_reference", { limit: 100, includeRelated: true }]],
 	search: [["search_patterns", { query: "accessible search field", limit: 5 }]],
 	retrieve: [["get_pattern", { name: "search-field", includeToc: false }]],
 	targeted: [

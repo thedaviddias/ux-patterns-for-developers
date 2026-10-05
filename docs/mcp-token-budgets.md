@@ -50,10 +50,15 @@ are available for tasks that need them; they are not a cheap default for narrow
 questions. No exact Claude token count or pricing claim is made.
 
 Promptfoo evaluates all eleven tools, multi-tool flows, missing results,
-advisor continuation/retry and the complete corpus. Assertions enforce discovery
+advisor continuation/retry, maximum list/search pages, the full quick reference
+with related links, and the complete corpus. Assertions enforce discovery
 <=2,100 tokens, requests <=250 per fixture, and per-flow response budgets.
 Targeted retrieval is capped at 2,200 response tokens; search plus targeted
 retrieval at 2,800. Full-corpus responses have an 18,000-token ceiling. These
+Maximum list/search/reference fixtures use ceilings of 9,500/10,000/10,000
+response tokens respectively. The full quick reference reaches the existing
+character cap and explicitly reports truncation; use a category and a small
+limit for useful, inexpensive context. These
 are fixture regression ceilings with headroom, not runtime token caps or limits
 on arbitrary user input. Existing response character and request byte limits
 still apply. The negative gate test proves oversized/degraded outputs fail.

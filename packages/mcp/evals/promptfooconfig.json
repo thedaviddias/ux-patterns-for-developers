@@ -110,6 +110,24 @@
 			"vars": {
 				"flow": "corpus"
 			}
+		},
+		{
+			"description": "listMax",
+			"vars": {
+				"flow": "listMax"
+			}
+		},
+		{
+			"description": "searchMax",
+			"vars": {
+				"flow": "searchMax"
+			}
+		},
+		{
+			"description": "referenceMax",
+			"vars": {
+				"flow": "referenceMax"
+			}
 		}
 	],
 	"defaultTest": {

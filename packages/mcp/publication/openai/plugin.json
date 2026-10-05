@@ -1,7 +1,7 @@
 {
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "ux-patterns",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Public UX pattern guidance for developers: search patterns, retrieve implementation checklists, explain terminology, and check code using deterministic heuristics.",
 	"author": {
 		"name": "David Dias"
@@ -74,7 +74,8 @@
 						}
 					]
 				},
-				"commerce": false
+				"commerce": false,
+				"demo_recording_url": "https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4"
 			}
 		}
 	}

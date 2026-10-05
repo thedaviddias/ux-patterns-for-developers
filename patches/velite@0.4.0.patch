@@ -1,0 +1,13 @@
+diff --git a/dist/index.js b/dist/index.js
+index 5ce30e37c96f1811d87ddd49fcad4774a3b13be7..662e575a3877ca46cdb02602b4c76e85eebfde54 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -5320,7 +5320,7 @@ var parseParagraph = (node) => {
+     extraction.url = link2.url;
+   });
+   visit(node, ["text", "emphasis", "strong", "inlineCode"], (text4) => {
+-    extraction.title += text4.value;
++    if (typeof text4.value === "string") extraction.title += text4.value;
+   });
+   return extraction;
+ };

@@ -4,8 +4,10 @@
 the existing project icon and five positive/three negative review cases.
 Publisher metadata matches the available verified portal identity, David Dias
 Digital. The package was accepted as an unpublished OpenAI draft. It is not submission-ready:
-add an approved public terms URL and a reviewer-accessible demo recording URL,
-verify privacy disclosures, and complete directory review. Version 2.0.1 is
+add an approved public terms URL, verify privacy disclosures, and complete
+directory review. The metadata includes the captioned reviewer video at
+`https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4`; verify public
+playback before uploading the ZIP. Runtime version 2.0.2 is
 deployed and tested at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
 and discovered all eleven tools with no MCP scan issues; the plugin remains
 unpublished.
@@ -30,3 +32,8 @@ Review guidance: the connector has eleven read-only tools, no account setup,
 and no write/deployment tools. Code and accessibility checks accept submitted
 snippets for deterministic analysis; describe request/log processing accurately.
 Complete portal policy acknowledgments using verified facts, not assumptions.
+
+The walkthrough transcript is at `https://uxpatterns.dev/mcp/demo`. Actual
+ChatGPT review evidence and remaining owner decisions are documented in
+`docs/mcp-submission-evidence.md`. Plugin package version 2.0.1 and MCP runtime
+version 2.0.2 are independent. No public-directory approval is claimed.

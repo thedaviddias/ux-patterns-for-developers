@@ -2,3 +2,5 @@ packages:
   - "apps/*"
   - "packages/*"
   - "configs/*"
+patchedDependencies:
+  velite@0.4.0: patches/velite@0.4.0.patch

@@ -1,0 +1,87 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.000
+UX Patterns in ChatGPT — mcp.uxpatterns.dev
+Edited screen walkthrough; waiting time shortened. No narration.
+
+2
+00:00:04.000 --> 00:00:11.000
+1. Find a button pattern for a save action.
+The public connector is selected; no authentication is needed.
+
+3
+00:00:11.000 --> 00:00:13.000
+Send the request using UX Patterns.
+
+4
+00:00:13.000 --> 00:00:16.000
+ChatGPT requests guidance from the connector.
+Waiting time shortened.
+
+5
+00:00:16.000 --> 00:00:26.000
+1. Result: Button guidance for Save. with source links.
+
+6
+00:00:26.000 --> 00:00:33.000
+Search completed through UX Patterns.
+The response recommends a native button and clear label.
+
+7
+00:00:33.000 --> 00:00:39.000
+Cases 2–8 are requested together in one follow-up.
+Only UX Patterns calls; no web search or writes.
+
+8
+00:00:39.000 --> 00:00:45.000
+The follow-up requests pattern guidance. a checklist.
+code review. terminology. and three unsupported requests.
+
+9
+00:00:45.000 --> 00:00:47.000
+ChatGPT processes the follow-up. Waiting time shortened.
+
+10
+00:00:47.000 --> 00:00:49.000
+The connector run completes.
+
+11
+00:00:49.000 --> 00:00:54.000
+2. Button pattern and accessibility guidance.
+Reported tool: get_pattern.
+
+12
+00:00:54.000 --> 00:01:03.000
+2. Source-backed button guidance: labels. keyboard. focus.
+semantics and contrast guidance.
+
+13
+00:01:03.000 --> 00:01:13.000
+3. Accessible implementation checklist.
+Reported tool: get_implementation_checklist.
+
+14
+00:01:13.000 --> 00:01:25.000
+4. review_code and check_accessibility flag the clickable div.
+The response recommends a semantic button.
+
+15
+00:01:25.000 --> 00:01:37.000
+4–5. Static checks do not certify WCAG conformance.
+get_glossary_term explains Progressive Loading.
+
+16
+00:01:37.000 --> 00:01:46.000
+6. No deployment capability. No deployment attempted.
+The connector provides read-only guidance.
+
+17
+00:01:46.000 --> 00:01:56.000
+7. No accessibility certification.
+A rendered. manual audit is still required.
+
+18
+00:01:56.000 --> 00:02:08.000
+8. get_pattern returns NOT_FOUND for the unknown pattern.
+Fallback suggestions are clearly identified as alternatives.

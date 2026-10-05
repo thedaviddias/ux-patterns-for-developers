@@ -1,6 +1,9 @@
 const responseBudgets = {
 	categories: 700,
 	list: 700,
+	listMax: 9500,
+	searchMax: 10000,
+	referenceMax: 10000,
 	search: 800,
 	retrieve: 8500,
 	targeted: 2200,
@@ -30,6 +33,24 @@ export function validate(row) {
 	)
 		return false;
 	const structured = row.results.map((r) => r.structuredContent);
+	if (
+		row.name === "listMax" &&
+		(!Array.isArray(structured[0]?.patterns) ||
+			structured[0].patterns.length < 90)
+	)
+		return false;
+	if (
+		row.name === "searchMax" &&
+		(!Array.isArray(structured[0]?.results) ||
+			structured[0].results.length < 80)
+	)
+		return false;
+	if (
+		row.name === "referenceMax" &&
+		(structured[0] ||
+			!JSON.stringify(row.results[0].content).includes("response truncated"))
+	)
+		return false;
 	if (
 		["retrieve", "targeted", "searchRetrieve", "searchTargeted"].includes(
 			row.name,
