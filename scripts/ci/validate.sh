@@ -10,6 +10,7 @@ if [[ -n "${PNPM_STORE_DIR:-}" ]]; then
 fi
 pnpm install --frozen-lockfile
 node scripts/ci/validate-deploy-workflows.mjs
+node --test scripts/ci/*.test.mjs
 # Generate the real corpus and workspace exports before connector integration tests.
 pnpm --filter web exec velite build
 pnpm --filter @ux-patterns/mcp build
