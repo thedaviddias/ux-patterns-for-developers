@@ -7,11 +7,19 @@
  * Remove MDX-specific syntax from content
  */
 export function mdxToMarkdown(content: string): string {
-	// Strip document markup without altering literal implementation examples.
-	return content
-		.split(/(```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]*`)/g)
-		.map((part, index) => (index % 2 === 1 ? part : stripMdxMarkup(part)))
-		.join("")
+	// Protect literals in place so inline code does not split enclosing JSX tags.
+	let marker = "\uE000UX_MCP_LITERAL_";
+	while (content.includes(marker)) marker += "_";
+	const literals: string[] = [];
+	const protectedContent = content.replace(
+		/```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]*`/g,
+		(literal) => `${marker}${literals.push(literal) - 1}\uE001`,
+	);
+	return stripMdxMarkup(protectedContent)
+		.replace(
+			new RegExp(`${marker}(\\d+)\uE001`, "g"),
+			(_, index) => literals[Number(index)],
+		)
 		.trim();
 }
 
