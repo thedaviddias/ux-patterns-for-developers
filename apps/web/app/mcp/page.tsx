@@ -261,7 +261,8 @@ const mcpTools: McpTool[] = [
 	},
 	{
 		name: "check_accessibility",
-		description: "Check code for WCAG accessibility compliance issues",
+		description:
+			"Find potential accessibility issues with static snippet checks",
 		icon: Shield,
 		type: "proactive",
 	},
@@ -571,7 +572,8 @@ export default function MCPPage() {
 								<Shield className="size-5 mb-3 text-foreground" />
 								<h3 className="font-medium">WCAG Checking</h3>
 								<p className="text-sm text-muted-foreground mt-1">
-									Built-in accessibility compliance validation
+									Accessibility guidance with clear limits; not a compliance
+									audit
 								</p>
 							</div>
 							<div className="border border-border rounded-lg p-5">

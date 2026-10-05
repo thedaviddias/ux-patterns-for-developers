@@ -63,6 +63,34 @@ describe("public tools against built content", () => {
 						);
 					}
 				}
+				const pattern = await client.callTool({
+					name: "get_pattern",
+					arguments: { name: "search-field" },
+				});
+				expect(pattern.isError).not.toBe(true);
+				const readable = pattern.structuredContent?.body;
+				expect(readable).toContain("## Accessibility");
+				expect(readable).not.toContain("function _createMdxContent");
+				expect(readable).not.toContain("jsxDEV");
+				const loadMore = await client.callTool({
+					name: "get_pattern",
+					arguments: { name: "load-more" },
+				});
+				expect(loadMore.isError).not.toBe(true);
+				const loadMoreText = loadMore.content
+					.map((part) => (part.type === "text" ? part.text : ""))
+					.join("\n");
+				expect(loadMoreText).toContain("## Overview");
+				expect(loadMoreText).not.toContain("<BuildEffort");
+				expect(loadMoreText).not.toContain("<FaqStructuredData");
+				const checked = await client.callTool({
+					name: "check_accessibility",
+					arguments: { code: '<div onclick="save()">Save</div>' },
+				});
+				expect(checked.structuredContent?.passed).toEqual([]);
+				expect(checked.structuredContent?.notVerified).toContain(
+					"1.4.3 (Level AA)",
+				);
 			} finally {
 				await client.close();
 			}

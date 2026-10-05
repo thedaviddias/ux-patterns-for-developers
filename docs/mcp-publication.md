@@ -26,6 +26,12 @@ public connector address. Keep the public URL stable if hosting changes.
   structured duplicate is omitted. Tool schemas are compiled once per registry; protocol server instances are
   created and disposed per request. Content is cached within each process. Public search results use a bounded
   100-entry, five-minute cache; submitted code snippets are not cached.
+- Pattern and glossary guidance comes from original MDX source, not the website's
+  compiled rendering code. Markdown conversion preserves literal code examples.
+  Unambiguous short pattern slugs resolve to their published category path.
+- Accessibility results identify potential issues and unverified criteria.
+  The legacy `passed` array remains empty: a static snippet cannot certify WCAG
+  conformance, contrast, focus behavior or assistive-technology support.
 - Interactive advisor choices travel in a validated, bounded continuation token.
   The same token and choices return the same next question across workers.
   Tokens contain only selected options, are not credentials, and are not

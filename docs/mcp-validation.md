@@ -9,9 +9,9 @@ deployment and directory approval remain separate release steps.
 - Production Next.js build passed compilation, TypeScript and generation of
   368 static pages. Some pages retried after the 60-second worker timeout;
   all completed. Do not treat the build duration as request latency.
-- MCP: 348 tests across 16 suites, including real modern/legacy clients,
+- MCP: 356 tests across 17 suites, including real modern/legacy clients,
   all eleven tools, schema validation, request isolation and submitted-code
-  cache exclusion. Coverage: 85.89% lines, 80.35% branches. Interactive
+  cache exclusion. Coverage: 85.84% lines, 80% branches. Interactive
   continuation tests verify retry safety, fresh-worker resumption and rejection
   of invalid choices/tokens. Search recovery tests ensure temporary errors are
   retried rather than cached.
@@ -25,7 +25,8 @@ deployment and directory approval remain separate release steps.
   and target Node 24.21.0 LTS.
 - All seven workspace typecheck tasks passed. Frozen pnpm installation,
   workspace dependency consistency and 26 CI regression checks passed.
-- All 522 workspace tests passed. Final CI run 37260400756 passed on
+- All 530 workspace tests passed after the consumer-output corrections below.
+  Initial release CI run 37260400756 passed on
   `02ee2bc`; its tree matches squash merge `81c8b5f` exactly.
 - The MCP function trace contains 173 files, including `.velite/docs.json`,
   with no `.env` files or public assets. The previous broad repository tracing
@@ -51,9 +52,9 @@ A repeat during production deployment measured 232 requests/second, p50
 4.95 ms and p95 252 ms, with about 3.9 MB retained heap growth. These local runs
 were not controlled comparisons; neither demonstrates production capacity.
 
-## Production verification
+## Initial production verification — October 4, 2026
 
-Version 2.0.0 is live at `https://mcp.uxpatterns.dev`, deployed from the clean
+Version 2.0.0 was deployed at `https://mcp.uxpatterns.dev` from the clean
 `02ee2bc` build with identical source tree to merged PR #265 (`81c8b5f`).
 Vercel deployment `dpl_7k3tKZ2d6K2DNK1KHDd1ZTxk4DBV` is Ready and aliases
 both the website and MCP subdomain. Direct SDK clients passed all eleven tools
@@ -67,6 +68,23 @@ This includes network overhead. It is a smoke sample, not a capacity test,
 cold-start guarantee, SLA or long-running soak. It stayed below the public
 per-IP limit. OpenAI's portal verified the domain and discovered all eleven tools,
 with no MCP scan issues; directory publication remains pending.
+
+## Consumer output corrections — October 5, 2026
+
+A real Claude conversation successfully used search, retrieval, code review and
+accessibility tools, but exposed compiled MDX in pattern bodies and unsupported
+WCAG pass claims. Patch 2.0.1 uses original source content, preserves fenced and
+inline code examples, resolves unique short slugs, leaves `passed` empty, and
+returns explicit unverified criteria and limitations. It also flags missing
+semantics on clickable divs. Tests exercise actual generated content over both
+protocol eras rather than only checking that a response is nonempty.
+
+These corrections passed local tests and typechecks. After deploying, repeat
+direct production checks and the Claude consumer flow; transport-only success
+does not establish readable or truthful tool output. A local 1,000-request
+sample after the corrections measured 4,504 requests/second and p95 5.26 ms,
+with about 3.9 MB retained heap growth. Host load differed from earlier runs;
+do not interpret the difference as a controlled performance improvement.
 
 ## Publication review cases
 
