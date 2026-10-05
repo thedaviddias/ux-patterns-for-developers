@@ -72,6 +72,31 @@ describe("public tools against built content", () => {
 				expect(readable).toContain("## Accessibility");
 				expect(readable).not.toContain("function _createMdxContent");
 				expect(readable).not.toContain("jsxDEV");
+				const selected = await client.callTool({
+					name: "get_pattern",
+					arguments: {
+						name: "search-field",
+						sections: ["Accessibility", "Examples"],
+					},
+				});
+				expect(selected.structuredContent?.body).toContain("## Accessibility");
+				expect(selected.structuredContent?.body).toContain("<input");
+				expect(selected.structuredContent?.body).not.toContain("## Drawbacks");
+				expect(selected.structuredContent?.toc).toBeUndefined();
+				expect(selected.structuredContent?.url).toBe(
+					"https://uxpatterns.dev/patterns/forms/search-field",
+				);
+				const missingSection = await client.callTool({
+					name: "get_pattern",
+					arguments: {
+						name: "search-field",
+						sections: ["Accessibility", "not-a-section"],
+					},
+				});
+				expect(missingSection.isError).toBe(true);
+				expect(missingSection.structuredContent?.suggestions).toContain(
+					"Accessibility",
+				);
 				const loadMore = await client.callTool({
 					name: "get_pattern",
 					arguments: { name: "load-more" },

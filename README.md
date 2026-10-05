@@ -23,6 +23,10 @@ See [client setup instructions](https://uxpatterns.dev/mcp) for configuration
 examples. Use the subdomain root exactly as shown; `/api/mcp` is an internal
 implementation path and should not be used in shared connector configurations.
 
+For focused questions, request only the pattern sections you need, for example
+`sections: ["Accessibility", "Examples"]`. See the reproducible
+[token-budget evaluation](docs/mcp-token-budgets.md) for measurements and limits.
+
 ## 🚀 Getting Started
 
 ### Prerequisites

@@ -85,11 +85,13 @@ export interface RelatedPattern {
 // get_pattern
 export interface GetPatternParams {
 	name: string;
+	sections?: string[];
 	includeToc?: boolean;
 }
 
 export interface GetPatternResponse {
 	slug: string;
+	url: string;
 	title: string;
 	summary: string;
 	description: string;

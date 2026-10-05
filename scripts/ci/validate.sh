@@ -18,3 +18,4 @@ pnpm --filter @ux-patterns/mcp build
 pnpm check:type
 pnpm test
 pnpm --filter @ux-patterns/mcp test:coverage --runInBand
+pnpm --filter @ux-patterns/mcp eval:tokens
