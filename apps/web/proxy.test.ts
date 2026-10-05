@@ -45,4 +45,21 @@ describe("MCP hostname verification routing", () => {
 		}
 		expect(checkRateLimit).toHaveBeenCalledTimes(2);
 	});
+	it("allows generic HTTP clients on the public subdomain", async () => {
+		for (const userAgent of ["curl/8.0", "python-requests/2.32", ""]) {
+			const req = request("/", "POST");
+			req.headers.set("user-agent", userAgent);
+			const response = await proxy(req);
+			expect(response.headers.get("x-middleware-rewrite")).toBe(
+				"https://mcp.uxpatterns.dev/api/mcp",
+			);
+		}
+		expect(checkRateLimit).toHaveBeenCalledTimes(3);
+	});
+	it("blocks vulnerability scanners before they reach the connector", async () => {
+		const req = request("/", "POST");
+		req.headers.set("user-agent", "sqlmap/1.0");
+		expect((await proxy(req)).status).toBe(403);
+		expect(checkRateLimit).not.toHaveBeenCalled();
+	});
 });

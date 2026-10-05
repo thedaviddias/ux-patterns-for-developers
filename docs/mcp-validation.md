@@ -16,12 +16,14 @@ deployment and directory approval remain separate release steps.
   of invalid choices/tokens.
 - HTTP route: five tests covering malformed/oversized requests, methods,
   CORS, Origin validation, rate limits and modern header mismatches.
-- Three middleware tests verify the exact domain-verification file bypasses
+- Five middleware tests verify the exact domain-verification file bypasses
   MCP rewriting, accepts only reads and preserves limits on ordinary MCP calls.
+  Generic HTTP clients are accepted on the public subdomain; vulnerability
+  scanners are rejected before reaching the function.
 - Stdio: real spawned clients passed in both protocol eras on the host runtime
   and target Node 24.21.0 LTS.
 - All seven workspace typecheck tasks passed. Frozen pnpm installation,
-  workspace dependency consistency and seven CI workflow checks passed.
+  workspace dependency consistency and 26 CI regression checks passed.
 - The MCP function trace contains 173 files, including `.velite/docs.json`,
   with no `.env` files or public assets. The previous broad repository tracing
   warning is gone.
@@ -56,6 +58,12 @@ Test these in both ChatGPT and Claude against a deployed staging connector:
 | Run a complete certified accessibility audit. | Explain heuristic limits without claiming certification. |
 
 The public endpoint still reported server version 1.0.0 during this session.
-The upgraded server has not been deployed or submitted. Follow
+The upgraded server was deployed to a protected Vercel preview from commit
+`86ebf663deec32b568e322d3306ee364c9c4f4f7`. Real SDK clients passed all eleven
+tools using the modern protocol, legacy discovery/retrieval, and deterministic
+advisor retries. The public verification file returned the exact expected token.
+These checks used authenticated preview access and a permitted client Origin;
+CLI authentication overhead makes their duration unsuitable as a latency benchmark.
+Production and directory publication are still pending. Follow
 [the publication runbook](mcp-publication.md) for production proof, publisher
 identity, terms/privacy review, domain verification and platform approval.
