@@ -4,6 +4,11 @@ The production endpoint is `https://mcp.uxpatterns.dev`. It serves public UX
 Patterns content without authentication. All eleven tools are read-only; code
 review and accessibility checks are deterministic heuristics, not a full audit.
 
+Use the subdomain root in all public setup instructions, client configurations,
+installation links, and directory submissions. `https://uxpatterns.dev/mcp` is
+the human-readable documentation page; `/api/mcp` is an internal route, not the
+public connector address. Keep the public URL stable if hosting changes.
+
 ## Transport and deployment contract
 
 - MCP 2026-07-28 uses the official SDK v2 stateless request factory. Legacy

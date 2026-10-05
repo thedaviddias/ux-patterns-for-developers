@@ -12,6 +12,9 @@ Package only the plugin contents from `openai/` after resolving these gaps.
 Do not include source code, environment files or local build output in the ZIP.
 See the repository's `docs/mcp-publication.md` for current official references.
 
+For both directories, the server URL is `https://mcp.uxpatterns.dev` (the root,
+with no `/api/mcp` suffix). Keep this URL in all published client examples.
+
 For Anthropic, use the same endpoint, product copy and icon in
 `https://claude.ai/directory/manage`, choosing MCP connector. Category:
 Developer tools. Authentication: none; the server exposes public content.
