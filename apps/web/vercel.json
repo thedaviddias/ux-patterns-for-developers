@@ -1,5 +1,6 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"buildCommand": "cd ../.. && pnpm exec turbo build --filter=web",
 	"git": {
 		"deploymentEnabled": false
 	},
@@ -39,7 +40,7 @@
 	},
 	"rewrites": [
 		{
-			"source": "/:path*",
+			"source": "/",
 			"has": [
 				{
 					"type": "host",
@@ -65,7 +66,7 @@
 				},
 				{
 					"key": "Access-Control-Allow-Methods",
-					"value": "GET, POST, OPTIONS"
+					"value": "POST, OPTIONS"
 				},
 				{
 					"key": "Access-Control-Allow-Headers",

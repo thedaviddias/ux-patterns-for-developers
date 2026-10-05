@@ -2,8 +2,8 @@
 
 `openai/` is a portable plugin draft containing the public MCP configuration,
 the existing project icon and five positive/three negative review cases.
-Publisher text currently follows the repository author, David Dias; confirm it
-matches the verified portal identity before uploading. It is not submission-ready:
+Publisher metadata matches the available verified portal identity, David Dias
+Digital. The package was accepted as an unpublished OpenAI draft. It is not submission-ready:
 add an approved public terms URL and a reviewer-accessible demo recording URL,
 verify privacy disclosures, and deploy/test the upgraded endpoint first.
 No registered server IDs, challenge tokens or credentials are included.

@@ -9,6 +9,8 @@ review and accessibility checks are deterministic heuristics, not a full audit.
 - MCP 2026-07-28 uses the official SDK v2 stateless request factory. Legacy
   2025 clients remain supported on the same endpoint, including `initialize`.
 - HTTP POST serves requests, OPTIONS handles CORS, and GET/DELETE return 405.
+  The subdomain root rewrites to `/api/mcp`; verification paths under
+  `/.well-known/` remain static files rather than being rewritten to MCP.
   No session ID is issued. Browser Origin headers are validated against UX
   Patterns, ChatGPT, Claude and loopback hosts; requests without Origin are
   accepted for cloud and CLI clients. Stdio supports both protocol eras.
@@ -19,6 +21,10 @@ review and accessibility checks are deterministic heuristics, not a full audit.
   structured duplicate is omitted. Tool schemas are compiled once per registry; protocol server instances are
   created and disposed per request. Content is cached within each process. Public search results use a bounded
   100-entry, five-minute cache; submitted code snippets are not cached.
+- Interactive advisor choices travel in a validated, bounded continuation token.
+  The same token and choices return the same next question across workers.
+  Tokens contain only selected options, are not credentials, and are not
+  retained in server-side sessions. Old or invalid tokens give a restart path.
 - Rate limits currently allow 30 requests/minute per IP. Cloud-hosted connector
   users may share an egress IP; measure real platform traffic before rollout.
   Redis/KV is needed for a globally coordinated limit; in-memory fallbacks only
