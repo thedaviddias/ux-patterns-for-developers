@@ -10,4 +10,5 @@ if [[ -n "${PNPM_STORE_DIR:-}" ]]; then
 fi
 pnpm install --frozen-lockfile
 node scripts/ci/validate-deploy-workflows.mjs
+node --test scripts/ci/*.test.mjs
 pnpm check:type
