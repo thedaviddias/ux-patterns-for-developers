@@ -95,7 +95,14 @@ export function getPatternBySlug(slug: string): Pattern | null {
 		? slug
 		: `patterns/${slug}`;
 
-	return patterns.find((p) => p.slug === normalizedSlug) || null;
+	const exact = patterns.find((p) => p.slug === normalizedSlug);
+	if (exact) return exact;
+	// Short slugs are safe only when they identify one published pattern.
+	if (!slug.includes("/")) {
+		const matches = patterns.filter((p) => p.slug.split("/").at(-1) === slug);
+		if (matches.length === 1) return matches[0];
+	}
+	return null;
 }
 
 /**
@@ -183,7 +190,7 @@ function docToPattern(doc: VeliteDoc): Pattern {
 		summary: doc.summary,
 		category: parts.length >= 2 ? parts[1] : "uncategorized",
 		status: doc.status,
-		body: doc.body,
+		body: doc.rawBody ?? doc.body,
 		toc: doc.toc,
 		metadata: {
 			readingTime: doc.metadata?.readingTime || 0,
@@ -205,7 +212,7 @@ function docToGlossary(doc: VeliteDoc): GlossaryEntry {
 		slug: doc.slug,
 		term: doc.title,
 		definition: doc.description || "",
-		body: doc.body,
+		body: doc.rawBody ?? doc.body,
 		toc: doc.toc,
 		relatedTerms: [], // Could be extracted from body if needed
 		url: doc.url,

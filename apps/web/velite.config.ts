@@ -118,6 +118,7 @@ const docs = defineCollection({
 
 			// Velite computed fields - MDX content, TOC, and metadata
 			body: s.mdx(),
+			rawBody: s.raw(),
 			toc: s.toc(),
 			metadata: s.metadata(),
 		})

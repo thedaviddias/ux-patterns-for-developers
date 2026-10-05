@@ -17,7 +17,7 @@ import {
 export const MCP_PROTOCOL_VERSION = "2026-07-28";
 export const MCP_SERVER_INFO = {
 	name: "ux-patterns-mcp",
-	version: "2.0.0",
+	version: "2.0.1",
 } as const;
 
 const ALLOWED_ORIGIN_HOSTNAMES = [
