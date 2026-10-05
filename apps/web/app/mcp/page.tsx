@@ -522,6 +522,14 @@ export default function MCPPage() {
 
 					{/* Usage Example */}
 					<section id="example" className="space-y-6">
+						<p className="text-muted-foreground">
+							<Link href="/mcp/demo" className="underline underline-offset-4">
+								Watch the connector walkthrough
+							</Link>{" "}
+							to see real guidance, code checks and unsupported requests in
+							ChatGPT. For focused questions, ask for only the sections you
+							need, such as Accessibility and Examples.
+						</p>
 						<h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
 							Usage Example
 						</h2>

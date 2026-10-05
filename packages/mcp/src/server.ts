@@ -17,7 +17,7 @@ import {
 export const MCP_PROTOCOL_VERSION = "2026-07-28";
 export const MCP_SERVER_INFO = {
 	name: "ux-patterns-mcp",
-	version: "2.0.2",
+	version: "2.0.3",
 } as const;
 
 const ALLOWED_ORIGIN_HOSTNAMES = [
@@ -103,14 +103,16 @@ export class UXPatternsMCPServer {
 		});
 
 		for (const tool of this.tools.values()) {
+			const title = tool.name
+				.replaceAll("_", " ")
+				.replace(/\b\w/g, (letter) => letter.toUpperCase());
 			server.registerTool(
 				tool.name,
 				{
-					title: tool.name
-						.replaceAll("_", " ")
-						.replace(/\b\w/g, (letter) => letter.toUpperCase()),
+					title,
 					description: tool.description,
 					annotations: {
+						title,
 						readOnlyHint: true,
 						destructiveHint: false,
 						idempotentHint: true,

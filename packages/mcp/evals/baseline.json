@@ -4,138 +4,162 @@
 	"flows": [
 		{
 			"name": "categories",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 565,
 			"requestTokens": 10,
-			"totalTokens": 2397,
+			"totalTokens": 2456,
 			"textTokens": 375
 		},
 		{
 			"name": "list",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 544,
 			"requestTokens": 12,
-			"totalTokens": 2378,
+			"totalTokens": 2437,
 			"textTokens": 338
 		},
 		{
+			"name": "listMax",
+			"discoveryTokens": 1881,
+			"responseTokens": 8119,
+			"requestTokens": 12,
+			"totalTokens": 10012,
+			"textTokens": 5299
+		},
+		{
+			"name": "searchMax",
+			"discoveryTokens": 1881,
+			"responseTokens": 8947,
+			"requestTokens": 16,
+			"totalTokens": 10844,
+			"textTokens": 5851
+		},
+		{
+			"name": "referenceMax",
+			"discoveryTokens": 1881,
+			"responseTokens": 8603,
+			"requestTokens": 19,
+			"totalTokens": 10503,
+			"textTokens": 8574
+		},
+		{
 			"name": "search",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 633,
 			"requestTokens": 18,
-			"totalTokens": 2473,
+			"totalTokens": 2532,
 			"textTokens": 390
 		},
 		{
 			"name": "retrieve",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 7578,
 			"requestTokens": 19,
-			"totalTokens": 9419,
+			"totalTokens": 9478,
 			"textTokens": 4089
 		},
 		{
 			"name": "targeted",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 1696,
 			"requestTokens": 20,
-			"totalTokens": 3538,
+			"totalTokens": 3597,
 			"textTokens": 946
 		},
 		{
 			"name": "glossary",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 130,
 			"requestTokens": 17,
-			"totalTokens": 1969,
+			"totalTokens": 2028,
 			"textTokens": 65
 		},
 		{
 			"name": "reference",
-			"discoveryTokens": 1822,
-			"responseTokens": 4404,
+			"discoveryTokens": 1881,
+			"responseTokens": 4462,
 			"requestTokens": 12,
-			"totalTokens": 6238,
-			"textTokens": 2872
+			"totalTokens": 6355,
+			"textTokens": 2902
 		},
 		{
 			"name": "compare",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 629,
 			"requestTokens": 17,
-			"totalTokens": 2468,
+			"totalTokens": 2527,
 			"textTokens": 386
 		},
 		{
 			"name": "review",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 280,
 			"requestTokens": 22,
-			"totalTokens": 2124,
+			"totalTokens": 2183,
 			"textTokens": 164
 		},
 		{
 			"name": "accessibility",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 542,
 			"requestTokens": 23,
-			"totalTokens": 2387,
+			"totalTokens": 2446,
 			"textTokens": 311
 		},
 		{
 			"name": "advisor",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 147,
 			"requestTokens": 22,
-			"totalTokens": 1991,
+			"totalTokens": 2050,
 			"textTokens": 80
 		},
 		{
 			"name": "checklist",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 978,
 			"requestTokens": 15,
-			"totalTokens": 2815,
+			"totalTokens": 2874,
 			"textTokens": 619
 		},
 		{
 			"name": "missing",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 156,
 			"requestTokens": 17,
-			"totalTokens": 1995,
+			"totalTokens": 2054,
 			"textTokens": 78
 		},
 		{
 			"name": "searchRetrieve",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 8003,
 			"requestTokens": 37,
-			"totalTokens": 9862,
+			"totalTokens": 9921,
 			"textTokens": 4345
 		},
 		{
 			"name": "searchTargeted",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 2121,
 			"requestTokens": 38,
-			"totalTokens": 3981,
+			"totalTokens": 4040,
 			"textTokens": 1202
 		},
 		{
 			"name": "snippetReview",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 822,
 			"requestTokens": 45,
-			"totalTokens": 2689,
+			"totalTokens": 2748,
 			"textTokens": 475
 		},
 		{
 			"name": "advisorRetry",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 896,
 			"requestTokens": 123,
-			"totalTokens": 2841,
+			"totalTokens": 2900,
 			"textTokens": 502
 		}
 	],
@@ -143,8 +167,8 @@
 		"count": 92,
 		"median": {
 			"slug": "patterns/ai-intelligence/response-feedback",
-			"responseTokens": 8924,
-			"textTokens": 5122,
+			"responseTokens": 8918,
+			"textTokens": 5119,
 			"truncated": false
 		},
 		"p95": {
@@ -186,38 +210,38 @@
 			},
 			{
 				"slug": "patterns/media/video-player",
-				"responseTokens": 8064,
-				"textTokens": 4647,
+				"responseTokens": 8058,
+				"textTokens": 4644,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/media/image-upload",
-				"responseTokens": 8130,
-				"textTokens": 4684,
+				"responseTokens": 8124,
+				"textTokens": 4681,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/media/image-gallery",
-				"responseTokens": 8274,
-				"textTokens": 4770,
+				"responseTokens": 8268,
+				"textTokens": 4767,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/social/share-dialog",
-				"responseTokens": 8278,
-				"textTokens": 4760,
+				"responseTokens": 8272,
+				"textTokens": 4757,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/social/like-button",
-				"responseTokens": 8290,
-				"textTokens": 4775,
+				"responseTokens": 8284,
+				"textTokens": 4772,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/content-management/drag-and-drop",
-				"responseTokens": 8334,
-				"textTokens": 4797,
+				"responseTokens": 8328,
+				"textTokens": 4794,
 				"truncated": false
 			},
 			{
@@ -228,92 +252,92 @@
 			},
 			{
 				"slug": "patterns/forms/checkbox",
-				"responseTokens": 8396,
-				"textTokens": 8367,
+				"responseTokens": 8390,
+				"textTokens": 8361,
 				"truncated": true
 			},
 			{
 				"slug": "patterns/social/comment-system",
-				"responseTokens": 8431,
-				"textTokens": 4851,
+				"responseTokens": 8425,
+				"textTokens": 4848,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/e-commerce/shopping-cart",
-				"responseTokens": 8459,
-				"textTokens": 4857,
+				"responseTokens": 8453,
+				"textTokens": 4854,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/user-feedback/notification",
-				"responseTokens": 8482,
-				"textTokens": 4883,
-				"truncated": false
-			},
-			{
-				"slug": "patterns/content-management/tooltip",
-				"responseTokens": 8492,
-				"textTokens": 8463,
-				"truncated": true
-			},
-			{
-				"slug": "patterns/e-commerce/checkout",
-				"responseTokens": 8499,
+				"responseTokens": 8476,
 				"textTokens": 4880,
 				"truncated": false
 			},
 			{
+				"slug": "patterns/e-commerce/checkout",
+				"responseTokens": 8493,
+				"textTokens": 4877,
+				"truncated": false
+			},
+			{
+				"slug": "patterns/content-management/tooltip",
+				"responseTokens": 8518,
+				"textTokens": 8489,
+				"truncated": true
+			},
+			{
 				"slug": "patterns/user-feedback/cookie-consent",
-				"responseTokens": 8532,
-				"textTokens": 4901,
+				"responseTokens": 8526,
+				"textTokens": 4898,
+				"truncated": false
+			},
+			{
+				"slug": "patterns/user-feedback/progress-indicator",
+				"responseTokens": 8541,
+				"textTokens": 4913,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/navigation/pagination",
-				"responseTokens": 8541,
-				"textTokens": 8512,
+				"responseTokens": 8544,
+				"textTokens": 8515,
 				"truncated": true
 			},
 			{
-				"slug": "patterns/user-feedback/progress-indicator",
-				"responseTokens": 8547,
-				"textTokens": 4916,
-				"truncated": false
-			},
-			{
 				"slug": "patterns/advanced/wizard",
-				"responseTokens": 8561,
-				"textTokens": 4922,
+				"responseTokens": 8555,
+				"textTokens": 4919,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/e-commerce/product-card",
-				"responseTokens": 8615,
-				"textTokens": 4950,
+				"responseTokens": 8609,
+				"textTokens": 4947,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/ai-intelligence/ai-suggestions",
-				"responseTokens": 8616,
-				"textTokens": 4945,
+				"responseTokens": 8610,
+				"textTokens": 4942,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/kanban-board",
-				"responseTokens": 8636,
-				"textTokens": 4949,
+				"responseTokens": 8630,
+				"textTokens": 4946,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/dashboard",
-				"responseTokens": 8647,
-				"textTokens": 4955,
+				"responseTokens": 8641,
+				"textTokens": 4952,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/ai-intelligence/ai-chat",
-				"responseTokens": 8656,
-				"textTokens": 4965,
+				"responseTokens": 8650,
+				"textTokens": 4962,
 				"truncated": false
 			},
 			{
@@ -323,16 +347,16 @@
 				"truncated": true
 			},
 			{
+				"slug": "patterns/ai-intelligence/streaming-response",
+				"responseTokens": 8666,
+				"textTokens": 4970,
+				"truncated": false
+			},
+			{
 				"slug": "patterns/content-management/modal",
 				"responseTokens": 8667,
 				"textTokens": 8638,
 				"truncated": true
-			},
-			{
-				"slug": "patterns/ai-intelligence/streaming-response",
-				"responseTokens": 8672,
-				"textTokens": 4973,
-				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/table",
@@ -342,32 +366,38 @@
 			},
 			{
 				"slug": "patterns/user-feedback/empty-states",
-				"responseTokens": 8688,
-				"textTokens": 4983,
+				"responseTokens": 8682,
+				"textTokens": 4980,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/ai-intelligence/ai-loading-states",
-				"responseTokens": 8692,
-				"textTokens": 4983,
+				"responseTokens": 8686,
+				"textTokens": 4980,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/ai-intelligence/ai-error-states",
-				"responseTokens": 8694,
-				"textTokens": 4984,
+				"responseTokens": 8688,
+				"textTokens": 4981,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/ai-intelligence/context-window",
-				"responseTokens": 8708,
-				"textTokens": 4991,
+				"responseTokens": 8702,
+				"textTokens": 4988,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/chart",
-				"responseTokens": 8746,
-				"textTokens": 5005,
+				"responseTokens": 8740,
+				"textTokens": 5002,
+				"truncated": false
+			},
+			{
+				"slug": "patterns/advanced/command-palette",
+				"responseTokens": 8749,
+				"textTokens": 5015,
 				"truncated": false
 			},
 			{
@@ -377,27 +407,21 @@
 				"truncated": true
 			},
 			{
-				"slug": "patterns/advanced/command-palette",
-				"responseTokens": 8755,
-				"textTokens": 5018,
-				"truncated": false
-			},
-			{
 				"slug": "patterns/user-feedback/loading-indicator",
-				"responseTokens": 8772,
-				"textTokens": 5053,
+				"responseTokens": 8766,
+				"textTokens": 5050,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/timeline",
-				"responseTokens": 8824,
-				"textTokens": 5060,
+				"responseTokens": 8818,
+				"textTokens": 5057,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/social/activity-feed",
-				"responseTokens": 8832,
-				"textTokens": 5069,
+				"responseTokens": 8826,
+				"textTokens": 5066,
 				"truncated": false
 			},
 			{
@@ -408,32 +432,32 @@
 			},
 			{
 				"slug": "patterns/advanced/search-results",
-				"responseTokens": 8846,
-				"textTokens": 5073,
+				"responseTokens": 8840,
+				"textTokens": 5070,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/comparison-table",
-				"responseTokens": 8891,
-				"textTokens": 5090,
+				"responseTokens": 8885,
+				"textTokens": 5087,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/user-feedback/skeleton",
-				"responseTokens": 8907,
-				"textTokens": 5132,
+				"responseTokens": 8901,
+				"textTokens": 5129,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/tree-view",
-				"responseTokens": 8911,
-				"textTokens": 5121,
+				"responseTokens": 8905,
+				"textTokens": 5118,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/ai-intelligence/response-feedback",
-				"responseTokens": 8924,
-				"textTokens": 5122,
+				"responseTokens": 8918,
+				"textTokens": 5119,
 				"truncated": false
 			},
 			{
@@ -444,8 +468,8 @@
 			},
 			{
 				"slug": "patterns/ai-intelligence/prompt-input",
-				"responseTokens": 8944,
-				"textTokens": 5136,
+				"responseTokens": 8938,
+				"textTokens": 5133,
 				"truncated": false
 			},
 			{
@@ -455,27 +479,27 @@
 				"truncated": true
 			},
 			{
+				"slug": "patterns/ai-intelligence/token-counter",
+				"responseTokens": 8960,
+				"textTokens": 5149,
+				"truncated": false
+			},
+			{
 				"slug": "patterns/authentication/signup",
 				"responseTokens": 8966,
 				"textTokens": 8937,
 				"truncated": true
 			},
 			{
-				"slug": "patterns/ai-intelligence/token-counter",
-				"responseTokens": 8966,
-				"textTokens": 5152,
-				"truncated": false
-			},
-			{
 				"slug": "patterns/data-display/card-grid",
-				"responseTokens": 9058,
-				"textTokens": 5191,
+				"responseTokens": 9052,
+				"textTokens": 5188,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/ai-intelligence/model-selector",
-				"responseTokens": 9059,
-				"textTokens": 5197,
+				"responseTokens": 9053,
+				"textTokens": 5194,
 				"truncated": false
 			},
 			{
@@ -486,14 +510,14 @@
 			},
 			{
 				"slug": "patterns/data-display/filter-panel",
-				"responseTokens": 9077,
-				"textTokens": 5202,
+				"responseTokens": 9071,
+				"textTokens": 5199,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/statistics",
-				"responseTokens": 9077,
-				"textTokens": 5201,
+				"responseTokens": 9071,
+				"textTokens": 5198,
 				"truncated": false
 			},
 			{
@@ -516,8 +540,8 @@
 			},
 			{
 				"slug": "patterns/data-display/list-view",
-				"responseTokens": 9137,
-				"textTokens": 5234,
+				"responseTokens": 9131,
+				"textTokens": 5231,
 				"truncated": false
 			},
 			{
@@ -576,74 +600,74 @@
 			},
 			{
 				"slug": "patterns/forms/slider",
-				"responseTokens": 9798,
-				"textTokens": 5658,
+				"responseTokens": 9792,
+				"textTokens": 5655,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/data-display/calendar",
-				"responseTokens": 9854,
-				"textTokens": 5690,
+				"responseTokens": 9848,
+				"textTokens": 5687,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/signature-pad",
-				"responseTokens": 9862,
-				"textTokens": 5692,
+				"responseTokens": 9856,
+				"textTokens": 5689,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/time-input",
-				"responseTokens": 9896,
-				"textTokens": 5705,
+				"responseTokens": 9890,
+				"textTokens": 5702,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/tag-input",
-				"responseTokens": 9904,
-				"textTokens": 5714,
-				"truncated": false
-			},
-			{
-				"slug": "patterns/forms/textarea",
-				"responseTokens": 9906,
+				"responseTokens": 9898,
 				"textTokens": 5711,
 				"truncated": false
 			},
 			{
+				"slug": "patterns/forms/textarea",
+				"responseTokens": 9900,
+				"textTokens": 5708,
+				"truncated": false
+			},
+			{
 				"slug": "patterns/forms/phone-number",
-				"responseTokens": 9922,
-				"textTokens": 5718,
+				"responseTokens": 9916,
+				"textTokens": 5715,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/rich-text-editor",
-				"responseTokens": 9973,
-				"textTokens": 5751,
+				"responseTokens": 9967,
+				"textTokens": 5748,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/toggle",
-				"responseTokens": 10031,
-				"textTokens": 5783,
+				"responseTokens": 10025,
+				"textTokens": 5780,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/form-validation",
-				"responseTokens": 10032,
-				"textTokens": 5784,
+				"responseTokens": 10026,
+				"textTokens": 5781,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/search-field",
-				"responseTokens": 10099,
-				"textTokens": 5820,
+				"responseTokens": 10093,
+				"textTokens": 5817,
 				"truncated": false
 			},
 			{
 				"slug": "patterns/forms/rating-input",
-				"responseTokens": 10174,
-				"textTokens": 5873,
+				"responseTokens": 10168,
+				"textTokens": 5870,
 				"truncated": false
 			},
 			{
@@ -660,8 +684,8 @@
 			},
 			{
 				"slug": "patterns/forms/radio",
-				"responseTokens": 12655,
-				"textTokens": 7198,
+				"responseTokens": 12623,
+				"textTokens": 7182,
 				"truncated": false
 			},
 			{
@@ -715,5 +739,5 @@
 		]
 	},
 	"measuredAt": "2026-10-05",
-	"serverVersion": "2.0.2"
+	"serverVersion": "2.0.3"
 }

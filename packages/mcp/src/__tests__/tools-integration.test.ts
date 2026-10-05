@@ -4,6 +4,7 @@ import {
 } from "@modelcontextprotocol/client";
 import { createServer } from "../server";
 import { registerAllTools } from "../tools";
+import type { TocItem } from "../types";
 
 const cases: Array<[string, Record<string, unknown>]> = [
 	["list_categories", {}],
@@ -44,6 +45,7 @@ describe("public tools against built content", () => {
 				const list = await client.listTools();
 				for (const tool of list.tools) {
 					expect(tool.title).toMatch(/^[A-Z]/);
+					expect(tool.annotations?.title).toBe(tool.title);
 					expect(tool.annotations?.readOnlyHint).toBe(true);
 					expect(tool.annotations?.destructiveHint).toBe(false);
 				}
@@ -68,6 +70,19 @@ describe("public tools against built content", () => {
 					arguments: { name: "search-field" },
 				});
 				expect(pattern.isError).not.toBe(true);
+				const toc = pattern.structuredContent?.toc as TocItem[];
+				const titles: string[] = [];
+				const collectTitles = (items: TocItem[]) => {
+					for (const entry of items) {
+						titles.push(entry.title);
+						collectTitles(entry.items);
+					}
+				};
+				collectTitles(toc);
+				expect(titles).toContain("Using the wrong validation moment");
+				expect(titles.some((title) => title.startsWith("undefined"))).toBe(
+					false,
+				);
 				const readable = pattern.structuredContent?.body;
 				expect(readable).toContain("## Accessibility");
 				expect(readable).not.toContain("function _createMdxContent");
