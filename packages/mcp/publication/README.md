@@ -6,9 +6,9 @@ Publisher metadata matches the available verified portal identity, David Dias
 Digital. The package was accepted as an unpublished OpenAI draft. It is not submission-ready:
 add an approved public terms URL, verify privacy disclosures, and complete
 directory review. The metadata includes the captioned reviewer video at
-`https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4`; verify public
-playback before uploading the ZIP. Runtime version 2.0.3 adds compatibility annotation titles; production verification
-prior to this package confirmed version 2.0.2 at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
+`https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4`; public playback is verified and package 2.0.1 is uploaded.
+Runtime version 2.0.3 adds compatibility annotation titles; modern and legacy
+production verification passed all eleven tools at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
 and discovered all eleven tools with no MCP scan issues; the plugin remains
 unpublished.
 Fresh Claude retrieval and accessibility calls verified readable examples and

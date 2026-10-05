@@ -123,3 +123,21 @@ The production verification above supersedes that staging result. Directory
 publication is still pending. Follow
 [the publication runbook](mcp-publication.md) for production proof, publisher
 identity, terms/privacy review, domain verification and platform approval.
+
+## October 5 submission release — 2.0.3
+
+PR #270 (`722f653`) is deployed in Ready deployment
+`dpl_4ptE5kHJbTqFQCYnVTes16AjJ88F`. Exact production source `785fa3a` and
+the merge share a tree. Clean CI `37268064018` verified the runtime code:
+531 workspace tests, 357 MCP tests, seven typechecks, 86.23% MCP line coverage
+and 80.36% branch coverage. The later caption punctuation fix was independently
+validated; the final build generated all 369 pages. All 21 offline token gates
+pass; gpt-tokenizer/Promptfoo are absent from the production function trace.
+
+Modern and legacy production SDK checks cover all eleven tools, title annotation
+equality, readable/targeted guidance, recursive TOC titles, advisor retries and
+the exact domain challenge. Real Claude exercised all eleven tools. ChatGPT
+completed five positive and three negative review cases. The public captioned
+video, transcript and browser playback are verified. These results establish
+execution and measured payload budgets, not directory acceptance or universally
+optimal heuristic recommendations. See [submission evidence](mcp-submission-evidence.md).
