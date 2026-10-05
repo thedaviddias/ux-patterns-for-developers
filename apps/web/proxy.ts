@@ -22,6 +22,17 @@ export async function proxy(request: NextRequest) {
 	const userAgent = request.headers.get("user-agent");
 	const clientIP = getClientIP(request);
 
+	// Domain verification is a static public file, not an MCP tool request.
+	if (pathname === "/.well-known/openai-apps-challenge") {
+		if (request.method === "GET" || request.method === "HEAD") {
+			return NextResponse.next();
+		}
+		return new Response(null, {
+			status: 405,
+			headers: { Allow: "GET, HEAD" },
+		});
+	}
+
 	// MCP host maps entirely to the /api/mcp function. Protect it at the edge
 	// BEFORE rewriting, otherwise the function takes every hit unthrottled.
 	if (host === MCP_HOST) {

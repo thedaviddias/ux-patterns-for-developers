@@ -18,22 +18,18 @@ const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours; content changes on deploymen
 /**
  * Get the path to the Velite output file
  */
-function getVelitePath(): string {
-	// Try multiple possible paths
-	const possiblePaths = [
-		join(process.cwd(), "apps/web/.velite/docs.json"),
-		join(process.cwd(), ".velite/docs.json"),
-		join(__dirname, "../../../../apps/web/.velite/docs.json"),
-	];
-
-	for (const path of possiblePaths) {
-		if (existsSync(path)) {
-			return path;
-		}
-	}
-
+function readVeliteContent(): string {
+	// Keep filesystem reads literal so deployment tracing includes only content.
+	const rootPath = join(process.cwd(), "apps/web/.velite/docs.json");
+	if (existsSync(rootPath)) return readFileSync(rootPath, "utf-8");
+	const appPath = join(process.cwd(), ".velite/docs.json");
+	if (existsSync(appPath)) return readFileSync(appPath, "utf-8");
+	const sourcePath = join(__dirname, "../../../../apps/web/.velite/docs.json");
+	if (existsSync(sourcePath)) return readFileSync(sourcePath, "utf-8");
+	const distPath = join(__dirname, "../../../apps/web/.velite/docs.json");
+	if (existsSync(distPath)) return readFileSync(distPath, "utf-8");
 	throw new Error(
-		`Velite output not found. Tried: ${possiblePaths.join(", ")}`,
+		"Velite output not found. Build the web content before starting MCP.",
 	);
 }
 
@@ -48,14 +44,13 @@ function loadDocs(): VeliteDoc[] {
 		return cachedDocs;
 	}
 
-	const path = getVelitePath();
 	try {
-		const content = readFileSync(path, "utf-8");
+		const content = readVeliteContent();
 		cachedDocs = JSON.parse(content) as VeliteDoc[];
 		lastLoadTime = now;
 	} catch (error) {
 		throw new Error(
-			`Failed to load Velite docs from ${path}: ${error instanceof Error ? error.message : String(error)}`,
+			`Failed to load Velite docs: ${error instanceof Error ? error.message : String(error)}`,
 		);
 	}
 

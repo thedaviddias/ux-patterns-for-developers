@@ -13,12 +13,22 @@
 
 Comprehensive documentation for UX patterns with best practices, accessibility guidelines, and implementation details.
 
+## Connect your AI assistant
+
+Use **https://mcp.uxpatterns.dev** as the public MCP server URL in ChatGPT,
+Claude, Codex, Cursor, and other MCP-compatible clients. The connector uses
+Streamable HTTP and requires no account or API key.
+
+See [client setup instructions](https://uxpatterns.dev/mcp) for configuration
+examples. Use the subdomain root exactly as shown; `/api/mcp` is an internal
+implementation path and should not be used in shared connector configurations.
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+
-- pnpm 8+
+- Node.js 24 LTS (see `.nvmrc`)
+- pnpm 10.34.6 (see `package.json`)
 
 ### Installation
 

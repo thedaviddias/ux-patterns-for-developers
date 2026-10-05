@@ -1,6 +1,21 @@
 "use client";
 
-import { Linkedin, Twitter } from "lucide-react";
+import { SiX as Twitter } from "@icons-pack/react-simple-icons";
+import { createLucideIcon } from "lucide-react";
+
+// Preserve the existing LinkedIn mark after Lucide removed brand exports.
+const Linkedin = createLucideIcon("Linkedin", [
+	[
+		"path",
+		{
+			d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z",
+			key: "profile",
+		},
+	],
+	["rect", { width: "4", height: "12", x: "2", y: "9", key: "stem" }],
+	["circle", { cx: "4", cy: "4", r: "2", key: "dot" }],
+]);
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { trackTextToSocialEvent } from "@/lib/tracking";

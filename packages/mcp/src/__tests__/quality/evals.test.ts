@@ -31,11 +31,22 @@ describe("MCP quality evals", () => {
 			const server = createServer();
 			registerAllTools(server);
 
-			const response = await server.handleRequest({
-				jsonrpc: "2.0",
-				id: 1,
-				method: "tools/list",
-			});
+			const httpResponse = await server.handleHttpRequest(
+				new Request("https://mcp.uxpatterns.dev", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json, text/event-stream",
+					},
+					body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/list" }),
+				}),
+			);
+			const text = await httpResponse.text();
+			const response = httpResponse.headers
+				.get("content-type")
+				?.includes("text/event-stream")
+				? JSON.parse(text.split("data: ")[1].split("\n")[0])
+				: JSON.parse(text);
 
 			expect(response.error).toBeUndefined();
 			const result = response.result as {
@@ -101,20 +112,19 @@ describe("MCP quality evals", () => {
 			},
 		];
 
-		it.each(evalCases)('returns relevant top results for "$query"', async ({
-			query,
-			topResultIn,
-			mustIncludeWithinTopFive = [],
-		}) => {
-			const result = await searchPatterns({ query, limit: 5 });
-			const slugs = result.results.map((pattern) => pattern.slug);
+		it.each(evalCases)(
+			'returns relevant top results for "$query"',
+			async ({ query, topResultIn, mustIncludeWithinTopFive = [] }) => {
+				const result = await searchPatterns({ query, limit: 5 });
+				const slugs = result.results.map((pattern) => pattern.slug);
 
-			expect(slugs.length).toBeGreaterThan(0);
-			expect(topResultIn).toContain(slugs[0]);
-			for (const expectedSlug of mustIncludeWithinTopFive) {
-				expect(slugs).toContain(expectedSlug);
-			}
-		});
+				expect(slugs.length).toBeGreaterThan(0);
+				expect(topResultIn).toContain(slugs[0]);
+				for (const expectedSlug of mustIncludeWithinTopFive) {
+					expect(slugs).toContain(expectedSlug);
+				}
+			},
+		);
 	});
 
 	describe("answer usefulness", () => {

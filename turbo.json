@@ -11,6 +11,7 @@
 				".next/**",
 				"!.next/cache/**",
 				"out/**",
+				"dist/**",
 				"registry.json",
 				"public/r/**"
 			],

@@ -47,8 +47,7 @@ const description =
 const PAGE_PUBLISHED_DATE = "2025-01-15T00:00:00.000Z";
 
 // MCP Server URL (can be overridden via environment variable)
-const MCP_SERVER_URL =
-	process.env.NEXT_PUBLIC_MCP_SERVER_URL ?? "https://mcp.uxpatterns.dev";
+const MCP_SERVER_URL = "https://mcp.uxpatterns.dev";
 
 // Client configuration snippets
 const CLIENT_CONFIGS: ClientConfig[] = [
@@ -382,10 +381,16 @@ export default function MCPPage() {
 
 						{/* Server URL */}
 						<div className="p-4 rounded-lg bg-muted border border-border">
-							<p className="text-xs text-muted-foreground mb-2">Server URL</p>
+							<p className="text-xs text-muted-foreground mb-2">
+								Public server URL
+							</p>
 							<code className="text-sm font-mono text-foreground break-all">
 								{MCP_SERVER_URL}
 							</code>
+							<p className="text-sm text-muted-foreground mt-2">
+								Use this subdomain in every client, including ChatGPT and
+								Claude. No account or API key is required.
+							</p>
 						</div>
 
 						{/* Tabbed Setup Instructions */}

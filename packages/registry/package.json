@@ -18,37 +18,38 @@
 		"test:coverage": "vitest run --coverage"
 	},
 	"dependencies": {
-		"@radix-ui/react-slot": "^1.2.4",
+		"@icons-pack/react-simple-icons": "^13.15.1",
+		"@radix-ui/react-slot": "^1.3.3",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
-		"lucide-react": "^0.562.0",
-		"motion": "^12.25.0",
-		"react": "^19.2.3",
-		"react-dom": "^19.2.3",
-		"tailwind-merge": "^3.4.0"
+		"lucide-react": "^1.52.0",
+		"motion": "^14.0.0",
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0",
+		"tailwind-merge": "^3.7.0"
 	},
 	"devDependencies": {
-		"@testing-library/jest-dom": "^6.9.1",
-		"@testing-library/react": "^16.3.1",
-		"@testing-library/user-event": "^14.6.1",
+		"@testing-library/jest-dom": "^7.0.1",
+		"@testing-library/react": "^16.3.3",
+		"@testing-library/user-event": "^14.6.7",
 		"@thedaviddias/config-typescript": "workspace:*",
-		"@types/node": "25.0.5",
-		"@types/react": "^19.2.7",
-		"@types/react-dom": "^19.2.3",
-		"@vitest/coverage-v8": "^4.0.16",
-		"@vitest/ui": "^4.0.16",
+		"@types/node": "24.19.1",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
+		"@vitest/coverage-v8": "^4.1.11",
+		"@vitest/ui": "^4.1.11",
 		"chokidar": "^5.0.0",
-		"jsdom": "^27.4.0",
-		"nodemon": "^3.1.11",
-		"rimraf": "^6.1.2",
-		"shadcn": "^3.6.3",
-		"tsx": "^4.21.0",
+		"jsdom": "^30.1.2",
+		"nodemon": "^3.1.14",
+		"rimraf": "^6.1.3",
+		"shadcn": "^4.21.1",
+		"tsx": "^4.23.15",
 		"typescript": "^5.9.3",
-		"vitest": "^4.0.16",
+		"vitest": "^4.1.11",
 		"vitest-axe": "1.0.0-pre.5",
-		"zod": "^4.3.5"
+		"zod": "^4.6.5"
 	},
 	"engines": {
-		"node": ">=20.0.0"
+		"node": ">=24.0.0"
 	}
 }

@@ -6,10 +6,19 @@
  * @description Social media buttons with brand colors and icons
  * @categories ["buttons", "social", "authentication"]
  * @tags ["social", "brand", "authentication", "external", "icons"]
- * @dependencies ["lucide-react"]
+ * @dependencies ["lucide-react", "@icons-pack/react-simple-icons"]
  * @registryDependencies ["button"]
  */
-import { Facebook, Github, Linkedin, Youtube } from "lucide-react";
+import { SiFacebook as Facebook, SiGithub as Github, SiYoutube as Youtube } from "@icons-pack/react-simple-icons";
+import { createLucideIcon } from "lucide-react";
+
+// Preserve the existing LinkedIn mark after Lucide removed brand exports.
+const Linkedin = createLucideIcon("Linkedin", [
+ ["path", {d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z", key: "profile"}],
+ ["rect", {width: "4", height: "12", x: "2", y: "9", key: "stem"}],
+ ["circle", {cx: "4", cy: "4", r: "2", key: "dot"}],
+]);
+
 import { Button } from "@/ui/button";
 
 export default function ButtonSocial() {

@@ -26,20 +26,20 @@
 		"skills:generate": "pnpm --filter web skills:generate"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.3.11",
-		"@google/genai": "^1.45.0",
+		"@biomejs/biome": "^2.5.15",
+		"@google/genai": "^2.27.0",
 		"@manypkg/cli": "^0.25.1",
-		"@types/node": "25.0.5",
-		"dotenv": "^17.3.1",
+		"@types/node": "24.19.1",
+		"dotenv": "^18.0.5",
 		"glob": "^13.0.6",
 		"mime": "^4.1.0",
-		"nodemon": "^3.1.11",
-		"sharp": "^0.34.5",
-		"tsx": "^4.21.0",
-		"turbo": "^2.7.3"
+		"nodemon": "^3.1.14",
+		"sharp": "^0.35.5",
+		"tsx": "^4.23.15",
+		"turbo": "^2.11.7"
 	},
-	"packageManager": "pnpm@10.28.0",
+	"packageManager": "pnpm@10.34.6",
 	"engines": {
-		"node": ">=20.0.0"
+		"node": ">=24.0.0"
 	}
 }

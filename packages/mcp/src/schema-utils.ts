@@ -3,70 +3,67 @@ import * as z from "zod";
 interface JsonLikeSchema {
 	type?: string | string[];
 	enum?: readonly string[];
+	description?: string;
+	default?: unknown;
 	properties?: Record<string, JsonLikeSchema>;
 	items?: JsonLikeSchema;
 	required?: string[];
+	minimum?: number;
+	maximum?: number;
+	minLength?: number;
+	maxLength?: number;
 	[key: string]: unknown;
-}
-
-function applyNullable(
-	schema: z.ZodTypeAny,
-	type: JsonLikeSchema["type"],
-): z.ZodTypeAny {
-	if (!Array.isArray(type) || !type.includes("null")) {
-		return schema;
-	}
-
-	return schema.nullable();
-}
-
-function buildObjectSchema(schema: JsonLikeSchema): z.ZodTypeAny {
-	const required = new Set(schema.required || []);
-	const shape = Object.fromEntries(
-		Object.entries(schema.properties || {}).map(([key, value]) => {
-			const propertySchema = required.has(key)
-				? jsonSchemaToZod(value)
-				: jsonSchemaToZod(value).optional();
-
-			return [key, propertySchema];
-		}),
-	);
-
-	return z.object(shape).catchall(z.any());
 }
 
 export function jsonSchemaToZod(
 	schema: JsonLikeSchema | undefined,
 ): z.ZodTypeAny {
-	if (!schema) {
-		return z.any();
-	}
-
-	if (schema.enum && schema.enum.length > 0) {
-		const values = [...schema.enum];
-		const enumSchema =
-			values.length === 1
-				? z.literal(values[0])
-				: z.enum([values[0], ...values.slice(1)] as [string, ...string[]]);
-
-		return applyNullable(enumSchema, schema.type);
-	}
-
+	if (!schema) return z.any();
 	const type = Array.isArray(schema.type)
-		? schema.type.filter((value) => value !== "null")[0]
+		? schema.type.find((value) => value !== "null")
 		: schema.type;
-
-	switch (type) {
-		case "string":
-			return applyNullable(z.string(), schema.type);
-		case "number":
-		case "integer":
-			return applyNullable(z.number(), schema.type);
-		case "boolean":
-			return applyNullable(z.boolean(), schema.type);
-		case "array":
-			return applyNullable(z.array(jsonSchemaToZod(schema.items)), schema.type);
-		default:
-			return applyNullable(buildObjectSchema(schema), schema.type);
+	let result: z.ZodTypeAny;
+	if (schema.enum?.length) {
+		const values = [...schema.enum] as [string, ...string[]];
+		result = z.enum(values);
+	} else {
+		switch (type) {
+			case "string": {
+				let text = z.string();
+				if (schema.minLength !== undefined) text = text.min(schema.minLength);
+				if (schema.maxLength !== undefined) text = text.max(schema.maxLength);
+				result = text;
+				break;
+			}
+			case "integer":
+			case "number": {
+				let number = type === "integer" ? z.number().int() : z.number();
+				if (schema.minimum !== undefined) number = number.min(schema.minimum);
+				if (schema.maximum !== undefined) number = number.max(schema.maximum);
+				result = number;
+				break;
+			}
+			case "boolean":
+				result = z.boolean();
+				break;
+			case "array":
+				result = z.array(jsonSchemaToZod(schema.items));
+				break;
+			default: {
+				const required = new Set(schema.required ?? []);
+				const shape = Object.fromEntries(
+					Object.entries(schema.properties ?? {}).map(([key, value]) => {
+						const property = jsonSchemaToZod(value);
+						return [key, required.has(key) ? property : property.optional()];
+					}),
+				);
+				result = z.object(shape).catchall(z.unknown());
+			}
+		}
 	}
+	if (Array.isArray(schema.type) && schema.type.includes("null"))
+		result = result.nullable();
+	if (schema.default !== undefined) result = result.default(schema.default);
+	if (schema.description) result = result.describe(schema.description);
+	return result;
 }
