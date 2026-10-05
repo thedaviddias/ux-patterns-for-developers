@@ -45,6 +45,7 @@ describe("public tools against built content", () => {
 				const list = await client.listTools();
 				for (const tool of list.tools) {
 					expect(tool.title).toMatch(/^[A-Z]/);
+					expect(tool.annotations?.title).toBe(tool.title);
 					expect(tool.annotations?.readOnlyHint).toBe(true);
 					expect(tool.annotations?.destructiveHint).toBe(false);
 				}

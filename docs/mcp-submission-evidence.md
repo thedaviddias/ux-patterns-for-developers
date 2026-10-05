@@ -73,3 +73,9 @@ accurate privacy disclosures. The terms and privacy documents remain labeled
 drafts; no invented legal contact or effective date is published. Final platform
 policy agreements require confirmation at the actual acceptance step. Directory
 acceptance and approval cannot be inferred from a healthy endpoint or test run.
+
+The next runtime patch, 2.0.3, adds `annotations.title` alongside the existing
+top-level title because Anthropic’s live wizard requires the annotation field.
+Both native protocol clients check the equality of these titles. Re-discover
+tools in the portal after deployment; Claude’s Refresh tools list plus a reload
+of the saved submission draft avoids retaining the older tool metadata.

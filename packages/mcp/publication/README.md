@@ -7,8 +7,8 @@ Digital. The package was accepted as an unpublished OpenAI draft. It is not subm
 add an approved public terms URL, verify privacy disclosures, and complete
 directory review. The metadata includes the captioned reviewer video at
 `https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4`; verify public
-playback before uploading the ZIP. Runtime version 2.0.2 is
-deployed and tested at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
+playback before uploading the ZIP. Runtime version 2.0.3 adds compatibility annotation titles; production verification
+prior to this package confirmed version 2.0.2 at `https://mcp.uxpatterns.dev`. OpenAI verified the domain
 and discovered all eleven tools with no MCP scan issues; the plugin remains
 unpublished.
 Fresh Claude retrieval and accessibility calls verified readable examples and
@@ -36,4 +36,4 @@ Complete portal policy acknowledgments using verified facts, not assumptions.
 The walkthrough transcript is at `https://uxpatterns.dev/mcp/demo`. Actual
 ChatGPT review evidence and remaining owner decisions are documented in
 `docs/mcp-submission-evidence.md`. Plugin package version 2.0.1 and MCP runtime
-version 2.0.2 are independent. No public-directory approval is claimed.
+version 2.0.3 are independent. No public-directory approval is claimed.

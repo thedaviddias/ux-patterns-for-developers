@@ -4,162 +4,162 @@
 	"flows": [
 		{
 			"name": "categories",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 565,
 			"requestTokens": 10,
-			"totalTokens": 2397,
+			"totalTokens": 2456,
 			"textTokens": 375
 		},
 		{
 			"name": "list",
-			"discoveryTokens": 1822,
-			"responseTokens": 570,
+			"discoveryTokens": 1881,
+			"responseTokens": 544,
 			"requestTokens": 12,
-			"totalTokens": 2404,
-			"textTokens": 351
+			"totalTokens": 2437,
+			"textTokens": 338
 		},
 		{
 			"name": "listMax",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 8119,
 			"requestTokens": 12,
-			"totalTokens": 9953,
+			"totalTokens": 10012,
 			"textTokens": 5299
 		},
 		{
 			"name": "searchMax",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 8947,
 			"requestTokens": 16,
-			"totalTokens": 10785,
+			"totalTokens": 10844,
 			"textTokens": 5851
 		},
 		{
 			"name": "referenceMax",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 8603,
 			"requestTokens": 19,
-			"totalTokens": 10444,
+			"totalTokens": 10503,
 			"textTokens": 8574
 		},
 		{
 			"name": "search",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 633,
 			"requestTokens": 18,
-			"totalTokens": 2473,
+			"totalTokens": 2532,
 			"textTokens": 390
 		},
 		{
 			"name": "retrieve",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 7578,
 			"requestTokens": 19,
-			"totalTokens": 9419,
+			"totalTokens": 9478,
 			"textTokens": 4089
 		},
 		{
 			"name": "targeted",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 1696,
 			"requestTokens": 20,
-			"totalTokens": 3538,
+			"totalTokens": 3597,
 			"textTokens": 946
 		},
 		{
 			"name": "glossary",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 130,
 			"requestTokens": 17,
-			"totalTokens": 1969,
+			"totalTokens": 2028,
 			"textTokens": 65
 		},
 		{
 			"name": "reference",
-			"discoveryTokens": 1822,
-			"responseTokens": 4416,
+			"discoveryTokens": 1881,
+			"responseTokens": 4462,
 			"requestTokens": 12,
-			"totalTokens": 6250,
-			"textTokens": 2878
+			"totalTokens": 6355,
+			"textTokens": 2902
 		},
 		{
 			"name": "compare",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 629,
 			"requestTokens": 17,
-			"totalTokens": 2468,
+			"totalTokens": 2527,
 			"textTokens": 386
 		},
 		{
 			"name": "review",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 280,
 			"requestTokens": 22,
-			"totalTokens": 2124,
+			"totalTokens": 2183,
 			"textTokens": 164
 		},
 		{
 			"name": "accessibility",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 542,
 			"requestTokens": 23,
-			"totalTokens": 2387,
+			"totalTokens": 2446,
 			"textTokens": 311
 		},
 		{
 			"name": "advisor",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 147,
 			"requestTokens": 22,
-			"totalTokens": 1991,
+			"totalTokens": 2050,
 			"textTokens": 80
 		},
 		{
 			"name": "checklist",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 978,
 			"requestTokens": 15,
-			"totalTokens": 2815,
+			"totalTokens": 2874,
 			"textTokens": 619
 		},
 		{
 			"name": "missing",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 156,
 			"requestTokens": 17,
-			"totalTokens": 1995,
+			"totalTokens": 2054,
 			"textTokens": 78
 		},
 		{
 			"name": "searchRetrieve",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 8003,
 			"requestTokens": 37,
-			"totalTokens": 9862,
+			"totalTokens": 9921,
 			"textTokens": 4345
 		},
 		{
 			"name": "searchTargeted",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 2121,
 			"requestTokens": 38,
-			"totalTokens": 3981,
+			"totalTokens": 4040,
 			"textTokens": 1202
 		},
 		{
 			"name": "snippetReview",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 822,
 			"requestTokens": 45,
-			"totalTokens": 2689,
+			"totalTokens": 2748,
 			"textTokens": 475
 		},
 		{
 			"name": "advisorRetry",
-			"discoveryTokens": 1822,
+			"discoveryTokens": 1881,
 			"responseTokens": 896,
 			"requestTokens": 123,
-			"totalTokens": 2841,
+			"totalTokens": 2900,
 			"textTokens": 502
 		}
 	],
@@ -252,8 +252,8 @@
 			},
 			{
 				"slug": "patterns/forms/checkbox",
-				"responseTokens": 8399,
-				"textTokens": 8370,
+				"responseTokens": 8390,
+				"textTokens": 8361,
 				"truncated": true
 			},
 			{
@@ -739,5 +739,5 @@
 		]
 	},
 	"measuredAt": "2026-10-05",
-	"serverVersion": "2.0.2"
+	"serverVersion": "2.0.3"
 }

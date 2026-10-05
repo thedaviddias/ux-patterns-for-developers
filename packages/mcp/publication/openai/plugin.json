@@ -78,7 +78,7 @@
 				"demo_recording_url": "https://uxpatterns.dev/videos/ux-patterns-connector-demo.mp4"
 			},
 			"publication": {
-				"release_notes": "Plugin package 2.0.1 adds the captioned ChatGPT review walkthrough and five positive/three negative review cases. The public MCP endpoint now runs 2.0.2 with stateless modern/legacy transport, readable pattern Markdown, focused section retrieval with source links, deterministic code/accessibility checks with explicit limitations, and offline token-budget regression gates."
+				"release_notes": "Plugin package 2.0.1 adds the captioned ChatGPT review walkthrough and five positive/three negative review cases. The public MCP endpoint now runs 2.0.3 with compatibility tool titles in both metadata locations, stateless modern/legacy transport, readable pattern Markdown, focused section retrieval with source links, deterministic code/accessibility checks with explicit limitations, and offline token-budget regression gates."
 			}
 		}
 	}

@@ -37,10 +37,10 @@ October 5 baseline:
 
 | Flow | Complete payload tokens |
 | --- | ---: |
-| Full search-field retrieval without TOC | 9,419 |
-| Accessibility and Examples retrieval | 3,538 |
-| Search then full retrieval | 9,862 |
-| Search then targeted retrieval | 3,981 |
+| Full search-field retrieval without TOC | 9,478 |
+| Accessibility and Examples retrieval | 3,597 |
+| Search then full retrieval | 9,921 |
+| Search then targeted retrieval | 4,040 |
 
 Targeted search/retrieval saves about 60% in this fixture. This is a controlled
 comparison of the same pattern, not a claim that every conversation saves 60%.
